@@ -435,6 +435,11 @@ export interface LessonPackage {
   base?: string;
   /** Where the shared library lives, ending in "/": "@lib/..." paths resolve against it (default: Lesson Studio's Hosting). */
   library?: string;
+  /**
+   * The address of each package file ("audio/en.opus" → its URL), for hosts where the files don't share a base, such
+   * as Firebase Storage download links. Without it, paths resolve against `base`.
+   */
+  resolve?: (path: string) => string;
   manifest: Manifest;
   scenes: ScenesFile;
   /** Loaded timing files, by language. */

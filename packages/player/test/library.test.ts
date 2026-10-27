@@ -45,3 +45,14 @@ describe("the shared library", () => {
     p.destroy();
   });
 });
+
+describe("package files with their own addresses", () => {
+  it("asks resolve() for every package path, and still serves @lib from the library", async () => {
+    const { resolvePath } = await import("../src/load.ts");
+    const files: Record<string, string> = { "audio/en.opus": "https://storage.example/o/lessons%2Fa%2Faudio%2Fen.opus?alt=media" };
+    const pkg = { manifest: {}, scenes: { scenes: [] }, timing: {}, library: "https://lib.example/lib/", resolve: (p: string) => files[p] ?? `missing:${p}` } as never;
+    expect(resolvePath(pkg, "audio/en.opus")).toBe(files["audio/en.opus"]);
+    expect(resolvePath(pkg, "@lib/v1/icons.json")).toBe("https://lib.example/lib/v1/icons.json");
+    expect(() => resolvePath(pkg, "https://evil.example/x")).toThrow(/Bad package path/);
+  });
+});

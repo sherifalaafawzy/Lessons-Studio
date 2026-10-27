@@ -12,6 +12,7 @@ export function resolvePath(pkg: LessonPackage, path: string): string {
   if (!relPathOk(path)) throw new Error(`Bad package path: ${path}`);
   // The shared library (cast, extended icons) lives in one place for every lesson.
   if (path.startsWith("@lib/")) return new URL(path.slice(5), pkg.library ?? DEFAULT_LIBRARY).href;
+  if (pkg.resolve) return pkg.resolve(path);
   return new URL(path, pkg.base ?? (typeof location !== "undefined" ? location.href : "http://localhost/")).href;
 }
 
