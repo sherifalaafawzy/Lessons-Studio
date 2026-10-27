@@ -74,7 +74,7 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
 ## Conventions
 - Use npm 11: `npx -y npm@11.13.0 install`.
 - Pin dependency versions, and only versions at least two weeks old.
-- Commit only when the user asks. This repo has a repo-local git identity, Sherif Alaa Fawzy <sherifalaafawzy@gmail.com>; never use the global work identity. There is no remote yet.
+- Commit only when the user asks. This repo has a repo-local git identity, Sherif Alaa Fawzy <sherifalaafawzy@gmail.com>; never use the global work identity. The remote is `origin`, https://github.com/sherifalaafawzy/Lessons-Studio (branch `main`); push only when the user asks.
 - Playwright 1.64 wants its own Chromium build. Set `CHROMIUM_PATH` to an installed one, e.g. `C:/Users/Sherif Alaa Fawzy/AppData/Local/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-win64/chrome-headless-shell.exe`.
 
 ## Status (27 Oct 2026; narration, then the studio's Phase 1 foundation, added the same day)
@@ -117,7 +117,7 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
   - Gemini narration of the examples (waiting on the API key; `.env.local` holds an empty `GEMINI_API_KEY=` line).
   - The user's setup:
     - Firebase project `lessons-studio-6b509` exists, and its web config is in `.env.local`. Still to do there: Google sign-in, Firestore, Storage, Hosting, and a service-account key in `.secrets/`.
-    - GitHub repo: `origin` is https://github.com/sherifalaafawzy/Lessons-Studio (empty; nothing committed or pushed; the local branch is `master`).
+    - GitHub repo: done. `main` was first pushed to https://github.com/sherifalaafawzy/Lessons-Studio on 27 Oct 2026 (commit e0a8836).
     - ngrok domain: still needed.
   - Studio phases 2–5: the studio app, the timeline, generation jobs (narration, images, AI drafting), MP4 export and publishing.
   - Tests on a real low-end phone.
