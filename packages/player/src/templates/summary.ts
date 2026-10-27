@@ -1,15 +1,15 @@
 import { h } from "../dom.ts";
 import { icon } from "../icons.ts";
 import { schedule } from "../motion.ts";
-import { emphasis, show, txt } from "./common.ts";
+import { emphasis, part, show, txt } from "./common.ts";
 import type { SceneOf, Template } from "./types.ts";
 
 /** Key points with ticks, then the one-line takeaway. */
 export const summary: Template<SceneOf<"summary">> = (scene, ctx) => {
   const c = scene.content;
-  const title = c.title ? txt(ctx, "h2", "ls-title", c.title) : null;
-  const points = c.points.map((p) => h("li", { className: "ls-point" }, icon("check", 34), txt(ctx, "span", "", p)));
-  const takeaway = c.takeaway ? txt(ctx, "p", "ls-takeaway", c.takeaway) : null;
+  const title = c.title ? part(txt(ctx, "h2", "ls-title", c.title), "title") : null;
+  const points = c.points.map((p, i) => h("li", { className: "ls-point" }, icon("check", 34), part(txt(ctx, "span", "", p), `point:${i}`)));
+  const takeaway = c.takeaway ? part(txt(ctx, "p", "ls-takeaway", c.takeaway), "takeaway") : null;
   const root = h("div", { className: "ls-scene ls-t-summary" }, title, h("ul", { className: "ls-points" }, ...points), takeaway);
   const targets = c.points.map((_, i) => String(i + 1));
 

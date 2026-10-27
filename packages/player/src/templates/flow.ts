@@ -2,13 +2,13 @@ import { h, svg } from "../dom.ts";
 import { icon } from "../icons.ts";
 import { layoutFlow } from "../layout.ts";
 import { enter, fix } from "../motion.ts";
-import { emphasis, show, txt } from "./common.ts";
+import { emphasis, part, show, txt } from "./common.ts";
 import type { SceneOf, Template } from "./types.ts";
 
 /** Nodes and arrows (pipelines, attack chains). `move` cues send a packet along an arrow. */
 export const flow: Template<SceneOf<"flow">> = (scene, ctx) => {
   const c = scene.content;
-  const title = c.title ? txt(ctx, "h2", "ls-title", c.title) : null;
+  const title = c.title ? part(txt(ctx, "h2", "ls-title", c.title), "title") : null;
   const top = ctx.orient === "portrait" ? 210 : 150;
   const bottom = ctx.orient === "portrait" ? 230 : 130;
   const geo = layoutFlow(c.nodes, c.edges, { orient: ctx.orient, dir: ctx.dir, top, bottom });
@@ -24,7 +24,7 @@ export const flow: Template<SceneOf<"flow">> = (scene, ctx) => {
       "div",
       { className: `ls-node ls-tone-${n.tone ?? "neutral"}`, style: `left:${b.x}px;top:${b.y}px;width:${b.w}px;height:${b.h}px` },
       n.icon ? icon(n.icon, 40) : null,
-      txt(ctx, "span", "ls-node-label", n.label),
+      part(txt(ctx, "span", "ls-node-label", n.label), `node:${n.id}`),
     );
     area.append(el);
     return { id: n.id, el };
@@ -42,7 +42,7 @@ export const flow: Template<SceneOf<"flow">> = (scene, ctx) => {
     const e = c.edges[i]!;
     let label: HTMLElement | null = null;
     if (e.label) {
-      label = txt(ctx, "span", "ls-edge-label", e.label);
+      label = part(txt(ctx, "span", "ls-edge-label", e.label), `edge:${i}`);
       // Beside the arrow, not on it, so the arrow stays visible: above a mostly level arrow, beside an upright one.
       const len = g.len || 1;
       let nx = (g.y1 - g.y2) / len;

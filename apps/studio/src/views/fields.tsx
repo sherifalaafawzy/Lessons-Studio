@@ -13,7 +13,7 @@ let uid = 0;
 const nextId = () => `f${++uid}`;
 
 /** A text in every language of the lesson. Commits when the field loses focus (or on Enter, single line). */
-export function TextField(p: { label: string; value: Text | undefined; onCommit: (v: Text | undefined) => void; multiline?: boolean; optional?: boolean; hint?: string }) {
+export function TextField(p: { label: string; value: Text | undefined; onCommit: (v: Text | undefined) => void; multiline?: boolean; optional?: boolean; hint?: string; path?: string }) {
   const langs = useLangs();
   const asObj = (v: Text | undefined): Record<string, string> =>
     v === undefined ? {} : typeof v === "string" ? Object.fromEntries(langs.map((l) => [l.code, v])) : { ...v };
@@ -27,7 +27,7 @@ export function TextField(p: { label: string; value: Text | undefined; onCommit:
     if (JSON.stringify(next) !== JSON.stringify(p.value === undefined ? undefined : asObj(p.value))) p.onCommit(next);
   };
   return (
-    <fieldset class="f-text">
+    <fieldset class="f-text" data-path={p.path}>
       <legend>{p.label}{p.optional ? <span class="f-opt"> {t("optional")}</span> : null}</legend>
       {langs.map((l) => {
         const id = `${p.label}-${l.code}`;

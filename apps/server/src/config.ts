@@ -2,7 +2,8 @@ import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-export const ROOT = fileURLToPath(new URL("../../../", import.meta.url));
+// The repository; in the Cloud Functions bundle (functions/build.mjs defines LS_BUNDLED), the folder beside the bundle.
+export const ROOT = fileURLToPath(new URL(process.env.LS_BUNDLED ? "./" : "../../../", import.meta.url));
 
 export interface Config {
   port: number;
@@ -30,6 +31,8 @@ export interface Config {
   /** The Firebase web config the sign-in page needs (apiKey and authDomain). */
   firebaseWeb?: { apiKey: string; authDomain: string; projectId: string };
   chromiumPath?: string;
+  /** Express "trust proxy": "loopback" behind ngrok on this PC; true in Cloud Functions, behind Google's front end. */
+  trustProxy: boolean | string;
 }
 
 /** The newest Playwright Chromium on this machine, when CHROMIUM_PATH isn't set. */
@@ -59,6 +62,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     dataDir: env.LS_DATA_DIR ?? join(ROOT, ".data"),
     localUid: env.LS_LOCAL_UID ?? "local",
     allowedEmails: (env.LS_ALLOWED_EMAILS ?? "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean),
+    trustProxy: env.LS_TRUST_PROXY === "1" ? true : "loopback",
   };
   if (publicUrl) c.publicUrl = publicUrl;
   if (env.LS_STUDIO_URL) c.studioUrl = env.LS_STUDIO_URL.replace(/\/+$/, "");

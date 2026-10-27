@@ -1,15 +1,16 @@
 import { h } from "../dom.ts";
 import { icon } from "../icons.ts";
-import { emphasis, kinetic, show, txt } from "./common.ts";
+import { emphasis, kinetic, part, show, txt } from "./common.ts";
 import type { SceneOf, Template } from "./types.ts";
 
 /** Title and hook card, with the title arriving word by word. */
 export const titleHook: Template<SceneOf<"title-hook">> = (scene, ctx) => {
   const c = scene.content;
   const badge = c.icon ? h("div", { className: "ls-th-icon" }, icon(c.icon, 88)) : null;
-  const kicker = c.kicker ? txt(ctx, "p", "ls-kicker", c.kicker) : null;
+  const kicker = c.kicker ? part(txt(ctx, "p", "ls-kicker", c.kicker), "kicker") : null;
   const title = kinetic(ctx, "h1", "ls-th-title", c.title);
-  const hook = c.hook ? txt(ctx, "p", "ls-th-hook", c.hook) : null;
+  part(title.el, "title");
+  const hook = c.hook ? part(txt(ctx, "p", "ls-th-hook", c.hook), "hook") : null;
   const root = h("div", { className: "ls-scene ls-t-title-hook" }, badge, kicker, title.el, hook);
   const step = 0.09;
   const hookAt = 0.35 + title.words.length * step + 0.25;

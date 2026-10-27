@@ -71,6 +71,10 @@ export interface Player {
   boxes(): ElementBox[];
   /** The id of the free element under a point (client coordinates), or null. */
   elementAt(x: number, y: number): string | null;
+  /** Boxes of the template's editable text parts on screen (see `part` in templates/common.ts), like boxes(). */
+  parts(): ElementBox[];
+  /** The editable part under a point (client coordinates), or null. */
+  partAt(x: number, y: number): string | null;
   destroy(): void;
 }
 
@@ -621,6 +625,20 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       for (const el of root.elementsFromPoint?.(x, y) ?? []) {
         const hit = (el as HTMLElement).closest?.("[data-el]") as HTMLElement | null;
         if (hit && stage.contains(hit)) return hit.dataset.el ?? null;
+      }
+      return null;
+    },
+    parts() {
+      const v = viewport.getBoundingClientRect();
+      return [...stage.querySelectorAll<HTMLElement>("[data-part]")].map((el) => {
+        const r = el.getBoundingClientRect();
+        return { id: el.dataset.part!, x: r.left - v.left, y: r.top - v.top, w: r.width, h: r.height };
+      });
+    },
+    partAt(x: number, y: number) {
+      for (const el of root.elementsFromPoint?.(x, y) ?? []) {
+        const hit = (el as HTMLElement).closest?.("[data-part]") as HTMLElement | null;
+        if (hit && stage.contains(hit)) return hit.dataset.part ?? null;
       }
       return null;
     },

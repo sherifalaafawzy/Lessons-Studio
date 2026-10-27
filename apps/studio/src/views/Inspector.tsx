@@ -1,6 +1,9 @@
+import { useState } from "preact/hooks";
 import type { Scene, Tone } from "@lessonstudio/spec";
 import { TONES, splitWords } from "@lessonstudio/spec";
 import { currentElement, currentScene, edit, elementId, lesson, sceneTiming } from "../editor.ts";
+import { say } from "../state.ts";
+import { convertToCanvas } from "../convert.ts";
 import { t, type Key } from "../i18n.ts";
 import { ElementAnimations, SceneCues } from "./Animations.tsx";
 import { ElementForm, QuizForm, TEMPLATE_NAMES, TemplateForm } from "./content.tsx";
@@ -47,6 +50,32 @@ function SceneLook({ scene }: { scene: Scene }) {
   );
 }
 
+/** Turns a template scene into free elements, after saying what that means. */
+function ToCanvas({ scene }: { scene: Scene }) {
+  const [asking, setAsking] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const go = async () => {
+    const l = lesson.value;
+    if (!l) return;
+    setBusy(true);
+    try {
+      edit([{ op: "replaceScene", scene: scene.id, value: await convertToCanvas(l, scene) }]);
+    } catch (e) {
+      say((e as Error).message, true);
+    }
+    setBusy(false);
+    setAsking(false);
+  };
+  if (!asking) return <button type="button" class="btn small" onClick={() => setAsking(true)}>{t("toCanvas")}</button>;
+  return (
+    <div class="confirm-box" role="alert">
+      <p>{t("toCanvasAbout")}</p>
+      <button type="button" class="btn primary small" disabled={busy} onClick={() => void go()}>{busy ? t("working") : t("toCanvas")}</button>
+      <button type="button" class="link" onClick={() => setAsking(false)}>{t("cancel")}</button>
+    </div>
+  );
+}
+
 /** Everything about what's selected: the scene, or the element inside it. */
 export function Inspector() {
   const scene = currentScene.value;
@@ -67,6 +96,7 @@ export function Inspector() {
       ) : (
         <>
           <div class="insp-head"><h2>{t("scene")} <small dir="ltr">{scene.id}</small> <span class="badge">{t(TEMPLATE_NAMES[scene.template])}</span></h2></div>
+          {scene.template !== "canvas" ? <ToCanvas scene={scene} /> : null}
           <Section title={t("narration")}><Narration scene={scene} /></Section>
           {scene.template !== "canvas" ? <Section title={t("content")}><TemplateForm scene={scene} /></Section> : null}
           <Section title={t("cues")} open={!!scene.cues?.length}><SceneCues scene={scene} /></Section>

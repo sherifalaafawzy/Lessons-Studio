@@ -58,7 +58,7 @@ function TextList(p: { scene: Scene; label: string; path: string; items: Text[];
       </div>
       {p.items.map((it, i) => (
         <div class="f-item" key={i}>
-          <TextField label={`${i + 1}`} value={it} onCommit={(v) => v && save(p.items.map((x, j) => (j === i ? v : x)))} />
+          <TextField label={`${i + 1}`} value={it} path={`${p.path}/${i}`} onCommit={(v) => v && save(p.items.map((x, j) => (j === i ? v : x)))} />
           <ItemTools
             onUp={i > 0 ? () => save(swap(p.items, i, i - 1)) : undefined}
             onDown={i < p.items.length - 1 ? () => save(swap(p.items, i, i + 1)) : undefined}
@@ -74,7 +74,7 @@ const iconOptions = (): [IconName, string][] => ICONS.map((i) => [i, i]);
 export function TemplateForm({ scene }: { scene: Scene }) {
   const c = scene.content as unknown as Record<string, unknown>;
   const text = (key: string, label: Key, optional = true, multiline = false) => (
-    <TextField label={t(label)} value={c[key] as Text | undefined} optional={optional} multiline={multiline} onCommit={(v) => setPath(scene, `/content/${key}`, v)} />
+    <TextField label={t(label)} value={c[key] as Text | undefined} optional={optional} multiline={multiline} path={`/content/${key}`} onCommit={(v) => setPath(scene, `/content/${key}`, v)} />
   );
   switch (scene.template) {
     case "title-hook":
@@ -118,7 +118,7 @@ function FlowForm({ scene }: { scene: Extract<Scene, { template: "flow" }> }) {
         {nodes.map((n, i) => (
           <div class="f-item" key={n.id}>
             <div class="f-grid">
-              <TextField label={n.id} value={n.label} onCommit={(v) => v && saveNodes(nodes.map((x, j) => (j === i ? { ...x, label: v } : x)))} />
+              <TextField label={n.id} value={n.label} path={`/content/nodes/${i}/label`} onCommit={(v) => v && saveNodes(nodes.map((x, j) => (j === i ? { ...x, label: v } : x)))} />
               <Select label={t("fIcon")} value={n.icon} options={iconOptions()} empty={t("none")} onChange={(v) => saveNodes(nodes.map((x, j) => (j === i ? { ...x, icon: v } : x)))} />
               <Select label={t("fTone")} value={n.tone ?? "neutral"} options={[["neutral", t("neutral")], ["trusted", t("trusted")], ["system", t("system")], ["danger", t("danger")]]}
                 onChange={(v) => saveNodes(nodes.map((x, j) => (j === i ? { ...x, tone: v } : x)))} />
@@ -139,7 +139,7 @@ function FlowForm({ scene }: { scene: Extract<Scene, { template: "flow" }> }) {
             <div class="f-grid">
               <Select label={t("fFrom")} value={e.from} options={ids} onChange={(v) => saveEdges(edges.map((x, j) => (j === i ? { ...x, from: v } : x)))} />
               <Select label={t("fTo")} value={e.to} options={ids} onChange={(v) => saveEdges(edges.map((x, j) => (j === i ? { ...x, to: v } : x)))} />
-              <TextField label={t("fLabel")} value={e.label} optional onCommit={(v) => saveEdges(edges.map((x, j) => (j === i ? (v ? { ...x, label: v } : { from: x.from, to: x.to }) : x)))} />
+              <TextField label={t("fLabel")} value={e.label} optional path={`/content/edges/${i}/label`} onCommit={(v) => saveEdges(edges.map((x, j) => (j === i ? (v ? { ...x, label: v } : { from: x.from, to: x.to }) : x)))} />
             </div>
             <ItemTools onRemove={edges.length > 1 ? () => saveEdges(edges.filter((_, j) => j !== i)) : undefined} />
           </div>
@@ -162,7 +162,7 @@ function Flags({ scene }: { scene: Extract<Scene, { template: "message-mock" }> 
         <div class="f-item" key={f.id}>
           <div class="f-grid">
             <Select label={t("fLine")} value={String(f.line)} options={lines} onChange={(v) => save(flags.map((x, j) => (j === i ? { ...x, line: v === "from" || v === "link" ? v : Number(v) } : x)))} />
-            <TextField label={f.id} value={f.label} onCommit={(v) => v && save(flags.map((x, j) => (j === i ? { ...x, label: v } : x)))} />
+            <TextField label={f.id} value={f.label} path={`/content/flags/${i}/label`} onCommit={(v) => v && save(flags.map((x, j) => (j === i ? { ...x, label: v } : x)))} />
           </div>
           <ItemTools onRemove={() => save(flags.filter((_, j) => j !== i))} />
         </div>
@@ -180,10 +180,10 @@ export function QuizForm({ scene }: { scene: Scene }) {
   const save = (next: QuizCheck) => edit([{ op: "set", scene: scene.id, path: "/check", value: next }]);
   return (
     <div class="f-list">
-      <TextField label={t("fQuestion")} value={c.prompt} onCommit={(v) => v && save({ ...c, prompt: v })} />
+      <TextField label={t("fQuestion")} value={c.prompt} path="/check/prompt" onCommit={(v) => v && save({ ...c, prompt: v })} />
       {c.options.map((o, i) => (
         <div class="f-item" key={o.id}>
-          <TextField label={`${t("option")} ${o.id}`} value={o.text} onCommit={(v) => v && save({ ...c, options: c.options.map((x, j) => (j === i ? { ...x, text: v } : x)) })} />
+          <TextField label={`${t("option")} ${o.id}`} value={o.text} path={`/check/options/${i}/text`} onCommit={(v) => v && save({ ...c, options: c.options.map((x, j) => (j === i ? { ...x, text: v } : x)) })} />
           <ItemTools onRemove={c.options.length > 2 ? () => save({ ...c, options: c.options.filter((_, j) => j !== i), answer: c.answer === o.id ? c.options.find((x) => x.id !== o.id)!.id : c.answer }) : undefined} />
         </div>
       ))}
@@ -228,7 +228,7 @@ export function ElementForm({ scene, el }: { scene: Scene; el: Element }) {
       <Select label={t("fTone")} value={el.tone} options={toneOptions()} empty={t("auto")} onChange={(v) => set({ tone: v || null })} />
       <Check label={t("fFixed")} value={!!el.fixed} onChange={(v) => set({ fixed: v || null })} />
       {el.type === "text" ? <>
-        <TextField label={t("elText")} value={el.text} multiline onCommit={(v) => v && set({ text: v })} />
+        <TextField label={t("elText")} value={el.text} multiline path="element-text" onCommit={(v) => v && set({ text: v })} />
         <div class="f-grid4">{n("size", "fSize", { min: 8, max: 300 })}
           <Select label={t("fWeight")} value={el.weight ?? 700} options={[[400, "400"], [600, "600"], [700, "700"], [800, "800"]]} onChange={(v) => set({ weight: v })} />
           <Select label={t("fAlign")} value={el.align ?? "start"} options={[["start", t("start")], ["center", t("center")], ["end", t("end")]]} onChange={(v) => set({ align: v })} /></div>

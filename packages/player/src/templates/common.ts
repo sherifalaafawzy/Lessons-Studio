@@ -3,6 +3,16 @@ import { h, rich, units } from "../dom.ts";
 import { enter, fix, pulseScale, type CueState } from "../motion.ts";
 import type { Ctx } from "./types.ts";
 
+/**
+ * Marks an element as an editable part of the scene's content (editors find it with player.parts()):
+ * "title", "kicker", "hook", "takeaway", "prompt", "from", "subject", "link", or kind:key such as "step:0",
+ * "point:2", "line:1", "node:<id>", "edge:<index>", "flag:<id>", "option:<id>".
+ */
+export function part<E extends HTMLElement>(el: E, id: string): E {
+  el.dataset.part = id;
+  return el;
+}
+
 /** A block of text in the lesson language, with Latin runs isolated in right-to-left text. */
 export function txt(ctx: Ctx, tag: "p" | "h1" | "h2" | "h3" | "span" | "div", cls: string, value: Text | undefined): HTMLElement {
   return h(tag, { className: cls }, ...rich(ctx.t(value), ctx.dir === "rtl"));

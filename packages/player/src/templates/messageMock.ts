@@ -1,7 +1,7 @@
 import { h } from "../dom.ts";
 import { icon } from "../icons.ts";
 import { schedule } from "../motion.ts";
-import { emphasis, show, txt } from "./common.ts";
+import { emphasis, part, show, txt } from "./common.ts";
 import type { SceneOf, Template } from "./types.ts";
 
 /** A phone message or email, with its warning signs called out as the narration names them. */
@@ -12,16 +12,16 @@ export const messageMock: Template<SceneOf<"message-mock">> = (scene, ctx) => {
     "div",
     { className: "ls-msg-from" },
     h("span", { className: "ls-avatar" }, icon(c.kind === "email" ? "mail" : "user", 28)),
-    txt(ctx, "span", "ls-msg-name", c.from),
+    part(txt(ctx, "span", "ls-msg-name", c.from), "from"),
     c.time ? h("span", { className: "ls-msg-time", dir: "ltr" }, c.time) : null,
   );
-  const subject = c.subject ? txt(ctx, "p", "ls-msg-subject", c.subject) : null;
-  const lines = c.lines.map((l) => txt(ctx, "p", "ls-msg-line", l));
-  const link = c.link !== undefined ? h("p", { className: "ls-msg-line ls-msg-link", dir: "ltr" }, ctx.t(c.link)) : null;
+  const subject = c.subject ? part(txt(ctx, "p", "ls-msg-subject", c.subject), "subject") : null;
+  const lines = c.lines.map((l, i) => part(txt(ctx, "p", "ls-msg-line", l), `line:${i}`));
+  const link = c.link !== undefined ? part(h("p", { className: "ls-msg-line ls-msg-link", dir: "ltr" }, ctx.t(c.link)), "link") : null;
   const bubble = h("div", { className: "ls-bubble" }, subject, ...lines, link);
   const phone = h("div", { className: `ls-phone ls-kind-${c.kind}` }, from, bubble);
 
-  const callouts = flags.map((f) => h("li", { className: "ls-callout" }, icon("warning", 30), txt(ctx, "span", "", f.label)));
+  const callouts = flags.map((f) => h("li", { className: "ls-callout" }, icon("warning", 30), part(txt(ctx, "span", "", f.label), `flag:${f.id}`)));
   const list = h("ul", { className: "ls-callouts" }, ...callouts);
   const root = h("div", { className: "ls-scene ls-t-message" }, phone, list);
 

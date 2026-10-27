@@ -69,7 +69,7 @@ Positions are pixels from the top-left. Every element: `{"id", "type", "x", "y",
 | `group` | `children` (elements positioned inside the group) |
 
 Tones (brand colours, so brands re-theme everything): `fg`, `muted`, `accent`, `accent2`, `danger`, `ok`,
-`surface`, `bg`.
+`surface`, `bg`, `line` (the outline colour).
 
 A track animates one property: `{"prop": "x"|"y"|"scale"|"rotate"|"opacity"|"draw"|"reveal", "keys": [key, ...]}`.
 A key: `{"at": when, "value": number, "ease"?: "linear"|"in"|"out"|"in-out"|"back"|"step"}`; the ease shapes the

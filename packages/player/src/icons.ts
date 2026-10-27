@@ -33,7 +33,7 @@ export type AnyIcon = keyof typeof PATHS;
 export function icon(name: AnyIcon, size = 24, cls = "ls-icon"): SVGElement {
   return svg(
     "svg",
-    { viewBox: "0 0 24 24", width: size, height: size, className: cls, "aria-hidden": "true", focusable: "false" },
+    { viewBox: "0 0 24 24", width: size, height: size, className: cls, "aria-hidden": "true", focusable: "false", "data-icon": name },
     ...(PATHS[name] ?? PATHS.spark).map((d) => svg("path", { d })),
   );
 }

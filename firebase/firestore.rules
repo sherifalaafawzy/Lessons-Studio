@@ -68,7 +68,7 @@ service cloud.firestore {
       }
     }
 
-    // OAuth state for MCP clients, and anything else: server only.
+    // OAuth state for MCP clients, sealed AI keys (aiKeys/{uid}), and anything else: server only.
     match /{document=**} {
       allow read, write: if false;
     }

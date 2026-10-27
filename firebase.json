@@ -1,11 +1,136 @@
 {
-  "firestore": { "rules": "firebase/firestore.rules", "indexes": "firebase/firestore.indexes.json" },
+  "firestore": {
+    "rules": "firebase/firestore.rules",
+    "indexes": "firebase/firestore.indexes.json"
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "lessonstudio",
+      "runtime": "nodejs22",
+      "predeploy": [
+        "npm --prefix functions run build"
+      ],
+      "ignore": [
+        "node_modules",
+        "src",
+        "test",
+        "build.mjs",
+        "tsconfig.json",
+        ".secret.local",
+        "*.log"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "apps/studio/dist",
+    "ignore": [
+      "**/.*"
+    ],
+    "rewrites": [
+      {
+        "source": "/mcp",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "/authorize",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "/authorize/**",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "/token",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "/register",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "/.well-known/**",
+        "function": {
+          "functionId": "mcp",
+          "region": "europe-west1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ],
+    "predeploy": [
+      "npm run studio:build"
+    ]
+  },
   "emulators": {
-    "auth": { "port": 9399 },
-    "firestore": { "port": 8280 },
-    "hub": { "port": 4420 },
-    "logging": { "port": 4520 },
-    "ui": { "enabled": true, "port": 4120 },
+    "auth": {
+      "port": 9399
+    },
+    "firestore": {
+      "port": 8280
+    },
+    "functions": {
+      "port": 5401
+    },
+    "hub": {
+      "port": 4420
+    },
+    "logging": {
+      "port": 4520
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4120
+    },
     "singleProjectMode": true
   }
 }

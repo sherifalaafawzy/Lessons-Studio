@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "preact/hooks";
+import type { Text } from "@lessonstudio/spec";
 import { createPlayer, type ElementBox, type Player } from "@lessonstudio/player";
-import { toPackage } from "@lessonstudio/ops";
-import { currentScene, edit, elementId, findElement, lang, lesson, orient, playhead, sceneId, sceneTiming, timings } from "../editor.ts";
+import { getAt, toPackage } from "@lessonstudio/ops";
+import { currentScene, edit, elementId, findElement, lang, lesson, orient, partId, playhead, sceneId, sceneTiming, timings } from "../editor.ts";
+import { elementPath, partPath, setText } from "../parts.ts";
+import { Timeline } from "./Timeline.tsx";
 import { t } from "../i18n.ts";
 import { ELEMENT_KINDS, addElement, designSize, moveOps } from "./content.tsx";
 
@@ -29,6 +32,9 @@ export function Stage() {
   const wrap = useRef<HTMLDivElement>(null);
   const player = useRef<Player | null>(null);
   const [boxes, setBoxes] = useState<ElementBox[]>([]);
+  const [parts, setParts] = useState<ElementBox[]>([]);
+  const [hover, setHover] = useState<string | null>(null);
+  const [typing, setTyping] = useState<Typing | null>(null);
   const [view, setView] = useState({ left: 0, top: 0, width: 0, height: 0 });
   const [playing, setPlaying] = useState(false);
   const drag = useRef<Drag | null>(null);
@@ -52,6 +58,7 @@ export function Stage() {
     const b = wrap.current.getBoundingClientRect();
     setView({ left: a.left - b.left, top: a.top - b.top, width: a.width, height: a.height });
     setBoxes(p.boxes());
+    setParts(p.parts());
   };
 
   // A fresh player whenever the lesson, the language or the shape changes (it mounts one scene, so it's cheap).
@@ -120,10 +127,15 @@ export function Stage() {
 
   const onDown = (e: PointerEvent, kind: "move" | "size", forced?: string) => {
     const p = player.current;
-    if (!p || p.playing) return;
+    if (!p || p.playing || typing) return;
     const id = forced ?? p.elementAt(e.clientX, e.clientY);
     if (!id) {
+      // A template's own text: select it, and show its field in the inspector.
+      const part = p.partAt(e.clientX, e.clientY);
       elementId.value = null;
+      partId.value = part;
+      const path = part && scene ? partPath(scene, part) : null;
+      if (path) showField(path);
       return;
     }
     elementId.value = id;
@@ -137,7 +149,11 @@ export function Stage() {
   };
   const onMove = (e: PointerEvent) => {
     const d = drag.current;
-    if (!d) return;
+    if (!d) {
+      const p = player.current;
+      if (p && !p.playing) setHover(p.elementAt(e.clientX, e.clientY) ?? p.partAt(e.clientX, e.clientY));
+      return;
+    }
     d.dx = e.clientX - d.x0;
     d.dy = e.clientY - d.y0;
     // Live preview on the player's own element (translate composes with its animated transform).
@@ -156,14 +172,44 @@ export function Stage() {
     edit(d.kind === "move" ? moveOps(scene, el, mx, my) : moveOps(scene, el, 0, 0, mx, my));
   };
 
+  /** Double-click: type over a text on the stage, in the stage's language. */
+  const onDouble = (e: MouseEvent) => {
+    const p = player.current;
+    if (!p || p.playing || !scene) return;
+    const elId = p.elementAt(e.clientX, e.clientY);
+    const part = elId ? null : p.partAt(e.clientX, e.clientY);
+    const el = elId ? currentElementOf(elId) : null;
+    const base = elId && el?.type === "text" ? elementPath(scene, elId) : null;
+    const path = base ? `${base}/text` : part ? partPath(scene, part) : null;
+    const box = elId ? boxes.find((b) => b.id === elId) : parts.find((b) => b.id === part);
+    const node = host.current?.shadowRoot?.querySelector<HTMLElement>(elId ? `[data-el="${CSS.escape(elId)}"]` : `[data-part="${CSS.escape(part ?? "")}"]`);
+    if (!path || !box || !node) return;
+    const value = getAt(scene, path) as Text | undefined;
+    // The size of the type on screen: its CSS size times the player's scale.
+    const cs = getComputedStyle(node);
+    const scale = node.offsetWidth ? node.getBoundingClientRect().width / node.offsetWidth : 1;
+    setTyping({ path, box, scene: scene.id, old: value, text: typeof value === "string" ? value : value?.[lang.value] ?? "", font: parseFloat(cs.fontSize) * scale, weight: cs.fontWeight });
+    e.preventDefault();
+  };
+  const commitTyping = (text: string | null) => {
+    const ty = typing;
+    setTyping(null);
+    const l2 = lesson.value;
+    if (!ty || text === null || !l2) return;
+    const v = text.trim();
+    if (!v || v === ty.text) return;
+    edit([{ op: "set", scene: ty.scene, path: ty.path, value: setText(ty.old, lang.value, v, l2.manifest.languages.map((x) => x.code)) }]);
+  };
+
   const sel = boxes.find((b) => b.id === elementId.value);
+  const selPart = !elementId.value ? parts.find((b) => b.id === partId.value) : undefined;
+  const hov = hover && hover !== elementId.value && hover !== partId.value ? boxes.find((b) => b.id === hover) ?? parts.find((b) => b.id === hover) : undefined;
   const d = drag.current;
   const shown = sel && d && d.id === sel.id
     ? d.kind === "move"
       ? { ...sel, x: sel.x + d.dx, y: sel.y + d.dy }
       : d.flip < 0 ? { ...sel, x: sel.x + d.dx, w: Math.max(8, sel.w - d.dx), h: Math.max(8, sel.h + d.dy) } : { ...sel, w: Math.max(8, sel.w + d.dx), h: Math.max(8, sel.h + d.dy) }
     : sel;
-  const words = st?.words ?? [];
 
   return (
     <section class="stage" aria-label={t("stage")}>
@@ -181,7 +227,15 @@ export function Stage() {
       <div class={`stage-wrap ${orient.value}`} ref={wrap}>
         <div ref={host} class="stage-player" />
         <div class="overlay" style={{ left: `${view.left}px`, top: `${view.top}px`, width: `${view.width}px`, height: `${view.height}px` }}
-          onPointerDown={(e) => onDown(e as PointerEvent, "move")} onPointerMove={(e) => onMove(e as PointerEvent)} onPointerUp={onUp} onPointerCancel={onUp}>
+          onPointerDown={(e) => onDown(e as PointerEvent, "move")} onPointerMove={(e) => onMove(e as PointerEvent)} onPointerUp={onUp} onPointerCancel={onUp}
+          onPointerLeave={() => setHover(null)} onDblClick={(e) => onDouble(e as MouseEvent)}>
+          {hov && !playing && !typing ? <div class="pbox" style={{ left: `${hov.x}px`, top: `${hov.y}px`, width: `${hov.w}px`, height: `${hov.h}px` }} /> : null}
+          {selPart && !playing && !typing ? (
+            <div class="sel part" style={{ left: `${selPart.x - 3}px`, top: `${selPart.y - 3}px`, width: `${selPart.w + 6}px`, height: `${selPart.h + 6}px` }}>
+              <span class="sel-name">{t("doubleClickToType")}</span>
+            </div>
+          ) : null}
+          {typing ? <TypeOver key={typing.path} typing={typing} dir={dir} lang={lang.value} onDone={commitTyping} /> : null}
           {!playing ? boxes.map((b) => (
             <div key={b.id} class={b.id === elementId.value ? "hbox hidden-box" : "hbox"} style={{ left: `${b.x}px`, top: `${b.y}px`, width: `${b.w}px`, height: `${b.h}px` }} />
           )) : null}
@@ -206,13 +260,50 @@ export function Stage() {
           onInput={(e) => { player.current?.pause(); playhead.value = Number((e.target as HTMLInputElement).value); }} />
         <span class="time" dir="ltr">{playhead.value.toFixed(1)} / {dur.toFixed(1)} s</span>
       </div>
-      <div class="words" dir={dir} lang={lang.value} aria-label={t("narrationWords")}>
-        {words.map((w, i) => {
-          const s = w.s - (st?.start ?? 0);
-          const on = playhead.value >= s && playhead.value < w.e - (st?.start ?? 0);
-          return <button type="button" key={i} class={on ? "word on" : "word"} onClick={() => { player.current?.pause(); playhead.value = s + 0.01; }}>{w.w}</button>;
-        })}
-      </div>
+      <Timeline onSeek={(s) => { player.current?.pause(); playhead.value = s; }} />
     </section>
   );
+}
+
+interface Typing {
+  scene: string;
+  path: string;
+  old: Text | undefined;
+  text: string;
+  box: ElementBox;
+  font: number;
+  weight: string;
+}
+
+/** A text box over the text being edited. Enter or leaving it keeps the change; Escape drops it; Shift+Enter starts a new line. */
+function TypeOver(p: { typing: Typing; dir: "ltr" | "rtl"; lang: string; onDone: (text: string | null) => void }) {
+  const ref = useRef<HTMLTextAreaElement>(null);
+  const done = useRef(false);
+  const finish = (v: string | null) => { if (!done.current) { done.current = true; p.onDone(v); } };
+  useEffect(() => { ref.current?.focus(); ref.current?.select(); }, []);
+  const b = p.typing.box;
+  return (
+    <textarea ref={ref} class="type-over" dir={p.dir} lang={p.lang} defaultValue={p.typing.text} aria-label={t("typeHere")}
+      style={{ left: `${b.x - 6}px`, top: `${b.y - 6}px`, width: `${Math.max(b.w + 12, 200)}px`, minHeight: `${b.h + 12}px`, fontSize: `${Math.max(12, p.typing.font)}px`, fontWeight: p.typing.weight }}
+      onPointerDown={(e) => e.stopPropagation()}
+      onKeyDown={(e) => {
+        e.stopPropagation();
+        if (e.key === "Escape") { e.preventDefault(); finish(null); }
+        else if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); finish((e.target as HTMLTextAreaElement).value); }
+      }}
+      onBlur={(e) => finish((e.target as HTMLTextAreaElement).value)} />
+  );
+}
+
+/** Opens the inspector's field for a path, and flashes it. */
+export function showField(path: string): void {
+  requestAnimationFrame(() => {
+    const f = document.querySelector<HTMLElement>(`.inspector [data-path="${CSS.escape(path)}"]`);
+    if (!f) return;
+    f.closest("details")?.setAttribute("open", "");
+    f.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    f.classList.remove("flash");
+    void f.offsetWidth;
+    f.classList.add("flash");
+  });
 }

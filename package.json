@@ -21,8 +21,10 @@
     "size": "node scripts/size.mjs",
     "dev": "npm run dev -w @lessonstudio/playground",
     "e2e": "playwright test",
-    "emulators": "firebase emulators:start --project demo-lessonstudio --only auth,firestore",
-    "studio": "npm run dev -w @lessonstudio/studio"
+    "emulators": "npm --prefix functions run build && firebase emulators:start --project demo-lessonstudio --only auth,firestore,functions",
+    "studio": "npm run dev -w @lessonstudio/studio",
+    "studio:emulators": "npm run dev:emulators -w @lessonstudio/studio",
+    "studio:build": "npm run build -w @lessonstudio/studio"
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "6.0.0",

@@ -1,14 +1,14 @@
 import { h } from "../dom.ts";
 import { clamp01, fix, schedule } from "../motion.ts";
-import { emphasis, show, txt } from "./common.ts";
+import { emphasis, part, show, txt } from "./common.ts";
 import type { SceneOf, Template } from "./types.ts";
 
 /** Numbered steps that appear as the narration reaches them, with a progress bar. */
 export const steps: Template<SceneOf<"steps">> = (scene, ctx) => {
   const c = scene.content;
-  const title = c.title ? txt(ctx, "h2", "ls-title", c.title) : null;
+  const title = c.title ? part(txt(ctx, "h2", "ls-title", c.title), "title") : null;
   const items = c.steps.map((s, i) =>
-    h("li", { className: "ls-step" }, h("span", { className: "ls-num" }, String(i + 1)), txt(ctx, "span", "ls-step-text", s)),
+    h("li", { className: "ls-step" }, h("span", { className: "ls-num" }, String(i + 1)), part(txt(ctx, "span", "ls-step-text", s), `step:${i}`)),
   );
   const fill = h("div", { className: "ls-progress-fill" });
   const root = h(

@@ -15,6 +15,11 @@ export const lesson = computed(() => state.value?.lesson ?? null);
 export const lang = signal<Lang>("en");
 export const sceneId = signal<string | null>(null);
 export const elementId = signal<string | null>(null);
+/** The template part selected on the stage (see partPath), or null. */
+export const partId = signal<string | null>(null);
+// One selection at a time: another scene clears it, and selecting an element replaces a part.
+sceneId.subscribe(() => { partId.value = null; });
+elementId.subscribe((v) => { if (v) partId.value = null; });
 /** Seconds into the selected scene. */
 export const playhead = signal(0);
 export const orient = signal<"landscape" | "portrait" | "square">("landscape");

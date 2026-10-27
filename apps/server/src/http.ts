@@ -15,6 +15,8 @@ export function actorOf(auth: AuthInfo | undefined, localUid: string): Actor {
 export interface HttpOptions {
   /** Puts authentication in front of /mcp and adds the OAuth routes (oauth.ts). Absent: this PC only, no sign-in. */
   secure?: (app: Express) => RequestHandler;
+  /** In Cloud Functions: no local-host check (Google's front end routes by host), and always behind sign-in. */
+  cloud?: boolean;
 }
 
 /**
@@ -25,8 +27,10 @@ export function createHttpApp(deps: Deps, o: HttpOptions = {}): Express {
   const { config } = deps;
   const hosts = ["localhost", "127.0.0.1", "[::1]"];
   if (config.publicUrl) hosts.push(new URL(config.publicUrl).hostname);
-  const app = createMcpExpressApp({ host: "127.0.0.1", allowedHosts: hosts, jsonLimit: "2mb" });
+  const app = o.cloud ? createMcpExpressApp({ host: "0.0.0.0", jsonLimit: "2mb" }) : createMcpExpressApp({ host: "127.0.0.1", allowedHosts: hosts, jsonLimit: "2mb" });
   app.disable("x-powered-by");
+  // Sign-in pages, tokens and MCP answers are personal or short-lived: no proxy or CDN (Firebase Hosting) may keep them.
+  app.use((_req, res, next) => { res.set("Cache-Control", "no-store"); next(); });
 
   const handler = createMcpHandler((ctx) => buildServer(deps, actorOf(ctx.authInfo, config.localUid)));
   const node = toNodeHandler(handler, { onerror: (e) => console.error("mcp:", e.message) });

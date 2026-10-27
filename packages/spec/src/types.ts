@@ -175,7 +175,7 @@ export interface Transition {
 /* ---------- free elements and keyframes (v0.2) ---------- */
 
 /** Brand colours by role, so a brand kit re-themes every lesson. */
-export type Tone = "fg" | "muted" | "accent" | "accent2" | "danger" | "ok" | "surface" | "bg";
+export type Tone = "fg" | "muted" | "accent" | "accent2" | "danger" | "ok" | "surface" | "bg" | "line";
 
 export type Ease = "linear" | "in" | "out" | "in-out" | "back" | "step";
 

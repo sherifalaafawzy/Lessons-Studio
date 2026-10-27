@@ -198,7 +198,7 @@ export function oauthCore(config: Config, kv: Kv, verifyIdToken?: (t: string) =>
       try {
         const t = await verifyIdToken(body.idToken);
         const email = (t.email ?? "").toLowerCase();
-        if (!t.email_verified || !config.allowedEmails.includes(email)) return `${email || "This account"} isn't allowed to use Lesson Studio.`;
+        if (!t.email_verified || !(config.allowedEmails.includes("*") || config.allowedEmails.includes(email))) return `${email || "This account"} isn't allowed to use Lesson Studio.`;
         return { uid: t.uid, email };
       } catch {
         return "The sign-in couldn't be checked; try again.";
@@ -318,7 +318,7 @@ if (f) f.onsubmit = (e) => { e.preventDefault(); window.approve({ passcode: new 
 /** Adds the OAuth routes and returns the gate for /mcp (main.ts passes this to createHttpApp). */
 export function secure({ config }: Deps): (app: Express) => RequestHandler {
   return (app) => {
-    app.set("trust proxy", "loopback");
+    app.set("trust proxy", config.trustProxy);
     let core: ReturnType<typeof oauthCore> | null = null;
     const ready = (async () => {
       const kv = await openKv(config);
@@ -338,9 +338,15 @@ export function secure({ config }: Deps): (app: Express) => RequestHandler {
     const c = async () => core ?? (await ready);
     const form = express.urlencoded({ extended: false, limit: "16kb" });
 
-    // Discovery: protected resource metadata for /mcp, and this authorization server's metadata.
-    void ready.then((k) => {
-      app.use(mcpAuthMetadataRouter({ oauthMetadata: k.metadata, resourceServerUrl: new URL(k.resource), scopesSupported: [SCOPE], resourceName: "Lesson Studio" }));
+    // Discovery: protected resource metadata for /mcp, and this authorization server's metadata. Mounted at once
+    // (answers wait for the setup above), so a server that has just started never says "not found".
+    let meta: RequestHandler | null = null;
+    app.use((req, res, next) => {
+      if (!req.path.startsWith("/.well-known/")) { next(); return; }
+      c().then((k) => {
+        meta ??= mcpAuthMetadataRouter({ oauthMetadata: k.metadata, resourceServerUrl: new URL(k.resource), scopesSupported: [SCOPE], resourceName: "Lesson Studio" });
+        meta(req, res, next);
+      }, next);
     });
 
     app.post("/register", limiter(10), async (req, res) => {

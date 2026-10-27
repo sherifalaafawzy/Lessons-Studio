@@ -167,24 +167,36 @@ npm run emulators
 npm run studio
 ```
 
-Then open http://localhost:4330. On the emulators, sign in with the test account.
-- `npm run emulators` needs Java 21 (`JAVA_HOME`). On Windows, if the emulators fail with a pipe error in a folder with spaces, also set `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\Users\Public`.
-- Auth runs on 9399, Firestore on 8280 and the emulator UI on 4120, so they don't clash with other projects' emulators.
+**Live:** https://lessons-studio-6b509.web.app (the studio, sign-in with Google) and https://lessons-studio-6b509.web.app/mcp (the MCP server), both on Firebase.
+
+To work on it locally, open http://localhost:4330. `npm run studio` uses the Firebase project in `.env.local`; `npm run studio:emulators` (port 4332) uses the emulators, where the sign-in screen offers a test account.
+- `npm run emulators` builds the functions, then starts Auth (9399), Firestore (8280) and Functions (5401), with the emulator UI on 4120, so they don't clash with other projects' emulators. It needs Java 21 (`JAVA_HOME`). On Windows, if the emulators fail with a pipe error in a folder with spaces, also set `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\Users\Public`.
+- On the emulators, Gemini calls go to a stand-in that the tests run (`GEMINI_API_BASE` in `functions/.env.demo-lessonstudio`), never to Google.
 
 **What you can do:**
-- **Lessons:** start one from a brief (title in each language, languages, look, shape), or open one an AI made.
-- **Scenes:** add any of the seven types, reorder, copy and delete them.
+- **Lessons:** start one
+  - from a brief: it starts as a title, the idea in three steps, and a summary, already animated on their words;
+  - with **Draft with AI**: topic, audience, languages, length; Gemini writes the storyboard with your own key, and it is checked before you see it;
+  - from one of the example lessons (Prompt injection, Spot a phishing message, How an AI model learns), copied into your account;
+  - from a lesson file (`{manifest, scenes}`, as `get_lesson` returns it);
+  - or open one an AI made through MCP.
+- **Scenes:** "Add a scene" opens a gallery of 14 ready-made scenes (title, steps, pipeline, attack chain, scam text, phishing email, quiz, summary, big number, two sides compared, process with arrows, a chart that grows, code that types itself, a callout over a screen). Each is designed, narrated in English and Arabic, and animated on its own words; point at one to watch it. Or start a blank scene of any template. Scenes reorder, copy and delete; the storyboard shows each one's last frame.
 - **The stage:** the real player.
-  - Add text, boxes, circles, arrows, icons, code and charts.
-  - Click an element to select it, drag it to move it, and drag its corner to resize it.
-  - Arrow keys nudge (Shift for 10 px); Delete removes.
+  - Point at any text, box or element to see it; click to select it (a template's text opens its field in the panel).
+  - **Double-click any text to type over it**, in the stage's language: only that language changes. Enter keeps it, Escape drops it.
+  - Add text, boxes, circles, arrows, icons, code and charts. Drag to move, drag the corner to resize; arrow keys nudge (Shift for 10 px); Delete removes.
+  - **Convert to canvas** turns a template scene into free elements laid out exactly as the player draws it, keeping every language and the cues on its texts.
 - **Narration:** per language, with a word count and an estimated length.
-- **Animation:**
-  - Pick a ready-made animation and choose the spoken word in each language that starts it, or use the playhead.
-  - Cues (highlight, pulse, reveal, move) work the same way.
+- **The timeline**, under the stage: the scene's spoken words on a ruler, a row per element (and the camera and cues) with a diamond for each moment something changes.
+  - Drag a diamond to retime it; drop it on a word to start it there (in this language; the others keep their words). Drag a row's bar to move its whole animation.
+  - Click a diamond to change its values and curve, anchor it to words in every language, or remove it.
+- **Animation:** pick a ready-made animation and the spoken word in each language that starts it, or use the playhead. Cues (highlight, pulse, reveal, move) work the same way.
+- **Broken anchors:** when you reword the narration and an animation's word is no longer said, the checks offer "Pick the new word", which moves every animation waiting for it at once.
 - **Live with AI:** an edit made through MCP appears at once, with a banner naming the client and the changed scenes marked.
 - **Undo and redo** (Ctrl+Z, Ctrl+Y) undo only your own change, even after someone else edited the same scene.
 - **Checks:** the validator runs live; click an issue to go to its scene.
+- **Settings:** your Gemini key (checked with Google, stored encrypted, never shown again), your account and user id, and the studio's language.
+- **Connect your AI:** the MCP address and the steps for ChatGPT, claude.ai, Claude Code, Claude Desktop, Cursor, VS Code, Gemini CLI and the stdio server on this PC, each ready to copy.
 - **Preview** as a low-end phone on 3G, or on a desktop, with the download size.
 - **Language:** the studio itself is in English or Arabic, and lays out right to left in Arabic. On a phone it shows one panel at a time.
 
@@ -195,13 +207,31 @@ Then open http://localhost:4330. On the emulators, sign in with the test account
 
 The rules refuse a batch with a stale revision. When another person or an AI saved first, the studio rebases your edit on their version and sends it again. An edit that no longer fits is dropped, and the studio says so. Firestore's offline cache keeps the lesson on the device and queues an edit made without signal.
 
-**Your Firebase project** (`lessons-studio-6b509`): its web config is in `.env.local`, and `VITE_EMULATORS=1` keeps the studio on the emulators for now. To switch:
-1. Turn on Google sign-in and Firestore.
-2. Deploy the rules:
-   ```bash
-   npx firebase deploy --only firestore
-   ```
-3. Set `VITE_EMULATORS=0`.
+**The Firebase project** (`lessons-studio-6b509`, Firestore in europe-west1): its web config is in `.env.local`, and the studio uses it while `VITE_EMULATORS=0`. Set `VITE_EMULATORS=1` to work on the emulators instead. After changing the rules or indexes, deploy them:
+```bash
+npx firebase deploy --only firestore:rules,firestore:indexes --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com
+```
+
+## AI drafting and MCP in the cloud (Cloud Functions)
+
+`functions/` holds four callables and the MCP server, in europe-west1. `npm --prefix functions run build` bundles them (esbuild) with the shared packages, the MCP code from `apps/server` and the scene gallery; only `firebase-functions` and `firebase-admin` are installed.
+- `saveAiKey`, `removeAiKey`, `aiKeyStatus`: each person's own key, checked with Google, sealed with AES-256-GCM under a key derived from the `AI_KEYS_SECRET` secret and their uid, in `aiKeys/{uid}` (no client can read it). Clients only ever see "set, ends with …abcd".
+- `draftLesson`: the brief goes to `gemini-3.8-flash` with the format guide and five gallery scenes as examples. The validator checks the answer; errors, and animations on words nobody says, go back to Gemini to fix (twice at most). A draft that still has errors is refused. The lesson is stored in the person's account and opens in the studio. About 3 to 5 cents a draft; at most 40 drafts a day per person.
+- `mcp`: the same MCP server as the desktop one, with Google sign-in (OAuth) and the Firestore store, served through Hosting at **https://lessons-studio-6b509.web.app/mcp**. Hosting serves the studio itself (`apps/studio/dist`, built by the deploy) at the same address, and sends `/mcp`, `/authorize`, `/token`, `/register` and `/.well-known/**` to this function. Only the accounts in `LS_ALLOWED_EMAILS` (in `.env.local`; `*` for any verified Google account) may sign in. `render_frame` needs a browser, so only the desktop server draws frames.
+
+`functions/build.mjs` writes `functions/.env.lessons-studio-6b509` from `.env.local` (the public address, the web config, the allowed accounts). The secrets live in Secret Manager.
+
+**Deploying** needs the Blaze plan on the project (on since 27 Oct 2026). The secrets were set once with random values:
+```bash
+npx firebase functions:secrets:set AI_KEYS_SECRET --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com
+```
+```bash
+npx firebase functions:secrets:set MCP_TOKEN_SECRET --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com
+```
+(each a random value of 32 characters or more, piped in, never shown), and every time:
+```bash
+npx firebase deploy --only functions,hosting,firestore --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com
+```
 
 **Size:** the studio's code is 60 KB gzipped. The Firebase SDK is a separate cacheable chunk of 194 KB gzipped, the next thing to trim.
 
@@ -234,8 +264,10 @@ The rules refuse a batch with a stale revision. When another person or an AI sav
 | `npm run e2e` | Playwright tests. Set `CHROMIUM_PATH` to an installed Chromium if Playwright's own build isn't downloaded. |
 | `npm run typecheck` | `tsc` for every package (and `npx tsc -p apps/server` for the server). |
 | `npm start -w @lessonstudio/server` | The MCP server over HTTP on port 4320. |
-| `npm run emulators` | Firebase Auth and Firestore emulators for the studio (Java 21). |
-| `npm run studio` | The studio on port 4330. |
+| `npm run emulators` | Builds the functions, then the Auth, Firestore and Functions emulators for the studio (Java 21). |
+| `npm run studio` | The studio on port 4330, on the Firebase project in `.env.local`. |
+| `npm run studio:emulators` | The studio on port 4332, on the emulators. |
+| `npm --prefix functions run build` | Bundles the Cloud Functions into `functions/lib/`. |
 
 ## Measured on 27 Oct 2026
 

@@ -238,6 +238,9 @@ export function buildServer({ store, config }: Deps, actor: Actor): McpServer {
     }),
     annotations: { readOnlyHint: true, openWorldHint: false },
   }, (a) => run(async () => {
+    if (!config.chromiumPath) {
+      return fail("Frames are drawn by the desktop server, which has a browser (npm start -w @lessonstudio/server, or the stdio server). Here, check the lesson with validate_lesson and play it with preview_lesson.");
+    }
     const l = await store.get(a.lesson, actor.uid);
     const lang = a.lang ?? l.lesson.manifest.defaultLang;
     if (!l.lesson.manifest.languages.some((x) => x.code === lang)) return fail(`The lesson has no language "${lang}".`);

@@ -21,7 +21,7 @@ export interface Report {
 type Add = (code: string, path: string, detail?: string) => void;
 
 export const TEMPLATES = ["title-hook", "steps", "flow", "message-mock", "quiz", "summary", "canvas"] as const;
-export const TONES = ["fg", "muted", "accent", "accent2", "danger", "ok", "surface", "bg"] as const;
+export const TONES = ["fg", "muted", "accent", "accent2", "danger", "ok", "surface", "bg", "line"] as const;
 export const EASES = ["linear", "in", "out", "in-out", "back", "step"] as const;
 export const ANIM_PROPS = ["x", "y", "scale", "rotate", "opacity", "draw", "reveal"] as const;
 export const ELEMENT_TYPES = ["text", "shape", "line", "path", "icon", "image", "code", "chart", "group"] as const;

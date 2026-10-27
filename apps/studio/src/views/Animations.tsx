@@ -6,7 +6,7 @@ import { edit, lang, lesson, playhead, sceneIndex, timings } from "../editor.ts"
 import { t, type Key } from "../i18n.ts";
 import { NumField, Select } from "./fields.tsx";
 
-const clean = (w: string): string => w.replace(/[.,،;؛:!?؟"'“”«»()]/g, "");
+export const clean = (w: string): string => w.replace(/[.,،;؛:!?؟"'“”«»()]/g, "");
 
 /** The scene's spoken words in each language, to pick the moment something happens. */
 export function WordPicker(p: { value: Text | undefined; onChange: (v: Text) => void }) {

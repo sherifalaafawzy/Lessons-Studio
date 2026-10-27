@@ -7,7 +7,7 @@ const env = import.meta.env;
 /** The local emulators (npm run emulators) unless a Firebase web config is set. */
 export const emulators = env.VITE_EMULATORS === "1" || !env.VITE_FIREBASE_API_KEY;
 
-const app = initializeApp(
+export const app = initializeApp(
   emulators
     ? { apiKey: "demo-key", authDomain: "demo-lessonstudio.firebaseapp.com", projectId: "demo-lessonstudio" }
     : {

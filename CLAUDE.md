@@ -17,10 +17,13 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
   - Stores: `stores/file.ts` (`.data/`) and `stores/firestore.ts`.
 - `apps/studio`: the studio, a Preact app with signals and the Firebase JS SDK, on port 4330.
   - `src/sync.ts` (`LessonSync`) is the live, optimistic sync: edits apply at once, then go out one batch at a time through `commit()`. A refused batch is rebased and sent again, and undo and redo are edits.
-  - `src/editor.ts` holds the editor's signals. The screens are in `src/views/`: `Stage` (the player plus handles), `Storyboard`, `Inspector`, `content.tsx` (template and element forms), `Animations` (word picker, animations, cues), `Checks` and `Preview`.
+  - `src/editor.ts` holds the editor's signals. The screens are in `src/views/`: `Stage` (the player plus handles, hover, click to select, double-click to type), `Timeline`, `Storyboard`, `Gallery` (Add a scene), `Inspector`, `content.tsx` (template and element forms), `Animations` (word picker, animations, cues), `Checks` (with "Pick the new word"), `Preview`, `Lessons` (new lesson: blank, AI draft, example, file), `Settings` and `Connect`.
+  - `src/presets.ts`: the scene gallery and a new lesson's first scenes. Every preset must validate with no warnings in every stage shape (`test/presets.test.ts`).
+  - `src/parts.ts`: where a template part on the stage (`data-part`, see the player's `part()`) lives in the scene, and `setText` (one language). `src/convert.ts`: Convert to canvas, measured from an off-screen player. `src/timeline.ts`: the drag maths. `src/examples.ts`: the example lessons and lesson files. `src/ai.ts`: the callables.
   - `src/i18n.ts` holds the English and Arabic UI text; every key needs both, and the type system checks it.
   - On the emulators (`VITE_EMULATORS=1`, or no web config) the sign-in screen offers a test account.
-- `firebase/firestore.rules`: members read and write lessons only as whole batches (rev + 1, scenes carrying that rev, an op log entry). Timings and `oauth_*` are server only. Emulators: `npm run emulators` (project `demo-lessonstudio`; Auth 9399, Firestore 8280, UI 4120; needs Java 21).
+- `functions/`: Cloud Functions (Node 22, europe-west1), not an npm workspace: its own lockfile, and only `firebase-functions` and `firebase-admin` installed. `build.mjs` bundles `src/index.ts` with everything else (the packages, `apps/server`'s MCP code, the studio's presets), bakes in the browser scripts the MCP server builds at run time on a PC, copies `guide.md` and the example beside the bundle, and writes `.env.lessons-studio-6b509` from `.env.local`. `keys.ts` (sealed AI keys), `gemini.ts`, `draft.ts` (the draft pipeline, pure) and `index.ts` (handlers, and the `mcp` HTTPS function).
+- `firebase/firestore.rules`: members read and write lessons only as whole batches (rev + 1, scenes carrying that rev, an op log entry). Timings, `aiKeys` and `oauth_*` are server only. `firebase.json` also has Hosting (`firebase/public`, with rewrites of `/mcp`, `/authorize`, `/token`, `/register` and `/.well-known/**` to the `mcp` function). Emulators: `npm run emulators` (project `demo-lessonstudio`; Auth 9399, Firestore 8280, Functions 5401, UI 4120; needs Java 21).
 - `apps/playground`: Vite on port 4310. It serves `examples/` at `/examples/<id>/` (with range requests, for audio) and lists them at `/examples/index.json`.
 - `examples/<id>/`: hand-written packages. `npm run narrate` writes `audio/`, and measured `timing/` and `captions/`; `npm run timing` writes estimated ones for languages without narration.
 - `.cache/narrate/` (gitignored): voiced sentences keyed by a hash of text, voice and settings; alignments; pending batches. Never delete it casually: it holds paid-for audio.
@@ -68,6 +71,11 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
   - Every operation returns a precise inverse (`applyOps`), so undo never discards another person's or an AI's change. A new operation needs one too, plus a test in `ops.test.ts` "undo next to someone else's edits".
   - Tests that clear the emulator use project `demo-lessonstudio-test`, never `demo-lessonstudio`, which is the one people use in the browser.
   - The Firebase web config in `.env.local` is public by design; service-account keys never go there (`.secrets/`).
+- **AI keys and drafting.**
+  - Never handle a person's real key: they paste it in Settings. Never log it, return it or store it unsealed; `aiKeyStatus` returns only the last four characters.
+  - `GEMINI_API_BASE` (a stand-in for Gemini) is honoured only when `FUNCTIONS_EMULATOR` is true, so deployed functions always call Google.
+  - The draft prompt teaches the format with `guide.md` and gallery presets; when you change the format, both stay in step.
+  - Emulator tests: `LS_FUNCTIONS_EMULATOR=1` runs `functions/test/emulator.test.ts` (it runs the Gemini stand-in on port 4599).
 - **Security content** teaches defence and awareness, never step-by-step attacks (PLAN.md §11).
 - **Imports:** use `.ts` extensions, `import type` for types, and no parameter properties or enums. The scripts run the TypeScript sources directly with Node 24's type stripping.
 
@@ -113,10 +121,30 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
     - the studio uses estimated timings even when measured ones exist;
     - the Firebase chunk is 194 KB gzipped;
     - only one batch is queued while offline.
+- **Done: the studio, much better** (27 Oct 2026; the second plan in `~/.claude/plans/velvet-mapping-key.md`):
+  - new lessons from an example, a lesson file, a brief (three animated scenes) or an AI draft;
+  - the scene gallery (14 presets); "Pick the new word" for broken anchors;
+  - editing on the stage (hover, select, double-click to type in the stage language), and Convert to canvas;
+  - the timeline (word ruler, rows, diamonds dragged onto words, a moment editor) and storyboard thumbnails;
+  - the format gained the `line` tone (the brand's outline colour);
+  - Cloud Functions: AI keys, `draftLesson`, and the MCP server for Hosting; Settings and Connect your AI pages.
+  - **Checked:** 136 unit and integration tests (including the rules, live sync and the functions on the emulators with a Gemini stand-in), e2e 24 passed (examples and import, gallery and word repair, typing on the stage in English and Arabic, convert to canvas, the timeline, Settings with a key, an AI draft and the Connect page, the phone layout), type checks, the player at 19.1 KB gzipped.
+  - **Deployed 27 Oct 2026** (the user upgraded to Blaze and asked for the deploy): the secrets `AI_KEYS_SECRET` and `MCP_TOKEN_SECRET` (random, 48 characters, piped in, never shown); all five functions; Firestore rules and indexes; Hosting with the studio itself (the user asked that the whole system run on Firebase). Artifact Registry cleanup: 1 day.
+    - Live: https://lessons-studio-6b509.web.app (studio) and https://lessons-studio-6b509.web.app/mcp.
+    - Checked live without an account: the studio loads on desktop and at 375 px with no errors and no emulator badge; client routes return the app; assets are immutable and pages `no-cache`; OAuth metadata answers; `/mcp` returns 401 with the metadata pointer; the four callables return UNAUTHENTICATED; `aiKeys`, `lessons` and `oauth_*` return 403 to anonymous reads.
+    - Fixed after the first deploy: the metadata route was mounted only once sign-in setup finished, so a fresh instance answered "Cannot GET", and Hosting cached that 404 for 10 minutes. The route is now mounted at once, and every MCP and sign-in response is `no-store`.
+    - The user connected claude.ai: the logs show the client registering, sign-in approved, a token issued and MCP calls answered.
+    - Not yet checked live: a real Gemini key and draft (the user adds the key in Settings), and Google sign-in in the hosted studio itself.
+  - Deploy: `npx firebase deploy --only functions,hosting,firestore --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com`. The predeploy steps build the functions (`npm --prefix functions run build`) and the studio (`npm run studio:build`); Windows mangles `-w @scope/name` in predeploy commands, so they use root scripts.
 - **Not done yet:**
   - Gemini narration of the examples (waiting on the API key; `.env.local` holds an empty `GEMINI_API_KEY=` line).
   - The user's setup:
-    - Firebase project `lessons-studio-6b509` exists, and its web config is in `.env.local`. Still to do there: Google sign-in, Firestore, Storage, Hosting, and a service-account key in `.secrets/`.
+    - Firebase project `lessons-studio-6b509`, with its web config in `.env.local`.
+      - The user turned on Google sign-in and created Firestore `(default)` (Standard, europe-west1).
+      - Rules and indexes deployed 27 Oct 2026 with the personal account: `npx firebase deploy --only firestore:rules,firestore:indexes --project lessons-studio-6b509 --account sherifalaafawzy@gmail.com`. Checked: listing, reading and creating lessons, and reading `oauth_*`, all return 403 without sign-in.
+      - The studio now uses it (`VITE_EMULATORS=0`; set it to 1 for the emulators). Google sign-in in the studio is still to be checked by the user.
+      - Still to do: Storage, Hosting, and a service-account key in `.secrets/` (for the MCP server to use the cloud store).
+    - The Firebase CLI has two accounts: always pass `--account sherifalaafawzy@gmail.com`, never the work account.
     - GitHub repo: done. `main` was first pushed to https://github.com/sherifalaafawzy/Lessons-Studio on 27 Oct 2026 (commit e0a8836).
     - ngrok domain: still needed.
   - Studio phases 2–5: the studio app, the timeline, generation jobs (narration, images, AI drafting), MP4 export and publishing.
