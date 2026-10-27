@@ -2,17 +2,25 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import type { Text } from "@lessonstudio/spec";
 import { createPlayer, type ElementBox, type Player } from "@lessonstudio/player";
 import { getAt, toPackage } from "@lessonstudio/ops";
-import { currentScene, edit, elementId, findElement, lang, lesson, orient, partId, playhead, sceneId, sceneTiming, timings } from "../editor.ts";
+import {
+  currentScene, edit, elementId, findElement, guides, lang, lesson, loopScene, orient, partId, playhead, playing, sceneId,
+  sceneTiming, stagePlayer, timings, togglePlay, viewScale, zoom,
+} from "../editor.ts";
 import { elementPath, partPath, setText } from "../parts.ts";
-import { Timeline } from "./Timeline.tsx";
+import { HANDLES, angleFrom, resizeBox, snapMove, type Guide, type Handle, type Rect } from "../snap.ts";
 import { t } from "../i18n.ts";
+import { LIBRARY } from "../env.ts";
 import { ELEMENT_KINDS, addElement, designSize, moveOps } from "./content.tsx";
 
 const ORIENT = { landscape: [1280, 720], portrait: [720, 1280], square: [1080, 1080] } as const;
+export const ZOOM_MIN = 0.1;
+export const ZOOM_MAX = 4;
 
+/** A drag on the canvas: moving, resizing by a handle, rotating, or moving a line's end. Screen pixels. */
 interface Drag {
   id: string;
-  kind: "move" | "size";
+  kind: "move" | "resize" | "rotate" | "end";
+  handle?: Handle;
   x0: number;
   y0: number;
   dx: number;
@@ -21,26 +29,43 @@ interface Drag {
   flip: number;
   node: HTMLElement | null;
   box: ElementBox;
+  /** The previewed box (move and resize, after snapping), and the guides it lines up with. */
+  rect: Rect;
+  guides: Guide[];
+  /** Rotation: the pointer's starting angle around the box's centre, and the change so far. */
+  a0: number;
+  turn: number;
 }
 
+const typingIn = (el: EventTarget | null): boolean => {
+  const n = el as HTMLElement | null;
+  return !!n && (/^(INPUT|TEXTAREA|SELECT)$/.test(n.tagName) || n.isContentEditable);
+};
+
 /**
- * The real player as the canvas: select an element by clicking it, drag it to move, drag the corner to resize.
+ * The real player as the canvas, on a pasteboard you can zoom (Ctrl+wheel, the transport) and pan (Space+drag,
+ * or scroll). Click an element to select it, drag it to move it, drag the corner to resize; double-click text to type.
  * Moves preview live on the player's element and are stored as one edit when the pointer is released.
  */
 export function Stage() {
   const host = useRef<HTMLDivElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
+  const board = useRef<HTMLDivElement>(null);
   const player = useRef<Player | null>(null);
   const [boxes, setBoxes] = useState<ElementBox[]>([]);
   const [parts, setParts] = useState<ElementBox[]>([]);
   const [hover, setHover] = useState<string | null>(null);
   const [typing, setTyping] = useState<Typing | null>(null);
   const [view, setView] = useState({ left: 0, top: 0, width: 0, height: 0 });
-  const [playing, setPlaying] = useState(false);
+  const [room, setRoom] = useState({ w: 800, h: 450 });
+  const [space, setSpace] = useState(false);
+  const pan = useRef<{ x: number; y: number; sl: number; st: number; moved: boolean } | null>(null);
+  const spaceUsed = useRef(false);
   const drag = useRef<Drag | null>(null);
   const [, force] = useState(0);
   const l = lesson.value;
   const json = l ? JSON.stringify(l) : "";
+  const isPlaying = playing.value;
 
   /** Puts the player at the playhead and measures the element boxes for the handles. */
   const show = () => {
@@ -69,55 +94,127 @@ export function Stage() {
     // The player announces its first scene while it is being created, so handlers read it through `made`.
     let made: Player | null = null;
     const p = createPlayer(host.current, pkg, {
-      lang: lang.value, tier: "full", orient: orient.value, captions: true,
+      lang: lang.value, tier: "full", orient: orient.value, captions: true, library: LIBRARY,
       onEvent: (e) => {
-        if (e.type === "play") setPlaying(true);
-        if (e.type === "pause" || e.type === "ended") setPlaying(false);
+        if (e.type === "play") playing.value = true;
+        if (e.type === "pause" || e.type === "ended") playing.value = false;
         if (e.type === "scene" && made?.playing) sceneId.value = l.scenes.scenes[e.index]?.id ?? sceneId.value;
       },
     });
     made = p;
     player.current = p;
-    // The editor has its own play button and scrubber; keep the stage to the picture and captions.
+    stagePlayer.value = p;
+    playing.value = false;
+    // The editor has its own transport; keep the stage to the picture and captions.
     const style = document.createElement("style");
-    style.textContent = ".ls-bar,.ls-bigplay,.ls-transcript{display:none!important}.ls-player{border-radius:10px}";
+    style.textContent = ".ls-bar,.ls-bigplay,.ls-transcript,.ls-menu{display:none!important}.ls-player{border-radius:10px}.ls-float .ls-captions{padding-bottom:10px!important}";
     host.current.shadowRoot?.append(style);
     show();
     const ro = new ResizeObserver(() => requestAnimationFrame(measure));
     ro.observe(host.current);
     return () => ro.disconnect();
   }, [json, lang.value, orient.value]);
-  useEffect(() => () => { player.current?.destroy(); player.current = null; }, []);
+  useEffect(() => () => { player.current?.destroy(); player.current = null; stagePlayer.value = null; playing.value = false; }, []);
 
   // Follow the playhead and the selected scene while paused.
   useEffect(show, [sceneId.value, playhead.value]);
 
-  // While playing, the player's clock moves the playhead.
+  // While playing, the player's clock moves the playhead; with loop on, the scene repeats.
   useEffect(() => {
-    if (!playing) return;
+    if (!isPlaying) return;
+    const loopIndex = lesson.value?.scenes.scenes.findIndex((s) => s.id === sceneId.value) ?? -1;
     const id = window.setInterval(() => {
       const p = player.current;
       const tm = timings.value[lang.value];
       if (!p || !tm) return;
-      const now = p.time();
+      let now = p.time();
+      if (loopScene.value && loopIndex >= 0) {
+        const s = tm.scenes[loopIndex]!;
+        if (now >= s.end - 0.06 || now < s.start) { p.seek(s.start); now = s.start; }
+      }
       const i = tm.scenes.findIndex((s) => now >= s.start && now < s.end);
       if (i >= 0) {
         playhead.value = now - tm.scenes[i]!.start;
         if (lesson.value?.scenes.scenes[i]) sceneId.value = lesson.value.scenes.scenes[i]!.id;
       }
       measure();
-    }, 120);
+    }, 100);
     return () => window.clearInterval(id);
-  }, [playing]);
+  }, [isPlaying]);
+
+  // The room the pasteboard gives the stage, for "fit".
+  useEffect(() => {
+    const el = board.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => requestAnimationFrame(() => setRoom({ w: Math.max(80, el.clientWidth - 56), h: Math.max(60, el.clientHeight - 56) })));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  const [sw, sh] = ORIENT[orient.value];
+  const fitK = Math.max(ZOOM_MIN, Math.min(room.w / sw, room.h / sh));
+  const k = zoom.value === "fit" ? fitK : zoom.value;
+  useEffect(() => { viewScale.value = k; }, [k]);
+
+  // Ctrl+wheel zooms around the pointer (the browser's own page zoom is kept away from the canvas).
+  useEffect(() => {
+    const el = board.current;
+    if (!el) return;
+    const wheel = (e: WheelEvent) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      const cur = viewScale.value;
+      const next = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, cur * Math.exp(-e.deltaY * 0.0015)));
+      const r = el.getBoundingClientRect();
+      const mx = e.clientX - r.left, my = e.clientY - r.top;
+      const ax = el.scrollLeft + mx, ay = el.scrollTop + my;
+      zoom.value = next;
+      requestAnimationFrame(() => { el.scrollLeft = ax * (next / cur) - mx; el.scrollTop = ay * (next / cur) - my; });
+    };
+    el.addEventListener("wheel", wheel, { passive: false });
+    return () => el.removeEventListener("wheel", wheel);
+  }, []);
+
+  // Space: a tap plays or pauses; held, the pointer pans the pasteboard.
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.code !== "Space" || typingIn(e.target)) return;
+      e.preventDefault();
+      if (e.repeat) return;
+      spaceUsed.current = false;
+      setSpace(true);
+    };
+    const up = (e: KeyboardEvent) => {
+      if (e.code !== "Space" || typingIn(e.target)) return;
+      e.preventDefault();
+      setSpace(false);
+      if (!spaceUsed.current) togglePlay();
+    };
+    addEventListener("keydown", down);
+    addEventListener("keyup", up);
+    return () => { removeEventListener("keydown", down); removeEventListener("keyup", up); };
+  }, []);
+  const panDown = (e: PointerEvent) => {
+    if (!space && e.button !== 1) return;
+    const el = board.current!;
+    pan.current = { x: e.clientX, y: e.clientY, sl: el.scrollLeft, st: el.scrollTop, moved: false };
+    spaceUsed.current = true;
+    el.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  };
+  const panMove = (e: PointerEvent) => {
+    const p = pan.current;
+    if (!p) return;
+    const el = board.current!;
+    el.scrollLeft = p.sl - (e.clientX - p.x);
+    el.scrollTop = p.st - (e.clientY - p.y);
+  };
+  const panUp = () => { pan.current = null; };
 
   const scene = currentScene.value;
-  const st = sceneTiming.value;
-  const dur = st ? st.end - st.start : 0;
   const dir = l?.manifest.languages.find((g) => g.code === lang.value)?.dir ?? "ltr";
 
   /** Screen pixels per design pixel, and whether left and right are swapped (mirrored right-to-left element). */
   const geometry = (id: string): { k: number; flip: number } => {
-    const [sw, sh] = ORIENT[orient.value];
     const [dw, dh] = designSize();
     const el = scene ? currentElementOf(id) : null;
     const flip = dir === "rtl" && scene?.mirror !== false && !el?.fixed ? -1 : 1;
@@ -125,9 +222,9 @@ export function Stage() {
   };
   const currentElementOf = (id: string) => findElement(scene, id);
 
-  const onDown = (e: PointerEvent, kind: "move" | "size", forced?: string) => {
+  const onDown = (e: PointerEvent, kind: Drag["kind"], forced?: string, handle?: Handle) => {
     const p = player.current;
-    if (!p || p.playing || typing) return;
+    if (!p || p.playing || typing || space) return;
     const id = forced ?? p.elementAt(e.clientX, e.clientY);
     if (!id) {
       // A template's own text: select it, and show its field in the inspector.
@@ -141,9 +238,11 @@ export function Stage() {
     elementId.value = id;
     const box = p.boxes().find((b) => b.id === id);
     if (!box) return;
-    const { k, flip } = geometry(id);
+    const g = geometry(id);
     const node = host.current?.shadowRoot?.querySelector<HTMLElement>(`[data-el="${CSS.escape(id)}"]`) ?? null;
-    drag.current = { id, kind, x0: e.clientX, y0: e.clientY, dx: 0, dy: 0, k, flip, node, box };
+    const ov = (e.currentTarget as HTMLElement).closest(".overlay")!.getBoundingClientRect();
+    const a0 = angleFrom(ov.left + box.x + box.w / 2, ov.top + box.y + box.h / 2, e.clientX, e.clientY);
+    drag.current = { id, kind, handle, x0: e.clientX, y0: e.clientY, dx: 0, dy: 0, k: g.k, flip: g.flip, node, box, rect: { ...box }, guides: [], a0, turn: 0 };
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     e.preventDefault();
   };
@@ -156,20 +255,56 @@ export function Stage() {
     }
     d.dx = e.clientX - d.x0;
     d.dy = e.clientY - d.y0;
-    // Live preview on the player's own element (translate composes with its animated transform).
-    if (d.node && d.kind === "move") d.node.style.translate = `${d.dx / d.k}px ${d.dy / d.k}px`;
+    // Snap to the stage and to the other elements, unless Alt is held.
+    const stageRect = { x: 0, y: 0, w: view.width, h: view.height };
+    const others = e.altKey ? [] : boxes.filter((b) => b.id !== d.id);
+    const tol = e.altKey ? -1 : 6;
+    if (d.kind === "move") {
+      const m = snapMove(d.box, d.dx, d.dy, stageRect, others, tol);
+      d.rect = { ...d.box, x: d.box.x + m.dx, y: d.box.y + m.dy };
+      d.guides = m.guides;
+      // Live preview on the player's own element (translate composes with its animated transform).
+      if (d.node) d.node.style.translate = `${m.dx / d.k}px ${m.dy / d.k}px`;
+    } else if (d.kind === "resize" && d.handle) {
+      const r = resizeBox(d.box, d.handle, d.dx, d.dy, stageRect, others, e.shiftKey, tol);
+      d.rect = r.rect;
+      d.guides = r.guides;
+    } else if (d.kind === "rotate") {
+      const ov = (e.currentTarget as HTMLElement).closest(".overlay")!.getBoundingClientRect();
+      const a = angleFrom(ov.left + d.box.x + d.box.w / 2, ov.top + d.box.y + d.box.h / 2, e.clientX, e.clientY, e.shiftKey ? 15 : 0);
+      d.turn = ((a - d.a0 + 540) % 360) - 180;
+      if (d.node) d.node.style.rotate = `${d.turn}deg`;
+    } else {
+      d.rect = { ...d.box, w: Math.max(8, d.box.w + d.dx * d.flip), h: Math.max(8, d.box.h + d.dy) };
+    }
     force((n) => n + 1);
   };
   const onUp = () => {
     const d = drag.current;
     drag.current = null;
     if (!d) return;
-    if (d.node) d.node.style.translate = "";
+    if (d.node) { d.node.style.translate = ""; d.node.style.rotate = ""; }
     const el = currentElementOf(d.id);
     if (!scene || !el || (Math.abs(d.dx) < 2 && Math.abs(d.dy) < 2)) { force((n) => n + 1); return; }
-    const mx = (d.dx / d.k) * d.flip;
-    const my = d.dy / d.k;
-    edit(d.kind === "move" ? moveOps(scene, el, mx, my) : moveOps(scene, el, 0, 0, mx, my));
+    const r = (v: number) => Math.round(v);
+    if (d.kind === "move") {
+      edit(moveOps(scene, el, ((d.rect.x - d.box.x) / d.k) * d.flip, (d.rect.y - d.box.y) / d.k));
+    } else if (d.kind === "rotate") {
+      const deg = (el.rotate ?? 0) + d.turn * d.flip;
+      edit([{ op: "updateElement", scene: scene.id, element: el.id, props: { rotate: r(((deg + 540) % 360) - 180) } }]);
+    } else if (d.kind === "resize") {
+      // Screen to design: a mirrored element's x counts from the right edge, so its right edge moves it.
+      const dsx = d.rect.x - d.box.x, dsw = d.rect.w - d.box.w, s = el.scale ?? 1;
+      const props: Record<string, number> = {
+        x: r(el.x + (d.flip === 1 ? dsx : -(dsx + dsw)) / d.k),
+        y: r(el.y + (d.rect.y - d.box.y) / d.k),
+        w: Math.max(8, r(d.rect.w / d.k / s)),
+      };
+      if (el.type !== "text") props.h = Math.max(8, r(d.rect.h / d.k / s));
+      edit([{ op: "updateElement", scene: scene.id, element: el.id, props }]);
+    } else {
+      edit(moveOps(scene, el, 0, 0, (d.dx / d.k) * d.flip, d.dy / d.k));
+    }
   };
 
   /** Double-click: type over a text on the stage, in the stage's language. */
@@ -205,62 +340,77 @@ export function Stage() {
   const selPart = !elementId.value ? parts.find((b) => b.id === partId.value) : undefined;
   const hov = hover && hover !== elementId.value && hover !== partId.value ? boxes.find((b) => b.id === hover) ?? parts.find((b) => b.id === hover) : undefined;
   const d = drag.current;
-  const shown = sel && d && d.id === sel.id
-    ? d.kind === "move"
-      ? { ...sel, x: sel.x + d.dx, y: sel.y + d.dy }
-      : d.flip < 0 ? { ...sel, x: sel.x + d.dx, w: Math.max(8, sel.w - d.dx), h: Math.max(8, sel.h + d.dy) } : { ...sel, w: Math.max(8, sel.w + d.dx), h: Math.max(8, sel.h + d.dy) }
-    : sel;
+  const live = sel && d && d.id === sel.id ? d : null;
+  const shown = live && live.kind !== "rotate" ? { ...sel!, ...live.rect } : sel;
+  const selEl = sel ? currentElementOf(sel.id) : null;
+  const g = guides.value;
 
   return (
     <section class="stage" aria-label={t("stage")}>
-      <div class="palette" role="toolbar" aria-label={t("addElement")}>
-        <span class="palette-label">{t("add")}:</span>
-        {ELEMENT_KINDS.map((k) => (
-          <button type="button" key={k.key} class="chip" disabled={!scene}
-            onClick={() => { if (!scene) return; const id = addElement(scene, k.key); if (id) elementId.value = id; }}>{t(k.label)}</button>
-        ))}
+      <div class="canvas-bar">
+        <div class="palette" role="toolbar" aria-label={t("addElement")}>
+          <span class="palette-label">{t("add")}:</span>
+          {ELEMENT_KINDS.map((kind) => (
+            <button type="button" key={kind.key} class="chip" disabled={!scene}
+              onClick={() => { if (!scene) return; const id = addElement(scene, kind.key); if (id) elementId.value = id; }}>{t(kind.label)}</button>
+          ))}
+        </div>
         <span class="spacer" />
         <select aria-label={t("shape")} value={orient.value} onChange={(e) => { orient.value = (e.target as HTMLSelectElement).value as typeof orient.value; }}>
           <option value="landscape">{t("landscape")}</option><option value="portrait">{t("portrait")}</option><option value="square">{t("square")}</option>
         </select>
       </div>
-      <div class={`stage-wrap ${orient.value}`} ref={wrap}>
-        <div ref={host} class="stage-player" />
-        <div class="overlay" style={{ left: `${view.left}px`, top: `${view.top}px`, width: `${view.width}px`, height: `${view.height}px` }}
-          onPointerDown={(e) => onDown(e as PointerEvent, "move")} onPointerMove={(e) => onMove(e as PointerEvent)} onPointerUp={onUp} onPointerCancel={onUp}
-          onPointerLeave={() => setHover(null)} onDblClick={(e) => onDouble(e as MouseEvent)}>
-          {hov && !playing && !typing ? <div class="pbox" style={{ left: `${hov.x}px`, top: `${hov.y}px`, width: `${hov.w}px`, height: `${hov.h}px` }} /> : null}
-          {selPart && !playing && !typing ? (
-            <div class="sel part" style={{ left: `${selPart.x - 3}px`, top: `${selPart.y - 3}px`, width: `${selPart.w + 6}px`, height: `${selPart.h + 6}px` }}>
-              <span class="sel-name">{t("doubleClickToType")}</span>
-            </div>
-          ) : null}
-          {typing ? <TypeOver key={typing.path} typing={typing} dir={dir} lang={lang.value} onDone={commitTyping} /> : null}
-          {!playing ? boxes.map((b) => (
-            <div key={b.id} class={b.id === elementId.value ? "hbox hidden-box" : "hbox"} style={{ left: `${b.x}px`, top: `${b.y}px`, width: `${b.w}px`, height: `${b.h}px` }} />
-          )) : null}
-          {shown && !playing ? (
-            <div class="sel" style={{ left: `${shown.x}px`, top: `${shown.y}px`, width: `${shown.w}px`, height: `${shown.h}px` }}>
-              <span class="sel-name" dir="ltr">{shown.id}</span>
-              <span class={geometry(shown.id).flip < 0 ? "grip bl" : "grip br"} role="slider" aria-label={t("resize")}
-                onPointerDown={(e) => { e.stopPropagation(); onDown(e as PointerEvent, "size", shown.id); }} />
-            </div>
-          ) : null}
+      <div ref={board} class={`pasteboard${space ? " space" : ""}${pan.current ? " panning" : ""}`}
+        onPointerDown={(e) => panDown(e as PointerEvent)} onPointerMove={(e) => panMove(e as PointerEvent)} onPointerUp={panUp} onPointerCancel={panUp}>
+        <div class={`stage-wrap ${orient.value}`} ref={wrap} style={{ width: `${Math.round(sw * k)}px` }}>
+          <div ref={host} class="stage-player" />
+          <div class="overlay" style={{ left: `${view.left}px`, top: `${view.top}px`, width: `${view.width}px`, height: `${view.height}px` }}
+            onPointerDown={(e) => onDown(e as PointerEvent, "move")} onPointerMove={(e) => onMove(e as PointerEvent)} onPointerUp={onUp} onPointerCancel={onUp}
+            onPointerLeave={() => setHover(null)} onDblClick={(e) => onDouble(e as MouseEvent)}>
+            {g.safe || g.center || g.thirds ? (
+              <div class="guides" aria-hidden="true">
+                {g.safe ? <><div class="safe" style={{ inset: "5%" }} /><div class="safe" style={{ inset: "10%" }} /></> : null}
+                {g.center ? <><div class="line" style={{ insetInlineStart: "50%", insetBlock: 0, inlineSize: "1px" }} /><div class="line" style={{ insetBlockStart: "50%", insetInline: 0, blockSize: "1px" }} /></> : null}
+                {g.thirds ? [1, 2].flatMap((n) => [
+                  <div key={`v${n}`} class="line" style={{ left: `${(n * 100) / 3}%`, top: 0, bottom: 0, width: "1px" }} />,
+                  <div key={`h${n}`} class="line" style={{ top: `${(n * 100) / 3}%`, left: 0, right: 0, height: "1px" }} />,
+                ]) : null}
+              </div>
+            ) : null}
+            {hov && !isPlaying && !typing ? <div class="pbox" style={{ left: `${hov.x}px`, top: `${hov.y}px`, width: `${hov.w}px`, height: `${hov.h}px` }} /> : null}
+            {selPart && !isPlaying && !typing ? (
+              <div class="sel part" style={{ left: `${selPart.x - 3}px`, top: `${selPart.y - 3}px`, width: `${selPart.w + 6}px`, height: `${selPart.h + 6}px` }}>
+                <span class="sel-name">{t("doubleClickToType")}</span>
+              </div>
+            ) : null}
+            {typing ? <TypeOver key={typing.path} typing={typing} dir={dir} lang={lang.value} onDone={commitTyping} /> : null}
+            {!isPlaying ? boxes.map((b) => (
+              <div key={b.id} class={b.id === elementId.value ? "hbox hidden-box" : "hbox"} style={{ left: `${b.x}px`, top: `${b.y}px`, width: `${b.w}px`, height: `${b.h}px` }} />
+            )) : null}
+            {live?.guides.map((g, i) => (
+              <div key={i} class="snap-guide" style={g.axis === "x" ? { left: `${g.at}px`, top: 0, bottom: 0, width: "1px" } : { top: `${g.at}px`, left: 0, right: 0, height: "1px" }} />
+            ))}
+            {shown && !isPlaying ? (
+              <div class="sel" style={{ left: `${shown.x}px`, top: `${shown.y}px`, width: `${shown.w}px`, height: `${shown.h}px`, ...(live?.kind === "rotate" ? { rotate: `${live.turn}deg` } : {}) }}>
+                <span class="sel-name" dir="ltr">{shown.id}{live?.kind === "rotate" ? ` ${Math.round(((selEl?.rotate ?? 0) + live.turn * live.flip + 540) % 360 - 180)}°` : ""}</span>
+                {selEl?.type === "line" ? (
+                  <span class={geometry(shown.id).flip < 0 ? "grip bl" : "grip br"} role="slider" aria-label={t("resize")}
+                    onPointerDown={(e) => { e.stopPropagation(); onDown(e as PointerEvent, "end", shown.id); }} />
+                ) : (
+                  <>
+                    {HANDLES.map((h) => (
+                      <span key={h} class={`grip h-${h}`} role="slider" aria-label={`${t("resize")} (${h})`}
+                        onPointerDown={(e) => { e.stopPropagation(); onDown(e as PointerEvent, "resize", shown.id, h); }} />
+                    ))}
+                    <span class="rot" role="slider" aria-label={t("rotate")} title={`${t("rotate")} (Shift: 15°)`}
+                      onPointerDown={(e) => { e.stopPropagation(); onDown(e as PointerEvent, "rotate", shown.id); }} />
+                  </>
+                )}
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
-      <div class="scrub">
-        <button type="button" class="btn icon" aria-label={playing ? t("pause") : t("play")}
-          onClick={() => {
-            const p = player.current;
-            if (!p) return;
-            if (p.playing) p.pause();
-            else { if (st) p.seek(st.start + playhead.value); void p.play(); }
-          }}>{playing ? "❚❚" : "▶"}</button>
-        <input type="range" dir="ltr" min={0} max={dur || 1} step={0.05} value={Math.min(playhead.value, dur)} aria-label={t("time")}
-          onInput={(e) => { player.current?.pause(); playhead.value = Number((e.target as HTMLInputElement).value); }} />
-        <span class="time" dir="ltr">{playhead.value.toFixed(1)} / {dur.toFixed(1)} s</span>
-      </div>
-      <Timeline onSeek={(s) => { player.current?.pause(); playhead.value = s; }} />
     </section>
   );
 }

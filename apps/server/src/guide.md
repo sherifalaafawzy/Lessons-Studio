@@ -41,7 +41,9 @@ Templates (fast, they lay themselves out and adapt to every screen shape):
 | `canvas` | `{elements: [element, ...]}`: free layout, see below | element ids |
 
 Flow node tones: `neutral`, `trusted`, `system`, `danger`. Icons: user, page, bot, server, data, lock, shield,
-phone, mail, link, warning, key, cloud, chip, wifi, check, cross, spark.
+phone, mail, link, warning, key, cloud, chip, wifi, check, cross, spark; and the shared library's 115 (for example
+banknote, clock, school, users, flag, file, filter, hand, circlecheck, circlex, package, pencil, ruler, thermometer,
+cloudrain, sprout, database, brain, cpu, search, megaphone, profile; the player fetches them once, about 6 KB).
 
 A check: `{"type": "single-choice", "id", "prompt": text, "options": [{"id", "text"}], "answer": "<option id>", "explain"?: text}`.
 
@@ -64,6 +66,10 @@ Positions are pixels from the top-left. Every element: `{"id", "type", "x", "y",
 | `path` | `d` (SVG path in its own 0 0 w h box), `w`, `h`, `fill`, `strokeWidth` |
 | `icon` | `icon` (from the list above), `w`, `h` |
 | `image` | `src`, `small` (a ~480 px copy), `alt`, `fit` cover/contain, `w`, `h` |
+
+The shared library has a cast for any lesson, as `image` sources: `@lib/v1/cast/<who>_<mood>.svg`, where who is
+amina, okafor, salma, joseph or farah (teachers) and mood is smile, talking, curious or happy (head and shoulders,
+about 400 × 410 on the stage), plus the Darsi mark, `@lib/v1/brand/darsi-mark.svg`.
 | `code` | `code` (a string with \n), `highlight` (1-based lines), `size` |
 | `chart` | `kind` bar/line, `data` (numbers), `labels`, `max`, `w`, `h` |
 | `group` | `children` (elements positioned inside the group) |

@@ -19,6 +19,16 @@ export interface Labels {
   letters: string[];
   /** Joins list items. Arabic uses "،", never "·". */
   sep: string;
+  chapters: string;
+  volume: string;
+  mute: string;
+  fullscreen: string;
+  settings: string;
+  captionSize: string;
+  sizes: [string, string, string];
+  captionBg: string;
+  /** "{n}" right out of "{m}" quick checks. */
+  score: string;
 }
 
 const EN: Labels = {
@@ -38,6 +48,15 @@ const EN: Labels = {
   aiParts: { script: "script", translation: "translation", voice: "voice" },
   letters: ["A", "B", "C", "D", "E"],
   sep: ", ",
+  chapters: "Chapters",
+  volume: "Volume",
+  mute: "Mute",
+  fullscreen: "Full screen",
+  settings: "Settings",
+  captionSize: "Caption size",
+  sizes: ["Small", "Medium", "Large"],
+  captionBg: "Caption background",
+  score: "{n} of {m} quick checks right",
 };
 
 const AR: Labels = {
@@ -57,6 +76,15 @@ const AR: Labels = {
   aiParts: { script: "النص", translation: "الترجمة", voice: "الصوت" },
   letters: ["أ", "ب", "ج", "د", "هـ"],
   sep: "، ",
+  chapters: "الفصول",
+  volume: "مستوى الصوت",
+  mute: "كتم الصوت",
+  fullscreen: "ملء الشاشة",
+  settings: "الإعدادات",
+  captionSize: "حجم الترجمة",
+  sizes: ["صغير", "متوسط", "كبير"],
+  captionBg: "خلفية الترجمة",
+  score: "{n} من {m} أسئلة سريعة صحيحة",
 };
 
 export function labelsFor(lang: string, override?: Partial<Labels>): Labels {

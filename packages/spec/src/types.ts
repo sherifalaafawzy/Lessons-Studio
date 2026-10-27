@@ -1,3 +1,4 @@
+import type { LibraryIcon } from "./library-icons.ts";
 /**
  * Lesson Package v0.2. PLAN.md §6 describes the format; the JSON Schemas in ../schema mirror these types.
  * v0.2 adds the canvas template (free elements with keyframes), overlays, transitions, camera and images.
@@ -65,6 +66,8 @@ export interface LanguageTrack {
   quality?: "reviewed" | "machine" | "draft";
   /** The voice that narrates (or will narrate) this language. `npm run narrate` reads it. */
   voice?: NarrationVoice;
+  /** The cast's voices, by speaker: a scene with a `speaker` is voiced by `voices[speaker]`, any other by `voice`. */
+  voices?: Record<string, NarrationVoice>;
 }
 
 export interface NarrationVoice {
@@ -152,6 +155,8 @@ interface SceneBase {
   id: string;
   /** What is spoken, per language. Every language in the manifest needs it. */
   narration: Record<Lang, string>;
+  /** Who says it: a key of the language tracks' `voices` (a cast member). Absent: the narrator. */
+  speaker?: string;
   cues?: Cue[];
   /** Asked when the scene ends. */
   check?: Check;
@@ -303,9 +308,12 @@ export interface CanvasContent {
   elements: Element[];
 }
 
-export type IconName =
+/** The player's own icons. */
+export type CoreIcon =
   | "user" | "page" | "bot" | "server" | "data" | "lock" | "shield" | "phone" | "mail" | "link"
   | "warning" | "key" | "cloud" | "chip" | "wifi" | "check" | "cross" | "spark";
+/** The player's own icons, and the shared library's (src/library.ts). */
+export type IconName = CoreIcon | LibraryIcon;
 
 /** Targets: "kicker", "title", "hook". */
 export interface TitleHookContent {
@@ -425,6 +433,8 @@ export interface TimingFile {
 export interface LessonPackage {
   /** Where the files live, ending in "/". Relative paths in the manifest resolve against it. */
   base?: string;
+  /** Where the shared library lives, ending in "/": "@lib/..." paths resolve against it (default: Lesson Studio's Hosting). */
+  library?: string;
   manifest: Manifest;
   scenes: ScenesFile;
   /** Loaded timing files, by language. */

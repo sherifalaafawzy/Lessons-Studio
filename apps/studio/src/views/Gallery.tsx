@@ -1,44 +1,50 @@
 import { useEffect, useRef, useState } from "preact/hooks";
-import type { Scene, TemplateId } from "@lessonstudio/spec";
+import type { Scene } from "@lessonstudio/spec";
 import { TEMPLATES } from "@lessonstudio/spec";
 import { createPlayer, type Player } from "@lessonstudio/player";
 import { toPackage } from "@lessonstudio/ops";
-import { lang, lesson, orient } from "../editor.ts";
+import { insertScene, lang, leftTab, lesson, orient } from "../editor.ts";
 import { t, uiLang } from "../i18n.ts";
-import { GALLERY, type ScenePreset } from "../presets.ts";
-import { TEMPLATE_NAMES } from "./content.tsx";
+import { LIBRARY } from "../env.ts";
+import { GALLERY } from "../presets.ts";
+import { TEMPLATE_NAMES, newScene } from "./content.tsx";
 
-/** "Add a scene": ready-made scenes with a live preview, or a blank scene of any template. */
-export function Gallery(p: { onPreset: (preset: ScenePreset) => void; onBlank: (template: TemplateId) => void; onClose: () => void }) {
+/** "Add a scene", in the left panel: ready-made scenes with a live preview, or a blank scene of any template. */
+export function AddPanel() {
   const l = lesson.value;
   if (!l) return null;
   const langs = l.manifest.languages.map((x) => x.code);
   const stage = l.manifest.stage ?? "landscape";
+  // After adding, the scene list shows where it went.
+  const done = (id: string | null) => { if (id) leftTab.value = "scenes"; };
   return (
-    <div class="modal" role="dialog" aria-modal="true" aria-label={t("addScene")} onKeyDown={(e) => { if (e.key === "Escape") p.onClose(); }}>
-      <div class="modal-box gallery">
-        <h2>{t("addScene")}</h2>
-        <p class="f-hint">{t("galleryHint")}</p>
-        <ul class="gal-grid">
-          {GALLERY.map((g) => (
-            <li key={g.id}>
-              <button type="button" class="gal-card" onClick={() => p.onPreset(g)}>
-                <MiniScene scene={g.make({ id: "preview", langs, stage })} />
-                <span class="gal-name">{g.name[uiLang.value]}</span>
-                <span class="badge">{t(TEMPLATE_NAMES[g.template])}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <h3>{t("blankScene")}</h3>
-        <div class="tpl-pick" role="group" aria-label={t("chooseTemplate")}>
-          {TEMPLATES.map((tp) => <button type="button" key={tp} class="chip" onClick={() => p.onBlank(tp)}>{t(TEMPLATE_NAMES[tp])}</button>)}
-        </div>
-        <div class="modal-foot"><button type="button" class="link" onClick={p.onClose}>{t("cancel")}</button></div>
+    <section class="gallery-panel" aria-label={t("addScene")}>
+      <p class="f-hint">{t("galleryHint")}</p>
+      <ul class="gal-grid">
+        {GALLERY.map((g) => (
+          <li key={g.id}>
+            <button type="button" class="gal-card" draggable
+              onDragStart={(e) => { e.dataTransfer?.setData(PRESET_MIME, g.id); e.dataTransfer!.effectAllowed = "copy"; }}
+              onClick={() => done(insertScene(g.id, (id) => g.make({ id, langs, stage })))}>
+              <MiniScene scene={g.make({ id: "preview", langs, stage })} />
+              <span class="gal-name">{g.name[uiLang.value]}</span>
+              <span class="badge">{t(TEMPLATE_NAMES[g.template])}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <h3>{t("blankScene")}</h3>
+      <div class="tpl-pick" role="group" aria-label={t("chooseTemplate")}>
+        {TEMPLATES.map((tp) => (
+          <button type="button" key={tp} class="chip" onClick={() => done(insertScene(tp === "title-hook" ? "intro" : tp, (id) => newScene(tp, id)))}>{t(TEMPLATE_NAMES[tp])}</button>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
+
+/** Drag data for a gallery preset dropped onto the timeline's scene track. */
+export const PRESET_MIME = "application/x-lessonstudio-preset";
 
 const ASPECT = { landscape: "16 / 9", portrait: "9 / 16", square: "1" };
 
@@ -59,7 +65,7 @@ export function MiniScene({ scene, hoverPlay = true }: { scene: Scene; hoverPlay
     const l = lesson.value;
     if (!seen || !l || !host.current) return;
     const pkg = toPackage({ manifest: l.manifest, scenes: { version: "0.2", scenes: [scene] } });
-    const p = createPlayer(host.current, pkg, { lang: lang.value, tier: "full", orient: orient.value, captions: false });
+    const p = createPlayer(host.current, pkg, { lang: lang.value, tier: "full", orient: orient.value, captions: false, library: LIBRARY });
     const style = document.createElement("style");
     style.textContent = ".ls-bar,.ls-bigplay,.ls-transcript,.ls-captions{display:none!important}.ls-player{border-radius:8px}";
     host.current.shadowRoot?.append(style);

@@ -11,7 +11,7 @@ import { estimateTiming, splitWords, toVtt, validatePackage } from "../packages/
 import {
   DEFAULT_MODEL, alignWords, assemble, audioOf, batchOutput, batchState, billed, downloadResults, getBatch, lineKey,
   linesOf, parseJsonl, parseWav, seconds, similarity, speak, spreadWords, submitBatch, toWav, trimSilence, ttsCost,
-  ttsRequest, voiceFor,
+  ttsRequest, voiceFor, isVertexKey,
 } from "../packages/narrate/src/index.ts";
 import { EXAMPLES, exampleIds } from "./lib/examples.mjs";
 
@@ -26,6 +26,7 @@ const HELP = `Narrates Lesson Packages with Gemini TTS, then times every word ag
   --lang en,ar       only these languages
   --dir <folder>     narrate a package outside examples/
   --limit <n>        voice at most n sentences in this run (a cheap first test)
+  --workers <n>      requests at once when voicing now (default 2; the API's rate limits are retried)
   --voice <name>     another voice (e.g. Kore); --model <id> and --style <text> likewise
   --aligner <model>  Whisper model for word timings (default small); "none" spreads words within sentences
   --skip-check       don't transcribe sentences to check the voice read them as written
@@ -64,6 +65,7 @@ const { values: opt, positionals: ids } = parseArgs({
     provider: { type: "string" },
     aligner: { type: "string", default: "small" },
     "skip-check": { type: "boolean" },
+    workers: { type: "string" },
     missing: { type: "string" },
   },
 });
@@ -83,6 +85,8 @@ const sleep = (ms) => new Promise((ok) => setTimeout(ok, ms));
 const ttsPath = (key) => join(TTS, `${key}.wav`);
 const metaPath = (key) => join(TTS, `${key}.json`);
 const cached = (key) => existsSync(ttsPath(key));
+/** How long a pause (a sentence that is only "…", see linesOf) lasts. */
+const PAUSE_SECONDS = 0.8;
 
 /* ---------- what to narrate ---------- */
 
@@ -108,9 +112,15 @@ for (const dir of folders) {
     // `chosen` is what the manifest records; `voice` adds per-language hints and is what the key and request use.
     const chosen = { ...DEFAULT_VOICE, ...track.voice, ...overrides };
     const voice = voiceFor(track.code, chosen, DEFAULT_VOICE);
+    // The cast: a scene with a speaker is voiced by that speaker's voice; the narrator's settings fill the gaps.
+    const cast = Object.fromEntries(Object.entries(track.voices ?? {}).map(([who, v]) => [who, voiceFor(track.code, v, chosen)]));
     const lines = [];
     for (const scene of linesOf(scenes, track.code)) {
-      lines.push(await Promise.all(scene.map(async (l) => ({ ...l, key: await lineKey(voice, track.code, l.text) }))));
+      lines.push(await Promise.all(scene.map(async (l) => {
+        const v = (l.speaker && cast[l.speaker]) || voice;
+        if (l.pause) return { ...l, voice: v, key: "pause" };
+        return { ...l, voice: v, key: await lineKey(v, track.code, l.text) };
+      })));
     }
     const est = estimateTiming(scenes, track.code);
     const speech = est.scenes.reduce((a, s) => a + s.sentences.reduce((b, x) => b + x.end - x.start, 0), 0);
@@ -128,14 +138,14 @@ const allLines = (j) => j.lines.flat();
 let need = new Map(); // key -> { text, lang, voice }
 console.log("Sentences to voice:");
 for (const j of jobs) {
-  const missing = allLines(j).filter((l) => !cached(l.key));
-  for (const l of missing) need.set(l.key, { text: l.text, lang: j.track.code, voice: j.voice });
+  const missing = allLines(j).filter((l) => !l.pause && !cached(l.key));
+  for (const l of missing) need.set(l.key, { text: l.text, lang: j.track.code, voice: l.voice });
   const chars = allLines(j).reduce((a, l) => a + l.text.length, 0);
   const share = missing.length / Math.max(1, allLines(j).length);
   const model = j.voice.model;
   console.log(
     `  ${j.id} ${j.track.code}: ${allLines(j).length} sentences, ${missing.length} not voiced yet, about ${Math.round(j.speech)} s of speech;` +
-      ` ${j.voice.name} on ${model}; to voice the rest: ${usd(ttsCost(model, j.speech * share, chars * share, true))} in a batch,` +
+      ` ${[...new Set(allLines(j).map((l) => l.voice.name))].join(", ")} on ${model}; to voice the rest: ${usd(ttsCost(model, j.speech * share, chars * share, true))} in a batch,` +
       ` ${usd(ttsCost(model, j.speech * share, chars * share, false))} now`,
   );
 }
@@ -208,7 +218,11 @@ async function collect(client, file) {
 const pendingFiles = () => (existsSync(BATCHES) ? readdirSync(BATCHES).filter((f) => f.endsWith(".json")).map((f) => join(BATCHES, f)) : []);
 
 if (!opt.offline && (need.size || pendingFiles().length)) {
-  const client = { key: apiKey() };
+  const key = apiKey();
+  const client = { key, vertex: isVertexKey(key) };
+  // Vertex AI keys have no half-price batch: they voice now.
+  const now = opt.now || client.vertex;
+  if (client.vertex && !opt.now) console.log("\nThis is a Vertex AI key, which can't use the batch, so the sentences are voiced now at the standard price.");
   // Batches from an earlier run first: their sentences may already be done.
   for (const f of pendingFiles()) await collect(client, f);
   const inFlight = new Set(pendingFiles().flatMap((f) => read(f).keys));
@@ -217,7 +231,7 @@ if (!opt.offline && (need.size || pendingFiles().length)) {
 
   let todo = [...need];
   if (opt.limit) todo = todo.slice(0, Number(opt.limit));
-  if (todo.length && opt.now) {
+  if (todo.length && now) {
     console.log(`\nVoicing ${todo.length} sentences now...`);
     let done = 0;
     const queue = [...todo];
@@ -225,14 +239,15 @@ if (!opt.offline && (need.size || pendingFiles().length)) {
       for (let item = queue.shift(); item; item = queue.shift()) {
         const [key, info] = item;
         try {
-          saveClip(key, info, await speak(client, info.text, info.voice), "now");
+          // Vertex AI's quota is shared and runs out under load ("Resource exhausted"): keep trying for longer.
+          saveClip(key, info, await speak(client, info.text, info.voice, client.vertex ? 12 : 5), "now");
         } catch (e) {
           console.log(`  "${info.text.slice(0, 60)}": ${e.message}`);
         }
         console.log(`  ${++done}/${todo.length}`);
       }
     };
-    await Promise.all([worker(), worker()]);
+    await Promise.all(Array.from({ length: Math.max(1, Number(opt.workers ?? 2)) }, worker));
   } else if (todo.length) {
     const byModel = Map.groupBy(todo, ([, info]) => info.voice.model);
     for (const [model, items] of byModel) {
@@ -247,7 +262,7 @@ if (!opt.offline && (need.size || pendingFiles().length)) {
       console.log(`\nSubmitted ${items.length} sentences to ${model} as ${name} (batch price).`);
     }
   }
-  if (!opt.now && !opt["no-wait"] && pendingFiles().length) {
+  if (!now && !opt["no-wait"] && pendingFiles().length) {
     console.log("Waiting for the batch. Most finish within minutes; Google allows up to 24 hours.");
     console.log("It's safe to stop with Ctrl+C: run the same command later to collect it.");
     const from = Date.now();
@@ -268,12 +283,15 @@ if (!opt.offline && (need.size || pendingFiles().length)) {
 
 /* ---------- word timings ---------- */
 
-const ready = jobs.filter((j) => allLines(j).every((l) => cached(l.key)));
+const ready = jobs.filter((j) => allLines(j).every((l) => l.pause || cached(l.key)));
 for (const j of jobs) if (!ready.includes(j)) console.log(`\n${j.id} ${j.track.code}: not every sentence is voiced yet; nothing written.`);
 if (!ready.length) process.exit(0);
 
 const clipOf = new Map(); // key -> trimmed Pcm
-for (const l of ready.flatMap(allLines)) if (!clipOf.has(l.key)) clipOf.set(l.key, trimSilence(parseWav(readFileSync(ttsPath(l.key)))));
+for (const l of ready.flatMap(allLines)) if (!l.pause && !clipOf.has(l.key)) clipOf.set(l.key, trimSilence(parseWav(readFileSync(ttsPath(l.key)))));
+// A pause is silence at the voices' own rate.
+const rate = clipOf.values().next().value?.rate ?? 24000;
+clipOf.set("pause", { rate, samples: new Int16Array(Math.round(rate * PAUSE_SECONDS)) });
 
 const python = [process.env.LESSONSTUDIO_PYTHON, join(ROOT, "services/ai/.venv/Scripts/python.exe"), join(ROOT, "services/ai/.venv/bin/python")]
   .find((p) => p && existsSync(p));
@@ -288,7 +306,7 @@ if (opt.aligner !== "none" && !python) {
   );
 }
 if (aligner) {
-  const todo = ready.flatMap((j) => allLines(j).map((l) => ({ ...l, lang: j.track.code })))
+  const todo = ready.flatMap((j) => allLines(j).filter((l) => !l.pause).map((l) => ({ ...l, lang: j.track.code })))
     .filter((l, i, all) => all.findIndex((x) => x.key === l.key) === i)
     .filter((l) => {
       if (!existsSync(alignPath(l.key))) return true;
@@ -345,6 +363,7 @@ for (const j of ready) {
     id: j.scenes[i].id,
     clips: lines.map((l) => {
       const pcm = clipOf.get(l.key);
+      if (l.pause) return { text: l.text, pcm, words: spreadWords(splitWords(l.text), 0, seconds(pcm)) };
       if (!pcm.samples.length) throw new Error(`${j.id} ${lang}: the audio for "${l.text}" is silent; delete .cache/narrate/tts/${l.key}.* and run again`);
       const words = splitWords(l.text);
       const a = aligner && existsSync(alignPath(l.key)) ? read(alignPath(l.key)) : null;
@@ -383,6 +402,7 @@ for (const j of ready) {
 
   // Clips recorded outside this tool have no meta, so no known cost.
   const spent = allLines(j).reduce((a, l) => {
+    if (l.pause) return a;
     if (a === null || !existsSync(metaPath(l.key))) return null;
     const x = read(metaPath(l.key));
     const c = billed(x.voice?.model ?? "", x.tokens ?? 0, x.inputTokens ?? 0, x.mode === "batch");

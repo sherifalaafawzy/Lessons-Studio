@@ -42,7 +42,8 @@ await build({
   format: "esm",
   sourcemap: false,
   legalComments: "none",
-  external: ["firebase-functions", "firebase-functions/*", "firebase-admin", "firebase-admin/*", "playwright-core"],
+  // Installed in the cloud, not bundled; exportVideo loads them only when it runs (esbuild only on a PC).
+  external: ["firebase-functions", "firebase-functions/*", "firebase-admin", "firebase-admin/*", "playwright-core", "@sparticuz/chromium", "ffmpeg-static", "esbuild"],
   loader: { ".md": "text" },
   define: { "process.env.LS_BUNDLED": '"1"' },
   // Bundled CommonJS packages (express and friends) still call require for Node's own modules.
@@ -51,6 +52,13 @@ await build({
   logLevel: "warning",
 });
 cpSync(`${server}guide.md`, `${here}lib/guide.md`);
+// For exportVideo (src/video.ts): the player, the shared library and the Noto Sans web fonts.
+writeFileSync(`${here}lib/player.js`, player);
+cpSync(`${root}apps/studio/public/lib`, `${here}lib/library`, { recursive: true });
+mkdirSync(`${here}lib/fonts`, { recursive: true });
+for (const [pkg, file] of [["noto-sans", "noto-sans-latin-wght-normal.woff2"], ["noto-sans", "noto-sans-latin-ext-wght-normal.woff2"], ["noto-sans-arabic", "noto-sans-arabic-arabic-wght-normal.woff2"]]) {
+  cpSync(`${root}node_modules/@fontsource-variable/${pkg}/files/${file}`, `${here}lib/fonts/${file}`);
+}
 mkdirSync(`${here}lib/examples`, { recursive: true });
 cpSync(`${root}examples/how-ai-learns`, `${here}lib/examples/how-ai-learns`, { recursive: true });
 

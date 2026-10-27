@@ -169,3 +169,48 @@ test("a canvas lesson animates on the spoken word, in each language", async ({ p
     expect(right).toBe(lang === "ar");
   }
 });
+
+test("the learner's controls: chapters, keys, settings and the place in the lesson kept after a reload", async ({ page }, info) => {
+  await open(page, "lesson=prompt-injection&lang=en");
+  const p = page.locator("#player");
+  const s = await scenes(page, "prompt-injection", "en");
+
+  // Chapters: one per scene, named; picking one jumps to it.
+  await p.getByRole("button", { name: "Chapters" }).click();
+  const items = p.locator(".ls-menu .ls-mi");
+  await expect(items).toHaveCount(s.length);
+  await items.nth(2).click();
+  expect(Math.abs((await timeOf(page)) - s[2]!.start)).toBeLessThan(0.1);
+
+  // Keys: L is five seconds on, 0–9 jump through the lesson.
+  await p.locator(".ls-player").focus();
+  const before = await timeOf(page);
+  await page.keyboard.press("l");
+  expect(await timeOf(page)).toBeCloseTo(before + 5, 1);
+  await page.keyboard.press("5");
+  const total = s.at(-1)!.end;
+  expect(await timeOf(page)).toBeCloseTo(total / 2, 0);
+
+  // Settings: speed 1.5× and large captions; the full-screen button is there.
+  await p.getByRole("button", { name: "Settings" }).click();
+  await p.locator(".ls-menu .ls-mi", { hasText: "1.5×" }).click();
+  await p.getByRole("button", { name: "Settings" }).click();
+  await p.locator(".ls-menu .ls-mi", { hasText: "Large" }).click();
+  await expect(p.getByRole("button", { name: "Full screen" })).toBeVisible();
+  const place = await timeOf(page);
+  await call(page, "pause");
+
+  // After a reload: the same speed and caption size, and the same place in the lesson.
+  await open(page, "lesson=prompt-injection&lang=en");
+  await p.getByRole("button", { name: "Settings" }).click();
+  await expect(p.locator(".ls-menu .ls-mi.is-on", { hasText: "1.5×" })).toHaveCount(1);
+  await expect(p.locator(".ls-menu .ls-mi.is-on", { hasText: "Large" })).toHaveCount(1);
+  expect(Math.abs((await timeOf(page)) - place)).toBeLessThan(0.5);
+
+  // Scrubbing shows the chapter and time.
+  await page.keyboard.press("Escape");
+  const seek = (await p.locator(".ls-seek").boundingBox())!;
+  await page.mouse.move(seek.x + seek.width * 0.25, seek.y + seek.height / 2);
+  await expect(p.locator(".ls-tipt")).toBeVisible();
+  await page.screenshot({ path: `e2e/screenshots/player-controls-${info.project.name}.png` });
+});

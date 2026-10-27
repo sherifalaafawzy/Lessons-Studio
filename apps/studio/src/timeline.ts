@@ -28,3 +28,27 @@ export function dropWhen(w: When, resolvedAt: number, to: number, word: { text: 
   const { offset: _o, ...rest } = w;
   return offset ? { ...rest, offset } : rest;
 }
+
+/** Pixels per second: the whole lesson fits the width at zoom 1; zoom multiplies that. */
+export function timelinePps(width: number, duration: number, zoom: number): number {
+  return (Math.max(40, width) / Math.max(1, duration)) * Math.max(1, zoom);
+}
+
+/** Ruler ticks every `step` seconds, labelled every `label`: steps are chosen so labels stay at least 64 px apart. */
+export function ticksFor(pps: number): { step: number; label: number } {
+  const steps = [0.25, 0.5, 1, 2, 5, 10, 15, 30, 60, 120];
+  const label = steps.find((s) => s * pps >= 64) ?? 300;
+  const step = steps.filter((s) => s < label && s * pps >= 10).at(-1) ?? label;
+  return { step, label };
+}
+
+/** Where a scene dropped at time `at` goes: the index of the first scene whose middle is after it. */
+export function insertionIndex(at: number, scenes: { start: number; end: number }[]): number {
+  const i = scenes.findIndex((s) => at < (s.start + s.end) / 2);
+  return i < 0 ? scenes.length : i;
+}
+
+/** moveScene's target index for a scene at `from` dropped before position `before` (0…n). */
+export function moveTarget(from: number, before: number): number {
+  return before > from ? before - 1 : before;
+}

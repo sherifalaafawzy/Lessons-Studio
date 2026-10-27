@@ -1,0 +1,405 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "Wait… how did my phone know I was going to type “ready”?",
+        "ar-EG": "استنى… الموبايل عرف منين إني كنت هكتب «جاهز»؟"
+      },
+      "mood": "curious",
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "“The exam timetable is…”",
+            "ar-EG": "«جدول الامتحانات…»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Suggests “ready”",
+            "ar-EG": "بيقترح «جاهز»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "How did it know?",
+            "ar-EG": "عرف منين؟"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A person writes the rule",
+            "ar-EG": "حد بيكتب القاعدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "At 6:00",
+            "ar-EG": "الساعة 6:00"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lamp",
+          "text": {
+            "en": "Switch on",
+            "ar-EG": "تنوّر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Every day, the same",
+            "ar-EG": "كل يوم، هي هي"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "No rule written by a person",
+            "ar-EG": "مفيش قاعدة حد كتبها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Learned from lots of examples",
+            "ar-EG": "اتعلم من أمثلة كتير جدًا"
+          },
+          "s": 2
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Spotted a pattern",
+            "ar-EG": "لقط نمط بيتكرر"
+          },
+          "s": 3
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Made a best guess: “ready”",
+            "ar-EG": "طلّع أحسن تخمين: «جاهز»"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "keyboard"
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "examples",
+            "icon": "layers",
+            "text": {
+              "en": "Examples",
+              "ar-EG": "أمثلة"
+            },
+            "s": 1
+          },
+          {
+            "id": "patterns",
+            "icon": "sparkle",
+            "text": {
+              "en": "Patterns",
+              "ar-EG": "أنماط"
+            },
+            "s": 1
+          },
+          {
+            "id": "guess",
+            "icon": "help",
+            "text": {
+              "en": "Best guess",
+              "ar-EG": "أحسن تخمين"
+            },
+            "tone": "system",
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "examples",
+            "patterns"
+          ],
+          [
+            "patterns",
+            "guess"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "headline": {
+        "en": "Like a new class",
+        "ar-EG": "زي فصل جديد"
+      },
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Day one",
+            "ar-EG": "أول يوم"
+          },
+          "icon": "clipboard",
+          "tone": "accent",
+          "s": 1,
+          "items": [
+            {
+              "icon": "list",
+              "text": {
+                "en": "The seating chart",
+                "ar-EG": "ورقة أماكن القعدة"
+              },
+              "s": 1
+            },
+            {
+              "icon": "ruleset",
+              "text": {
+                "en": "A rule",
+                "ar-EG": "قاعدة"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Weeks later",
+            "ar-EG": "بعد كام أسبوع"
+          },
+          "icon": "users",
+          "tone": "ok",
+          "s": 2,
+          "items": [
+            {
+              "icon": "smile",
+              "text": {
+                "en": "You know every face",
+                "ar-EG": "بتعرف كل واحد بوشه"
+              },
+              "s": 2
+            },
+            {
+              "icon": "mapPin",
+              "text": {
+                "en": "Even at the market",
+                "ar-EG": "حتى في السوق"
+              },
+              "s": 2
+            },
+            {
+              "icon": "layers",
+              "text": {
+                "en": "Learned from examples",
+                "ar-EG": "اتعلمت من الأمثلة"
+              },
+              "s": 3
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "One fixed rule",
+            "ar-EG": "قاعدة واحدة ثابتة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Useful",
+            "ar-EG": "مفيدة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Doesn’t learn",
+            "ar-EG": "مبتتعلمش"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Voice typing: speech into text",
+            "ar-EG": "الكتابة بالصوت: كلامك يتكتب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Spam filters: “You won a prize!”",
+            "ar-EG": "فلاتر السبام: «كسبت جايزة!»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "A leaf photo: disease warning",
+            "ar-EG": "صورة ورقة شجر: تحذير من مرض"
+          },
+          "s": 4
+        },
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "Flood forecasts, days ahead",
+            "ar-EG": "توقع الفيضان قبلها بأيام"
+          },
+          "s": 5
+        },
+        {
+          "icon": "layers",
+          "tone": "ok",
+          "text": {
+            "en": "Each learned from lots of examples",
+            "ar-EG": "كلهم اتعلموا من أمثلة كتير"
+          },
+          "s": 6
+        }
+      ],
+      "aside": "sparkle"
+    },
+    "10": {
+      "cards": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "A calculator",
+            "ar-EG": "الآلة الحاسبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "traffic",
+          "text": {
+            "en": "A traffic light on a timer",
+            "ar-EG": "إشارة مرور بتايمر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "An automatic school bell",
+            "ar-EG": "جرس المدرسة الأوتوماتيك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Fixed steps: no learning",
+            "ar-EG": "خطوات ثابتة: مفيش تعلّم"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Rules: written by people",
+            "ar-EG": "القواعد: بيكتبها الناس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "AI: learns from examples",
+            "ar-EG": "الذكاء الاصطناعي: بيتعلم من الأمثلة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "It gives a best guess",
+            "ar-EG": "وبيديك أحسن تخمين"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Learns from examples: AI. Fixed rule: not AI.",
+        "ar-EG": "بيتعلم من الأمثلة: ذكاء اصطناعي. قاعدة ثابتة: لأ."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Box 1: learns from examples",
+            "ar-EG": "مربع 1: بيتعلم من الأمثلة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Box 2: follows a rule",
+            "ar-EG": "مربع 2: بيمشي على قاعدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "megaphone",
+          "text": {
+            "en": "Call out everyday things",
+            "ar-EG": "قول أسامي حاجات من كل يوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils decide and say why",
+            "ar-EG": "التلاميذ يقرروا ويقولوا ليه"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

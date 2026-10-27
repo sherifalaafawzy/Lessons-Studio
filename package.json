@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "npm run build -w @lessonstudio/spec && npm run build -w @lessonstudio/player",
-    "typecheck": "tsc -p packages/spec && tsc -p packages/ops && tsc -p packages/narrate && tsc -p packages/player && tsc -p apps/playground && tsc -p apps/server && tsc -p apps/studio",
+    "typecheck": "tsc -p packages/spec && tsc -p packages/ops && tsc -p packages/narrate && tsc -p packages/player && tsc -p apps/playground && tsc -p apps/server && tsc -p apps/studio && tsc -p scripts",
     "test": "vitest run",
     "timing": "node scripts/make-timing.mjs",
     "narrate": "node --env-file-if-exists=.env.local scripts/narrate.mjs",
@@ -24,10 +24,14 @@
     "emulators": "npm --prefix functions run build && firebase emulators:start --project demo-lessonstudio --only auth,firestore,functions",
     "studio": "npm run dev -w @lessonstudio/studio",
     "studio:emulators": "npm run dev:emulators -w @lessonstudio/studio",
-    "studio:build": "npm run build -w @lessonstudio/studio"
+    "studio:build": "npm run build -w @lessonstudio/studio",
+    "mp4": "node scripts/video/mp4.ts",
+    "package-lessons": "node scripts/video/package.ts"
   },
   "devDependencies": {
     "@firebase/rules-unit-testing": "6.0.0",
+    "@fontsource-variable/noto-sans": "5.3.0",
+    "@fontsource-variable/noto-sans-arabic": "5.3.0",
     "@playwright/test": "1.64.0",
     "ajv": "8.20.0",
     "esbuild": "0.27.7",

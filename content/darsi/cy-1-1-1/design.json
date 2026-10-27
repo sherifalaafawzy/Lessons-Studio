@@ -1,0 +1,478 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "profile",
+          "text": {
+            "en": "My name",
+            "ar-EG": "اسمي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "My birth year",
+            "ar-EG": "سنة ميلادي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Same for email and money",
+            "ar-EG": "نفسه للإيميل والمحفظة"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "program",
+            "icon": "cpu",
+            "text": {
+              "en": "A program",
+              "ar-EG": "برنامج تخمين"
+            },
+            "tone": "system",
+            "s": 0
+          },
+          {
+            "id": "names",
+            "icon": "profile",
+            "text": {
+              "en": "Names",
+              "ar-EG": "أسامي"
+            },
+            "s": 1
+          },
+          {
+            "id": "birthdays",
+            "icon": "calendar",
+            "text": {
+              "en": "Birthdays",
+              "ar-EG": "أعياد ميلاد"
+            },
+            "s": 1
+          },
+          {
+            "id": "tricks",
+            "icon": "shuffle",
+            "text": {
+              "en": "Our tricks",
+              "ar-EG": "حيلنا المعروفة"
+            },
+            "s": 1
+          },
+          {
+            "id": "pw",
+            "icon": "warning",
+            "text": {
+              "en": "Easy guess",
+              "ar-EG": "سهل يتخمّن"
+            },
+            "tone": "danger",
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "program",
+            "names"
+          ],
+          [
+            "program",
+            "birthdays"
+          ],
+          [
+            "program",
+            "tricks"
+          ],
+          [
+            "names",
+            "pw"
+          ],
+          [
+            "birthdays",
+            "pw"
+          ],
+          [
+            "tricks",
+            "pw"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "3 dials",
+            "ar-EG": "3 خانات"
+          },
+          "icon": "lock",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "gauge",
+              "text": {
+                "en": "1,000 combinations",
+                "ar-EG": "ألف احتمال"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "6 dials",
+            "ar-EG": "6 خانات"
+          },
+          "icon": "lock",
+          "tone": "ok",
+          "s": 2,
+          "items": [
+            {
+              "icon": "gauge",
+              "text": {
+                "en": "1,000,000 combinations",
+                "ar-EG": "مليون احتمال"
+              },
+              "s": 3
+            },
+            {
+              "icon": "ruler",
+              "text": {
+                "en": "Each extra character multiplies it",
+                "ar-EG": "كل حرف زيادة بيضاعفها"
+              },
+              "s": 4
+            }
+          ]
+        }
+      }
+    },
+    "5": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Three random words",
+            "ar-EG": "3 كلمات عشوائية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "link",
+          "text": {
+            "en": "Joined together",
+            "ar-EG": "جنب بعض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Long, yet easy to picture",
+            "ar-EG": "طويلة وسهل تتخيّلها"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "6": {
+      "who": "okafor",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Kettle",
+            "ar-EG": "كاتل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Mango",
+            "ar-EG": "مانجة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Thunder",
+            "ar-EG": "رعد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Picture all three together",
+            "ar-EG": "اتخيّل التلاتة مع بعض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Pick your own words, not ours",
+            "ar-EG": "اختار كلماتك إنت، مش بتوعنا"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Name, year, symbol",
+            "ar-EG": "اسم وسنة ورمز"
+          },
+          "s": 0,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Short and predictable",
+            "ar-EG": "قصير ومتوقّع"
+          },
+          "s": 0,
+          "tone": "danger"
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Random words: much harder",
+            "ar-EG": "كلمات عشوائية: أصعب بكتير"
+          },
+          "s": 1,
+          "tone": "ok"
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "One password for everything: risky",
+            "ar-EG": "باسورد واحد لكل حاجة: خطر"
+          },
+          "s": 0,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "One leak, and they try it everywhere",
+            "ar-EG": "يتسرّب مرة، يجرّبوه في كل حتة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Email first: reset links go there",
+            "ar-EG": "الإيميل الأول: لينكات الاسترجاع بتروحله"
+          },
+          "s": 2
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Email and mobile money: their own",
+            "ar-EG": "الإيميل والمحفظة: لكل واحد باسورده"
+          },
+          "s": 3,
+          "tone": "ok"
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "A list kept safe at home beats reuse",
+            "ar-EG": "ورقة متشالة في البيت أحسن من التكرار"
+          },
+          "s": 5
+        }
+      ],
+      "aside": "key"
+    },
+    "10": {
+      "message": {
+        "kind": "chat",
+        "from": {
+          "en": "“Mobile money support”",
+          "ar-EG": "«خدمة عملاء المحفظة»"
+        },
+        "time": "10:42",
+        "lines": [
+          {
+            "en": "We just sent a code to your phone.",
+            "ar-EG": "لسه باعتينلك كود على موبايلك."
+          },
+          {
+            "en": "Tell us the code to keep your account open.",
+            "ar-EG": "قولّنا الكود علشان حسابك ميتقفلش."
+          }
+        ],
+        "flags": [
+          {
+            "line": 1,
+            "text": {
+              "en": "Never share a password, PIN or code",
+              "ar-EG": "متقولش باسورد ولا رقم سري ولا كود"
+            },
+            "s": 0
+          },
+          {
+            "line": "from",
+            "text": {
+              "en": "No real company asks for these",
+              "ar-EG": "مفيش شركة حقيقية بتطلبهم"
+            },
+            "s": 1
+          }
+        ]
+      }
+    },
+    "11": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Old rules",
+            "ar-EG": "قواعد قديمة"
+          },
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 0,
+          "items": [
+            {
+              "icon": "key",
+              "text": {
+                "en": "Forced symbols",
+                "ar-EG": "رموز بالعافية"
+              },
+              "s": 0
+            },
+            {
+              "icon": "calendar",
+              "text": {
+                "en": "A new password every month",
+                "ar-EG": "باسورد جديد كل شهر"
+              },
+              "s": 0
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "NIST says",
+            "ar-EG": "«نيست» بيقول"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "icon": "ruler",
+              "text": {
+                "en": "Allow long passwords",
+                "ar-EG": "اسمح بالباسورد الطويل"
+              },
+              "s": 1
+            },
+            {
+              "icon": "lock",
+              "text": {
+                "en": "Change it only if stolen",
+                "ar-EG": "غيّره بس لو اتسرق"
+              },
+              "s": 1
+            }
+          ]
+        }
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Three random words",
+            "ar-EG": "3 كلمات عشوائية"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Email and money: their own",
+            "ar-EG": "الإيميل والفلوس: لكل واحد عبارته"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Never share passwords, PINs, codes",
+            "ar-EG": "متقولش باسورد ولا رقم سري ولا كود"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Asked for a code? Hang up and call the bank.",
+        "ar-EG": "حد طلب منك كود؟ اقفل السكة وكلّم البنك بنفسك."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Word cards in a bag",
+            "ar-EG": "كروت عليها كلمات في كيس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Each pupil pulls out three",
+            "ar-EG": "كل تلميذ يسحب تلاتة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One funny picture links them",
+            "ar-EG": "صورة واحدة مضحكة تربطهم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "brain",
+          "text": {
+            "en": "See how easy it is to remember",
+            "ar-EG": "ويشوفوا قد إيه سهل يفتكروها"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

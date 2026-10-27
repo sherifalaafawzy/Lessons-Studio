@@ -2,10 +2,10 @@ import { initializeApp } from "firebase/app";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { connectFirestoreEmulator, initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from "firebase/firestore";
 
-const env = import.meta.env;
+import { emulators } from "./env.ts";
 
-/** The local emulators (npm run emulators) unless a Firebase web config is set. */
-export const emulators = env.VITE_EMULATORS === "1" || !env.VITE_FIREBASE_API_KEY;
+const env = import.meta.env;
+export { emulators };
 
 export const app = initializeApp(
   emulators

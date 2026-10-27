@@ -37,9 +37,11 @@ Then open http://localhost:4310. In the playground you can:
 | `apps/playground` | A Vite page to play, inspect and check packages. |
 | `apps/server` | The MCP server (stdio and HTTP), sign-in for online clients (OAuth 2.1), frame rendering and the in-chat preview. |
 | `apps/studio` | The studio (Preact, Firebase): lessons, storyboard, stage with handles, narration, cues, animation on spoken words, live sync, undo, checks, device preview. |
+| `content/darsi/` | The 12 Darsi tutorial videos (AI basics, passwords and phishing, sensors) as lessons in English and Egyptian Arabic: the packs' storyboards, the Arabic, the scene designs and the generated lessons. Its README is the authoring guide. |
+| `apps/studio/public/lib/v1/` | The shared library: the cast (5 teachers × 4 moods), 115 extra icons and the Darsi mark, served by Hosting at `/lib/v1/` and used as `@lib/v1/...`. |
 | `examples/` | Hand-written packages in English and Arabic: `prompt-injection` (AI security), `phishing-message` (cyber safety) and `how-ai-learns` (a canvas lesson). |
 | `firebase/`, `firebase.json`, `.firebaserc` | Firestore rules and indexes, and the emulators (project `demo-lessonstudio`; the real project is `lessons-studio-6b509`). |
-| `scripts/` | `narrate.mjs`, `make-timing.mjs`, `check-examples.mjs`, `size.mjs`. |
+| `scripts/` | `narrate.mjs`, `make-timing.mjs`, `check-examples.mjs`, `size.mjs`, `build-library.mjs`; `darsi/` (storyboards to lessons, contact sheets, pushing into a studio account); `video/` (the headless stage, MP4 export, light packages). |
 | `e2e/` | Playwright tests (desktop and a 375 px phone). |
 | `services/ai` | `align.py`, the word aligner (Python, faster-whisper), with pinned `requirements.txt`. |
 | `services/` | The rest is a placeholder for the API, orchestrator and workers (PLAN.md §10). |
@@ -173,6 +175,14 @@ To work on it locally, open http://localhost:4330. `npm run studio` uses the Fir
 - `npm run emulators` builds the functions, then starts Auth (9399), Firestore (8280) and Functions (5401), with the emulator UI on 4120, so they don't clash with other projects' emulators. It needs Java 21 (`JAVA_HOME`). On Windows, if the emulators fail with a pipe error in a folder with spaces, also set `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:\Users\Public`.
 - On the emulators, Gemini calls go to a stand-in that the tests run (`GEMINI_API_BASE` in `functions/.env.demo-lessonstudio`), never to Google.
 
+**The homepage** (signed out): a real lesson plays in the hero, switchable English ⇄ العربية (the animation follows the other narrator's words, mirrored) and full ⇄ low-end phone; then what the studio does, the editor, connecting AI apps, the numbers, and sign-in. It downloads no Firebase: the studio and the Firebase SDK load only when someone signs in (or was signed in last time, or opens a studio link).
+
+**The editor** is laid out like a video editor, in a dark theme: a rail of panels (Scenes, Add, Layers), the canvas on a pasteboard, the inspector (Design, Animate, Scene, Lesson), the transport, and the timeline dock (drag its top edge to resize it).
+- **Canvas:** zoom (Ctrl+wheel, Ctrl+0 fit, Ctrl+1 100%, the transport), pan (hold Space and drag), safe areas, centre lines and a thirds grid; eight resize handles and a rotate handle (Shift: 15°); moving and resizing snap to the stage and to other elements, with guide lines (hold Alt not to snap).
+- **Transport:** play (Space or K), J/L ±2 s, ←/→ a tenth of a second, Home/End of the scene, a timecode, loop the scene (Shift+L), speed.
+- **Timeline:** the whole lesson: a time ruler (click or drag to scrub), every scene as a clip with a thumbnail (drag to reorder, Alt+drag to copy, drop a scene from Add between clips), every spoken word, and for the selected scene a row per element with its keyframes. Ctrl+wheel zooms.
+- **Command palette** (Ctrl+K): every action, every scene, every ready-made scene. **Shortcuts** (?). **Export** (R): the lesson file, the MCP address; MP4 comes later.
+
 **What you can do:**
 - **Lessons:** start one
   - from a brief: it starts as a title, the idea in three steps, and a summary, already animated on their words;
@@ -198,7 +208,8 @@ To work on it locally, open http://localhost:4330. `npm run studio` uses the Fir
 - **Settings:** your Gemini key (checked with Google, stored encrypted, never shown again), your account and user id, and the studio's language.
 - **Connect your AI:** the MCP address and the steps for ChatGPT, claude.ai, Claude Code, Claude Desktop, Cursor, VS Code, Gemini CLI and the stdio server on this PC, each ready to copy.
 - **Preview** as a low-end phone on 3G, or on a desktop, with the download size.
-- **Language:** the studio itself is in English or Arabic, and lays out right to left in Arabic. On a phone it shows one panel at a time.
+- **Layers:** the selected scene's elements, front-most first; select, or drag (or the arrows) to bring forward or send back.
+- **Language:** the studio itself is in English or Arabic, and lays out right to left in Arabic (the transport and timeline stay left to right, as time does). On a phone it shows one panel at a time.
 
 **How edits are stored:** each edit applies at once on screen, then goes to Firestore as one batch:
 - the lesson document with its revision plus one;
@@ -235,6 +246,46 @@ npx firebase deploy --only functions,hosting,firestore --project lessons-studio-
 
 **Size:** the studio's code is 60 KB gzipped. The Firebase SDK is a separate cacheable chunk of 194 KB gzipped, the next thing to trim.
 
+## The learner's player
+
+The player (22 KB gzipped) has, for learners:
+- **chapters** (each scene's title) on the seek bar and in a menu;
+- **a scrub preview:** the chapter and time, and on the Full tier a thumbnail of the frame;
+- **floating controls** on wide players, which fade while playing;
+- **volume and mute, full screen, speed** (0.75–2×), **caption size and background**;
+- **keys:** Space/K, J/L ±5 s, ←/→ ±2 s, Home/End, 0–9, C captions, T transcript, F full screen, M mute;
+- **a quick-check score** at the end.
+
+With `remember: true` (the playground sets it; editors don't), the learner's settings and their place in each lesson are kept between visits.
+
+## Videos and light lessons
+
+- **MP4** (`npm run mp4 -- <lesson folder or Darsi id>`): the real player draws every frame in headless Chromium
+  (`seek(t)`), so the video looks exactly like the lesson. One render at 640×360 makes three files: 360p at 25 fps,
+  240p and 144p at 15 fps, H.264 baseline with the narration in AAC (or a silent track before narration), for old
+  phones and WhatsApp. Beside them:
+  `captions.vtt` (never burned in), `poster.jpg` and `video.json` (chapters, and when each quick check is asked).
+  The video waits 4 s on each quick check (`--hold`). Frames that don't change are drawn once, so a 3-minute lesson
+  renders in about 70 s.
+- **Light lessons** (`npm run package-lessons`): each lesson as a static package (manifest, scenes, timing and
+  captions per language) for the player, about 16 KB per language for 3 minutes, against 0.4 MB for the 240p MP4.
+  Cast pictures and extra icons come from the shared library, once for every lesson.
+- Output goes to `out/` (gitignored): `out/videos/<id>/<lang>/` and `out/packages/<id>/`.
+- Until a lesson is narrated, both use estimated timings and the videos are silent with captions.
+
+## The shared library
+
+Files many lessons use, served once from Hosting at `/lib/v1/` and named `@lib/v1/...` in a lesson:
+- `cast/<who>_<mood>.svg`: five teachers (amina, okafor, salma, joseph, farah) in four moods (smile, talking, curious,
+  happy), about 1.7 KB each;
+- `icons.json`: 115 icons beyond the player's own 18, drawn the same way (stroke, brand tones). The player fetches the
+  file (about 6 KB gzipped) only when a lesson uses one of them;
+- `brand/darsi-mark.svg`.
+
+The player resolves `@lib/` against its `library` option (default: this project's Hosting); the studio passes its own
+origin, so the dev server works offline. `node scripts/build-library.mjs <Darsi AI pack folder>` rebuilds it, and
+the spec's list of icon names (`packages/spec/src/library-icons.ts`) with it.
+
 ## Light on old phones and weak connections
 
 - **Learners download a recipe, not a video:** about 6 KB per lesson language, plus about 110 KB per minute of
@@ -268,6 +319,12 @@ npx firebase deploy --only functions,hosting,firestore --project lessons-studio-
 | `npm run studio` | The studio on port 4330, on the Firebase project in `.env.local`. |
 | `npm run studio:emulators` | The studio on port 4332, on the emulators. |
 | `npm --prefix functions run build` | Bundles the Cloud Functions into `functions/lib/`. |
+| `npm run mp4 -- <lesson> [--lang] [--sizes] [--hold]` | MP4s (360p, 240p, 144p), captions, a poster and `video.json` in `out/videos/`. |
+| `npm run package-lessons` | Light lesson packages in `out/packages/`. |
+| `node scripts/video/gallery.ts` | `out/videos/index.html`, a page to watch every rendered video (serve the folder, e.g. `python -m http.server 4340 -d out/videos`). |
+| `node scripts/darsi/convert.ts [ID]` | Regenerates the Darsi lessons from their storyboard, Arabic and design (see `content/darsi/README.md`). |
+| `node scripts/darsi/sheet.ts <id> [--lang]` | A contact sheet: every scene of a lesson on one picture. |
+| `node scripts/darsi/push.ts --email <you>` | Puts the Darsi lessons into that person's studio account (`--emulator` for the emulators). |
 
 ## Measured on 27 Oct 2026
 

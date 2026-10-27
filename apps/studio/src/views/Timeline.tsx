@@ -2,10 +2,18 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import type { AnimProp, Ease, Element, Key, Scene, SceneTiming, Text, Track, When } from "@lessonstudio/spec";
 import { EASES, normalizeWord, pick, resolveWhen, walkElements } from "@lessonstudio/spec";
 import type { Op } from "@lessonstudio/ops";
-import { currentScene, edit, elementId, lang, lesson, playhead, sceneTiming } from "../editor.ts";
+import {
+  currentScene, edit, elementId, freeId, insertScene, lang, leftTab, lesson, lessonTime, playing, rightTab, sceneId, sceneTiming,
+  seekLesson, selectScene, timings,
+} from "../editor.ts";
 import { t, type Key as Msg } from "../i18n.ts";
+import { GALLERY } from "../presets.ts";
+import { Icon } from "../icons.tsx";
 import { WordPicker, clean } from "./Animations.tsx";
-import { dropWhen, r2, shiftWhen } from "../timeline.ts";
+import { TEMPLATE_NAMES } from "./content.tsx";
+import { MiniScene, PRESET_MIME } from "./Gallery.tsx";
+import { dropWhen, insertionIndex, moveTarget, r2, shiftWhen, ticksFor, timelinePps } from "../timeline.ts";
+import { timecode } from "./Transport.tsx";
 import { NumField, Select } from "./fields.tsx";
 
 const LABEL = 112;
@@ -15,6 +23,7 @@ const SNAP = 8;
 interface Moment { key: string; when: When; at: number; found: boolean; keys: { prop: AnimProp; key: Key }[] }
 interface Row { id: string; label: string; kind: "el" | "camera"; tracks: Track[]; moments: Moment[] }
 interface Drag { row: string; moment: string | null; x0: number; t0: number; dt: number; snap: number | null; moved: boolean }
+interface ClipDrag { id: string; from: number; x0: number; at: number; copy: boolean; moved: boolean }
 
 function momentsOf(tracks: Track[], st: SceneTiming, code: string): Moment[] {
   const by = new Map<string, Moment>();
@@ -42,46 +51,90 @@ function moveOps(scene: Scene, row: Row, map: (w: When) => When, moment: string 
 }
 
 /**
- * The scene's timeline: its spoken words on a ruler, a row per element (and the camera) with a diamond for each
- * moment something changes, and the cues. Drag a diamond to retime it, or onto a word to start it there; drag a
- * row's bar to move its whole animation. Click a diamond to edit it.
+ * The lesson's timeline: a time ruler, every scene as a clip (drag to reorder, Alt+drag to copy, drop a gallery
+ * scene between clips), the spoken words, and for the selected scene a row per element (and the camera and cues)
+ * with a diamond for each moment something changes. Drag a diamond to retime it, or onto a word to start it there;
+ * drag a row's bar to move its whole animation; click a diamond to edit it. Ctrl+wheel zooms.
  */
-export function Timeline({ onSeek }: { onSeek: (t: number) => void }) {
-  const box = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(600);
+export function Timeline() {
+  const scroller = useRef<HTMLDivElement>(null);
+  const [vw, setVw] = useState(800);
+  const [zoomX, setZoomX] = useState(1);
   const [drag, setDrag] = useState<Drag | null>(null);
+  const [clip, setClip] = useState<ClipDrag | null>(null);
+  const [dropAt, setDropAt] = useState<number | null>(null);
+  const [scrub, setScrub] = useState(false);
   const [open, setOpen] = useState<{ row: string; moment: string } | null>(null);
   useEffect(() => {
-    const el = box.current;
+    const el = scroller.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => setWidth(el.clientWidth));
+    const ro = new ResizeObserver(() => requestAnimationFrame(() => setVw(el.clientWidth)));
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  const l = lesson.value;
+  const code = lang.value;
+  const tm = timings.value[code];
   const scene = currentScene.value;
   const st = sceneTiming.value;
-  const l = lesson.value;
-  if (!scene || !st || !l) return null;
-  const code = lang.value;
-  const langs = l.manifest.languages.map((x) => x.code);
-  const dir = l.manifest.languages.find((x) => x.code === code)?.dir ?? "ltr";
-  const dur = Math.max(0.5, st.end - st.start);
-  const track = Math.max(80, width - LABEL);
-  const pps = track / dur;
-  const x = (s: number): number => Math.max(0, Math.min(track, s * pps));
-  const words = st.words.map((w, i) => ({ text: w.w, s: w.s - st.start, e: w.e - st.start, i }));
+  const dur = Math.max(1, tm?.duration ?? 1);
+  const pps = timelinePps(vw - LABEL - 20, dur, zoomX);
+  const x = (abs: number): number => Math.max(0, abs * pps);
+  const now = lessonTime.value;
+
+  // Ctrl+wheel zooms around the pointer.
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el) return;
+    const wheel = (e: WheelEvent) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      const mx = e.clientX - el.getBoundingClientRect().left - LABEL;
+      setZoomX((z) => {
+        const next = Math.min(64, Math.max(1, z * Math.exp(-e.deltaY * 0.002)));
+        const at = el.scrollLeft + mx;
+        requestAnimationFrame(() => { el.scrollLeft = at * (next / z) - mx; });
+        return next;
+      });
+    };
+    el.addEventListener("wheel", wheel, { passive: false });
+    return () => el.removeEventListener("wheel", wheel);
+  }, []);
+
+  // While playing, keep the playhead in view.
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el || !playing.value) return;
+    const px = x(now);
+    if (px < el.scrollLeft || px > el.scrollLeft + el.clientWidth - LABEL - 40) el.scrollLeft = Math.max(0, px - (el.clientWidth - LABEL) / 3);
+  }, [now]);
+
+  if (!l || !tm) return null;
+  const langs = l.manifest.languages.map((g) => g.code);
+  const dir = l.manifest.languages.find((g) => g.code === code)?.dir ?? "ltr";
+  const clips = tm.scenes.map((s, i) => ({ start: s.start, end: s.end, scene: l.scenes.scenes[i]! })).filter((c) => c.scene);
+  const off = st?.start ?? 0;
+  const allWords = tm.scenes.flatMap((s, si) => s.words.map((w, i) => ({ text: w.w, s: w.s, e: w.e, si, i })));
+  const sceneIdx = l.scenes.scenes.findIndex((s) => s.id === sceneId.value);
+  const words = st ? st.words.map((w, i) => ({ text: w.w, s: w.s - off, e: w.e - off, i })) : [];
+  const ticks = ticksFor(pps);
+  const contentW = Math.ceil(dur * pps) + 24;
 
   const rows: Row[] = [];
-  walkElements(scene, (el: Element) => {
-    rows.push({ id: el.id, label: el.id, kind: "el", tracks: el.anim ?? [], moments: momentsOf(el.anim ?? [], st, code) });
-  });
-  if (scene.camera?.length) rows.push({ id: "camera", label: t("camera"), kind: "camera", tracks: scene.camera, moments: momentsOf(scene.camera, st, code) });
-  const cues = (scene.cues ?? []).map((c, i) => {
-    const at = c.at !== undefined ? Math.min(c.at, dur) : resolveWhen({ word: c.word ?? "" , ...(c.occurrence ? { occurrence: c.occurrence } : {}) }, st, code);
-    return { i, cue: c, at: typeof at === "number" ? at : at.at, found: typeof at === "number" ? true : at.found };
-  });
+  if (scene && st) {
+    walkElements(scene, (el: Element) => {
+      rows.push({ id: el.id, label: el.id, kind: "el", tracks: el.anim ?? [], moments: momentsOf(el.anim ?? [], st, code) });
+    });
+    if (scene.camera?.length) rows.push({ id: "camera", label: t("camera"), kind: "camera", tracks: scene.camera, moments: momentsOf(scene.camera, st, code) });
+  }
+  const sceneDur = st ? st.end - st.start : 0;
+  const cues = scene && st ? (scene.cues ?? []).map((c, i) => {
+    const r = c.at !== undefined ? { at: Math.min(c.at, sceneDur), found: true } : resolveWhen({ word: c.word ?? "", ...(c.occurrence ? { occurrence: c.occurrence } : {}) }, st, code);
+    return { i, cue: c, at: r.at, found: r.found };
+  }) : [];
 
-  /** The word nearest to a time, if it is within the snap distance; with its occurrence among equal words. */
+  /** The selected scene's word nearest to a (scene) time, within the snap distance, with its occurrence. */
   const snapTo = (s: number): { idx: number; text: string; occurrence: number } | null => {
     let best: (typeof words)[number] | null = null;
     for (const w of words) if (Math.abs(w.s - s) * pps <= SNAP && (!best || Math.abs(w.s - s) < Math.abs(best.s - s))) best = w;
@@ -90,13 +143,25 @@ export function Timeline({ onSeek }: { onSeek: (t: number) => void }) {
     const occurrence = words.slice(0, best.i + 1).filter((w) => normalizeWord(clean(w.text)) === norm).length;
     return { idx: best.i, text: clean(best.text), occurrence };
   };
+  /** A pointer's time in the lesson. */
+  const timeAt = (clientX: number): number => {
+    const el = scroller.current!;
+    return (clientX - el.getBoundingClientRect().left - LABEL + el.scrollLeft) / pps;
+  };
 
+  /* ---------- keyframes and cues (the selected scene) ---------- */
   const start = (e: PointerEvent, row: string, moment: string | null, t0: number) => {
     e.stopPropagation();
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     setDrag({ row, moment, x0: e.clientX, t0, dt: 0, snap: null, moved: false });
   };
   const move = (e: PointerEvent) => {
+    if (scrub) { seekLesson(timeAt(e.clientX)); return; }
+    if (clip) {
+      const at = timeAt(e.clientX);
+      setClip({ ...clip, at, moved: clip.moved || Math.abs(e.clientX - clip.x0) > 4, copy: e.altKey });
+      return;
+    }
     if (!drag) return;
     const dx = e.clientX - drag.x0;
     let dt = dx / pps;
@@ -105,13 +170,14 @@ export function Timeline({ onSeek }: { onSeek: (t: number) => void }) {
     setDrag({ ...drag, dt, snap: s ? s.idx : null, moved: drag.moved || Math.abs(dx) > 3 });
   };
   const end = () => {
+    if (scrub) { setScrub(false); return; }
+    if (clip) { endClip(); return; }
     const d = drag;
     setDrag(null);
-    if (!d) return;
+    if (!d || !scene) return;
     if (!d.moved) {
       if (d.row === "cues") return;
       if (d.moment) setOpen(open?.row === d.row && open.moment === d.moment ? null : { row: d.row, moment: d.moment });
-      else elementId.value = rows.find((r) => r.id === d.row)?.kind === "el" ? d.row : elementId.value;
       return;
     }
     if (d.row === "cues") {
@@ -123,8 +189,7 @@ export function Timeline({ onSeek }: { onSeek: (t: number) => void }) {
       const next = c.cue.at !== undefined
         ? { ...c.cue, at: r2(Math.max(0, d.t0 + d.dt)) }
         : { ...c.cue, word: setLang(c.cue.word, code, s!.text, langs), occurrence: s!.occurrence > 1 ? s!.occurrence : undefined };
-      const clean2 = Object.fromEntries(Object.entries(next).filter(([, v]) => v !== undefined));
-      edit([{ op: "set", scene: scene.id, path: `/cues/${c.i}`, value: clean2 }]);
+      edit([{ op: "set", scene: scene.id, path: `/cues/${c.i}`, value: Object.fromEntries(Object.entries(next).filter(([, v]) => v !== undefined)) }]);
       return;
     }
     const row = rows.find((r) => r.id === d.row);
@@ -141,62 +206,153 @@ export function Timeline({ onSeek }: { onSeek: (t: number) => void }) {
     setOpen(null);
   };
 
+  /* ---------- scene clips ---------- */
+  const startClip = (e: PointerEvent, id: string, from: number) => {
+    e.stopPropagation();
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    setClip({ id, from, x0: e.clientX, at: timeAt(e.clientX), copy: e.altKey, moved: false });
+  };
+  const endClip = () => {
+    const c = clip;
+    setClip(null);
+    if (!c) return;
+    if (!c.moved) { selectScene(c.id); return; }
+    const before = insertionIndex(c.at, clips);
+    if (c.copy) {
+      const id = freeId(c.id, l.scenes.scenes.map((s) => s.id));
+      if (edit([{ op: "duplicateScene", scene: c.id, id, at: before }])) selectScene(id);
+    } else if (moveTarget(c.from, before) !== c.from) {
+      edit([{ op: "moveScene", scene: c.id, to: moveTarget(c.from, before) }]);
+    }
+  };
+  const dropPreset = (e: DragEvent) => {
+    const id = e.dataTransfer?.getData(PRESET_MIME);
+    const at = dropAt;
+    setDropAt(null);
+    const p = GALLERY.find((g) => g.id === id);
+    if (!p || at === null) return;
+    e.preventDefault();
+    insertScene(p.id, (sid) => p.make({ id: sid, langs, stage: l.manifest.stage ?? "landscape" }), at);
+  };
+  const marker = clip?.moved ? insertionIndex(clip.at, clips) : dropAt;
+  const markerX = marker === null ? null : marker >= clips.length ? x(dur) : x(clips[marker]!.start);
+
   const shiftOf = (row: string, moment: string | null): number => (drag && drag.moved && drag.row === row && (drag.moment === moment || drag.moment === null) ? drag.dt : 0);
   const openRow = open ? rows.find((r) => r.id === open.row) : undefined;
   const openMoment = openRow?.moments.find((m) => m.key === open!.moment);
 
+  const tickEls = [];
+  for (let s = 0; s <= dur + 1e-6; s += ticks.step) {
+    const labelled = Math.abs(s / ticks.label - Math.round(s / ticks.label)) < 1e-6;
+    tickEls.push(<span key={s} class={labelled ? "tick big" : "tick"} style={{ left: `${x(s)}px` }}>{labelled ? timecode(s).replace(/\.00$/, "") : null}</span>);
+  }
+
   return (
-    <div class="timeline" ref={box} dir="ltr" onPointerMove={(e) => move(e as PointerEvent)} onPointerUp={end} onPointerCancel={end}>
-      <div class="tl-row tl-ruler">
-        <span class="tl-label">{t("words")}</span>
-        <div class="tl-track" onPointerDown={(e) => { const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); onSeek(Math.max(0, Math.min(dur, (e.clientX - r.left) / pps))); }}>
-          {words.map((w) => (
-            <span key={w.i} class={`tl-word${drag?.snap === w.i ? " snap" : ""}${playhead.value >= w.s && playhead.value < w.e ? " on" : ""}`} dir={dir} lang={code}
-              style={{ left: `${x(w.s)}px`, maxWidth: `${Math.max(14, (w.e - w.s) * pps + 6)}px`, top: w.i % 2 ? "15px" : "1px" }} title={w.text}>{w.text}</span>
-          ))}
-          <span class="tl-head" style={{ left: `${x(playhead.value)}px` }} />
-        </div>
+    <div class="timeline" dir="ltr" onPointerMove={(e) => move(e as PointerEvent)} onPointerUp={end} onPointerCancel={end}>
+      <div class="tl-bar-head">
+        <strong>{t("timeline")}</strong>
+        <span class="f-hint">{t("timelineHint")}</span>
+        <span class="spacer" />
+        <button type="button" class="btn ghost icon" aria-label={t("zoomOut")} title={t("zoomOut")} disabled={zoomX <= 1} onClick={() => setZoomX(Math.max(1, zoomX / 1.5))}><Icon name="zoomOut" /></button>
+        <input type="range" class="tl-zoom" min={0} max={6} step={0.05} value={Math.log2(zoomX)} aria-label={t("timelineZoom")}
+          onInput={(e) => setZoomX(2 ** Number((e.target as HTMLInputElement).value))} />
+        <button type="button" class="btn ghost icon" aria-label={t("zoomIn")} title={t("zoomIn")} disabled={zoomX >= 64} onClick={() => setZoomX(Math.min(64, zoomX * 1.5))}><Icon name="zoomIn" /></button>
+        <button type="button" class="btn ghost icon" aria-label={t("fitLesson")} title={t("fitLesson")} onClick={() => setZoomX(1)}><Icon name="fit" /></button>
       </div>
-      <div class="tl-rows">
-        {rows.map((row) => {
-          const first = row.moments[0], last = row.moments[row.moments.length - 1];
-          const bar = shiftOf(row.id, null);
-          return (
-            <div key={row.id} class={`tl-row${row.id === elementId.value ? " chosen" : ""}`}>
-              <button type="button" class="tl-label" dir="ltr" title={row.label} onClick={() => { if (row.kind === "el") elementId.value = row.id; }}>{row.label}</button>
-              <div class="tl-track">
-                {first && last && last.at > first.at ? (
-                  <span class="tl-bar" title={t("dragToMoveAll")} style={{ left: `${x(first.at + bar)}px`, width: `${x(last.at) - x(first.at)}px` }}
-                    onPointerDown={(e) => start(e as PointerEvent, row.id, null, first.at)} />
-                ) : null}
-                {row.moments.map((m) => (
-                  <button type="button" key={m.key} class={`tl-key${m.found ? "" : " lost"}${typeof m.when === "number" ? "" : " word"}${open?.row === row.id && open.moment === m.key ? " open" : ""}`}
-                    style={{ left: `${x(m.at + shiftOf(row.id, m.key))}px` }}
-                    aria-label={`${row.label} ${m.keys.map((k) => k.prop).join(", ")} ${typeof m.when === "number" ? `${m.at.toFixed(2)} s` : `«${pick(m.when.word, code)}»`}`}
-                    onPointerDown={(e) => start(e as PointerEvent, row.id, m.key, m.at)} />
-                ))}
-                <span class="tl-head" style={{ left: `${x(playhead.value)}px` }} />
+      <div class="tl-scroll" ref={scroller}>
+        <div class="tl-content" style={{ width: `${LABEL + contentW}px` }}>
+          <div class="tl-sticky">
+            <div class="tl-row tl-time">
+              <span class="tl-label">{t("timeRuler")}</span>
+              <div class="tl-track" style={{ width: `${contentW}px` }}
+                onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture((e as PointerEvent).pointerId); setScrub(true); seekLesson(timeAt(e.clientX)); }}>
+                {tickEls}
               </div>
             </div>
-          );
-        })}
-        {cues.length ? (
-          <div class="tl-row tl-cues">
-            <span class="tl-label">{t("cuesShort")}</span>
-            <div class="tl-track">
-              {cues.map((c) => (
-                <button type="button" key={c.i} class={`tl-cue ${c.cue.action}${c.found ? "" : " lost"}`} title={`${t(`act_${c.cue.action}` as Msg)} → ${c.cue.target}`}
-                  style={{ left: `${x(c.at + (drag?.moved && drag.row === "cues" && drag.moment === String(c.i) ? drag.dt : 0))}px` }}
-                  aria-label={`${c.cue.action} ${c.cue.target}`}
-                  onPointerDown={(e) => start(e as PointerEvent, "cues", String(c.i), c.at)} />
-              ))}
-              <span class="tl-head" style={{ left: `${x(playhead.value)}px` }} />
+            <div class="tl-row tl-scenes">
+              <span class="tl-label">{t("panelScenes")}</span>
+              <div class="tl-track" style={{ width: `${contentW}px` }}
+                onDragOver={(e) => { if (e.dataTransfer?.types.includes(PRESET_MIME)) { e.preventDefault(); setDropAt(insertionIndex(timeAt(e.clientX), clips)); } }}
+                onDragLeave={() => setDropAt(null)} onDrop={(e) => dropPreset(e as DragEvent)}>
+                {clips.map((c, i) => {
+                  const w = Math.max(6, x(c.end) - x(c.start) - 2);
+                  const s = c.scene;
+                  const text = (s.narration[code] ?? "").split(/\s+/).slice(0, 8).join(" ");
+                  return (
+                    <div key={s.id} class={`clip tpl-${s.template}${s.id === sceneId.value ? " on" : ""}${clip?.id === s.id && clip.moved ? " lifting" : ""}`}
+                      style={{ left: `${x(c.start) + 1}px`, width: `${w}px` }} role="button" tabIndex={0}
+                      aria-label={`${t("scene")} ${i + 1}: ${t(TEMPLATE_NAMES[s.template])}`} title={`${i + 1}. ${t(TEMPLATE_NAMES[s.template])}${t("sep")}${timecode(c.end - c.start)}`}
+                      onPointerDown={(e) => startClip(e as PointerEvent, s.id, i)}
+                      onKeyDown={(e) => { if (e.key === "Enter") selectScene(s.id); }}>
+                      {w > 150 ? <MiniScene scene={s} hoverPlay={false} /> : null}
+                      <span class="clip-text">
+                        <span class="clip-name"><b>{i + 1}</b> {t(TEMPLATE_NAMES[s.template])}</span>
+                        {w > 90 ? <span class="clip-words" dir={dir} lang={code}>{text}</span> : null}
+                      </span>
+                      {s.transition && s.transition.type !== "cut" ? <span class="clip-tr" title={s.transition.type} /> : null}
+                      {s.check ? <span class="clip-check" title={t("quickCheck")}>?</span> : null}
+                    </div>
+                  );
+                })}
+                <button type="button" class="clip-add" style={{ left: `${x(dur) + 4}px` }} aria-label={t("addScene")} title={t("addScene")} onClick={() => { leftTab.value = "add"; }}>+</button>
+                {markerX !== null ? <span class="clip-marker" style={{ left: `${markerX}px` }} /> : null}
+              </div>
+            </div>
+            <div class="tl-row tl-ruler">
+              <span class="tl-label">{t("words")}</span>
+              <div class="tl-track" style={{ width: `${contentW}px` }}
+                onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture((e as PointerEvent).pointerId); setScrub(true); seekLesson(timeAt(e.clientX)); }}>
+                {allWords.map((w) => {
+                  const mine = w.si === sceneIdx;
+                  return (
+                    <span key={`${w.si}-${w.i}`} class={`tl-word${mine ? "" : " other"}${mine && drag?.snap === w.i ? " snap" : ""}${now >= w.s && now < w.e ? " on" : ""}`} dir={dir} lang={code}
+                      style={{ left: `${x(w.s)}px`, maxWidth: `${Math.max(14, (w.e - w.s) * pps + 6)}px`, top: w.i % 2 ? "15px" : "1px" }} title={w.text}>{w.text}</span>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        ) : null}
-        {!rows.length && !cues.length ? <p class="f-hint">{t("timelineEmpty")}</p> : null}
+          {rows.map((row) => {
+            const first = row.moments[0], last = row.moments[row.moments.length - 1];
+            const bar = shiftOf(row.id, null);
+            return (
+              <div key={row.id} class={`tl-row${row.id === elementId.value ? " chosen" : ""}`}>
+                <button type="button" class="tl-label" dir="ltr" title={row.label}
+                  onClick={() => { if (row.kind === "el") { elementId.value = row.id; rightTab.value = "animate"; } }}>{row.label}</button>
+                <div class="tl-track" style={{ width: `${contentW}px` }}>
+                  <span class="tl-span" style={{ left: `${x(off)}px`, width: `${x(off + sceneDur) - x(off)}px` }} />
+                  {first && last && last.at > first.at ? (
+                    <span class="tl-bar" title={t("dragToMoveAll")} style={{ left: `${x(off + first.at + bar)}px`, width: `${x(off + last.at) - x(off + first.at)}px` }}
+                      onPointerDown={(e) => start(e as PointerEvent, row.id, null, first.at)} />
+                  ) : null}
+                  {row.moments.map((m) => (
+                    <button type="button" key={m.key} class={`tl-key${m.found ? "" : " lost"}${typeof m.when === "number" ? "" : " word"}${open?.row === row.id && open.moment === m.key ? " open" : ""}`}
+                      style={{ left: `${x(off + m.at + shiftOf(row.id, m.key))}px` }}
+                      aria-label={`${row.label} ${m.keys.map((k) => k.prop).join(", ")} ${typeof m.when === "number" ? `${m.at.toFixed(2)} s` : `«${pick(m.when.word, code)}»`}`}
+                      onPointerDown={(e) => start(e as PointerEvent, row.id, m.key, m.at)} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+          {cues.length ? (
+            <div class="tl-row tl-cues">
+              <span class="tl-label">{t("cuesShort")}</span>
+              <div class="tl-track" style={{ width: `${contentW}px` }}>
+                {cues.map((c) => (
+                  <button type="button" key={c.i} class={`tl-cue ${c.cue.action}${c.found ? "" : " lost"}`} title={`${t(`act_${c.cue.action}` as Msg)} → ${c.cue.target}`}
+                    style={{ left: `${x(off + c.at + (drag?.moved && drag.row === "cues" && drag.moment === String(c.i) ? drag.dt : 0))}px` }}
+                    aria-label={`${c.cue.action} ${c.cue.target}`}
+                    onPointerDown={(e) => start(e as PointerEvent, "cues", String(c.i), c.at)} />
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {scene && !rows.length && !cues.length ? <p class="f-hint tl-empty">{t("timelineEmpty")}</p> : null}
+          <span class="tl-playhead" style={{ left: `${LABEL + x(now)}px` }} />
+        </div>
       </div>
-      {openRow && openMoment ? <MomentEditor scene={scene} row={openRow} m={openMoment} onClose={() => setOpen(null)} /> : null}
+      {openRow && openMoment && scene ? <MomentEditor scene={scene} row={openRow} m={openMoment} onClose={() => setOpen(null)} /> : null}
     </div>
   );
 }
@@ -257,3 +413,4 @@ function MomentEditor({ scene, row, m, onClose }: { scene: Scene; row: Row; m: M
     </div>
   );
 }
+

@@ -1,11 +1,9 @@
-import { useState } from "preact/hooks";
-import type { Scene, TemplateId } from "@lessonstudio/spec";
 import { pick } from "@lessonstudio/spec";
-import { edit, elementId, freeId, lang, lesson, playhead, sceneId, state, timings } from "../editor.ts";
+import { edit, freeId, lang, leftTab, lesson, sceneId, selectScene, state, timings } from "../editor.ts";
 import { t } from "../i18n.ts";
 import { ItemTools } from "./fields.tsx";
-import { TEMPLATE_NAMES, newScene } from "./content.tsx";
-import { Gallery, MiniScene } from "./Gallery.tsx";
+import { TEMPLATE_NAMES } from "./content.tsx";
+import { MiniScene } from "./Gallery.tsx";
 
 // Thumbnails cost a small player each, so only wide screens get them; phones list the scenes as text.
 const wide = typeof matchMedia === "function" ? matchMedia("(min-width: 900px)") : null;
@@ -13,31 +11,13 @@ const wide = typeof matchMedia === "function" ? matchMedia("(min-width: 900px)")
 /** The scenes in order, as cards: pick one to edit, reorder, copy, delete, add. */
 export function Storyboard() {
   const l = lesson.value;
-  const [adding, setAdding] = useState(false);
   if (!l) return null;
   const scenes = l.scenes.scenes;
   const tm = timings.value[lang.value];
   const recent = state.value?.remote && Date.now() - state.value.remote.at < 8000 ? new Set(state.value.remote.scenes) : new Set<string>();
-  // A scene opens at its end, with everything in place: the useful frame for laying it out.
-  const select = (id: string) => {
-    const i = lesson.value?.scenes.scenes.findIndex((s) => s.id === id) ?? -1;
-    const st = timings.value[lang.value]?.scenes[i];
-    sceneId.value = id;
-    elementId.value = null;
-    playhead.value = st ? Math.max(0, st.end - st.start - 0.05) : 0;
-  };
-  // New scenes go after the selected one.
-  const add = (base: string, make: (id: string) => Scene) => {
-    const id = freeId(base, scenes.map((s) => s.id));
-    const at = Math.max(0, scenes.findIndex((s) => s.id === sceneId.value) + 1) || scenes.length;
-    if (edit([{ op: "addScene", scene: make(id), at }])) select(id);
-    setAdding(false);
-  };
-  const langs = l.manifest.languages.map((x) => x.code);
-  const stage = l.manifest.stage ?? "landscape";
+  const select = selectScene;
   return (
     <nav class="board" aria-label={t("storyboard")}>
-      <h2>{t("storyboard")}</h2>
       <ol>
         {scenes.map((s, i) => {
           const secs = tm?.scenes[i] ? tm.scenes[i]!.end - tm.scenes[i]!.start : 0;
@@ -58,12 +38,7 @@ export function Storyboard() {
           );
         })}
       </ol>
-      <button type="button" class="btn wide" onClick={() => setAdding(true)}>+ {t("addScene")}</button>
-      {adding ? (
-        <Gallery onClose={() => setAdding(false)}
-          onPreset={(g) => add(g.id, (id) => g.make({ id, langs, stage }))}
-          onBlank={(tp: TemplateId) => add(tp === "title-hook" ? "intro" : tp, (id) => newScene(tp, id))} />
-      ) : null}
+      <button type="button" class="btn wide" onClick={() => { leftTab.value = "add"; }}>+ {t("addScene")}</button>
       <p class="f-hint">{t("lessonLength")}: <span dir="ltr">{tm ? `${Math.round(tm.duration)} s` : "–"}</span>{t("sep")}{pick(l.manifest.title, lang.value)}</p>
     </nav>
   );

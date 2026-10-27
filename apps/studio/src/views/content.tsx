@@ -1,5 +1,5 @@
 import type { Check as QuizCheck, Element, FlowEdge, FlowNode, IconName, MessageFlag, Scene, TemplateId, Text, Tone } from "@lessonstudio/spec";
-import { ICONS, TONES } from "@lessonstudio/spec";
+import { ICONS, LIBRARY_ICONS, TONES } from "@lessonstudio/spec";
 import type { Op } from "@lessonstudio/ops";
 import { edit, elementIds, freeId, lesson } from "../editor.ts";
 import { t, type Key } from "../i18n.ts";
@@ -69,7 +69,9 @@ function TextList(p: { scene: Scene; label: string; path: string; items: Text[];
   );
 }
 const swap = <X,>(a: X[], i: number, j: number): X[] => { const b = [...a]; [b[i], b[j]] = [b[j]!, b[i]!]; return b; };
-const iconOptions = (): [IconName, string][] => ICONS.map((i) => [i, i]);
+// The player's own icons first, then the shared library's.
+const ALL_ICONS: IconName[] = [...ICONS, ...LIBRARY_ICONS.filter((i) => !(ICONS as readonly string[]).includes(i))];
+const iconOptions = (): [IconName, string][] => ALL_ICONS.map((i) => [i, i]);
 
 export function TemplateForm({ scene }: { scene: Scene }) {
   const c = scene.content as unknown as Record<string, unknown>;

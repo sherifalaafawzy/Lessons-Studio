@@ -91,7 +91,8 @@ test.describe("studio", () => {
     await expect(page.locator(".status")).toHaveText("Saved");
     await expect.poll(async () => Number(await xField.inputValue())).toBeGreaterThan(x0 + 100);
 
-    // Pop it in when "opens" / "يفتح" is said.
+    // Pop it in when "opens" / "يفتح" is said (the Animate tab).
+    await page.getByRole("tab", { name: "Animate" }).click();
     await page.getByRole("combobox", { name: "Animation", exact: true }).selectOption("pop");
     await page.locator(".words-pick .words-row").nth(0).getByRole("button", { name: "opens", exact: true }).click();
     await page.locator(".words-pick .words-row").nth(1).getByRole("button", { name: "يفتح", exact: true }).click();
@@ -155,6 +156,59 @@ test.describe("studio", () => {
     await page.getByLabel("Lesson file (JSON)").setInputFiles({ name: "phishing.json", mimeType: "application/json", buffer: Buffer.from(file) });
     await expect(page).toHaveURL(/\/lessons\/spot-a-phishing-message-[a-z0-9]+$/);
     await expect(page.locator(".board .card")).toHaveCount(5);
+  });
+
+  test("a Darsi lesson plays its cast and the library's icons, in English and Egyptian Arabic", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    await signIn(page);
+    const fs = await import("node:fs/promises");
+    const file = JSON.stringify({
+      manifest: JSON.parse(await fs.readFile("content/darsi/lessons/cy-1-1-2/manifest.json", "utf8")),
+      scenes: JSON.parse(await fs.readFile("content/darsi/lessons/cy-1-1-2/scenes.json", "utf8")),
+    });
+    await page.getByRole("button", { name: "+ New lesson" }).click();
+    await page.getByRole("radio", { name: "A lesson file" }).click();
+    await page.getByLabel("Lesson file (JSON)").setInputFiles({ name: "cy-1-1-2.json", mimeType: "application/json", buffer: Buffer.from(file) });
+    await expect(page).toHaveURL(/\/lessons\/[a-z0-9-]+$/);
+    await expect(page.locator(".board .card")).toHaveCount(13);
+    // Only the length note: Darsi's videos are three minutes.
+    await expect(page.locator(".checks-sum")).not.toHaveClass(/bad/);
+
+    // The hook: Salma from the shared library, and icons the player fetched from it.
+    await page.locator(".board .card").nth(0).click();
+    const who = page.locator('.stage-player [data-el="who"] img');
+    await expect(who).toHaveAttribute("src", /\/lib\/v1\/cast\/salma_talking\.svg$/);
+    await expect.poll(() => who.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth)).toBeGreaterThan(0);
+    await expect(page.locator('.stage-player [data-el="icon1"] [data-icon="banknote"] path').first()).toBeAttached();
+
+    // In Egyptian Arabic the stage turns right to left and shows the Arabic.
+    await page.getByRole("combobox", { name: "Lesson language" }).selectOption("ar-EG");
+    await expect(page.locator('.stage-player [data-el="label1"]')).toContainText("المرتب موقوف");
+    await expect(page.locator('.stage-player [data-el="who"]')).toHaveAttribute("style", /right:\s*\d/);
+  });
+
+  test("export a lesson as an MP4, made on the server", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    test.setTimeout(300_000);
+    await signIn(page);
+    await page.getByRole("button", { name: "+ New lesson" }).click();
+    await page.getByRole("radio", { name: "An example" }).click();
+    await page.getByRole("button", { name: /^Spot a phishing message/ }).click();
+    await expect(page).toHaveURL(/\/lessons\/[a-z0-9-]+$/);
+    await expect(page.locator(".board .card")).toHaveCount(5);
+    await page.keyboard.press("r");
+    await page.getByRole("combobox", { name: "Size" }).selectOption("144");
+    const download = page.waitForEvent("download", { timeout: 280_000 });
+    await page.getByRole("button", { name: "Make MP4" }).click();
+    await expect(page.getByRole("button", { name: "Making the video…" })).toBeDisabled();
+    const file = await download;
+    expect(file.suggestedFilename()).toMatch(/^phishing-message-[a-z0-9]+-en-144p\.mp4$/);
+    if (process.env.LS_KEEP_MP4) await file.saveAs(process.env.LS_KEEP_MP4);
+    const bytes = (await import("node:fs")).readFileSync(await file.path());
+    // An MP4 starts with an "ftyp" box, and a minute of 144p is tens of kilobytes.
+    expect(bytes.subarray(4, 8).toString("latin1")).toBe("ftyp");
+    expect(bytes.length).toBeGreaterThan(20_000);
+    await expect(page.getByRole("status").filter({ hasText: /Saved .*144p\.mp4/ })).toBeVisible();
   });
 
   test("new lessons start with three scenes; add a ready-made scene and repair a word after rewording", async ({ page }, info) => {
@@ -243,8 +297,8 @@ test.describe("studio", () => {
     await expect(page.locator(".status")).toHaveText("Saved");
 
     // The second arrow starts drawing just before "result"; drag its first diamond onto "patterns".
-    await page.locator(".timeline").evaluate((el) => el.scrollIntoView({ block: "end" }));
     const row = page.locator(".tl-row", { has: page.locator(".tl-label", { hasText: /^arrow2$/ }) });
+    await row.scrollIntoViewIfNeeded();
     const key = row.locator(".tl-key").first();
     const from = (await key.boundingBox())!;
     const word = (await page.locator(".tl-word", { hasText: /^patterns$/ }).boundingBox())!;
@@ -255,12 +309,14 @@ test.describe("studio", () => {
     await page.mouse.up();
     await expect(page.locator(".status")).toHaveText("Saved");
     await row.locator(".tl-label").click();
+    await page.getByRole("tab", { name: "Animate" }).click();
     await expect(page.locator(".inspector")).toContainText("«patterns»");
     // Only English moved: Arabic keeps its own word, so the checks stay clean.
     await expect(page.locator(".checks-sum")).toHaveText("All checks pass");
 
     // Click a diamond to edit that moment; remove it.
     const modelRow = page.locator(".tl-row", { has: page.locator(".tl-label", { hasText: /^model-label$/ }) });
+    await modelRow.scrollIntoViewIfNeeded();
     const before = await modelRow.locator(".tl-key").count();
     await modelRow.locator(".tl-key").first().click();
     await expect(page.locator(".tl-editor")).toBeVisible();
@@ -320,6 +376,125 @@ test.describe("studio", () => {
     }
   });
 
+  test("the editor: reorder and drop scenes on the timeline, the command palette, export and import, zoom and pan", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await signIn(page);
+    await newLesson(page, "Editor", "المحرر");
+    const badges = page.locator(".board .card .badge");
+    await expect(badges).toHaveText(["Title", "Steps", "Summary"]);
+
+    // Drag the last clip to the front of the timeline.
+    const clips = page.locator(".tl-scenes .clip");
+    const last = (await clips.nth(2).boundingBox())!;
+    const first = (await clips.nth(0).boundingBox())!;
+    await page.mouse.move(last.x + last.width / 2, last.y + last.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(first.x + 4, first.y + first.height / 2, { steps: 10 });
+    await expect(page.locator(".clip-marker")).toHaveCount(1);
+    await page.mouse.up();
+    await expect(badges).toHaveText(["Summary", "Title", "Steps"]);
+    await expect(page.locator(".status")).toHaveText("Saved");
+
+    // Drop a ready-made scene from the Add panel between the first two clips.
+    await page.getByRole("button", { name: "Add", exact: true }).click();
+    const target = (await clips.nth(1).boundingBox())!;
+    const box = (await page.locator(".tl-scenes .tl-track").boundingBox())!;
+    await page.locator(".gal-card", { hasText: "A big number" }).dragTo(page.locator(".tl-scenes .tl-track"), { targetPosition: { x: target.x - box.x + 3, y: 20 } });
+    await page.getByRole("button", { name: "Scenes", exact: true }).click();
+    await expect(badges).toHaveText(["Summary", "Canvas", "Title", "Steps"]);
+
+    // The command palette adds a scene.
+    await page.keyboard.press("Control+k");
+    await page.getByRole("combobox", { name: "Commands" }).fill("add scene quick question");
+    await page.keyboard.press("Enter");
+    await expect(page.locator(".board .card")).toHaveCount(5);
+    await expect(page.locator(".status")).toHaveText("Saved");
+
+    // Export downloads the lesson file; importing it makes a copy with the same scenes.
+    await page.keyboard.press("r");
+    const [file] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Download" }).click()]);
+    const path = await file.path();
+    const saved = JSON.parse(await (await import("node:fs/promises")).readFile(path!, "utf8"));
+    expect(saved.scenes.scenes.length).toBe(5);
+    await page.keyboard.press("Escape");
+
+    // Zoom: actual size is 1280 px wide; Space+drag pans; Ctrl+0 fits again.
+    await page.locator(".bar h1").click();
+    await page.keyboard.press("Control+1");
+    await expect(page.locator(".stage-wrap")).toHaveAttribute("style", /width:\s*1280px/);
+    const board = page.locator(".pasteboard");
+    const b = (await board.boundingBox())!;
+    const before = await board.evaluate((el) => el.scrollLeft);
+    await page.keyboard.down("Space");
+    await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(b.x + b.width / 2 - 150, b.y + b.height / 2, { steps: 5 });
+    await page.mouse.up();
+    await page.keyboard.up("Space");
+    expect(await board.evaluate((el) => el.scrollLeft)).toBeGreaterThan(before + 100);
+    await page.keyboard.press("Control+0");
+    await expect(page.getByRole("combobox", { name: "Zoom" })).toHaveValue("fit");
+    await page.screenshot({ path: `e2e/screenshots/editor-${info.project.name}.png` });
+
+    await page.goto(STUDIO);
+    await page.getByRole("button", { name: "+ New lesson" }).click();
+    await page.getByRole("radio", { name: "A lesson file" }).click();
+    await page.getByLabel("Lesson file (JSON)").setInputFiles(path!);
+    await expect(page).toHaveURL(/\/lessons\/editor-[a-z0-9]+$/);
+    await expect(page.locator(".board .card")).toHaveCount(5);
+  });
+
+  test("the canvas: snapping guides while moving, eight handles, rotation, layers", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await signIn(page);
+    await newLesson(page, "Canvas", "اللوحة");
+    await page.getByRole("button", { name: "+ Add a scene" }).click();
+    await page.getByRole("group", { name: "Choose a scene type" }).getByRole("button", { name: "Canvas" }).click();
+    await page.getByRole("toolbar", { name: "Add an element" }).getByRole("button", { name: "Box" }).click();
+    await expect(page.locator(".sel-name")).toHaveText("rect");
+    const width = page.getByLabel("Width", { exact: true });
+    const turn = page.getByLabel("Turn (°)", { exact: true });
+
+    // Drag the box towards the middle of the stage: a guide appears as its centre lines up with the stage's.
+    const ov = (await page.locator(".overlay").boundingBox())!;
+    const sel = (await page.locator(".sel").boundingBox())!;
+    await page.mouse.move(sel.x + sel.width / 2, sel.y + sel.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(ov.x + ov.width / 2 + 3, sel.y + sel.height / 2 + 20, { steps: 8 });
+    await expect(page.locator(".snap-guide").first()).toBeVisible();
+    await page.mouse.up();
+    await expect(page.locator(".status")).toHaveText("Saved");
+    const after = (await page.locator(".sel").boundingBox())!;
+    expect(Math.abs(after.x + after.width / 2 - (ov.x + ov.width / 2))).toBeLessThan(2);
+
+    // Widen it with the right-hand handle.
+    const w0 = Number(await width.inputValue());
+    const e = (await page.locator(".grip.h-e").boundingBox())!;
+    await page.mouse.move(e.x + e.width / 2, e.y + e.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(e.x + 80, e.y + e.height / 2, { steps: 6 });
+    await page.mouse.up();
+    await expect.poll(async () => Number(await width.inputValue())).toBeGreaterThan(w0 + 60);
+
+    // Turn it with the rotation handle, 15° at a time with Shift.
+    const r = (await page.locator(".rot").boundingBox())!;
+    const box = (await page.locator(".sel").boundingBox())!;
+    await page.mouse.move(r.x + r.width / 2, r.y + r.height / 2);
+    await page.mouse.down();
+    await page.keyboard.down("Shift");
+    await page.mouse.move(box.x + box.width + 150, box.y + box.height / 2, { steps: 8 });
+    await page.mouse.up();
+    await page.keyboard.up("Shift");
+    await expect.poll(async () => Number(await turn.inputValue())).toBe(90);
+
+    // Layers lists it; the timeline's row for it is there too.
+    await page.getByRole("button", { name: "Layers", exact: true }).click();
+    await expect(page.locator(".layers li.on")).toContainText("rect");
+    await page.screenshot({ path: `e2e/screenshots/canvas-${info.project.name}.png` });
+  });
+
   test("on a phone, the editor shows one panel at a time", async ({ page }, info) => {
     test.skip(info.project.name !== "phone", "Phone only.");
     await signIn(page);
@@ -335,4 +510,24 @@ test.describe("studio", () => {
     // Nothing spills sideways at 375 px.
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(376);
   });
+});
+
+// The public homepage needs no emulators: it loads no Firebase until someone signs in.
+test("the homepage: a real lesson plays, turns right to left in Arabic, and no Firebase loads before sign-in", async ({ page }, info) => {
+  const urls: string[] = [];
+  page.on("request", (r) => urls.push(r.url()));
+  await page.goto(STUDIO);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Animated lessons");
+  // It plays only while on screen.
+  await expect(page.locator(".hp-host .ls-player")).toHaveCount(1);
+  await page.locator(".hp-frame").scrollIntoViewIfNeeded();
+  const time = page.locator(".hp-host .ls-time");
+  await expect.poll(async () => (await time.textContent()) ?? "", { timeout: 20_000 }).not.toMatch(/^0:00 /);
+  await page.getByRole("radio", { name: "العربية" }).click();
+  await expect(page.locator(".hp-host .ls-player")).toHaveAttribute("dir", "rtl");
+  await page.getByRole("radio", { name: "Low-end phone" }).click();
+  await expect(page.locator(".hp-host .ls-player")).toHaveAttribute("data-tier", "lite");
+  expect(urls.filter((u) => /firebase|studio\.tsx|googleapis/.test(u))).toEqual([]);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(page.viewportSize()!.width + 1);
+  await page.screenshot({ path: `e2e/screenshots/home-${info.project.name}.png` });
 });

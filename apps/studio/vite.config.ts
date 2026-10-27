@@ -8,7 +8,8 @@ const repo = fileURLToPath(new URL("../..", import.meta.url));
 export default defineConfig({
   root: fileURLToPath(new URL(".", import.meta.url)),
   envDir: repo,
-  publicDir: false,
+  // public/lib/ is the shared library (cast, icons) that lessons refer to as @lib/...
+  publicDir: "public",
   oxc: { jsx: { runtime: "automatic", importSource: "preact" } },
   server: { port: 4330, strictPort: true, fs: { allow: [repo] } },
   preview: { port: 4330, strictPort: true },

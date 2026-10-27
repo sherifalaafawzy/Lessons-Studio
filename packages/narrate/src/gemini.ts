@@ -7,6 +7,12 @@ import { decodeAudio, fromBase64, type Pcm } from "./pcm.ts";
  */
 export const DEFAULT_MODEL = "gemini-3.8-flash-lite-tts";
 const BASE = "https://generativelanguage.googleapis.com";
+/** Vertex AI's global endpoint, for keys made in Google Cloud. */
+const VERTEX = "https://aiplatform.googleapis.com";
+
+/** A Vertex AI API key (made in Google Cloud, "AQ.…") rather than a Gemini API key (AI Studio, "AIza…"). The two
+ *  call different endpoints, and only the Gemini API has the half-price batch. */
+export const isVertexKey = (key: string): boolean => /^AQ\./.test(key.trim());
 
 /** The generateContent body that voices `text`. The style is metadata for the model and is never read aloud. */
 export function ttsRequest(text: string, v: NarrationVoice): Record<string, unknown> {
@@ -108,6 +114,8 @@ export function parseJsonl(text: string): BatchItem[] {
 
 export interface GeminiClient {
   key: string;
+  /** Call Vertex AI instead of the Gemini API (see isVertexKey). */
+  vertex?: boolean;
   fetch?: typeof fetch;
   base?: string;
   sleep?: (ms: number) => Promise<void>;
@@ -129,14 +137,14 @@ async function call(c: GeminiClient, method: string, path: string, body?: unknow
   if (body !== undefined) headers["Content-Type"] = "application/json";
   const init: RequestInit = { method, headers };
   if (body !== undefined) init.body = JSON.stringify(body);
-  const r = await (c.fetch ?? fetch)(`${c.base ?? BASE}/${path}`, init);
+  const r = await (c.fetch ?? fetch)(`${c.base ?? (c.vertex ? VERTEX : BASE)}/${path}`, init);
   const text = await r.text();
   if (r.ok) return path.includes(":download") ? text : text ? JSON.parse(text) : null;
   let json: any = null;
   try { json = JSON.parse(text); } catch { /* not JSON */ }
   const retry = (json?.error?.details ?? []).find((d: any) => String(d?.["@type"] ?? "").endsWith("RetryInfo"))?.retryDelay;
   const msg = json?.error?.message ?? text.slice(0, 300) ?? r.statusText;
-  throw new GeminiError(r.status, `Gemini API ${r.status}: ${msg}`, retry ? parseFloat(retry) : undefined);
+  throw new GeminiError(r.status, `${c.vertex ? "Vertex AI" : "Gemini API"} ${r.status}: ${msg}`, retry ? parseFloat(retry) : undefined);
 }
 
 const RETRY = new Set([429, 500, 502, 503, 504]);
@@ -147,12 +155,14 @@ export async function speak(c: GeminiClient, text: string, v: NarrationVoice, tr
   const sleep = c.sleep ?? ((ms: number) => new Promise<void>((ok) => setTimeout(ok, ms)));
   for (let n = 1; ; n++) {
     try {
-      return audioOf(await call(c, "POST", `v1beta/models/${model}:generateContent`, ttsRequest(text, v)));
+      const path = c.vertex ? `v1/publishers/google/models/${model}:generateContent` : `v1beta/models/${model}:generateContent`;
+      return audioOf(await call(c, "POST", path, ttsRequest(text, v)));
     } catch (e) {
       const status = e instanceof GeminiError ? e.status : 0;
       const empty = e instanceof Error && e.message.startsWith("The model returned no audio");
       if (n >= tries || !(RETRY.has(status) || empty)) throw e;
-      const wait = e instanceof GeminiError && e.retryAfter !== undefined ? e.retryAfter : Math.min(60, 2 ** n);
+      // Back off, a little differently for each request, so parallel requests don't all retry at once.
+      const wait = e instanceof GeminiError && e.retryAfter !== undefined ? e.retryAfter : Math.min(60, 2 ** n) * (1 + Math.random() / 4);
       await sleep(wait * 1000);
     }
   }
@@ -160,6 +170,7 @@ export async function speak(c: GeminiClient, text: string, v: NarrationVoice, tr
 
 /** Submits a batch; returns its name ("batches/…"). */
 export async function submitBatch(c: GeminiClient, model: string, displayName: string, items: BatchRequest[]): Promise<string> {
+  if (c.vertex) throw new Error("A Vertex AI key can't use the Gemini batch; voice now instead (--now)");
   const op = await call(c, "POST", `v1beta/models/${model}:batchGenerateContent`, batchBody(displayName, items));
   const name = op?.name ?? op?.metadata?.name;
   if (typeof name !== "string") throw new Error("The batch API returned no batch name");

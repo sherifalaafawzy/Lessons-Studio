@@ -8,16 +8,26 @@ export interface Line {
   sceneId: string;
   index: number;
   text: string;
+  /** The scene's speaker (a key of the language's `voices`); absent for the narrator. */
+  speaker?: string;
+  /** No letters or digits (a dramatic "…"): a short silence, never sent to a voice, which would invent words for it. */
+  pause?: boolean;
 }
+
+/** Whether a sentence is only punctuation, so a pause rather than something to say. */
+export const isPause = (text: string): boolean => !/[\p{L}\p{N}]/u.test(text);
 
 /** The sentences of each scene, in order: the same split the timings and captions use. */
 export function linesOf(scenes: Scene[], lang: Lang): Line[][] {
-  return scenes.map((s, i) => splitSentences(s.narration[lang] ?? "").map((text, index) => ({ scene: i, sceneId: s.id, index, text })));
+  return scenes.map((s, i) => splitSentences(s.narration[lang] ?? "").map((text, index) => ({
+    scene: i, sceneId: s.id, index, text, ...(s.speaker ? { speaker: s.speaker } : {}), ...(isPause(text) ? { pause: true } : {}),
+  })));
 }
 
-/** Style hints per language, added to the voice's own style. */
+/** Style hints per language (the full code first, then its base language), added to the voice's own style. */
 const LANG_STYLE: Record<string, string> = {
   ar: "Modern Standard Arabic (fusha).",
+  "ar-EG": "Egyptian Arabic (Masri), as people speak it in Cairo: natural and friendly, not formal.",
 };
 
 /** The voice for a language: the manifest's, with the defaults filled in. */
@@ -27,7 +37,7 @@ export function voiceFor(lang: Lang, v: Partial<NarrationVoice> | undefined, def
     model: v?.model ?? defaults.model ?? DEFAULT_MODEL,
     name: v?.name ?? defaults.name,
   };
-  const style = [LANG_STYLE[lang.split("-")[0]!], v?.style ?? defaults.style].filter(Boolean).join(" ");
+  const style = [LANG_STYLE[lang] ?? LANG_STYLE[lang.split("-")[0]!], v?.style ?? defaults.style].filter(Boolean).join(" ");
   if (style) out.style = style;
   return out;
 }

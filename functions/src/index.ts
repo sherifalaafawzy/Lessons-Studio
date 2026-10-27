@@ -2,6 +2,7 @@
 // - saveAiKey, removeAiKey, aiKeyStatus: each person's own AI key, sealed (keys.ts); clients only ever see its status.
 // - draftLesson: a brief becomes a checked lesson in the person's account, with their key (draft.ts).
 // - mcp: the MCP server for AI apps, with OAuth sign-in, served at https://<project>.web.app/mcp through Hosting.
+// - exportVideo: a lesson as an MP4 at 360p, 240p or 144p, rendered on the server (video.ts).
 import { setGlobalOptions } from "firebase-functions/v2";
 import { HttpsError, onCall, onRequest, type CallableRequest } from "firebase-functions/v2/https";
 import { defineSecret } from "firebase-functions/params";
@@ -13,6 +14,8 @@ import { FirestoreStore } from "../../apps/server/src/stores/firestore.ts";
 import { keyShapeProblem, seal, statusOf, unseal, type Sealed } from "./keys.ts";
 import { DRAFT_MODEL, GeminiError, checkKey, draftPrice, gemini } from "./gemini.ts";
 import { DraftFailed, draft, readRequest, slug } from "./draft.ts";
+import { readExport, renderVideo } from "./video.ts";
+import { StoreError, toPackage } from "@lessonstudio/ops";
 
 setGlobalOptions({ region: "europe-west1", maxInstances: 4 });
 if (!getApps().length) initializeApp();
@@ -45,11 +48,29 @@ export const saveAiKey = onCall({ secrets: [AI_KEYS_SECRET] }, async (req) => {
   const shape = keyShapeProblem(provider, key);
   if (shape) throw new HttpsError("invalid-argument", shape);
   const ok = await checkKey(key);
-  if (ok === "rejected") throw new HttpsError("invalid-argument", "Google didn't accept this key. Copy it again from aistudio.google.com/apikey.");
+  if (ok === "rejected") throw new HttpsError("invalid-argument", "Google didn't accept this key. Copy it again from aistudio.google.com/apikey or Google Cloud's Credentials page.");
   if (ok === "unreachable") throw new HttpsError("unavailable", "Couldn't reach Google to check the key. Try again in a minute.");
   const gemini = { ...seal(AI_KEYS_SECRET.value(), uid, key), last4: key.slice(-4), setAt: Date.now() };
   await keyRef(uid).set({ gemini }, { merge: true });
   return { gemini: statusOf(gemini) };
+});
+
+/** Chromium and ffmpeg need room: 8 GiB and 4 CPUs, one export at a time per instance. */
+export const exportVideo = onCall({ timeoutSeconds: 900, memory: "8GiB", cpu: 4, concurrency: 1, maxInstances: 3 }, async (req) => {
+  const uid = signedIn(req);
+  const ask = readExport(req.data);
+  if (typeof ask === "string") throw new HttpsError("invalid-argument", ask);
+  let loaded;
+  try {
+    loaded = await new FirestoreStore(db).get(ask.lesson, uid);
+  } catch (e) {
+    if (e instanceof StoreError) throw new HttpsError(e.code === "forbidden" ? "permission-denied" : "not-found", e.message);
+    throw e;
+  }
+  const pkg = toPackage(loaded.lesson, loaded.timings);
+  if (!pkg.timing[ask.lang]) throw new HttpsError("invalid-argument", `The lesson has no ${ask.lang}.`);
+  const { mp4, seconds } = await renderVideo(pkg, ask.lang, ask.size);
+  return { name: `${ask.lesson}-${ask.lang}-${ask.size}p.mp4`, mp4: mp4.toString("base64"), bytes: mp4.length, seconds };
 });
 
 export const removeAiKey = onCall(async (req) => {

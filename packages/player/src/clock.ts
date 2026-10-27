@@ -6,6 +6,8 @@ export interface Clock {
   pause(): void;
   seek(t: number): void;
   setRate(rate: number): void;
+  /** 0 (silent) to 1. */
+  setVolume(v: number): void;
   destroy(): void;
 }
 
@@ -44,6 +46,7 @@ export class SilentClock implements Clock {
     this.since = this.now();
     this.rate = rate;
   }
+  setVolume(): void {}
   destroy(): void {
     this.playing = false;
   }
@@ -86,6 +89,10 @@ export class AudioClock implements Clock {
     // Loading a source resets playbackRate to defaultPlaybackRate, so set both.
     this.audio.defaultPlaybackRate = rate;
     this.audio.playbackRate = rate;
+  }
+  setVolume(v: number): void {
+    this.audio.volume = Math.min(1, Math.max(0, v));
+    this.audio.muted = v === 0;
   }
   destroy(): void {
     this.audio.pause();

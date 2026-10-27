@@ -33,6 +33,21 @@ describe("AI keys", () => {
     expect(await checkKey("k", answer(503))).toBe("unreachable");
   });
 
+  it("takes Vertex AI keys too, and asks Vertex AI about them", async () => {
+    expect(keyShapeProblem("gemini", "AQ.Ab8RN6-example_key-1234567890abcdefgh")).toBeNull();
+    const calls: { url: string; method?: string }[] = [];
+    const fetcher = (async (url: string, init: RequestInit) => {
+      calls.push({ url, method: init.method });
+      return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: "{}" }] } }] }), { status: 200 });
+    }) as unknown as typeof fetch;
+    expect(await checkKey("AQ.example", fetcher)).toBe("ok");
+    await gemini("AQ.example", "gemini-3.8-flash", fetcher)("system", [{ role: "user", text: "hi" }]);
+    expect(calls).toEqual([
+      { url: "https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-3.8-flash:countTokens", method: "POST" },
+      { url: "https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-3.8-flash:generateContent", method: "POST" },
+    ]);
+  });
+
   it("prices drafts by date", () => {
     expect(draftPrice(Date.UTC(2026, 9, 27))).toEqual({ input: 0.75, output: 3.75 });
     expect(draftPrice(Date.UTC(2027, 0, 2))).toEqual({ input: 1.5, output: 7.5 });

@@ -1,0 +1,392 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "Two great facts and a book to cite — in ten seconds! Lesson planning done.",
+        "ar-EG": "معلومتين جامدين وكتاب أستشهد بيه — في عشر ثواني! تحضير الدرس خلص."
+      },
+      "mood": "happy",
+      "cards": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Two great facts",
+            "ar-EG": "معلومتين جامدين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "A book to cite",
+            "ar-EG": "كتاب أستشهد بيه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Planning done!",
+            "ar-EG": "التحضير خلص!"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Writes one likely word at a time",
+            "ar-EG": "بيكتب كلمة محتملة كل مرة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Learned from huge amounts of text",
+            "ar-EG": "اتعلم من كميات ضخمة من الكلام"
+          },
+          "s": 2
+        },
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Like your keyboard, much bigger",
+            "ar-EG": "زي كيبورد الموبايل، بس أكبر بكتير"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "sparkle"
+    },
+    "4": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "How sentences sound",
+            "ar-EG": "الجمل بتبان إزاي"
+          },
+          "icon": "chat",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "circlecheck",
+              "text": {
+                "en": "Learned it well",
+                "ar-EG": "اتعلمها كويس"
+              },
+              "s": 0
+            },
+            {
+              "icon": "sparkle",
+              "text": {
+                "en": "Sounds sure, even guessing",
+                "ar-EG": "بيبان واثق حتى وهو بيخمّن"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Which facts are true",
+            "ar-EG": "أنهي معلومات صح"
+          },
+          "icon": "help",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "tag",
+              "text": {
+                "en": "No ‘true’ or ‘false’ labels",
+                "ar-EG": "مفيش تصنيف «صح» أو «غلط»"
+              },
+              "s": 1
+            },
+            {
+              "icon": "calendar",
+              "text": {
+                "en": "A rare date or title? A guess",
+                "ar-EG": "تاريخ أو كتاب نادر؟ تخمين"
+              },
+              "s": 1
+            },
+            {
+              "icon": "award",
+              "text": {
+                "en": "Tests reward guessing",
+                "ar-EG": "الاختبارات بتكافئ التخمين"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "answer",
+            "icon": "chat",
+            "text": {
+              "en": "An answer",
+              "ar-EG": "إجابة"
+            },
+            "s": 0
+          },
+          {
+            "id": "sure",
+            "icon": "sparkle",
+            "text": {
+              "en": "Sounds sure",
+              "ar-EG": "بتبان واثقة"
+            },
+            "s": 0
+          },
+          {
+            "id": "false",
+            "icon": "circlex",
+            "tone": "danger",
+            "text": {
+              "en": "But false",
+              "ar-EG": "بس غلط"
+            },
+            "s": 0
+          },
+          {
+            "id": "predict",
+            "icon": "bot",
+            "tone": "system",
+            "text": {
+              "en": "Predicting",
+              "ar-EG": "بيتوقع"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "answer",
+            "sure"
+          ],
+          [
+            "sure",
+            "false"
+          ],
+          [
+            "false",
+            "predict"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "cards": [
+        {
+          "icon": "file",
+          "tone": "danger",
+          "text": {
+            "en": "6 invented court cases",
+            "ar-EG": "6 قضايا متألفة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“Is it real?” “Yes.”",
+            "ar-EG": "«حقيقية؟» «أيوه.»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "A $5,000 fine",
+            "ar-EG": "غرامة 5,000 دولار"
+          },
+          "s": 2
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "2,000+ court decisions by 2026",
+            "ar-EG": "أكتر من 2,000 حكم لحد 2026"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "who": "okafor",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Chatbot makers warn about this",
+            "ar-EG": "صنّاع الشات بوت بيحذّروا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "danger",
+          "text": {
+            "en": "2026 trial: a label didn’t help",
+            "ar-EG": "تجربة 2026: التحذير مفرقش"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "So: build a habit",
+            "ar-EG": "يبقى: نبني عادة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Ask clearly — no pupils’ personal details",
+            "ar-EG": "اسأل بوضوح — من غير بيانات التلاميذ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Check facts in a trusted source",
+            "ar-EG": "اتأكد من مصدر تثق فيه"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The book? Not found anywhere",
+            "ar-EG": "الكتاب؟ مش موجود في أي حتة"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Decide: keep, fix or drop",
+            "ar-EG": "قرّر: تخليها، تصلّحها، ولا تشيلها"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Fraud flags: investigators review",
+            "ar-EG": "علامات الاحتيال: محققين بيراجعوها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "stethoscope",
+          "text": {
+            "en": "TB X-rays: a lab test confirms",
+            "ar-EG": "أشعة السل: تحليل المعمل يأكد"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "Flood forecasts: for information only",
+            "ar-EG": "توقع الفيضان: للعلم بس"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "hand"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "AI predicts; it doesn’t check",
+            "ar-EG": "الذكاء الاصطناعي بيتوقع، مش بيتأكد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Ask clearly",
+            "ar-EG": "اسأل بوضوح"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check what matters",
+            "ar-EG": "اتأكد من اللي يهم"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Then decide",
+            "ar-EG": "وبعدين قرّر"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "You’re the teacher; the AI is a tool.",
+        "ar-EG": "إنت المدرس، والذكاء الاصطناعي أداة."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Read 5 statements, robot voice",
+            "ar-EG": "اقرا 5 جمل بصوت روبوت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Pupils vote for the made-up one",
+            "ar-EG": "التلاميذ يصوّتوا على المتألفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "How would they check it?",
+            "ar-EG": "هيتأكدوا منها إزاي؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "End with Ask, Check, Decide",
+            "ar-EG": "اختم بـ«اسأل، اتأكد، قرّر»"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read every morning",
+            "ar-EG": "بيتقرا كل يوم الصبح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "“Should we water today?”",
+            "ar-EG": "«نسقي النهارده؟»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "A page of numbers",
+            "ar-EG": "صفحة مليانة أرقام"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "headline": {
+        "en": "Data answers a question",
+        "ar-EG": "البيانات بتجاوب على سؤال"
+      },
+      "flow": {
+        "nodes": [
+          {
+            "id": "q",
+            "icon": "help",
+            "text": {
+              "en": "Water?",
+              "ar-EG": "نسقي؟"
+            },
+            "tone": "system",
+            "s": 1
+          },
+          {
+            "id": "record",
+            "icon": "notebook",
+            "text": {
+              "en": "Record",
+              "ar-EG": "سجّل"
+            },
+            "s": 3
+          },
+          {
+            "id": "chart",
+            "icon": "signal",
+            "text": {
+              "en": "Chart",
+              "ar-EG": "ارسم"
+            },
+            "s": 3
+          },
+          {
+            "id": "spot",
+            "icon": "search",
+            "text": {
+              "en": "Spot",
+              "ar-EG": "لاحظ"
+            },
+            "s": 3
+          },
+          {
+            "id": "decide",
+            "icon": "sprout",
+            "text": {
+              "en": "Decide",
+              "ar-EG": "قرّر"
+            },
+            "s": 3
+          }
+        ],
+        "edges": [
+          [
+            "q",
+            "record"
+          ],
+          [
+            "record",
+            "chart"
+          ],
+          [
+            "chart",
+            "spot"
+          ],
+          [
+            "spot",
+            "decide"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "A row for each day",
+            "ar-EG": "صف لكل يوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Headings with units: date, time, mm",
+            "ar-EG": "عناوين بالوحدات: التاريخ، الوقت، مم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "0 = a dry day",
+            "ar-EG": "0 = يوم ناشف"
+          },
+          "tone": "ok",
+          "s": 2
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "“Missed” = nobody read it",
+            "ar-EG": "«لم تُقرأ» = محدش قراه"
+          },
+          "tone": "ok",
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Blank = could be either",
+            "ar-EG": "فاضية = ممكن دي أو دي"
+          },
+          "tone": "danger",
+          "s": 3
+        }
+      ],
+      "aside": "notebook"
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "One bar for each day",
+            "ar-EG": "عمود لكل يوم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Bar height = millimetres of rain",
+            "ar-EG": "طول العمود = ملّيمترات المطر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Label the side in equal steps: 0, 5, 10, 15",
+            "ar-EG": "على الجنب، خطوات متساوية: 0، 5، 10، 15"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Record: tick names",
+            "ar-EG": "سجّل: علّم على الأسامي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Spot: absent every Friday",
+            "ar-EG": "لاحظ: غايب كل خميس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Decide what to do",
+            "ar-EG": "قرّر هتعمل إيه"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "“Missed”",
+            "ar-EG": "«لم تُقرأ»"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "calendar",
+              "text": {
+                "en": "Next reading covers two days",
+                "ar-EG": "القراءة اللي بعدها عن يومين"
+              },
+              "s": 2
+            },
+            {
+              "icon": "pencil",
+              "text": {
+                "en": "Note that beside the number",
+                "ar-EG": "اكتب ده جنب الرقم"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": "0",
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "cloudrain",
+              "text": {
+                "en": "Says no rain fell",
+                "ar-EG": "معناه مفيش مطر نزل"
+              },
+              "s": 1
+            },
+            {
+              "icon": "help",
+              "text": {
+                "en": "Nobody knows that",
+                "ar-EG": "ومحدش يعرف كده"
+              },
+              "s": 1
+            }
+          ]
+        }
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Two wet days, then five dry",
+            "ar-EG": "يومين مطر، وبعدين خمسة ناشفين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Rule: under 5 mm in 3 days",
+            "ar-EG": "القاعدة: أقل من 5 مم في 3 أيام"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "…and the soil feels dry",
+            "ar-EG": "…والتربة ناشفة لما نلمسها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Today, we water",
+            "ar-EG": "النهارده، هنسقي"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ],
+      "aside": "search"
+    },
+    "10": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "sensor",
+            "icon": "sprout",
+            "text": {
+              "en": "Soil sensor",
+              "ar-EG": "حساس التربة"
+            },
+            "s": 1
+          },
+          {
+            "id": "net",
+            "icon": "wifi",
+            "text": {
+              "en": "Network",
+              "ar-EG": "الشبكة"
+            },
+            "s": 1
+          },
+          {
+            "id": "pc",
+            "icon": "cpu",
+            "text": {
+              "en": "Computer",
+              "ar-EG": "الكمبيوتر"
+            },
+            "s": 2
+          },
+          {
+            "id": "pump",
+            "icon": "droplets",
+            "text": {
+              "en": "Pump",
+              "ar-EG": "الطلمبة"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "sensor",
+            "net"
+          ],
+          [
+            "net",
+            "pc"
+          ],
+          [
+            "pc",
+            "pump"
+          ]
+        ]
+      }
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Feel the soil, check the probe",
+            "ar-EG": "المس التربة، وبصّ على المجس"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Record and chart",
+            "ar-EG": "سجّل وارسم"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Spot the pattern, then decide",
+            "ar-EG": "لاحظ النمط، وبعدين قرّر"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Machines help, but people still check.",
+        "ar-EG": "الأجهزة بتساعد، بس الناس لسه لازم تتأكّد."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "A week of readings on the board",
+            "ar-EG": "قراءات أسبوع على السبورة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "signal",
+          "text": {
+            "en": "Pupils draw the bar chart",
+            "ar-EG": "التلاميذ يرسموا الأعمدة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the pattern",
+            "ar-EG": "يلاقوا النمط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Agree a watering rule",
+            "ar-EG": "يتّفقوا على قاعدة للسقي"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

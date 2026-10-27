@@ -1,0 +1,422 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "“Who switched it on?”",
+            "ar-EG": "«مين اللي ولّعها؟»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Nobody touched it",
+            "ar-EG": "محدش لمسها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "What noticed the dark?",
+            "ar-EG": "مين حسّ بالضلمة؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "You notice",
+            "ar-EG": "إنت بتحسّ"
+          },
+          "icon": "users",
+          "tone": "accent",
+          "s": 0,
+          "items": [
+            {
+              "icon": "eye",
+              "text": {
+                "en": "Eyes",
+                "ar-EG": "عينيك"
+              },
+              "s": 0
+            },
+            {
+              "icon": "audio",
+              "text": {
+                "en": "Ears",
+                "ar-EG": "ودانك"
+              },
+              "s": 0
+            },
+            {
+              "icon": "hand",
+              "text": {
+                "en": "Skin",
+                "ar-EG": "جلدك"
+              },
+              "s": 0
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Devices notice",
+            "ar-EG": "الأجهزة بتحسّ"
+          },
+          "icon": "lamp",
+          "tone": "accent",
+          "s": 1,
+          "items": [
+            {
+              "icon": "sun",
+              "text": {
+                "en": "A light sensor",
+                "ar-EG": "حساس ضوء"
+              },
+              "s": 2
+            },
+            {
+              "icon": "signal",
+              "text": {
+                "en": "Light fades: a signal",
+                "ar-EG": "النور يقلّ: إشارة"
+              },
+              "s": 3
+            },
+            {
+              "icon": "bulb",
+              "text": {
+                "en": "The lamp switches on",
+                "ar-EG": "اللمبة تنوّر"
+              },
+              "s": 3
+            }
+          ]
+        }
+      }
+    },
+    "4": {
+      "headline": {
+        "en": "What sensors notice",
+        "ar-EG": "الحساسات بتحسّ بإيه"
+      },
+      "list": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Heat",
+            "ar-EG": "الحرارة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "Light",
+            "ar-EG": "الضوء"
+          },
+          "s": 0
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Moisture",
+            "ar-EG": "الرطوبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Movement",
+            "ar-EG": "الحركة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Sound",
+            "ar-EG": "الصوت"
+          },
+          "s": 0
+        }
+      ],
+      "aside": "signal"
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "world",
+            "icon": "sun",
+            "text": {
+              "en": "The world",
+              "ar-EG": "الدنيا"
+            },
+            "s": 0
+          },
+          {
+            "id": "sensor",
+            "icon": "thermometer",
+            "text": {
+              "en": "Sensor",
+              "ar-EG": "الحساس"
+            },
+            "s": 0
+          },
+          {
+            "id": "reading",
+            "icon": "gauge",
+            "text": {
+              "en": "A reading",
+              "ar-EG": "قراءة"
+            },
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "world",
+            "sensor"
+          ],
+          [
+            "sensor",
+            "reading"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Your hand: “warm”",
+            "ar-EG": "إيدك: «دافي»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Hard to write or compare",
+            "ar-EG": "صعب تكتبه أو تقارنه"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "37.8 degrees",
+            "ar-EG": "37.8 درجة"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Thermometer: senses heat",
+            "ar-EG": "الترمومتر: بيحسّ بالحرارة"
+          },
+          "tone": "ok",
+          "s": 0
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Notebook: only stores",
+            "ar-EG": "الكشكول: بيحفظ بس"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "audio",
+          "text": {
+            "en": "Loudspeaker: makes sound",
+            "ar-EG": "السمّاعة: بتطلّع صوت"
+          },
+          "tone": "danger",
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "A thermometer on the classroom wall",
+            "ar-EG": "ترمومتر على حيطة الفصل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "A probe in the garden soil",
+            "ar-EG": "مجس في تربة الجنينة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Phone microphone: sound",
+            "ar-EG": "مايك الموبايل: الصوت"
+          },
+          "s": 3
+        },
+        {
+          "icon": "image",
+          "text": {
+            "en": "Phone camera: light",
+            "ar-EG": "كاميرا الموبايل: الضوء"
+          },
+          "s": 3
+        },
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Movement sensor: when you turn it",
+            "ar-EG": "حساس الحركة: لما تلفّه"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "phone"
+    },
+    "10": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Sensor",
+            "ar-EG": "الحساس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Display",
+            "ar-EG": "وسيلة العرض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Person or computer",
+            "ar-EG": "إنسان أو كمبيوتر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Actuator",
+            "ar-EG": "المُشغِّل"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "The probe senses; the pump acts",
+            "ar-EG": "المجس بيحسّ، والطلمبة بتنفّذ"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Sensors turn the world into numbers",
+            "ar-EG": "الحساسات بتحوّل الدنيا لأرقام"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Displays show them",
+            "ar-EG": "وسائل العرض بتعرضها"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Actuators act",
+            "ar-EG": "المُشغِّلات بتنفّذ"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Sense, show, decide, act.",
+        "ar-EG": "يحسّ، يعرض، يقرّر، ينفّذ."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Three bowls: cold, room temp, warm",
+            "ar-EG": "تلات سلطانيات: ساقعة، عادية، دافية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "One hand cold, one hand warm",
+            "ar-EG": "إيد في الساقعة، وإيد في الدافية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Then both in the middle bowl",
+            "ar-EG": "وبعدين الاتنين في اللي في النص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Their hands disagree!",
+            "ar-EG": "الإيدين مش متّفقين!"
+          },
+          "s": 2
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Sensors give numbers",
+            "ar-EG": "الحساسات بتدّي أرقام"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

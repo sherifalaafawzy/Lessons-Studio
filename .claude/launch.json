@@ -4,14 +4,32 @@
     {
       "name": "playground",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 4310
     },
     {
       "name": "studio-emulators",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "studio:emulators"],
+      "runtimeArgs": [
+        "run",
+        "studio:emulators"
+      ],
       "port": 4332
+    },
+    {
+      "name": "videos",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4340",
+        "-d",
+        "out/videos"
+      ],
+      "port": 4340
     }
   ]
 }

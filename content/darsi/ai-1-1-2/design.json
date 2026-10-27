@@ -1,0 +1,457 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "A scam in our staff group — and my phone already flagged one just like it as spam. How did it learn to do that?",
+        "ar-EG": "رسالة نصب في جروب المدرسين — والموبايل بتاعي أصلًا علّم على واحدة زيها إنها سبام. اتعلم يعمل كده إزاي؟"
+      },
+      "mood": "curious",
+      "cards": [
+        {
+          "icon": "chat",
+          "tone": "danger",
+          "text": {
+            "en": "A scam in the staff group",
+            "ar-EG": "نصب في جروب المدرسين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "“Suspected spam”",
+            "ar-EG": "«شكلها سبام»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "How did it learn?",
+            "ar-EG": "اتعلم إزاي؟"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "People",
+            "ar-EG": "الناس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Collect lots of emails",
+            "ar-EG": "يجمعوا إيميلات كتير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Label: spam or not spam",
+            "ar-EG": "تصنيف: سبام ولا لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "database",
+          "tone": "ok",
+          "text": {
+            "en": "Training data",
+            "ar-EG": "بيانات التدريب"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Searches the labelled examples",
+            "ar-EG": "بيدوّر في الأمثلة المتصنّفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "tone": "danger",
+          "text": {
+            "en": "“Confirm your PIN”",
+            "ar-EG": "«أكّد الرقم السري»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "“Act today”",
+            "ar-EG": "«اتصرف النهارده»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "package",
+          "tone": "ok",
+          "text": {
+            "en": "The model: patterns kept as numbers",
+            "ar-EG": "النموذج: أنماط متخزنة أرقام"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "cog"
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "Test on examples it has never seen",
+            "ar-EG": "اختبره على أمثلة عمره ما شافها"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Check its guesses against the real labels",
+            "ar-EG": "قارن تخميناته بالتصنيفات الحقيقية"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Too many wrong? Add more, varied examples",
+            "ar-EG": "غلط كتير؟ زوّد أمثلة متنوعة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Train it again",
+            "ar-EG": "درّبه تاني"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "headline": {
+        "en": "Machine learning: patterns from examples",
+        "ar-EG": "تعلّم الآلة: أنماط من الأمثلة"
+      },
+      "flow": {
+        "nodes": [
+          {
+            "id": "collect",
+            "icon": "boxes",
+            "text": {
+              "en": "Collect",
+              "ar-EG": "اجمع"
+            },
+            "s": 1
+          },
+          {
+            "id": "label",
+            "icon": "tag",
+            "text": {
+              "en": "Label",
+              "ar-EG": "صنّف"
+            },
+            "s": 1
+          },
+          {
+            "id": "train",
+            "icon": "cog",
+            "text": {
+              "en": "Train",
+              "ar-EG": "درّب"
+            },
+            "s": 1
+          },
+          {
+            "id": "test",
+            "icon": "checksquare",
+            "text": {
+              "en": "Test",
+              "ar-EG": "اختبر"
+            },
+            "s": 1
+          },
+          {
+            "id": "use",
+            "icon": "sparkle",
+            "tone": "system",
+            "text": {
+              "en": "Use",
+              "ar-EG": "استخدم"
+            },
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "collect",
+            "label"
+          ],
+          [
+            "label",
+            "train"
+          ],
+          [
+            "train",
+            "test"
+          ],
+          [
+            "test",
+            "use"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "who": "joseph",
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Show many mangoes",
+            "ar-EG": "وريه مانجة كتير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Say “ripe” or “not ripe”",
+            "ar-EG": "قول «مستوية» أو «لأ»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Colour, softness, smell",
+            "ar-EG": "اللون، الطراوة، الريحة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Correct the mistakes",
+            "ar-EG": "صحّحله غلطه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "checksquare",
+          "tone": "ok",
+          "text": {
+            "en": "Test with new mangoes",
+            "ar-EG": "اختبره بمانجة جديدة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Blocked numbers list",
+            "ar-EG": "قايمة الأرقام المحظورة"
+          },
+          "icon": "clipboard",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "phone",
+              "text": {
+                "en": "Only numbers someone added",
+                "ar-EG": "بس الأرقام اللي حد ضافها"
+              },
+              "s": 1
+            },
+            {
+              "icon": "circlex",
+              "text": {
+                "en": "A new scam slips past",
+                "ar-EG": "النصب الجديد بيعدّي"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "A model",
+            "ar-EG": "النموذج"
+          },
+          "icon": "package",
+          "tone": "ok",
+          "s": 2,
+          "items": [
+            {
+              "icon": "sparkle",
+              "text": {
+                "en": "Learned patterns",
+                "ar-EG": "اتعلم أنماط"
+              },
+              "s": 2
+            },
+            {
+              "icon": "shield",
+              "text": {
+                "en": "Often catches a new scam",
+                "ar-EG": "غالبًا بيمسك النصب الجديد"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "10": {
+      "cards": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Leaf photos labelled by experts",
+            "ar-EG": "صور ورق صنّفها خبرا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Native speakers’ recordings",
+            "ar-EG": "تسجيلات لأهل اللغة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "River gauge records",
+            "ar-EG": "سجلات مقاييس الأنهار"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Label messages: safe or scam",
+            "ar-EG": "صنّف الرسايل: أمان ولا نصب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Train it",
+            "ar-EG": "درّبه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Test a message it never saw",
+            "ar-EG": "اختبره برسالة جديدة"
+          },
+          "s": 0
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Collect and label examples",
+            "ar-EG": "اجمع أمثلة وصنّفها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Train, then test on new ones",
+            "ar-EG": "درّب، واختبر على أمثلة جديدة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Use it to make predictions",
+            "ar-EG": "استخدمه علشان يتوقع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Models stay fixed until retrained",
+            "ar-EG": "النموذج ثابت لحد ما يتدرب تاني"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A prediction is a best guess — even about now.",
+        "ar-EG": "التوقع هو أحسن تخمين — حتى لو عن دلوقتي."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Play “Be the machine”",
+            "ar-EG": "العبوا «خليك إنت الآلة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw zogs and not-zogs",
+            "ar-EG": "ارسم أشكال «زُوك» وأشكال لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Pupils find the hidden pattern",
+            "ar-EG": "التلاميذ يكتشفوا النمط المستخبي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Then predict new shapes",
+            "ar-EG": "وبعدين يتوقعوا أشكال جديدة"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

@@ -7,6 +7,7 @@ import { ICONS } from "@lessonstudio/spec";
 import { createPlayer } from "@lessonstudio/player";
 import { getAt, presetKeys, toPackage, type Lesson } from "@lessonstudio/ops";
 import { partPath } from "./parts.ts";
+import { LIBRARY } from "./env.ts";
 
 const SIZES = { landscape: [1280, 720], portrait: [720, 1280], square: [1080, 1080] } as const;
 const TONE_VARS: [Tone, string][] = [["fg", "--ls-fg"], ["muted", "--ls-muted"], ["accent", "--ls-accent"], ["accent2", "--ls-accent2"],
@@ -39,8 +40,9 @@ export async function convertToCanvas(lesson: Lesson, scene: Scene): Promise<Sce
   delete bare.overlays;
   delete bare.camera;
   const pkg = toPackage({ manifest: m, scenes: { version: "0.2", scenes: [bare] } }, { [track.code]: undefined });
-  const player = createPlayer(host, pkg, { lang: track.code, tier: "full", orient: shape, captions: false });
+  const player = createPlayer(host, pkg, { lang: track.code, tier: "full", orient: shape, captions: false, library: LIBRARY });
   try {
+    await player.ready;
     player.seek(Math.max(0, player.duration - 0.02));
     await new Promise((r) => requestAnimationFrame(() => r(null)));
     const root = host.shadowRoot!;

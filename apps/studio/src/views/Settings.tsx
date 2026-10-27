@@ -87,7 +87,7 @@ function AiKeys() {
       {editing ? (
         <form class="key-form" onSubmit={(e) => { e.preventDefault(); if (key.trim() && !busy) void save(); }}>
           <label class="f-row"><span>{t("geminiKey")}</span>
-            <input type="password" autocomplete="off" spellcheck={false} dir="ltr" value={key} onInput={(e) => setKey((e.target as HTMLInputElement).value)} placeholder="AIza…" />
+            <input type="password" autocomplete="off" spellcheck={false} dir="ltr" value={key} onInput={(e) => setKey((e.target as HTMLInputElement).value)} placeholder="AIza… / AQ.…" />
           </label>
           <p class="f-hint">{t("getKeyAt")} <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" dir="ltr">aistudio.google.com/apikey</a></p>
           <div class="row-actions">

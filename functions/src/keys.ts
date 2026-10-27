@@ -28,7 +28,8 @@ export function unseal(secret: string, uid: string, s: Sealed): string {
 /** What a key looks like before Google is asked: an error message, or null. */
 export function keyShapeProblem(provider: string, key: string): string | null {
   if (!(PROVIDERS as readonly string[]).includes(provider)) return `Unknown provider "${provider}".`;
-  if (!/^[A-Za-z0-9_-]{20,120}$/.test(key)) return "That doesn't look like a Gemini API key. Copy it again from aistudio.google.com/apikey.";
+  // Gemini API keys (AI Studio) are "AIza…"; Vertex AI keys (Google Cloud) are "AQ.…".
+  if (!/^[A-Za-z0-9._-]{20,200}$/.test(key)) return "That doesn't look like a Gemini or Vertex AI API key. Copy it again from aistudio.google.com/apikey or Google Cloud's Credentials page.";
   return null;
 }
 

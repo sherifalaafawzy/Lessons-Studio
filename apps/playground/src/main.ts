@@ -147,6 +147,7 @@ async function open(): Promise<void> {
     orient: state.orient,
     signals: state.device === "phone" ? PHONE : undefined,
     fetch: slowFetch,
+    remember: true,
     onEvent: (e) => note(e.type === "scene" ? `scene ${e.id}` : e.type === "check" ? `check ${e.id}: ${e.correct ? "right" : "wrong"}` : e.type === "tier" ? `tier ${e.tier}` : e.type === "lang" ? `lang ${e.lang}` : e.type === "no-audio" ? "no audio: playing silently with captions" : e.type),
   });
   note(`ready in ${Math.round(performance.now() - started)} ms, tier ${player.tier}, ${player.orient}`);

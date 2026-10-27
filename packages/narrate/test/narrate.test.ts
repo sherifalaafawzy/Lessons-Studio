@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { splitWords, validatePackage, toVtt, type LessonPackage, type NarrationVoice } from "@lessonstudio/spec";
 import {
   alignWords, assemble, audioOf, batchBody, batchOutput, batchState, decodeAudio, GeminiError, lineKey, linesOf,
-  parseJsonl, parseWav, seconds, similarity, speak, spreadWords, toWav, trimSilence, ttsCost, ttsRequest, voiceFor,
+  parseJsonl, parseWav, seconds, similarity, speak, spreadWords, toWav, trimSilence, ttsCost, ttsRequest, voiceFor, isVertexKey, submitBatch,
   type Clip, type Pcm,
 } from "../src/index.ts";
 import { loadExample } from "../../../scripts/lib/examples.mjs";
@@ -76,6 +76,17 @@ describe("Gemini requests", () => {
     expect(calls.every((c) => !c.url.includes("test-key"))).toBe(true);
   });
 
+  it("calls Vertex AI with a Vertex key, which has no batch", async () => {
+    expect(isVertexKey("AQ.Ab8-test")).toBe(true);
+    expect(isVertexKey("AIzaSy-test")).toBe(false);
+    const urls: string[] = [];
+    const ok = { candidates: [{ content: { parts: [{ inlineData: { mimeType: "audio/L16;rate=24000", data: b64(new Uint8Array(48)) } }] } }] };
+    const fetcher = (async (url: string) => { urls.push(url); return new Response(JSON.stringify(ok), { status: 200 }); }) as unknown as typeof fetch;
+    await speak({ key: "AQ.test", vertex: true, fetch: fetcher }, "Hi.", VOICE);
+    expect(urls).toEqual(["https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-3.8-flash-lite-tts:generateContent"]);
+    await expect(submitBatch({ key: "AQ.test", vertex: true, fetch: fetcher }, "m", "x", [])).rejects.toThrow(/batch/);
+  });
+
   it("gives up on errors that a retry won't fix", async () => {
     const fetcher = (async () => new Response(JSON.stringify({ error: { message: "API key not valid" } }), { status: 400 })) as unknown as typeof fetch;
     await expect(speak({ key: "k", fetch: fetcher, sleep: async () => {} }, "Hi.", VOICE)).rejects.toBeInstanceOf(GeminiError);
@@ -126,6 +137,28 @@ describe("plan", () => {
       provider: "gemini", model: "gemini-3.8-flash-lite-tts", name: "Sulafat", style: "Modern Standard Arabic (fusha). Warm.",
     });
     expect(voiceFor("en", undefined, { provider: "gemini", name: "Charon" }).style).toBeUndefined();
+  });
+
+  it("asks for Egyptian Arabic, not fusha, in ar-EG", () => {
+    const style = voiceFor("ar-EG", { name: "Kore", style: "Careful." }, { provider: "gemini", name: "Charon" }).style!;
+    expect(style).toMatch(/^Egyptian Arabic/);
+    expect(style).not.toMatch(/fusha/);
+    expect(style).toMatch(/Careful\.$/);
+  });
+
+  it("treats a sentence that is only punctuation as a pause, never something to voice", () => {
+    const scenes = [{ id: "a", template: "canvas", narration: { en: "“Maths test moved to Thursday.” … It wrote “mass chest”?" }, content: { elements: [] } }] as unknown as LessonPackage["scenes"]["scenes"];
+    expect(linesOf(scenes, "en")[0]!.map((l) => [l.text, !!l.pause])).toEqual([["“Maths test moved to Thursday.”", false], ["…", true], ["It wrote “mass chest”?", false]]);
+  });
+
+  it("names each sentence's speaker, so the cast's voices read their own scenes", () => {
+    const scenes = [
+      { id: "a", template: "canvas", speaker: "salma", narration: { en: "Hmm. Who writes like that?" }, content: { elements: [] } },
+      { id: "b", template: "canvas", narration: { en: "Today: phishing." }, content: { elements: [] } },
+    ] as unknown as LessonPackage["scenes"]["scenes"];
+    const lines = linesOf(scenes, "en");
+    expect(lines[0]!.map((l) => l.speaker)).toEqual(["salma", "salma"]);
+    expect(lines[1]![0]!.speaker).toBeUndefined();
   });
 });
 

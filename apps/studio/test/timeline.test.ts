@@ -31,3 +31,25 @@ describe("timeline", () => {
     expect(dropWhen(w, 2.3, 2.0, null, "en", LANGS)).toEqual({ word: { en: "link", ar: "الرابط" } });
   });
 });
+
+import { insertionIndex, moveTarget, ticksFor, timelinePps } from "../src/timeline.ts";
+
+describe("lesson timeline layout", () => {
+  it("fits the lesson, then zooms", () => {
+    expect(timelinePps(900, 90, 1)).toBe(10);
+    expect(timelinePps(900, 90, 4)).toBe(40);
+    expect(timelinePps(900, 90, 0.5)).toBe(10);
+  });
+  it("keeps ruler labels readable", () => {
+    expect(ticksFor(10)).toEqual({ step: 5, label: 10 });
+    expect(ticksFor(100)).toEqual({ step: 0.5, label: 1 });
+    expect(ticksFor(2)).toEqual({ step: 30, label: 60 });
+  });
+  it("drops scenes between clips", () => {
+    const clips = [{ start: 0, end: 10 }, { start: 10, end: 20 }, { start: 20, end: 26 }];
+    expect([2, 6, 14, 22, 25].map((t) => insertionIndex(t, clips))).toEqual([0, 1, 1, 2, 3]);
+    expect(moveTarget(0, 3)).toBe(2);
+    expect(moveTarget(2, 0)).toBe(0);
+    expect(moveTarget(1, 1)).toBe(1);
+  });
+});

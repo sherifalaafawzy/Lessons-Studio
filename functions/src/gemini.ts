@@ -2,6 +2,11 @@
 export const DRAFT_MODEL = "gemini-3.8-flash";
 // On the emulators only, tests point this at a stand-in for Gemini; deployed functions always call Google.
 const api = (): string => (process.env.FUNCTIONS_EMULATOR === "true" && process.env.GEMINI_API_BASE) || "https://generativelanguage.googleapis.com/v1beta";
+const vertexApi = (): string => (process.env.FUNCTIONS_EMULATOR === "true" && process.env.VERTEX_API_BASE) || "https://aiplatform.googleapis.com/v1";
+/** A Vertex AI key (Google Cloud, "AQ.…") calls Vertex AI's global endpoint; a Gemini API key (AI Studio) the Gemini API. */
+export const isVertexKey = (key: string): boolean => /^AQ\./.test(key);
+const modelUrl = (key: string, model: string, method: string): string =>
+  isVertexKey(key) ? `${vertexApi()}/publishers/google/models/${model}:${method}` : `${api()}/models/${model}:${method}`;
 
 /** USD per million tokens (standard tier). Output includes thinking. The price doubles on 2027-01-01. */
 export function draftPrice(now = Date.now()): { input: number; output: number } {
@@ -15,7 +20,7 @@ export type Generate = (system: string, turns: Turn[]) => Promise<{ text: string
 /** A generate function bound to one person's key. */
 export function gemini(key: string, model = DRAFT_MODEL, fetcher: typeof fetch = fetch): Generate {
   return async (system, turns) => {
-    const r = await fetcher(`${api()}/models/${model}:generateContent`, {
+    const r = await fetcher(modelUrl(key, model, "generateContent"), {
       method: "POST",
       headers: { "content-type": "application/json", "x-goog-api-key": key },
       body: JSON.stringify({
@@ -48,10 +53,18 @@ export class GeminiError extends Error {
   }
 }
 
-/** Asks Google whether a key works, without generating anything (reading a model's details is free). */
+/** Asks Google whether a key works, without generating anything: reading a model's details (Gemini API) or counting
+ *  the tokens of a word (Vertex AI, which doesn't let keys read model details) is free. */
 export async function checkKey(key: string, fetcher: typeof fetch = fetch): Promise<"ok" | "rejected" | "unreachable"> {
   try {
-    const r = await fetcher(`${api()}/models/${DRAFT_MODEL}`, { headers: { "x-goog-api-key": key }, signal: AbortSignal.timeout(15_000) });
+    const r = isVertexKey(key)
+      ? await fetcher(modelUrl(key, DRAFT_MODEL, "countTokens"), {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: "hi" }] }] }),
+        signal: AbortSignal.timeout(15_000),
+      })
+      : await fetcher(`${api()}/models/${DRAFT_MODEL}`, { headers: { "x-goog-api-key": key }, signal: AbortSignal.timeout(15_000) });
     if (r.ok) return "ok";
     return r.status === 400 || r.status === 401 || r.status === 403 ? "rejected" : "unreachable";
   } catch {

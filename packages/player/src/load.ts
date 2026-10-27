@@ -1,5 +1,5 @@
 import type { Lang, LessonPackage, Manifest, ScenesFile, TimingFile } from "@lessonstudio/spec";
-import { relPathOk } from "@lessonstudio/spec";
+import { relPathOk, DEFAULT_LIBRARY } from "@lessonstudio/spec";
 
 async function json<T>(url: string, fetcher: typeof fetch): Promise<T> {
   const r = await fetcher(url);
@@ -10,6 +10,8 @@ async function json<T>(url: string, fetcher: typeof fetch): Promise<T> {
 /** A path from the manifest, resolved against the package's base. Refuses absolute and "..". */
 export function resolvePath(pkg: LessonPackage, path: string): string {
   if (!relPathOk(path)) throw new Error(`Bad package path: ${path}`);
+  // The shared library (cast, extended icons) lives in one place for every lesson.
+  if (path.startsWith("@lib/")) return new URL(path.slice(5), pkg.library ?? DEFAULT_LIBRARY).href;
   return new URL(path, pkg.base ?? (typeof location !== "undefined" ? location.href : "http://localhost/")).href;
 }
 

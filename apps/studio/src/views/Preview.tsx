@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { createPlayer, type Player, type Signals } from "@lessonstudio/player";
 import { toPackage } from "@lessonstudio/ops";
+import { LIBRARY } from "../env.ts";
 import { lang, lesson, timings } from "../editor.ts";
 import { t } from "../i18n.ts";
 
@@ -22,7 +23,7 @@ export function Preview({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     if (!l || !host.current) return;
     const pkg = toPackage(l, timings.value);
-    const p: Player = createPlayer(host.current, pkg, {
+    const p: Player = createPlayer(host.current, pkg, { library: LIBRARY,
       lang: lang.value, tier: "auto", orient: device === "phone" ? "auto" : "landscape",
       ...(device === "phone" ? { signals: PHONE } : { signals: {} }),
     });

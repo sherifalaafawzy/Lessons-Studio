@@ -1,0 +1,376 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Lock code: 1234",
+            "ar-EG": "كود القفل: 1234"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "A game wants messages",
+            "ar-EG": "لعبة عايزة الرسايل"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Lost, with no backup",
+            "ar-EG": "ضاع، ومن غير نسخة"
+          },
+          "s": 1,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Email, money, photos, numbers",
+            "ar-EG": "إيميل، وفلوس، وصور، وأرقام أولياء الأمور"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Someone gets in: they get it all",
+            "ar-EG": "لو حد دخل، هياخد كل ده"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "1234 or your birth year: guessed first",
+            "ar-EG": "1234 أو سنة ميلادك: بتتخمّن الأول"
+          },
+          "s": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Six digits or more, no link to you",
+            "ar-EG": "6 أرقام أو أكتر، مالهاش علاقة بيك"
+          },
+          "s": 4,
+          "tone": "ok"
+        }
+      ],
+      "aside": "lock"
+    },
+    "4": {
+      "cards": [
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Updates fix security holes",
+            "ar-EG": "التحديثات بتسد الثغرات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "wifi",
+          "text": {
+            "en": "Low on data? Use Wi-Fi",
+            "ar-EG": "الباقة قليلة؟ الواي فاي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Apps: official store only",
+            "ar-EG": "التطبيقات: من المتجر الرسمي بس"
+          },
+          "s": 4,
+          "tone": "ok"
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Never from a chat",
+            "ar-EG": "عمرها ما تيجي من شات"
+          },
+          "s": 4,
+          "tone": "danger"
+        }
+      ]
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "app",
+            "icon": "grid",
+            "text": {
+              "en": "This app",
+              "ar-EG": "التطبيق ده"
+            },
+            "tone": "system",
+            "s": 0
+          },
+          {
+            "id": "camera",
+            "text": {
+              "en": "Camera and mic",
+              "ar-EG": "الكاميرا والمايك"
+            },
+            "s": 0
+          },
+          {
+            "id": "contacts",
+            "text": {
+              "en": "Contacts",
+              "ar-EG": "جهات الاتصال"
+            },
+            "s": 0
+          },
+          {
+            "id": "location",
+            "text": {
+              "en": "Location",
+              "ar-EG": "الموقع"
+            },
+            "s": 0
+          },
+          {
+            "id": "messages",
+            "text": {
+              "en": "Messages",
+              "ar-EG": "الرسايل"
+            },
+            "s": 0
+          }
+        ],
+        "edges": [
+          [
+            "app",
+            "camera"
+          ],
+          [
+            "app",
+            "contacts"
+          ],
+          [
+            "app",
+            "location"
+          ],
+          [
+            "app",
+            "messages"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Map app",
+            "ar-EG": "تطبيق الخرايط"
+          },
+          "icon": "map",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "mapPin",
+              "text": {
+                "en": "Needs your location",
+                "ar-EG": "محتاج موقعك"
+              },
+              "s": 0
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Torch app",
+            "ar-EG": "تطبيق الكشاف"
+          },
+          "icon": "lamp",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "users",
+              "text": {
+                "en": "Doesn’t need your contacts",
+                "ar-EG": "مش محتاج جهات اتصالك"
+              },
+              "s": 1
+            },
+            {
+              "icon": "circlex",
+              "text": {
+                "en": "Switch it off, or delete the app",
+                "ar-EG": "اقفلها، أو امسح التطبيق"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "big": {
+        "value": {
+          "en": "No",
+          "ar-EG": "لأ"
+        },
+        "label": {
+          "en": "Switch it off, or delete the app",
+          "ar-EG": "اقفل الصلاحية، أو امسح التطبيق"
+        },
+        "icon": "lamp"
+      }
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Turn on “find my device” today",
+            "ar-EG": "شغّل «العثور على جهازي» النهارده"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Lost it? Use another phone",
+            "ar-EG": "ضاع؟ استخدم موبايل تاني"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Ring it, lock it or erase it",
+            "ar-EG": "خلّيه يرن، أو اقفله، أو امسحه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "image",
+          "text": {
+            "en": "Photos and contacts",
+            "ar-EG": "الصور وجهات الاتصال"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cloud",
+          "text": {
+            "en": "Online account or computer",
+            "ar-EG": "حسابك أونلاين أو كمبيوتر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "wifi",
+          "text": {
+            "en": "On Wi-Fi only",
+            "ar-EG": "على الواي فاي بس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A bad day, not a disaster",
+            "ar-EG": "يوم وحش، مش كارثة"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "A strong lock and updates",
+            "ar-EG": "قفل قوي وتحديثات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Official store, sensible permissions",
+            "ar-EG": "المتجر الرسمي وصلاحيات بالعقل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Find my device: on",
+            "ar-EG": "«العثور على جهازي»: شغّال"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Photos and contacts backed up",
+            "ar-EG": "نسخة احتياطية للصور والأرقام"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "A lock code: six digits or more, with no link to you.",
+        "ar-EG": "كود القفل: 6 أرقام أو أكتر، ومالهاش علاقة بيك."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw a big phone on the board",
+            "ar-EG": "ارسم موبايل كبير على السبورة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "In pairs: a phone clinic",
+            "ar-EG": "اتنين اتنين: عيادة موبايلات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "One brings a problem card",
+            "ar-EG": "واحد يجيب كارت فيه مشكلة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The other explains the fix",
+            "ar-EG": "والتاني يختار الحل ويشرح ليه"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

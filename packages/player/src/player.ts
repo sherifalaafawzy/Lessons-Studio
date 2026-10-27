@@ -1,9 +1,9 @@
-import type { Check, Lang, LessonPackage, ResolvedCue, TimingFile } from "@lessonstudio/spec";
-import { captionChunks, pick, resolveCues, walkElements, type CaptionChunk } from "@lessonstudio/spec";
+import type { Check, Lang, LessonPackage, ResolvedCue, Text, TimingFile } from "@lessonstudio/spec";
+import { LIBRARY_ICONS_PATH, captionChunks, needsLibraryIcon, pick, resolveCues, walkElements, type CaptionChunk } from "@lessonstudio/spec";
 import type { ElementBox } from "./canvas.ts";
 import { AudioClock, SilentClock, pickAudio, type Clock } from "./clock.ts";
 import { h, rich, Writer } from "./dom.ts";
-import { icon } from "./icons.ts";
+import { icon, loadLibraryIcons } from "./icons.ts";
 import { aiParts, labelsFor, type Labels } from "./labels.ts";
 import { STAGE, autoOrient, type Orient } from "./layout.ts";
 import { ensureTiming, resolvePath } from "./load.ts";
@@ -35,6 +35,13 @@ export interface PlayerOptions {
   /** Captions start on (default true). */
   captions?: boolean;
   rate?: number;
+  /**
+   * Keep the learner's settings (speed, captions, volume, caption size) and their place in this lesson between visits,
+   * in localStorage. For learner-facing players; editors leave it off.
+   */
+  remember?: boolean;
+  /** Where the shared library ("@lib/" paths: cast, extended icons) lives; default Lesson Studio's Hosting. */
+  library?: string;
   labels?: Partial<Labels>;
   /** Device signals for "auto" tier; read from the browser when absent. */
   signals?: Signals;
@@ -76,9 +83,21 @@ export interface Player {
   /** The editable part under a point (client coordinates), or null. */
   partAt(x: number, y: number): string | null;
   destroy(): void;
+  /** Settles once the shared library's icons the lesson uses are in (immediately when it uses none). */
+  readonly ready: Promise<void>;
 }
 
-const RATES = [0.75, 1, 1.25, 1.5];
+const RATES = [0.75, 1, 1.25, 1.5, 2];
+const CAP_SIZES = [0.85, 1, 1.25];
+
+interface Prefs { rate: number; captions: boolean; volume: number; muted: boolean; capSize: number; capBg: boolean }
+function readJson<T>(key: string): Partial<T> {
+  try { return JSON.parse(localStorage.getItem(key) ?? "{}") as Partial<T>; } catch { return {}; }
+}
+function writeJson(key: string, v: unknown): void {
+  try { localStorage.setItem(key, JSON.stringify(v)); } catch { /* private mode, or storage full */ }
+}
+const hoverable = (): boolean => typeof matchMedia === "function" && matchMedia("(hover: hover)").matches;
 const EPS = 0.01;
 
 function clock(t: number): string {
@@ -90,6 +109,7 @@ function clock(t: number): string {
 export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOptions = {}): Player {
   const m = pkg.manifest;
   const scenes = pkg.scenes.scenes;
+  if (o.library) pkg.library = o.library;
   const wr = new Writer();
   const loaded = (l: Lang | undefined): l is Lang => !!l && !!pkg.timing[l] && m.languages.some((x) => x.code === l);
   let lang: Lang = loaded(o.lang) ? o.lang : loaded(m.defaultLang) ? m.defaultLang : Object.keys(pkg.timing)[0]!;
@@ -102,8 +122,15 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   /** How much the stage is scaled on screen, set by fit(). */
   let stageScale = 1;
   const design = STAGE[m.stage ?? "landscape"];
-  let rate = o.rate ?? 1;
-  let captionsOn = o.captions ?? true;
+  const prefs: Partial<Prefs> = o.remember ? readJson<Prefs>("ls-player") : {};
+  let rate = o.rate ?? prefs.rate ?? 1;
+  let captionsOn = o.captions ?? prefs.captions ?? true;
+  let volume = prefs.volume ?? 1;
+  let muted = prefs.muted ?? false;
+  let capSize = prefs.capSize ?? 1;
+  let capBg = prefs.capBg ?? true;
+  /** Quick-check answers this time through: right or not. */
+  const results = new Map<string, boolean>();
   /** The learner opened the transcript (the text tier always shows it). */
   let transcriptOpen = false;
   let labels = labelsFor(lang, o.labels);
@@ -138,23 +165,33 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   const viewport = h("div", { className: "ls-viewport" }, stage, captionsBox, bigPlay);
   const checkBox = h("div", { className: "ls-check", hidden: true });
   const endBox = h("div", { className: "ls-end", hidden: true });
-  const main = h("div", { className: "ls-main" }, viewport, checkBox, endBox);
 
   const playBtn = h("button", { className: "ls-btn ls-play", type: "button" });
   const timeEl = h("span", { className: "ls-time", dir: "ltr" });
   const seekEl = h("input", { className: "ls-seek", type: "range", min: 0, step: 0.1, dir: "ltr" });
   const ticks = h("div", { className: "ls-ticks" });
-  const speedBtn = h("button", { className: "ls-btn ls-speed", type: "button", dir: "ltr" });
+  const chapBtn = h("button", { className: "ls-btn ls-chap", type: "button", "aria-haspopup": "menu" }, icon("chapters", 22));
+  const volBtn = h("button", { className: "ls-btn ls-vol", type: "button" });
+  const volEl = h("input", { className: "ls-volr", type: "range", min: 0, max: 1, step: 0.05, dir: "ltr" });
+  const setBtn = h("button", { className: "ls-btn ls-set", type: "button", "aria-haspopup": "menu" }, icon("gear", 22));
   const ccBtn = h("button", { className: "ls-btn ls-cc", type: "button" }, icon("cc", 22));
   const trBtn = h("button", { className: "ls-btn ls-tr", type: "button" }, icon("list", 22));
+  const fsBtn = h("button", { className: "ls-btn ls-fs", type: "button" }, icon("full", 22));
   const aiBadge = h("span", { className: "ls-ai" });
+  // Scrubbing shows where you'd land: the chapter, the time and (on the Full tier) the frame itself.
+  const pvStage = h("div", { className: "ls-pvs" });
+  const pv = h("div", { className: "ls-pv", hidden: true }, pvStage);
+  const tipText = h("span", { className: "ls-tipt" });
+  const tip = h("div", { className: "ls-tip", hidden: true }, pv, tipText);
   const bar = h(
     "div",
     { className: "ls-bar" },
-    playBtn, timeEl, h("div", { className: "ls-track" }, ticks, seekEl), speedBtn, ccBtn, trBtn, aiBadge,
+    playBtn, timeEl, h("div", { className: "ls-track" }, ticks, seekEl, tip), chapBtn, volBtn, volEl, setBtn, ccBtn, trBtn, fsBtn, aiBadge,
   );
+  const menu = h("div", { className: "ls-menu", hidden: true, role: "menu" });
+  const main = h("div", { className: "ls-main" }, viewport, checkBox, endBox, menu, bar);
   const transcriptBox = h("div", { className: "ls-transcript", hidden: true });
-  const wrap = h("div", { className: `ls-player ls-brand-${brand} ls-landscape` }, main, bar, transcriptBox);
+  const wrap = h("div", { className: `ls-player ls-brand-${brand} ls-landscape` }, main, transcriptBox);
   root.append(h("style", null, CSS), wrap);
 
   const emit = (e: PlayerEvent): void => o.onEvent?.(e);
@@ -169,6 +206,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const src = pickAudio(tr.audio, tr.audioFallback);
     const c: Clock = src ? new AudioClock(resolvePath(pkg, src), () => finish(), () => noAudio(c)) : new SilentClock(o.now);
     c.setRate(rate);
+    c.setVolume(muted ? 0 : volume);
     return c;
   }
 
@@ -204,9 +242,11 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     playBtn.setAttribute("aria-label", labels.play);
     bigPlay.setAttribute("aria-label", labels.play);
     seekEl.setAttribute("aria-label", labels.seek);
-    speedBtn.setAttribute("aria-label", labels.speed);
-    ccBtn.setAttribute("aria-label", labels.captions);
-    trBtn.setAttribute("aria-label", labels.transcript);
+    for (const [b, l] of [[chapBtn, labels.chapters], [volBtn, labels.mute], [setBtn, labels.settings], [ccBtn, labels.captions], [trBtn, labels.transcript], [fsBtn, labels.fullscreen]] as const) {
+      b.setAttribute("aria-label", l);
+      b.title = l;
+    }
+    volEl.setAttribute("aria-label", labels.volume);
     const parts = aiParts(m.ai, labels);
     aiBadge.hidden = parts.length === 0;
     aiBadge.textContent = labels.ai;
@@ -240,11 +280,11 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     return i;
   }
 
-  function mount(i: number): Mounted {
+  function ctxFor(i: number, scale = stageScale) {
     const st = timing.scenes[i]!;
     const { W, H } = STAGE[orient];
     const dir = track().dir;
-    const ctx = {
+    return {
       lang,
       dir,
       tier,
@@ -259,10 +299,13 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       design,
       mirror: dir === "rtl" && scenes[i]!.mirror !== false,
       first: i === 0,
-      scale: stageScale,
+      scale,
       url: (path: string) => resolvePath(pkg, path),
     };
-    const mounted = mountScene(scenes[i]!, ctx);
+  }
+
+  function mount(i: number): Mounted {
+    const mounted = mountScene(scenes[i]!, ctxFor(i));
     stage.replaceChildren(mounted.root);
     emit({ type: "scene", id: scenes[i]!.id, index: i });
     prefetch(i + 1);
@@ -364,7 +407,10 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     stage.style.width = `${W}px`;
     stage.style.height = `${H}px`;
     stage.style.transform = `scale(${fix(k, 4)})`;
-    wrap.style.setProperty("--ls-cap-size", `${Math.round(Math.max(15, Math.min(24, 34 * k)))}px`);
+    wrap.style.setProperty("--ls-cap-size", `${Math.round(Math.max(15, Math.min(24, 34 * k)) * capSize)}px`);
+    wrap.style.setProperty("--ls-ar", fix(W / H, 4));
+    // Wide players on the Full tier float their controls over the picture and fade them while playing.
+    wrap.classList.toggle("ls-float", tier === "full" && host.clientWidth >= 520);
   }
 
   /* ---------- playback ---------- */
@@ -373,7 +419,10 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     playBtn.replaceChildren(icon(on ? "pause" : "play", 22));
     playBtn.setAttribute("aria-label", on ? labels.pause : labels.play);
     bigPlay.hidden = on || checkOpen || ended;
-    speedBtn.textContent = `${rate}×`;
+    volBtn.replaceChildren(icon(muted || volume === 0 ? "muted" : "vol", 22));
+    volBtn.setAttribute("aria-pressed", String(muted));
+    volEl.value = String(muted ? 0 : volume);
+    fsBtn.setAttribute("aria-pressed", String(typeof document !== "undefined" && document.fullscreenElement === wrap));
     ccBtn.setAttribute("aria-pressed", String(captionsOn));
     trBtn.setAttribute("aria-pressed", String(!transcriptBox.hidden));
     wrap.dataset.tier = tier;
@@ -428,6 +477,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     }
     emit({ type: "play" });
     syncButtons();
+    wake();
     if (!raf) raf = requestAnimationFrame(loop);
   }
 
@@ -440,6 +490,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     renderAt(clk.time());
     emit({ type: "pause" });
     syncButtons();
+    savePlace();
+    wake();
   }
 
   function seek(t: number): void {
@@ -463,7 +515,11 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     ended = true;
     const again = h("button", { className: "ls-go", type: "button" }, labels.replay);
     again.addEventListener("click", () => void play());
-    endBox.replaceChildren(h("div", { className: "ls-card" }, h("h3", null, labels.done), again));
+    const asked = scenes.filter((x) => x.check).length;
+    const right = [...results.values()].filter(Boolean).length;
+    const score = results.size ? h("p", { className: "ls-score" }, labels.score.replace("{n}", String(right)).replace("{m}", String(asked))) : null;
+    endBox.replaceChildren(h("div", { className: "ls-card" }, h("h3", null, labels.done), score, again));
+    if (o.remember) writeJson(`ls-pos:${m.id}`, { t: 0 });
     endBox.hidden = false;
     emit({ type: "ended" });
     syncButtons();
@@ -477,6 +533,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       const r = await o.onCheck(check, { lang, scene: scenes[i]!.id });
       checkOpen = false;
       answered.add(check.id);
+      results.set(check.id, r.correct);
       emit({ type: "check", id: check.id, correct: r.correct });
       void play();
       return;
@@ -507,6 +564,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
         explain.hidden = !check.explain;
         go.disabled = false;
         go.focus();
+        results.set(check.id, correct);
         emit({ type: "check", id: check.id, correct });
       });
       return b;
@@ -540,16 +598,27 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   }
 
   /* ---------- wiring ---------- */
+  // Keys, as on video sites: Space/K, J/L ±5 s, ←/→ ±2 s, Home/End, 0–9 jump, C captions, T transcript, F full screen, M mute.
   const onKey = (e: KeyboardEvent): void => {
     const tag = (e.target as HTMLElement | null)?.tagName;
-    if (tag === "BUTTON" || tag === "INPUT") return;
-    if (e.key === " " || e.key === "k") {
-      e.preventDefault();
-      toggle();
-    } else if (e.key === "c") setCaptions(!captionsOn);
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "Escape" && !menu.hidden) { closeMenu(); return; }
+    if (tag === "INPUT" && /^(Arrow|Home|End|Page)/.test(e.key)) return;
+    if (tag === "BUTTON" && (e.key === " " || e.key === "Enter")) return;
+    const t = clk.time();
+    const keys: Record<string, () => void> = {
+      " ": toggle, k: toggle, j: () => seek(t - 5), l: () => seek(t + 5), ArrowLeft: () => seek(t - 2), ArrowRight: () => seek(t + 2),
+      Home: () => seek(0), End: () => seek(timing.duration), c: () => setCaptions(!captionsOn), t: () => trBtn.click(), f: toggleFull,
+      m: () => setVolume(volume || 1, !muted),
+    };
+    const f = keys[e.key.length === 1 ? e.key.toLowerCase() : e.key] ?? (/^[0-9]$/.test(e.key) ? () => seek((timing.duration * Number(e.key)) / 10) : undefined);
+    if (!f) return;
+    e.preventDefault();
+    f();
+    wake();
   };
   const onVisibility = (): void => {
-    if (document.hidden) pause();
+    if (document.hidden) { pause(); savePlace(); }
   };
   function toggle(): void {
     if (clk.playing) pause();
@@ -560,6 +629,96 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     capIndex = -2;
     renderAt(clk.time());
     syncButtons();
+    savePrefs();
+  }
+  function setVolume(v: number, mute: boolean): void {
+    volume = v;
+    muted = mute;
+    clk.setVolume(muted ? 0 : volume);
+    syncButtons();
+    savePrefs();
+  }
+  function savePrefs(): void {
+    if (o.remember) writeJson("ls-player", { rate, captions: captionsOn, volume, muted, capSize, capBg });
+  }
+  function savePlace(): void {
+    if (o.remember) writeJson(`ls-pos:${m.id}`, { t: Math.round(clk.time() * 10) / 10 });
+  }
+  function toggleFull(): void {
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void wrap.requestFullscreen?.().catch(() => {});
+  }
+  const onFull = (): void => { fit(); still(clk.time()); syncButtons(); };
+
+  /** While playing, the floating controls fade after a moment without the pointer moving. */
+  let idle = 0;
+  function wake(): void {
+    wrap.classList.remove("ls-idle");
+    clearTimeout(idle);
+    if (clk.playing) idle = window.setTimeout(() => { if (clk.playing && menu.hidden) wrap.classList.add("ls-idle"); }, 2500);
+  }
+
+  /** A scene's name for chapters: its title (or kicker, subject, question, first text), else its first words. */
+  function sceneName(i: number): string {
+    const sc = scenes[i]!;
+    const c = sc.content as { title?: Text; kicker?: Text; subject?: Text };
+    let name = pick(c.title ?? c.kicker ?? c.subject ?? sc.check?.prompt ?? "", lang, m.defaultLang);
+    if (!name) walkElements(sc, (el) => { if (!name && el.type === "text") name = pick(el.text, lang, m.defaultLang); });
+    if (!name) name = `${(sc.narration[lang] ?? "").split(/\s+/).slice(0, 6).join(" ")}…`;
+    return name.length > 48 ? `${name.slice(0, 46)}…` : name;
+  }
+
+  /* ---------- scrub preview ---------- */
+  let pvKey = "";
+  let pvM: Mounted | null = null;
+  function showTipAt(t: number): void {
+    const i = sceneAt(t);
+    tipText.textContent = `${clock(t)}${labels.sep}${sceneName(i)}`;
+    tip.style.left = `${fix((t / timing.duration) * 100, 2)}%`;
+    tip.hidden = false;
+    pv.hidden = tier !== "full" || !hoverable();
+    if (pv.hidden) return;
+    const st = timing.scenes[i]!;
+    const { W, H } = STAGE[orient];
+    const key = `${i}|${orient}|${lang}`;
+    if (pvKey !== key) {
+      pvM = mountScene(scenes[i]!, ctxFor(i, 160 / W));
+      pvStage.replaceChildren(pvM.root);
+      pvStage.style.cssText = `width:${W}px;height:${H}px;transform:scale(${fix(160 / W, 4)})`;
+      pv.style.height = `${Math.round((160 * H) / W)}px`;
+      pvKey = key;
+    }
+    const lt = t - st.start;
+    pvM!.update(lt, cueState(cues[i] ?? [], lt, "full"));
+  }
+
+  /* ---------- menus: chapters, settings ---------- */
+  function closeMenu(): void {
+    menu.hidden = true;
+  }
+  function openMenu(kind: "chapters" | "settings"): void {
+    if (!menu.hidden && menu.dataset.kind === kind) return closeMenu();
+    menu.dataset.kind = kind;
+    const item = (label: string, on: boolean, act: () => void, extra?: string): HTMLElement => {
+      const b = h("button", { className: on ? "ls-mi is-on" : "ls-mi", type: "button", role: "menuitemradio", "aria-checked": String(on) },
+        h("span", null, label), extra ? h("span", { className: "ls-mt", dir: "ltr" }, extra) : null);
+      b.addEventListener("click", () => { act(); closeMenu(); });
+      return b;
+    };
+    const head = (x: string) => h("p", { className: "ls-mh" }, x);
+    const row = (...kids: HTMLElement[]) => h("div", { className: "ls-mrow" }, ...kids);
+    if (kind === "chapters") {
+      const now = sceneAt(clk.time());
+      menu.replaceChildren(head(labels.chapters), ...timing.scenes.map((sc, i) => item(sceneName(i), i === now, () => seek(sc.start + EPS), clock(sc.start))));
+    } else {
+      menu.replaceChildren(
+        head(labels.speed), row(...RATES.map((r) => item(`${r}×`, r === rate, () => setRate(r)))),
+        head(labels.captionSize), row(...CAP_SIZES.map((z, n) => item(labels.sizes[n]!, z === capSize, () => { capSize = z; fit(); savePrefs(); }))),
+        item(labels.captionBg, capBg, () => { capBg = !capBg; wrap.classList.toggle("ls-nocapbg", !capBg); savePrefs(); }),
+      );
+    }
+    menu.hidden = false;
+    (menu.querySelector<HTMLElement>(".is-on") ?? menu.querySelector<HTMLElement>("button"))?.focus();
   }
 
   playBtn.addEventListener("click", toggle);
@@ -568,8 +727,25 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     void play();
   });
   viewport.addEventListener("click", toggle);
-  seekEl.addEventListener("input", () => seek(Number(seekEl.value)));
-  speedBtn.addEventListener("click", () => setRate(RATES[(RATES.indexOf(rate) + 1) % RATES.length]!));
+  seekEl.addEventListener("input", () => { seek(Number(seekEl.value)); showTipAt(Number(seekEl.value)); });
+  chapBtn.addEventListener("click", () => openMenu("chapters"));
+  setBtn.addEventListener("click", () => openMenu("settings"));
+  volBtn.addEventListener("click", () => setVolume(volume || 1, !muted));
+  volEl.addEventListener("input", () => setVolume(Number(volEl.value), Number(volEl.value) === 0));
+  fsBtn.addEventListener("click", toggleFull);
+  fsBtn.hidden = typeof document === "undefined" || !document.fullscreenEnabled;
+  document.addEventListener("fullscreenchange", onFull);
+  seekEl.addEventListener("pointermove", (e) => {
+    const r = seekEl.getBoundingClientRect();
+    if (r.width) showTipAt(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * timing.duration);
+  });
+  seekEl.addEventListener("pointerleave", () => { tip.hidden = true; });
+  seekEl.addEventListener("change", () => { tip.hidden = true; });
+  wrap.addEventListener("pointermove", wake);
+  root.addEventListener("pointerdown", (e) => {
+    const el = e.target as Node;
+    if (!menu.hidden && !menu.contains(el) && !chapBtn.contains(el) && !setBtn.contains(el)) closeMenu();
+  });
   ccBtn.addEventListener("click", () => setCaptions(!captionsOn));
   trBtn.addEventListener("click", () => {
     if (tier === "text") return;
@@ -596,6 +772,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     rate = r;
     clk.setRate(r);
     syncButtons();
+    savePrefs();
   }
 
   /* ---------- start ---------- */
@@ -604,7 +781,29 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   fit();
   applyTier();
   still(0);
+  wrap.classList.toggle("ls-nocapbg", !capBg);
   syncButtons();
+  // Icons from the shared library load once; the scene on screen is drawn again when they arrive.
+  let gone = false;
+  const usesLibrary = scenes.some((sc) => {
+    const c = sc.content as { icon?: string; nodes?: { icon?: string }[] };
+    let any = !!c.icon && needsLibraryIcon(c.icon);
+    for (const n of c.nodes ?? []) if (n.icon && needsLibraryIcon(n.icon)) any = true;
+    walkElements(sc, (el) => { if (el.type === "icon" && needsLibraryIcon(el.icon)) any = true; });
+    return any;
+  });
+  const ready: Promise<void> = usesLibrary
+    ? loadLibraryIcons(resolvePath(pkg, LIBRARY_ICONS_PATH), o.fetch ?? fetch).then(() => {
+        if (gone) return;
+        current = null;
+        pvKey = "";
+        still(clk.time());
+      })
+    : Promise.resolve();
+
+  // Back where the learner left off (not in the first or last seconds).
+  const place = o.remember ? readJson<{ t: number }>(`ls-pos:${m.id}`).t ?? 0 : 0;
+  if (place > 5 && place < timing.duration - 5) seek(place);
 
   return {
     host,
@@ -614,6 +813,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     get duration() { return timing.duration; },
     get playing() { return clk.playing; },
     get sceneIndex() { return sceneAt(clk.time()); },
+    ready,
     boxes() {
       const v = viewport.getBoundingClientRect();
       return [...stage.querySelectorAll<HTMLElement>("[data-el]")].map((el) => {
@@ -683,6 +883,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       renderAt(clk.time());
     },
     destroy() {
+      gone = true;
+      document.removeEventListener("fullscreenchange", onFull);
+      clearTimeout(idle);
       if (raf) cancelAnimationFrame(raf);
       raf = 0;
       clk.destroy();

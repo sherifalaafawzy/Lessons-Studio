@@ -6,3 +6,7 @@ export { BUDGETS, TONES, EASES, ANIM_PROPS, ELEMENT_TYPES } from "./validate.ts"
 export { estimateTiming, type EstimateOptions } from "./estimate.ts";
 export { captionChunks, toVtt, vttTime, transcript, type CaptionChunk } from "./captions.ts";
 export { validatePackage, targetsOf, relPathOk, TEMPLATES, ICONS, type Issue, type Report } from "./validate.ts";
+export {
+  CAST, MOODS, DEFAULT_LIBRARY, LIBRARY_ICONS, LIBRARY_ICONS_PATH, MARK_PATH, castPath, isIcon, isLibPath, needsLibraryIcon,
+  type CastMember, type Mood, type LibraryIcon,
+} from "./library.ts";

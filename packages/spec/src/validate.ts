@@ -2,6 +2,7 @@ import type {
   Element, LanguageTrack, Lang, LessonPackage, Manifest, Scene, SceneTiming, ScenesFile, Text, TimingFile, Track, When,
 } from "./types.ts";
 import { dirOf, hasArabic, hasText, splitWords } from "./text.ts";
+import { isIcon, isLibPath } from "./library.ts";
 import { resolveCues, resolveWhen } from "./cues.ts";
 import { walkElements } from "./elements.ts";
 
@@ -126,11 +127,16 @@ function validateManifest(m: Manifest, err: Add, warn: Add): Lang[] {
     if (!relPathOk(l.timing)) err("badPath", `${p}.timing`);
     for (const k of ["audio", "audioFallback", "captions"] as const) if (l[k] !== undefined && !relPathOk(l[k])) err("badPath", `${p}.${k}`);
     if (l.quality !== undefined && !["reviewed", "machine", "draft"].includes(l.quality)) err("badQuality", `${p}.quality`);
-    const v = l.voice;
-    if (v !== undefined) {
-      if (!isObj(v) || !isStr(v.provider) || !isStr(v.name)) err("badVoice", `${p}.voice`);
-      else if ((v.model !== undefined && !isStr(v.model)) || (v.style !== undefined && (!isStr(v.style) || v.style.length > 300))) {
-        err("badVoice", `${p}.voice`);
+    const voiceOk = (v: unknown, q: string): void => {
+      if (!isObj(v) || !isStr(v.provider) || !isStr(v.name)) err("badVoice", q);
+      else if ((v.model !== undefined && !isStr(v.model)) || (v.style !== undefined && (!isStr(v.style) || v.style.length > 300))) err("badVoice", q);
+    };
+    if (l.voice !== undefined) voiceOk(l.voice, `${p}.voice`);
+    if (l.voices !== undefined) {
+      if (!isObj(l.voices)) err("badVoice", `${p}.voices`);
+      else for (const [who, v] of Object.entries(l.voices)) {
+        if (!ITEM_ID.test(who)) err("badVoice", `${p}.voices`, who);
+        else voiceOk(v, `${p}.voices.${who}`);
       }
     }
   });
@@ -194,7 +200,7 @@ function validateContent(s: Scene, p: string, langs: Lang[], err: Add, warn: Add
     case "title-hook": {
       const c = s.content;
       T(c.title, "title"); T(c.kicker, "kicker", false); T(c.hook, "hook", false);
-      if (c.icon !== undefined && !(ICONS as readonly string[]).includes(c.icon)) err("badIcon", `${p}.content.icon`);
+      if (c.icon !== undefined && !isIcon(c.icon)) err("badIcon", `${p}.content.icon`);
       break;
     }
     case "steps":
@@ -218,7 +224,7 @@ function validateContent(s: Scene, p: string, langs: Lang[], err: Add, warn: Add
         else if (ids.has(n.id)) err("dupId", `${p}.content.nodes[${i}].id`, n.id);
         ids.add(n.id);
         T(n.label, `nodes[${i}].label`);
-        if (n.icon !== undefined && !(ICONS as readonly string[]).includes(n.icon)) err("badIcon", `${p}.content.nodes[${i}].icon`);
+        if (n.icon !== undefined && !isIcon(n.icon)) err("badIcon", `${p}.content.nodes[${i}].icon`);
         if (n.tone !== undefined && !["neutral", "trusted", "system", "danger"].includes(n.tone)) err("badTone", `${p}.content.nodes[${i}].tone`);
       });
       const pairs = new Set<string>();
@@ -338,11 +344,12 @@ function validateElements(list: Element[] | undefined, p: string, langs: Lang[],
         if (el.w === undefined || el.h === undefined) err("badBox", q, "w and h");
         break;
       case "icon":
-        if (!(ICONS as readonly string[]).includes(el.icon)) err("badIcon", `${q}.icon`);
+        if (!isIcon(el.icon)) err("badIcon", `${q}.icon`);
         break;
       case "image":
         if (!relPathOk(el.src)) err("badPath", `${q}.src`);
-        if (el.small !== undefined && !relPathOk(el.small)) err("badPath", `${q}.small`);
+        else if (el.src.startsWith("@lib/") && !isLibPath(el.src)) err("badLibPath", `${q}.src`, el.src);
+        if (el.small !== undefined && (!relPathOk(el.small) || (el.small.startsWith("@lib/") && !isLibPath(el.small)))) err("badPath", `${q}.small`);
         text(el.alt, `${q}.alt`, langs, err, warn, false);
         if (el.fit !== undefined && !["cover", "contain"].includes(el.fit)) err("badFit", `${q}.fit`);
         if (el.w === undefined || el.h === undefined) err("badBox", q, "w and h");
@@ -385,6 +392,7 @@ function validateScenes(f: ScenesFile, langs: Lang[], err: Add, warn: Add): void
       else if ((s.narration[l] ?? "").split(/\s+/).length > 70) warn("longScene", `${p}.narration`, l);
     }
     if (isObj(s.narration)) text(s.narration, `${p}.narration`, langs, () => {}, warn);
+    if (s.speaker !== undefined && (typeof s.speaker !== "string" || !ITEM_ID.test(s.speaker))) err("badSpeaker", `${p}.speaker`);
     for (const [l, v] of Object.entries(s.narration ?? {})) {
       if (typeof v === "string" && (dirOf(l) === "rtl" || hasArabic(v)) && v.includes("·")) err("middleDot", `${p}.narration.${l}`);
     }
@@ -532,6 +540,11 @@ export function validatePackage(pkg: LessonPackage): Report {
   if (isObj(pkg.manifest)) checkBudgets(pkg.manifest, warn);
   validateScenes(pkg.scenes, langs, err, warn);
   const scenes = arr(pkg.scenes?.scenes);
+  // A speaker the cast doesn't voice is read by the narrator: say so where the language lists voices.
+  for (const l of arr(pkg.manifest?.languages)) {
+    if (!isObj(l.voices)) continue;
+    scenes.forEach((s, i) => { if (typeof s.speaker === "string" && !(s.speaker in l.voices!)) warn("noVoice", `scenes[${i}].speaker`, `${s.speaker} (${l.code})`); });
+  }
   if (!errors.some((e) => e.path.startsWith("scenes") && (e.code === "badId" || e.code === "dupId" || e.code === "badTemplate"))) {
     for (const l of arr(pkg.manifest?.languages)) {
       const t = pkg.timing?.[l.code];
