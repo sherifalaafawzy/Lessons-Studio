@@ -14,11 +14,28 @@ async function emulatorsUp(): Promise<boolean> {
   }
 }
 
-async function signIn(page: Page): Promise<void> {
+/** The emulators' Admin SDK, for what only the server can do (access to the studio, edits as an AI). */
+async function admin() {
+  process.env.FIRESTORE_EMULATOR_HOST = FIRESTORE;
+  process.env.FIREBASE_AUTH_EMULATOR_HOST = "127.0.0.1:9399";
+  const { initializeApp, getApps } = await import("firebase-admin/app");
+  return getApps().find((a) => a.name === "e2e") ?? initializeApp({ projectId: "demo-lessonstudio" }, "e2e");
+}
+
+/** A test account; with access to the private studio (the `studio` claim) unless `access` is false. */
+async function signIn(page: Page, access = true): Promise<string> {
+  const email = `e2e-${Date.now()}-${Math.random().toString(36).slice(2, 6)}@example.com`;
+  if (access) {
+    const { getAuth } = await import("firebase-admin/auth");
+    const auth = getAuth(await admin());
+    const u = await auth.createUser({ email, password: "lessonstudio-test" });
+    await auth.setCustomUserClaims(u.uid, { studio: true });
+  }
   await page.goto(STUDIO);
-  await page.getByLabel("Test account").fill(`e2e-${Date.now()}-${Math.random().toString(36).slice(2, 6)}@example.com`);
+  await page.getByLabel("Test account").fill(email);
   await page.getByRole("button", { name: "Sign in with the test account" }).click();
-  await expect(page.getByRole("heading", { name: "Your lessons" })).toBeVisible();
+  if (access) await expect(page.getByRole("heading", { name: "Your lessons" })).toBeVisible();
+  return email;
 }
 
 async function newLesson(page: Page, en: string, ar: string): Promise<string> {
@@ -46,12 +63,9 @@ async function stableBox(page: Page, selector: string): Promise<{ x: number; y: 
 
 /** An edit made the way the MCP server makes one: the server's Firestore store, as an AI client. */
 async function aiEdit(lessonId: string, ops: unknown[]): Promise<void> {
-  process.env.FIRESTORE_EMULATOR_HOST = FIRESTORE;
-  const { initializeApp, getApps } = await import("firebase-admin/app");
   const { getFirestore } = await import("firebase-admin/firestore");
   const { FirestoreStore } = await import("../apps/server/src/stores/firestore.ts");
-  const app = getApps().find((a) => a.name === "e2e") ?? initializeApp({ projectId: "demo-lessonstudio" }, "e2e");
-  const db = getFirestore(app);
+  const db = getFirestore(await admin());
   const owner = (await db.collection("lessons").doc(lessonId).get()).data()!.owner as string;
   await new FirestoreStore(db).apply(lessonId, ops as never, { uid: owner, via: "mcp:Claude" });
 }
@@ -156,6 +170,16 @@ test.describe("studio", () => {
     await page.getByLabel("Lesson file (JSON)").setInputFiles({ name: "phishing.json", mimeType: "application/json", buffer: Buffer.from(file) });
     await expect(page).toHaveURL(/\/lessons\/spot-a-phishing-message-[a-z0-9]+$/);
     await expect(page.locator(".board .card")).toHaveCount(5);
+  });
+
+  test("the studio is private: an account without access sees only the notice", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    const email = await signIn(page, false);
+    await expect(page.getByRole("heading", { name: "This studio is private" })).toBeVisible();
+    await expect(page.getByRole("alert")).toContainText(email);
+    await expect(page.getByRole("heading", { name: "Your lessons" })).toHaveCount(0);
+    await page.getByRole("button", { name: "Sign out" }).last().click();
+    await expect(page.getByRole("button", { name: "Sign in with the test account" })).toBeVisible();
   });
 
   test("a Darsi lesson plays its cast and the library's icons, in English and Egyptian Arabic", async ({ page }, info) => {

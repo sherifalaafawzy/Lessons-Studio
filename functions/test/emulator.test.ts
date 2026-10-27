@@ -16,13 +16,18 @@ const draftJson = JSON.stringify({ title: { en: "Spot a scam", ar: "اكتشف �
 let stub: Server;
 const seen: { path: string; key: string | undefined }[] = [];
 
-async function signUp(): Promise<{ token: string; uid: string }> {
-  const r = await fetch("http://127.0.0.1:9399/identitytoolkit.googleapis.com/v1/accounts:signUp?key=demo-key", {
-    method: "POST", headers: { "content-type": "application/json" },
-    body: JSON.stringify({ email: `fn-${Date.now()}-${Math.random().toString(36).slice(2, 6)}@example.com`, password: "secret-123", returnSecureToken: true }),
-  });
-  const j = (await r.json()) as { idToken: string; localId: string };
-  return { token: j.idToken, uid: j.localId };
+/** A test account, with access to the private studio (the `studio` claim) unless `access` is false. */
+async function signUp(access = true): Promise<{ token: string; uid: string }> {
+  const AUTH = "http://127.0.0.1:9399/identitytoolkit.googleapis.com/v1";
+  const post = (url: string, body: unknown, headers: Record<string, string> = {}) =>
+    fetch(url, { method: "POST", headers: { "content-type": "application/json", ...headers }, body: JSON.stringify(body) }).then((r) => r.json());
+  const email = `fn-${Date.now()}-${Math.random().toString(36).slice(2, 6)}@example.com`;
+  const j = (await post(`${AUTH}/accounts:signUp?key=demo-key`, { email, password: "secret-123", returnSecureToken: true })) as { idToken: string; localId: string };
+  if (!access) return { token: j.idToken, uid: j.localId };
+  // As the Admin SDK would (the emulator accepts "owner"), then sign in again for a token that carries the claim.
+  await post(`${AUTH}/projects/demo-lessonstudio/accounts:update`, { localId: j.localId, customAttributes: JSON.stringify({ studio: true }) }, { authorization: "Bearer owner" });
+  const k = (await post(`${AUTH}/accounts:signInWithPassword?key=demo-key`, { email, password: "secret-123", returnSecureToken: true })) as { idToken: string };
+  return { token: k.idToken, uid: j.localId };
 }
 async function callFn(name: string, data: unknown, token?: string): Promise<{ result?: any; error?: { status: string; message: string } }> {
   const r = await fetch(`${FN}/${name}`, { method: "POST", headers: { "content-type": "application/json", ...(token ? { authorization: `Bearer ${token}` } : {}) }, body: JSON.stringify({ data }) });
@@ -45,9 +50,11 @@ describe.skipIf(!on)("functions on the emulators", () => {
   });
   afterAll(() => { stub?.close(); });
 
-  it("only signed-in people can use them", async () => {
+  it("only signed-in people with access to the studio can use them", async () => {
     expect((await callFn("aiKeyStatus", {})).error?.status).toBe("UNAUTHENTICATED");
     expect((await callFn("draftLesson", { topic: "x" })).error?.status).toBe("UNAUTHENTICATED");
+    const { token } = await signUp(false);
+    for (const name of ["aiKeyStatus", "saveAiKey", "draftLesson", "exportVideo"]) expect((await callFn(name, {}, token)).error?.status).toBe("PERMISSION_DENIED");
   });
 
   it("a key is checked, stored sealed, shown only as its last four characters, and removed", async () => {

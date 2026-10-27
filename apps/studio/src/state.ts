@@ -2,6 +2,8 @@ import { signal } from "@preact/signals";
 import type { User } from "firebase/auth";
 
 export const user = signal<User | null | undefined>(undefined);
+/** Whether the signed-in account may use the studio (its `studio` claim); undefined while that is checked. */
+export const allowed = signal<boolean | undefined>(undefined);
 export const route = signal(location.pathname);
 
 export function go(path: string): void {

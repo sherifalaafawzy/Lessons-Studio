@@ -3,7 +3,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut } from "firebase/auth";
 import { auth } from "./fb.ts";
 import { rememberSession } from "./env.ts";
-import { go, route, say, user } from "./state.ts";
+import { allowed, go, route, say, user } from "./state.ts";
 import { t } from "./i18n.ts";
 import { TopLine } from "./views/TopLine.tsx";
 import { Home } from "./views/Home.tsx";
@@ -13,8 +13,12 @@ import { Settings } from "./views/Settings.tsx";
 import { Connect } from "./views/Connect.tsx";
 
 onAuthStateChanged(auth, (u) => {
+  // The studio is private (the `studio` claim, scripts/grant-access.mjs): read the claim from a fresh token, so an
+  // account given access since its last token gets in at once, and anyone else sees the private notice.
+  allowed.value = undefined;
   user.value = u;
   rememberSession(!!u);
+  if (u) void u.getIdTokenResult(true).then((r) => { allowed.value = r.claims.studio === true; }, () => { allowed.value = false; });
 });
 
 /** Google sign-in in a pop-up; where the browser blocks pop-ups, by redirecting to Google and back. */
@@ -38,6 +42,17 @@ export async function signInTest(email: string): Promise<void> {
   }
 }
 
+/** For an account without access: the studio is private. */
+function Private({ email, onSignOut }: { email: string; onSignOut: () => void }) {
+  return (
+    <main class="empty" role="alert">
+      <h1>{t("privateTitle")}</h1>
+      <p>{t("privateBody").replace("{email}", email)}</p>
+      <button type="button" class="btn primary" onClick={onSignOut}>{t("signOut")}</button>
+    </main>
+  );
+}
+
 export function Studio() {
   const u = user.value;
   const m = /^\/lessons\/([a-z0-9][a-z0-9-]{1,63})$/.exec(route.value);
@@ -46,6 +61,8 @@ export function Studio() {
       <TopLine signedIn={!!u} onSignOut={() => { void signOut(auth).then(() => go("/")); }} onSignIn={() => void signInGoogle()} />
       {u === undefined ? <main class="empty"><p>{t("loading")}</p></main>
         : !u ? <Home onGoogle={signInGoogle} onTest={signInTest} />
+        : allowed.value === undefined ? <main class="empty"><p>{t("loading")}</p></main>
+        : !allowed.value ? <Private email={u.email ?? ""} onSignOut={() => { void signOut(auth).then(() => go("/")); }} />
         : m ? <Editor id={m[1]!} />
         : route.value === "/settings" ? <Settings /> : route.value === "/connect" ? <Connect /> : <Lessons />}
     </>

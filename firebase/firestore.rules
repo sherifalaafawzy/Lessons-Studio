@@ -1,13 +1,17 @@
 rules_version = '2';
 // Lesson Studio. The server (Admin SDK) bypasses these rules; they govern the studio in people's browsers.
 //
+// The studio is private: only accounts with the `studio` claim may read or write anything. Claims are signed by
+// Firebase and set only with the Admin SDK (scripts/grant-access.mjs), so a stranger who signs in with Google gets
+// nothing, not even their own empty lesson list.
+//
 // A lesson changes only as one batch (packages/ops/src/docs.ts, commit()): the lesson document with
 // rev + 1, the scene documents it changed (each carrying that rev), and one op log entry. A writer whose
 // rev is stale is refused, so two people (or a person and an AI) can never silently overwrite each other;
 // the studio then rebases its edits on the newer lesson and tries again.
 service cloud.firestore {
   match /databases/{database}/documents {
-    function signedIn() { return request.auth != null; }
+    function signedIn() { return request.auth != null && request.auth.token.studio == true; }
     function lessonPath(id) { return /databases/$(database)/documents/lessons/$(id); }
     // The lesson as it was, and as it will be once this batch is written.
     function before(id) { return get(lessonPath(id)).data; }

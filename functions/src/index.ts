@@ -29,8 +29,10 @@ const DRAFTS_PER_DAY = 40;
 
 interface KeyDoc { gemini?: Sealed & { last4: string; setAt: number }; drafts?: { day: string; n: number } }
 
+/** The signed-in caller, if they may use the studio: only accounts with the `studio` claim (scripts/grant-access.mjs). */
 function signedIn(req: CallableRequest): string {
   if (!req.auth?.uid) throw new HttpsError("unauthenticated", "Sign in first.");
+  if (req.auth.token.studio !== true) throw new HttpsError("permission-denied", "This studio is private.");
   return req.auth.uid;
 }
 const keyRef = (uid: string) => db.collection("aiKeys").doc(uid);

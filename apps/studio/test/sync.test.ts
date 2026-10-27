@@ -16,7 +16,9 @@ const lesson = (): Lesson => {
   l.scenes.scenes.push({ id: "s2", template: "steps", narration: { en: "One. Two.", ar: "واحد. اثنان." }, content: { steps: ["One", "Two"] } });
   return l;
 };
-const db = (uid: string): Firestore => env.authenticatedContext(uid).firestore() as unknown as Firestore;
+// Everyone here has access to the studio (the `studio` claim); `stranger` signs in without it.
+const db = (uid: string): Firestore => env.authenticatedContext(uid, { studio: true }).firestore() as unknown as Firestore;
+const stranger = (uid: string): Firestore => env.authenticatedContext(uid).firestore() as unknown as Firestore;
 
 async function until(fn: () => boolean, ms = 5000): Promise<void> {
   const t0 = Date.now();
@@ -42,6 +44,15 @@ afterAll(async () => { await env?.cleanup(); });
 
 describe.skipIf(!host)("security rules", () => {
   beforeEach(async () => { await env.clearFirestore(); });
+
+  it("keeps the whole studio from accounts without access, even their own lessons", async () => {
+    // A stranger signed in with Google can't create a lesson, list lessons, or read anyone's.
+    await assertFails(createLesson(stranger("eve"), "l3", lesson(), "eve"));
+    await assertSucceeds(createLesson(db("alice"), "l1", lesson(), "alice"));
+    await assertFails(getDoc(doc(stranger("eve"), "lessons/l1")));
+    await assertFails(getDoc(doc(stranger("alice"), "lessons/l1")));
+    await assertFails(getDoc(doc(stranger("eve"), "aiKeys/eve")));
+  });
 
   it("lets an owner create a lesson, and keeps it from everyone else", async () => {
     await assertSucceeds(createLesson(db("alice"), "l1", lesson(), "alice"));
