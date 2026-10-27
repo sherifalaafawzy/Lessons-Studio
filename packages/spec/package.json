@@ -1,0 +1,14 @@
+{
+  "name": "@lessonstudio/spec",
+  "version": "0.1.0",
+  "description": "Lesson Package v0.1: types, JSON Schemas, validator, timing estimate and captions",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema/*": "./schema/*"
+  },
+  "files": ["src", "schema"],
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --format=esm --target=es2019 --outfile=dist/index.js"
+  }
+}

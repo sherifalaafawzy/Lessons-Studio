@@ -1,0 +1,76 @@
+rules_version = '2';
+// Lesson Studio. The server (Admin SDK) bypasses these rules; they govern the studio in people's browsers.
+//
+// A lesson changes only as one batch (packages/ops/src/docs.ts, commit()): the lesson document with
+// rev + 1, the scene documents it changed (each carrying that rev), and one op log entry. A writer whose
+// rev is stale is refused, so two people (or a person and an AI) can never silently overwrite each other;
+// the studio then rebases its edits on the newer lesson and tries again.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function lessonPath(id) { return /databases/$(database)/documents/lessons/$(id); }
+    // The lesson as it was, and as it will be once this batch is written.
+    function before(id) { return get(lessonPath(id)).data; }
+    function after(id) { return getAfter(lessonPath(id)).data; }
+    function readable(id) { return signedIn() && request.auth.uid in before(id).members; }
+    function writable(id) { return signedIn() && existsAfter(lessonPath(id)) && request.auth.uid in after(id).members; }
+    // The owner is deleting the whole lesson in this batch.
+    function deletingAll(id) { return signedIn() && !existsAfter(lessonPath(id)) && before(id).owner == request.auth.uid; }
+
+    match /lessons/{id} {
+      allow read: if signedIn() && request.auth.uid in resource.data.members;
+
+      allow create: if signedIn()
+        && request.resource.data.owner == request.auth.uid
+        && request.resource.data.members == [request.auth.uid]
+        && request.resource.data.rev == 1
+        && request.resource.data.status == "draft"
+        && request.resource.data.manifest is string && request.resource.data.manifest.size() < 200000
+        && request.resource.data.order is list && request.resource.data.order.size() <= 30
+        && request.resource.data.sceneRevs is map;
+
+      allow update: if signedIn() && request.auth.uid in resource.data.members
+        && request.resource.data.rev == resource.data.rev + 1
+        && request.resource.data.owner == resource.data.owner
+        && request.resource.data.members == resource.data.members
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.status == resource.data.status
+        && request.resource.data.manifest is string && request.resource.data.manifest.size() < 200000
+        && request.resource.data.order is list && request.resource.data.order.size() <= 30
+        && request.resource.data.sceneRevs is map;
+
+      allow delete: if signedIn() && resource.data.owner == request.auth.uid;
+
+      match /scenes/{scene} {
+        allow read: if readable(id);
+        // Written with its lesson's new rev, in the same batch.
+        allow create, update: if writable(id)
+          && request.resource.data.json is string && request.resource.data.json.size() < 200000
+          && request.resource.data.rev == after(id).rev
+          && after(id).sceneRevs[scene] == request.resource.data.rev;
+        // Gone from the lesson in the same batch, or the whole lesson is going.
+        allow delete: if (writable(id) && !(scene in after(id).sceneRevs)) || deletingAll(id);
+      }
+
+      match /ops/{op} {
+        allow read: if readable(id);
+        allow create: if writable(id)
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.rev == after(id).rev
+          && request.resource.data.ops is string && request.resource.data.ops.size() < 200000;
+        allow delete: if deletingAll(id);
+      }
+
+      // Measured timings come from the server's narration jobs.
+      match /timing/{lang} {
+        allow read: if readable(id);
+        allow delete: if deletingAll(id);
+      }
+    }
+
+    // OAuth state for MCP clients, and anything else: server only.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

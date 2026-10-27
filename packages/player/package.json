@@ -1,0 +1,16 @@
+{
+  "name": "@lessonstudio/player",
+  "version": "0.1.0",
+  "description": "Plays Lesson Packages on the device: every frame is a pure function of time",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": ["src"],
+  "dependencies": {
+    "@lessonstudio/spec": "0.1.0"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --format=esm --target=es2019 --outfile=dist/player.js"
+  }
+}

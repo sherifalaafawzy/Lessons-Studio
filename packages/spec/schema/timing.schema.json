@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lessonstudio.dev/schema/0.1/timing.schema.json",
+  "title": "Lesson Package timing v0.1",
+  "description": "Word and sentence times for one language, in seconds from the start of the lesson. Ordering and containment are checked by validatePackage().",
+  "type": "object",
+  "required": ["version", "lang", "source", "duration", "scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": "0.1" },
+    "lang": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$" },
+    "source": { "enum": ["estimated", "tts", "aligned", "manual"] },
+    "duration": { "type": "number", "exclusiveMinimum": 0 },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "start", "end", "sentences", "words"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,40}$" },
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number", "exclusiveMinimum": 0 },
+          "sentences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text", "start", "end"],
+              "additionalProperties": false,
+              "properties": { "text": { "type": "string", "minLength": 1 }, "start": { "type": "number" }, "end": { "type": "number" } }
+            }
+          },
+          "words": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["w", "s", "e"],
+              "additionalProperties": false,
+              "properties": { "w": { "type": "string", "minLength": 1 }, "s": { "type": "number" }, "e": { "type": "number" } }
+            }
+          },
+          "mouth": { "type": "string", "pattern": "^[0-2]*$" }
+        }
+      }
+    }
+  }
+}

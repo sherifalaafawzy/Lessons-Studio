@@ -1,0 +1,122 @@
+{
+  "version": "0.1",
+  "scenes": [
+    {
+      "id": "hook",
+      "template": "title-hook",
+      "narration": {
+        "en": "Your salary is on hold, confirm within twenty-four hours. A message like this wants you to act before you think.",
+        "ar": "راتبك موقوف، أكّد بياناتك خلال أربع وعشرين ساعة. رسالة كهذه تريدك أن تتصرف قبل أن تفكر."
+      },
+      "content": {
+        "kicker": { "en": "Cyber safety for teachers", "ar": "الأمان الرقمي للمعلمين" },
+        "title": { "en": "Spot a phishing message", "ar": "اكتشف رسالة التصيّد" },
+        "hook": { "en": "Your salary is on hold? Read this first.", "ar": "راتبك موقوف؟ اقرأ هذا أولًا." },
+        "icon": "phone"
+      },
+      "cues": [
+        { "word": { "en": "act", "ar": "تتصرف" }, "action": "pulse", "target": "hook" }
+      ]
+    },
+    {
+      "id": "signs",
+      "template": "message-mock",
+      "narration": {
+        "en": "Look for the warning signs. Pressure to act fast. A link you didn't expect. A sender you can't check. And a request for your PIN or a code. No real payroll office asks for those.",
+        "ar": "ابحث عن علامات التحذير. ضغط للتصرف بسرعة. رابط لم تتوقعه. مرسل لا يمكنك التحقق منه. وطلب رمزك السري أو رمز تحقق. لا يطلب أي مكتب رواتب حقيقي هذه الأشياء."
+      },
+      "content": {
+        "kind": "sms",
+        "from": { "en": "Teachers' payroll office", "ar": "مكتب رواتب المعلمين" },
+        "time": "08:12",
+        "lines": [
+          { "en": "Urgent: your salary for this month is on hold.", "ar": "عاجل: راتبك لهذا الشهر موقوف." },
+          { "en": "Confirm your details within 24 hours or your account will be closed.", "ar": "أكّد بياناتك خلال 24 ساعة وإلا سيُغلق حسابك." },
+          { "en": "Then reply with your PIN and the code we send you.", "ar": "ثم أرسل لنا رمزك السري (PIN) والرمز الذي سنرسله إليك." }
+        ],
+        "link": "salary-help.example/verify",
+        "flags": [
+          { "id": "rush", "line": 1, "label": { "en": "Pressure to act fast", "ar": "ضغط للتصرف بسرعة" } },
+          { "id": "badlink", "line": "link", "label": { "en": "A link you didn't expect", "ar": "رابط لم تتوقعه" } },
+          { "id": "sender", "line": "from", "label": { "en": "A sender you can't check", "ar": "مرسل لا يمكنك التحقق منه" } },
+          { "id": "pin", "line": 2, "label": { "en": "Asks for your PIN and a code", "ar": "يطلب رمزك السري ورمز التحقق" } }
+        ]
+      },
+      "cues": [
+        { "word": { "en": "Pressure", "ar": "ضغط" }, "action": "highlight", "target": "rush" },
+        { "word": { "en": "link", "ar": "رابط" }, "action": "highlight", "target": "badlink" },
+        { "word": { "en": "sender", "ar": "مرسل" }, "action": "highlight", "target": "sender" },
+        { "word": { "en": "PIN", "ar": "رمزك" }, "action": "highlight", "target": "pin" }
+      ]
+    },
+    {
+      "id": "habit",
+      "template": "steps",
+      "narration": {
+        "en": "So here's the habit. Don't tap the link or reply. Call the office on a number you already have. Never share a PIN or a one-time code. Then report the message, warn your colleagues and delete it.",
+        "ar": "إليك العادة المفيدة. لا تضغط على الرابط ولا تردّ. اتصل بالمكتب على رقم تعرفه مسبقًا. لا تشارك رمزًا سريًا أو رمزًا لمرة واحدة أبدًا. ثم أبلغ عن الرسالة، وحذّر زملاءك، واحذفها."
+      },
+      "content": {
+        "title": { "en": "Stop. Check another way.", "ar": "توقّف. وتحقّق بطريقة أخرى." },
+        "steps": [
+          { "en": "Don't tap the link or reply", "ar": "لا تضغط على الرابط ولا تردّ" },
+          { "en": "Call the office on a number you already have", "ar": "اتصل بالمكتب على رقم تعرفه مسبقًا" },
+          { "en": "Never share a PIN or one-time code", "ar": "لا تشارك رمزًا سريًا أو رمزًا لمرة واحدة أبدًا" },
+          { "en": "Report it, warn colleagues, delete it", "ar": "أبلغ عنها، وحذّر زملاءك، ثم احذفها" }
+        ]
+      },
+      "cues": [
+        { "word": { "en": "Don't tap", "ar": "لا تضغط" }, "action": "reveal", "target": "1" },
+        { "word": { "en": "Call", "ar": "اتصل" }, "action": "reveal", "target": "2" },
+        { "word": { "en": "Never", "ar": "تشارك" }, "action": "reveal", "target": "3" },
+        { "word": { "en": "report", "ar": "أبلغ" }, "action": "reveal", "target": "4" }
+      ]
+    },
+    {
+      "id": "turn",
+      "template": "quiz",
+      "narration": {
+        "en": "Your turn. A colleague's number writes: I sent you a code by mistake, please forward it. Scam or safe?",
+        "ar": "دورك الآن. يصلك من رقم زميلك: أرسلت إليك رمزًا بالخطأ، أعِد إرساله لي من فضلك. احتيال أم آمن؟"
+      },
+      "content": { "title": { "en": "Your turn", "ar": "دورك الآن" } },
+      "check": {
+        "type": "single-choice",
+        "id": "q-forward-code",
+        "prompt": {
+          "en": "A colleague's number writes: \"I sent you a code by mistake, please forward it.\" Scam or safe?",
+          "ar": "يصلك من رقم زميلك: «أرسلت إليك رمزًا بالخطأ، أعِد إرساله لي من فضلك». احتيال أم آمن؟"
+        },
+        "options": [
+          { "id": "scam", "text": { "en": "Scam", "ar": "احتيال" } },
+          { "id": "safe", "text": { "en": "Safe, it's a colleague", "ar": "آمن، إنه زميلي" } }
+        ],
+        "answer": "scam",
+        "explain": {
+          "en": "Scam. Accounts get taken over, so even a colleague's number can be used. Never forward a code.",
+          "ar": "احتيال. قد يُسرق حساب زميلك فيُستخدم رقمه. لا تُعِد إرسال أي رمز أبدًا."
+        }
+      }
+    },
+    {
+      "id": "remember",
+      "template": "summary",
+      "narration": {
+        "en": "Remember: phishing pretends to be someone you trust. Spot the sign, stop, and check another way. Then report it and delete it.",
+        "ar": "تذكّر: التصيّد يتظاهر بأنه جهة تثق بها. اكتشف العلامة، وتوقّف، وتحقّق بطريقة أخرى. ثم أبلغ عن الرسالة واحذفها."
+      },
+      "content": {
+        "title": { "en": "Remember", "ar": "تذكّر" },
+        "points": [
+          { "en": "Phishing pretends to be someone you trust", "ar": "التصيّد يتظاهر بأنه جهة تثق بها" },
+          { "en": "Watch for pressure, links, odd senders and requests for codes", "ar": "انتبه للضغط والروابط والمرسلين الغريبين وطلبات الرموز" },
+          { "en": "Check another way, then report and delete", "ar": "تحقّق بطريقة أخرى، ثم أبلغ واحذف" }
+        ],
+        "takeaway": { "en": "Spot the sign, stop, check another way.", "ar": "اكتشف العلامة، توقّف، وتحقّق بطريقة أخرى." }
+      },
+      "cues": [
+        { "word": { "en": "Spot", "ar": "اكتشف" }, "action": "reveal", "target": "takeaway" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@lessonstudio/server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server, OAuth for MCP clients, and the job worker (runs on the creator PC, online through ngrok)",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=../../.env.local src/main.ts",
+    "stdio": "node --env-file-if-exists=../../.env.local src/stdio.ts"
+  },
+  "dependencies": {
+    "@lessonstudio/narrate": "0.1.0",
+    "@lessonstudio/ops": "0.1.0",
+    "@lessonstudio/spec": "0.1.0",
+    "@modelcontextprotocol/core": "2.3.1",
+    "@modelcontextprotocol/express": "2.0.2",
+    "@modelcontextprotocol/ext-apps": "2.0.3",
+    "@modelcontextprotocol/node": "2.1.1",
+    "@modelcontextprotocol/server": "2.3.1",
+    "esbuild": "0.27.7",
+    "express": "5.3.0",
+    "firebase-admin": "14.5.0",
+    "jose": "6.2.12",
+    "playwright-core": "1.64.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.3.1",
+    "@types/express": "5.0.6",
+    "@types/node": "24.19.2"
+  }
+}

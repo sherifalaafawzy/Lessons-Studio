@@ -1,0 +1,925 @@
+{
+  "version": "0.2",
+  "scenes": [
+    {
+      "id": "hook",
+      "template": "title-hook",
+      "narration": {
+        "en": "How does an AI model learn? Not from rules someone wrote, but from examples.",
+        "ar": "كيف يتعلم نموذج الذكاء الاصطناعي؟ ليس من قواعد كتبها أحد، بل من الأمثلة."
+      },
+      "content": {
+        "kicker": {
+          "en": "AI in 45 seconds",
+          "ar": "الذكاء الاصطناعي في 45 ثانية"
+        },
+        "title": {
+          "en": "How an AI model learns",
+          "ar": "كيف يتعلم نموذج الذكاء الاصطناعي"
+        },
+        "hook": {
+          "en": "Examples in, better answers out.",
+          "ar": "أمثلة تدخل، وإجابات أفضل تخرج."
+        }
+      },
+      "cues": [
+        {
+          "word": {
+            "en": "examples",
+            "ar": "الأمثلة"
+          },
+          "action": "highlight",
+          "target": "hook"
+        }
+      ],
+      "overlays": [
+        {
+          "id": "spark",
+          "type": "icon",
+          "icon": "spark",
+          "x": 1060,
+          "y": 80,
+          "w": 120,
+          "h": 120,
+          "tone": "accent2",
+          "anim": [
+            {
+              "prop": "scale",
+              "keys": [
+                {
+                  "at": {
+                    "word": {
+                      "en": "learn",
+                      "ar": "يتعلم"
+                    }
+                  },
+                  "value": 0
+                },
+                {
+                  "at": {
+                    "word": {
+                      "en": "learn",
+                      "ar": "يتعلم"
+                    },
+                    "offset": 0.5
+                  },
+                  "value": 1,
+                  "ease": "back"
+                }
+              ]
+            },
+            {
+              "prop": "rotate",
+              "keys": [
+                {
+                  "at": {
+                    "word": {
+                      "en": "learn",
+                      "ar": "يتعلم"
+                    }
+                  },
+                  "value": -40
+                },
+                {
+                  "at": {
+                    "word": {
+                      "en": "learn",
+                      "ar": "يتعلم"
+                    },
+                    "offset": 0.8
+                  },
+                  "value": 0,
+                  "ease": "out"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "template": "canvas",
+      "transition": {
+        "type": "slide"
+      },
+      "narration": {
+        "en": "A neural network connects simple units. A signal passes from the inputs, through the hidden units, to an output. Each connection has a weight, a number that says how much it matters.",
+        "ar": "تربط الشبكة العصبية وحدات بسيطة. تمر الإشارة من المدخلات، عبر الوحدات المخفية، إلى المخرج. لكل وصلة وزن، وهو رقم يحدد مدى أهميتها."
+      },
+      "cues": [
+        {
+          "at": 0.3,
+          "action": "reveal",
+          "target": "in1"
+        },
+        {
+          "at": 0.44999999999999996,
+          "action": "reveal",
+          "target": "in2"
+        },
+        {
+          "at": 0.6,
+          "action": "reveal",
+          "target": "in3"
+        },
+        {
+          "at": 0.75,
+          "action": "reveal",
+          "target": "h1"
+        },
+        {
+          "at": 0.8999999999999999,
+          "action": "reveal",
+          "target": "h2"
+        },
+        {
+          "at": 1.05,
+          "action": "reveal",
+          "target": "out"
+        },
+        {
+          "word": {
+            "en": "inputs",
+            "ar": "المدخلات"
+          },
+          "action": "highlight",
+          "target": "in-label"
+        },
+        {
+          "word": {
+            "en": "output",
+            "ar": "المخرج"
+          },
+          "action": "highlight",
+          "target": "out-label"
+        },
+        {
+          "word": {
+            "en": "weight",
+            "ar": "وزن"
+          },
+          "action": "reveal",
+          "target": "w"
+        },
+        {
+          "word": {
+            "en": "matters",
+            "ar": "أهميتها"
+          },
+          "action": "pulse",
+          "target": "w"
+        }
+      ],
+      "content": {
+        "elements": [
+          {
+            "id": "title",
+            "type": "text",
+            "x": 80,
+            "y": 46,
+            "size": 46,
+            "weight": 800,
+            "text": {
+              "en": "A tiny neural network",
+              "ar": "شبكة عصبية صغيرة"
+            }
+          },
+          {
+            "id": "l00",
+            "type": "line",
+            "x": 270,
+            "y": 220,
+            "x2": 570,
+            "y2": 280,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.9
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l01",
+            "type": "line",
+            "x": 270,
+            "y": 220,
+            "x2": 570,
+            "y2": 460,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.1
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l10",
+            "type": "line",
+            "x": 270,
+            "y": 370,
+            "x2": 570,
+            "y2": 280,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.2
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.1
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l11",
+            "type": "line",
+            "x": 270,
+            "y": 370,
+            "x2": 570,
+            "y2": 460,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.30000000000000004
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.2000000000000002
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l20",
+            "type": "line",
+            "x": 270,
+            "y": 520,
+            "x2": 570,
+            "y2": 280,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.4
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.3
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "l21",
+            "type": "line",
+            "x": 270,
+            "y": 520,
+            "x2": 570,
+            "y2": 460,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.5
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.4
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "o0",
+            "type": "line",
+            "x": 670,
+            "y": 280,
+            "x2": 1000,
+            "y2": 375,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.7
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.6
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "o1",
+            "type": "line",
+            "x": 670,
+            "y": 460,
+            "x2": 1000,
+            "y2": 375,
+            "tone": "muted",
+            "strokeWidth": 5,
+            "anim": [
+              {
+                "prop": "draw",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 0.7999999999999999
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "connects",
+                        "ar": "تربط"
+                      },
+                      "offset": 1.7
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "in1",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 170,
+            "y": 170,
+            "w": 100,
+            "h": 100,
+            "fill": "surface",
+            "stroke": "accent",
+            "strokeWidth": 6
+          },
+          {
+            "id": "in2",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 170,
+            "y": 320,
+            "w": 100,
+            "h": 100,
+            "fill": "surface",
+            "stroke": "accent",
+            "strokeWidth": 6
+          },
+          {
+            "id": "in3",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 170,
+            "y": 470,
+            "w": 100,
+            "h": 100,
+            "fill": "surface",
+            "stroke": "accent",
+            "strokeWidth": 6
+          },
+          {
+            "id": "h1",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 570,
+            "y": 230,
+            "w": 100,
+            "h": 100,
+            "fill": "surface",
+            "stroke": "muted",
+            "strokeWidth": 6
+          },
+          {
+            "id": "h2",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 570,
+            "y": 410,
+            "w": 100,
+            "h": 100,
+            "fill": "surface",
+            "stroke": "muted",
+            "strokeWidth": 6
+          },
+          {
+            "id": "out",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 1000,
+            "y": 320,
+            "w": 110,
+            "h": 110,
+            "fill": "surface",
+            "stroke": "ok",
+            "strokeWidth": 6
+          },
+          {
+            "id": "in-label",
+            "type": "text",
+            "x": 150,
+            "y": 600,
+            "size": 30,
+            "tone": "muted",
+            "text": {
+              "en": "Inputs",
+              "ar": "المدخلات"
+            }
+          },
+          {
+            "id": "out-label",
+            "type": "text",
+            "x": 990,
+            "y": 450,
+            "size": 30,
+            "tone": "muted",
+            "text": {
+              "en": "Output",
+              "ar": "المخرج"
+            }
+          },
+          {
+            "id": "w",
+            "type": "text",
+            "x": 330,
+            "y": 150,
+            "size": 32,
+            "weight": 700,
+            "tone": "accent2",
+            "text": {
+              "en": "weight = 0.8",
+              "ar": "الوزن = 0.8"
+            }
+          },
+          {
+            "id": "signal",
+            "type": "shape",
+            "shape": "ellipse",
+            "x": 205,
+            "y": 355,
+            "w": 30,
+            "h": 30,
+            "fill": "accent2",
+            "anim": [
+              {
+                "prop": "opacity",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "passes",
+                        "ar": "تمر"
+                      },
+                      "offset": -0.05
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "passes",
+                        "ar": "تمر"
+                      }
+                    },
+                    "value": 1,
+                    "ease": "step"
+                  }
+                ]
+              },
+              {
+                "prop": "x",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "passes",
+                        "ar": "تمر"
+                      }
+                    },
+                    "value": 205
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "hidden",
+                        "ar": "المخفية"
+                      }
+                    },
+                    "value": 605
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "output",
+                        "ar": "المخرج"
+                      }
+                    },
+                    "value": 1040
+                  }
+                ]
+              },
+              {
+                "prop": "y",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "passes",
+                        "ar": "تمر"
+                      }
+                    },
+                    "value": 355
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "hidden",
+                        "ar": "المخفية"
+                      }
+                    },
+                    "value": 265
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "output",
+                        "ar": "المخرج"
+                      }
+                    },
+                    "value": 360
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "learning",
+      "template": "canvas",
+      "transition": {
+        "type": "zoom"
+      },
+      "narration": {
+        "en": "During training, the model guesses, measures its error, and adjusts the weights a little. Repeat this many times, and the error falls, step by step, until it is small enough.",
+        "ar": "أثناء التدريب، يخمّن النموذج، ثم يقيس خطأه، ويعدّل الأوزان قليلًا. كرّر ذلك مرات كثيرة، فيقل الخطأ خطوة بعد خطوة، حتى يصبح صغيرًا بما يكفي."
+      },
+      "camera": [
+        {
+          "prop": "x",
+          "keys": [
+            {
+              "at": {
+                "word": {
+                  "en": "falls",
+                  "ar": "يقل"
+                }
+              },
+              "value": 640
+            },
+            {
+              "at": {
+                "word": {
+                  "en": "falls",
+                  "ar": "يقل"
+                },
+                "offset": 1.4
+              },
+              "value": 500
+            }
+          ]
+        },
+        {
+          "prop": "scale",
+          "keys": [
+            {
+              "at": {
+                "word": {
+                  "en": "falls",
+                  "ar": "يقل"
+                }
+              },
+              "value": 1
+            },
+            {
+              "at": {
+                "word": {
+                  "en": "falls",
+                  "ar": "يقل"
+                },
+                "offset": 1.4
+              },
+              "value": 1.2
+            }
+          ]
+        }
+      ],
+      "cues": [
+        {
+          "word": {
+            "en": "error",
+            "ar": "الخطأ"
+          },
+          "action": "highlight",
+          "target": "err-label"
+        }
+      ],
+      "content": {
+        "elements": [
+          {
+            "id": "title",
+            "type": "text",
+            "x": 80,
+            "y": 46,
+            "size": 46,
+            "weight": 800,
+            "text": {
+              "en": "Training",
+              "ar": "التدريب"
+            }
+          },
+          {
+            "id": "rule",
+            "type": "code",
+            "x": 760,
+            "y": 190,
+            "w": 440,
+            "size": 26,
+            "highlight": [
+              3
+            ],
+            "code": "guess = model(x)\nerror = guess - y\nw = w - 0.1 * error",
+            "anim": [
+              {
+                "prop": "reveal",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "guesses",
+                        "ar": "يخمن"
+                      }
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "adjusts",
+                        "ar": "يعدل"
+                      },
+                      "offset": 0.8
+                    },
+                    "value": 1,
+                    "ease": "linear"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "err",
+            "type": "chart",
+            "kind": "line",
+            "x": 110,
+            "y": 170,
+            "w": 600,
+            "h": 360,
+            "tone": "accent",
+            "data": [
+              9,
+              7.2,
+              5.6,
+              4.4,
+              3.4,
+              2.7,
+              2.2,
+              1.9
+            ],
+            "anim": [
+              {
+                "prop": "reveal",
+                "keys": [
+                  {
+                    "at": {
+                      "word": {
+                        "en": "repeat",
+                        "ar": "كرر"
+                      }
+                    },
+                    "value": 0
+                  },
+                  {
+                    "at": {
+                      "word": {
+                        "en": "small",
+                        "ar": "صغير"
+                      }
+                    },
+                    "value": 1,
+                    "ease": "out"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "err-label",
+            "type": "text",
+            "x": 110,
+            "y": 560,
+            "size": 30,
+            "tone": "muted",
+            "text": {
+              "en": "Error",
+              "ar": "الخطأ"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "remember",
+      "template": "summary",
+      "transition": {
+        "type": "wipe"
+      },
+      "narration": {
+        "en": "So, an AI model learns by adjusting its weights to make fewer mistakes on examples.",
+        "ar": "إذن، يتعلم نموذج الذكاء الاصطناعي بتعديل أوزانه ليخطئ أقل في الأمثلة."
+      },
+      "content": {
+        "title": {
+          "en": "Remember",
+          "ar": "تذكّر"
+        },
+        "points": [
+          {
+            "en": "A model learns from examples, not written rules",
+            "ar": "يتعلم النموذج من الأمثلة، لا من قواعد مكتوبة"
+          },
+          {
+            "en": "Learning means adjusting weights",
+            "ar": "التعلم يعني تعديل الأوزان"
+          },
+          {
+            "en": "Less error means better answers",
+            "ar": "خطأ أقل يعني إجابات أفضل"
+          }
+        ],
+        "takeaway": {
+          "en": "Good examples make a good model.",
+          "ar": "الأمثلة الجيدة تصنع نموذجًا جيدًا."
+        }
+      }
+    }
+  ]
+}

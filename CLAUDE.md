@@ -1,0 +1,124 @@
+# Lesson Studio: notes for Claude Code
+
+A creator studio and an on-device player for short explainer lessons (tech, AI, cyber), built for old phones and weak connections. [PLAN.md](PLAN.md) is the product plan, written by the user. Its Appendix C has the prices and API facts checked on 27 Oct 2026. Read §1 and §6 before changing the format.
+
+## Layout
+- `packages/spec`: the Lesson Package types (`src/types.ts`, v0.2: canvas elements, keyframes, overlays, transitions, camera), JSON Schemas (`schema/`) and `validatePackage()` with the budgets (`BUDGETS`). Keep the types, the schemas and the validator in step: the schema test validates every example against all three schema files.
+- `packages/ops`: lesson operations shared by the studio, the MCP server and the worker. `applyOps` returns the inverse (undo); `rebase`; presets (`animate`); `OPS_SCHEMA` (the MCP tool schema); Firestore document shapes (`docs.ts`); `LessonStore` and `MemoryStore`. Every edit, by a person or an AI, goes through `applyOps`.
+- `packages/player`: the player. `createPlayer(host, pkg, opts)` mounts into a shadow root.
+  - Each template is in `src/templates/`; `templates/index.ts` adds overlays, camera, background and transitions to any scene. `src/canvas.ts` draws free elements and evaluates keyframes. `src/player.ts` has the clock, captions, controls and checks, plus `boxes()` and `elementAt()` for editors. `src/styles.ts` has the CSS.
+- `packages/narrate`: narration. Gemini TTS requests and batch parsing (`gemini.ts`), WAV handling (`pcm.ts`), word alignment (`align.ts`), the narration track (`assemble.ts`), prices (`cost.ts`). Pure TypeScript; `scripts/narrate.mjs` is the CLI around it.
+- `services/ai/align.py`: forced alignment with faster-whisper, run by the CLI from `services/ai/.venv` (pinned `requirements.txt`; av stays at 16.x, see the file).
+- `apps/server`: MCP SDK v2 (`@modelcontextprotocol/server` 2.3.1, the 2026-07-28 spec).
+  - `mcp.ts` has the tools, resources and prompts; `guide.md` is the format guide AIs read.
+  - `stdio.ts` serves local clients and `main.ts` serves HTTP on 127.0.0.1:4320; `http.ts` holds the Express app.
+  - `oauth.ts` is a small OAuth 2.1 authorization server, because the SDK only verifies tokens. `kv.ts` stores its clients, codes and refresh tokens.
+  - `render.ts` draws frames with the player in headless Chromium; `preview/` is the MCP Apps view.
+  - Stores: `stores/file.ts` (`.data/`) and `stores/firestore.ts`.
+- `apps/studio`: the studio, a Preact app with signals and the Firebase JS SDK, on port 4330.
+  - `src/sync.ts` (`LessonSync`) is the live, optimistic sync: edits apply at once, then go out one batch at a time through `commit()`. A refused batch is rebased and sent again, and undo and redo are edits.
+  - `src/editor.ts` holds the editor's signals. The screens are in `src/views/`: `Stage` (the player plus handles), `Storyboard`, `Inspector`, `content.tsx` (template and element forms), `Animations` (word picker, animations, cues), `Checks` and `Preview`.
+  - `src/i18n.ts` holds the English and Arabic UI text; every key needs both, and the type system checks it.
+  - On the emulators (`VITE_EMULATORS=1`, or no web config) the sign-in screen offers a test account.
+- `firebase/firestore.rules`: members read and write lessons only as whole batches (rev + 1, scenes carrying that rev, an op log entry). Timings and `oauth_*` are server only. Emulators: `npm run emulators` (project `demo-lessonstudio`; Auth 9399, Firestore 8280, UI 4120; needs Java 21).
+- `apps/playground`: Vite on port 4310. It serves `examples/` at `/examples/<id>/` (with range requests, for audio) and lists them at `/examples/index.json`.
+- `examples/<id>/`: hand-written packages. `npm run narrate` writes `audio/`, and measured `timing/` and `captions/`; `npm run timing` writes estimated ones for languages without narration.
+- `.cache/narrate/` (gitignored): voiced sentences keyed by a hash of text, voice and settings; alignments; pending batches. Never delete it casually: it holds paid-for audio.
+
+## Rules
+- **Every frame is a pure function of time.**
+  - A template's `update(lt, cs)` must set every animated property from those two arguments alone: no timers, no state carried between frames.
+  - `Writer` only skips writes that wouldn't change anything.
+  - The "same frame for the same time" test guards this.
+  - MP4 export (later) will reuse `renderAt(t)`.
+- **Old phones.**
+  - Motion is transform and opacity only.
+  - No blur, filters, backdrop effects or blurred shadows; shadows are hard offsets.
+  - No `aspect-ratio`: use padding boxes.
+  - Redraw only while playing; the Lite, Frames and Text tiers redraw less often (`MIN_FRAME_MS`).
+  - `npm run size` keeps the player under 30 KB gzipped (14.6 KB on 27 Oct 2026).
+- **Right to left.**
+  - Direction comes from the manifest's language track.
+  - Latin runs inside right-to-left text go through `rich()` / `units()` (`<bdi>`), so "حقن الأوامر (Prompt injection)" keeps its order.
+  - Flow diagrams mirror their x positions.
+  - Time and the seek bar stay left to right.
+- **Arabic.** Never use "·" as a separator (it reads as Arabic zero); use "،". The validator rejects it. Write Modern Standard Arabic, friendly. Example languages are marked `"quality": "machine"` until a native speaker reviews them.
+- **Cues** name the spoken word in every language (`{ "en": "hides", "ar": "تخفي" }`). Matching ignores case, punctuation and Arabic diacritics, and allows up to 3 extra letters (clitics such as و). If a word isn't found, the validator warns and the cue fires at the scene's start.
+- **Package text** only ever enters the DOM as text nodes, never as HTML. Package paths must be relative (`relPathOk`).
+- **Narration.**
+  - One TTS request per sentence: that makes sentence times exact. Words are timed by forced alignment, not estimated.
+  - Batch by default, at half price; `--now` only for quick checks.
+  - The API key lives only in `.env.local` as `GEMINI_API_KEY`. The user sets it. Never print, log or read it; check only whether it's set. Requests send it in the `x-goog-api-key` header, never in a URL.
+  - A narrated language's timings are measured, so `npm run timing` leaves them alone. After editing its script, re-run `npm run narrate -- <id>`. The validator's `timingStale` error catches timings that no longer match the words.
+  - The manifest's `voice` records what made the audio. The cache key adds the per-language hints (`voiceFor`), so changing a voice or style re-voices that language.
+- **Animation (v0.2).**
+  - Keyframes can anchor to spoken words per language (`resolveWhen`), like cues.
+  - Free elements mirror in right-to-left languages unless `fixed`; code and charts stay left to right.
+  - The validator warns on budgets: 300 KB per language, 120 KB per image, 40 elements per scene, 12 tracks moving at once.
+  - Transitions move only the incoming scene, with transform and opacity.
+- **MCP server.**
+  - Tools act as one actor (uid plus via), and every lesson read or write checks membership.
+  - Online access needs `LS_PUBLIC_URL` and `MCP_TOKEN_SECRET`; then every HTTP request needs a token. Without `LS_PUBLIC_URL` it serves this PC only.
+  - Never weaken the sign-in: PKCE S256 only, exact redirect URIs, single-use codes, rotating refresh tokens, allowlisted verified emails.
+  - Never print secrets. `.secrets/` and `.data/` are gitignored.
+  - The in-chat preview speaks the MCP Apps protocol itself (`preview/view.ts`), keeping it at 19 KB gzipped; don't swap in the ext-apps `App` class (167 KB).
+  - In the render page, move the clock with `seek(t)`, not `renderAt(t)`: a resize redraws at the clock's time.
+- **Studio and sync.**
+  - Every write goes through `commit()` in `packages/ops/src/docs.ts`: the server in a transaction, the studio in a batch the rules check. `sceneRevs` lets a reader tell when its snapshot is whole, and `commit` (an id) tells its own echo from someone else's write.
+  - Every operation returns a precise inverse (`applyOps`), so undo never discards another person's or an AI's change. A new operation needs one too, plus a test in `ops.test.ts` "undo next to someone else's edits".
+  - Tests that clear the emulator use project `demo-lessonstudio-test`, never `demo-lessonstudio`, which is the one people use in the browser.
+  - The Firebase web config in `.env.local` is public by design; service-account keys never go there (`.secrets/`).
+- **Security content** teaches defence and awareness, never step-by-step attacks (PLAN.md §11).
+- **Imports:** use `.ts` extensions, `import type` for types, and no parameter properties or enums. The scripts run the TypeScript sources directly with Node 24's type stripping.
+
+## Conventions
+- Use npm 11: `npx -y npm@11.13.0 install`.
+- Pin dependency versions, and only versions at least two weeks old.
+- Commit only when the user asks. This repo has a repo-local git identity, Sherif Alaa Fawzy <sherifalaafawzy@gmail.com>; never use the global work identity. There is no remote yet.
+- Playwright 1.64 wants its own Chromium build. Set `CHROMIUM_PATH` to an installed one, e.g. `C:/Users/Sherif Alaa Fawzy/AppData/Local/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-win64/chrome-headless-shell.exe`.
+
+## Status (27 Oct 2026; narration, then the studio's Phase 1 foundation, added the same day)
+- **Done: Phase 1 core (PLAN.md §12, §16 item 2).**
+  - Spec v0.1 with schemas and validator.
+  - The player: six templates, captions, checks, four tiers, three shapes, and two brand kits (`studio-dark`, `darsi-light`).
+  - Two example lessons in English and Arabic; playground.
+- **Done: narration** (`npm run narrate`). Gemini TTS per sentence, batch or now; content-hashed cache; Whisper forced alignment with a read-back check; Opus 16 kbit/s plus an AAC fallback; manifest voice, assets and disclosure. The player falls back to a silent clock with captions when audio can't load.
+  - Verified end to end with the Windows voice standing in for Gemini (17 English sentences): 0 errors; word starts within 55 ms median and 119 ms at the 90th percentile of the voice's own word events; e2e narration tests passed. That test package and its cached clips were removed afterwards.
+  - Not yet run against the real Gemini API: it needs the user's key in `.env.local`. The request shape follows the docs (`speechMetadata.style`, `voiceConfig.prebuiltVoiceConfig.voiceName`); check the first `--now --limit 1` run.
+- **Checked:**
+  - `npm test`: 92 tests across spec, ops, narrate, player and server.
+  - `npm run check`: 0 errors and 0 warnings.
+  - `npm run e2e`: 14 tests, desktop and 375 px phone, including a 4× CPU slowdown with no long frames. The 4 narration tests run once an example has audio (18 with the test package).
+  - `tsc` for all three packages.
+  - The playground looked over in English and Arabic, on desktop and at 375 px.
+- **Done: the foundation for the studio and MCP** (the user's approved plan in `~/.claude/plans/velvet-mapping-key.md`, Phase 1).
+  - Format v0.2, the canvas renderer, `packages/ops`, and the MCP server with frames, the in-chat preview and OAuth.
+  - Example `how-ai-learns` (canvas, English and Arabic).
+  - **Checked:**
+    - 92 unit and integration tests: MCP over in-memory, real stdio and HTTP; OAuth end to end; the Firestore store and Google sign-in check against the emulators (project `demo-lessonstudio` on Darsi's running emulators); the MCP Apps view against a stand-in host.
+    - e2e: 18 passed and 2 narration tests skipped (no narrated example).
+    - The canvas scene is smooth at 4× CPU slowdown.
+  - **Not checked:**
+    - real ChatGPT, claude.ai or Claude Code sessions (they need the user's ngrok domain and accounts, and changes to the user's client config);
+    - the Google sign-in popup in a browser (it needs the Firebase project).
+- **Done: Phase 2, the studio** (sign-in, lessons and brief, storyboard, stage with handles, narration, cues, animation on spoken words, live sync with AI edits, precise undo and redo, checks, device preview, English and Arabic UI, phone layout).
+  - **Checked:**
+    - 101 unit and integration tests, including the rules and live sync on the studio's emulators: two people at once, an AI edit arriving, undo and redo syncing, a conflicting edit dropped.
+    - e2e: 20 passed. The studio walkthrough on desktop: sign in, brief, canvas scene, drag, an animation on a word in English and Arabic, the Arabic mirror, an AI edit arriving live, undo keeping the AI's change, preview. The phone layout at 375 px.
+  - **Not checked:**
+    - the studio against the real project (it needs Google sign-in and Firestore turned on, and the rules deployed);
+    - Google sign-in itself (the emulator test account was used instead).
+  - **Known gaps:**
+    - undo history lasts only for the session;
+    - the studio uses estimated timings even when measured ones exist;
+    - the Firebase chunk is 194 KB gzipped;
+    - only one batch is queued while offline.
+- **Not done yet:**
+  - Gemini narration of the examples (waiting on the API key; `.env.local` holds an empty `GEMINI_API_KEY=` line).
+  - The user's setup:
+    - Firebase project `lessons-studio-6b509` exists, and its web config is in `.env.local`. Still to do there: Google sign-in, Firestore, Storage, Hosting, and a service-account key in `.secrets/`.
+    - GitHub repo: `origin` is https://github.com/sherifalaafawzy/Lessons-Studio (empty; nothing committed or pushed; the local branch is `master`).
+    - ngrok domain: still needed.
+  - Studio phases 2–5: the studio app, the timeline, generation jobs (narration, images, AI drafting), MP4 export and publishing.
+  - Tests on a real low-end phone.
+  - The studio, the AI pipeline, MP4 export, avatars and services: Phases 2–6.
