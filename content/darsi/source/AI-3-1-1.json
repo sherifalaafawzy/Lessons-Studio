@@ -1,0 +1,316 @@
+{
+ "id": "AI-3-1-1",
+ "track": "ai",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI models work"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "One neuron",
+  "subtitle": "Inputs, weights and a decision",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "One neuron",
+  "length": "3:10",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A pupil’s question"
+   },
+   {
+    "at": "0:16",
+    "label": "Inputs, weights and bias"
+   },
+   {
+    "at": "1:08",
+    "label": "What a neuron is"
+   },
+   {
+    "at": "2:03",
+    "label": "One straight line"
+   },
+   {
+    "at": "2:38",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "Joseph’s computer room after a lesson. A pupil at the door points at a computer, a thought bubble with a small brain over the machine. Joseph smiles, then frowns slightly: how to explain?",
+    "animation": "Thought bubble pops in (≤ 200 ms); the brain shape wobbles once, then a question mark replaces it.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A pupil asked me today: “Sir, is there a tiny brain inside the computer?” I said no. But then I had to explain what a neural network is.",
+    "icons": [
+     "users",
+     "brain",
+     "network"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "Paper-grey title card with the Darsi mark, the course name and the lesson title.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "One neuron",
+    "voice": "Narrator",
+    "narration": "Today: one neuron, the building block of every neural network.",
+    "icons": [
+     "spark",
+     "cpu"
+    ]
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:33",
+    "beat": "Concept",
+    "visual": "Joseph at his front door with an umbrella, looking up. Three input circles appear beside him: a cloud, a phone showing a rain forecast, a calendar page for the season. Each gets a 1 or a 0 tag, then a weight tag.",
+    "animation": "Inputs pop in one by one as they are named; 1/0 tags flip on; weight tags slide in last.",
+    "on_screen_text": "Inputs and weights",
+    "voice": "Narrator",
+    "narration": "Every morning Joseph decides: umbrella or not? A neuron takes numbers in. Is it cloudy? Does the forecast say rain? Is it the rainy season? Yes is one, no is zero. Then it multiplies each input by a weight: how much it matters.",
+    "icons": [
+     "cloud",
+     "cloudrain",
+     "calendar",
+     "scale"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "A worked sum builds line by line on a clean board: each input times its weight, the bias, the total, and a check badge with an umbrella.",
+    "animation": "Each line writes on as it is said; the total pulses; the check badge pops (150 ms).",
+    "on_screen_text": "Add up, then decide",
+    "voice": "Narrator",
+    "narration": "Say the forecast weighs three, the season two, the clouds one. Today it’s cloudy, rain is forecast, but it isn’t the rainy season. One times one, plus one times three, plus zero times two: four. Add the bias, minus one: three. Above zero means yes: take the umbrella.",
+    "icons": [
+     "calculator",
+     "scale",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:08",
+    "beat": "Concept",
+    "visual": "The three weight tags start as random numbers and the neuron gets two days wrong (cross badges). A small hand turns each weight dial a little after each answer; the crosses turn into checks.",
+    "animation": "Dials turn in small steps (150 ms each); badges flip from cross to check.",
+    "on_screen_text": "Learning changes the weights",
+    "voice": "Narrator",
+    "narration": "But who chose those weights? At first, nobody: they start random, and the answers are poor. Training compares each answer with the right one and adjusts the weights a little. For a neuron, learning means changing its weights and bias.",
+    "icons": [
+     "shuffle",
+     "repeat",
+     "scale"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:25",
+    "beat": "Definition",
+    "visual": "Clean white card with the AI track chip: three inputs with lines to one circle marked with a sum sign, and an arrow out to yes or no. A crossed-out brain sits small in the corner.",
+    "animation": "Lines draw from inputs to the circle (300 ms each); the output arrow draws last.",
+    "on_screen_text": "An artificial neuron",
+    "voice": "Narrator",
+    "narration": "So an artificial neuron multiplies each input by its weight, adds them up with a bias, and turns the total into an answer. It’s not a brain cell: it’s arithmetic. And this bias isn’t unfairness: it’s how keen the neuron is to say yes.",
+    "icons": [
+     "calculator",
+     "cpu",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:25",
+    "end": "1:41",
+    "beat": "Analogy",
+    "visual": "A school mark sheet beside the neuron diagram: exam ×3, homework ×1, a pass-mark line. The same parts light up on both sides.",
+    "animation": "Matching parts glow in pairs (200 ms).",
+    "on_screen_text": "Like a marking scheme",
+    "voice": "Narrator",
+    "narration": "It’s like your school’s marking scheme. The exam might count three times as much as homework: a weight. Add the parts, compare with the pass mark: pass or fail. Change the weights, and the same pupils get different results.",
+    "icons": [
+     "clipboard",
+     "graduation",
+     "scale"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:51",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah pops in beside the umbrella neuron, pointing at the weight tags 3 and 1. Three answer cards drop in.",
+    "animation": "Character slides in; answer cards drop in with a small bounce.",
+    "on_screen_text": "What does a weight tell you?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The forecast’s weight is three; the clouds’ is one. What does that tell you?",
+    "icons": [
+     "help",
+     "scale"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:51",
+    "end": "2:03",
+    "beat": "Reveal",
+    "visual": "The correct card gets the check badge. Three weight lines into the neuron: a thick one, a faint one at zero, and a dashed one pulling towards ‘no’.",
+    "animation": "Check badge pops (150 ms); line thickness changes as each kind is named.",
+    "on_screen_text": "Bigger weight, bigger push",
+    "voice": "Narrator",
+    "narration": "The forecast counts for more. A bigger weight pushes harder on the answer. A weight of zero means the input is ignored. And a negative weight pushes towards no.",
+    "icons": [
+     "zap",
+     "square",
+     "back"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:03",
+    "end": "2:22",
+    "beat": "Non-examples",
+    "visual": "A chart of past days with one straight line splitting yes from no. Then a thermometer strip: cold (no), comfortable (yes), hot (no); one straight line can’t isolate the middle, two lines can.",
+    "animation": "The first line draws across the chart; on the thermometer a single line tries both places and fails, then a second line appears.",
+    "on_screen_text": "One neuron, one straight line",
+    "voice": "Narrator",
+    "narration": "There’s a limit, though. On a chart of examples, one neuron draws one straight line: yes on one side, no on the other. Now ask: is the classroom comfortable? Yes in the middle, no when too cold or too hot. One straight line can’t do that: you need two.",
+    "icons": [
+     "ruler",
+     "thermometer",
+     "circlex"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:22",
+    "end": "2:30",
+    "beat": "Lab preview",
+    "visual": "A phone screen with three input sliders, a weight slider under each, the bias slider and a table of four days with check or cross marks.",
+    "animation": "A finger drags one weight; a cross turns into a check (150 ms).",
+    "on_screen_text": "Lab: the umbrella neuron",
+    "voice": "Narrator",
+    "narration": "In the lab, you set the umbrella neuron’s weights and bias yourself. Your challenge: get all four days right.",
+    "icons": [
+     "phone",
+     "scale",
+     "checksquare"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:30",
+    "end": "2:38",
+    "beat": "Checkpoint ◆",
+    "visual": "Joseph holds two cards: a pot plant with ‘too dry / too wet’ arrows, and a mark sheet with a pass line. Two answer cards appear beside him.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which can one neuron do?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Which of these can one neuron decide on its own?",
+    "icons": [
+     "help",
+     "cpu"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:38",
+    "end": "2:52",
+    "beat": "Recap",
+    "visual": "The pass-mark card gets the check badge, then four summary lines build.",
+    "animation": "Points appear 250 ms apart.",
+    "on_screen_text": "Weights · Bias · One line",
+    "voice": "Narrator",
+    "narration": "The pass mark: one straight line is enough. Remember: a neuron multiplies inputs by weights, adds a bias, and decides. Learning changes the weights. And one neuron draws one line, so harder shapes need many.",
+    "icons": [
+     "scale",
+     "calculator",
+     "ruler"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:52",
+    "end": "3:10",
+    "beat": "Try it tomorrow",
+    "visual": "Joseph’s classroom: three pupils hold cards marked 1 or 0 with a weight written on each; a fourth pupil adds on the board and holds up an umbrella or not.",
+    "animation": "Cards flip up one by one; the sum writes on the board.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: be a human neuron. Three pupils hold input cards, a one or a zero, each with a weight. A fourth adds up the weighted votes with the bias and decides: umbrella or not? Then change a weight, and decide again.",
+    "icons": [
+     "school",
+     "users",
+     "calculator"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:49",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The forecast’s weight is 3 and the clouds’ weight is 1. What does that tell you?",
+    "options": [
+     {
+      "text": "Rain is three times as likely",
+      "correct": false
+     },
+     {
+      "text": "The clouds don’t count at all",
+      "correct": false
+     },
+     {
+      "text": "The forecast counts for more",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — a bigger weight means that input pushes harder on the decision.",
+    "feedback_wrong": "Not quite — a weight says how much an input matters to the decision, not how likely rain is. The clouds still count, with weight 1.",
+    "resume_at": "1:51"
+   },
+   {
+    "at": "2:36",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Which of these can one neuron decide on its own?",
+    "options": [
+     {
+      "text": "Pass: the mark is above 50",
+      "correct": true
+     },
+     {
+      "text": "Soil neither too dry nor too wet",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — “above 50” is one straight cut, so one neuron can do it. “Neither too dry nor too wet” needs two.",
+    "feedback_wrong": "Not quite — “neither too dry nor too wet” is yes in the middle and no at both ends, which needs two lines. “Above 50” needs only one.",
+    "resume_at": "2:38"
+   }
+  ]
+ }
+}

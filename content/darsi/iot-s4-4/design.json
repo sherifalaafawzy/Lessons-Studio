@@ -1,0 +1,352 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Flooded low bridge",
+            "ar-EG": "كوبري واطي غرقان"
+          },
+          "tone": "danger",
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A minibus got stuck",
+            "ar-EG": "ميكروباص اتحشر"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Depth: nobody knew",
+            "ar-EG": "العمق: محدش عارف"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "People first, not gadgets",
+            "ar-EG": "الناس الأول، مش الأجهزة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What goes wrong, when, who's hurt?",
+            "ar-EG": "إيه بيبوظ، وإمتى، ومين بيتأذي؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Success: nobody drives into deep water",
+            "ar-EG": "النجاح: محدش يدخل مية عميقة"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "sense",
+            "icon": "droplets",
+            "text": {
+              "en": "Sense",
+              "ar-EG": "استشعر"
+            },
+            "s": 1
+          },
+          {
+            "id": "decide",
+            "icon": "cpu",
+            "text": {
+              "en": "Decide",
+              "ar-EG": "قرّر"
+            },
+            "s": 2
+          },
+          {
+            "id": "act",
+            "icon": "bulb",
+            "text": {
+              "en": "Act",
+              "ar-EG": "نفّذ"
+            },
+            "s": 3
+          },
+          {
+            "id": "connect",
+            "icon": "signal",
+            "text": {
+              "en": "Connect",
+              "ar-EG": "وصّل"
+            },
+            "s": 4
+          }
+        ],
+        "edges": [
+          [
+            "sense",
+            "decide"
+          ],
+          [
+            "decide",
+            "act"
+          ],
+          [
+            "act",
+            "connect"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "cards": [
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "First: a warning light",
+            "ar-EG": "الأول: لمبة تحذير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Second: light + text alerts",
+            "ar-EG": "التاني: لمبة + رسايل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "video",
+          "text": {
+            "en": "Third: a video camera",
+            "ar-EG": "التالت: كاميرا فيديو"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "cards": [
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Cost: afford it, fix it?",
+            "ar-EG": "التكلفة: ندفعها ونصلّحه؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "battery",
+          "text": {
+            "en": "Power: a cloudy week?",
+            "ar-EG": "الطاقة: أسبوع غيم؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Safety: when it fails?",
+            "ar-EG": "الأمان: لو عطل؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Privacy: who's watched?",
+            "ar-EG": "الخصوصية: مين متراقب؟"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Sensor broken",
+            "ar-EG": "الحساس عطلان"
+          },
+          "tone": "danger",
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A dark light says “safe”",
+            "ar-EG": "اللمبة المطفية بتقول «أمان»"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "Fail safe: warn and report",
+            "ar-EG": "افشل بأمان: حذّر وبلّغ"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "chart": {
+        "kind": "bar",
+        "data": [
+          80,
+          92,
+          44
+        ],
+        "labels": [
+          {
+            "en": "Light",
+            "ar-EG": "لمبة"
+          },
+          {
+            "en": "Light + texts",
+            "ar-EG": "لمبة + رسايل"
+          },
+          {
+            "en": "Camera",
+            "ar-EG": "كاميرا"
+          }
+        ],
+        "unit": {
+          "en": "Weighted score, % of perfect",
+          "ar-EG": "الدرجة الموزونة، % من الكاملة"
+        },
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "flag",
+          "text": {
+            "en": "The problem, and who it hurts",
+            "ar-EG": "المشكلة، ومين بيتأذي منها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Your drawing: sense to connect",
+            "ar-EG": "رسمتك: من استشعر لوصّل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Your scores, and what could fail",
+            "ar-EG": "درجاتك، وإيه اللي ممكن يبوظ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Ask: what did we miss?",
+            "ar-EG": "اسأل: فاتنا إيه؟"
+          },
+          "tone": "ok",
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Start from a real problem",
+            "ar-EG": "ابدأ من مشكلة حقيقية"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Sense, decide, act, connect",
+            "ar-EG": "استشعر، قرّر، نفّذ، وصّل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Cost, power, safety, privacy",
+            "ar-EG": "التكلفة، والطاقة، والأمان، والخصوصية"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Share it, ask, improve",
+            "ar-EG": "اعرضه، واسأل، وحسّنه"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The best design is one people trust and can fix.",
+        "ar-EG": "أحسن تصميم هو اللي الناس تثق فيه وتقدر تصلّحه."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Pick a problem near you",
+            "ar-EG": "اختار مشكلة حواليك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw four boxes",
+            "ar-EG": "ارسم أربع مربعات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Score two designs",
+            "ar-EG": "ادّي درجات لتصميمين"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Ask someone what you missed",
+            "ar-EG": "اسأل حد فاتك إيه"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

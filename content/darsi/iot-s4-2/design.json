@@ -1,0 +1,344 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Far-field sensor",
+            "ar-EG": "حساس الغيط البعيد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Office: 600 m away",
+            "ar-EG": "المكتب: على بعد 600 متر"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Neighbours pass it on",
+            "ar-EG": "الجيران يوصّلوها"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "cards": [
+        {
+          "icon": "wifi",
+          "text": {
+            "en": "Everyone talks to one hub",
+            "ar-EG": "الكل بيكلّم مركز واحد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Simple to set up",
+            "ar-EG": "سهلة تتعمل"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "wifi-off",
+          "text": {
+            "en": "Too far: cut off",
+            "ar-EG": "بعيد: مقطوع"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "far",
+            "icon": "sprout",
+            "text": {
+              "en": "Far sensor",
+              "ar-EG": "الحساس البعيد"
+            },
+            "s": 1
+          },
+          {
+            "id": "n1",
+            "icon": "signal",
+            "text": {
+              "en": "Hop 1",
+              "ar-EG": "نطّة 1"
+            },
+            "s": 1
+          },
+          {
+            "id": "n2",
+            "icon": "signal",
+            "text": {
+              "en": "Hop 2",
+              "ar-EG": "نطّة 2"
+            },
+            "s": 2
+          },
+          {
+            "id": "gw",
+            "icon": "network",
+            "text": {
+              "en": "Gateway",
+              "ar-EG": "البوابة"
+            },
+            "s": 3
+          }
+        ],
+        "edges": [
+          [
+            "far",
+            "n1"
+          ],
+          [
+            "n1",
+            "n2"
+          ],
+          [
+            "n2",
+            "gw"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "cards": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Players = sensors",
+            "ar-EG": "اللاعيبة = الحساسات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Passes = hops",
+            "ar-EG": "الباصات = النطّات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Goal = gateway",
+            "ar-EG": "الجون = البوابة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Marked? Another way",
+            "ar-EG": "عليه رقابة؟ طريق تاني"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "cards": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "One sensor down",
+            "ar-EG": "حساس واقع"
+          },
+          "tone": "danger",
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Messages go round it",
+            "ar-EG": "الرسايل بتلف حواليه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "The network keeps working",
+            "ar-EG": "الشبكة بتفضل شغالة"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Only one neighbour: one thread",
+            "ar-EG": "جار واحد بس: خيط واحد"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "A gap wider than the range",
+            "ar-EG": "فجوة أوسع من المدى"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "The gateway itself",
+            "ar-EG": "البوابة نفسها"
+          },
+          "tone": "danger",
+          "s": 3
+        }
+      ],
+      "aside": "warning"
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Put a relay in the gap",
+            "ar-EG": "حط مكرّر في الفجوة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Give lonely sensors a second neighbour",
+            "ar-EG": "ادّي الحساس الوحيد جار تاني"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Keep the gateway powered",
+            "ar-EG": "خلّي البوابة فيها كهربا"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "cards": [
+        {
+          "icon": "battery",
+          "text": {
+            "en": "Each hop costs battery",
+            "ar-EG": "كل نطّة بتصرف بطارية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Each hop adds delay",
+            "ar-EG": "كل نطّة بتأخّر شوية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Next to the gateway: busiest",
+            "ar-EG": "اللي جنب البوابة: أتعب واحد"
+          },
+          "tone": "danger",
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Messages hop to the gateway",
+            "ar-EG": "الرسايل بتنط للبوابة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Another route when one fails",
+            "ar-EG": "طريق تاني لو جهاز وقع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Relays fill the gaps",
+            "ar-EG": "المكرّرات بتسدّ الفجوات"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Look after the gateway",
+            "ar-EG": "خلّي بالك من البوابة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "More routes, fewer weak points.",
+        "ar-EG": "طرق أكتر، نقط ضعف أقل."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw 10 sensors and a gateway",
+            "ar-EG": "ارسم 10 حساسات وبوابة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "String = the radio's range",
+            "ar-EG": "الدوبارة = مدى الإرسال"
+          },
+          "s": 2
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Link sensors the string reaches",
+            "ar-EG": "وصّل الحساسات اللي الدوبارة توصلها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find a cut-off one, add a relay",
+            "ar-EG": "دوّر على المقطوع، وحط مكرّر"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

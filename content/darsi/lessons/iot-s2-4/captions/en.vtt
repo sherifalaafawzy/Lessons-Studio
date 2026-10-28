@@ -1,0 +1,305 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.230
+The solar street light outside our
+
+2
+00:00:02.230 --> 00:00:04.650
+school comes on by itself at dusk.
+
+3
+00:00:05.120 --> 00:00:06.660
+Nobody presses a switch.
+
+4
+00:00:07.410 --> 00:00:08.810
+So who decides?
+
+5
+00:00:09.820 --> 00:00:12.380
+A tiny computer, smaller
+
+6
+00:00:12.380 --> 00:00:13.640
+than your fingernail.
+
+7
+00:00:14.720 --> 00:00:17.100
+Today: meet the microcontroller,
+
+8
+00:00:17.360 --> 00:00:18.860
+and write your first program.
+
+9
+00:00:20.180 --> 00:00:22.580
+A microcontroller is a whole small
+
+10
+00:00:22.580 --> 00:00:25.960
+computer on one chip: a processor, a
+
+11
+00:00:25.960 --> 00:00:28.600
+little memory, and pins, metal legs
+
+12
+00:00:28.600 --> 00:00:29.940
+that connect it to the world.
+
+13
+00:00:30.570 --> 00:00:32.610
+It runs one program all day,
+
+14
+00:00:32.970 --> 00:00:34.230
+on very little power.
+
+15
+00:00:35.470 --> 00:00:37.830
+You'll find them everywhere: in TV
+
+16
+00:00:37.830 --> 00:00:40.750
+remotes, washing machines, prepaid
+
+17
+00:00:40.750 --> 00:00:42.610
+electricity meters and cars.
+
+18
+00:00:43.390 --> 00:00:46.230
+Boards like the micro bit, Arduino and
+
+19
+00:00:46.230 --> 00:00:49.150
+ESP32 put one where you can program it.
+
+20
+00:00:50.310 --> 00:00:53.150
+Each pin is an input or an output.
+
+21
+00:00:53.890 --> 00:00:55.970
+Inputs bring the world in:
+
+22
+00:00:56.250 --> 00:00:57.850
+buttons and sensors.
+
+23
+00:00:58.630 --> 00:01:02.210
+Outputs act: LEDs, buzzers and motors.
+
+24
+00:01:03.000 --> 00:01:05.400
+The micro bit even has a light sensor
+
+25
+00:01:05.400 --> 00:01:07.880
+and twenty-five LEDs built in.
+
+26
+00:01:09.090 --> 00:01:12.070
+A microcontroller can't see light: it
+
+27
+00:01:12.070 --> 00:01:14.370
+reads the sensor as a number, made of
+
+28
+00:01:14.370 --> 00:01:14.610
+bits.
+
+29
+00:01:15.320 --> 00:01:18.200
+The micro bit uses one byte: zero
+
+30
+00:01:18.200 --> 00:01:20.520
+for dark, up to two hundred and
+
+31
+00:01:20.520 --> 00:01:21.820
+fifty-five for bright.
+
+32
+00:01:22.510 --> 00:01:26.270
+An Arduino Uno uses ten bits, up to
+
+33
+00:01:26.270 --> 00:01:27.750
+one thousand and twenty-three.
+
+34
+00:01:28.900 --> 00:01:29.380
+Quick check!
+
+35
+00:01:30.020 --> 00:01:32.200
+A micro bit's light reading drops
+
+36
+00:01:32.200 --> 00:01:34.300
+from two hundred to twenty.
+
+37
+00:01:34.860 --> 00:01:37.220
+Did it get darker or brighter?
+
+38
+00:01:38.570 --> 00:01:39.190
+Darker.
+
+39
+00:01:39.760 --> 00:01:42.220
+Maybe a cloud passed, or a
+
+40
+00:01:42.220 --> 00:01:43.340
+hand covered the sensor.
+
+41
+00:01:44.000 --> 00:01:45.980
+The microcontroller only knows
+
+42
+00:01:45.980 --> 00:01:47.160
+the number went down.
+
+43
+00:01:47.790 --> 00:01:50.290
+What it does next is up to your program.
+
+44
+00:01:51.610 --> 00:01:53.250
+Every program sets up once.
+
+45
+00:01:53.980 --> 00:01:56.600
+Then it loops forever: read the sensor,
+
+46
+00:01:57.000 --> 00:02:01.000
+decide, act, wait a moment, and go round
+
+47
+00:02:01.000 --> 00:02:03.020
+again, many times a second.
+
+48
+00:02:04.260 --> 00:02:04.980
+Here's a night light.
+
+49
+00:02:05.560 --> 00:02:07.880
+Forever: read the light level.
+
+50
+00:02:08.500 --> 00:02:11.720
+If it's below fifty, switch the LED on.
+
+51
+00:02:12.360 --> 00:02:13.940
+Otherwise, switch it off.
+
+52
+00:02:14.580 --> 00:02:16.720
+Then wait a moment, and repeat.
+
+53
+00:02:18.010 --> 00:02:20.350
+Build it as blocks in MakeCode, free
+
+54
+00:02:20.350 --> 00:02:22.210
+in a browser, and test it on the
+
+55
+00:02:22.210 --> 00:02:23.890
+simulator, with no board at all.
+
+56
+00:02:24.410 --> 00:02:26.090
+Or draw it on paper as a
+
+57
+00:02:26.090 --> 00:02:28.210
+flowchart: a diamond for each
+
+58
+00:02:28.210 --> 00:02:30.310
+question, a box for each action.
+
+59
+00:02:31.560 --> 00:02:32.060
+Your turn.
+
+60
+00:02:32.670 --> 00:02:35.270
+Tunde's night light has no forever loop:
+
+61
+00:02:35.730 --> 00:02:37.890
+it reads the light once, at the start.
+
+62
+00:02:38.600 --> 00:02:40.360
+He switches it on in the afternoon.
+
+63
+00:02:41.400 --> 00:02:42.960
+What happens when night falls?
+
+64
+00:02:44.330 --> 00:02:46.550
+Nothing: without the loop, it
+
+65
+00:02:46.550 --> 00:02:47.850
+read once and stopped.
+
+66
+00:02:48.630 --> 00:02:51.390
+Remember: a microcontroller is a computer
+
+67
+00:02:51.390 --> 00:02:54.310
+on a chip, inputs bring the world in,
+
+68
+00:02:54.890 --> 00:02:57.970
+outputs act, and the program reads,
+
+69
+00:02:58.430 --> 00:03:01.030
+decides and acts, again and again.
+
+70
+00:03:02.290 --> 00:03:04.170
+Try it yourself: draw your
+
+71
+00:03:04.170 --> 00:03:05.850
+night light as a flowchart.
+
+72
+00:03:06.400 --> 00:03:09.500
+Then build it in MakeCode, and slide the
+
+73
+00:03:09.500 --> 00:03:11.780
+simulator's light level up and down.
+
+74
+00:03:12.320 --> 00:03:13.280
+Got a micro bit?
+
+75
+00:03:13.890 --> 00:03:16.670
+Cover it with your hand and watch, then
+
+76
+00:03:16.670 --> 00:03:19.010
+change fifty to suit your room.

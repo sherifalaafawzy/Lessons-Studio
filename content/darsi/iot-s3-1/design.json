@@ -1,0 +1,380 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Fan on all weekend",
+            "ar-EG": "المروحة شغّالة طول الأجازة"
+          },
+          "tone": "danger",
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Nobody in the room",
+            "ar-EG": "الفصل فاضي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "One sensor, one rule",
+            "ar-EG": "حساس واحد وقاعدة واحدة"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "sensor",
+            "icon": "thermometer",
+            "text": {
+              "en": "Sensor: 31 °C",
+              "ar-EG": "الحساس: 31 درجة"
+            },
+            "s": 1
+          },
+          {
+            "id": "if",
+            "icon": "circlehelp",
+            "text": {
+              "en": "IF above 30 °C",
+              "ar-EG": "لو أعلى من 30 درجة"
+            },
+            "s": 1
+          },
+          {
+            "id": "then",
+            "icon": "zap",
+            "text": {
+              "en": "THEN fan on",
+              "ar-EG": "يبقى شغّل المروحة"
+            },
+            "tone": "trusted",
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "sensor",
+            "if"
+          ],
+          [
+            "if",
+            "then"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "IF the tank is low, THEN pump on",
+            "ar-EG": "لو الخزان قرّب يخلص، الطرمبة تشتغل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "IF it's dark, THEN street light on",
+            "ar-EG": "لو ضلّمت، عمود النور ينوّر"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "ruleset"
+    },
+    "5": {
+      "cards": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Soil is dry",
+            "ar-EG": "التربة ناشفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "AND early morning",
+            "ar-EG": "«و» الصبح بدري"
+          },
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "THEN water it",
+            "ar-EG": "يبقى اسقيها"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Dry at noon: wait",
+            "ar-EG": "ناشفة الضهر: استنى"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Either one is enough",
+            "ar-EG": "واحد بس كفاية"
+          },
+          "tone": "ok",
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "The smoke sensor detects smoke",
+            "ar-EG": "حساس الدخان لقط دخان"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "OR someone presses the button",
+            "ar-EG": "«أو» حد داس على الزرار"
+          },
+          "s": 1
+        },
+        {
+          "icon": "megaphone",
+          "text": {
+            "en": "THEN the alarm rings",
+            "ar-EG": "يبقى الإنذار يضرب"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "8": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "With AND",
+            "ar-EG": "مع «و»"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "icon": "bulb",
+              "text": {
+                "en": "Dark and someone there: on",
+                "ar-EG": "ضلمة وفيه حد: ينوّر"
+              },
+              "s": 1
+            },
+            {
+              "icon": "sun",
+              "text": {
+                "en": "Daylight or nobody: off",
+                "ar-EG": "نهار أو مفيش حد: مطفي"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "With OR",
+            "ar-EG": "مع «أو»"
+          },
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 2,
+          "items": [
+            {
+              "icon": "clock",
+              "text": {
+                "en": "On all night",
+                "ar-EG": "والع طول الليل"
+              },
+              "s": 2
+            },
+            {
+              "icon": "sun",
+              "text": {
+                "en": "On at noon too",
+                "ar-EG": "والع الضهر كمان"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "9": {
+      "chart": {
+        "kind": "bar",
+        "data": [
+          23,
+          26,
+          29,
+          32,
+          32,
+          31
+        ],
+        "labels": [
+          "7:00",
+          "9:00",
+          "11:00",
+          "13:00",
+          "15:00",
+          "17:00"
+        ],
+        "unit": {
+          "en": "°C in the classroom",
+          "ar-EG": "درجة الحرارة في الفصل"
+        },
+        "max": 40,
+        "s": 1
+      }
+    },
+    "10": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Before",
+            "ar-EG": "قبل"
+          },
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "thermometer",
+              "text": {
+                "en": "IF above 30 °C: fan on",
+                "ar-EG": "لو أعلى من 30 درجة: المروحة تشتغل"
+              },
+              "s": 1
+            },
+            {
+              "icon": "clock",
+              "text": {
+                "en": "5 pm: runs for nobody",
+                "ar-EG": "الساعة 5‏: شغّالة والفصل فاضي"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "After",
+            "ar-EG": "بعد"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 3,
+          "items": [
+            {
+              "icon": "users",
+              "text": {
+                "en": "AND a class is in",
+                "ar-EG": "«و» فيه فصل جوّه"
+              },
+              "s": 3
+            },
+            {
+              "icon": "check",
+              "text": {
+                "en": "Everyone leaves: fan off",
+                "ar-EG": "الكل مشي: المروحة تقف"
+              },
+              "s": 3
+            }
+          ]
+        }
+      }
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "IF a condition, THEN an action",
+            "ar-EG": "لو شرط، يبقى فعل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "AND needs both",
+            "ar-EG": "«و»: الاتنين"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "OR needs either one",
+            "ar-EG": "«أو»: واحد بس كفاية"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Test it through a day",
+            "ar-EG": "جرّبها على يوم كامل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A good rule does the right thing all day long.",
+        "ar-EG": "القاعدة الكويسة بتعمل الصح طول اليوم."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write three rules",
+            "ar-EG": "اكتب تلات قواعد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Play each through a day",
+            "ar-EG": "جرّب كل واحدة على يوم كامل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Fix one with AND or OR",
+            "ar-EG": "صلّح واحدة بـ«و» أو «أو»"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

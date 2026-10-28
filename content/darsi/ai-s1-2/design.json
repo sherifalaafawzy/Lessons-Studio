@@ -1,0 +1,440 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        {
+          "icon": "chat",
+          "tone": "danger",
+          "text": {
+            "en": "Same scam every week",
+            "ar-EG": "نفس النصب كل أسبوع"
+          },
+          "s": 0
+        },
+        {
+          "icon": "link",
+          "tone": "danger",
+          "text": {
+            "en": "“Free data, click here!”",
+            "ar-EG": "«إنترنت ببلاش، اضغط هنا!»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bot",
+          "tone": "ok",
+          "text": {
+            "en": "Teach a computer?",
+            "ar-EG": "نعلّم الكمبيوتر؟"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "100 messages",
+            "ar-EG": "100 رسالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Names and numbers out",
+            "ar-EG": "من غير أسامي وأرقام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "20 kept aside",
+            "ar-EG": "20 على جنب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "tone": "ok",
+          "text": {
+            "en": "Label all: safe or scam",
+            "ar-EG": "صنّفهم كلهم: أمان ولا نصب"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "aside": "cog",
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Searches the labelled messages",
+            "ar-EG": "بيدوّر في الرسايل المتصنّفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Scams: “free”, “click”, “urgent”",
+            "ar-EG": "النصب: «ببلاش»، «اضغط»، «بسرعة»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Safe: homework, matches, meetings",
+            "ar-EG": "الأمان: واجب، ماتشات، اجتماعات"
+          },
+          "s": 3
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "The model: patterns kept as numbers",
+            "ar-EG": "النموذج: أنماط متخزنة أرقام"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "Test on the 20 kept aside",
+            "ar-EG": "اختبر على الـ20 اللي ركنتهم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Compare its guesses with your labels",
+            "ar-EG": "قارن تخميناته بتصنيفاتك"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "17 out of 20? Not bad",
+            "ar-EG": "17 من 20؟ مش بطال"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Too many wrong? More examples, train again",
+            "ar-EG": "غلط كتير؟ أمثلة أكتر، ودرّب تاني"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "6": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "collect",
+            "icon": "boxes",
+            "text": {
+              "en": "Collect",
+              "ar-EG": "اجمع"
+            },
+            "s": 1
+          },
+          {
+            "id": "label",
+            "icon": "tag",
+            "text": {
+              "en": "Label",
+              "ar-EG": "صنّف"
+            },
+            "s": 1
+          },
+          {
+            "id": "train",
+            "icon": "cog",
+            "text": {
+              "en": "Train",
+              "ar-EG": "درّب"
+            },
+            "s": 1
+          },
+          {
+            "id": "test",
+            "icon": "checksquare",
+            "text": {
+              "en": "Test",
+              "ar-EG": "اختبر"
+            },
+            "s": 1
+          },
+          {
+            "id": "use",
+            "icon": "sparkle",
+            "tone": "system",
+            "text": {
+              "en": "Use",
+              "ar-EG": "استخدم"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "collect",
+            "label"
+          ],
+          [
+            "label",
+            "train"
+          ],
+          [
+            "train",
+            "test"
+          ],
+          [
+            "test",
+            "use"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Memorise answers",
+            "ar-EG": "تحفظ الإجابات"
+          },
+          "icon": "notebook",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "check",
+              "text": {
+                "en": "Ace that same paper",
+                "ar-EG": "تقفل نفس الامتحان"
+              },
+              "s": 1
+            },
+            {
+              "icon": "circlex",
+              "text": {
+                "en": "Stuck on new questions",
+                "ar-EG": "تقف قدام الأسئلة الجديدة"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Learn the method",
+            "ar-EG": "تفهم الطريقة"
+          },
+          "icon": "bulb",
+          "tone": "ok",
+          "s": 3,
+          "items": [
+            {
+              "icon": "checksquare",
+              "text": {
+                "en": "Handles new questions",
+                "ar-EG": "تحل الأسئلة الجديدة"
+              },
+              "s": 3
+            }
+          ]
+        }
+      }
+    },
+    "9": {
+      "big": {
+        "value": "20/20",
+        "label": {
+          "en": "On messages it trained on: maybe memorised",
+          "ar-EG": "على رسايل اتدرب عليها: يمكن حافظها"
+        },
+        "icon": "notebook",
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Safe messages only from teachers?",
+            "ar-EG": "الرسايل الأمان كلها من المدرسين؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "smile",
+          "tone": "danger",
+          "text": {
+            "en": "A friend’s slang looks like a scam",
+            "ar-EG": "كلام صاحبك يبان كأنه نصب"
+          },
+          "s": 2
+        },
+        {
+          "icon": "languages",
+          "tone": "danger",
+          "text": {
+            "en": "English-only scams: others slip through",
+            "ar-EG": "نصب بالإنجليزي بس: الباقي يعدّي"
+          },
+          "s": 3
+        },
+        {
+          "icon": "boxes",
+          "tone": "ok",
+          "text": {
+            "en": "Fix: collect more varied examples",
+            "ar-EG": "الحل: اجمع أمثلة متنوعة أكتر"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "11": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Safe message",
+            "ar-EG": "رسالة آمنة"
+          },
+          "icon": "shield",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "chat",
+              "text": {
+                "en": "Meeting moved to Tuesday",
+                "ar-EG": "الاجتماع يوم الثلاثاء"
+              },
+              "s": 1
+            },
+            {
+              "icon": "chat",
+              "text": {
+                "en": "Exam timetable attached",
+                "ar-EG": "جدول الامتحانات مرفق"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Phishing",
+            "ar-EG": "تصيّد"
+          },
+          "icon": "warning",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "chat",
+              "text": {
+                "en": "Your account will be closed…",
+                "ar-EG": "حسابك سيُغلق اضغط الآن"
+              },
+              "s": 1,
+              "o": 1.5
+            },
+            {
+              "icon": "chat",
+              "text": {
+                "en": "You won a prize…",
+                "ar-EG": "ربحت جائزة…"
+              },
+              "s": 1,
+              "o": 2.2
+            }
+          ]
+        }
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Collect, label, train, test, use",
+            "ar-EG": "اجمع، صنّف، درّب، اختبر، استخدم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Test on examples it never saw",
+            "ar-EG": "اختبر على أمثلة عمره ما شافها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Varied examples, better model",
+            "ar-EG": "أمثلة متنوعة، نموذج أحسن"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A model only knows the kinds of examples it saw.",
+        "ar-EG": "النموذج يعرف بس أنواع الأمثلة اللي شافها."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Be the machine”",
+            "ar-EG": "العب «خليك إنت الآلة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw shapes with a secret pattern",
+            "ar-EG": "ارسم أشكال على نمط سري"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "They work out the pattern",
+            "ar-EG": "هو يكتشف النمط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Test with new shapes",
+            "ar-EG": "اختبره بأشكال جديدة"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

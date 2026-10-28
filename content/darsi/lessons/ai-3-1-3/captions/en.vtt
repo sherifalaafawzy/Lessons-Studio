@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.130
+“Ninety-eight per cent accurate!”
+
+2
+00:00:03.030 --> 00:00:05.010
+That’s a company’s email to our
+
+3
+00:00:05.010 --> 00:00:07.490
+school, about its AI for spotting
+
+4
+00:00:07.490 --> 00:00:09.070
+pupils likely to drop out.
+
+5
+00:00:09.700 --> 00:00:11.760
+Ninety-eight per cent of what?
+
+6
+00:00:13.110 --> 00:00:15.950
+Today: train a model, test it
+
+7
+00:00:15.950 --> 00:00:18.250
+honestly, and question its score.
+
+8
+00:00:19.510 --> 00:00:22.190
+Give a model lots of freedom and few
+
+9
+00:00:22.190 --> 00:00:25.050
+examples, and it can bend to fit every
+
+10
+00:00:25.050 --> 00:00:27.490
+one, mistakes and noise included.
+
+11
+00:00:28.300 --> 00:00:30.100
+It scores perfectly on
+
+12
+00:00:30.100 --> 00:00:31.060
+those training examples.
+
+13
+00:00:31.810 --> 00:00:34.190
+But on new ones, it can be badly wrong.
+
+14
+00:00:35.440 --> 00:00:37.860
+So before training, we put some examples
+
+15
+00:00:37.860 --> 00:00:40.680
+aside: a test set the model never sees.
+
+16
+00:00:41.390 --> 00:00:43.390
+The training score shows how well
+
+17
+00:00:43.390 --> 00:00:45.170
+it fitted its own examples.
+
+18
+00:00:46.000 --> 00:00:47.780
+The test score shows how it’s
+
+19
+00:00:47.780 --> 00:00:49.400
+likely to do on new pupils.
+
+20
+00:00:50.800 --> 00:00:53.540
+This is overfitting: learning the
+
+21
+00:00:53.540 --> 00:00:56.260
+training examples so closely that the
+
+22
+00:00:56.260 --> 00:00:58.060
+model does worse on new ones.
+
+23
+00:00:58.710 --> 00:01:01.030
+The warning sign: a high training
+
+24
+00:01:01.030 --> 00:01:03.330
+score, and a much lower test score.
+
+25
+00:01:04.560 --> 00:01:05.740
+You’ve seen this in class.
+
+26
+00:01:06.550 --> 00:01:09.170
+One pupil memorises last year’s exam
+
+27
+00:01:09.170 --> 00:01:11.650
+paper and scores full marks on it.
+
+28
+00:01:12.200 --> 00:01:13.740
+Another learns the methods.
+
+29
+00:01:14.620 --> 00:01:17.200
+Give them both new questions, and you
+
+30
+00:01:17.200 --> 00:01:19.020
+soon see who really learned.
+
+31
+00:01:20.280 --> 00:01:20.760
+Quick check!
+
+32
+00:01:21.370 --> 00:01:23.810
+A model scores a hundred per cent
+
+33
+00:01:23.810 --> 00:01:26.490
+on its training examples, and
+
+34
+00:01:26.490 --> 00:01:28.950
+seventy on its test set.
+
+35
+00:01:29.560 --> 00:01:31.420
+Which score should you trust?
+
+36
+00:01:32.580 --> 00:01:34.260
+Seventy, from the test set.
+
+37
+00:01:34.800 --> 00:01:36.900
+The hundred only shows how well it
+
+38
+00:01:36.900 --> 00:01:39.140
+fitted its own examples, and the
+
+39
+00:01:39.140 --> 00:01:40.860
+gap warns of overfitting.
+
+40
+00:01:41.470 --> 00:01:44.390
+Even seventy holds only if the test
+
+41
+00:01:44.390 --> 00:01:46.170
+examples look like your pupils.
+
+42
+00:01:47.580 --> 00:01:49.640
+And every score hides two
+
+43
+00:01:49.640 --> 00:01:50.480
+kinds of mistakes.
+
+44
+00:01:51.410 --> 00:01:52.550
+Take the dropout tool.
+
+45
+00:01:53.130 --> 00:01:55.630
+A false positive flags a pupil who
+
+46
+00:01:55.630 --> 00:01:57.070
+was never going to leave.
+
+47
+00:01:57.790 --> 00:01:59.890
+A false negative misses a
+
+48
+00:01:59.890 --> 00:02:01.310
+pupil who does leave.
+
+49
+00:02:02.000 --> 00:02:02.960
+Which costs more?
+
+50
+00:02:03.670 --> 00:02:07.130
+Usually the miss: that pupil got no help.
+
+51
+00:02:07.770 --> 00:02:10.110
+But false flags cost too, if
+
+52
+00:02:10.110 --> 00:02:11.190
+pupils get labelled.
+
+53
+00:02:12.400 --> 00:02:14.960
+Now, that ninety-eight per cent.
+
+54
+00:02:15.610 --> 00:02:17.870
+If two pupils in a hundred drop out,
+
+55
+00:02:18.490 --> 00:02:20.570
+a tool that always says “nobody
+
+56
+00:02:20.570 --> 00:02:22.990
+leaves” is also ninety-eight per
+
+57
+00:02:22.990 --> 00:02:24.710
+cent accurate, and useless.
+
+58
+00:02:25.530 --> 00:02:27.370
+So ask three questions.
+
+59
+00:02:28.240 --> 00:02:29.200
+Tested on whom?
+
+60
+00:02:29.950 --> 00:02:30.830
+On which data?
+
+61
+00:02:31.550 --> 00:02:32.330
+With which mistakes?
+
+62
+00:02:33.860 --> 00:02:35.940
+In the lab, circles are training
+
+63
+00:02:35.940 --> 00:02:38.460
+examples and squares are new ones.
+
+64
+00:02:39.110 --> 00:02:41.630
+Give the model more freedom, and watch
+
+65
+00:02:41.630 --> 00:02:45.010
+its curve chase every circle while the
+
+66
+00:02:45.010 --> 00:02:46.870
+error on squares climbs.
+
+67
+00:02:47.720 --> 00:02:49.560
+Then switch to many examples:
+
+68
+00:02:50.140 --> 00:02:51.260
+the curve calms down.
+
+69
+00:02:52.460 --> 00:02:53.220
+Your turn.
+
+70
+00:02:53.840 --> 00:02:55.940
+The tool said a pupil was fine,
+
+71
+00:02:56.340 --> 00:02:57.920
+but she left school in March.
+
+72
+00:02:58.650 --> 00:02:59.770
+Which mistake was that?
+
+73
+00:03:00.990 --> 00:03:03.530
+A false negative: the tool said
+
+74
+00:03:03.530 --> 00:03:05.750
+no, but the answer was yes.
+
+75
+00:03:06.560 --> 00:03:08.620
+Remember: a perfect training
+
+76
+00:03:08.620 --> 00:03:10.380
+score can hide overfitting.
+
+77
+00:03:11.050 --> 00:03:12.310
+Trust scores on examples
+
+78
+00:03:12.310 --> 00:03:13.650
+the model never saw.
+
+79
+00:03:14.320 --> 00:03:17.360
+And ask: tested on whom, on which
+
+80
+00:03:17.360 --> 00:03:19.400
+data, with which mistakes?
+
+81
+00:03:20.850 --> 00:03:22.910
+Try it in class tomorrow: play
+
+82
+00:03:22.910 --> 00:03:24.710
+“Memoriser and learner”.
+
+83
+00:03:25.190 --> 00:03:27.730
+One pupil memorises the answers to
+
+84
+00:03:27.730 --> 00:03:30.790
+ten area questions; another learns
+
+85
+00:03:30.790 --> 00:03:31.970
+how to work out area.
+
+86
+00:03:32.640 --> 00:03:34.780
+Then ask them both new questions.
+
+87
+00:03:35.630 --> 00:03:37.710
+The class sees overfitting for itself.

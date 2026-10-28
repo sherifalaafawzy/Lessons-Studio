@@ -1,0 +1,277 @@
+{
+ "id": "IOT-3-1-2",
+ "track": "iot",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Data and automation"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "IF/THEN: rules that act",
+  "subtitle": "Thresholds that make sense, don't flicker, and fail safe",
+  "minutes": 6,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "IF/THEN: rules that act",
+  "length": "3:31",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Amina Bello — primary teacher (main character)",
+   "Mr Joseph — computer studies teacher",
+   "Ms Salma — maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "An oven after lunch"
+   },
+   {
+    "at": "0:25",
+    "label": "IF this, THEN that"
+   },
+   {
+    "at": "1:14",
+    "label": "Stop the flicker"
+   },
+   {
+    "at": "1:59",
+    "label": "Fail safe"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:19",
+    "beat": "Hook",
+    "visual": "Amina in a hot classroom fanning herself with a book; pupils' heads droop; a ceiling fan sits still.",
+    "animation": "Heat shimmer; the fan blades stay frozen.",
+    "on_screen_text": "",
+    "voice": "Amina Bello",
+    "narration": "After lunch, my classroom turns into an oven, and my pupils start to fall asleep. We have a fan, but nobody remembers to switch it on until it's too late. Could the room switch it on by itself?",
+    "icons": [
+     "thermometer",
+     "users",
+     "cog"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:19",
+    "end": "0:25",
+    "beat": "Title",
+    "visual": "Darsi title card with the IoT track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "IF/THEN: rules that act",
+    "voice": "Narrator",
+    "narration": "Today: if-then rules that let devices act on their own."
+   },
+   {
+    "n": 3,
+    "start": "0:25",
+    "end": "0:41",
+    "beat": "Definition",
+    "visual": "A sensor on the wall, a small board, and the fan, joined by arrows.",
+    "animation": "A reading travels along the arrows; the fan starts turning.",
+    "on_screen_text": "IF a condition, THEN an action",
+    "voice": "Narrator",
+    "narration": "A rule has two parts: IF a condition is true, THEN do an action. IF the room is above thirty degrees, THEN switch the fan on. The microcontroller checks every few minutes.",
+    "icons": [
+     "thermometer",
+     "cpu",
+     "cog"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:41",
+    "end": "0:57",
+    "beat": "Examples",
+    "visual": "A school map: the classroom fan, the water tank on its stand, a stuffy room with closed windows.",
+    "animation": "Each place lights up with its rule card.",
+    "on_screen_text": "Rules all over a school",
+    "voice": "Narrator",
+    "narration": "Rules like this can run all over a school. IF the tank falls below twenty percent, THEN switch the pump on. IF carbon dioxide passes fifteen hundred parts per million, THEN open the windows.",
+    "icons": [
+     "droplets",
+     "cloud",
+     "school"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:57",
+    "end": "1:14",
+    "beat": "Concept",
+    "visual": "A dial marked with temperatures; a slider moves low, then high.",
+    "animation": "Low: an electricity meter spins. High: pupils wilt.",
+    "on_screen_text": "Choose the threshold",
+    "voice": "Narrator",
+    "narration": "The number in a rule is its threshold, and choosing it takes judgement. Too low, and the fan runs all morning, wasting electricity. Too high, and pupils swelter first. Use your logged data to choose.",
+    "icons": [
+     "target",
+     "zap",
+     "database"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:14",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "A wobbly temperature line hugging 30 °C; the fan below it blinks on and off.",
+    "animation": "The fan icon toggles with each wobble, faster and faster.",
+    "on_screen_text": "One threshold flickers",
+    "voice": "Narrator",
+    "narration": "But one threshold has a problem. Near thirty degrees the reading wobbles: thirty point one, twenty-nine point nine, thirty point one. So the fan goes on, off and on again. That flicker wears out motors and switches.",
+    "icons": [
+     "thermometer",
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:32",
+    "end": "1:43",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph beside the classroom fan, holding a controller board. Three answer cards drop in.",
+    "animation": "Cards drop in with a small bounce.",
+    "on_screen_text": "How do we stop the flicker?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! How do we stop the fan flickering on and off around thirty degrees?"
+   },
+   {
+    "n": 8,
+    "start": "1:43",
+    "end": "1:59",
+    "beat": "Reveal",
+    "visual": "Two lines on the temperature chart, 30 and 28; the fan switches only when the line crosses the outer one.",
+    "animation": "The wobble stays between the lines; the fan stays steady.",
+    "on_screen_text": "Two thresholds: no flicker",
+    "voice": "Narrator",
+    "narration": "Use two thresholds: on above thirty degrees, off only below twenty-eight. In between, the fan stays as it is. A tank pump works the same way: on below twenty percent, off above ninety.",
+    "icons": [
+     "thermometer",
+     "droplets"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:59",
+    "end": "2:18",
+    "beat": "Concept",
+    "visual": "A snapped wire on the tank's level sensor; water spills over the tank's rim; then a phone buzzes with an alert.",
+    "animation": "Water rises and spills; a red stop sign; a message pops up.",
+    "on_screen_text": "When a sensor fails",
+    "voice": "Narrator",
+    "narration": "What if a sensor fails? A broken wire can make the tank sensor read zero, so the pump runs and runs, and the tank overflows. Fail safe: if a reading is missing or impossible, stop the pump and tell someone.",
+    "icons": [
+     "warning",
+     "droplets",
+     "shield"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:18",
+    "end": "2:39",
+    "beat": "Lab preview",
+    "visual": "The Labs app on a phone: rule sliders above a school-day timeline, with stats underneath.",
+    "animation": "A slider moves; the timeline redraws; the electricity figure ticks up.",
+    "on_screen_text": "Test your rules on a day",
+    "voice": "Narrator",
+    "narration": "Before you trust rules, test them on a day of data. In the Smart classroom rules lab, a whole school day replays: minutes too hot, minutes of stale air, and electricity used. More comfort costs more electricity, and someone has to choose.",
+    "icons": [
+     "clock",
+     "zap",
+     "scale"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:39",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma by the water tank, looking at a phone with a blank reading. Two answer cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "The sensor goes silent",
+    "voice": "Ms Salma",
+    "narration": "Your turn. The tank's level sensor stops sending readings. Should the pump stop, or keep running, just in case?"
+   },
+   {
+    "n": 12,
+    "start": "2:51",
+    "end": "3:09",
+    "beat": "Recap",
+    "visual": "Four icons line up: a rule card, a chart, two lines, a shield.",
+    "animation": "Icons line up left to right, 250 ms apart.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Stop, and alert someone: when a sensor fails, the system must fail safe. Remember: IF a condition THEN an action, thresholds from real data, two thresholds against flicker, and test your rules on a day of data."
+   },
+   {
+    "n": 13,
+    "start": "3:09",
+    "end": "3:31",
+    "beat": "Try it tomorrow",
+    "visual": "Pupils hold rule cards; the teacher reads times and temperatures from a sheet; some pupils stand, some sit.",
+    "animation": "Pupils pop up and down as the times are read.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: rule cards. Read out a school day, hour by hour, and pupils holding the fan, light and pump rules stand up whenever their rule says on. Then spot the flicker, and fix it. Next time: batteries and the sun."
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "How do we stop the fan flickering on and off around 30 °C?",
+    "options": [
+     {
+      "text": "Read the sensor more often",
+      "correct": false
+     },
+     {
+      "text": "Move the threshold to 29 °C",
+      "correct": false
+     },
+     {
+      "text": "On above 30 °C, off below 28 °C",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — two thresholds leave a gap, so small wobbles can't switch the fan.",
+    "feedback_wrong": "Not quite — reading more often makes it flicker faster, and one new threshold just moves the problem. Use two: on above 30 °C, off below 28 °C.",
+    "resume_at": "1:43"
+   },
+   {
+    "at": "2:47",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "The tank's level sensor stops sending readings. What should the pump do?",
+    "options": [
+     {
+      "text": "Stop, and alert someone",
+      "correct": true
+     },
+     {
+      "text": "Keep running, just in case",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — with no reading, the safe choice is to stop the pump and tell someone.",
+    "feedback_wrong": "Not quite — a pump running blind can overflow the tank or run dry. Fail safe: stop it, and tell someone.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

@@ -1,0 +1,410 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        {
+          "icon": "leaf",
+          "text": {
+            "en": "Plant named in one second",
+            "ar-EG": "اسم النبات في ثانية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "No eyes like ours",
+            "ar-EG": "ملوش عينين زينا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "What does it see?",
+            "ar-EG": "بيشوف إيه؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "cards": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Tiny squares: pixels",
+            "ar-EG": "مربعات صغيرة: بكسلات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "square",
+          "text": {
+            "en": "Each pixel is a number",
+            "ar-EG": "كل بكسل رقم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "image",
+          "text": {
+            "en": "0 = white, 9 = darkest",
+            "ar-EG": "0 أبيض، 9 أغمق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "grid",
+          "tone": "ok",
+          "text": {
+            "en": "A grid of numbers",
+            "ar-EG": "شبكة أرقام"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "aside": "image",
+      "list": [
+        {
+          "icon": "image",
+          "text": {
+            "en": "Colour: 3 numbers per pixel",
+            "ar-EG": "الألوان: 3 أرقام لكل بكسل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "About 12 million pixels",
+            "ar-EG": "حوالي 12 مليون بكسل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "36 million numbers in one photo",
+            "ar-EG": "36 مليون رقم في صورة واحدة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "photos",
+            "icon": "image",
+            "text": {
+              "en": "Labelled photos",
+              "ar-EG": "صور متصنّفة"
+            },
+            "s": 1
+          },
+          {
+            "id": "edges",
+            "icon": "pencil",
+            "text": {
+              "en": "Edges",
+              "ar-EG": "حواف"
+            },
+            "s": 2
+          },
+          {
+            "id": "shapes",
+            "icon": "puzzle",
+            "text": {
+              "en": "Shapes",
+              "ar-EG": "أشكال"
+            },
+            "s": 3
+          },
+          {
+            "id": "things",
+            "icon": "leaf",
+            "tone": "system",
+            "text": {
+              "en": "Leaf, ball, face",
+              "ar-EG": "ورقة، كورة، وش"
+            },
+            "s": 3
+          }
+        ],
+        "edges": [
+          [
+            "photos",
+            "edges"
+          ],
+          [
+            "edges",
+            "shapes"
+          ],
+          [
+            "shapes",
+            "things"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "One card per fan",
+            "ar-EG": "كل واحد كارت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Up close: just cards",
+            "ar-EG": "من قريب: كروت وبس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "From afar: a giant flag",
+            "ar-EG": "من بعيد: علم كبير"
+          },
+          "s": 2
+        },
+        {
+          "icon": "image",
+          "tone": "ok",
+          "text": {
+            "en": "The picture is the pattern",
+            "ar-EG": "الصورة في النمط"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "What it gets",
+            "ar-EG": "اللي بياخده"
+          },
+          "icon": "grid",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "grid",
+              "text": {
+                "en": "Only numbers",
+                "ar-EG": "أرقام وبس"
+              },
+              "s": 0,
+              "o": 1
+            },
+            {
+              "icon": "sparkle",
+              "text": {
+                "en": "Patterns it learned in them",
+                "ar-EG": "أنماط اتعلمها فيها"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "What it doesn’t get",
+            "ar-EG": "اللي مابياخدوش"
+          },
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 1,
+          "items": [
+            {
+              "icon": "tag",
+              "text": {
+                "en": "No names",
+                "ar-EG": "لا أسامي"
+              },
+              "s": 1,
+              "o": 0.6
+            },
+            {
+              "icon": "bulb",
+              "text": {
+                "en": "No meaning",
+                "ar-EG": "ولا معنى"
+              },
+              "s": 1,
+              "o": 1.2
+            }
+          ]
+        }
+      }
+    },
+    "9": {
+      "cards": [
+        {
+          "icon": "smile",
+          "text": {
+            "en": "Face unlock",
+            "ar-EG": "فتح الموبايل بالوش"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Sick leaves on farms",
+            "ar-EG": "الورق المريض في الزراعة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "languages",
+          "text": {
+            "en": "Camera translation",
+            "ar-EG": "الترجمة بالكاميرا"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "aside": "eye",
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Light: every number changes",
+            "ar-EG": "النور: كل رقم بيتغير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Angle: the shapes change",
+            "ar-EG": "الزاوية: الأشكال بتتغير"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Never seen: the nearest guess",
+            "ar-EG": "عمره ما شافها: أقرب تخمين"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "steps": [
+        {
+          "text": {
+            "en": "Draw on a 10 × 10 grid",
+            "ar-EG": "ارسم على شبكة 10 × 10"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Or start from a smile, house or sun",
+            "ar-EG": "أو ابدأ من ابتسامة أو بيت أو شمس"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "See the same picture as numbers",
+            "ar-EG": "شوف نفس الصورة أرقام"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Darker, lighter, move: numbers change",
+            "ar-EG": "أغمق، أفتح، حرّك: الأرقام بتتغير"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A picture: a grid of pixels",
+            "ar-EG": "الصورة: شبكة بكسلات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Every pixel is a number",
+            "ar-EG": "كل بكسل رقم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "AI learns patterns from labelled photos",
+            "ar-EG": "بيتعلم الأنماط من صور متصنّفة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Light, angle, new things fool it",
+            "ar-EG": "النور والزاوية والجديد بيخدعوه"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "To a computer, every picture is just numbers.",
+        "ar-EG": "بالنسبة للكمبيوتر، كل صورة مجرد أرقام."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw on squared paper",
+            "ar-EG": "ارسم على ورقة مربعات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Write it as numbers, not shading",
+            "ar-EG": "اكتبها أرقام بدل التلوين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "A friend draws it back",
+            "ar-EG": "صاحبك يرسمها تاني"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

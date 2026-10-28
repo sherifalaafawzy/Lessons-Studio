@@ -1,0 +1,335 @@
+{
+ "id": "AI-3-1-4",
+ "track": "ai",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI models work"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Inside a language model",
+  "subtitle": "Tokens, attention and the next word",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Inside a language model",
+  "length": "3:13",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "What does “it” mean?"
+   },
+   {
+    "at": "0:19",
+    "label": "The loop, step by step"
+   },
+   {
+    "at": "1:13",
+    "label": "How it was trained"
+   },
+   {
+    "at": "1:50",
+    "label": "Sure, but wrong"
+   },
+   {
+    "at": "2:45",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Joseph at the chalkboard, which reads ‘The bus didn’t stop at the school because it was…’. Pupils’ hands go up; speech bubbles say ‘full’ and ‘late’.",
+    "animation": "The sentence writes on; bubbles pop up from the class (150 ms each).",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "On the board I wrote: “The bus didn’t stop at the school because it was…” My pupils called out “full” and “late”. A model does the same. But how does it know what “it” means?",
+    "icons": [
+     "pencil",
+     "users",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Paper-grey title card with the Darsi mark, the course name and the lesson title.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Inside a language model",
+    "voice": "Narrator",
+    "narration": "Today: inside a language model, step by step.",
+    "icons": [
+     "spark",
+     "bot"
+    ]
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:34",
+    "beat": "Concept",
+    "visual": "The board sentence breaks into token tiles. Each tile unrolls into a long strip of numbers. Then a map of meaning: ‘bus’ and ‘matatu’ sit close together, ‘mango’ far away.",
+    "animation": "Tiles split apart (150 ms each); number strips unroll; words float to their places on the map.",
+    "on_screen_text": "Tokens become numbers",
+    "voice": "Narrator",
+    "narration": "You know the first step: text is cut into tokens. Each token becomes a long list of numbers, learned in training. Words used in similar ways get similar lists, so “bus” sits close to “matatu”, far from “mango”.",
+    "icons": [
+     "type",
+     "grid",
+     "map"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "The newest token ‘was’ sends lines back to every earlier token; the lines to ‘bus’ and ‘stop’ are thick, the line to ‘at’ is faint. A bar chart shows how much attention each token gets.",
+    "animation": "Lines draw back from ‘was’ (300 ms); bars grow to match.",
+    "on_screen_text": "Attention gathers context",
+    "voice": "Narrator",
+    "narration": "Next, attention. As the model writes, the newest token looks back at every earlier token and weighs which ones matter. Here, “bus” and “stop” matter a lot; “at” hardly at all. That mix becomes the context for the next word.",
+    "icons": [
+     "eye",
+     "signal",
+     "chat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:04",
+    "beat": "Concept",
+    "visual": "Blocks stack up like floors of a building: attention, then a layer of neurons, again and again. At the top, a short list of next tokens with bars; ‘full’ is picked and joins the sentence.",
+    "animation": "Blocks stack from the bottom (200 ms each); the top bars grow; ‘full’ slides into the sentence.",
+    "on_screen_text": "Layers, then a pick",
+    "voice": "Narrator",
+    "narration": "Then layers of neurons, like those in lesson two, work on the numbers. Attention and neurons take turns, dozens of times. At the top, it scores every possible next token, picks one, and starts again.",
+    "icons": [
+     "layers",
+     "network",
+     "check"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:04",
+    "end": "1:13",
+    "beat": "Definition",
+    "visual": "Clean white card with the AI track chip: the loop as five steps in a row, tokens, numbers, attention, scores, pick, with an arrow curving back to the start.",
+    "animation": "Steps appear 300 ms apart; the return arrow draws last.",
+    "on_screen_text": "A language model",
+    "voice": "Narrator",
+    "narration": "So a language model is a huge neural network trained to predict the next token. Its loop: tokens, numbers, attention, scores, pick, repeat.",
+    "icons": [
+     "bot",
+     "repeat",
+     "network"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:30",
+    "beat": "Analogy",
+    "visual": "Left: a student teacher surrounded by stacks of books (pretraining). Right: the same person in a classroom with a mentor holding two lesson plans and pointing at the better one (fine-tuning).",
+    "animation": "Book stacks grow; then a wipe to the classroom; the mentor’s tick appears on one plan.",
+    "on_screen_text": "Trained in stages, like a teacher",
+    "voice": "Narrator",
+    "narration": "Where do its billions of weights come from? Training comes in stages, like a teacher’s. Pretraining, like years of reading: predicting the next token across huge amounts of text. Then fine-tuning, like teaching practice: examples of good answers, and people rating which is better.",
+    "icons": [
+     "book",
+     "graduation",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:30",
+    "end": "1:39",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah beside the sentence on the board, ‘full’ just added at the end. Three answer cards drop in.",
+    "animation": "Character slides in; answer cards drop in with a small bounce.",
+    "on_screen_text": "Which step brings in “bus”?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! When the model writes “full”, which step lets it use “bus” from earlier?",
+    "icons": [
+     "help",
+     "eye"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:39",
+    "end": "1:50",
+    "beat": "Reveal",
+    "visual": "The ‘Attention’ card gets the check badge. Split screen: with attention, thick lines from ‘was’ to ‘bus’ and ‘stop’ and the word ‘full’; without it, ‘was’ alone with a cloud of random words.",
+    "animation": "Check badge pops (150 ms); the random words scatter on the right.",
+    "on_screen_text": "Attention brings in context",
+    "voice": "Narrator",
+    "narration": "Attention. It lets the newest token draw on “bus” and “stop”, further back. Without it, the model would see little more than “was”, and could guess anything.",
+    "icons": [
+     "eye",
+     "circlecheck",
+     "circlex"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:50",
+    "end": "2:09",
+    "beat": "Non-examples",
+    "visual": "The loop diagram with a ‘check the facts’ box that isn’t connected to anything. A history quiz answer appears with a wrong date, written in the same calm font as a right one.",
+    "animation": "The unconnected box blinks once; the wrong date gets a red underline.",
+    "on_screen_text": "What the loop never does",
+    "voice": "Narrator",
+    "narration": "Notice what the loop never does: check a fact. It learned which text is likely, not which is true. A rare fact, like a local history date, can come out wrong, just as smoothly. And if training rewards any answer over “I don’t know”, it learns to guess.",
+    "icons": [
+     "search",
+     "warning",
+     "target"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:09",
+    "end": "2:25",
+    "beat": "Examples",
+    "visual": "Joseph pastes a textbook page into a chat box with the instruction ‘Answer only from this page’. The answer appears; he checks it line by line against the page with a pencil.",
+    "animation": "The page slides into the chat; tick marks appear as he checks.",
+    "on_screen_text": "Ground it, then check",
+    "voice": "Narrator",
+    "narration": "Two habits help. Grounding: give it a trusted source, like the textbook page, and ask it to answer only from that, so attention draws on the page. Then check against the source: grounding lowers mistakes, but doesn’t remove them.",
+    "icons": [
+     "book",
+     "filecheck",
+     "checksquare"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:25",
+    "end": "2:36",
+    "beat": "Lab preview",
+    "visual": "A phone screen with the five steps of the lab: token chips with numbers, number lists, attention shading, probability bars and the picked word. A finger taps ‘Next token’, then the temperature switch.",
+    "animation": "Each step lights up in turn as the token is written (300 ms).",
+    "on_screen_text": "Lab: inside an LLM",
+    "voice": "Narrator",
+    "narration": "In the lab, a tiny model trained on twenty-four sentences writes for you. Start with “The teacher”, press Next token, watch each step. Then make it adventurous.",
+    "icons": [
+     "phone",
+     "eye",
+     "sparkle"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:36",
+    "end": "2:45",
+    "beat": "Checkpoint ◆",
+    "visual": "Joseph holds a printout of a chatbot answer with a confident tone and a wrong date circled. Three answer cards appear beside him.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Sure, but wrong. Why?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Why can a language model sound sure and still be wrong?",
+    "icons": [
+     "help",
+     "bot"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:45",
+    "end": "2:57",
+    "beat": "Recap",
+    "visual": "The first card gets the check badge, then the summary lines build.",
+    "animation": "Points appear 250 ms apart.",
+    "on_screen_text": "Loop · Training · Likely isn’t true",
+    "voice": "Narrator",
+    "narration": "It predicts likely text; it doesn’t check facts. Remember the loop: tokens, numbers, attention, scores, pick, repeat. It’s pretrained on huge amounts of text, then fine-tuned. So ground it, then check.",
+    "icons": [
+     "repeat",
+     "book",
+     "checksquare"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "2:57",
+    "end": "3:13",
+    "beat": "Try it tomorrow",
+    "visual": "Joseph’s classroom: the board says ‘The goat ate the maize because it was hungry.’ Pupils draw chalk arrows from ‘it’ to ‘goat’ and ‘hungry’. Then ‘hungry’ becomes ‘sweet’ and the arrows swing to ‘maize’.",
+    "animation": "Arrows draw from ‘it’ (300 ms); the word swaps and the arrows swing.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: play “Who is ‘it’?”. Write “The goat ate the maize because it was hungry.” Pupils draw arrows from “it” to the words that give it away. Then change “hungry” to “sweet”: the arrows move.",
+    "icons": [
+     "school",
+     "pencil",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:37",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "When the model writes “full”, which step lets it use the word “bus” from earlier?",
+    "options": [
+     {
+      "text": "Cutting the text into tokens",
+      "correct": false
+     },
+     {
+      "text": "Attention to earlier tokens",
+      "correct": true
+     },
+     {
+      "text": "Picking the most likely token",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — attention lets the newest token look back at earlier tokens, like “bus”, and weigh which ones matter.",
+    "feedback_wrong": "Not quite — cutting into tokens and picking don’t look back. Attention lets the newest token draw on earlier words, like “bus”.",
+    "resume_at": "1:39"
+   },
+   {
+    "at": "2:42",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "Why can a language model sound sure and still be wrong?",
+    "options": [
+     {
+      "text": "It copied a wrong website",
+      "correct": false
+     },
+     {
+      "text": "It’s lying on purpose",
+      "correct": false
+     },
+     {
+      "text": "It predicts likely text, not facts",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — it writes the likely next token. Nothing in the loop checks whether it is true.",
+    "feedback_wrong": "Not quite — it isn’t lying, and it isn’t simply copying. It writes likely text, and nothing in the loop checks the facts.",
+    "resume_at": "2:45"
+   }
+  ]
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "id": "CYBER-S4-2",
+ "track": "cyber",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Defenders: cryptography, networks, careers"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Locks and keys: public-key cryptography",
+  "subtitle": "How strangers share secrets, and what the padlock really proves",
+  "minutes": 17,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "Locks and keys: public-key cryptography",
+  "length": "3:04",
+  "format_note": "Animated explainer for students aged 12–16, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer who visits schools to talk about security (main character)",
+   "Mr Joseph — computer studies teacher",
+   "Narrator — the Darsi voice (warm, speaking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Secrets with strangers"
+   },
+   {
+    "at": "0:19",
+    "label": "Two keys"
+   },
+   {
+    "at": "1:31",
+    "label": "Signatures"
+   },
+   {
+    "at": "2:03",
+    "label": "The padlock in your browser"
+   },
+   {
+    "at": "2:29",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Mr Joseph in the computer room points at a world map with lines from a phone to a far-away bank building and a chat server; little eavesdropper ears sit along the lines.",
+    "animation": "Lines draw out; the ears pop up along them.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "You’ve never met your bank’s computers. You’ve never whispered a secret key to a chat app. So how do you talk to them in secret, over a network anyone can listen to?",
+    "icons": [
+     "banknote",
+     "chat",
+     "network"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Paper-grey card. The Darsi mark pops in, then the lesson title and the cyber track chip.",
+    "animation": "Mark scales in with a small overshoot; title slides up.",
+    "on_screen_text": "Locks and keys: public-key cryptography",
+    "voice": "Narrator",
+    "narration": "Today: locks and keys — how public-key cryptography lets strangers share secrets."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:31",
+    "beat": "Concept",
+    "visual": "Two students pass a key across a crowded yard; a third hand copies it on the way.",
+    "animation": "The key travels; a copy peels off it.",
+    "on_screen_text": "The key problem",
+    "voice": "Narrator",
+    "narration": "With a simple cipher, both sides need the same secret key. But how do you send that key? Anyone listening on the network could copy it on the way.",
+    "icons": [
+     "key",
+     "network",
+     "eye"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:31",
+    "end": "0:46",
+    "beat": "Definition",
+    "visual": "Two cards: an open padlock copied many times, and a single key on a chain around the owner’s neck.",
+    "animation": "The padlock multiplies; the key stays put.",
+    "on_screen_text": "Two keys that belong together",
+    "voice": "Narrator",
+    "narration": "Public-key cryptography solves it with two keys that belong together. The public key is like an open padlock: you give copies to everyone. The private key is the only key that opens it, and it never leaves you.",
+    "icons": [
+     "lock",
+     "key",
+     "share"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "1:02",
+    "beat": "Analogy",
+    "visual": "A student hands open padlocks to friends; a friend puts a note in a box and snaps the padlock shut; the friend then tries to open it and can’t.",
+    "animation": "Click of the padlock; the friend shrugs.",
+    "on_screen_text": "Anyone can lock, only you can open",
+    "voice": "Narrator",
+    "narration": "Imagine handing out open padlocks to your friends. Anyone can put a note in a box and snap your padlock shut. Once it’s shut, only you can open it — not even the friend who locked it.",
+    "icons": [
+     "lock",
+     "package",
+     "key"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:02",
+    "end": "1:24",
+    "beat": "Concept",
+    "visual": "A blackboard: 61 × 53 = 3233 written quickly; then 3233 = ? × ? with a long line of crossed-out tries; then a number running off the edge of the board.",
+    "animation": "The multiplication writes itself; the tries pile up.",
+    "on_screen_text": "Easy one way, hard the other",
+    "voice": "Narrator",
+    "narration": "One famous method, RSA, rests on a simple fact. Multiplying two primes is easy: sixty-one times fifty-three is three thousand two hundred and thirty-three. Going back from the answer to the primes gets far harder as the numbers grow. Real keys are about six hundred digits long: all the computers on Earth today couldn’t split one in a lifetime.",
+    "icons": [
+     "calculator",
+     "lock",
+     "cpu"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:24",
+    "end": "1:31",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah holds a folded note and two keys, one labelled with the student’s name. Three answer cards drop in.",
+    "animation": "Dr Farah slides in; cards drop with a small bounce.",
+    "on_screen_text": "Which key locks the secret?",
+    "voice": "Dr Farah Rahman",
+    "narration": "Quick check! I want to send you a secret. Which key do I lock it with?"
+   },
+   {
+    "n": 8,
+    "start": "1:31",
+    "end": "1:43",
+    "beat": "Reveal",
+    "visual": "The “your public key” card gets the check badge. The note is locked with the student’s padlock and only the student’s key opens it. Then the picture flips round.",
+    "animation": "Check badge pops; the scene turns over.",
+    "on_screen_text": "Lock it with your public key",
+    "voice": "Narrator",
+    "narration": "Your public key. Anyone can lock with it, and only your private key opens it. Now turn it around, and you get something just as useful: a signature.",
+    "icons": [
+     "lock",
+     "key",
+     "pencil"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:43",
+    "end": "2:03",
+    "beat": "Concept",
+    "visual": "A phone update arrives with a seal; the phone checks the seal with the maker’s public key and installs it. A fake update with a broken seal bounces off.",
+    "animation": "Seal glows; the fake one bounces away.",
+    "on_screen_text": "Signatures prove who, and what",
+    "voice": "Narrator",
+    "narration": "To sign, you use your private key on a message. Anyone can check it with your public key — and since only your key could have made it, they know it’s from you, and that nobody changed a word. Phone updates are signed like this, so a fake update gets refused.",
+    "icons": [
+     "pencil",
+     "filecheck",
+     "phone"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:03",
+    "end": "2:20",
+    "beat": "Examples",
+    "visual": "A browser address bar with a padlock. Then two sites side by side, a real school page and a scam page asking for a PIN, both with padlocks.",
+    "animation": "The padlock pops on both pages.",
+    "on_screen_text": "What the padlock proves",
+    "voice": "Narrator",
+    "narration": "When a website uses HTTPS, your browser checks the site’s certificate, agrees a secret key with it using public keys, then encrypts everything. But the padlock only proves the connection is private, to that address. A scam site can have a padlock too.",
+    "icons": [
+     "lock",
+     "link",
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:20",
+    "end": "2:29",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph holds up a phone: a page with a padlock asks for a mobile money PIN. Two answer cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Trust it because of the padlock?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A page that asks for your mobile money PIN shows a padlock. Can you trust it because of the padlock?"
+   },
+   {
+    "n": 12,
+    "start": "2:29",
+    "end": "2:46",
+    "beat": "Recap",
+    "visual": "The “No” card gets the check badge. Four summary cards line up.",
+    "animation": "Cards line up left to right.",
+    "on_screen_text": "Public locks · Private opens · Padlock: private, not honest",
+    "voice": "Narrator",
+    "narration": "No: scam sites get padlocks too. Remember: the public key locks and checks, the private key opens and signs, and the padlock means private, not honest. And defenders are already switching to new methods built to resist future quantum computers.",
+    "icons": [
+     "lock",
+     "key",
+     "shield"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "3:04",
+    "beat": "Try it tomorrow",
+    "visual": "Two friends on a bench compare a long code on their phones; a check appears when the codes match.",
+    "animation": "Codes scroll side by side; check pops.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: in the lab, make a tiny key pair, lock a word, then sign a message and change one letter. Then, in a chat app, find where you can compare security codes with a friend, and work out together what a match proves.",
+    "icons": [
+     "key",
+     "chat",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:28",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Dr Farah wants to send you a secret message. Which key should she lock it with?",
+    "options": [
+     {
+      "text": "Your public key",
+      "correct": true
+     },
+     {
+      "text": "Your private key",
+      "correct": false
+     },
+     {
+      "text": "Her own private key",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — anyone can lock with your public key, and only your private key can open it.",
+    "feedback_wrong": "Not quite — your private key never leaves you, and anything locked with her private key opens with her public key, which everyone has. She uses your public key.",
+    "resume_at": "1:31"
+   },
+   {
+    "at": "2:26",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A page asking for your mobile money PIN shows the HTTPS padlock. Can you trust it because of the padlock?",
+    "options": [
+     {
+      "text": "Yes — the padlock means the site is safe",
+      "correct": false
+     },
+     {
+      "text": "No — it only means the connection is encrypted",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — scam sites get padlocks too. The padlock protects the connection, not you from the site.",
+    "feedback_wrong": "Not quite — anyone can get a padlock for their own site, scammers included. It proves the connection is encrypted, not that the site is honest.",
+    "resume_at": "2:29"
+   }
+  ]
+ }
+}

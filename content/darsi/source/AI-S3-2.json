@@ -1,0 +1,310 @@
+{
+ "id": "AI-S3-2",
+ "track": "ai",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Train your own model"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "How a classifier decides",
+  "subtitle": "Features, neighbours and a vote",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "How a classifier decides",
+  "length": "3:04",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The mango seller"
+   },
+   {
+    "at": "0:18",
+    "label": "Features"
+   },
+   {
+    "at": "0:45",
+    "label": "Nearest neighbours"
+   },
+   {
+    "at": "1:56",
+    "label": "Choosing features, and the lab"
+   },
+   {
+    "at": "2:33",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "A busy morning market. Mr Joseph stands at a fruit stall piled with mangoes, green to yellow. The seller presses one gently with her thumb, glances at its colour, and hands it over with a smile. Joseph turns the mango in his hand, curious.",
+    "animation": "A small press ring pulses where the thumb presses (150 ms); a colour swatch slides from green to yellow under the mango. Quick push-in on Joseph’s face.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "At the market this morning, a mango seller judged a mango in two seconds. One squeeze, one look at its colour: “Eat it tomorrow.” She’s handled thousands, so she compares. Can a computer do that?",
+    "icons": [
+     "hand",
+     "eye",
+     "apple",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey card. The Darsi mark pops in, then the course name, the lesson title and a yellow ‘AI’ track chip with the spark icon.",
+    "animation": "Mark scales 0→100% with a small overshoot (≤ 200 ms); title slides up.",
+    "on_screen_text": "How a classifier decides",
+    "voice": "Narrator",
+    "narration": "Today: how a classifier decides, by asking its neighbours."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:31",
+    "beat": "Concept",
+    "visual": "A single mango in the middle. Two slider gauges grow beside it: ‘softness’ from 0 to 10, and ‘colour’ from a green 0 to a yellow 10. Each slider’s marker slides to the mango’s value: 7 and 8. A ruler icon stamps the word ‘features’ beneath.",
+    "animation": "Gauges draw in left to right (300 ms); markers slide to their values (600 ms).",
+    "on_screen_text": "Describe it with numbers",
+    "voice": "Narrator",
+    "narration": "A computer can’t squeeze a mango, so we describe it with numbers. Softness, from zero to ten. Colour, from green at zero to yellow at ten. Measurable numbers like these are called features.",
+    "icons": [
+     "hand",
+     "eye",
+     "ruler"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:31",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "A chart draws itself: softness along the bottom, colour up the side. Checked mangoes drop onto it as dots: filled circles (ripe) settle in the top-right corner, open squares (not ripe) in the bottom-left.",
+    "animation": "Axes draw (400 ms); dots drop in quickly with a tiny bounce, ripe ones first, then the others.",
+    "on_screen_text": "Every example is a dot",
+    "voice": "Narrator",
+    "narration": "Now put every mango you’ve checked on a chart: softness along the bottom, colour up the side. Each is a dot, marked ripe or not. Ripe ones gather in one corner, unripe in the other.",
+    "icons": [
+     "grid",
+     "tag",
+     "target"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:45",
+    "end": "0:59",
+    "beat": "Concept",
+    "visual": "A new mango appears on the chart as a triangle, between the two corners. Three leader lines reach out to its three closest dots: two filled circles and one open square. A tally shows 2 against 1, and the triangle turns into a filled circle.",
+    "animation": "Leader lines draw one by one (200 ms each); the tally counts up; the triangle morphs into a circle.",
+    "on_screen_text": "Ask the nearest neighbours",
+    "voice": "Narrator",
+    "narration": "A new mango arrives, with no label. Find the three closest dots: its nearest neighbours. Two are ripe and one isn’t, so the majority says ripe. No rules, just: which mangoes is it most like?",
+    "icons": [
+     "search",
+     "users",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:14",
+    "beat": "Definition",
+    "visual": "Clean white card with the AI track chip. The word ‘classifier’ appears above two labelled boxes, ‘ripe’ and ‘not ripe’. A new example slides in and drops into one box. Below, a small stack of stored examples and a raised-hands ‘vote’ icon.",
+    "animation": "Boxes pop in (200 ms); the example drops in with a small bounce.",
+    "on_screen_text": "Classifier: picks a class",
+    "voice": "Narrator",
+    "narration": "A classifier is a model that puts a new example into a class, like ripe or not ripe. Nearest neighbours is one simple kind: it compares the new example with stored ones, and goes with the majority.",
+    "icons": [
+     "tag",
+     "database",
+     "users"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:33",
+    "beat": "Analogy",
+    "visual": "A grandmother in a courtyard looks up at heavy grey clouds. Thought bubbles show three remembered days with the same clouds; two of them end in rain. She takes the washing off the line, smiling to herself.",
+    "animation": "Thought bubbles pop in one by one (200 ms); rain drops fall in two of them; the washing slides off the line.",
+    "on_screen_text": "Like Grandma’s rain forecast",
+    "voice": "Narrator",
+    "narration": "It’s like a grandmother who can tell when it will rain. She remembers days that felt like today: the same heavy air, the same dark clouds. Most of them ended in rain, so she takes the washing in. Her nearest neighbours are the days most like today!",
+    "icons": [
+     "cloud",
+     "cloudrain",
+     "home",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:40",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma pops in beside the chart: a new mango with five leader lines, to three filled circles and two open squares. Three answer cards drop in below her.",
+    "animation": "Character slides in from the side; answer cards drop in with a small bounce.",
+    "on_screen_text": "What does it say?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A new mango’s five nearest neighbours: three ripe, two not. What does the classifier say?"
+   },
+   {
+    "n": 9,
+    "start": "1:40",
+    "end": "1:56",
+    "beat": "Reveal",
+    "visual": "The card ‘Ripe: three of five’ gets a blue check badge. Then a dial labelled k turns: at 1, the new mango’s single neighbour is an odd, mislabelled dot; at 15, the circle of neighbours stretches across the chart and grabs faraway dots; at 5, it settles.",
+    "animation": "Check badge pops (150 ms). The neighbour circle grows and shrinks with the dial (600 ms each).",
+    "on_screen_text": "Majority wins, but k matters",
+    "voice": "Narrator",
+    "narration": "Ripe: three of its five neighbours are ripe. But the number you ask, called k, matters. Ask only one, and a single odd or mislabelled mango decides. Ask too many, and faraway mangoes outvote close ones. In between usually works best.",
+    "icons": [
+     "circlecheck",
+     "gauge",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:56",
+    "end": "2:10",
+    "beat": "Non-examples",
+    "visual": "Split screen. Left: the softness and colour chart, ripe and unripe dots neatly apart. Right: a chart of weight alone, where big ripe and big unripe mangoes sit side by side in one jumbled line, and a new mango’s neighbours disagree.",
+    "animation": "Both charts draw at once; on the right, the dots shuffle into a jumble (600 ms).",
+    "on_screen_text": "Choose features that matter",
+    "voice": "Narrator",
+    "narration": "Features matter as much as neighbours. Softness and colour separate ripe from unripe, so close neighbours agree. Weight alone doesn’t: a big unripe mango sits right beside a big ripe one, and its neighbours mislead.",
+    "icons": [
+     "circlecheck",
+     "scale",
+     "circlex"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:10",
+    "end": "2:27",
+    "beat": "Lab preview",
+    "visual": "A phone screen showing the ‘Nearest neighbours’ lab: mangoes on a chart of softness and colour, filled circles and open squares, a shaded background showing the answer everywhere, a slider for k and a switch for ‘With mistakes’. A finger taps the chart; leader lines reach to the neighbours.",
+    "animation": "The tap ripples (150 ms); leader lines draw; the slider moves and the shaded background shifts.",
+    "on_screen_text": "App lab: nearest neighbours",
+    "voice": "Narrator",
+    "narration": "In the app, mangoes sit on a chart: filled circles are ready to eat, open squares not yet. Tap to place a new mango, then slide k from one to fifteen and watch the answer change. Then try the data with mistakes.",
+    "icons": [
+     "grid",
+     "hand",
+     "gauge",
+     "warning"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:27",
+    "end": "2:33",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph holds up a page of handwritten digits: sevens and ones in different hands and inks. Three answer cards appear beside him.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which feature helps?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Your model must tell handwritten sevens from ones. Which feature helps more?"
+   },
+   {
+    "n": 13,
+    "start": "2:33",
+    "end": "2:50",
+    "beat": "Recap",
+    "visual": "The ‘How wide the digit is’ card gets the check badge, then the screen resolves into four summary lines and a closing line.",
+    "animation": "Lines tick in one by one, 250 ms apart.",
+    "on_screen_text": "Features, neighbours, majority",
+    "voice": "Narrator",
+    "narration": "How wide the digit is: a seven is wider than a one, whatever the ink. Remember: describe each example with features you can measure. A new example takes the class of most of its k nearest neighbours. And choose features that separate classes.",
+    "icons": [
+     "ruler",
+     "users",
+     "tag"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:50",
+    "end": "3:04",
+    "beat": "Try it tomorrow",
+    "visual": "A student at a kitchen table with ten tomatoes and a sheet of squared paper, scoring each one and marking dots on a hand-drawn chart. A new tomato gets three pencil lines to its nearest dots. Mr Joseph gives a thumbs up. End card: the Darsi mark.",
+    "animation": "Dots appear one by one on the paper; the three pencil lines draw. End card fades in.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: score ten fruits for size and softness, from zero to ten. Mark each on a chart, labelled ripe or not. Then score a new fruit, and let its three nearest neighbours decide.",
+    "icons": [
+     "apple",
+     "grid",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:37",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A new mango’s five nearest neighbours: three ripe, two not ripe. What does the classifier say?",
+    "options": [
+     {
+      "text": "Not ripe: two is enough",
+      "correct": false
+     },
+     {
+      "text": "It needs a rule first",
+      "correct": false
+     },
+     {
+      "text": "Ripe: three of five",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — most of its neighbours are ripe, so it says ripe.",
+    "feedback_wrong": "Not quite — it needs no rules. It goes with the majority: three of its five neighbours are ripe.",
+    "resume_at": "1:40"
+   },
+   {
+    "at": "2:30",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your model must tell handwritten sevens from ones. Which feature helps more?",
+    "options": [
+     {
+      "text": "The colour of the ink",
+      "correct": false
+     },
+     {
+      "text": "How wide the digit is",
+      "correct": true
+     },
+     {
+      "text": "The writer’s name",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a seven is wider than a one, whoever writes it and in any ink.",
+    "feedback_wrong": "Not quite — ink colour and names don’t change the digit. Width does: a seven is wider than a one.",
+    "resume_at": "2:33"
+   }
+  ]
+ }
+}

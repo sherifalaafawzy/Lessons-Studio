@@ -1,0 +1,443 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "One squeeze: softness",
+            "ar-EG": "دوسة: الطراوة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "One look: colour",
+            "ar-EG": "بصّة: اللون"
+          },
+          "s": 1,
+          "o": 1.2
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Can a computer?",
+            "ar-EG": "الكمبيوتر يقدر؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "aside": "apple",
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Softness: 0 to 10",
+            "ar-EG": "الطراوة: من 0 إلى 10"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Colour: green 0, yellow 10",
+            "ar-EG": "اللون: أخضر 0، أصفر 10"
+          },
+          "s": 2
+        },
+        {
+          "icon": "ruler",
+          "tone": "ok",
+          "text": {
+            "en": "Features: numbers you can measure",
+            "ar-EG": "الخصائص: أرقام تقدر تقيسها"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "cards": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "A softness and colour chart",
+            "ar-EG": "رسم للطراوة واللون"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Each dot: ripe or not",
+            "ar-EG": "كل نقطة: مستوية ولا لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "tone": "ok",
+          "text": {
+            "en": "Ripe ones gather together",
+            "ar-EG": "المستوية بتتجمع سوا"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "new",
+            "icon": "apple",
+            "text": {
+              "en": "New mango",
+              "ar-EG": "مانجاية جديدة"
+            },
+            "s": 0
+          },
+          {
+            "id": "near",
+            "icon": "search",
+            "text": {
+              "en": "3 nearest neighbours",
+              "ar-EG": "أقرب 3 جيران"
+            },
+            "s": 1
+          },
+          {
+            "id": "vote",
+            "icon": "users",
+            "text": {
+              "en": "2 ripe, 1 not",
+              "ar-EG": "اتنين ضد واحد"
+            },
+            "s": 2
+          },
+          {
+            "id": "ripe",
+            "icon": "circlecheck",
+            "tone": "trusted",
+            "text": {
+              "en": "Ripe!",
+              "ar-EG": "مستوية!"
+            },
+            "s": 2,
+            "o": 1.5
+          }
+        ],
+        "edges": [
+          [
+            "new",
+            "near"
+          ],
+          [
+            "near",
+            "vote"
+          ],
+          [
+            "vote",
+            "ripe"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "cards": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Puts examples in classes",
+            "ar-EG": "بيحط الأمثلة في فئات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "Keeps labelled examples",
+            "ar-EG": "بيحتفظ بأمثلة متصنّفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Goes with the majority",
+            "ar-EG": "بيمشي ورا الأغلبية"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    },
+    "7": {
+      "aside": "cloudrain",
+      "list": [
+        {
+          "icon": "cloud",
+          "text": {
+            "en": "Days that felt like today",
+            "ar-EG": "أيام كانت شبه النهارده"
+          },
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Most of them brought rain",
+            "ar-EG": "أغلبها مطرت"
+          },
+          "s": 2
+        },
+        {
+          "icon": "home",
+          "text": {
+            "en": "Take the washing in",
+            "ar-EG": "لمّ الغسيل"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Her nearest neighbours: similar days",
+            "ar-EG": "أقرب جيرانها: أيام شبهها"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "aside": "gauge",
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "k: how many neighbours you ask",
+            "ar-EG": "عدد الجيران اللي بتسألهم اسمه k"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "k = 1: one odd mango decides",
+            "ar-EG": "لو k = 1: مانجاية غريبة تقرر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Too big: faraway ones outvote",
+            "ar-EG": "كبير أوي: البعيدين يغلبوا"
+          },
+          "s": 3
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "In between: usually best",
+            "ar-EG": "في النص: غالبًا الأحسن"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "10": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Good features",
+            "ar-EG": "خصائص كويسة"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "icon": "hand",
+              "text": {
+                "en": "Softness",
+                "ar-EG": "الطراوة"
+              },
+              "s": 1
+            },
+            {
+              "icon": "eye",
+              "text": {
+                "en": "Colour",
+                "ar-EG": "اللون"
+              },
+              "s": 1
+            },
+            {
+              "icon": "users",
+              "text": {
+                "en": "Close neighbours agree",
+                "ar-EG": "الجيران القريبين بيتفقوا"
+              },
+              "s": 1,
+              "o": 2.5
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Weight alone",
+            "ar-EG": "الوزن لوحده"
+          },
+          "icon": "scale",
+          "tone": "danger",
+          "s": 2,
+          "items": [
+            {
+              "icon": "apple",
+              "text": {
+                "en": "Big ripe beside big unripe",
+                "ar-EG": "كبيرة مستوية جنب كبيرة لأ"
+              },
+              "s": 2,
+              "o": 1.5
+            },
+            {
+              "icon": "circlex",
+              "text": {
+                "en": "Neighbours mislead",
+                "ar-EG": "الجيران بيلخبطوه"
+              },
+              "s": 2,
+              "o": 3
+            }
+          ]
+        }
+      }
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Softness and colour chart",
+            "ar-EG": "رسم الطراوة واللون"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Tap to place a mango",
+            "ar-EG": "المس وحط مانجاية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Slide k from 1 to 15",
+            "ar-EG": "حرّك k من 1 إلى 15"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "ok",
+          "text": {
+            "en": "Try data with mistakes",
+            "ar-EG": "جرّب بيانات فيها أخطاء"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Features: numbers you measure",
+            "ar-EG": "الخصائص: أرقام بتتقاس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Find the k nearest neighbours",
+            "ar-EG": "دوّر على أقرب k جيران"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The majority decides",
+            "ar-EG": "الأغلبية بتقرر"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Pick features that separate classes",
+            "ar-EG": "اختار خصائص بتفرّق الفئات"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Good features make good neighbours.",
+        "ar-EG": "الخصائص الكويسة بتجيب جيران كويسين."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Score 10 fruits: size, softness",
+            "ar-EG": "قيّم 10 حبّات: الحجم والطراوة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Mark each one on a chart",
+            "ar-EG": "حط كل واحدة على رسم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Label it: ripe or not",
+            "ar-EG": "صنّفها: مستوية ولا لأ"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "3 nearest neighbours decide",
+            "ar-EG": "أقرب 3 جيران يقرروا"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

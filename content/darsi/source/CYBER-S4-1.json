@@ -1,0 +1,288 @@
+{
+ "id": "CYBER-S4-1",
+ "track": "cyber",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Defenders: cryptography, networks, careers"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Fingerprints of data: hashing",
+  "subtitle": "One-way fingerprints that keep passwords and files honest",
+  "minutes": 16,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "Fingerprints of data: hashing",
+  "length": "3:13",
+  "format_note": "Animated explainer for students aged 12–16, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer who visits schools to talk about security (main character)",
+   "Mr Joseph — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, speaking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A password puzzle"
+   },
+   {
+    "at": "0:21",
+    "label": "What a hash is"
+   },
+   {
+    "at": "1:03",
+    "label": "How sites store passwords"
+   },
+   {
+    "at": "1:50",
+    "label": "Fingerprints at work"
+   },
+   {
+    "at": "2:36",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "A computer room after school. Dr Farah sits on a desk with a laptop showing a sign-in box; a question mark floats over a server.",
+    "animation": "Sign-in box types dots; the question mark pops.",
+    "on_screen_text": "",
+    "voice": "Dr Farah Rahman",
+    "narration": "Here’s a puzzle. Every time you sign in, a website checks your password. But a well-built site never keeps your password at all. So how does it know you typed the right one?",
+    "icons": [
+     "key",
+     "server",
+     "circlehelp"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "Paper-grey card. The Darsi mark pops in, then the lesson title and the cyber track chip.",
+    "animation": "Mark scales in with a small overshoot; title slides up.",
+    "on_screen_text": "Fingerprints of data: hashing",
+    "voice": "Narrator",
+    "narration": "Today: fingerprints of data — what a hash is, and how defenders use it."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "A word, a photo and a film reel drop into a machine; each comes out as a short strip of characters of the same length.",
+    "animation": "Items drop in one by one; the strips print out.",
+    "on_screen_text": "Any data in, a fixed fingerprint out",
+    "voice": "Narrator",
+    "narration": "A hash function turns any data — a word, a photo, a whole film — into a short fingerprint of fixed length. One of the most used, SHA-256, always makes two hundred and fifty-six bits, written as sixty-four characters.",
+    "icons": [
+     "file",
+     "cog",
+     "fingerprint"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "Three rule cards: two identical inputs with identical strips; one changed letter with a scrambled strip; an arrow from strip back to input crossed out.",
+    "animation": "Cards appear one by one as they are named.",
+    "on_screen_text": "Three rules",
+    "voice": "Narrator",
+    "narration": "A good hash keeps three rules. The same input always gives the same fingerprint. Change a single letter, and about half of its bits flip: the fingerprint looks completely new. And it only works one way: from the fingerprint, nobody can work back to the input.",
+    "icons": [
+     "check",
+     "shuffle",
+     "lock"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:03",
+    "beat": "Analogy",
+    "visual": "A market juice stall: mangoes go into a blender and juice comes out; a crossed-out arrow from the juice back to the mangoes.",
+    "animation": "Blender whirs; juice pours; the back arrow fades in and gets crossed out.",
+    "on_screen_text": "Like a blender: no way back",
+    "voice": "Narrator",
+    "narration": "It’s like a blender. The same mangoes always make the same juice. But nobody can turn the juice back into mangoes.",
+    "icons": [
+     "apple",
+     "cog",
+     "droplets"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:03",
+    "end": "1:24",
+    "beat": "Concept",
+    "visual": "A sign-up form saves only a strip into a database. At sign-in, the typed password becomes a strip, and the two strips slide side by side and match.",
+    "animation": "Strips slide together; a check pops.",
+    "on_screen_text": "Store the fingerprint, not the password",
+    "voice": "Narrator",
+    "narration": "Here’s how the website solves our puzzle. When you sign up, it stores only the fingerprint of your password. When you sign in, it hashes what you type and compares the two fingerprints. If they match, you’re in — and a thief who steals the list gets fingerprints, not passwords.",
+    "icons": [
+     "key",
+     "database",
+     "fingerprint",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:24",
+    "end": "1:33",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph at the computer-room board, holding a long printed message with one letter circled. Three answer cards drop in.",
+    "animation": "Mr Joseph slides in; cards drop with a small bounce.",
+    "on_screen_text": "What happens to the fingerprint?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! I change just one letter in a long message, then hash it again. What happens to the fingerprint?"
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:50",
+    "beat": "Reveal",
+    "visual": "Two strips side by side, for “hello” and “Hello”: almost every character differs.",
+    "animation": "The differing characters flash one after another.",
+    "on_screen_text": "One letter, a new fingerprint",
+    "voice": "Narrator",
+    "narration": "About half of its bits change. Look: hello with a small h, and Hello with a capital, give fingerprints that share almost nothing. That’s why a hash is such a good alarm — one changed letter, and the fingerprints no longer match.",
+    "icons": [
+     "fingerprint",
+     "warning"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:50",
+    "end": "2:09",
+    "beat": "Examples",
+    "visual": "Three panels: a download page with a fingerprint under the button; a backup drive with two matching strips; an evidence bag with a strip on its label.",
+    "animation": "Panels flip in, one per sentence.",
+    "on_screen_text": "Fingerprints at work",
+    "voice": "Narrator",
+    "narration": "Defenders use fingerprints every day. Official downloads publish their fingerprint, so you can check the file wasn’t changed on the way. Backup tools compare fingerprints to make sure a copy is perfect. And investigators record the fingerprint of evidence, to show it was never touched.",
+    "icons": [
+     "download",
+     "sync",
+     "search"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:09",
+    "end": "2:28",
+    "beat": "Concept",
+    "visual": "A stolen list of strips. An attacker’s machine hashes a pile of common passwords and finds a match; then each stored strip gets a pinch of salt and a slow hourglass.",
+    "animation": "Match flashes red; salt sprinkles; hourglass turns.",
+    "on_screen_text": "Why your passphrase still counts",
+    "voice": "Narrator",
+    "narration": "But a stolen list of fingerprints still matters. Attackers hash millions of common passwords and look for matches, so “password123” falls at once. Good sites add a random salt and use a slow hash, so every guess costs time. Your long, unique passphrase does the rest.",
+    "icons": [
+     "database",
+     "warning",
+     "clock",
+     "key"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:28",
+    "end": "2:36",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah holds up a phone with an email that shows a password in plain text. Two answer cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Good sign or bad sign?",
+    "voice": "Dr Farah Rahman",
+    "narration": "Your turn. A website emails you your old password, “in case you forgot it”. Good sign or bad sign?"
+   },
+   {
+    "n": 12,
+    "start": "2:36",
+    "end": "2:57",
+    "beat": "Recap",
+    "visual": "The bad-sign card gets the check badge. Four summary cards line up.",
+    "animation": "Cards line up left to right.",
+    "on_screen_text": "One-way · Same every time · Tiny change, new hash",
+    "voice": "Narrator",
+    "narration": "A bad sign: if a site can send your password back, it’s storing the password itself, not a fingerprint. Remember: a hash is a one-way fingerprint, the same every time, and one tiny change makes a new one. Defenders use it to store passwords and to prove that nothing changed.",
+    "icons": [
+     "fingerprint",
+     "lock",
+     "check"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:57",
+    "end": "3:13",
+    "beat": "Try it tomorrow",
+    "visual": "A student at a home table with a phone, comparing two fingerprints; then pointing at a download page for a friend.",
+    "animation": "Strips appear; the friend nods.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: in the lab, hash your name, change one letter, and compare the two fingerprints. Then find the fingerprint printed next to a download on an official website, and explain to a friend what it’s for.",
+    "icons": [
+     "fingerprint",
+     "download",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:30",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "You change one letter in a long message and hash it again with SHA-256. What happens to the fingerprint?",
+    "options": [
+     {
+      "text": "Only one character of it changes",
+      "correct": false
+     },
+     {
+      "text": "About half of its bits change",
+      "correct": true
+     },
+     {
+      "text": "It stays the same",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — about half of its 256 bits flip, so the fingerprint looks completely different. That’s how a hash shows that something was changed.",
+    "feedback_wrong": "Not quite — a good hash spreads any change across the whole fingerprint, so about half of its bits change.",
+    "resume_at": "1:33"
+   },
+   {
+    "at": "2:33",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A website emails you your old password “in case you forgot it”. What does that tell you?",
+    "options": [
+     {
+      "text": "It’s taking good care of your password",
+      "correct": false
+     },
+     {
+      "text": "It stores your password itself, not a fingerprint",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — a site that kept only the fingerprint couldn’t send your password back. Change that password, and don’t use it anywhere else.",
+    "feedback_wrong": "Not quite — with only a fingerprint, a site can’t send your password back. It must be storing the password itself.",
+    "resume_at": "2:36"
+   }
+  ]
+ }
+}

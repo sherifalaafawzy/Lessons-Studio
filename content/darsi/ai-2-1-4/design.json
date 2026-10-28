@@ -1,0 +1,444 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Names and marks",
+            "ar-EG": "أسامي ودرجات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "danger",
+          "text": {
+            "en": "A health note",
+            "ar-EG": "ملاحظة صحية"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "Where does it go?",
+            "ar-EG": "بيروح فين؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "phone",
+            "icon": "phone",
+            "text": {
+              "en": "Your phone",
+              "ar-EG": "موبايلك"
+            },
+            "s": 0
+          },
+          {
+            "id": "company",
+            "icon": "server",
+            "text": {
+              "en": "The company",
+              "ar-EG": "عند الشركة"
+            },
+            "s": 0,
+            "o": 2.5
+          },
+          {
+            "id": "stored",
+            "icon": "database",
+            "text": {
+              "en": "Stored",
+              "ar-EG": "بيتخزن"
+            },
+            "s": 1
+          },
+          {
+            "id": "train",
+            "icon": "cpu",
+            "tone": "danger",
+            "text": {
+              "en": "Training?",
+              "ar-EG": "يمكن للتدريب"
+            },
+            "s": 2,
+            "o": 4
+          }
+        ],
+        "edges": [
+          [
+            "phone",
+            "company"
+          ],
+          [
+            "company",
+            "stored"
+          ],
+          [
+            "stored",
+            "train"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Typed into a chat",
+            "ar-EG": "اتكتب في محادثة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "Used in training",
+            "ar-EG": "اتستخدم في التدريب"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Repeated word for word",
+            "ar-EG": "اتكرر بالحرف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "In someone else’s answer",
+            "ar-EG": "في إجابة لحد تاني"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "aside": "profile",
+      "list": [
+        {
+          "icon": "profile",
+          "text": {
+            "en": "A name",
+            "ar-EG": "اسم"
+          },
+          "s": 0,
+          "o": 4.5
+        },
+        {
+          "icon": "image",
+          "text": {
+            "en": "A face, a voice",
+            "ar-EG": "وش، أو صوت"
+          },
+          "s": 0,
+          "o": 5.5
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "An ID number",
+            "ar-EG": "رقم قومي"
+          },
+          "s": 0,
+          "o": 6.5
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "“The only girl with a hearing aid”",
+            "ar-EG": "«البنت الوحيدة اللي لابسة سماعة»"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "6": {
+      "who": "amina",
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Advice from another school",
+            "ar-EG": "رأي من مدرسة تانية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“One pupil keeps missing class”",
+            "ar-EG": "«تلميذة بتغيب كتير»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "No name, no family story",
+            "ar-EG": "لا اسم، ولا حكاية أهلها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Just as good advice",
+            "ar-EG": "ونفس النصيحة الكويسة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "steps": [
+        {
+          "text": {
+            "en": "Swap every name for a letter",
+            "ar-EG": "بدّل كل اسم بحرف"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Remove other clues to one child",
+            "ar-EG": "شيل أي علامة على طفل بعينه"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Keep the key on your own paper",
+            "ar-EG": "المفتاح في ورقة عندك"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "text": {
+            "en": "Deleting later isn’t enough",
+            "ar-EG": "المسح بعدين مش كفاية"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "aside": "lock",
+      "list": [
+        {
+          "icon": "award",
+          "tone": "danger",
+          "text": {
+            "en": "Names with marks",
+            "ar-EG": "أسامي مع درجات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "danger",
+          "text": {
+            "en": "Health and special needs",
+            "ar-EG": "الصحة والاحتياجات الخاصة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "home",
+          "tone": "danger",
+          "text": {
+            "en": "Family matters",
+            "ar-EG": "أمور العيلة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "image",
+          "tone": "danger",
+          "text": {
+            "en": "Photos and voice recordings",
+            "ar-EG": "صور وتسجيلات صوت"
+          },
+          "s": 1,
+          "o": 4.2
+        },
+        {
+          "icon": "fingerprint",
+          "tone": "danger",
+          "text": {
+            "en": "ID and phone numbers",
+            "ar-EG": "الرقم القومي والتليفون"
+          },
+          "s": 1,
+          "o": 6
+        }
+      ]
+    },
+    "10": {
+      "aside": "shield",
+      "list": [
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Settings: chats for training off?",
+            "ar-EG": "الإعدادات: التدريب مقفول؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Age rules: often 13 and over",
+            "ar-EG": "شروط السن: غالبًا من 13 سنة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Your school’s rules",
+            "ar-EG": "قواعد مدرستك"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Train on school sentences",
+            "ar-EG": "درّبه على جمل المدرسة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Add “Halima has asthma”",
+            "ar-EG": "زوّد «حليمة عندها ربو»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Write again and again",
+            "ar-EG": "اكتب تاني وتاني"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "It writes it back",
+            "ar-EG": "بيكتبها تاني"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "What goes in can come out",
+            "ar-EG": "اللي يدخل ممكن يطلع"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Some data never goes in",
+            "ar-EG": "بيانات عمرها ما تدخل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Names become Pupil A, B, C",
+            "ar-EG": "الأسامي تبقى تلميذ أ، ب، ج"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check settings, age and school rules",
+            "ar-EG": "راجع الإعدادات والسن والقواعد"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Share the task, never the child.",
+        "ar-EG": "شارك المهمة، عمرك ما تشارك الطفل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "traffic",
+          "text": {
+            "en": "Play “Traffic light”",
+            "ar-EG": "العبوا «إشارة المرور»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Green: fine to share",
+            "ar-EG": "أخضر: عادي نشاركه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "Amber: only without names",
+            "ar-EG": "أصفر: من غير أسامي بس"
+          },
+          "s": 3
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Red: never",
+            "ar-EG": "أحمر: أبدًا"
+          },
+          "s": 4
+        }
+      ]
+    }
+  }
+}

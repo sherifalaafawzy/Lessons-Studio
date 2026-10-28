@@ -1,0 +1,374 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "So how does it know?",
+        "ar-EG": "يبقى إزاي بيعرف؟"
+      },
+      "cards": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "You sign in",
+            "ar-EG": "بتسجّل دخول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "server",
+          "text": {
+            "en": "The site never keeps it",
+            "ar-EG": "الموقع مش بيحتفظ بيه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlehelp",
+          "text": {
+            "en": "So how?",
+            "ar-EG": "يبقى إزاي؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "data",
+            "icon": "file",
+            "text": {
+              "en": "Any data",
+              "ar-EG": "أي بيانات"
+            },
+            "s": 0
+          },
+          {
+            "id": "hash",
+            "icon": "cog",
+            "tone": "system",
+            "text": {
+              "en": "Hash function",
+              "ar-EG": "دالة الهاش"
+            },
+            "s": 0
+          },
+          {
+            "id": "fp",
+            "icon": "fingerprint",
+            "tone": "trusted",
+            "text": {
+              "en": "Fingerprint",
+              "ar-EG": "البصمة"
+            },
+            "s": 0
+          },
+          {
+            "id": "len",
+            "icon": "type",
+            "text": {
+              "en": "64 characters",
+              "ar-EG": "64 حرف ورقم"
+            },
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "data",
+            "hash"
+          ],
+          [
+            "hash",
+            "fp"
+          ],
+          [
+            "fp",
+            "len"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Same input, same fingerprint",
+            "ar-EG": "نفس المدخل، نفس البصمة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "One letter flips about half the bits",
+            "ar-EG": "حرف واحد يقلب حوالي نص البتّات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "One way: no going back",
+            "ar-EG": "اتجاه واحد: مفيش رجوع"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "fingerprint"
+    },
+    "5": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Same mangoes",
+            "ar-EG": "نفس المانجا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Same juice",
+            "ar-EG": "نفس العصير"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "No juice back to mangoes",
+            "ar-EG": "العصير مايرجعش مانجا"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "type",
+            "icon": "key",
+            "text": {
+              "en": "Your password",
+              "ar-EG": "الباسورد بتاعك"
+            },
+            "s": 2
+          },
+          {
+            "id": "hash",
+            "icon": "cog",
+            "tone": "system",
+            "text": {
+              "en": "Hash it",
+              "ar-EG": "اعمله هاش"
+            },
+            "s": 2
+          },
+          {
+            "id": "stored",
+            "icon": "database",
+            "text": {
+              "en": "Stored hash",
+              "ar-EG": "البصمة المحفوظة"
+            },
+            "s": 1
+          },
+          {
+            "id": "match",
+            "icon": "circlecheck",
+            "tone": "trusted",
+            "text": {
+              "en": "Same? You’re in",
+              "ar-EG": "متطابقين؟ ادخل"
+            },
+            "s": 3
+          }
+        ],
+        "edges": [
+          [
+            "type",
+            "hash"
+          ],
+          [
+            "hash",
+            "match"
+          ],
+          [
+            "stored",
+            "match"
+          ]
+        ]
+      }
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "hello: 2cf24dba…",
+            "ar-EG": "⁦hello: 2cf24dba…⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Hello: 185f8db3…",
+            "ar-EG": "⁦Hello: 185f8db3…⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Almost nothing in common",
+            "ar-EG": "تقريبًا مفيش حاجة مشتركة"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "download",
+          "text": {
+            "en": "Downloads: was the file changed?",
+            "ar-EG": "التحميل: الملف اتغيّر؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Backups: is the copy perfect?",
+            "ar-EG": "النسخ الاحتياطي: النسخة مظبوطة؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Evidence: proof nobody touched it",
+            "ar-EG": "الدليل: محدش لمسه"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "fingerprint"
+    },
+    "10": {
+      "steps": [
+        {
+          "text": {
+            "en": "Attackers hash common passwords",
+            "ar-EG": "المهاجم بيعمل هاش لباسوردات مشهورة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Sites add a random salt",
+            "ar-EG": "المواقع بتضيف ملح عشوائي"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A slow hash: every guess costs time",
+            "ar-EG": "هاش بطيء: كل تخمين بوقت"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Your part: long and unique",
+            "ar-EG": "دورك: طويل ومختلف"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "A one-way fingerprint",
+            "ar-EG": "بصمة في اتجاه واحد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Same input, same hash",
+            "ar-EG": "نفس المدخل، نفس الهاش"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Tiny change, new hash",
+            "ar-EG": "تغيير صغير، هاش جديد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Stores passwords, proves files",
+            "ar-EG": "تحفظ الباسورد، وتثبت الملفات"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "A site that can email your password isn’t hashing it.",
+        "ar-EG": "الموقع اللي يقدر يبعتلك الباسورد مش بيعمله هاش."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Hash your name in the lab",
+            "ar-EG": "اعمل هاش لاسمك في المعمل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Change one letter, compare",
+            "ar-EG": "غيّر حرف وقارن"
+          },
+          "s": 0
+        },
+        {
+          "icon": "download",
+          "text": {
+            "en": "Find a download’s fingerprint",
+            "ar-EG": "دوّر على بصمة ملف تحميل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Explain it to a friend",
+            "ar-EG": "اشرحها لصاحبك"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

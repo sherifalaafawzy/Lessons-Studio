@@ -1,0 +1,340 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "How do you talk in secret?",
+        "ar-EG": "إزاي تتكلم في السر؟"
+      },
+      "cards": [
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Your bank",
+            "ar-EG": "البنك بتاعك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "A chat app",
+            "ar-EG": "تطبيق الشات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Anyone can listen",
+            "ar-EG": "أي حد يتصنّت"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "The same secret key",
+            "ar-EG": "نفس المفتاح السري"
+          },
+          "s": 0
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Sent over the network",
+            "ar-EG": "يتبعت على الشبكة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Copied on the way",
+            "ar-EG": "يتنسخ في السكة"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Public key: share it with everyone",
+            "ar-EG": "المفتاح العام: قفل مفتوح للكل"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Private key: only it can open",
+            "ar-EG": "المفتاح الخاص: الوحيد اللي بيفتح"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "key"
+    },
+    "5": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Hand out open padlocks",
+            "ar-EG": "وزّع أقفال مفتوحة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "A friend locks the box",
+            "ar-EG": "صاحبك يقفل الصندوق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Only you can open it",
+            "ar-EG": "إنت بس تفتحه"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "cards": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "61 × 53 = 3233",
+            "ar-EG": "⁦61 × 53 = 3233⁩"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "circlehelp",
+          "text": {
+            "en": "3233 = ? × ?",
+            "ar-EG": "⁦3233 = ? × ?⁩"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "600 digits: far too hard",
+            "ar-EG": "600 رقم: صعب جدًا"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Lock with the public key",
+            "ar-EG": "اقفل بالمفتاح العام"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Open with the private key",
+            "ar-EG": "افتح بالمفتاح الخاص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Turn it around: a signature",
+            "ar-EG": "اقلبها: توقيع"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "msg",
+            "icon": "file",
+            "text": {
+              "en": "Message",
+              "ar-EG": "الرسالة"
+            },
+            "s": 0
+          },
+          {
+            "id": "sign",
+            "icon": "key",
+            "tone": "system",
+            "text": {
+              "en": "Sign (private)",
+              "ar-EG": "وقّع بالخاص"
+            },
+            "s": 0
+          },
+          {
+            "id": "check",
+            "icon": "filecheck",
+            "text": {
+              "en": "Check (public)",
+              "ar-EG": "اتأكد بالعام"
+            },
+            "s": 1
+          },
+          {
+            "id": "ok",
+            "icon": "circlecheck",
+            "tone": "trusted",
+            "text": {
+              "en": "Genuine",
+              "ar-EG": "أصلية"
+            },
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "msg",
+            "sign"
+          ],
+          [
+            "sign",
+            "check"
+          ],
+          [
+            "check",
+            "ok"
+          ]
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Proves: the connection is private",
+            "ar-EG": "بيثبت: الاتصال سري"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "link",
+          "text": {
+            "en": "Proves: it goes to that address",
+            "ar-EG": "بيثبت: رايح للعنوان ده"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Doesn’t prove: the site is honest",
+            "ar-EG": "مش بيثبت: إن الموقع أمين"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ],
+      "aside": "lock"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Public key: lock and check",
+            "ar-EG": "العام: يقفل ويتأكد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Private key: open and sign",
+            "ar-EG": "الخاص: يفتح ويوقّع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Padlock: private, not honest",
+            "ar-EG": "القفل: سري، مش أمين"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Moving to quantum-safe",
+            "ar-EG": "طرق جديدة ضد الكم"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Guard your private key, and judge a site by more than its padlock.",
+        "ar-EG": "احمي مفتاحك الخاص، ومتحكمش على الموقع بالقفل بس."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Make a tiny key pair",
+            "ar-EG": "اعمل زوج مفاتيح صغير"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Lock a word, sign a message",
+            "ar-EG": "اقفل كلمة، ووقّع رسالة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Compare security codes",
+            "ar-EG": "قارن كود الأمان"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlehelp",
+          "text": {
+            "en": "What does a match prove?",
+            "ar-EG": "التطابق بيثبت إيه؟"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

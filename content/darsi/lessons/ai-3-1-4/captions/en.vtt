@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.510
+On the board I wrote: “The bus didn’t
+
+2
+00:00:03.510 --> 00:00:06.230
+stop at the school because it was…”
+
+3
+00:00:06.710 --> 00:00:09.850
+My pupils called out “full” and “late”.
+
+4
+00:00:10.440 --> 00:00:11.940
+A model does the same.
+
+5
+00:00:12.530 --> 00:00:14.910
+But how does it know what “it” means?
+
+6
+00:00:16.300 --> 00:00:18.320
+Today: inside a language
+
+7
+00:00:18.320 --> 00:00:19.800
+model, step by step.
+
+8
+00:00:21.040 --> 00:00:22.080
+You know the first step:
+
+9
+00:00:22.620 --> 00:00:24.480
+text is cut into tokens.
+
+10
+00:00:25.110 --> 00:00:27.870
+Each token becomes a long list of
+
+11
+00:00:27.870 --> 00:00:29.510
+numbers, learned in training.
+
+12
+00:00:30.100 --> 00:00:32.540
+Words used in similar ways get
+
+13
+00:00:32.540 --> 00:00:36.060
+similar lists, so “bus” sits close
+
+14
+00:00:36.060 --> 00:00:38.740
+to “matatu”, far from “mango”.
+
+15
+00:00:39.810 --> 00:00:41.190
+Next, attention.
+
+16
+00:00:42.080 --> 00:00:44.600
+As the model writes, the newest token
+
+17
+00:00:44.600 --> 00:00:47.380
+looks back at every earlier token and
+
+18
+00:00:47.380 --> 00:00:48.660
+weighs which ones matter.
+
+19
+00:00:49.300 --> 00:00:52.000
+Here, “bus” and “stop” matter a
+
+20
+00:00:52.000 --> 00:00:54.360
+lot; “at” hardly at all.
+
+21
+00:00:54.920 --> 00:00:56.380
+That mix becomes the
+
+22
+00:00:56.380 --> 00:00:58.020
+context for the next word.
+
+23
+00:00:59.250 --> 00:01:01.970
+Then layers of neurons, like those in
+
+24
+00:01:01.970 --> 00:01:03.650
+lesson two, work on the numbers.
+
+25
+00:01:04.410 --> 00:01:06.270
+Attention and neurons take
+
+26
+00:01:06.270 --> 00:01:08.130
+turns, dozens of times.
+
+27
+00:01:08.770 --> 00:01:11.870
+At the top, it scores every possible next
+
+28
+00:01:11.870 --> 00:01:14.470
+token, picks one, and starts again.
+
+29
+00:01:15.670 --> 00:01:18.630
+So a language model is a huge neural
+
+30
+00:01:18.630 --> 00:01:21.510
+network trained to predict the next token.
+
+31
+00:01:22.150 --> 00:01:24.990
+Its loop: tokens, numbers,
+
+32
+00:01:25.550 --> 00:01:28.810
+attention, scores, pick, repeat.
+
+33
+00:01:30.110 --> 00:01:31.690
+Where do its billions of
+
+34
+00:01:31.690 --> 00:01:32.570
+weights come from?
+
+35
+00:01:33.150 --> 00:01:34.650
+Training comes in stages,
+
+36
+00:01:35.130 --> 00:01:35.970
+like a teacher’s.
+
+37
+00:01:36.500 --> 00:01:38.640
+Pretraining, like years of
+
+38
+00:01:38.640 --> 00:01:40.960
+reading: predicting the next token
+
+39
+00:01:40.960 --> 00:01:42.920
+across huge amounts of text.
+
+40
+00:01:43.550 --> 00:01:46.310
+Then fine-tuning, like teaching
+
+41
+00:01:46.310 --> 00:01:48.770
+practice: examples of good answers,
+
+42
+00:01:49.210 --> 00:01:51.110
+and people rating which is better.
+
+43
+00:01:52.350 --> 00:01:52.830
+Quick check!
+
+44
+00:01:53.440 --> 00:01:56.820
+When the model writes “full”, which step
+
+45
+00:01:56.820 --> 00:01:58.720
+lets it use “bus” from earlier?
+
+46
+00:02:00.010 --> 00:02:00.330
+Attention.
+
+47
+00:02:01.210 --> 00:02:03.650
+It lets the newest token draw on
+
+48
+00:02:03.650 --> 00:02:06.310
+“bus” and “stop”, further back.
+
+49
+00:02:06.960 --> 00:02:09.380
+Without it, the model would see little
+
+50
+00:02:09.380 --> 00:02:12.340
+more than “was”, and could guess anything.
+
+51
+00:02:13.720 --> 00:02:15.500
+Notice what the loop never
+
+52
+00:02:15.500 --> 00:02:17.660
+does: check a fact.
+
+53
+00:02:18.370 --> 00:02:20.010
+It learned which text is
+
+54
+00:02:20.010 --> 00:02:22.490
+likely, not which is true.
+
+55
+00:02:23.030 --> 00:02:25.930
+A rare fact, like a local history date,
+
+56
+00:02:26.250 --> 00:02:28.530
+can come out wrong, just as smoothly.
+
+57
+00:02:29.180 --> 00:02:32.080
+And if training rewards any answer over
+
+58
+00:02:32.080 --> 00:02:34.440
+“I don’t know”, it learns to guess.
+
+59
+00:02:35.760 --> 00:02:36.820
+Two habits help.
+
+60
+00:02:37.480 --> 00:02:39.860
+Grounding: give it a trusted source,
+
+61
+00:02:40.240 --> 00:02:42.580
+like the textbook page, and ask it
+
+62
+00:02:42.580 --> 00:02:44.820
+to answer only from that, so
+
+63
+00:02:44.820 --> 00:02:46.360
+attention draws on the page.
+
+64
+00:02:47.040 --> 00:02:49.620
+Then check against the source: grounding
+
+65
+00:02:49.620 --> 00:02:52.320
+lowers mistakes, but doesn’t remove them.
+
+66
+00:02:53.490 --> 00:02:56.290
+In the lab, a tiny model trained on
+
+67
+00:02:56.290 --> 00:02:59.510
+twenty-four sentences writes for you.
+
+68
+00:03:00.090 --> 00:03:02.350
+Start with “The teacher”, press
+
+69
+00:03:02.350 --> 00:03:05.210
+Next token, watch each step.
+
+70
+00:03:05.840 --> 00:03:07.000
+Then make it adventurous.
+
+71
+00:03:08.680 --> 00:03:09.440
+Your turn.
+
+72
+00:03:10.060 --> 00:03:12.720
+Why can a language model sound
+
+73
+00:03:12.720 --> 00:03:14.540
+sure and still be wrong?
+
+74
+00:03:15.720 --> 00:03:18.040
+It predicts likely text; it
+
+75
+00:03:18.040 --> 00:03:19.020
+doesn’t check facts.
+
+76
+00:03:19.850 --> 00:03:22.730
+Remember the loop: tokens, numbers,
+
+77
+00:03:23.370 --> 00:03:26.550
+attention, scores, pick, repeat.
+
+78
+00:03:27.270 --> 00:03:29.410
+It’s pretrained on huge amounts
+
+79
+00:03:29.410 --> 00:03:31.490
+of text, then fine-tuned.
+
+80
+00:03:32.100 --> 00:03:34.020
+So ground it, then check.
+
+81
+00:03:35.300 --> 00:03:36.700
+Try it in class tomorrow:
+
+82
+00:03:37.080 --> 00:03:38.360
+play “Who is ‘it’?”.
+
+83
+00:03:38.910 --> 00:03:41.650
+Write “The goat ate the maize
+
+84
+00:03:41.650 --> 00:03:42.830
+because it was hungry.”
+
+85
+00:03:43.500 --> 00:03:46.160
+Pupils draw arrows from “it” to
+
+86
+00:03:46.160 --> 00:03:47.260
+the words that give it away.
+
+87
+00:03:47.870 --> 00:03:49.850
+Then change “hungry” to
+
+88
+00:03:49.850 --> 00:03:52.050
+“sweet”: the arrows move.

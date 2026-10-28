@@ -1,0 +1,134 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        { "icon": "users", "text": { "en": "Pupils: “full”, “late”", "ar-EG": "التلاميذ: «مليان»، «متأخر»" }, "s": 1 },
+        { "icon": "bot", "text": { "en": "A model does it too", "ar-EG": "النموذج بيعملها برضه" }, "s": 2 },
+        { "icon": "help", "text": { "en": "What does “it” mean?", "ar-EG": "«هو» راجعة على مين؟" }, "s": 3 }
+      ]
+    },
+    "3": {
+      "aside": "language",
+      "list": [
+        { "icon": "type", "text": { "en": "Text cut into tokens", "ar-EG": "الكلام بيتقطّع لتوكنز" }, "s": 0 },
+        { "icon": "grid", "text": { "en": "Each token: a long list of numbers", "ar-EG": "كل توكن: لستة أرقام طويلة" }, "s": 1 },
+        { "icon": "map", "text": { "en": "“bus” near “matatu”, far from “mango”", "ar-EG": "«أتوبيس» جنب «ميكروباص»، بعيد عن «مانجة»" }, "s": 2 }
+      ]
+    },
+    "4": {
+      "chart": {
+        "kind": "bar", "s": 1, "max": 45,
+        "data": [34, 26, 22, 15, 3],
+        "labels": [
+          { "en": "bus", "ar-EG": "الأتوبيس" },
+          { "en": "didn’t stop", "ar-EG": "ماوقفش" },
+          { "en": "it was", "ar-EG": "هو كان" },
+          { "en": "school", "ar-EG": "المدرسة" },
+          { "en": "at", "ar-EG": "عند" }
+        ],
+        "unit": { "en": "Attention from the newest token (%)", "ar-EG": "انتباه آخر توكن (%)" }
+      }
+    },
+    "5": {
+      "arrows": true,
+      "cards": [
+        { "icon": "eye", "text": { "en": "Attention", "ar-EG": "الانتباه" }, "s": 0 },
+        { "icon": "network", "text": { "en": "Layers of neurons", "ar-EG": "طبقات خلايا عصبية" }, "s": 0, "o": 2.5 },
+        { "icon": "layers", "text": { "en": "Dozens of times over", "ar-EG": "عشرات المرات" }, "s": 1 },
+        { "icon": "check", "tone": "ok", "text": { "en": "Score, then pick", "ar-EG": "درجات، وبعدين اختيار" }, "s": 2 }
+      ]
+    },
+    "6": {
+      "flow": {
+        "nodes": [
+          { "id": "tokens", "icon": "type", "text": { "en": "Tokens", "ar-EG": "توكنز" }, "s": 1 },
+          { "id": "numbers", "icon": "grid", "text": { "en": "Numbers", "ar-EG": "أرقام" }, "s": 1 },
+          { "id": "attention", "icon": "eye", "text": { "en": "Attention", "ar-EG": "انتباه" }, "s": 1 },
+          { "id": "scores", "icon": "signal", "text": { "en": "Scores", "ar-EG": "درجات" }, "s": 1 },
+          { "id": "pick", "icon": "repeat", "tone": "system", "text": { "en": "Pick", "ar-EG": "اختار" }, "s": 1 }
+        ],
+        "edges": [["tokens", "numbers"], ["numbers", "attention"], ["attention", "scores"], ["scores", "pick"]]
+      }
+    },
+    "7": {
+      "compare": {
+        "left": {
+          "title": { "en": "Pretraining", "ar-EG": "التدريب المسبق" }, "icon": "book", "tone": "accent", "s": 2,
+          "items": [
+            { "icon": "notebook", "text": { "en": "Like years of reading", "ar-EG": "زي سنين من القراية" }, "s": 2, "o": 1.5 },
+            { "icon": "type", "text": { "en": "Predict the next token", "ar-EG": "توقّع التوكن الجاي" }, "s": 2, "o": 3.5 }
+          ]
+        },
+        "right": {
+          "title": { "en": "Fine-tuning", "ar-EG": "الضبط الدقيق" }, "icon": "graduation", "tone": "ok", "s": 3,
+          "items": [
+            { "icon": "school", "text": { "en": "Like teaching practice", "ar-EG": "زي التدريب العملي" }, "s": 3, "o": 1.5 },
+            { "icon": "filecheck", "text": { "en": "Examples of good answers", "ar-EG": "أمثلة لإجابات كويسة" }, "s": 3, "o": 3.5 },
+            { "icon": "users", "text": { "en": "People rate the answers", "ar-EG": "ناس بتقيّم الإجابات" }, "s": 3, "o": 6 }
+          ]
+        }
+      }
+    },
+    "9": {
+      "compare": {
+        "left": {
+          "title": { "en": "With attention", "ar-EG": "بالانتباه" }, "icon": "eye", "tone": "ok", "s": 1,
+          "items": [
+            { "icon": "chat", "text": { "en": "Draws on “bus” and “stop”", "ar-EG": "بيستفيد من «الأتوبيس» و«ماوقفش»" }, "s": 1, "o": 1 },
+            { "icon": "circlecheck", "text": { "en": "Writes “full”", "ar-EG": "بيكتب «مليان»" }, "s": 1, "o": 3 }
+          ]
+        },
+        "right": {
+          "title": { "en": "Without it", "ar-EG": "من غيره" }, "icon": "circlex", "tone": "danger", "s": 2,
+          "items": [
+            { "icon": "type", "text": { "en": "Sees little more than “was”", "ar-EG": "مش شايف غير «كان»" }, "s": 2, "o": 1 },
+            { "icon": "shuffle", "text": { "en": "Could guess anything", "ar-EG": "ممكن يخمّن أي حاجة" }, "s": 2, "o": 3 }
+          ]
+        }
+      }
+    },
+    "10": {
+      "aside": "bot",
+      "list": [
+        { "icon": "search", "tone": "danger", "text": { "en": "It never checks a fact", "ar-EG": "عمره ما بيتأكد من معلومة" }, "s": 0 },
+        { "icon": "scale", "text": { "en": "Likely isn’t the same as true", "ar-EG": "المحتمل مش هو الصح" }, "s": 1 },
+        { "icon": "warning", "tone": "danger", "text": { "en": "Rare facts: wrong, but smooth", "ar-EG": "معلومة نادرة: غلط بس سلسة" }, "s": 2 },
+        { "icon": "target", "text": { "en": "Rewarded for guessing, it guesses", "ar-EG": "لو اتكافئ على التخمين، بيخمّن" }, "s": 3 }
+      ]
+    },
+    "11": {
+      "steps": [
+        { "text": { "en": "Give it the textbook page", "ar-EG": "إدّيله صفحة الكتاب" }, "s": 1 },
+        { "text": { "en": "Answer only from that page", "ar-EG": "يجاوب من الصفحة دي بس" }, "s": 1, "o": 3.5 },
+        { "text": { "en": "Check the answer against the source", "ar-EG": "راجع الإجابة على المصدر" }, "s": 2 },
+        { "text": { "en": "Fewer mistakes, not none", "ar-EG": "أخطاء أقل، مش صفر" }, "s": 2, "o": 3.5 }
+      ]
+    },
+    "12": {
+      "arrows": true,
+      "cards": [
+        { "icon": "chat", "text": { "en": "Start with “The teacher”", "ar-EG": "ابدأ بـ«المعلم»" }, "s": 1 },
+        { "icon": "next", "text": { "en": "Press Next token", "ar-EG": "دوس «الرمز التالي»" }, "s": 1, "o": 2 },
+        { "icon": "eye", "text": { "en": "Watch each step", "ar-EG": "تابع كل خطوة" }, "s": 1, "o": 3.5 },
+        { "icon": "sparkle", "tone": "ok", "text": { "en": "Make it adventurous", "ar-EG": "خلّيه «جريء»" }, "s": 2 }
+      ]
+    },
+    "14": {
+      "points": [
+        { "text": { "en": "Likely isn’t the same as true", "ar-EG": "المحتمل مش هو الصح" }, "s": 0 },
+        { "text": { "en": "Tokens, numbers, attention, scores, pick", "ar-EG": "توكنز، أرقام، انتباه، درجات، اختيار" }, "s": 1 },
+        { "text": { "en": "Pretraining, then fine-tuning", "ar-EG": "تدريب مسبق، وبعدين ضبط دقيق" }, "s": 2 },
+        { "text": { "en": "Ground it, then check", "ar-EG": "اربطه بمصدر، وبعدين راجع" }, "s": 3 }
+      ],
+      "takeaway": { "en": "It writes what’s likely; you check what’s true.", "ar-EG": "هو بيكتب المحتمل، وإنت بتتأكد من الصح." }
+    },
+    "15": {
+      "list": [
+        { "icon": "pencil", "text": { "en": "“…because it was hungry.”", "ar-EG": "«…علشان هي كانت جعانة.»" }, "s": 1 },
+        { "icon": "arrow", "text": { "en": "Arrows from “it” to its clues", "ar-EG": "أسهم من «هي» للكلمات اللي بتوضحها" }, "s": 2 },
+        { "icon": "shuffle", "text": { "en": "Swap in “sweet”: arrows move", "ar-EG": "غيّرها لـ«حلوة»: الأسهم تتحرك" }, "s": 3 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+ "id": "CYBER-S3-4",
+ "track": "cyber",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How attacks work, and how to defend"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Secret messages: encryption basics",
+  "subtitle": "From Caesar’s cipher to the apps on your phone",
+  "minutes": 6,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "Secret messages: encryption basics",
+  "length": "3:05",
+  "format_note": "Animated explainer for students aged 12–16, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in. Cipher text appears on screen only; it is never read aloud.",
+  "cast": [
+   "Ms Salma Haddad — maths teacher (main character)",
+   "Mr Joseph Mwangi — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   { "at": "0:00", "label": "A secret note" },
+   { "at": "0:19", "label": "What encryption is" },
+   { "at": "0:48", "label": "Cracking Caesar" },
+   { "at": "1:40", "label": "Encryption today" },
+   { "at": "2:39", "label": "Remember and try it" }
+  ],
+  "scenes": [
+   {
+    "n": 1, "start": "0:00", "end": "0:12", "beat": "Hook",
+    "visual": "Ms Salma at her desk holds up a folded note covered in jumbled letters, and raises an eyebrow.",
+    "animation": "The note unfolds; letters jiggle.",
+    "on_screen_text": "",
+    "voice": "Ms Salma Haddad",
+    "narration": "A student left this note on my desk this morning. It looks like nonsense. But it’s a secret message, and by the end of this video, you’ll be able to read it.",
+    "icons": ["notebook", "lock", "search"]
+   },
+   {
+    "n": 2, "start": "0:12", "end": "0:19", "beat": "Title",
+    "visual": "Paper-grey card: the Darsi mark, the lesson title and the cyber track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Secret messages: encryption basics",
+    "voice": "Narrator",
+    "narration": "Today: how encryption keeps secrets, from an ancient cipher to the apps on your phone."
+   },
+   {
+    "n": 3, "start": "0:19", "end": "0:32", "beat": "Definition",
+    "visual": "A readable message goes into a box with a key slot and comes out scrambled; then back through the box, readable again.",
+    "animation": "Message slides in, scrambles, unscrambles.",
+    "on_screen_text": "Encryption: only the key can read it",
+    "voice": "Narrator",
+    "narration": "Encryption scrambles a message so that only someone with the key can read it. The readable message is called plaintext, and the scrambled one is ciphertext. Turning it back is called decryption.",
+    "icons": ["file", "lock", "key"]
+   },
+   {
+    "n": 4, "start": "0:32", "end": "0:48", "beat": "Concept",
+    "visual": "Two alphabet strips, one above the other. The lower strip slides three places along; arrows join A to D, B to E.",
+    "animation": "The strip slides; arrows draw.",
+    "on_screen_text": "Caesar’s cipher: shift every letter",
+    "voice": "Narrator",
+    "narration": "One of the oldest is Caesar’s cipher, named after the Roman general. You shift every letter along the alphabet by the same number. With a shift of three, A becomes D, B becomes E, and so on. The shift is the key.",
+    "icons": ["type", "arrow", "key"]
+   },
+   {
+    "n": 5, "start": "0:48", "end": "1:03", "beat": "Concept",
+    "visual": "A row of numbered keys from 1 to 25; a hand tries them one by one until the note becomes readable.",
+    "animation": "Keys flip over quickly.",
+    "on_screen_text": "Weakness: very few keys",
+    "voice": "Narrator",
+    "narration": "But Caesar’s cipher has a big weakness: there are very few keys. In English there are only twenty-five useful shifts, and in Arabic, twenty-seven. Anyone can simply try them all, in a few minutes by hand, or instantly with a computer.",
+    "icons": ["key", "repeat", "zap"]
+   },
+   {
+    "n": 6, "start": "1:03", "end": "1:21", "beat": "Examples",
+    "visual": "A scholar's desk in old Baghdad with a manuscript; a bar chart of letter counts rises from the page, one tall bar standing out.",
+    "animation": "Bars grow; the tallest bar glows.",
+    "on_screen_text": "Al-Kindi: count the letters",
+    "voice": "Narrator",
+    "narration": "There’s an even smarter way, first described more than a thousand years ago by Al-Kindi, a scholar in Baghdad. Some letters are far more common than others: in English it’s E, and in Arabic, alif. Count the letters in a secret message, and the most common one probably stands for E, or alif.",
+    "icons": ["book", "search", "calculator"]
+   },
+   {
+    "n": 7, "start": "1:21", "end": "1:29", "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph holds up three letter tiles and a small dial set to 1. Three answer cards drop in.",
+    "animation": "Joseph slides in; the cards drop with a small bounce.",
+    "on_screen_text": "Encrypt it",
+    "voice": "Mr Joseph Mwangi",
+    "narration": "Quick check! Using Caesar’s cipher with a shift of one, how would you write the word CAT?"
+   },
+   {
+    "n": 8, "start": "1:29", "end": "1:40", "beat": "Reveal",
+    "visual": "The correct card gets a check badge; three tiles each step one place along the alphabet strip.",
+    "animation": "Check badge pops; tiles slide one step.",
+    "on_screen_text": "Each letter moves one step",
+    "voice": "Narrator",
+    "narration": "D, B, U. Each letter moves one step along: C becomes D, A becomes B, and T becomes U. To decrypt, you shift back by the same key.",
+    "icons": ["circlecheck", "arrow", "back"]
+   },
+   {
+    "n": 9, "start": "1:40", "end": "1:56", "beat": "Concept",
+    "visual": "A huge number with thirty-nine digits scrolls across the screen; beside it, a supercomputer and a slowly turning galaxy.",
+    "animation": "The number scrolls; the galaxy turns.",
+    "on_screen_text": "Modern keys: too many to try",
+    "voice": "Narrator",
+    "narration": "Modern encryption still uses keys, but there are unimaginably many of them. A common key size gives a number of possible keys with thirty-nine digits. Even the fastest supercomputers would need far longer than the age of the universe to try them all.",
+    "icons": ["key", "cpu", "sparkle"]
+   },
+   {
+    "n": 10, "start": "1:56", "end": "2:16", "beat": "Examples",
+    "visual": "Three panels: a chat with a padlock, a browser address bar with a padlock, a locked phone holding a photo gallery.",
+    "animation": "Each padlock clicks shut as it is named.",
+    "on_screen_text": "Encryption you use every day",
+    "voice": "Narrator",
+    "narration": "You use encryption every day. Chat apps like WhatsApp use end-to-end encryption, so only the people in the chat can read the messages. The padlock in your browser means your connection to the site is encrypted. And most modern phones encrypt their storage, with your screen lock protecting the key.",
+    "icons": ["chat", "lock", "phone"]
+   },
+   {
+    "n": 11, "start": "2:16", "end": "2:29", "beat": "Concept",
+    "visual": "A strong safe with a key hanging on a hook beside it; a hand reaches for the key, not the safe.",
+    "animation": "The hand moves past the safe to the key; a student takes the key back.",
+    "on_screen_text": "Keep your keys to yourself",
+    "voice": "Narrator",
+    "narration": "Encryption is strong, but it can’t protect a key you give away. That’s why attackers trick people for codes and passwords instead of breaking the maths. Keep your screen lock, passwords and codes to yourself.",
+    "icons": ["lock", "key", "hand"]
+   },
+   {
+    "n": 12, "start": "2:29", "end": "2:39", "beat": "Checkpoint ◆",
+    "visual": "Ms Salma points at the Caesar alphabet strips on the board. Two answer cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Why is it easy to crack?",
+    "voice": "Ms Salma Haddad",
+    "narration": "Your turn. Why is Caesar’s cipher so easy to crack? Is it because it’s old, or because there are so few keys that you can try them all?"
+   },
+   {
+    "n": 13, "start": "2:39", "end": "2:52", "beat": "Recap",
+    "visual": "The ‘few keys’ card gets the check badge. Three summary cards line up: a key, a giant number, a hand holding a key close.",
+    "animation": "Cards line up left to right.",
+    "on_screen_text": "A key, many keys, kept secret",
+    "voice": "Narrator",
+    "narration": "So few keys that you can try them all, and counting letters gives it away even faster. Remember: encryption needs a key, modern keys are too many to try, and a key you share isn’t secret any more.",
+    "icons": ["key", "calculator", "hand"]
+   },
+   {
+    "n": 14, "start": "2:52", "end": "3:05", "beat": "Try it tomorrow",
+    "visual": "Two friends pass a folded note; one whispers the key. Ms Salma's note decodes on screen. End card: the Darsi mark.",
+    "animation": "The note's letters slide back three places; end card fades in.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: write a short message to a friend in Caesar’s cipher, and tell them the key in person. And Ms Salma’s note? Shift each letter back by three. It says: Hello from Salma.",
+    "icons": ["pencil", "users", "key"]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:27", "after_scene": 7, "type": "choice",
+    "prompt": "With Caesar’s cipher and a shift of 1, how do you write CAT?",
+    "options": [
+     { "text": "BZS", "correct": false },
+     { "text": "DBU", "correct": true },
+     { "text": "FDW", "correct": false }
+    ],
+    "feedback_correct": "Correct — each letter moves one step along the alphabet: C→D, A→B, T→U.",
+    "feedback_wrong": "Not quite — BZS shifts back by one, and FDW shifts by three. With a shift of 1, C→D, A→B, T→U: DBU.",
+    "resume_at": "1:29"
+   },
+   {
+    "at": "2:37", "after_scene": 12, "type": "choice",
+    "prompt": "Why is Caesar’s cipher easy to crack?",
+    "options": [
+     { "text": "Because it’s very old", "correct": false },
+     { "text": "There are so few keys you can try them all", "correct": true }
+    ],
+    "feedback_correct": "Correct — 25 keys in English, 27 in Arabic: you can try every one in minutes.",
+    "feedback_wrong": "Not quite — being old isn’t the problem. It has so few keys (25 in English, 27 in Arabic) that you can try them all.",
+    "resume_at": "2:39"
+   }
+  ]
+ }
+}

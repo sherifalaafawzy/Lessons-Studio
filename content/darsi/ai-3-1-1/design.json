@@ -1,0 +1,119 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        { "icon": "users", "text": { "en": "A pupil’s question", "ar-EG": "سؤال تلميذ" }, "s": 0 },
+        { "icon": "brain", "tone": "danger", "text": { "en": "A tiny brain inside?", "ar-EG": "مخ صغير جوه؟" }, "s": 0, "o": 1.5 },
+        { "icon": "network", "text": { "en": "What is it made of?", "ar-EG": "معمولة من إيه؟" }, "s": 2 }
+      ]
+    },
+    "3": {
+      "who": "joseph",
+      "mood": "curious",
+      "list": [
+        { "icon": "cloud", "text": { "en": "Is it cloudy?", "ar-EG": "الدنيا مغيمة؟" }, "s": 2 },
+        { "icon": "cloudrain", "text": { "en": "Does the forecast say rain?", "ar-EG": "النشرة بتقول هتمطر؟" }, "s": 3 },
+        { "icon": "calendar", "text": { "en": "Is it the rainy season?", "ar-EG": "إحنا في موسم المطر؟" }, "s": 4 },
+        { "icon": "check", "text": { "en": "Yes = 1, no = 0", "ar-EG": "أيوه = 1، لأ = 0" }, "s": 5 },
+        { "icon": "scale", "tone": "ok", "text": { "en": "Each input × a weight", "ar-EG": "كل مدخل × وزن" }, "s": 6 }
+      ]
+    },
+    "4": {
+      "list": [
+        { "icon": "scale", "text": { "en": "Weights: forecast 3, season 2, clouds 1", "ar-EG": "الأوزان: النشرة 3، الموسم 2، الغيوم 1" }, "s": 0 },
+        { "icon": "cloud", "text": { "en": "Today: cloudy 1, rain forecast 1, season 0", "ar-EG": "النهارده: مغيمة 1، النشرة مطر 1، الموسم 0" }, "s": 1 },
+        { "icon": "calculator", "text": { "en": "1×1 + 1×3 + 0×2 = 4", "ar-EG": "1×1 + 1×3 + 0×2 = 4" }, "s": 2 },
+        { "icon": "target", "text": { "en": "Bias −1: the total is 3", "ar-EG": "الانحياز سالب 1: المجموع 3" }, "s": 3 },
+        { "icon": "check", "tone": "ok", "text": { "en": "Above 0: take the umbrella", "ar-EG": "أكبر من 0: خد الشمسية" }, "s": 4 }
+      ]
+    },
+    "5": {
+      "steps": [
+        { "text": { "en": "Weights start as random numbers", "ar-EG": "الأوزان بتبدأ أرقام عشوائية" }, "s": 1 },
+        { "text": { "en": "Compare each answer with the right one", "ar-EG": "قارن كل إجابة بالإجابة الصح" }, "s": 2 },
+        { "text": { "en": "Adjust the weights a little", "ar-EG": "عدّل الأوزان حبة صغيرين" }, "s": 2, "o": 2.5 },
+        { "text": { "en": "Learning = changing weights and bias", "ar-EG": "التعلّم = تغيير الأوزان والانحياز" }, "s": 3 }
+      ]
+    },
+    "6": {
+      "aside": "cpu",
+      "list": [
+        { "icon": "calculator", "text": { "en": "Multiply, add the bias, decide", "ar-EG": "اضرب، وضيف الانحياز، وقرّر" }, "s": 0 },
+        { "icon": "brain", "tone": "danger", "text": { "en": "Not a brain cell: arithmetic", "ar-EG": "مش خلية مخ: حساب وبس" }, "s": 1 },
+        { "icon": "scale", "text": { "en": "Bias: how keen to say yes", "ar-EG": "الانحياز: قد إيه مايلة لأيوه" }, "s": 2 }
+      ]
+    },
+    "7": {
+      "compare": {
+        "left": {
+          "title": { "en": "Marking scheme", "ar-EG": "نظام الدرجات" }, "icon": "clipboard", "tone": "accent", "s": 0,
+          "items": [
+            { "icon": "scale", "text": { "en": "Exam counts 3× homework", "ar-EG": "الامتحان بتلات أضعاف الواجب" }, "s": 1 },
+            { "icon": "flag", "text": { "en": "Compare with the pass mark", "ar-EG": "قارن بدرجة النجاح" }, "s": 2 },
+            { "icon": "graduation", "text": { "en": "Pass or fail", "ar-EG": "ناجح أو راسب" }, "s": 2, "o": 2.5 }
+          ]
+        },
+        "right": {
+          "title": { "en": "A neuron", "ar-EG": "الخلية العصبية" }, "icon": "cpu", "tone": "ok", "s": 1,
+          "items": [
+            { "icon": "scale", "text": { "en": "Inputs × weights", "ar-EG": "المدخلات × الأوزان" }, "s": 1, "o": 1.5 },
+            { "icon": "flag", "text": { "en": "Add the bias", "ar-EG": "ضيف الانحياز" }, "s": 2, "o": 1 },
+            { "icon": "check", "text": { "en": "Yes or no", "ar-EG": "أيوه أو لأ" }, "s": 2, "o": 3.5 }
+          ]
+        }
+      }
+    },
+    "9": {
+      "cards": [
+        { "icon": "zap", "text": { "en": "Bigger weight: pushes harder", "ar-EG": "وزن أكبر: يزقّ أكتر" }, "s": 1 },
+        { "icon": "square", "tone": "muted", "text": { "en": "Zero: ignored", "ar-EG": "صفر: متجاهَل" }, "s": 2 },
+        { "icon": "circlex", "tone": "danger", "text": { "en": "Negative: pushes towards no", "ar-EG": "سالب: يزقّ ناحية لأ" }, "s": 3 }
+      ]
+    },
+    "10": {
+      "compare": {
+        "left": {
+          "title": { "en": "One neuron", "ar-EG": "خلية واحدة" }, "icon": "ruler", "tone": "accent", "s": 1,
+          "items": [
+            { "icon": "ruler", "text": { "en": "One straight line", "ar-EG": "خط مستقيم واحد" }, "s": 1, "o": 1 },
+            { "icon": "check", "text": { "en": "Yes one side, no the other", "ar-EG": "أيوه ناحية، ولأ ناحية" }, "s": 1, "o": 3 }
+          ]
+        },
+        "right": {
+          "title": { "en": "Comfortable?", "ar-EG": "الفصل مريح؟" }, "icon": "thermometer", "tone": "danger", "s": 2,
+          "items": [
+            { "icon": "circlex", "text": { "en": "Too cold: no", "ar-EG": "برد قوي: لأ" }, "s": 3 },
+            { "icon": "circlecheck", "tone": "ok", "text": { "en": "Just right: yes", "ar-EG": "مظبوط: أيوه" }, "s": 3, "o": 1 },
+            { "icon": "circlex", "text": { "en": "Too hot: no", "ar-EG": "حر قوي: لأ" }, "s": 3, "o": 2 }
+          ]
+        }
+      }
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        { "icon": "cloud", "text": { "en": "The umbrella neuron", "ar-EG": "خلية الشمسية" }, "s": 0 },
+        { "icon": "scale", "text": { "en": "A weight each, and a bias", "ar-EG": "وزن لكل واحد، وانحياز" }, "s": 0, "o": 2.5 },
+        { "icon": "checksquare", "tone": "ok", "text": { "en": "All four days right", "ar-EG": "الأيام الأربعة صح" }, "s": 1 }
+      ]
+    },
+    "13": {
+      "points": [
+        { "text": { "en": "Inputs × weights, plus a bias", "ar-EG": "المدخلات × الأوزان، زائد الانحياز" }, "s": 1 },
+        { "text": { "en": "The total decides", "ar-EG": "المجموع بيقرّر" }, "s": 1 },
+        { "text": { "en": "Learning changes the weights", "ar-EG": "التعلّم بيغيّر الأوزان" }, "s": 2 },
+        { "text": { "en": "One neuron: one straight line", "ar-EG": "خلية واحدة: خط مستقيم واحد" }, "s": 3 }
+      ],
+      "takeaway": { "en": "A neuron is arithmetic: multiply, add, decide.", "ar-EG": "الخلية العصبية حساب: اضرب، اجمع، قرّر." }
+    },
+    "14": {
+      "list": [
+        { "icon": "users", "text": { "en": "Three pupils hold input cards", "ar-EG": "تلات تلاميذ ماسكين كروت" }, "s": 1 },
+        { "icon": "scale", "text": { "en": "Each card: 1 or 0, and a weight", "ar-EG": "كل كارت: 1 أو 0، ووزن" }, "s": 1, "o": 2.5 },
+        { "icon": "calculator", "text": { "en": "A fourth adds up and decides", "ar-EG": "الرابع يجمع ويقرّر" }, "s": 2 },
+        { "icon": "repeat", "text": { "en": "Change a weight, decide again", "ar-EG": "غيّروا وزن، وقرّروا تاني" }, "s": 3 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+ "id": "IOT-2-1-3",
+ "track": "iot",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Circuits and microcontrollers"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Bits and bytes",
+  "subtitle": "How a device stores numbers, letters and sensor readings",
+  "minutes": 6,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "Bits and bytes",
+  "length": "3:47",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma — secondary maths teacher (main character)",
+   "Mr Okafor — Grade 8 science teacher (cameo)",
+   "Amina Bello — primary teacher (cameo)",
+   "Mr Joseph — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Why an Arabic SMS costs more"
+   },
+   {
+    "at": "0:24",
+    "label": "Switches that count"
+   },
+   {
+    "at": "1:48",
+    "label": "Sensor readings in bits"
+   },
+   {
+    "at": "2:30",
+    "label": "How big is data?"
+   },
+   {
+    "at": "3:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:17",
+    "beat": "Hook",
+    "visual": "Ms Salma holds up a phone showing a long Arabic message split into 3 parts; beside it, the English one in 1 part.",
+    "animation": "The message counter ticks 1, 2, 3.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "My pupils sent a text message in Arabic, and it went as three messages. The same text in English went as one. Same phone, same length, three times the price. The reason is bits.",
+    "icons": [
+     "phone",
+     "chat",
+     "banknote"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:17",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "Darsi title card with the IoT track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Bits and bytes",
+    "voice": "Narrator",
+    "narration": "Today: bits and bytes, how every device stores numbers, words and sensor readings."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "A row of tiny switches, one flips on. Then two, three, eight switches with a counter of possible values.",
+    "animation": "Switches flip; the counter doubles each time a switch is added.",
+    "on_screen_text": "A bit: on or off",
+    "voice": "Narrator",
+    "narration": "Inside a device, everything is stored as tiny switches that are on or off. Each one is a bit: a one or a zero. One bit can only say yes or no. But every extra bit doubles how many values you can make.",
+    "icons": [
+     "cpu",
+     "check",
+     "cross"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:45",
+    "end": "1:06",
+    "beat": "Definition",
+    "visual": "Place values 16, 8, 4, 2, 1 above five boxes; the boxes for 4 and 1 light up and add to 5.",
+    "animation": "Place values pop in right to left; lit boxes add up.",
+    "on_screen_text": "Each place doubles",
+    "voice": "Narrator",
+    "narration": "In binary, each place is worth double the one to its right: one, two, four, eight, sixteen, and so on. To read a binary number, add up the places that are on. One, zero, one means four, no two, and one: five.",
+    "icons": [
+     "calculator",
+     "grid"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "1:06",
+    "end": "1:31",
+    "beat": "Examples",
+    "visual": "Eight boxes join into one 'byte' block. The letter A drops into one block; an Arabic letter takes two. An SMS bubble fills up.",
+    "animation": "Blocks fill; the SMS bubble's counter stops at 70.",
+    "on_screen_text": "Eight bits make a byte",
+    "voice": "Narrator",
+    "narration": "Eight bits make a byte, which holds any number from zero to two hundred and fifty-five. A Latin letter, like A, is stored in one byte. An Arabic letter needs two bytes. A text message has room for a hundred and forty bytes, so an Arabic one holds only seventy letters.",
+    "icons": [
+     "type",
+     "language",
+     "phone"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:31",
+    "end": "1:39",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Okafor holds three cards: 1, 1, 0. Two answer cards drop in.",
+    "animation": "Cards drop in with a small bounce.",
+    "on_screen_text": "What is 110 in binary?",
+    "voice": "Mr Okafor",
+    "narration": "Quick check! In binary, what number is one, one, zero?"
+   },
+   {
+    "n": 7,
+    "start": "1:39",
+    "end": "1:48",
+    "beat": "Reveal",
+    "visual": "The three cards turn over: 4 lit, 2 lit, 1 dark; a big 6 appears.",
+    "animation": "Cards flip; check badge pops.",
+    "on_screen_text": "It's six",
+    "voice": "Narrator",
+    "narration": "Six. The places are four, two and one. Four plus two is six, and the ones place is zero.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:48",
+    "end": "2:11",
+    "beat": "Concept",
+    "visual": "Two boards side by side; a sensor's wavy voltage becomes a staircase of numbers, finer on the ESP32.",
+    "animation": "The staircase on the right has smaller steps.",
+    "on_screen_text": "More bits, finer readings",
+    "voice": "Narrator",
+    "narration": "Bits matter for sensors too. A microcontroller turns a sensor's voltage into a number. An Arduino Uno uses ten bits, so its readings go from zero to one thousand and twenty-three. An ESP32 uses twelve bits: from zero to four thousand and ninety-five, so it sees finer steps.",
+    "icons": [
+     "cpu",
+     "gauge"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:11",
+    "end": "2:30",
+    "beat": "Examples",
+    "visual": "A thermometer beside a staircase: each step labelled 0.5 °C.",
+    "animation": "The reading climbs one step at a time.",
+    "on_screen_text": "One step, in degrees",
+    "voice": "Narrator",
+    "narration": "What does a step mean? On a five-volt Arduino, each step is about five millivolts. With a common temperature sensor, that's about half a degree per step. More bits give finer steps, but more data to store and send.",
+    "icons": [
+     "thermometer",
+     "gauge"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:30",
+    "end": "2:51",
+    "beat": "Examples",
+    "visual": "Three objects on a scale: a tiny reading, a text bubble, and a huge photo that tips the scale.",
+    "animation": "Each item drops onto the scale in turn.",
+    "on_screen_text": "How big is data?",
+    "voice": "Narrator",
+    "narration": "So how big is data? A temperature reading fits in two bytes. A text message is about a hundred and forty. A phone photo is about three million. That's why a sensor can send readings all year over a slow, cheap network.",
+    "icons": [
+     "thermometer",
+     "chat",
+     "image"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:51",
+    "end": "3:05",
+    "beat": "Checkpoint ◆",
+    "visual": "Amina beside a small weather station on a pole with a SIM symbol. Thumbs-up and thumbs-down cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Lots of data?",
+    "voice": "Amina Bello",
+    "narration": "Your turn. Our weather station sends one temperature reading every ten minutes, over mobile data. Will that use a lot of data?"
+   },
+   {
+    "n": 12,
+    "start": "3:05",
+    "end": "3:26",
+    "beat": "Recap",
+    "visual": "Four icons line up: a switch, doubling arrows, a byte block, a fine staircase.",
+    "animation": "Icons line up left to right, 250 ms apart.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No: about a hundred and fifty readings a day, a few bytes each, is tiny, even with the extra bytes every message carries. Remember: a bit is one or zero, each place doubles, eight bits make a byte, and more bits give finer readings."
+   },
+   {
+    "n": 13,
+    "start": "3:26",
+    "end": "3:47",
+    "beat": "Try it tomorrow",
+    "visual": "Groups race with dot cards; one holds up 10110 for 22. A pupil writes her age, 01101, on the board.",
+    "animation": "Cards flip; a group cheers.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: binary dot cards. Give each group five cards, and race to make the numbers you call out. Finish with every pupil writing their age in binary. Next time: the microcontroller that puts all of this to work."
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "In binary, what number is 110?",
+    "options": [
+     {
+      "text": "Six",
+      "correct": true
+     },
+     {
+      "text": "One hundred and ten",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the places are 4, 2 and 1, so 110 is 4 + 2 = 6.",
+    "feedback_wrong": "Not quite — in binary the places are 4, 2 and 1, not hundreds, tens and ones. 110 is 4 + 2 = 6.",
+    "resume_at": "1:39"
+   },
+   {
+    "at": "3:01",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A weather station sends one temperature reading every 10 minutes over mobile data. Is that a lot of data?",
+    "options": [
+     {
+      "text": "Yes, it's a lot",
+      "correct": false
+     },
+     {
+      "text": "No, it's tiny",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — 144 readings a day at a few bytes each is tiny, even with each message's extra bytes.",
+    "feedback_wrong": "Not quite — a reading is only a few bytes. 144 a day is far less than one photo.",
+    "resume_at": "3:05"
+   }
+  ]
+ }
+}

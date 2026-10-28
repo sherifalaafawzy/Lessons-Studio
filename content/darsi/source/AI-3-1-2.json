@@ -1,0 +1,318 @@
+{
+ "id": "AI-3-1-2",
+ "track": "ai",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI models work"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "How a network learns",
+  "subtitle": "Layers, errors and small steps downhill",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "How a network learns",
+  "length": "3:11",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Who sets the weights?"
+   },
+   {
+    "at": "0:15",
+    "label": "Layers make shapes"
+   },
+   {
+    "at": "0:31",
+    "label": "The training loop"
+   },
+   {
+    "at": "1:55",
+    "label": "Examples and the lab"
+   },
+   {
+    "at": "2:40",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:10",
+    "beat": "Hook",
+    "visual": "Staff room. Joseph reads an article on his phone; a huge number of weights fills the headline. He looks up, puzzled.",
+    "animation": "The number counts up quickly (1 s); push-in on Joseph’s face.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "This article says a new AI model has billions of weights. Nobody set one of them by hand. So how did the network find them?",
+    "icons": [
+     "file",
+     "network",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:10",
+    "end": "0:15",
+    "beat": "Title",
+    "visual": "Paper-grey title card with the Darsi mark, the course name and the lesson title.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "How a network learns",
+    "voice": "Narrator",
+    "narration": "Today: how a network learns, one small step at a time.",
+    "icons": [
+     "spark",
+     "network"
+    ]
+   },
+   {
+    "n": 3,
+    "start": "0:15",
+    "end": "0:31",
+    "beat": "Concept",
+    "visual": "Dots on a chart: circles in the middle, squares in a ring around them. One line fails. Then three neurons each draw a line, and a neuron in the next layer joins them into a shape around the circles.",
+    "animation": "Lines draw one at a time (300 ms); the enclosed region fills softly.",
+    "on_screen_text": "Layers make shapes",
+    "voice": "Narrator",
+    "narration": "One neuron draws one straight line. Put a few neurons side by side, each drawing its own line. A neuron in the next layer combines their answers. Two lines make a band; a few lines can fence in a circle.",
+    "icons": [
+     "ruler",
+     "network",
+     "layers",
+     "target"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:31",
+    "end": "0:46",
+    "beat": "Concept",
+    "visual": "A small network with random weight lines guesses ‘square’ for a circle; the label ‘circle’ appears beside it and the gap between them becomes a red error bar.",
+    "animation": "Guess pops in; the label slides in; the error bar grows (300 ms).",
+    "on_screen_text": "Guess, then measure the error",
+    "voice": "Narrator",
+    "narration": "So how does it learn? At first its weights are random, so it guesses. Show it an example and compare its answer with the right label. The gap is the error: a number for how wrong it was.",
+    "icons": [
+     "shuffle",
+     "tag",
+     "gauge"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "1:02",
+    "beat": "Concept",
+    "visual": "Every weight line gets a tiny up or down arrow; the error bar shrinks a little. Example cards flick past, faster and faster.",
+    "animation": "Arrows flicker on each line (100 ms); the error bar shrinks in small steps.",
+    "on_screen_text": "Nudge every weight",
+    "voice": "Narrator",
+    "narration": "Then the clever part. For every weight, the computer works out whether a tiny nudge up would make the error bigger or smaller. It nudges each weight the way that shrinks the error. Then the next example, thousands of times.",
+    "icons": [
+     "search",
+     "gauge",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:02",
+    "end": "1:13",
+    "beat": "Definition",
+    "visual": "Clean white card: a loop of four steps (guess, measure the error, nudge downhill, repeat) beside a ball rolling down a gentle slope.",
+    "animation": "Steps appear 300 ms apart; the ball rolls down in small hops.",
+    "on_screen_text": "Gradient descent",
+    "voice": "Narrator",
+    "narration": "That loop is training: guess, measure the error, nudge every weight a little downhill, and repeat. It’s called gradient descent. Gradient means slope, and descent means going down.",
+    "icons": [
+     "repeat",
+     "gauge",
+     "arrow"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:32",
+    "beat": "Analogy",
+    "visual": "Early morning on a misty Kenyan hillside. A walker can’t see the valley and feels the slope with each step. A giant stride overshoots to the far slope; tiny steps leave her near the top as the sun sets.",
+    "animation": "Mist drifts; footprints appear step by step; the overshoot arc swings across the valley.",
+    "on_screen_text": "Downhill in the fog",
+    "voice": "Narrator",
+    "narration": "Picture walking down a hill in thick fog. You can’t see the valley, but you feel the slope, and step down, again and again. Huge strides could carry you over the valley and up the other side. Tiny steps are safe, but you’d still be walking at nightfall.",
+    "icons": [
+     "map",
+     "eye",
+     "warning",
+     "clock"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:42",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah beside a zigzagging error line that never comes down. Three answer cards drop in.",
+    "animation": "Character slides in; answer cards drop in with a small bounce.",
+    "on_screen_text": "The error won’t settle",
+    "voice": "Dr Farah",
+    "narration": "Quick check! Your network’s error jumps up and down and never settles. What would you try first?",
+    "icons": [
+     "help",
+     "gauge"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:42",
+    "end": "1:55",
+    "beat": "Reveal",
+    "visual": "The ‘Smaller steps’ card gets the check badge. The zigzag line calms into a smooth curve that settles low.",
+    "animation": "Check badge pops (150 ms); the zigzag smooths over 1 s.",
+    "on_screen_text": "Smaller steps settle",
+    "voice": "Narrator",
+    "narration": "Smaller steps. A jumping error usually means the steps overshoot the bottom of the valley. In the lab, the step size is the learning rate. Too small is slow; too big never settles.",
+    "icons": [
+     "gauge",
+     "warning",
+     "clock"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:55",
+    "end": "2:14",
+    "beat": "Examples",
+    "visual": "A farmer photographs a cassava leaf. Training photos are all in bright sun; a cloudy-day photo gets a cross. Then a varied stack: shade, cloud, different phones, different farms, and the cross turns into a check.",
+    "animation": "Photo cards fan out; the cross flips to a check as the varied stack lands.",
+    "on_screen_text": "The examples make the hill",
+    "voice": "Narrator",
+    "narration": "The examples matter too: they make the hill. Train a leaf-disease spotter only on sunny photos, and it may fail on cloudy days. With too few examples, it can learn a shape that isn’t there. Varied examples, from different phones, farms and light, teach the real shape.",
+    "icons": [
+     "leaf",
+     "sun",
+     "warning",
+     "image"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:14",
+    "end": "2:32",
+    "beat": "Lab preview",
+    "visual": "A phone screen with the Circle data: circles inside, squares around. With no hidden layer the background splits in a straight line; with one layer of four neurons it bends around the circle as the error line falls.",
+    "animation": "The background colours shift as training runs; the error line draws downwards.",
+    "on_screen_text": "Lab: the network playground",
+    "voice": "Narrator",
+    "narration": "In the lab, you train a real network on your phone. Pick the circle with no hidden layers: it fails. Add a layer of four neurons, press Train, and watch the error fall as the background bends around the circle. Then try another learning rate.",
+    "icons": [
+     "phone",
+     "layers",
+     "gauge"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:32",
+    "end": "2:40",
+    "beat": "Checkpoint ◆",
+    "visual": "Joseph holds two small charts: circles inside a ring of squares, and two groups of dots far apart. Two answer cards appear beside him.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which needs a hidden layer?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Which of these needs at least one hidden layer?",
+    "icons": [
+     "help",
+     "layers"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:40",
+    "end": "2:54",
+    "beat": "Recap",
+    "visual": "The ring card gets the check badge, then the summary lines build.",
+    "animation": "Points appear 250 ms apart.",
+    "on_screen_text": "Layers · Loop · Steps",
+    "voice": "Narrator",
+    "narration": "Circles inside a ring: no straight line can do it, so it needs a hidden layer. Remember: layers combine lines into shapes. Training repeats guess, error, nudge downhill. And it needs sensible steps and varied examples.",
+    "icons": [
+     "layers",
+     "repeat",
+     "gauge"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:54",
+    "end": "3:11",
+    "beat": "Try it tomorrow",
+    "visual": "Joseph’s classroom: one pupil walks between the desks looking for a hidden piece of chalk while classmates call out; arrows on the floor show the path getting closer.",
+    "animation": "Footsteps appear; ‘warmer’ and ‘colder’ bubbles pop up from the class.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: play “Warmer, colder”. One pupil steps out while the class hides the chalk. Back inside, they move only by “warmer” or “colder”. Then ask: what was the error, what were the steps? That’s training, following the error downhill.",
+    "icons": [
+     "school",
+     "users",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:40",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Your network’s error jumps up and down and never settles. What would you try first?",
+    "options": [
+     {
+      "text": "Smaller steps",
+      "correct": true
+     },
+     {
+      "text": "Bigger steps",
+      "correct": false
+     },
+     {
+      "text": "Fewer examples",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — an error that jumps about usually means the steps overshoot. Smaller steps settle.",
+    "feedback_wrong": "Not quite — when the error jumps up and down, the steps are usually too big and overshoot. Try smaller steps first.",
+    "resume_at": "1:42"
+   },
+   {
+    "at": "2:38",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Which of these needs at least one hidden layer?",
+    "options": [
+     {
+      "text": "Two groups of dots, far apart",
+      "correct": false
+     },
+     {
+      "text": "Circles inside a ring of squares",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — no straight line separates an inside from a ring around it. A hidden layer combines several lines.",
+    "feedback_wrong": "Not quite — two groups far apart can be split with one straight line. Circles inside a ring need several lines, so a hidden layer.",
+    "resume_at": "2:40"
+   }
+  ]
+ }
+}

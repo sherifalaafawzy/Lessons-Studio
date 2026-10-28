@@ -1,0 +1,96 @@
+{
+  "scenes": {
+    "1": {
+      "quote": { "en": "“My password is safe: it’s my name and my birth year.”", "ar-EG": "«الباسورد بتاعي أمان: ده اسمي وسنة ميلادي.»" },
+      "cards": [
+        { "icon": "key", "text": { "en": "Name + birth year", "ar-EG": "الاسم + سنة الميلاد" }, "s": 0, "tone": "danger" },
+        { "icon": "profile", "text": { "en": "His name on top", "ar-EG": "اسمه فوق خالص" }, "s": 2 },
+        { "icon": "image", "text": { "en": "His birthday cake", "ar-EG": "تورتة عيد ميلاده" }, "s": 3 }
+      ]
+    },
+    "3": {
+      "list": [
+        { "icon": "key", "text": { "en": "The key to games, chats and email", "ar-EG": "مفتاح الألعاب والشات والإيميل" }, "s": 0 },
+        { "icon": "cpu", "text": { "en": "Programs try millions of guesses", "ar-EG": "برامج بتجرّب ملايين التخمينات" }, "s": 2 },
+        { "icon": "list", "text": { "en": "123456, names, birthdays, teams", "ar-EG": "123456، أسامي، أعياد ميلاد، نوادي" }, "s": 2 }
+      ],
+      "aside": "bot"
+    },
+    "4": {
+      "compare": {
+        "left": {
+          "title": { "en": "Length", "ar-EG": "الطول" }, "icon": "lock", "tone": "ok", "s": 0,
+          "items": [
+            { "icon": "lock", "text": { "en": "3 dials: 1,000", "ar-EG": "3 عجلات: 1,000" }, "s": 1 },
+            { "icon": "lock", "text": { "en": "6 dials: 1,000,000", "ar-EG": "6 عجلات: 1,000,000" }, "s": 1 },
+            { "icon": "gauge", "text": { "en": "Each character multiplies", "ar-EG": "كل حرف بيضاعف" }, "s": 2 }
+          ]
+        },
+        "right": {
+          "title": { "en": "Symbol tricks", "ar-EG": "حركات الرموز" }, "icon": "warning", "tone": "danger", "s": 3,
+          "items": [
+            { "icon": "key", "text": { "en": "P@ssw0rd", "ar-EG": "P@ssw0rd" }, "s": 3 },
+            { "icon": "bot", "text": { "en": "Programs know it", "ar-EG": "البرامج عارفاها" }, "s": 4 }
+          ]
+        }
+      }
+    },
+    "5": {
+      "steps": [
+        { "text": { "en": "Pick three or four random words", "ar-EG": "اختار تلات أو أربع كلمات عشوائية" }, "s": 1 },
+        { "text": { "en": "Nothing to do with you", "ar-EG": "ملهاش علاقة بيك" }, "s": 1 },
+        { "text": { "en": "Join them together", "ar-EG": "حطّهم جنب بعض" }, "s": 1 },
+        { "text": { "en": "Long, hard to guess, easy to picture", "ar-EG": "طويل، صعب، سهل تتخيّله" }, "s": 2 }
+      ]
+    },
+    "6": {
+      "list": [
+        { "icon": "pencil", "text": { "en": "mango bicycle thunder spoon", "ar-EG": "مانجا عجلة رعد معلقة" }, "s": 0 },
+        { "icon": "image", "text": { "en": "Picture one funny scene", "ar-EG": "اتخيّل مشهد واحد مضحك" }, "s": 1 },
+        { "icon": "brain", "text": { "en": "You won’t forget it", "ar-EG": "مش هتنساها" }, "s": 2 },
+        { "icon": "circlex", "text": { "en": "Don’t use ours: make your own", "ar-EG": "متستخدمش بتاعتنا: اعمل بتاعتك" }, "s": 3, "tone": "danger" }
+      ]
+    },
+    "8": {
+      "cards": [
+        { "icon": "circlecheck", "text": { "en": "tiger-lamp-orange-boat", "ar-EG": "tiger-lamp-orange-boat" }, "s": 0, "tone": "ok" },
+        { "icon": "circlex", "text": { "en": "Amina#2011", "ar-EG": "Amina#2011" }, "s": 2, "tone": "danger" },
+        { "icon": "circlex", "text": { "en": "P@ssw0rd", "ar-EG": "P@ssw0rd" }, "s": 2, "tone": "danger" }
+      ]
+    },
+    "9": {
+      "flow": {
+        "nodes": [
+          { "id": "game", "icon": "puzzle", "text": { "en": "A game site leaks it", "ar-EG": "موقع لعبة سرّبه" }, "tone": "danger", "s": 1 },
+          { "id": "email", "icon": "mail", "text": { "en": "Your email", "ar-EG": "الإيميل بتاعك" }, "s": 1 },
+          { "id": "chat", "icon": "chat", "text": { "en": "Your chats", "ar-EG": "الشات بتاعك" }, "s": 1 },
+          { "id": "reset", "icon": "key", "text": { "en": "Reset links go there", "ar-EG": "لينكات التغيير بتروحله" }, "tone": "system", "s": 2 }
+        ],
+        "edges": [["game", "email"], ["game", "chat"], ["email", "reset"]]
+      }
+    },
+    "10": {
+      "list": [
+        { "icon": "lock", "text": { "en": "Friends fall out; phones get borrowed", "ar-EG": "الصحاب بيتخانقوا، والموبايلات بتتسلّف" }, "s": 0 },
+        { "icon": "users", "text": { "en": "A parent helping you is different", "ar-EG": "أهلك اللي بيساعدوك حاجة تانية" }, "s": 1 },
+        { "icon": "notebook", "text": { "en": "A password manager, or a notebook at home", "ar-EG": "مدير باسوردات، أو كشكول في البيت" }, "s": 3 },
+        { "icon": "close", "text": { "en": "Sign out on shared computers", "ar-EG": "اخرج من حسابك على أي جهاز مش بتاعك" }, "s": 4 }
+      ]
+    },
+    "12": {
+      "points": [
+        { "text": { "en": "Long random words", "ar-EG": "كلمات عشوائية طويلة" }, "s": 1 },
+        { "text": { "en": "A different one for each account", "ar-EG": "واحد مختلف لكل حساب" }, "s": 1 },
+        { "text": { "en": "Never shared", "ar-EG": "متقولوش لحد" }, "s": 1 }
+      ],
+      "takeaway": { "en": "Your email’s password matters most.", "ar-EG": "باسورد الإيميل هو الأهم." }
+    },
+    "13": {
+      "list": [
+        { "icon": "pencil", "text": { "en": "Pick four random words", "ar-EG": "اختار أربع كلمات عشوائية" }, "s": 0 },
+        { "icon": "image", "text": { "en": "Picture one funny scene", "ar-EG": "اتخيّل مشهد مضحك يجمعهم" }, "s": 0 },
+        { "icon": "mail", "text": { "en": "Then make a new one for your email", "ar-EG": "وبعدين اعمل واحدة جديدة للإيميل" }, "s": 1 }
+      ]
+    }
+  }
+}

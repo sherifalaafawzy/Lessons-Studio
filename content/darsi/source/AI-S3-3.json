@@ -1,0 +1,308 @@
+{
+ "id": "AI-S3-3",
+ "track": "ai",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Train your own model"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Test it honestly",
+  "subtitle": "Fair tests, overfitting and two kinds of mistake",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Test it honestly",
+  "length": "3:06",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Twenty out of twenty?"
+   },
+   {
+    "at": "0:18",
+    "label": "An honest test"
+   },
+   {
+    "at": "1:01",
+    "label": "Overfitting"
+   },
+   {
+    "at": "1:57",
+    "label": "Which mistake matters, and the lab"
+   },
+   {
+    "at": "2:34",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "The computer lab. A student proudly shows Mr Joseph her phone: her leaf model’s score, a big ‘20/20’ with a star. Joseph scrolls through the test photos, then the training photos beside them: the same twenty leaves. He raises an eyebrow, kindly.",
+    "animation": "The star pops (≤ 200 ms); the two photo strips slide together and match up one by one.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "One of my students said her leaf model was perfect: twenty out of twenty! I asked which photos she’d tested it on. The same twenty she’d trained it on.",
+    "icons": [
+     "star",
+     "help",
+     "repeat"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey card. The Darsi mark pops in, then the course name, the lesson title and a yellow ‘AI’ track chip with the spark icon.",
+    "animation": "Mark scales 0→100% with a small overshoot (≤ 200 ms); title slides up.",
+    "on_screen_text": "Test it honestly",
+    "voice": "Narrator",
+    "narration": "Today: how to test a model honestly, and what its mistakes tell you."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "A pile of labelled leaf photos splits in two: four in every five slide left into a box marked with a cog (training), one in five slides right into a locked box (test). The lock clicks shut.",
+    "animation": "Photos deal out like cards (100 ms each); the lock snaps shut (150 ms).",
+    "on_screen_text": "Keep a test set apart",
+    "voice": "Narrator",
+    "narration": "Before you train, put about one in five examples aside. The model never sees them while it learns. They’re your test set, the only fair way to measure it.",
+    "icons": [
+     "boxes",
+     "lock",
+     "cog"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:43",
+    "beat": "Concept",
+    "visual": "The locked box opens. Test photos go to the model one at a time; its guess appears beside the real label. A check or a cross badge pops on each, and a counter climbs to 17 out of 20.",
+    "animation": "Badges pop (150 ms); the counter ticks up.",
+    "on_screen_text": "Count right and wrong",
+    "voice": "Narrator",
+    "narration": "Then test. Show the model each test example and compare its answer with the real label. Count the right ones: seventeen out of twenty, say. That’s fair, because they were new to it.",
+    "icons": [
+     "checksquare",
+     "circlex",
+     "calculator"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:43",
+    "end": "1:01",
+    "beat": "Concept",
+    "visual": "The three crossed photos come forward. Two columns: on the left, a healthy leaf with a ‘sick’ tag and a ringing alarm bell (false positive); on the right, a spotted leaf with a ‘healthy’ tag slipping past an open gate (false negative).",
+    "animation": "Columns slide in from each side; the bell wobbles; the leaf slides through the gate.",
+    "on_screen_text": "Two kinds of wrong",
+    "voice": "Narrator",
+    "narration": "Now look at the three wrong ones: there are two kinds. A false positive says yes when it’s no: “sick” for a healthy leaf. That’s a false alarm. A false negative says no when it’s yes: “healthy” for a sick leaf. That’s a miss.",
+    "icons": [
+     "warning",
+     "circlex",
+     "leaf"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:01",
+    "end": "1:15",
+    "beat": "Definition",
+    "visual": "Clean white card with the AI track chip. Two bars grow side by side: ‘training photos’ to 20 out of 20, ‘new photos’ only to 11. The gap between them is shaded and labelled ‘overfitting’.",
+    "animation": "Bars grow left to right (600 ms); the gap shading fades in.",
+    "on_screen_text": "Overfitting: memorised, not learned",
+    "voice": "Narrator",
+    "narration": "Why not test on the training examples? Because a model can memorise them. Overfitting is when a model is perfect on its training examples, but poor on new ones. It memorised, instead of learning the pattern.",
+    "icons": [
+     "gauge",
+     "brain",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:15",
+    "end": "1:35",
+    "beat": "Analogy",
+    "visual": "Ms Salma tells the story beside a hand-drawn street map: her route is marked only by a red kiosk. The kiosk turns blue and a question mark pops over her little figure. Her neighbour’s finger traces the streets on the map and reaches the school by another way.",
+    "animation": "The kiosk changes colour (300 ms); the question mark pops; the neighbour’s route draws along the streets (1 s).",
+    "on_screen_text": "Landmarks or a map?",
+    "voice": "Ms Salma",
+    "narration": "When I moved to a new town, I found my way to school by landmarks: left at the red kiosk. Then someone painted the kiosk blue, and I was lost! My neighbour could read the map, so she found the way from anywhere. Landmarks are memorising; the map is learning.",
+    "icons": [
+     "mapPin",
+     "shuffle",
+     "map"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:44",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma beside two score cards: ‘training photos 20/20’ and ‘new photos 11/20’, one eyebrow raised. Three answer cards drop in below her.",
+    "animation": "Character slides in from the side; answer cards drop in with a small bounce.",
+    "on_screen_text": "What’s going on?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A model gets twenty out of twenty on its training photos, but eleven on new ones. What’s going on?"
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:57",
+    "beat": "Reveal",
+    "visual": "The card ‘It memorised: overfitting’ gets a blue check badge. The gap between the two bars flashes; then more varied photos pour into the training box and the gap shrinks.",
+    "animation": "Check badge pops (150 ms). The new-photos bar grows towards the other (800 ms).",
+    "on_screen_text": "Mind the gap",
+    "voice": "Narrator",
+    "narration": "It memorised: overfitting. A big gap between the training and test scores is the warning sign. More, and more varied, examples help. So does a simpler model that can’t just memorise.",
+    "icons": [
+     "circlecheck",
+     "warning",
+     "boxes"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:57",
+    "end": "2:12",
+    "beat": "Examples",
+    "visual": "Two cards side by side. Left: a field of bean plants; one missed sick plant spreads brown spots to its neighbours. Right: a phone’s spam folder, where a real message from school, ‘Exam timetable’, sits hidden.",
+    "animation": "Spots spread plant to plant (1 s); the school message slides into the spam folder.",
+    "on_screen_text": "Which mistake costs more?",
+    "voice": "Narrator",
+    "narration": "Which mistake matters more depends on your model. For a leaf-disease spotter, a miss is worse: one sick plant can infect the field. For a spam filter, a false alarm is worse: a message from school gets hidden.",
+    "icons": [
+     "leaf",
+     "mail",
+     "scale"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:12",
+    "end": "2:28",
+    "beat": "Lab preview",
+    "visual": "A phone screen showing the ‘Too good to be true’ lab: circles (training examples) and squares (new examples) on a chart, a curve through them, a ‘Freedom’ slider and two error bars. The slider moves up: the curve bends wildly through every circle, and the new-examples bar shoots up. A switch flips to ‘Many (40)’ and the curve calms.",
+    "animation": "The curve redraws as the slider moves (600 ms); the error bars grow and shrink.",
+    "on_screen_text": "Lab: too good to be true",
+    "voice": "Narrator",
+    "narration": "In the app, circles are the training examples and squares are new ones. Give the model more freedom, a bendier curve, and watch it hit every circle while missing the squares. Switch to forty examples, and it calms down.",
+    "icons": [
+     "target",
+     "square",
+     "gauge",
+     "boxes"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:28",
+    "end": "2:34",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph beside a microscope photo of a blood sample, with two tags: ‘malaria’ and ‘clear’. Three answer cards appear beside him.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which mistake matters more?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Your model spots malaria in microscope photos of blood. Which mistake matters more?"
+   },
+   {
+    "n": 13,
+    "start": "2:34",
+    "end": "2:52",
+    "beat": "Recap",
+    "visual": "The ‘Missing a real case’ card gets the check badge, then the screen resolves into four summary lines and a closing line.",
+    "animation": "Lines tick in one by one, 250 ms apart.",
+    "on_screen_text": "Test set, gap, mistakes",
+    "voice": "Narrator",
+    "narration": "Missing a real case: a sick person could go untreated, while a false alarm means a second test. Remember: keep a test set apart, and count right and wrong on it. Perfect on training, poor on new examples: that’s overfitting. And decide which mistake costs more.",
+    "icons": [
+     "lock",
+     "checksquare",
+     "scale"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:52",
+    "end": "3:06",
+    "beat": "Try it tomorrow",
+    "visual": "Two friends on a school bench. One reads five sums from a card and the other recites the answers fast; then a new card with new numbers, and a puzzled pause. They laugh, and sketch the two bars from the video in a notebook. Mr Joseph gives a thumbs up. End card: the Darsi mark.",
+    "animation": "The cards flip; a small ‘?’ pops; the bars sketch themselves. End card fades in.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: ask a friend to memorise the answers to five sums. Then give them five new sums of the same kind. If they only memorised, they’ll struggle. Then explain overfitting, using what just happened.",
+    "icons": [
+     "pencil",
+     "calculator",
+     "chat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A model gets 20 out of 20 on its training photos, but 11 out of 20 on new ones. What’s going on?",
+    "options": [
+     {
+      "text": "It’s ready to use",
+      "correct": false
+     },
+     {
+      "text": "It memorised: overfitting",
+      "correct": true
+     },
+     {
+      "text": "The new photos are wrong",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a big gap between the training score and the test score is the sign of overfitting.",
+    "feedback_wrong": "Not quite — the new photos are the honest test. Perfect on training but poor on new ones means it memorised: overfitting.",
+    "resume_at": "1:44"
+   },
+   {
+    "at": "2:31",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your model spots malaria in microscope photos of blood. Which mistake matters more?",
+    "options": [
+     {
+      "text": "A false alarm on someone healthy",
+      "correct": false
+     },
+     {
+      "text": "They matter exactly the same",
+      "correct": false
+     },
+     {
+      "text": "Missing a real case",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — a missed case leaves a sick person untreated, while a false alarm is caught by a second test.",
+    "feedback_wrong": "Not quite — a false alarm leads to a second test, but a miss leaves a sick person untreated. The miss costs more.",
+    "resume_at": "2:34"
+   }
+  ]
+ }
+}

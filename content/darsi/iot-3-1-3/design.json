@@ -1,0 +1,316 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Garden sensor, long holiday",
+            "ar-EG": "حساس الجنينة، إجازة طويلة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "wifi",
+          "text": {
+            "en": "Wi-Fi every minute, 2 AA",
+            "ar-EG": "واي فاي كل دقيقة، 2 AA"
+          },
+          "s": 1
+        },
+        {
+          "icon": "battery",
+          "text": {
+            "en": "Flat in under 3 weeks",
+            "ar-EG": "فصل في أقل من 3 أسابيع"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "big": {
+        "value": {
+          "en": "mAh ÷ mA",
+          "ar-EG": "⁦mAh ÷ mA⁩"
+        },
+        "label": {
+          "en": "Capacity ÷ average current = hours",
+          "ar-EG": "السعة ÷ متوسط التيار = الساعات"
+        },
+        "icon": "battery",
+        "s": 1
+      }
+    },
+    "4": {
+      "chart": {
+        "kind": "bar",
+        "data": [
+          0.01,
+          5,
+          120
+        ],
+        "labels": [
+          {
+            "en": "Sleeping",
+            "ar-EG": "نايم"
+          },
+          {
+            "en": "Measuring",
+            "ar-EG": "بيقيس"
+          },
+          {
+            "en": "Sending (Wi-Fi)",
+            "ar-EG": "بيبعت (واي فاي)"
+          }
+        ],
+        "max": 150,
+        "unit": {
+          "en": "Current, in mA",
+          "ar-EG": "التيار، بالمللي أمبير"
+        },
+        "s": 1
+      }
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "120 mA for 2 s, every minute",
+            "ar-EG": "‏120 مللي أمبير لمدة ثانيتين، كل دقيقة"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Average: about 4 mA",
+            "ar-EG": "المتوسط: حوالي 4 مللي أمبير"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "70% of 2,500 = 1,750 mAh",
+            "ar-EG": "‏70% من 2500 = 1750 مللي أمبير ساعة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "1,750 ÷ 4 ≈ 440 hours: 18 days",
+            "ar-EG": "‏1750 ÷ 4 ≈ 440 ساعة: 18 يوم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "7": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Every minute",
+            "ar-EG": "كل دقيقة"
+          },
+          "icon": "clock",
+          "tone": "danger",
+          "s": 0,
+          "items": [
+            {
+              "text": {
+                "en": "About 4 mA",
+                "ar-EG": "حوالي 4 مللي أمبير"
+              },
+              "s": 0
+            },
+            {
+              "text": {
+                "en": "About 18 days",
+                "ar-EG": "حوالي 18 يوم"
+              },
+              "s": 0
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Every 15 minutes",
+            "ar-EG": "كل 15 دقيقة"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "text": {
+                "en": "Under 0.3 mA",
+                "ar-EG": "أقل من 0.3 مللي أمبير"
+              },
+              "s": 1
+            },
+            {
+              "text": {
+                "en": "About 9 months",
+                "ar-EG": "حوالي 9 شهور"
+              },
+              "s": 1
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "sun",
+            "icon": "sun",
+            "text": {
+              "en": "Sun: 4 to 6 hours",
+              "ar-EG": "الشمس: من 4 لـ 6 ساعات"
+            },
+            "s": 0
+          },
+          {
+            "id": "panel",
+            "icon": "grid",
+            "text": {
+              "en": "Solar panel",
+              "ar-EG": "لوح شمسي"
+            },
+            "s": 0
+          },
+          {
+            "id": "bat",
+            "icon": "battery",
+            "text": {
+              "en": "Battery: nights, clouds",
+              "ar-EG": "البطارية: الليل والغيم"
+            },
+            "s": 1
+          },
+          {
+            "id": "sensor",
+            "icon": "sprout",
+            "text": {
+              "en": "Sensor, all year",
+              "ar-EG": "الحساس، طول السنة"
+            },
+            "tone": "trusted",
+            "s": 1
+          }
+        ],
+        "edges": [
+          [
+            "sun",
+            "panel"
+          ],
+          [
+            "panel",
+            "bat"
+          ],
+          [
+            "bat",
+            "sensor"
+          ]
+        ]
+      }
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Uses about 100 mAh a day",
+            "ar-EG": "بيستهلك حوالي 100 مللي أمبير ساعة في اليوم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "5 cloudy days: 500 mAh",
+            "ar-EG": "‏5 أيام غيم: 500 مللي أمبير ساعة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "With 70%: about 715 mAh",
+            "ar-EG": "بحساب الـ 70%: حوالي 715"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Panel: 3 times the daily use",
+            "ar-EG": "اللوح: 3 أضعاف استهلاك اليوم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "points": [
+        {
+          "text": {
+            "en": "Capacity ÷ current = hours",
+            "ar-EG": "السعة ÷ التيار = الساعات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Plan with 70% of the label",
+            "ar-EG": "احسب على 70% من المكتوب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Sleep more, send less",
+            "ar-EG": "نام أكتر، وابعت أقل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Panel: 3 times the daily use",
+            "ar-EG": "اللوح: 3 أضعاف استهلاك اليوم"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "The radio drains the battery: send only what you need.",
+        "ar-EG": "الإرسال هو اللي بيصفّي البطارية: ابعت اللي محتاجه بس."
+      }
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Each group: a sensor card",
+            "ar-EG": "كل مجموعة: كارت حساس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Work out how long it lasts",
+            "ar-EG": "احسبوا هيعيش قد إيه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Change one thing: last a term",
+            "ar-EG": "غيّروا حاجة واحدة: ترم كامل"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

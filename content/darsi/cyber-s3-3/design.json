@@ -1,0 +1,105 @@
+{
+  "scenes": {
+    "1": {
+      "arrows": true,
+      "cards": [
+        { "icon": "key", "text": { "en": "One strong password", "ar-EG": "باسورد واحد قوي" }, "s": 0 },
+        { "icon": "warning", "text": { "en": "An old forum hacked", "ar-EG": "منتدى قديم اتهكّر" }, "s": 2, "tone": "danger" },
+        { "icon": "users", "text": { "en": "Tried everywhere", "ar-EG": "اتجرّب في كل حتة" }, "s": 3, "tone": "danger" }
+      ]
+    },
+    "3": {
+      "list": [
+        { "icon": "list", "text": { "en": "Common ones: 123456, names", "ar-EG": "المشهور: 123456 والأسامي" }, "s": 1 },
+        { "icon": "book", "text": { "en": "Long lists of words", "ar-EG": "قوايم طويلة من الكلمات" }, "s": 2 },
+        { "icon": "shuffle", "text": { "en": "Every possible combination", "ar-EG": "كل التركيبات الممكنة" }, "s": 3 },
+        { "icon": "file", "text": { "en": "Passwords from leaks", "ar-EG": "باسوردات من تسريبات" }, "s": 4 }
+      ],
+      "aside": "key"
+    },
+    "4": {
+      "compare": {
+        "left": { "title": { "en": "On the website", "ar-EG": "على الموقع" }, "icon": "clock", "tone": "ok", "s": 0,
+          "items": [
+            { "icon": "lock", "text": { "en": "Wait or lock after a few tries", "ar-EG": "انتظار أو قفل بعد كام محاولة" }, "s": 1 }
+          ] },
+        "right": { "title": { "en": "After a leak", "ar-EG": "بعد التسريب" }, "icon": "file", "tone": "danger", "s": 2,
+          "items": [
+            { "icon": "zap", "text": { "en": "Guessing on their own computers", "ar-EG": "تخمين على أجهزتهم" }, "s": 2 },
+            { "icon": "warning", "text": { "en": "No limit", "ar-EG": "من غير أي حد" }, "s": 2 }
+          ] }
+      }
+    },
+    "5": {
+      "compare": {
+        "left": { "title": { "en": "8 random letters", "ar-EG": "8 حروف عشوائية" }, "icon": "type", "tone": "danger", "s": 1,
+          "items": [
+            { "icon": "calculator", "text": { "en": "About 200 billion", "ar-EG": "حوالي 200 مليار" }, "s": 1 },
+            { "icon": "clock", "text": { "en": "About 20 seconds", "ar-EG": "حوالي 20 ثانية" }, "s": 2 }
+          ] },
+        "right": { "title": { "en": "5 random words", "ar-EG": "5 كلمات عشوائية" }, "icon": "type", "tone": "ok", "s": 3,
+          "items": [
+            { "icon": "calculator", "text": { "en": "About 28 billion billion", "ar-EG": "حوالي 28 مليار مليار" }, "s": 3 },
+            { "icon": "calendar", "text": { "en": "About 90 years", "ar-EG": "حوالي 90 سنة" }, "s": 3 }
+          ] }
+      }
+    },
+    "6": {
+      "headline": { "en": "Like a lock with number wheels", "ar-EG": "زي قفل العجلة أبو أرقام" },
+      "arrows": true,
+      "cards": [
+        { "icon": "lock", "text": { "en": "A lock with wheels", "ar-EG": "قفل بخانات أرقام" }, "s": 0 },
+        { "icon": "repeat", "text": { "en": "Each wheel: ×10", "ar-EG": "كل خانة: ×10" }, "s": 1 },
+        { "icon": "type", "text": { "en": "Each word: ×thousands", "ar-EG": "كل كلمة: ×آلاف" }, "s": 2, "tone": "ok" }
+      ]
+    },
+    "8": {
+      "cards": [
+        { "icon": "circlecheck", "text": { "en": "5 random words", "ar-EG": "5 كلمات عشوائية" }, "s": 0, "tone": "ok" },
+        { "icon": "profile", "text": { "en": "Name and year: tried first", "ar-EG": "اسم وسنة: بيتجرّبوا الأول" }, "s": 1, "tone": "danger" },
+        { "icon": "clock", "text": { "en": "8 letters: seconds", "ar-EG": "8 حروف: ثواني" }, "s": 2, "tone": "danger" }
+      ]
+    },
+    "9": {
+      "flow": {
+        "nodes": [
+          { "id": "leak", "icon": "file", "text": { "en": "One leak", "ar-EG": "تسريب واحد" }, "tone": "danger", "s": 1 },
+          { "id": "mail", "icon": "mail", "text": { "en": "Email", "ar-EG": "الإيميل" }, "tone": "neutral", "s": 1 },
+          { "id": "chat", "icon": "chat", "text": { "en": "Chats", "ar-EG": "الشات" }, "tone": "neutral", "s": 1 },
+          { "id": "game", "icon": "puzzle", "text": { "en": "Games", "ar-EG": "الألعاب" }, "tone": "neutral", "s": 1 }
+        ],
+        "edges": [["leak", "mail"], ["leak", "chat"], ["leak", "game"]]
+      }
+    },
+    "10": {
+      "list": [
+        { "icon": "lock", "text": { "en": "Slow down or lock after wrong tries", "ar-EG": "تبطّأ أو تقفل بعد الغلط" }, "s": 1 },
+        { "icon": "fingerprint", "text": { "en": "Store a fingerprint, not the password", "ar-EG": "تخزّن بصمة، مش الباسورد" }, "s": 2 },
+        { "icon": "list", "text": { "en": "Check against leaked passwords", "ar-EG": "تقارن بالباسوردات المتسرّبة" }, "s": 3 }
+      ],
+      "aside": "shield"
+    },
+    "11": {
+      "steps": [
+        { "text": { "en": "A long passphrase of random words", "ar-EG": "عبارة طويلة من كلمات عشوائية" }, "s": 1 },
+        { "text": { "en": "A different one for every account", "ar-EG": "عبارة مختلفة لكل حساب" }, "s": 2 },
+        { "text": { "en": "Two-step sign-in on", "ar-EG": "التحقق بخطوتين شغّال" }, "s": 3 }
+      ]
+    },
+    "13": {
+      "points": [
+        { "text": { "en": "Long random words", "ar-EG": "كلمات عشوائية طويلة" }, "s": 2 },
+        { "text": { "en": "One password per account", "ar-EG": "باسورد لكل حساب" }, "s": 2 },
+        { "text": { "en": "Two-step sign-in", "ar-EG": "التحقق بخطوتين" }, "s": 2 }
+      ],
+      "takeaway": { "en": "Leaked once? Change it everywhere you used it.", "ar-EG": "اتسرّب مرة؟ غيّره في كل حتة استخدمته فيها." }
+    },
+    "14": {
+      "list": [
+        { "icon": "notebook", "text": { "en": "List your accounts: no passwords", "ar-EG": "اكتب حساباتك: من غير باسوردات" }, "s": 0 },
+        { "icon": "pencil", "text": { "en": "Mark where you reused one", "ar-EG": "علّم على المتكرر" }, "s": 1 },
+        { "icon": "mail", "text": { "en": "Change those, email first", "ar-EG": "غيّرهم، والإيميل الأول" }, "s": 1 }
+      ]
+    }
+  }
+}

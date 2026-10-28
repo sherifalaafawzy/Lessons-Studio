@@ -1,0 +1,116 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        { "icon": "mail", "text": { "en": "An email to our school", "ar-EG": "إيميل لمدرستنا" }, "s": 1 },
+        { "icon": "users", "text": { "en": "Spots pupils likely to leave", "ar-EG": "يكتشف اللي ممكن يسيبوا" }, "s": 1, "o": 2.5 },
+        { "icon": "help", "tone": "danger", "text": { "en": "98% of what?", "ar-EG": "طب 98% من إيه؟" }, "s": 2 }
+      ]
+    },
+    "3": {
+      "chart": {
+        "kind": "bar", "max": 100, "s": 1,
+        "data": [100, 60],
+        "labels": [
+          { "en": "Training examples", "ar-EG": "أمثلة التدريب" },
+          { "en": "New examples", "ar-EG": "أمثلة جديدة" }
+        ],
+        "unit": { "en": "% right", "ar-EG": "% صح" }
+      }
+    },
+    "4": {
+      "steps": [
+        { "text": { "en": "Put some examples aside first", "ar-EG": "شيل شوية أمثلة على جنب الأول" }, "s": 0 },
+        { "text": { "en": "Train on the rest", "ar-EG": "درّب على الباقي" }, "s": 0, "o": 3 },
+        { "text": { "en": "Training score: how well it fitted", "ar-EG": "درجة التدريب: طابق قد إيه" }, "s": 1 },
+        { "text": { "en": "Test score: how it will likely do", "ar-EG": "درجة الاختبار: غالبًا هيعمل إيه" }, "s": 2 }
+      ]
+    },
+    "5": {
+      "aside": "scale",
+      "list": [
+        { "icon": "target", "tone": "danger", "text": { "en": "Fits the training examples too closely", "ar-EG": "بيطابق أمثلة التدريب بزيادة" }, "s": 0 },
+        { "icon": "circlex", "tone": "danger", "text": { "en": "Does worse on new ones", "ar-EG": "أسوأ في الأمثلة الجديدة" }, "s": 0, "o": 3.5 },
+        { "icon": "warning", "text": { "en": "Warning sign: a big gap", "ar-EG": "علامة الخطر: فرق كبير" }, "s": 1 }
+      ]
+    },
+    "6": {
+      "compare": {
+        "left": {
+          "title": { "en": "The memoriser", "ar-EG": "الحافظ" }, "icon": "notebook", "tone": "danger", "s": 1,
+          "items": [
+            { "icon": "award", "text": { "en": "Last year’s paper: full marks", "ar-EG": "الامتحان القديم: الدرجة النهائية" }, "s": 1, "o": 2 },
+            { "icon": "circlex", "text": { "en": "New questions: stuck", "ar-EG": "أسئلة جديدة: واقف" }, "s": 3 }
+          ]
+        },
+        "right": {
+          "title": { "en": "The learner", "ar-EG": "الفاهم" }, "icon": "bulb", "tone": "ok", "s": 2,
+          "items": [
+            { "icon": "pencil", "text": { "en": "Learns the methods", "ar-EG": "بيتعلم الطريقة" }, "s": 2, "o": 0.5 },
+            { "icon": "circlecheck", "text": { "en": "New questions: solved", "ar-EG": "أسئلة جديدة: حلّها" }, "s": 3, "o": 1.5 }
+          ]
+        }
+      }
+    },
+    "8": {
+      "cards": [
+        { "icon": "checksquare", "tone": "ok", "text": { "en": "70%: the score that counts", "ar-EG": "درجة الـ70% هي اللي بتفرق" }, "s": 0 },
+        { "icon": "warning", "tone": "danger", "text": { "en": "A big gap: overfitting", "ar-EG": "فرق كبير: إفراط في المطابقة" }, "s": 1 },
+        { "icon": "users", "text": { "en": "Test pupils like yours?", "ar-EG": "تلاميذ الاختبار شبه تلاميذك؟" }, "s": 2 }
+      ]
+    },
+    "9": {
+      "compare": {
+        "left": {
+          "title": { "en": "False positive", "ar-EG": "إيجابي كاذب" }, "icon": "flag", "tone": "accent", "s": 2,
+          "items": [
+            { "icon": "users", "text": { "en": "Flags a pupil who stays", "ar-EG": "علامة على تلميذ هيكمّل" }, "s": 2, "o": 1.5 },
+            { "icon": "tag", "text": { "en": "Cost: a label, wasted effort", "ar-EG": "التمن: لقب، ومجهود ضايع" }, "s": 6 }
+          ]
+        },
+        "right": {
+          "title": { "en": "False negative", "ar-EG": "سلبي كاذب" }, "icon": "circlex", "tone": "danger", "s": 3,
+          "items": [
+            { "icon": "users", "text": { "en": "Misses a pupil who leaves", "ar-EG": "يفوّت تلميذ هيسيب" }, "s": 3, "o": 1.5 },
+            { "icon": "warning", "text": { "en": "Cost: no help in time", "ar-EG": "التمن: مافيش مساعدة في وقتها" }, "s": 5 }
+          ]
+        }
+      }
+    },
+    "10": {
+      "aside": "help",
+      "list": [
+        { "icon": "warning", "tone": "danger", "text": { "en": "“Nobody leaves”: also 98% accurate", "ar-EG": "«محدش هيسيب»: برضه 98% دقة" }, "s": 1 },
+        { "icon": "users", "text": { "en": "Tested on whom?", "ar-EG": "اتجرّبت على مين؟" }, "s": 3 },
+        { "icon": "database", "text": { "en": "On which data?", "ar-EG": "على أنهي بيانات؟" }, "s": 4 },
+        { "icon": "circlex", "text": { "en": "With which mistakes?", "ar-EG": "وبتغلط أنهي غلط؟" }, "s": 5 }
+      ]
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        { "icon": "target", "text": { "en": "Circles train, squares test", "ar-EG": "الدواير للتدريب، والمربعات للاختبار" }, "s": 0 },
+        { "icon": "warning", "tone": "danger", "text": { "en": "More freedom: new error climbs", "ar-EG": "حرية أكتر: غلط الجديد بيعلى" }, "s": 1 },
+        { "icon": "checksquare", "tone": "ok", "text": { "en": "More examples: calmer curve", "ar-EG": "أمثلة أكتر: منحنى أهدى" }, "s": 2 }
+      ]
+    },
+    "13": {
+      "points": [
+        { "text": { "en": "False positives and false negatives", "ar-EG": "إيجابي كاذب وسلبي كاذب" }, "s": 0 },
+        { "text": { "en": "Perfect training can hide overfitting", "ar-EG": "التدريب المثالي ممكن يخبّي الإفراط" }, "s": 1 },
+        { "text": { "en": "Trust scores on unseen examples", "ar-EG": "صدّق الدرجة على أمثلة جديدة" }, "s": 2 },
+        { "text": { "en": "Ask: whom, which data, which mistakes?", "ar-EG": "اسأل: مين، أنهي بيانات، أنهي غلط؟" }, "s": 3 }
+      ],
+      "takeaway": { "en": "Trust a score only when you know how it was tested.", "ar-EG": "صدّق الرقم بس لما تعرف اتختبر إزاي." }
+    },
+    "14": {
+      "list": [
+        { "icon": "notebook", "text": { "en": "One pupil memorises ten answers", "ar-EG": "تلميذ يحفظ عشر إجابات" }, "s": 1 },
+        { "icon": "bulb", "text": { "en": "Another learns to work out area", "ar-EG": "وتاني يتعلم يحسب المساحة" }, "s": 1, "o": 3.5 },
+        { "icon": "help", "text": { "en": "Ask both new questions", "ar-EG": "اسأل الاتنين أسئلة جديدة" }, "s": 2 },
+        { "icon": "eye", "tone": "ok", "text": { "en": "See overfitting for yourselves", "ar-EG": "شوفوا الإفراط في المطابقة بعينكم" }, "s": 3 }
+      ]
+    }
+  }
+}

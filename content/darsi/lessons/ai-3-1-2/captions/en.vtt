@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.030
+This article says a new AI model
+
+2
+00:00:03.030 --> 00:00:04.590
+has billions of weights.
+
+3
+00:00:05.350 --> 00:00:07.390
+Nobody set one of them by hand.
+
+4
+00:00:08.080 --> 00:00:10.140
+So how did the network find them?
+
+5
+00:00:11.320 --> 00:00:13.780
+Today: how a network learns,
+
+6
+00:00:14.140 --> 00:00:15.980
+one small step at a time.
+
+7
+00:00:17.160 --> 00:00:19.420
+One neuron draws one straight line.
+
+8
+00:00:20.060 --> 00:00:22.080
+Put a few neurons side by side,
+
+9
+00:00:22.420 --> 00:00:24.020
+each drawing its own line.
+
+10
+00:00:24.650 --> 00:00:26.350
+A neuron in the next layer
+
+11
+00:00:26.350 --> 00:00:27.710
+combines their answers.
+
+12
+00:00:28.470 --> 00:00:30.770
+Two lines make a band; a few
+
+13
+00:00:30.770 --> 00:00:32.410
+lines can fence in a circle.
+
+14
+00:00:33.690 --> 00:00:35.290
+So how does it learn?
+
+15
+00:00:36.040 --> 00:00:37.700
+At first its weights are
+
+16
+00:00:37.700 --> 00:00:39.240
+random, so it guesses.
+
+17
+00:00:40.040 --> 00:00:42.460
+Show it an example and compare its
+
+18
+00:00:42.460 --> 00:00:44.020
+answer with the right label.
+
+19
+00:00:44.640 --> 00:00:46.980
+The gap is the error: a number
+
+20
+00:00:46.980 --> 00:00:48.660
+for how wrong it was.
+
+21
+00:00:49.940 --> 00:00:51.480
+Then the clever part.
+
+22
+00:00:52.170 --> 00:00:54.570
+For every weight, the computer works
+
+23
+00:00:54.570 --> 00:00:57.370
+out whether a tiny nudge up would make
+
+24
+00:00:57.370 --> 00:00:58.950
+the error bigger or smaller.
+
+25
+00:00:59.710 --> 00:01:01.710
+It nudges each weight the way
+
+26
+00:01:01.710 --> 00:01:02.870
+that shrinks the error.
+
+27
+00:01:03.510 --> 00:01:06.650
+Then the next example, thousands of times.
+
+28
+00:01:07.950 --> 00:01:10.330
+That loop is training: guess,
+
+29
+00:01:10.870 --> 00:01:13.010
+measure the error, nudge every
+
+30
+00:01:13.010 --> 00:01:15.450
+weight a little downhill, and repeat.
+
+31
+00:01:16.190 --> 00:01:17.870
+It’s called gradient descent.
+
+32
+00:01:18.670 --> 00:01:20.850
+Gradient means slope, and
+
+33
+00:01:20.850 --> 00:01:22.510
+descent means going down.
+
+34
+00:01:23.750 --> 00:01:26.710
+Picture walking down a hill in thick fog.
+
+35
+00:01:27.410 --> 00:01:30.630
+You can’t see the valley, but you feel the
+
+36
+00:01:30.630 --> 00:01:33.810
+slope, and step down, again and again.
+
+37
+00:01:34.450 --> 00:01:37.110
+Huge strides could carry you over the
+
+38
+00:01:37.110 --> 00:01:38.890
+valley and up the other side.
+
+39
+00:01:39.560 --> 00:01:42.280
+Tiny steps are safe, but you’d
+
+40
+00:01:42.280 --> 00:01:43.720
+still be walking at nightfall.
+
+41
+00:01:44.920 --> 00:01:45.400
+Quick check!
+
+42
+00:01:46.010 --> 00:01:48.090
+Your network’s error jumps up
+
+43
+00:01:48.090 --> 00:01:50.250
+and down and never settles.
+
+44
+00:01:50.940 --> 00:01:52.200
+What would you try first?
+
+45
+00:01:53.630 --> 00:01:54.550
+Smaller steps.
+
+46
+00:01:55.350 --> 00:01:58.130
+A jumping error usually means the steps
+
+47
+00:01:58.130 --> 00:02:00.150
+overshoot the bottom of the valley.
+
+48
+00:02:00.790 --> 00:02:02.530
+In the lab, the step size
+
+49
+00:02:02.530 --> 00:02:03.770
+is the learning rate.
+
+50
+00:02:04.400 --> 00:02:08.040
+Too small is slow; too big never settles.
+
+51
+00:02:09.260 --> 00:02:10.900
+The examples matter too:
+
+52
+00:02:11.380 --> 00:02:12.320
+they make the hill.
+
+53
+00:02:12.930 --> 00:02:15.710
+Train a leaf-disease spotter only on sunny
+
+54
+00:02:15.710 --> 00:02:18.510
+photos, and it may fail on cloudy days.
+
+55
+00:02:19.230 --> 00:02:21.190
+With too few examples, it can
+
+56
+00:02:21.190 --> 00:02:22.850
+learn a shape that isn’t there.
+
+57
+00:02:23.490 --> 00:02:26.230
+Varied examples, from different phones,
+
+58
+00:02:26.630 --> 00:02:29.550
+farms and light, teach the real shape.
+
+59
+00:02:30.770 --> 00:02:32.830
+In the lab, you train a real
+
+60
+00:02:32.830 --> 00:02:33.990
+network on your phone.
+
+61
+00:02:34.630 --> 00:02:35.990
+Pick the circle with no
+
+62
+00:02:35.990 --> 00:02:37.770
+hidden layers: it fails.
+
+63
+00:02:38.540 --> 00:02:41.040
+Add a layer of four neurons, press
+
+64
+00:02:41.040 --> 00:02:44.180
+Train, and watch the error fall as the
+
+65
+00:02:44.180 --> 00:02:46.240
+background bends around the circle.
+
+66
+00:02:46.870 --> 00:02:48.670
+Then try another learning rate.
+
+67
+00:02:49.940 --> 00:02:50.700
+Your turn.
+
+68
+00:02:51.320 --> 00:02:53.120
+Which of these needs at
+
+69
+00:02:53.120 --> 00:02:54.440
+least one hidden layer?
+
+70
+00:02:55.660 --> 00:02:59.260
+Circles inside a ring: no straight line
+
+71
+00:02:59.260 --> 00:03:02.460
+can do it, so it needs a hidden layer.
+
+72
+00:03:03.140 --> 00:03:04.940
+Remember: layers combine
+
+73
+00:03:04.940 --> 00:03:06.420
+lines into shapes.
+
+74
+00:03:07.200 --> 00:03:08.900
+Training repeats guess,
+
+75
+00:03:09.340 --> 00:03:11.160
+error, nudge downhill.
+
+76
+00:03:12.000 --> 00:03:13.700
+And it needs sensible steps
+
+77
+00:03:13.700 --> 00:03:15.260
+and varied examples.
+
+78
+00:03:16.680 --> 00:03:17.960
+Try it in class tomorrow:
+
+79
+00:03:18.300 --> 00:03:19.860
+play “Warmer, colder”.
+
+80
+00:03:20.330 --> 00:03:22.430
+One pupil steps out while the
+
+81
+00:03:22.430 --> 00:03:23.750
+class hides the chalk.
+
+82
+00:03:24.460 --> 00:03:26.820
+Back inside, they move only by
+
+83
+00:03:26.820 --> 00:03:28.900
+“warmer” or “colder”.
+
+84
+00:03:29.370 --> 00:03:31.170
+Then ask: what was the error,
+
+85
+00:03:31.770 --> 00:03:32.490
+what were the steps?
+
+86
+00:03:33.240 --> 00:03:34.960
+That’s training, following
+
+87
+00:03:34.960 --> 00:03:35.940
+the error downhill.

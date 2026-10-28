@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.330
+After lunch, my classroom turns into an
+
+2
+00:00:03.330 --> 00:00:06.410
+oven, and my pupils start to fall asleep.
+
+3
+00:00:07.170 --> 00:00:10.210
+We have a fan, but nobody remembers to
+
+4
+00:00:10.210 --> 00:00:12.190
+switch it on until it's too late.
+
+5
+00:00:12.960 --> 00:00:15.020
+Could the room switch it on by itself?
+
+6
+00:00:16.400 --> 00:00:18.940
+Today: if-then rules that let
+
+7
+00:00:18.940 --> 00:00:20.440
+devices act on their own.
+
+8
+00:00:21.650 --> 00:00:24.970
+A rule has two parts: IF a condition
+
+9
+00:00:24.970 --> 00:00:27.410
+is true, THEN do an action.
+
+10
+00:00:28.080 --> 00:00:30.000
+IF the room is above thirty
+
+11
+00:00:30.000 --> 00:00:32.260
+degrees, THEN switch the fan on.
+
+12
+00:00:32.890 --> 00:00:34.410
+The microcontroller checks
+
+13
+00:00:34.410 --> 00:00:35.390
+every few minutes.
+
+14
+00:00:36.770 --> 00:00:39.570
+Rules like this can run all over a school.
+
+15
+00:00:40.250 --> 00:00:42.410
+IF the tank falls below twenty
+
+16
+00:00:42.410 --> 00:00:44.790
+percent, THEN switch the pump on.
+
+17
+00:00:45.390 --> 00:00:48.010
+IF carbon dioxide passes fifteen hundred
+
+18
+00:00:48.010 --> 00:00:50.490
+parts per million, THEN open the windows.
+
+19
+00:00:51.880 --> 00:00:54.200
+The number in a rule is its threshold,
+
+20
+00:00:54.840 --> 00:00:56.320
+and choosing it takes judgement.
+
+21
+00:00:57.080 --> 00:00:59.600
+Too low, and the fan runs all
+
+22
+00:00:59.600 --> 00:01:01.160
+morning, wasting electricity.
+
+23
+00:01:02.030 --> 00:01:05.030
+Too high, and pupils swelter first.
+
+24
+00:01:05.820 --> 00:01:07.700
+Use your logged data to choose.
+
+25
+00:01:09.070 --> 00:01:11.230
+But one threshold has a problem.
+
+26
+00:01:11.870 --> 00:01:14.150
+Near thirty degrees the reading
+
+27
+00:01:14.150 --> 00:01:16.350
+wobbles: thirty point one,
+
+28
+00:01:16.910 --> 00:01:19.350
+twenty-nine point nine, thirty point one.
+
+29
+00:01:19.950 --> 00:01:24.050
+So the fan goes on, off and on again.
+
+30
+00:01:24.740 --> 00:01:26.180
+That flicker wears out
+
+31
+00:01:26.180 --> 00:01:27.380
+motors and switches.
+
+32
+00:01:28.840 --> 00:01:29.320
+Quick check!
+
+33
+00:01:29.960 --> 00:01:32.440
+How do we stop the fan flickering on
+
+34
+00:01:32.440 --> 00:01:34.100
+and off around thirty degrees?
+
+35
+00:01:35.450 --> 00:01:38.330
+Use two thresholds: on above thirty
+
+36
+00:01:38.330 --> 00:01:41.030
+degrees, off only below twenty-eight.
+
+37
+00:01:41.660 --> 00:01:44.340
+In between, the fan stays as it is.
+
+38
+00:01:44.970 --> 00:01:48.050
+A tank pump works the same way: on below
+
+39
+00:01:48.050 --> 00:01:50.290
+twenty percent, off above ninety.
+
+40
+00:01:51.540 --> 00:01:53.020
+What if a sensor fails?
+
+41
+00:01:53.910 --> 00:01:56.030
+A broken wire can make the tank
+
+42
+00:01:56.030 --> 00:01:58.970
+sensor read zero, so the pump runs
+
+43
+00:01:58.970 --> 00:02:01.650
+and runs, and the tank overflows.
+
+44
+00:02:02.530 --> 00:02:05.530
+Fail safe: if a reading is missing or
+
+45
+00:02:05.530 --> 00:02:08.250
+impossible, stop the pump and tell
+
+46
+00:02:08.250 --> 00:02:08.510
+someone.
+
+47
+00:02:09.710 --> 00:02:11.850
+Before you trust rules, test
+
+48
+00:02:11.850 --> 00:02:12.970
+them on a day of data.
+
+49
+00:02:13.610 --> 00:02:16.510
+In the Smart classroom rules lab, a whole
+
+50
+00:02:16.510 --> 00:02:19.570
+school day replays: minutes too hot,
+
+51
+00:02:19.950 --> 00:02:22.690
+minutes of stale air, and electricity
+
+52
+00:02:22.690 --> 00:02:23.230
+used.
+
+53
+00:02:23.860 --> 00:02:25.960
+More comfort costs more
+
+54
+00:02:25.960 --> 00:02:28.800
+electricity, and someone has to choose.
+
+55
+00:02:30.260 --> 00:02:31.000
+Your turn.
+
+56
+00:02:31.640 --> 00:02:33.840
+The tank's level sensor
+
+57
+00:02:33.840 --> 00:02:35.600
+stops sending readings.
+
+58
+00:02:36.460 --> 00:02:40.240
+Should the pump stop, or keep
+
+59
+00:02:40.240 --> 00:02:41.740
+running, just in case?
+
+60
+00:02:43.050 --> 00:02:46.150
+Stop, and alert someone: when a sensor
+
+61
+00:02:46.150 --> 00:02:48.930
+fails, the system must fail safe.
+
+62
+00:02:49.570 --> 00:02:52.950
+Remember: IF a condition THEN an
+
+63
+00:02:52.950 --> 00:02:56.930
+action, thresholds from real data, two
+
+64
+00:02:56.930 --> 00:02:59.590
+thresholds against flicker, and test
+
+65
+00:02:59.590 --> 00:03:01.390
+your rules on a day of data.
+
+66
+00:03:02.590 --> 00:03:04.730
+Try it in class tomorrow: rule cards.
+
+67
+00:03:05.440 --> 00:03:09.080
+Read out a school day, hour by hour, and
+
+68
+00:03:09.080 --> 00:03:12.380
+pupils holding the fan, light and pump
+
+69
+00:03:12.380 --> 00:03:15.240
+rules stand up whenever their rule says
+
+70
+00:03:15.240 --> 00:03:15.820
+on.
+
+71
+00:03:16.420 --> 00:03:18.900
+Then spot the flicker, and fix it.
+
+72
+00:03:19.460 --> 00:03:21.820
+Next time: batteries and the sun.

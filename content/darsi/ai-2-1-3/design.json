@@ -1,0 +1,458 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "cards": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Rice: body-building?",
+            "ar-EG": "الرز بيبني الجسم؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "apple",
+          "tone": "danger",
+          "text": {
+            "en": "Pizza and blueberries",
+            "ar-EG": "بيتزا وتوت أزرق"
+          },
+          "s": 3
+        },
+        {
+          "icon": "book",
+          "tone": "danger",
+          "text": {
+            "en": "Too hard for Primary 4",
+            "ar-EG": "صعب على رابعة ابتدائي"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "3": {
+      "cards": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Questions",
+            "ar-EG": "أسئلة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Examples",
+            "ar-EG": "أمثلة"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Explanations",
+            "ar-EG": "شرح"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "filecheck",
+          "tone": "accent",
+          "text": {
+            "en": "A draft until checked",
+            "ar-EG": "مسودة لحد ما تتراجع"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "steps": [
+        {
+          "text": {
+            "en": "Facts: check the textbook",
+            "ar-EG": "المعلومة: راجعها في الكتاب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Level: right for this age?",
+            "ar-EG": "المستوى: مناسب للسن؟"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Bias: who’s in, who’s left out?",
+            "ar-EG": "التحيّز: مين موجود، ومين لأ؟"
+          },
+          "s": 4
+        },
+        {
+          "text": {
+            "en": "Local fit: our foods, names, money",
+            "ar-EG": "الملاءمة: أكلنا وأسامينا وفلوسنا"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "5": {
+      "aside": "book",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Paste in a textbook page",
+            "ar-EG": "حط صفحة من الكتاب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "quote",
+          "text": {
+            "en": "“Answer only from this page.”",
+            "ar-EG": "«جاوب من الصفحة دي بس.»"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "“If it isn’t there, say so.”",
+            "ar-EG": "«لو مش فيها، قول كده.»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "filecheck",
+          "tone": "ok",
+          "text": {
+            "en": "A page you trust and can check",
+            "ar-EG": "صفحة بتثق فيها وتراجعها"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "headline": {
+        "en": "Grounding: answers tied to a source",
+        "ar-EG": "الربط بمصدر: إجابة ليها أصل"
+      },
+      "flow": {
+        "nodes": [
+          {
+            "id": "q",
+            "icon": "help",
+            "text": {
+              "en": "Your question",
+              "ar-EG": "سؤالك"
+            },
+            "s": 1
+          },
+          {
+            "id": "search",
+            "icon": "search",
+            "text": {
+              "en": "Search",
+              "ar-EG": "يدوّر"
+            },
+            "s": 1,
+            "o": 1.5
+          },
+          {
+            "id": "answer",
+            "icon": "bot",
+            "text": {
+              "en": "Answer",
+              "ar-EG": "يجاوب"
+            },
+            "s": 1,
+            "o": 3.5
+          },
+          {
+            "id": "source",
+            "icon": "file",
+            "tone": "trusted",
+            "text": {
+              "en": "Show source",
+              "ar-EG": "يوريك المصدر"
+            },
+            "s": 1,
+            "o": 5
+          }
+        ],
+        "edges": [
+          [
+            "q",
+            "search"
+          ],
+          [
+            "search",
+            "answer"
+          ],
+          [
+            "answer",
+            "source"
+          ]
+        ]
+      }
+    },
+    "7": {
+      "who": "amina",
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A volunteer drafts fast",
+            "ar-EG": "متطوّع بيكتب بسرعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "The head reads every line",
+            "ar-EG": "المديرة بتقرا كل سطر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Her name is on it",
+            "ar-EG": "اسمها عليها"
+          },
+          "s": 2,
+          "o": 4
+        },
+        {
+          "icon": "filecheck",
+          "tone": "ok",
+          "text": {
+            "en": "AI drafts; you edit",
+            "ar-EG": "هو يكتب، وإنت تراجع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Grounding helps",
+            "ar-EG": "الربط بيساعد"
+          },
+          "icon": "circlecheck",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "icon": "shield",
+              "text": {
+                "en": "Fewer mistakes",
+                "ar-EG": "أخطاء أقل"
+              },
+              "s": 1
+            },
+            {
+              "icon": "search",
+              "text": {
+                "en": "Easier to check",
+                "ar-EG": "أسهل في المراجعة"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "It can’t stop",
+            "ar-EG": "بس مش بيمنع"
+          },
+          "icon": "warning",
+          "tone": "danger",
+          "s": 2,
+          "items": [
+            {
+              "icon": "eye",
+              "text": {
+                "en": "Misreading or mixing in",
+                "ar-EG": "القراية الغلط أو الخلط"
+              },
+              "s": 2
+            },
+            {
+              "icon": "file",
+              "text": {
+                "en": "A wrong or old page",
+                "ar-EG": "صفحة غلط أو قديمة"
+              },
+              "s": 3
+            }
+          ]
+        }
+      }
+    },
+    "10": {
+      "aside": "search",
+      "list": [
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Every doctor a man? Fix it",
+            "ar-EG": "كل الدكاترة رجالة؟ صلّحها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Dollars, not naira? Change them",
+            "ar-EG": "دولار مش نايرا؟ غيّرها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "“Precipitation” in Primary 2? Simplify",
+            "ar-EG": "«الهطول» لتانية ابتدائي؟ بسّطه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "clock",
+          "tone": "ok",
+          "text": {
+            "en": "A minute per fix",
+            "ar-EG": "دقيقة لكل تصليحة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Ask about the school",
+            "ar-EG": "اسأل عن المدرسة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "It searches the documents",
+            "ar-EG": "يدوّر في الوثائق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "quote",
+          "tone": "ok",
+          "text": {
+            "en": "Quotes its source",
+            "ar-EG": "ينقل من المصدر"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Edit, ask again",
+            "ar-EG": "عدّل واسأل تاني"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A person stays responsible",
+            "ar-EG": "فيه إنسان مسؤول"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "AI drafts; you check",
+            "ar-EG": "هو يكتب، وإنت تراجع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Facts, level, bias, local fit",
+            "ar-EG": "المعلومة، المستوى، التحيّز، الملاءمة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Grounding helps; still check",
+            "ar-EG": "الربط بيساعد، وبرضه راجع"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Generate fast, check carefully, then teach.",
+        "ar-EG": "اكتب بسرعة، راجع بعناية، وبعدين درّس."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Play “Find the mistakes”",
+            "ar-EG": "العبوا «طلّع الغلط»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "AI sheet, planted errors",
+            "ar-EG": "ورقة فيها أخطاء متحطوطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Pairs check against the textbook",
+            "ar-EG": "كل اتنين يراجعوا من الكتاب"
+          },
+          "s": 2
+        },
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "Best evidence wins",
+            "ar-EG": "الدليل الأقوى يكسب"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

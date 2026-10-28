@@ -1,0 +1,297 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.090
+You’ve never met your bank’s computers.
+
+2
+00:00:02.870 --> 00:00:04.730
+You’ve never whispered a
+
+3
+00:00:04.730 --> 00:00:06.550
+secret key to a chat app.
+
+4
+00:00:07.190 --> 00:00:09.610
+So how do you talk to them in secret,
+
+5
+00:00:10.050 --> 00:00:12.190
+over a network anyone can listen to?
+
+6
+00:00:13.300 --> 00:00:16.640
+Today: locks and keys — how public-key
+
+7
+00:00:16.640 --> 00:00:19.160
+cryptography lets strangers share secrets.
+
+8
+00:00:20.460 --> 00:00:22.960
+With a simple cipher, both sides
+
+9
+00:00:22.960 --> 00:00:24.780
+need the same secret key.
+
+10
+00:00:25.350 --> 00:00:27.290
+But how do you send that key?
+
+11
+00:00:27.940 --> 00:00:29.600
+Anyone listening on the network
+
+12
+00:00:29.600 --> 00:00:30.980
+could copy it on the way.
+
+13
+00:00:32.150 --> 00:00:34.650
+Public-key cryptography solves it with
+
+14
+00:00:34.650 --> 00:00:36.790
+two keys that belong together.
+
+15
+00:00:37.440 --> 00:00:39.400
+The public key is like an open
+
+16
+00:00:39.400 --> 00:00:41.800
+padlock: you give copies to everyone.
+
+17
+00:00:42.480 --> 00:00:44.600
+The private key is the only key that
+
+18
+00:00:44.600 --> 00:00:46.440
+opens it, and it never leaves you.
+
+19
+00:00:47.640 --> 00:00:49.580
+Imagine handing out open
+
+20
+00:00:49.580 --> 00:00:51.080
+padlocks to your friends.
+
+21
+00:00:51.750 --> 00:00:53.590
+Anyone can put a note in a box
+
+22
+00:00:53.590 --> 00:00:55.330
+and snap your padlock shut.
+
+23
+00:00:55.980 --> 00:00:58.840
+Once it’s shut, only you can open it —
+
+24
+00:00:58.840 --> 00:01:00.520
+not even the friend who locked it.
+
+25
+00:01:01.590 --> 00:01:03.810
+One famous method, RSA,
+
+26
+00:01:04.290 --> 00:01:05.850
+rests on a simple fact.
+
+27
+00:01:06.510 --> 00:01:08.770
+Multiplying two primes is easy:
+
+28
+00:01:09.330 --> 00:01:12.030
+sixty-one times fifty-three is three
+
+29
+00:01:12.030 --> 00:01:14.270
+thousand two hundred and thirty-three.
+
+30
+00:01:14.860 --> 00:01:17.180
+Going back from the answer to the primes
+
+31
+00:01:17.180 --> 00:01:19.380
+gets far harder as the numbers grow.
+
+32
+00:01:20.040 --> 00:01:22.460
+Real keys are about six hundred digits
+
+33
+00:01:22.460 --> 00:01:25.020
+long: all the computers on Earth today
+
+34
+00:01:25.020 --> 00:01:26.380
+couldn’t split one in a lifetime.
+
+35
+00:01:27.790 --> 00:01:28.270
+Quick check!
+
+36
+00:01:28.880 --> 00:01:30.560
+I want to send you a secret.
+
+37
+00:01:31.410 --> 00:01:33.090
+Which key do I lock it with?
+
+38
+00:01:34.340 --> 00:01:35.480
+Your public key.
+
+39
+00:01:36.090 --> 00:01:38.770
+Anyone can lock with it, and only
+
+40
+00:01:38.770 --> 00:01:40.530
+your private key opens it.
+
+41
+00:01:41.120 --> 00:01:42.980
+Now turn it around, and you get
+
+42
+00:01:42.980 --> 00:01:45.420
+something just as useful: a signature.
+
+43
+00:01:46.840 --> 00:01:48.700
+To sign, you use your
+
+44
+00:01:48.700 --> 00:01:50.180
+private key on a message.
+
+45
+00:01:50.950 --> 00:01:52.770
+Anyone can check it with your public
+
+46
+00:01:52.770 --> 00:01:55.490
+key — and since only your key could
+
+47
+00:01:55.490 --> 00:01:57.710
+have made it, they know it’s from you,
+
+48
+00:01:58.230 --> 00:01:59.870
+and that nobody changed a word.
+
+49
+00:02:00.500 --> 00:02:02.640
+Phone updates are signed like this,
+
+50
+00:02:02.940 --> 00:02:04.780
+so a fake update gets refused.
+
+51
+00:02:06.150 --> 00:02:09.670
+When a website uses HTTPS, your browser
+
+52
+00:02:09.670 --> 00:02:12.330
+checks the site’s certificate, agrees a
+
+53
+00:02:12.330 --> 00:02:14.350
+secret key with it using public keys,
+
+54
+00:02:14.350 --> 00:02:16.070
+then encrypts everything.
+
+55
+00:02:16.760 --> 00:02:18.880
+But the padlock only proves the
+
+56
+00:02:18.880 --> 00:02:21.580
+connection is private, to that address.
+
+57
+00:02:22.420 --> 00:02:24.600
+A scam site can have a padlock too.
+
+58
+00:02:25.820 --> 00:02:26.580
+Your turn.
+
+59
+00:02:27.200 --> 00:02:29.000
+A page that asks for your mobile
+
+60
+00:02:29.000 --> 00:02:31.000
+money PIN shows a padlock.
+
+61
+00:02:31.640 --> 00:02:34.280
+Can you trust it because of the padlock?
+
+62
+00:02:35.530 --> 00:02:38.350
+No: scam sites get padlocks too.
+
+63
+00:02:38.960 --> 00:02:41.860
+Remember: the public key locks and checks,
+
+64
+00:02:42.340 --> 00:02:45.340
+the private key opens and signs, and the
+
+65
+00:02:45.340 --> 00:02:48.260
+padlock means private, not honest.
+
+66
+00:02:48.960 --> 00:02:50.560
+And defenders are already
+
+67
+00:02:50.560 --> 00:02:52.700
+switching to new methods built to
+
+68
+00:02:52.700 --> 00:02:54.540
+resist future quantum computers.
+
+69
+00:02:55.860 --> 00:02:58.460
+Try it tomorrow: in the lab, make a
+
+70
+00:02:58.460 --> 00:03:01.720
+tiny key pair, lock a word, then sign a
+
+71
+00:03:01.720 --> 00:03:03.480
+message and change one letter.
+
+72
+00:03:04.090 --> 00:03:07.010
+Then, in a chat app, find where you can
+
+73
+00:03:07.010 --> 00:03:09.890
+compare security codes with a friend, and
+
+74
+00:03:09.890 --> 00:03:12.110
+work out together what a match proves.

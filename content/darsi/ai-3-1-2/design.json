@@ -1,0 +1,99 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "cards": [
+        { "icon": "file", "text": { "en": "Billions of weights", "ar-EG": "مليارات الأوزان" }, "s": 0 },
+        { "icon": "hand", "tone": "danger", "text": { "en": "None set by hand", "ar-EG": "ولا واحد بالإيد" }, "s": 1 },
+        { "icon": "help", "text": { "en": "So how?", "ar-EG": "أُمّال إزاي؟" }, "s": 2 }
+      ]
+    },
+    "3": {
+      "arrows": true,
+      "cards": [
+        { "icon": "ruler", "text": { "en": "One neuron: one line", "ar-EG": "خلية: خط واحد" }, "s": 0 },
+        { "icon": "network", "text": { "en": "A few neurons: a few lines", "ar-EG": "كام خلية: كام خط" }, "s": 1 },
+        { "icon": "layers", "text": { "en": "Next layer combines them", "ar-EG": "الطبقة اللي بعدها بتجمعهم" }, "s": 2 },
+        { "icon": "target", "tone": "ok", "text": { "en": "Bands and circles", "ar-EG": "شرايط ودواير" }, "s": 3 }
+      ]
+    },
+    "4": {
+      "steps": [
+        { "text": { "en": "Weights start random", "ar-EG": "الأوزان بتبدأ عشوائية" }, "s": 1 },
+        { "text": { "en": "It guesses an answer", "ar-EG": "بتخمّن إجابة" }, "s": 1, "o": 2 },
+        { "text": { "en": "Compare with the right label", "ar-EG": "قارن بالتصنيف الصح" }, "s": 2 },
+        { "text": { "en": "The gap is the error", "ar-EG": "الفرق هو الغلط" }, "s": 3 }
+      ]
+    },
+    "5": {
+      "aside": "network",
+      "list": [
+        { "icon": "search", "text": { "en": "Each weight: a tiny nudge up?", "ar-EG": "لكل وزن: زقّة صغيرة لفوق؟" }, "s": 1 },
+        { "icon": "gauge", "text": { "en": "Does the error grow or shrink?", "ar-EG": "الغلط بيكبر ولا بيصغر؟" }, "s": 1, "o": 3 },
+        { "icon": "arrow", "tone": "ok", "text": { "en": "Nudge it the shrinking way", "ar-EG": "زقّه في اتجاه التصغير" }, "s": 2 },
+        { "icon": "repeat", "text": { "en": "Next example, thousands of times", "ar-EG": "المثال اللي بعده، آلاف المرات" }, "s": 3 }
+      ]
+    },
+    "6": {
+      "headline": { "en": "Gradient descent: step by step downhill", "ar-EG": "الانحدار التدريجي: خطوة خطوة لتحت" },
+      "flow": {
+        "nodes": [
+          { "id": "guess", "icon": "help", "text": { "en": "Guess", "ar-EG": "خمّن" }, "s": 0 },
+          { "id": "error", "icon": "gauge", "text": { "en": "Error", "ar-EG": "قيس الغلط" }, "s": 0 },
+          { "id": "nudge", "icon": "arrow", "text": { "en": "Nudge", "ar-EG": "زقّ لتحت" }, "s": 0 },
+          { "id": "repeat", "icon": "repeat", "tone": "system", "text": { "en": "Repeat", "ar-EG": "كرّر" }, "s": 0 }
+        ],
+        "edges": [["guess", "error"], ["error", "nudge"], ["nudge", "repeat"]]
+      }
+    },
+    "7": {
+      "aside": "map",
+      "list": [
+        { "icon": "eye", "text": { "en": "Fog: you can’t see the valley", "ar-EG": "شبورة: مش شايف الوادي" }, "s": 1 },
+        { "icon": "hand", "text": { "en": "Feel the slope, step down", "ar-EG": "حِسّ الميل، وانزل خطوة" }, "s": 1, "o": 3 },
+        { "icon": "warning", "tone": "danger", "text": { "en": "Huge strides: over the valley", "ar-EG": "خطوات عملاقة: تعدّي الوادي" }, "s": 2 },
+        { "icon": "clock", "tone": "muted", "text": { "en": "Tiny steps: still walking at night", "ar-EG": "خطوات صغيرة قوي: لسه ماشي بالليل" }, "s": 3 }
+      ]
+    },
+    "9": {
+      "cards": [
+        { "icon": "warning", "tone": "danger", "text": { "en": "Jumping error: steps overshoot", "ar-EG": "غلط بينطّ: الخطوات بتعدّي" }, "s": 1 },
+        { "icon": "gauge", "text": { "en": "Step size: the learning rate", "ar-EG": "حجم الخطوة: معدل التعلّم" }, "s": 2 },
+        { "icon": "clock", "tone": "muted", "text": { "en": "Too small: slow", "ar-EG": "صغير قوي: بطيء" }, "s": 3 }
+      ]
+    },
+    "10": {
+      "aside": "leaf",
+      "list": [
+        { "icon": "sun", "tone": "danger", "text": { "en": "Only sunny photos: fails when cloudy", "ar-EG": "صور شمس بس: يفشل في الغيم" }, "s": 1 },
+        { "icon": "warning", "tone": "danger", "text": { "en": "Too few: learns a false shape", "ar-EG": "أمثلة قليلة: يتعلم شكل غلط" }, "s": 2 },
+        { "icon": "image", "tone": "ok", "text": { "en": "Varied phones, farms and light", "ar-EG": "موبايلات ومزارع وإضاءة متنوعة" }, "s": 3 }
+      ]
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        { "icon": "target", "tone": "danger", "text": { "en": "No hidden layer: fails", "ar-EG": "من غير طبقة مخفية: يفشل" }, "s": 1 },
+        { "icon": "layers", "text": { "en": "Add a layer of four", "ar-EG": "ضيف طبقة فيها 4" }, "s": 2 },
+        { "icon": "gauge", "tone": "ok", "text": { "en": "Train: the error falls", "ar-EG": "درّب: الغلط بينزل" }, "s": 2, "o": 3 },
+        { "icon": "settings", "text": { "en": "Try another learning rate", "ar-EG": "جرّب معدل تعلّم تاني" }, "s": 3 }
+      ]
+    },
+    "13": {
+      "points": [
+        { "text": { "en": "Layers combine lines into shapes", "ar-EG": "الطبقات بتجمع الخطوط لأشكال" }, "s": 1 },
+        { "text": { "en": "Guess, error, nudge, repeat", "ar-EG": "خمّن، غلط، زقّ، كرّر" }, "s": 2 },
+        { "text": { "en": "Sensible steps, varied examples", "ar-EG": "خطوات معقولة، أمثلة متنوعة" }, "s": 3 }
+      ],
+      "takeaway": { "en": "Training is many small steps that shrink the error.", "ar-EG": "التدريب خطوات صغيرة كتير بتصغّر الغلط." }
+    },
+    "14": {
+      "list": [
+        { "icon": "search", "text": { "en": "Hide the chalk", "ar-EG": "خبّوا الطباشيرة" }, "s": 1 },
+        { "icon": "mapPin", "text": { "en": "Only “warmer” or “colder”", "ar-EG": "بس «سخن» أو «بارد»" }, "s": 2 },
+        { "icon": "help", "text": { "en": "Ask: the error? the steps?", "ar-EG": "اسألوا: الغلط؟ الخطوات؟" }, "s": 3 },
+        { "icon": "sparkle", "tone": "ok", "text": { "en": "Training follows the error", "ar-EG": "التدريب بيمشي ورا الغلط" }, "s": 4 }
+      ]
+    }
+  }
+}

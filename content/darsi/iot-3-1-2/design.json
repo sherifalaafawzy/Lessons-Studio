@@ -1,0 +1,385 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "After lunch: an oven",
+            "ar-EG": "بعد الضهر: فرن"
+          },
+          "tone": "danger",
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils fall asleep",
+            "ar-EG": "التلاميذ بيناموا"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The fan stays off",
+            "ar-EG": "المروحة مطفية"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "sense",
+            "icon": "thermometer",
+            "text": {
+              "en": "Read sensor",
+              "ar-EG": "اقرا الحساس"
+            },
+            "s": 1
+          },
+          {
+            "id": "if",
+            "icon": "help",
+            "text": {
+              "en": "IF above 30 °C",
+              "ar-EG": "لو فوق 30 درجة"
+            },
+            "tone": "system",
+            "s": 1
+          },
+          {
+            "id": "then",
+            "icon": "cog",
+            "text": {
+              "en": "THEN fan on",
+              "ar-EG": "يبقى شغّل المروحة"
+            },
+            "tone": "trusted",
+            "s": 1
+          },
+          {
+            "id": "again",
+            "icon": "repeat",
+            "text": {
+              "en": "Repeat",
+              "ar-EG": "كرّر"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "sense",
+            "if"
+          ],
+          [
+            "if",
+            "then"
+          ],
+          [
+            "then",
+            "again"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Above 30 °C: fan on",
+            "ar-EG": "فوق 30 درجة: المروحة تشتغل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Tank below 20%: pump on",
+            "ar-EG": "الخزان تحت 20%: الطلمبة تشتغل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cloud",
+          "text": {
+            "en": "CO₂ above 1,500 ppm: open the windows",
+            "ar-EG": "ثاني أكسيد الكربون فوق 1500‏: افتح الشبابيك"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "Threshold: the number in the rule",
+            "ar-EG": "الحد: الرقم اللي في القاعدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Too low: wasted electricity",
+            "ar-EG": "واطي قوي: كهربا ضايعة"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Too high: pupils swelter",
+            "ar-EG": "عالي قوي: التلاميذ بيسيحوا"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "Choose it from your logged data",
+            "ar-EG": "اختاره من البيانات اللي سجّلتها"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ],
+      "aside": "scale"
+    },
+    "6": {
+      "cards": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "30.1 °C: fan on",
+            "ar-EG": "‏30.1 درجة: تشتغل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "29.9 °C: fan off",
+            "ar-EG": "‏29.9 درجة: تقف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "30.1 °C: on again",
+            "ar-EG": "‏30.1 درجة: تشتغل تاني"
+          },
+          "tone": "danger",
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Worn motors and switches",
+            "ar-EG": "موتور ومفاتيح بايظة"
+          },
+          "tone": "danger",
+          "s": 3
+        }
+      ],
+      "arrows": true
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Above 30 °C: fan on",
+            "ar-EG": "فوق 30 درجة: تشتغل"
+          },
+          "tone": "ok",
+          "s": 0
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Below 28 °C: fan off",
+            "ar-EG": "تحت 28 درجة: تقف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "In between: no change",
+            "ar-EG": "في النص: زي ما هي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Tank pump: on below 20%, off above 90%",
+            "ar-EG": "الطلمبة: تشتغل تحت 20% وتقف فوق 90%"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "cards": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Broken wire: reads 0",
+            "ar-EG": "سلك مقطوع: بيقرا 0"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Pump runs and runs",
+            "ar-EG": "الطلمبة شغّالة على طول"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Tank overflows",
+            "ar-EG": "الخزان بيفيض"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Fail safe: stop, tell someone",
+            "ar-EG": "أمان: وقّف، وبلّغ حد"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ],
+      "arrows": true
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Replay a whole school day",
+            "ar-EG": "يوم دراسي كامل بيتعاد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Minutes too hot or stuffy",
+            "ar-EG": "دقايق حر أو هوا مكتوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Electricity used",
+            "ar-EG": "الكهربا اللي اتصرفت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Comfort against electricity: you choose",
+            "ar-EG": "الراحة قصاد الكهربا: إنت تختار"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "IF a condition, THEN an action",
+            "ar-EG": "لو شرط، يبقى فعل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Thresholds from real data",
+            "ar-EG": "حدود من بيانات حقيقية"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Two thresholds: no flicker",
+            "ar-EG": "حدّين: من غير تقطيع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Fail safe, and test first",
+            "ar-EG": "أمان، وجرّب الأول"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Good rules come from real data, and fail safe.",
+        "ar-EG": "القواعد الكويسة بتيجي من بيانات حقيقية، وبتقف بأمان."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Rule cards: fan, lights, pump",
+            "ar-EG": "كروت قواعد: المروحة، والنور، والطلمبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Read out the day, hour by hour",
+            "ar-EG": "اقرا اليوم ساعة بساعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Stand up when your rule says on",
+            "ar-EG": "اقف لما قاعدتك تقول شغّال"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Spot the flicker, then fix it",
+            "ar-EG": "دوّروا على التقطيع، وصلّحوه"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

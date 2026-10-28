@@ -1,0 +1,308 @@
+{
+ "id": "AI-2-1-1",
+ "track": "ai",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "AI tools for teaching"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "How a chatbot writes",
+  "subtitle": "Tokens, likely next words, and why fluent isn’t true",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "How a chatbot writes",
+  "length": "3:16",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Amina Bello — primary teacher, Nigeria (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Two different stories"
+   },
+   {
+    "at": "0:18",
+    "label": "Tokens, one at a time"
+   },
+   {
+    "at": "1:06",
+    "label": "What a language model is"
+   },
+   {
+    "at": "2:04",
+    "label": "Languages and the lab"
+   },
+   {
+    "at": "2:45",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Amina at her desk after school, phone in hand, two chat screens side by side: two different rain stories under the same request. She looks from one to the other, eyebrows raised.",
+    "animation": "First story types itself out; a new-chat wipe; the second story types out differently. Quick push-in on Amina’s face.",
+    "on_screen_text": "",
+    "voice": "Amina",
+    "narration": "Same question, two different stories! I asked a chatbot for a rain story for Primary Four, then asked again in a new chat, same words. So where do its words come from?",
+    "icons": [
+     "chat",
+     "repeat",
+     "shuffle"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey card. The Darsi mark pops in, then the course name, the lesson title and a yellow ‘AI’ track chip.",
+    "animation": "Mark scales 0→100% with a small overshoot (≤ 200 ms); title slides up.",
+    "on_screen_text": "How a chatbot writes",
+    "voice": "Narrator",
+    "narration": "Today: how a chatbot writes, one small piece at a time."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:32",
+    "beat": "Concept",
+    "visual": "A sentence slides in and is cut into coloured blocks: short words stay whole, “photosynthesis” splits into several blocks.",
+    "animation": "Scissor cuts between blocks, 150 ms each; the long word splits last.",
+    "on_screen_text": "Text becomes tokens",
+    "voice": "Narrator",
+    "narration": "A chatbot doesn’t read words like we do. It cuts text into small pieces called tokens. A short, common word is often one token. A long or rare word, like “photosynthesis”, becomes several.",
+    "icons": [
+     "type",
+     "grid",
+     "scissors"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "“The rain…” on a line; a bar chart grows beside it with the chances of the next token: fell, stopped, was, came. One bar is picked and its word joins the line.",
+    "animation": "Bars grow left to right (1.5 s); the chosen word slides onto the sentence; the bars reset for the next token.",
+    "on_screen_text": "One likely token at a time",
+    "voice": "Narrator",
+    "narration": "Then it writes one token at a time. For each, it scores every possible next token: how likely is it? It picks one, adds it, and repeats. And it doesn’t always pick the top score: a little chance is built in.",
+    "icons": [
+     "chat",
+     "gauge",
+     "shuffle"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "1:06",
+    "beat": "Concept",
+    "visual": "A flow: a tall stack of books and web pages feeds a box of dials (billions of numbers); out comes a small cloud of patterns, not a bookshelf of facts.",
+    "animation": "Pages stream into the box (2 s); dials turn; the pattern cloud fades in.",
+    "on_screen_text": "Patterns from huge amounts of text",
+    "voice": "Narrator",
+    "narration": "Where do those scores come from? From training: the model read huge amounts of text and kept guessing the next token, tuning billions of numbers until its guesses got good. It keeps patterns of language, not a shelf of checked facts.",
+    "icons": [
+     "layers",
+     "cpu",
+     "sparkle"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:06",
+    "end": "1:20",
+    "beat": "Definition",
+    "visual": "Clean white card with the AI track chip: “LLM” in big letters, and under it the definition. A chat window frames it for the second sentence.",
+    "animation": "Letters grow in (≤ 300 ms); the chat window draws around them.",
+    "on_screen_text": "Large language model",
+    "voice": "Narrator",
+    "narration": "So, a large language model, or LLM, is a program trained on huge amounts of text to predict the next token. A chatbot is an LLM trained further to follow instructions and chat.",
+    "icons": [
+     "bot",
+     "chat",
+     "type"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:36",
+    "beat": "Analogy",
+    "visual": "A classroom: a pupil who has read the textbook many times answers smoothly; asked about something not in the book, he keeps talking in the same confident voice while the class looks unsure.",
+    "animation": "Speech lines flow steadily from the pupil; a small question mark appears over the class.",
+    "on_screen_text": "The fluent pupil",
+    "voice": "Narrator",
+    "narration": "Think of a pupil who has read the textbook so often they can finish any sentence in its style. Ask about something they never learned, and they carry on in the same sure voice. Fluent, but not checked.",
+    "icons": [
+     "book",
+     "users",
+     "chat"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:45",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma pops in, one eyebrow raised, phone in hand showing a confident chatbot answer. Three answer cards drop in below her.",
+    "animation": "Character slides in from the side; answer cards drop in with a small bounce.",
+    "on_screen_text": "What does fluent prove?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A chatbot answers my question fluently and confidently. What does that prove?"
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "2:04",
+    "beat": "Reveal",
+    "visual": "The card ‘Only that it sounds likely’ gets a check badge. Beside it, four small panels: a predicting bot, a search with links, a calendar page torn off at a date, and an invented detail with a warning tag.",
+    "animation": "Check badge pops (150 ms); the panels arrive one by one as they are said.",
+    "on_screen_text": "Fluent isn’t the same as true",
+    "voice": "Narrator",
+    "narration": "Only that it sounds likely. On its own, a chatbot predicts; it doesn’t look facts up. Some tools also search the web, with links you can check. Every model has a knowledge cut-off, when its training text ends. And when it doesn’t know, it can invent details.",
+    "icons": [
+     "circlecheck",
+     "link",
+     "calendar",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:04",
+    "end": "2:22",
+    "beat": "Examples",
+    "visual": "Two columns. English: a short row of token blocks and a tall pile of web pages. Arabic, Hausa, Yoruba: the same message as a much longer row of blocks, and a small pile of pages.",
+    "animation": "Token rows build block by block; the longer row keeps going after the short one has stopped.",
+    "on_screen_text": "Not every language costs the same",
+    "voice": "Narrator",
+    "narration": "Language matters too. Token pieces were learned mostly from English. So the same message in Arabic, Hausa or Yoruba often needs more tokens, sometimes several times as many: slower, costlier, and limits come sooner. With less text online in a language, answers are often weaker.",
+    "icons": [
+     "languages",
+     "grid",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:22",
+    "end": "2:36",
+    "beat": "Lab preview",
+    "visual": "A phone screen with the lab: a text box, the sentence broken into coloured token blocks underneath, and the counts of tokens and characters.",
+    "animation": "A finger types; blocks appear under the words as they are typed; the count ticks up.",
+    "on_screen_text": "App lab: how AI reads text",
+    "voice": "Narrator",
+    "narration": "In the app, type any sentence and watch it split into coloured tokens, with a count. Try a short word, a long word, then add a comma. Which words break into the most pieces?",
+    "icons": [
+     "keyboard",
+     "grid",
+     "languages"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:36",
+    "end": "2:45",
+    "beat": "Checkpoint ◆",
+    "visual": "Amina holds up her phone with the two rain stories side by side. Three answer cards appear beside her.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Why two different stories?",
+    "voice": "Amina",
+    "narration": "Your turn. Same question, new chat, and I got two different rain stories. Why?"
+   },
+   {
+    "n": 13,
+    "start": "2:45",
+    "end": "3:01",
+    "beat": "Recap",
+    "visual": "The first card gets the check badge, then the screen resolves into four summary lines and an orange takeaway bar.",
+    "animation": "Lines tick in 250 ms apart; the takeaway bar slides up.",
+    "on_screen_text": "Tokens · Likely next · Not proof",
+    "voice": "Narrator",
+    "narration": "It picks likely tokens, with a little chance, so the same question can get a new story. Remember: text becomes tokens, and it predicts one likely token at a time. Fluent isn’t proof. And some languages cost more tokens.",
+    "icons": [
+     "grid",
+     "sparkle",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "3:01",
+    "end": "3:16",
+    "beat": "Try it tomorrow",
+    "visual": "Amina’s classroom: pupils stand in a line, each adding one word to a sentence on the board. At the end the class reads it aloud and Amina asks: is it true?",
+    "animation": "Words join the sentence one by one; a question mark pops at the end.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: play “Human chatbot”. Pupils build a sentence, one word each, each choosing a likely next word. Then read it out: does it sound right? Is it true? How would we check?",
+    "icons": [
+     "school",
+     "users",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A chatbot answers fluently and confidently. What does that prove?",
+    "options": [
+     {
+      "text": "That it checked a trusted source",
+      "correct": false
+     },
+     {
+      "text": "Only that the answer sounds likely",
+      "correct": true
+     },
+     {
+      "text": "That the answer is true",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — fluent and confident only means the words are likely. A chatbot predicts, so check the facts yourself.",
+    "feedback_wrong": "Not quite — a chatbot predicts likely words. Sounding sure doesn’t mean it checked anything, or that it’s true.",
+    "resume_at": "1:45"
+   },
+   {
+    "at": "2:41",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Same question, new chat, two different stories. Why?",
+    "options": [
+     {
+      "text": "It copied another story from the web",
+      "correct": false
+     },
+     {
+      "text": "Its training changed in between",
+      "correct": false
+     },
+     {
+      "text": "It picks likely tokens, with some chance",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — at each step it picks among likely tokens, with a little chance, so the same question can get a new answer.",
+    "feedback_wrong": "Not quite — it doesn’t copy stories, and it isn’t retrained between your questions. It picks likely tokens with a little chance, so answers vary.",
+    "resume_at": "2:45"
+   }
+  ]
+ }
+}

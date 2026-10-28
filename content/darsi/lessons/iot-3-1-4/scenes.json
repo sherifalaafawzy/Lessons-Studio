@@ -1,0 +1,6640 @@
+{
+ "version": "0.2",
+ "scenes": [
+  {
+   "id": "s01",
+   "template": "canvas",
+   "narration": {
+    "en": "Our water tank sensor works perfectly. But the tank is up a hill, four hundred metres from the office, and our Wi-Fi stops at the staffroom door. So nobody knows when it's nearly empty.",
+    "ar-EG": "حساس خزان المية عندنا شغّال تمام. بس الخزان فوق تل، على بعد ربعمية متر من المكتب، والواي فاي بتاعنا بيقف عند باب أوضة المدرسين. فمحدش بيعرف إمتى قرّب يفضى."
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "bubble",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 70,
+      "w": 710,
+      "h": 200,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 28,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "quote",
+      "type": "text",
+      "x": 124,
+      "y": 100,
+      "w": 642,
+      "size": 34,
+      "weight": 700,
+      "text": {
+       "en": "Our water tank sensor works perfectly.",
+       "ar-EG": "حساس خزان المية عندنا شغّال تمام."
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 1.6
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 323,
+      "w": 218,
+      "h": 235,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "droplets",
+      "x": 156,
+      "y": 351,
+      "w": 87,
+      "h": 87,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label1",
+      "type": "text",
+      "x": 102,
+      "y": 459,
+      "w": 194,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "Tank 400 m uphill",
+       "ar-EG": "الخزان: 400 متر فوق تل"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 336,
+      "y": 323,
+      "w": 218,
+      "h": 235,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "wifi-off",
+      "x": 402,
+      "y": 351,
+      "w": 87,
+      "h": 87,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 1
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label2",
+      "type": "text",
+      "x": 348,
+      "y": 459,
+      "w": 194,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "Wi-Fi stops at the staffroom",
+       "ar-EG": "الواي فاي بيقف عند المدرسين"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 0.65
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "But",
+            "ar-EG": "الخزان"
+           },
+           "offset": 1.05
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 582,
+      "y": 323,
+      "w": 218,
+      "h": 235,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "warning",
+      "x": 648,
+      "y": 351,
+      "w": 87,
+      "h": 87,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label3",
+      "type": "text",
+      "x": 594,
+      "y": 459,
+      "w": 194,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "Nobody knows it's empty",
+       "ar-EG": "محدش عارف إنه فاضي"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "nobody",
+            "ar-EG": "فمحدش"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/joseph_talking.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "حساس"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s02",
+   "template": "title-hook",
+   "narration": {
+    "en": "Today: networks, and how a sensor's data gets home.",
+    "ar-EG": "النهارده: الشبكات، وإزاي بيانات الحساس بتوصل لوجهتها."
+   },
+   "transition": {
+    "type": "zoom"
+   },
+   "content": {
+    "kicker": {
+     "en": "Data and automation",
+     "ar-EG": "البيانات والأتمتة"
+    },
+    "title": {
+     "en": "Networks: getting the data home",
+     "ar-EG": "الشبكات: إزاي البيانات بتوصل"
+    },
+    "hook": {
+     "en": "Bluetooth, Wi-Fi, mobile or LoRa, and when to pass it on",
+     "ar-EG": "بلوتوث ولا واي فاي ولا موبايل ولا LoRa‏، وإمتى نعدّي الرسالة"
+    },
+    "icon": "chip"
+   },
+   "overlays": [
+    {
+     "id": "mark",
+     "type": "image",
+     "src": "@lib/v1/brand/darsi-mark.svg",
+     "x": 56,
+     "y": 40,
+     "w": 70,
+     "h": 72,
+     "fit": "contain",
+     "anim": [
+      {
+       "prop": "scale",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.65,
+         "value": 1,
+         "ease": "back"
+        }
+       ]
+      },
+      {
+       "prop": "opacity",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.35,
+         "value": 1,
+         "ease": "out"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "template": "canvas",
+   "narration": {
+    "en": "Every network is a trade-off, so ask four questions. How far? How much power? How much data, and how often? And what will it cost each month?",
+    "ar-EG": "كل شبكة فيها مكسب وخسارة، فاسأل أربع أسئلة. المسافة قد إيه؟ الطاقة قد إيه؟ البيانات قد إيه، وكل قد إيه؟ وهتكلّف كام كل شهر؟"
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Four questions first",
+       "ar-EG": "أربع أسئلة الأول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 98,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 173,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label1",
+      "type": "text",
+      "x": 110,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "How far?",
+       "ar-EG": "المسافة؟"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "far",
+            "ar-EG": "المسافة"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 376,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "battery",
+      "x": 451,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label2",
+      "type": "text",
+      "x": 388,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "How much power?",
+       "ar-EG": "الطاقة؟"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "power",
+            "ar-EG": "الطاقة"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 654,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "database",
+      "x": 729,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label3",
+      "type": "text",
+      "x": 666,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "How much data?",
+       "ar-EG": "البيانات؟"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "data",
+            "ar-EG": "البيانات"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 932,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "banknote",
+      "x": 1007,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label4",
+      "type": "text",
+      "x": 944,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "What monthly cost?",
+       "ar-EG": "التكلفة كل شهر؟"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "what",
+            "ar-EG": "وهتكلّف"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "template": "canvas",
+   "narration": {
+    "en": "Bluetooth Low Energy reaches ten to thirty metres, usually to a phone, on very little power. Wi-Fi carries lots of data, but only thirty to fifty metres indoors, and needs a router with power.",
+    "ar-EG": "البلوتوث الموفّر للطاقة بيوصل من عشرة لتلاتين متر، غالبًا لموبايل، بطاقة قليلة جدًا. الواي فاي بيشيل بيانات كتير، بس من تلاتين لخمسين متر جوّه المبنى، ومحتاج راوتر وكهربا."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Close by: Bluetooth and Wi-Fi",
+       "ar-EG": "قريّب: البلوتوث والواي فاي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lcard",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 530,
+      "h": 400,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 4,
+      "radius": 26,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "licon",
+      "type": "icon",
+      "icon": "phone",
+      "x": 118,
+      "y": 236,
+      "w": 56,
+      "h": 56,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ltitle",
+      "type": "text",
+      "x": 190,
+      "y": 244,
+      "w": 402,
+      "size": 34,
+      "weight": 800,
+      "tone": "accent",
+      "text": {
+       "en": "Bluetooth LE",
+       "ar-EG": "البلوتوث الموفّر"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "li1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 120,
+      "y": 324,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lt1",
+      "type": "text",
+      "x": 174,
+      "y": 322,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "10–30 m, to a phone",
+       "ar-EG": "من 10 لـ 30 متر، لموبايل"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 362
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.4
+          },
+          "value": 322,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "li2",
+      "type": "icon",
+      "icon": "battery",
+      "x": 120,
+      "y": 410,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lt2",
+      "type": "text",
+      "x": 174,
+      "y": 408,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "Very little power",
+       "ar-EG": "طاقة قليلة جدًا"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.5
+          },
+          "value": 448
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.9
+          },
+          "value": 408,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Bluetooth",
+            "ar-EG": "البلوتوث"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rcard",
+      "type": "shape",
+      "shape": "rect",
+      "x": 660,
+      "y": 210,
+      "w": 530,
+      "h": 400,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 4,
+      "radius": 26,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ricon",
+      "type": "icon",
+      "icon": "wifi",
+      "x": 688,
+      "y": 236,
+      "w": 56,
+      "h": 56,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rtitle",
+      "type": "text",
+      "x": 760,
+      "y": 244,
+      "w": 402,
+      "size": 34,
+      "weight": 800,
+      "tone": "accent",
+      "text": {
+       "en": "Wi-Fi",
+       "ar-EG": "الواي فاي"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 690,
+      "y": 324,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt1",
+      "type": "text",
+      "x": 744,
+      "y": 322,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "30–50 m indoors",
+       "ar-EG": "من 30 لـ 50 متر جوّه"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 362
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.4
+          },
+          "value": 322,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri2",
+      "type": "icon",
+      "icon": "database",
+      "x": 690,
+      "y": 410,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt2",
+      "type": "text",
+      "x": 744,
+      "y": 408,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "Lots of data",
+       "ar-EG": "بيانات كتير"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.5
+          },
+          "value": 448
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.9
+          },
+          "value": 408,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri3",
+      "type": "icon",
+      "icon": "zap",
+      "x": 690,
+      "y": 496,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt3",
+      "type": "text",
+      "x": 744,
+      "y": 494,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "Needs a router and power",
+       "ar-EG": "محتاج راوتر وكهربا"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1
+          },
+          "value": 534
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1.4
+          },
+          "value": 494,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Wi-Fi",
+            "ar-EG": "الواي"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "template": "canvas",
+   "narration": {
+    "en": "A mobile network works wherever there's coverage, but each sensor needs a SIM and a monthly plan. LoRa is made for sensors: two to five kilometres in town, ten or more in open country, on very little power, but only a few dozen bytes at a time.",
+    "ar-EG": "شبكة الموبايل بتشتغل في أي حتة فيها تغطية، بس كل حساس محتاج شريحة وباقة كل شهر. أما اللورا فمعمولة للحساسات: من اتنين لخمسة كيلو في المدينة، وعشرة أو أكتر في الأرض المفتوحة، بطاقة قليلة جدًا، بس كام عشرة بايت بس كل مرة."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Far away: mobile and LoRa",
+       "ar-EG": "بعيد: الموبايل وLoRa"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lcard",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 530,
+      "h": 400,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 4,
+      "radius": 26,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "licon",
+      "type": "icon",
+      "icon": "phone",
+      "x": 118,
+      "y": 236,
+      "w": 56,
+      "h": 56,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ltitle",
+      "type": "text",
+      "x": 190,
+      "y": 244,
+      "w": 402,
+      "size": 34,
+      "weight": 800,
+      "tone": "accent",
+      "text": {
+       "en": "Mobile network",
+       "ar-EG": "شبكة الموبايل"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "li1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 120,
+      "y": 324,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lt1",
+      "type": "text",
+      "x": 174,
+      "y": 322,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "Anywhere with coverage",
+       "ar-EG": "أي حتة فيها تغطية"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 362
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.4
+          },
+          "value": 322,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "li2",
+      "type": "icon",
+      "icon": "banknote",
+      "x": 120,
+      "y": 410,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "lt2",
+      "type": "text",
+      "x": 174,
+      "y": 408,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "A SIM and a monthly plan",
+       "ar-EG": "شريحة وباقة كل شهر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 448
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.9
+          },
+          "value": 408,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "mobile",
+            "ar-EG": "شبكة"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rcard",
+      "type": "shape",
+      "shape": "rect",
+      "x": 660,
+      "y": 210,
+      "w": 530,
+      "h": 400,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 4,
+      "radius": 26,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ricon",
+      "type": "icon",
+      "icon": "signal",
+      "x": 688,
+      "y": 236,
+      "w": 56,
+      "h": 56,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rtitle",
+      "type": "text",
+      "x": 760,
+      "y": 244,
+      "w": 402,
+      "size": 34,
+      "weight": 800,
+      "tone": "accent",
+      "text": {
+       "en": "LoRa",
+       "ar-EG": "⁦LoRa⁩"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 690,
+      "y": 324,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt1",
+      "type": "text",
+      "x": 744,
+      "y": 322,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "2–5 km in town, 10+ open",
+       "ar-EG": "من 2 لـ 5 كيلو، والخلا 10 وأكتر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 362
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.4
+          },
+          "value": 322,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri2",
+      "type": "icon",
+      "icon": "battery",
+      "x": 690,
+      "y": 410,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt2",
+      "type": "text",
+      "x": 744,
+      "y": 408,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "Very little power",
+       "ar-EG": "طاقة قليلة جدًا"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.5
+          },
+          "value": 448
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.9
+          },
+          "value": 408,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "ri3",
+      "type": "icon",
+      "icon": "database",
+      "x": 690,
+      "y": 496,
+      "w": 38,
+      "h": 38,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "rt3",
+      "type": "text",
+      "x": 744,
+      "y": 494,
+      "w": 422,
+      "size": 30,
+      "weight": 600,
+      "text": {
+       "en": "A few dozen bytes",
+       "ar-EG": "كام عشرة بايت"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1
+          },
+          "value": 534
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1.4
+          },
+          "value": 494,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "LoRa",
+            "ar-EG": "أما"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "template": "canvas",
+   "narration": {
+    "en": "Sometimes the best network is no radio at all. A logger saves to a memory card, and a pupil collects it weekly: no signal, no bill.",
+    "ar-EG": "ساعات أحسن شبكة هي إنه مفيش راديو خالص. جهاز التسجيل بيحفظ على كارت ميموري، وتلميذ بيجيبه كل أسبوع: لا شبكة، ولا فاتورة."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Or no radio at all",
+       "ar-EG": "أو من غير راديو خالص"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "file",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A logger saves to a memory card",
+       "ar-EG": "جهاز تسجيل بيحفظ على كارت ميموري"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "calendar",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A pupil collects it weekly",
+       "ar-EG": "تلميذ بيجيبه كل أسبوع"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.95
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "banknote",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "No signal, no bill",
+       "ar-EG": "لا شبكة، ولا فاتورة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "logger",
+            "ar-EG": "جهاز"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "file",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sometimes",
+            "ar-EG": "ساعات"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07",
+   "template": "quiz",
+   "narration": {
+    "en": "Quick check! The tank is four hundred metres away, up a hill, with no power or Wi-Fi. Which network fits best?",
+    "ar-EG": "سؤال سريع! الخزان على بعد ربعمية متر، فوق تل، من غير كهربا ولا واي فاي. أنهي شبكة تناسبه أكتر؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Which network for the tank?",
+     "ar-EG": "أنهي شبكة للخزان؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s07-check",
+    "prompt": {
+     "en": "400 m up a hill, no power or Wi-Fi, a water level every 15 minutes. Which network?",
+     "ar-EG": "‏400 متر فوق تل، من غير كهربا ولا واي فاي، ومستوى المية كل 15 دقيقة. أنهي شبكة؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Bluetooth, to a phone",
+       "ar-EG": "بلوتوث، لموبايل"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Wi-Fi from the office",
+       "ar-EG": "واي فاي من المكتب"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "LoRa, with a gateway at school",
+       "ar-EG": "‏LoRa‏، ببوابة في المدرسة"
+      }
+     }
+    ],
+    "answer": "c",
+    "explain": {
+     "en": "Correct — 400 m is far beyond Bluetooth and Wi-Fi but easy for LoRa, and a water level is only a few bytes.",
+     "ar-EG": "صح — الـ 400 متر أبعد بكتير من البلوتوث والواي فاي، لكنها سهلة على LoRa، ومستوى المية كام بايت بس."
+    }
+   },
+   "speaker": "amina"
+  },
+  {
+   "id": "s08",
+   "template": "canvas",
+   "narration": {
+    "en": "LoRa. Four hundred metres is easy for LoRa, but far beyond Bluetooth and Wi-Fi. A water level is a few bytes, the sensor can run for years on batteries, and one gateway can hear sensors all over the school.",
+    "ar-EG": "اللورا. ربعمية متر سهلة على اللورا، بس أبعد بكتير من البلوتوث والواي فاي. مستوى المية كام بايت، والحساس يقدر يعيش سنين على البطاريات، وبوابة واحدة تقدر تسمع حساسات المدرسة كلها."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "badge",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 90,
+      "y": 60,
+      "w": 72,
+      "h": 72,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": 0.3,
+          "value": 0
+         },
+         {
+          "at": 0.75,
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": 0.3,
+          "value": 0
+         },
+         {
+          "at": 0.45,
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 186,
+      "y": 66,
+      "w": 1004,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "LoRa, with a gateway",
+       "ar-EG": "‏LoRa‏، مع بوابة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": 0.3,
+          "value": 106
+         },
+         {
+          "at": 0.8,
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": 0.3,
+          "value": 0
+         },
+         {
+          "at": 0.6,
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 98,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "mapPin",
+      "x": 173,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label1",
+      "type": "text",
+      "x": 110,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "400 m: easy for LoRa",
+       "ar-EG": "‏400 متر: سهلة على LoRa"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Four",
+            "ar-EG": "ربعمية"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 376,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "database",
+      "x": 451,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label2",
+      "type": "text",
+      "x": 388,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "A few bytes a reading",
+       "ar-EG": "كام بايت للقراءة"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 654,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "battery",
+      "x": 729,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label3",
+      "type": "text",
+      "x": 666,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "Years on batteries",
+       "ar-EG": "سنين على البطاريات"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 0.65
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.05
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "card4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 932,
+      "y": 249,
+      "w": 250,
+      "h": 270,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 24,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "network",
+      "x": 1007,
+      "y": 281,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "label4",
+      "type": "text",
+      "x": 944,
+      "y": 406,
+      "w": 226,
+      "size": 27,
+      "weight": 700,
+      "align": "center",
+      "text": {
+       "en": "One gateway hears them all",
+       "ar-EG": "بوابة واحدة بتسمعهم كلهم"
+      },
+      "anim": [
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "مستوى"
+           },
+           "offset": 1.55
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s09",
+   "template": "flow",
+   "narration": {
+    "en": "A gateway is the bridge between the sensors' radio and the internet. It hears their messages and passes them on, over Wi-Fi, a cable or the mobile network, to a computer or a phone.",
+    "ar-EG": "البوابة، أو الجيتواي، هي الكوبري بين راديو الحساسات والإنترنت. بتسمع رسايلهم وبتعدّيها، على الواي فاي أو الكابل أو شبكة الموبايل، لكمبيوتر أو موبايل."
+   },
+   "content": {
+    "title": {
+     "en": "The gateway: a bridge",
+     "ar-EG": "البوابة: كوبري"
+    },
+    "nodes": [
+     {
+      "id": "tank",
+      "label": {
+       "en": "Tank sensor",
+       "ar-EG": "حساس الخزان"
+      },
+      "icon": "droplets"
+     },
+     {
+      "id": "gw",
+      "label": {
+       "en": "Gateway",
+       "ar-EG": "البوابة"
+      },
+      "icon": "network",
+      "tone": "system"
+     },
+     {
+      "id": "net",
+      "label": {
+       "en": "Internet",
+       "ar-EG": "الإنترنت"
+      },
+      "icon": "cloud"
+     },
+     {
+      "id": "phone",
+      "label": {
+       "en": "Phone alert",
+       "ar-EG": "تنبيه ع الموبايل"
+      },
+      "icon": "phone",
+      "tone": "trusted"
+     }
+    ],
+    "edges": [
+     {
+      "from": "tank",
+      "to": "gw"
+     },
+     {
+      "from": "gw",
+      "to": "net"
+     },
+     {
+      "from": "net",
+      "to": "phone"
+     }
+    ]
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "gateway",
+      "ar-EG": "البوابة"
+     },
+     "action": "reveal",
+     "target": "tank"
+    },
+    {
+     "word": {
+      "en": "gateway",
+      "ar-EG": "البوابة"
+     },
+     "offset": 0.5,
+     "action": "reveal",
+     "target": "gw"
+    },
+    {
+     "word": {
+      "en": "hears",
+      "ar-EG": "بتسمع"
+     },
+     "action": "reveal",
+     "target": "net"
+    },
+    {
+     "word": {
+      "en": "hears",
+      "ar-EG": "بتسمع"
+     },
+     "offset": 0.5,
+     "action": "reveal",
+     "target": "phone"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "template": "flow",
+   "narration": {
+    "en": "What if a sensor is out of reach? In a mesh, sensors pass messages hop by hop, each to a neighbour in range, until one reaches the gateway. If one fails, the message can often go another way.",
+    "ar-EG": "طب لو حساس بعيد عن المدى؟ في شبكة الميش، الحساسات بتعدّي الرسايل خطوة خطوة، كل واحد لجار في مداه، لحد ما واحد يوصل للبوابة. ولو واحد باظ، الرسالة غالبًا تقدر تاخد طريق تاني."
+   },
+   "content": {
+    "title": {
+     "en": "Out of reach? Pass it on",
+     "ar-EG": "بعيد؟ عدّي الرسالة"
+    },
+    "nodes": [
+     {
+      "id": "far",
+      "label": {
+       "en": "Far sensor",
+       "ar-EG": "حساس بعيد"
+      },
+      "icon": "signal"
+     },
+     {
+      "id": "a",
+      "label": {
+       "en": "Neighbour 1",
+       "ar-EG": "جار 1"
+      },
+      "icon": "signal"
+     },
+     {
+      "id": "b",
+      "label": {
+       "en": "Neighbour 2",
+       "ar-EG": "جار 2"
+      },
+      "icon": "signal"
+     },
+     {
+      "id": "gw",
+      "label": {
+       "en": "Gateway",
+       "ar-EG": "البوابة"
+      },
+      "icon": "network",
+      "tone": "trusted"
+     }
+    ],
+    "edges": [
+     {
+      "from": "far",
+      "to": "a"
+     },
+     {
+      "from": "a",
+      "to": "gw"
+     },
+     {
+      "from": "far",
+      "to": "b"
+     },
+     {
+      "from": "b",
+      "to": "gw"
+     }
+    ]
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "mesh",
+      "ar-EG": "شبكة"
+     },
+     "action": "reveal",
+     "target": "far"
+    },
+    {
+     "word": {
+      "en": "mesh",
+      "ar-EG": "شبكة"
+     },
+     "offset": 0.5,
+     "action": "reveal",
+     "target": "a"
+    },
+    {
+     "word": {
+      "en": "fails",
+      "ar-EG": "ولو"
+     },
+     "action": "reveal",
+     "target": "b"
+    },
+    {
+     "word": {
+      "en": "mesh",
+      "ar-EG": "شبكة"
+     },
+     "offset": 1,
+     "action": "reveal",
+     "target": "gw"
+    }
+   ]
+  },
+  {
+   "id": "s11",
+   "template": "quiz",
+   "narration": {
+    "en": "Your turn. A sensor at the far end of the garden can't reach the gateway, but a sensor halfway can reach both. What's the cheapest fix?",
+    "ar-EG": "دورك. حساس في آخر الجنينة مش واصل للبوابة، بس حساس في النص بيوصل للاتنين. إيه أرخص حل؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Can't reach the gateway?",
+     "ar-EG": "مش واصل للبوابة؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s11-check",
+    "prompt": {
+     "en": "The far sensor can't reach the gateway, but a sensor halfway reaches both. Cheapest fix?",
+     "ar-EG": "الحساس البعيد مش واصل للبوابة، بس حساس في النص بيوصل للاتنين. إيه أرخص حل؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Send its readings more often",
+       "ar-EG": "يبعت قراءاته أكتر"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Let the halfway sensor pass them on",
+       "ar-EG": "الحساس اللي في النص يعدّيها"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — the halfway sensor can relay its messages hop by hop, with no new hardware.",
+     "ar-EG": "صح — الحساس اللي في النص يقدر يعدّي رسايله قفزة بقفزة، من غير أجهزة جديدة."
+    }
+   },
+   "speaker": "farah"
+  },
+  {
+   "id": "s12",
+   "template": "summary",
+   "narration": {
+    "en": "Let the halfway sensor pass the messages on: in a mesh, they hop to the gateway. Remember: weigh distance, power, data and cost; Bluetooth or Wi-Fi when it's near, LoRa and a gateway when it's far, and hops to cross the gaps.",
+    "ar-EG": "خلّي الحساس اللي في النص يعدّي الرسايل: في الميش، الرسايل بتنط لحد البوابة. افتكر: وازن المسافة والطاقة والبيانات والتكلفة؛ بلوتوث أو واي فاي للقريب، ولورا وبوابة للبعيد، وقفزات تعدّي الفجوات."
+   },
+   "content": {
+    "title": {
+     "en": "Remember",
+     "ar-EG": "افتكر"
+    },
+    "points": [
+     {
+      "en": "Distance, power, data, cost",
+      "ar-EG": "المسافة، والطاقة، والبيانات، والتكلفة"
+     },
+     {
+      "en": "Near: Bluetooth or Wi-Fi",
+      "ar-EG": "القريب: بلوتوث أو واي فاي"
+     },
+     {
+      "en": "Far: LoRa and a gateway",
+      "ar-EG": "البعيد: LoRa وبوابة"
+     },
+     {
+      "en": "Gaps: hop by hop",
+      "ar-EG": "الفجوات: قفزة بقفزة"
+     }
+    ],
+    "takeaway": {
+     "en": "Choose the network from the need, not the fashion.",
+     "ar-EG": "اختار الشبكة على قد الحاجة، مش على الموضة."
+    }
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "offset": 0.5,
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "offset": 1,
+     "action": "reveal",
+     "target": "3"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "offset": 1.5,
+     "action": "reveal",
+     "target": "4"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "takeaway"
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "template": "canvas",
+   "narration": {
+    "en": "Try it in class tomorrow: the playground radio game. One pupil is the gateway, and notes pass only to someone within arm's reach. Who gets cut off? Add a relay, then take one pupil away and find another route.",
+    "ar-EG": "جرّبها في الفصل بكرة: لعبة الراديو في الحوش. تلميذ يبقى البوابة، والورقة ما تتعدّاش غير لحد على مدّ الإيد. مين اتعزل؟ ضيفوا مكرّر، وبعدين شيلوا تلميذ ولاقوا طريق تاني."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 710,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try it in class tomorrow",
+       "ar-EG": "جرّبها في الفصل بكرة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "One pupil is the gateway",
+       "ar-EG": "تلميذ يبقى البوابة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "hand",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Pass notes only within arm's reach",
+       "ar-EG": "الورقة بتتعدّى على مدّ الإيد بس"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.95
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "gateway",
+            "ar-EG": "يبقى"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "search",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Who is cut off? Add a relay",
+       "ar-EG": "مين اتعزل؟ ضيفوا مكرّر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "shuffle",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Remove one: find another route",
+       "ar-EG": "شيلوا واحد: لاقوا طريق تاني"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.95
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Add",
+            "ar-EG": "ضيفوا"
+           },
+           "offset": 0.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/farah_happy.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "farah"
+  }
+ ]
+}

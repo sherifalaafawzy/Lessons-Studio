@@ -1,0 +1,271 @@
+{
+ "id": "IOT-2-1-4",
+ "track": "iot",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Circuits and microcontrollers"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Microcontrollers: sense, decide, act",
+  "subtitle": "The tiny computer inside every smart device, and the loop it runs",
+  "minutes": 6,
+  "format": "Video + practice"
+ },
+ "video": {
+  "title": "Microcontrollers: sense, decide, act",
+  "length": "3:47",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — Grade 8 science teacher (main character)",
+   "Amina Bello — primary teacher (cameo)",
+   "Mr Joseph — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A light that knows it's dark"
+   },
+   {
+    "at": "0:27",
+    "label": "Meet the microcontroller"
+   },
+   {
+    "at": "1:08",
+    "label": "The loop"
+   },
+   {
+    "at": "2:12",
+    "label": "Start with or without a kit"
+   },
+   {
+    "at": "3:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:20",
+    "beat": "Hook",
+    "visual": "Mr Okafor in a dim school corridor holding a small board with an LED and a light sensor; the LED glows.",
+    "animation": "The corridor darkens; the LED fades on by itself.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our corridor is dark by five, and someone always forgets the light. My pupils built a light that switches itself on. A light sensor, an LED and a tiny computer, smaller than a bank card. Let me show you what's inside.",
+    "icons": [
+     "lamp",
+     "cpu",
+     "sun"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:20",
+    "end": "0:27",
+    "beat": "Title",
+    "visual": "Darsi title card with the IoT track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Microcontrollers: sense, decide, act",
+    "voice": "Narrator",
+    "narration": "Today: microcontrollers, the tiny computers that sense, decide and act."
+   },
+   {
+    "n": 3,
+    "start": "0:27",
+    "end": "0:49",
+    "beat": "Definition",
+    "visual": "A chip zooms open to show a processor and memory, with pins around the edge. Then a washing machine, a charger and a meter, each with the same chip glowing inside.",
+    "animation": "Zoom into the chip; then three appliances pop in.",
+    "on_screen_text": "A whole computer on one chip",
+    "voice": "Narrator",
+    "narration": "A microcontroller is a whole small computer on one chip: a processor, memory, and pins that connect to the world. It's inside washing machines, phone chargers, prepaid meters and weather stations. Boards like the Arduino, the micro:bit and the ESP32 make them easy to use in class.",
+    "icons": [
+     "cpu",
+     "home",
+     "school"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:49",
+    "end": "1:08",
+    "beat": "Concept",
+    "visual": "A board in the middle; on the left, a button, a light sensor and a thermometer wire in; on the right, an LED, a buzzer and a small motor wire out.",
+    "animation": "Left items slide in, then right items.",
+    "on_screen_text": "Pins: inputs and outputs",
+    "voice": "Narrator",
+    "narration": "Its pins are inputs and outputs. Inputs bring news in: a button, a light sensor, a thermometer. Outputs act: an LED, a buzzer, or a motor through a driver. Analog input pins turn a voltage into a number.",
+    "icons": [
+     "cpu",
+     "sun",
+     "bulb"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "1:08",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "A circle of four arrows: read, decide, act, wait, spinning; a small box labelled setup sits before it.",
+    "animation": "Setup ticks once; the circle starts spinning.",
+    "on_screen_text": "Read, decide, act, wait",
+    "voice": "Narrator",
+    "narration": "The program has two parts. Setup runs once, when the power comes on. Then the loop runs again and again, many times a second: read, decide, act, wait. That loop is the heart of every smart device.",
+    "icons": [
+     "repeat",
+     "cpu"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:26",
+    "end": "1:48",
+    "beat": "Examples",
+    "visual": "The four steps of the loop fill in with the night light's details, beside a sensor reading going up and down.",
+    "animation": "Each step writes in as it is said; the LED switches on when the reading dips below 300.",
+    "on_screen_text": "The night light's program",
+    "voice": "Narrator",
+    "narration": "Here's the night light. Read the light sensor: more light gives a bigger number, from zero to one thousand and twenty-three. Decide: below three hundred means dark. Act: switch the LED on, or else off. Wait a tenth of a second, and go round again.",
+    "icons": [
+     "sun",
+     "bulb",
+     "repeat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:48",
+    "end": "2:02",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Okafor points at a reading of 800 on a small screen; the LED is hidden behind a card. Two answer cards drop in.",
+    "animation": "Cards drop in with a small bounce.",
+    "on_screen_text": "800: on or off?",
+    "voice": "Mr Okafor",
+    "narration": "Quick check! The sensor reads eight hundred, and our rule says dark is below three hundred. Is the LED on or off?"
+   },
+   {
+    "n": 8,
+    "start": "2:02",
+    "end": "2:12",
+    "beat": "Reveal",
+    "visual": "The card lifts: the LED is off; the reading 800 sits far above a line at 300.",
+    "animation": "Check badge pops; the loop arrow ticks round once.",
+    "on_screen_text": "Off: it's bright",
+    "voice": "Narrator",
+    "narration": "Off. Eight hundred is well above three hundred, so it's bright. The loop will check again in a tenth of a second.",
+    "icons": [
+     "sun",
+     "check"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:12",
+    "end": "2:38",
+    "beat": "Examples",
+    "visual": "Three tables: a board with LEDs; a phone showing a simulated micro:bit; a pupil holding a program card in front of the class.",
+    "animation": "Each table slides in as it is named.",
+    "on_screen_text": "Three ways to start",
+    "voice": "Narrator",
+    "narration": "There are three ways to start. With a board: an Arduino or a micro:bit, a few LEDs and a light sensor. With a phone or a computer: free simulators like MakeCode and Wokwi run in a browser. And with nothing at all: one pupil plays the microcontroller and follows a program card.",
+    "icons": [
+     "cpu",
+     "phone",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:38",
+    "end": "2:52",
+    "beat": "Lab preview",
+    "visual": "A smooth wave becomes dots, then a staircase; sliders for 'how often' and 'bits' move.",
+    "animation": "The staircase gets finer as the bits slider rises.",
+    "on_screen_text": "In the lab: signals to numbers",
+    "voice": "Narrator",
+    "narration": "In the lab, you'll see how a microcontroller turns a smooth signal into numbers. Choose how often it measures, and how many bits it uses, and watch what's lost.",
+    "icons": [
+     "gauge",
+     "layers"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:52",
+    "end": "3:05",
+    "beat": "Checkpoint ◆",
+    "visual": "Amina in the corridor at noon under a grey sky; the LED is on. Two answer cards bounce in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "On at noon: what to change?",
+    "voice": "Amina Bello",
+    "narration": "Your turn. On cloudy days our corridor is dim, and the night light switches on at noon. What should we change?"
+   },
+   {
+    "n": 12,
+    "start": "3:05",
+    "end": "3:27",
+    "beat": "Recap",
+    "visual": "The rule's number slides from 300 to 200. Then four icons line up: sensor, rule, LED, loop.",
+    "animation": "Icons line up left to right, 250 ms apart.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Lower the number in the rule, say to two hundred: then it only counts as dark when it's really dark. Remember: a microcontroller reads its inputs, decides with a rule, acts on its outputs, and loops. Change the rule, and you change the device."
+   },
+   {
+    "n": 13,
+    "start": "3:27",
+    "end": "3:47",
+    "beat": "Try it tomorrow",
+    "visual": "A pupil at the front holds a program card and a torch, glancing at the window; classmates cover the window with a book and she switches the torch on.",
+    "animation": "The window darkens; the torch clicks on.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: one pupil is the microcontroller. Give her a program card: look at the window, decide with the rule, and switch a torch on or off. Then, if you can, build the same night light in a simulator."
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:58",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "The sensor reads 800, and the rule says dark is below 300. Is the LED on or off?",
+    "options": [
+     {
+      "text": "On",
+      "correct": false
+     },
+     {
+      "text": "Off",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — 800 is well above 300, so it's bright and the LED stays off.",
+    "feedback_wrong": "Not quite — more light gives a bigger number. 800 is far above 300, so it's bright: the LED is off.",
+    "resume_at": "2:02"
+   },
+   {
+    "at": "3:01",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "On cloudy days the night light switches on at noon. What should we change?",
+    "options": [
+     {
+      "text": "Lower the number in the rule",
+      "correct": true
+     },
+     {
+      "text": "Make the loop run faster",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — with a lower number, only a really dark corridor counts as dark.",
+    "feedback_wrong": "Not quite — a faster loop makes the same decision more often. The rule's number decides what counts as dark.",
+    "resume_at": "3:05"
+   }
+  ]
+ }
+}

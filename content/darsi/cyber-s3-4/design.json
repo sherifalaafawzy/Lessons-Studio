@@ -1,0 +1,352 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "“Khoor iurp Vdopd”",
+        "ar-EG": "«وشذجث وي ضهوت»"
+      },
+      "cards": [
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "A note on my desk",
+            "ar-EG": "ورقة على مكتبي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlehelp",
+          "text": {
+            "en": "Looks like nonsense",
+            "ar-EG": "شكلها ملهاش معنى"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "A secret message",
+            "ar-EG": "رسالة سرية"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "plain",
+            "icon": "file",
+            "text": {
+              "en": "Plaintext",
+              "ar-EG": "النص الأصلي"
+            },
+            "tone": "trusted",
+            "s": 1
+          },
+          {
+            "id": "key",
+            "icon": "key",
+            "text": {
+              "en": "With the key",
+              "ar-EG": "اتقفل بمفتاح"
+            },
+            "tone": "system",
+            "s": 0
+          },
+          {
+            "id": "cipher",
+            "icon": "lock",
+            "text": {
+              "en": "Ciphertext",
+              "ar-EG": "النص المشفّر"
+            },
+            "tone": "neutral",
+            "s": 1
+          },
+          {
+            "id": "back",
+            "icon": "file",
+            "text": {
+              "en": "Decrypted",
+              "ar-EG": "فك التشفير"
+            },
+            "tone": "trusted",
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "plain",
+            "key"
+          ],
+          [
+            "key",
+            "cipher"
+          ],
+          [
+            "cipher",
+            "back"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "cards": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "Shift every letter",
+            "ar-EG": "زحزح كل حرف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Shift 3: A→D, B→E",
+            "ar-EG": "إزاحة 3: ا←ث، ب←ج"
+          },
+          "s": 2
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "The shift is the key",
+            "ar-EG": "الإزاحة هي المفتاح"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "5": {
+      "cards": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "English: 25 keys",
+            "ar-EG": "الإنجليزي: 25 مفتاح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "language",
+          "text": {
+            "en": "Arabic: 27 keys",
+            "ar-EG": "العربي: 27 مفتاح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Try them all",
+            "ar-EG": "جرّبهم كلهم"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "6": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Al-Kindi, Baghdad",
+            "ar-EG": "الكندي، بغداد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Count the letters",
+            "ar-EG": "عدّ الحروف"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Most common: E",
+            "ar-EG": "أكتر حرف: الألف"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "C→D",
+            "ar-EG": "د←ذ"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "A→B",
+            "ar-EG": "ا←ب"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "T→U",
+            "ar-EG": "ر←ز"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "back",
+          "text": {
+            "en": "Decrypt: shift back",
+            "ar-EG": "فك الشفرة: رجّع"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "big": {
+        "value": "39",
+        "label": {
+          "en": "digits in the number of possible keys",
+          "ar-EG": "رقم في عدد المفاتيح الممكنة"
+        },
+        "icon": "key",
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Chats: end-to-end encryption",
+            "ar-EG": "الشات: تشفير من الطرف للطرف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Browser padlock: encrypted link",
+            "ar-EG": "قفل المتصفح: اتصال متشفّر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Your phone: storage encrypted",
+            "ar-EG": "موبايلك: التخزين متشفّر"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "lock"
+    },
+    "11": {
+      "cards": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Strong encryption",
+            "ar-EG": "تشفير قوي"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Attackers go for the key",
+            "ar-EG": "المهاجمين عايزين المفتاح"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Keep it to yourself",
+            "ar-EG": "خليه ليك إنت بس"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Encryption needs a key",
+            "ar-EG": "التشفير محتاج مفتاح"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Modern keys: too many to try",
+            "ar-EG": "المفاتيح الحديثة: كتير قوي"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A shared key isn’t secret",
+            "ar-EG": "المفتاح المتشارك مش سر"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Caesar’s weakness: so few keys you can try them all.",
+        "ar-EG": "ضعف شفرة قيصر: مفاتيح قليلة تتجرّب كلها."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write a Caesar message",
+            "ar-EG": "اكتب رسالة بشفرة قيصر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Tell the key in person",
+            "ar-EG": "قول المفتاح وش لوش"
+          },
+          "s": 0
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "The note: “Hello from Salma”",
+            "ar-EG": "الورقة: «مرحبا من سلمى»"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

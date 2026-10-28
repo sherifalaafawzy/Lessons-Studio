@@ -1,0 +1,436 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Phone gone",
+            "ar-EG": "الموبايل ضاع"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Groups and numbers",
+            "ar-EG": "الجروبات والأرقام"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "circlehelp",
+          "text": {
+            "en": "Where to start?",
+            "ar-EG": "أبدأ منين؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A lost phone",
+            "ar-EG": "موبايل ضايع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Marks sent to the wrong group",
+            "ar-EG": "درجات للجروب الغلط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "A hacked email sending scams",
+            "ar-EG": "إيميل متهكر بيبعت نصب"
+          },
+          "s": 3
+        },
+        {
+          "icon": "download",
+          "text": {
+            "en": "A USB stick left in a café",
+            "ar-EG": "فلاشة اتنسيت في سايبر"
+          },
+          "s": 4
+        }
+      ],
+      "aside": "warning"
+    },
+    "4": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "contain",
+            "icon": "shield",
+            "text": {
+              "en": "Contain",
+              "ar-EG": "احتوي"
+            },
+            "s": 1,
+            "tone": "danger"
+          },
+          {
+            "id": "report",
+            "icon": "megaphone",
+            "text": {
+              "en": "Report",
+              "ar-EG": "بلّغ"
+            },
+            "s": 2
+          },
+          {
+            "id": "assess",
+            "icon": "search",
+            "text": {
+              "en": "Assess",
+              "ar-EG": "قيّم"
+            },
+            "s": 3
+          },
+          {
+            "id": "notify",
+            "icon": "mail",
+            "text": {
+              "en": "Notify",
+              "ar-EG": "نبّه"
+            },
+            "s": 4
+          },
+          {
+            "id": "learn",
+            "icon": "learn",
+            "text": {
+              "en": "Learn",
+              "ar-EG": "اتعلّم"
+            },
+            "s": 5,
+            "tone": "trusted"
+          }
+        ],
+        "edges": [
+          [
+            "contain",
+            "report"
+          ],
+          [
+            "report",
+            "assess"
+          ],
+          [
+            "assess",
+            "notify"
+          ],
+          [
+            "notify",
+            "learn"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "Delete for everyone; ask for copies",
+            "ar-EG": "امسح من عند الكل، واطلب النسخ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Lock or erase a lost phone",
+            "ar-EG": "اقفل أو امسح الموبايل الضايع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Change the passwords",
+            "ar-EG": "غيّر الباسوردات"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Unplug an infected computer",
+            "ar-EG": "افصل الكمبيوتر المصاب"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "6": {
+      "headline": {
+        "en": "Like a burst pipe",
+        "ar-EG": "زي ماسورة ضربت"
+      },
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "Turn off the water",
+            "ar-EG": "اقفل المية"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "megaphone",
+          "text": {
+            "en": "Tell the caretaker",
+            "ar-EG": "قول للعامل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Check and warn",
+            "ar-EG": "شوف ونبّه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Fix the pipe",
+            "ar-EG": "صلّح الماسورة"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Delete for everyone",
+            "ar-EG": "امسح من عند الكل"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "megaphone",
+          "text": {
+            "en": "Tell the head the same day",
+            "ar-EG": "قول للمدير في نفس اليوم"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Ask parents to delete it",
+            "ar-EG": "اطلب من الأهالي يمسحوه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Fast telling, small damage",
+            "ar-EG": "بلّغ بسرعة، ضرر أقل"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "What data, and whose?",
+            "ar-EG": "بيانات إيه، وتخص مين؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "How much harm?",
+            "ar-EG": "ضرر قد إيه؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Serious? Tell those affected",
+            "ar-EG": "خطير؟ نبّه المتأثرين"
+          },
+          "s": 3
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Regulator: often 72 hours",
+            "ar-EG": "الجهة الرقابية: غالبًا 72 ساعة"
+          },
+          "s": 4
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "The school leader decides",
+            "ar-EG": "مدير المدرسة يقرر"
+          },
+          "s": 4
+        }
+      ],
+      "aside": "clipboard"
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Hiding it",
+            "ar-EG": "إنك تخبّي"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "image",
+          "text": {
+            "en": "Deleting the evidence",
+            "ar-EG": "إنك تمسح الدليل"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Paying anyone who demands money",
+            "ar-EG": "إنك تدفع لحد بيطلب فلوس"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Arguing with the attacker",
+            "ar-EG": "إنك تتخانق مع المهاجم"
+          },
+          "s": 3,
+          "tone": "danger"
+        }
+      ],
+      "aside": "hand"
+    },
+    "11": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "“IT support” calls",
+            "ar-EG": "«الدعم الفني» بيتصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "It asks for your code",
+            "ar-EG": "بيطلب الكود"
+          },
+          "s": 0,
+          "tone": "danger"
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Choose what to say",
+            "ar-EG": "اختار تقول إيه"
+          },
+          "s": 1,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Contain it fast",
+            "ar-EG": "احتويها بسرعة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Report the same day",
+            "ar-EG": "بلّغ في نفس اليوم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Assess and notify",
+            "ar-EG": "قيّم ونبّه المتأثرين"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Learn, without blame",
+            "ar-EG": "اتعلّم، من غير لوم"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Report early: telling fast keeps the damage small.",
+        "ar-EG": "بلّغ بدري: كل ما تقول أسرع، الضرر يبقى أصغر."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "One incident card per group",
+            "ar-EG": "كارت حادثة لكل مجموعة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "What do we do first?",
+            "ar-EG": "نعمل إيه الأول؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "megaphone",
+          "text": {
+            "en": "Who do we tell?",
+            "ar-EG": "نقول لمين؟"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

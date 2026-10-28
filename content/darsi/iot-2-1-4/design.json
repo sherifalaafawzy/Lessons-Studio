@@ -1,0 +1,375 @@
+{
+  "scenes": {
+    "1": {
+      "cards": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "A light sensor",
+            "ar-EG": "حساس ضوء"
+          },
+          "s": 2
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "An LED",
+            "ar-EG": "ليد"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "A tiny computer",
+            "ar-EG": "كمبيوتر صغير"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "cards": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Processor, memory, pins",
+            "ar-EG": "معالج، وذاكرة، ورجول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "home",
+          "text": {
+            "en": "In meters, chargers, washers",
+            "ar-EG": "في العدّادات والشواحن والغسّالات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Arduino, micro:bit, ESP32",
+            "ar-EG": "أردوينو، مايكروبت، ESP32"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Inputs: news in",
+            "ar-EG": "المداخل: الأخبار"
+          },
+          "icon": "eye",
+          "tone": "accent",
+          "s": 1,
+          "items": [
+            {
+              "icon": "hand",
+              "text": {
+                "en": "A button",
+                "ar-EG": "زرار"
+              },
+              "s": 1
+            },
+            {
+              "icon": "sun",
+              "text": {
+                "en": "A light sensor",
+                "ar-EG": "حساس ضوء"
+              },
+              "s": 1
+            },
+            {
+              "icon": "thermometer",
+              "text": {
+                "en": "A thermometer",
+                "ar-EG": "ترمومتر"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Outputs: action",
+            "ar-EG": "المخارج: التنفيذ"
+          },
+          "icon": "zap",
+          "tone": "ok",
+          "s": 2,
+          "items": [
+            {
+              "icon": "bulb",
+              "text": {
+                "en": "An LED",
+                "ar-EG": "ليد"
+              },
+              "s": 2
+            },
+            {
+              "icon": "megaphone",
+              "text": {
+                "en": "A buzzer",
+                "ar-EG": "جرس"
+              },
+              "s": 2
+            },
+            {
+              "icon": "cog",
+              "text": {
+                "en": "A motor, through a driver",
+                "ar-EG": "موتور، عن طريق دايرة تشغيل"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "read",
+            "icon": "eye",
+            "text": {
+              "en": "Read",
+              "ar-EG": "اقرا"
+            },
+            "s": 2
+          },
+          {
+            "id": "decide",
+            "icon": "help",
+            "text": {
+              "en": "Decide",
+              "ar-EG": "قرّر"
+            },
+            "s": 2
+          },
+          {
+            "id": "act",
+            "icon": "zap",
+            "text": {
+              "en": "Act",
+              "ar-EG": "نفّذ"
+            },
+            "s": 2
+          },
+          {
+            "id": "wait",
+            "icon": "clock",
+            "text": {
+              "en": "Wait, then repeat",
+              "ar-EG": "استنّى، وكرّر"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "read",
+            "decide"
+          ],
+          [
+            "decide",
+            "act"
+          ],
+          [
+            "act",
+            "wait"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "steps": [
+        {
+          "text": {
+            "en": "Read the light: 0 to 1023",
+            "ar-EG": "اقرا الضوء: من 0 لـ 1023"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Decide: below 300 is dark",
+            "ar-EG": "قرّر: أقل من 300 يبقى ضلمة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Act: LED on, or else off",
+            "ar-EG": "نفّذ: الليد ينوّر، وإلّا يطفي"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Wait 0.1 s, then repeat",
+            "ar-EG": "استنّى 0.1 ثانية، وكرّر"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "8": {
+      "cards": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Reading: 800",
+            "ar-EG": "القراية: 800"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Above 300: bright",
+            "ar-EG": "أعلى من 300‏: نور"
+          },
+          "tone": "ok",
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Check again soon",
+            "ar-EG": "يشيّك تاني قريب"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "A board: Arduino or micro:bit",
+            "ar-EG": "بوردة: أردوينو أو مايكروبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A free simulator: MakeCode or Wokwi",
+            "ar-EG": "محاكي ببلاش: ميك كود أو وكوي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Unplugged: a pupil plays the chip",
+            "ar-EG": "من غير أدوات: تلميذ يمثّل الشريحة"
+          },
+          "tone": "ok",
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "cards": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "How often it measures",
+            "ar-EG": "بيقيس كل قد إيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "How many bits",
+            "ar-EG": "كام بت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "What gets lost",
+            "ar-EG": "إيه اللي بيضيع"
+          },
+          "tone": "danger",
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Inputs in, outputs out",
+            "ar-EG": "مداخل، ومخارج"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Setup once, then loop",
+            "ar-EG": "إعداد مرة، وبعدين لفّة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Read, decide, act, wait",
+            "ar-EG": "اقرا، قرّر، نفّذ، استنّى"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Change the rule, change the device",
+            "ar-EG": "غيّر القاعدة، تغيّر الجهاز"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Lower the number: dark means really dark.",
+        "ar-EG": "قلّل الرقم: الضلمة تبقى ضلمة بجد."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "One pupil is the microcontroller",
+            "ar-EG": "تلميذة تبقى المايكروكنترولر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "A program card: read, decide, act",
+            "ar-EG": "كارت برنامج: اقرا، قرّر، نفّذ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Then build it in a simulator",
+            "ar-EG": "وبعدين اعملوها على محاكي"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

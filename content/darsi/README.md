@@ -70,6 +70,8 @@ words. The word is picked automatically: the first word of the sentence that is 
   as the English (`.`, `!`, `?`, `؟`, `…` end a sentence). The converter refuses a scene that doesn't.
   `sentences.ts` shows both side by side.
 - **Checkpoints** in the storyboard's order, options in the same order.
+- **`unit`** (storyboards written after the three packs): the course's title in Egyptian Arabic. With it, the title card
+  names the course (`source/<ID>.json` `unit.title`) instead of the pack-era track name ("AI basics", "Cyber safety").
 - **Egyptian Arabic**, the way an Egyptian teacher would explain it to colleagues: friendly, clear, spoken. Not Modern
   Standard Arabic, and not slang that a teacher wouldn't say in a training.
 - **Terms as Egyptian teachers say them:**

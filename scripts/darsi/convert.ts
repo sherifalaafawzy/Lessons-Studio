@@ -40,6 +40,9 @@ export interface Story {
 export interface Arabic {
   title: string;
   subtitle?: string;
+  /** The course's title in Egyptian Arabic. Storyboards written after the three packs give it, and their title card then
+   *  names the course (story.unit.title) instead of the pack-era track name. */
+  unit?: string;
   scenes: Record<string, { narration: string; on_screen_text?: string }>;
   checkpoints: { prompt: string; options: string[]; feedback_correct: string; feedback_wrong?: string }[];
 }
@@ -289,7 +292,7 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
       scene = {
         id: sid, template: "title-hook", narration, transition: { type: "zoom" },
         content: {
-          kicker: tx(tn.en!, tn[AR], "the track"), title: lesson.manifest.title,
+          kicker: ar?.unit ? tx(story.unit.title, ar.unit, "the course title") : tx(tn.en!, tn[AR], "the track"), title: lesson.manifest.title,
           ...(lesson.manifest.summary ? { hook: lesson.manifest.summary } : {}), icon: TRACK[story.track].icon,
         },
         overlays: [anim({ id: "mark", type: "image", src: MARK_PATH, x: 56, y: 40, w: 70, h: 72, fit: "contain" }, "pop", 0.2)],

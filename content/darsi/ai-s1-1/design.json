@@ -1,0 +1,407 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "smile",
+      "cards": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Hands up: AI today?",
+            "ar-EG": "مين استخدمه النهارده؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Only three hands",
+            "ar-EG": "تلات إيدين بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "tone": "ok",
+          "text": {
+            "en": "Everyone, before school!",
+            "ar-EG": "كلكم، قبل المدرسة!"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "ruleset",
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Alarm: rings at six, as you set it",
+            "ar-EG": "المنبّه: بيرن ستة زي ما ظبطته"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Calculator: same sum, same answer",
+            "ar-EG": "الآلة الحاسبة: نفس المسألة، نفس الإجابة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "tone": "muted",
+          "text": {
+            "en": "Never learns anything new",
+            "ar-EG": "عمره ما بيتعلم حاجة جديدة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "arrows": true,
+      "cards": [
+        {
+          "icon": "video",
+          "text": {
+            "en": "You watch two clips",
+            "ar-EG": "اتفرجت على فيديوهين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "What millions watched next",
+            "ar-EG": "اللي ملايين اتفرجوا عليه بعدها"
+          },
+          "s": 3
+        },
+        {
+          "icon": "sparkle",
+          "tone": "ok",
+          "text": {
+            "en": "A guess: clip three",
+            "ar-EG": "تخمين: الفيديو التالت"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "examples",
+            "icon": "boxes",
+            "text": {
+              "en": "Lots of examples",
+              "ar-EG": "أمثلة كتير"
+            },
+            "s": 1
+          },
+          {
+            "id": "patterns",
+            "icon": "puzzle",
+            "text": {
+              "en": "Patterns",
+              "ar-EG": "أنماط"
+            },
+            "s": 1
+          },
+          {
+            "id": "guess",
+            "icon": "target",
+            "tone": "system",
+            "text": {
+              "en": "Prediction: a best guess",
+              "ar-EG": "توقع: أحسن تخمين"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "examples",
+            "patterns"
+          ],
+          [
+            "patterns",
+            "guess"
+          ]
+        ]
+      }
+    },
+    "6": {
+      "steps": [
+        {
+          "text": {
+            "en": "Twenty penalties by this striker",
+            "ar-EG": "عشرين ضربة جزا للمهاجم ده"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Most went to the left",
+            "ar-EG": "أغلبها راحت شمال"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "So she dives left: a prediction",
+            "ar-EG": "فبترمي شمال: ده توقع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Not mind reading: sometimes wrong",
+            "ar-EG": "مش قراية أفكار: ساعات بتغلط"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "8": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "Street light",
+            "ar-EG": "عمود النور"
+          },
+          "icon": "lamp",
+          "tone": "accent",
+          "s": 2,
+          "items": [
+            {
+              "icon": "clock",
+              "text": {
+                "en": "Follows a timer someone set",
+                "ar-EG": "ماشي على تايمر حد ظبطه"
+              },
+              "s": 2
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "Map app",
+            "ar-EG": "تطبيق الخرايط"
+          },
+          "icon": "map",
+          "tone": "ok",
+          "s": 0,
+          "items": [
+            {
+              "icon": "users",
+              "text": {
+                "en": "Learned from millions of trips",
+                "ar-EG": "اتعلم من ملايين الرحلات"
+              },
+              "s": 1
+            },
+            {
+              "icon": "traffic",
+              "text": {
+                "en": "Predicts today’s delays",
+                "ar-EG": "بيتوقع تأخير النهارده"
+              },
+              "s": 1
+            }
+          ]
+        }
+      }
+    },
+    "9": {
+      "aside": "sun",
+      "list": [
+        {
+          "icon": "smile",
+          "text": {
+            "en": "Face unlock tells your face apart",
+            "ar-EG": "فتح الموبايل بالوش بيميّز وشك"
+          },
+          "s": 1
+        },
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Your keyboard guesses the next word",
+            "ar-EG": "الكيبورد بيخمّن الكلمة الجاية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Voice notes turned into text",
+            "ar-EG": "الفويس نوت بتتحول لكلام مكتوب"
+          },
+          "s": 3
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "A spam filter hides scams",
+            "ar-EG": "فلتر السبام بيخبّي النصب"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "10": {
+      "compare": {
+        "left": {
+          "title": {
+            "en": "It predicts",
+            "ar-EG": "هو بيتوقع"
+          },
+          "icon": "bot",
+          "tone": "ok",
+          "s": 1,
+          "items": [
+            {
+              "icon": "chat",
+              "text": {
+                "en": "“I understand” = likely words",
+                "ar-EG": "«أنا فاهمك» = كلام متوقع"
+              },
+              "s": 1
+            }
+          ]
+        },
+        "right": {
+          "title": {
+            "en": "It doesn’t think or feel",
+            "ar-EG": "مش بيفكر ولا بيحس"
+          },
+          "icon": "circlex",
+          "tone": "danger",
+          "s": 0,
+          "items": [
+            {
+              "icon": "heart",
+              "text": {
+                "en": "No feelings",
+                "ar-EG": "ملوش مشاعر"
+              },
+              "s": 2
+            },
+            {
+              "icon": "profile",
+              "text": {
+                "en": "Doesn’t know your life",
+                "ar-EG": "مايعرفش حياتك"
+              },
+              "s": 2
+            }
+          ]
+        }
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "“In the morning the pupils open their ___”",
+            "ar-EG": "«في الصباح يفتح الطلاب ___»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Bars: books, notebooks, windows, phones",
+            "ar-EG": "أعمدة: كتبهم، دفاترهم، النوافذ، هواتفهم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Temperature: safer or more surprising",
+            "ar-EG": "درجة الحرارة: مضمون ولا مفاجئ"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Some machines only follow rules",
+            "ar-EG": "أجهزة بتمشي على قواعد وبس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "AI learns patterns from examples",
+            "ar-EG": "الذكاء الاصطناعي بيتعلم من الأمثلة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "It gives predictions: best guesses",
+            "ar-EG": "بيدّي توقعات: أحسن تخمين"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Best guesses can be wrong",
+            "ar-EG": "أحسن تخمين ممكن يغلط"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "AI predicts. It doesn’t think or feel like you.",
+        "ar-EG": "الذكاء الاصطناعي بيتوقع، مش بيفكر ولا بيحس زيك."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Keep an AI diary for one day",
+            "ar-EG": "اكتب مذكرات ذكاء اصطناعي ليوم"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Each time you meet AI…",
+            "ar-EG": "كل مرة تقابل ذكاء اصطناعي…"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "…write what it predicted",
+            "ar-EG": "…اكتب هو توقع إيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Was it right?",
+            "ar-EG": "كان صح؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "scenes": {
+    "1": {
+      "quote": {
+        "en": "It doesn’t travel in one piece.",
+        "ar-EG": "مش بتسافر حتة واحدة."
+      },
+      "cards": [
+        {
+          "icon": "image",
+          "text": {
+            "en": "A photo",
+            "ar-EG": "صورة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Chopped into pieces",
+            "ar-EG": "بتتقطّع حتت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Different roads",
+            "ar-EG": "طرق مختلفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "People who guard them",
+            "ar-EG": "ناس بتحرسها"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "me",
+            "icon": "phone",
+            "text": {
+              "en": "Your phone",
+              "ar-EG": "موبايلك"
+            },
+            "s": 0
+          },
+          {
+            "id": "r1",
+            "icon": "network",
+            "tone": "system",
+            "text": {
+              "en": "Router",
+              "ar-EG": "راوتر"
+            },
+            "s": 2
+          },
+          {
+            "id": "r2",
+            "icon": "network",
+            "tone": "system",
+            "text": {
+              "en": "Router",
+              "ar-EG": "راوتر"
+            },
+            "s": 2
+          },
+          {
+            "id": "you",
+            "icon": "phone",
+            "tone": "trusted",
+            "text": {
+              "en": "Friend",
+              "ar-EG": "صاحبك"
+            },
+            "s": 2
+          }
+        ],
+        "edges": [
+          [
+            "me",
+            "r1"
+          ],
+          [
+            "r1",
+            "r2"
+          ],
+          [
+            "r2",
+            "you"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "flow": {
+        "nodes": [
+          {
+            "id": "from",
+            "icon": "phone",
+            "text": {
+              "en": "From",
+              "ar-EG": "من هنا"
+            },
+            "s": 0
+          },
+          {
+            "id": "down",
+            "icon": "network",
+            "tone": "danger",
+            "text": {
+              "en": "Router down",
+              "ar-EG": "راوتر واقع"
+            },
+            "s": 1
+          },
+          {
+            "id": "alt",
+            "icon": "repeat",
+            "tone": "trusted",
+            "text": {
+              "en": "Another route",
+              "ar-EG": "طريق تاني"
+            },
+            "s": 1
+          },
+          {
+            "id": "to",
+            "icon": "phone",
+            "text": {
+              "en": "To",
+              "ar-EG": "لهنا"
+            },
+            "s": 0
+          }
+        ],
+        "edges": [
+          [
+            "from",
+            "down"
+          ],
+          [
+            "down",
+            "to"
+          ],
+          [
+            "from",
+            "alt"
+          ],
+          [
+            "alt",
+            "to"
+          ]
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Confidentiality: only the right people read it",
+            "ar-EG": "السرية: الناس الصح بس تقراها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filecheck",
+          "text": {
+            "en": "Integrity: nobody changes it unnoticed",
+            "ar-EG": "السلامة: محدش يغيّرها في السر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "signal",
+          "text": {
+            "en": "Availability: it works when needed",
+            "ar-EG": "التوافر: شغّالة وقت الحاجة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "cards": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "A mark was changed",
+            "ar-EG": "درجة اتغيّرت"
+          },
+          "tone": "danger",
+          "s": 1
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Fingerprints and signatures",
+            "ar-EG": "بصمات وتوقيعات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "A record of who changed what",
+            "ar-EG": "سجل بمين غيّر إيه"
+          },
+          "tone": "ok",
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "steps": [
+        {
+          "text": {
+            "en": "An outer wall",
+            "ar-EG": "سور برّاني"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A gate",
+            "ar-EG": "بوابة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Guards",
+            "ar-EG": "حرّاس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A locked treasure room",
+            "ar-EG": "أوضة كنز مقفولة"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "A firewall decides what passes",
+            "ar-EG": "جدار الحماية يقرّر مين يعدّي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "wifi",
+          "text": {
+            "en": "Office network apart from students’ Wi-Fi",
+            "ar-EG": "شبكة المكتب منفصلة عن واي فاي الطلبة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "download",
+          "text": {
+            "en": "Updates close known holes",
+            "ar-EG": "التحديثات تقفل الثغرات"
+          },
+          "s": 3
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Spare routes and backups",
+            "ar-EG": "طرق ونسخ احتياطية"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "10": {
+      "cards": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Watch the alarms",
+            "ar-EG": "يراقبوا الإنذارات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Read the logs",
+            "ar-EG": "يقروا السجلات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "3 a.m., another country?",
+            "ar-EG": "3 الفجر، من بلد تاني؟"
+          },
+          "tone": "danger",
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Packets take many routes",
+            "ar-EG": "الحزم بتاخد طرق كتير"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Confidentiality, integrity, availability",
+            "ar-EG": "السرية والسلامة والتوافر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Layers of defence",
+            "ar-EG": "طبقات دفاع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "People watching the alarms",
+            "ar-EG": "ناس بتراقب الإنذارات"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Plan for parts to fail: spare routes and layers.",
+        "ar-EG": "خطّط إن حاجة هتقع: طرق احتياطية وطبقات."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "Break sensors in the lab",
+            "ar-EG": "عطّل حساسات في المعمل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Add relays until all get through",
+            "ar-EG": "ضيف مكرّرات لحد ما الكل يوصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw your school’s network",
+            "ar-EG": "ارسم شبكة مدرستك"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Mark each layer of defence",
+            "ar-EG": "حدّد طبقات الدفاع"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}
