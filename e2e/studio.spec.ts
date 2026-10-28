@@ -211,6 +211,62 @@ test.describe("studio", () => {
     await expect(page.locator('.stage-player [data-el="who"]')).toHaveAttribute("style", /right:\s*\d/);
   });
 
+  test("a narrated lesson plays its narration from Storage, in step with the captions, in English and Egyptian Arabic", async ({ page }, info) => {
+    test.skip(info.project.name === "phone", "Desktop only.");
+    test.skip(!(await fetch("http://127.0.0.1:9289/").then(() => true, () => false)), "The Storage emulator isn't running (npm run emulators).");
+    // As scripts/darsi/push.ts stores it: the narration in the bucket by content, the measured timings beside the lesson.
+    process.env.FIREBASE_STORAGE_EMULATOR_HOST = "127.0.0.1:9289";
+    const fs = await import("node:fs/promises");
+    const { getAuth } = await import("firebase-admin/auth");
+    const { getFirestore } = await import("firebase-admin/firestore");
+    const { getStorage } = await import("firebase-admin/storage");
+    const { FirestoreStore } = await import("../apps/server/src/stores/firestore.ts");
+    const { mediaObject } = await import("../packages/ops/src/index.ts");
+    const dir = "content/darsi/lessons/cy-1-1-2/";
+    const read = async (p: string) => JSON.parse(await fs.readFile(dir + p, "utf8"));
+    const lesson = { manifest: await read("manifest.json"), scenes: await read("scenes.json") };
+    const timing: Record<string, { scenes: { words: { w: string; s: number }[] }[] }> = { en: await read("timing/en.json"), "ar-EG": await read("timing/ar-EG.json") };
+    const id = `narrated-${Date.now().toString(36)}`;
+    lesson.manifest.id = id;
+    const email = await signIn(page);
+    const app = await admin();
+    const uid = (await getAuth(app).getUserByEmail(email)).uid;
+    const bucket = getStorage(app).bucket("demo-lessonstudio.appspot.com");
+    for (const a of lesson.manifest.assets) await bucket.file(mediaObject(a)).save(await fs.readFile(dir + a.path), { metadata: { contentType: a.type } });
+    const store = new FirestoreStore(getFirestore(app));
+    await store.create(id, lesson, { uid, via: "script:darsi" });
+    for (const [lang, t] of Object.entries(timing)) await store.setTiming(id, lang, t as never, { uid, via: "script:darsi" });
+
+    // Every <audio> the player makes, to see what it plays.
+    await page.addInitScript(() => {
+      const A = window.Audio;
+      const made: HTMLAudioElement[] = [];
+      (window as unknown as { audios: HTMLAudioElement[] }).audios = made;
+      window.Audio = function (src?: string) { const a = new A(src); made.push(a); return a; } as unknown as typeof Audio;
+    });
+    await page.goto(`${STUDIO}/lessons/${id}`);
+    await expect(page.locator(".board .card")).toHaveCount(13);
+    for (const lang of ["en", "ar-EG"]) {
+      if (lang !== "en") await page.getByRole("combobox", { name: "Lesson language" }).selectOption(lang);
+      await expect(page.locator(".stage-player .ls-cap")).toBeAttached();
+      await page.getByRole("button", { name: "Play", exact: true }).click();
+      const sha = lesson.manifest.assets.find((a: { path: string }) => a.path === `audio/${lang}.opus`).sha256;
+      const playing = () => page.evaluate((s) => {
+        const a = (window as unknown as { audios: HTMLAudioElement[] }).audios.filter((x) => x.src.includes(s)).pop();
+        return a ? { src: a.src, t: a.currentTime, paused: a.paused, ready: a.readyState } : null;
+      }, sha);
+      await expect.poll(async () => (await playing())?.t ?? 0, { timeout: 15_000 }).toBeGreaterThan(2.5);
+      const p = (await playing())!;
+      expect(p.src).toBe(`http://127.0.0.1:9289/v0/b/demo-lessonstudio.appspot.com/o/media%2F${sha}.opus?alt=media`);
+      expect(p.paused).toBe(false);
+      await page.getByRole("button", { name: "Pause", exact: true }).click();
+      // The caption on screen holds the word being said at the audio's own time, by the measured timing.
+      const at = (await playing())!.t;
+      const said = timing[lang]!.scenes.flatMap((s) => s.words).filter((w) => w.s <= at).pop()!.w;
+      await expect(page.locator(".stage-player .ls-cap")).toContainText(said);
+    }
+  });
+
   test("export a lesson as an MP4, made on the server", async ({ page }, info) => {
     test.skip(info.project.name === "phone", "Desktop only.");
     test.setTimeout(300_000);

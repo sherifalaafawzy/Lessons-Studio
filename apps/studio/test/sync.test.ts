@@ -163,6 +163,23 @@ describe.skipIf(!host)("live sync", () => {
     a.sync.stop();
   });
 
+  it("brings the narration's measured timings, as the server writes them", async () => {
+    const a = open("alice");
+    await until(() => !!a.state().lesson);
+    expect(a.state().measured).toEqual({});
+    const { estimateTiming } = await import("@lessonstudio/spec");
+    const t = { ...estimateTiming(lesson().scenes.scenes, "en"), source: "aligned" as const };
+    await env.withSecurityRulesDisabled(async (c) => {
+      await setDoc(doc(c.firestore() as unknown as Firestore, "lessons/l1/timing/en"), { json: JSON.stringify(t), source: t.source, rev: 1 });
+    });
+    await until(() => a.state().measured.en?.source === "aligned");
+    expect(a.state().measured.en).toEqual(t);
+    // Members only read them; only the server writes them.
+    await assertFails(setDoc(doc(db("alice"), "lessons/l1/timing/ar"), { json: "{}", source: "aligned", rev: 1 }));
+    await assertFails(getDoc(doc(db("carol"), "lessons/l1/timing/en")));
+    a.sync.stop();
+  });
+
   it("drops, and reports, an edit that no longer fits", async () => {
     const a = open("alice");
     const b = open("bob");

@@ -1,0 +1,16 @@
+rules_version = '2';
+// Lesson Studio's Storage. The server (Admin SDK: scripts/darsi/push.ts, the functions) bypasses these rules.
+//
+// media/<sha256>.<ext>: lessons' narration, named by its content (packages/ops/src/media.ts). Anyone may fetch a file
+// by its name, because an <audio> element can't send a sign-in; a name is a 64-character hash that only appears in a
+// lesson's manifest, which only the lesson's members can read. Nobody may list the files, and only the server writes them.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /media/{file} {
+      allow get: if file.matches('^[0-9a-f]{64}[.][a-z0-9]{1,8}$');
+    }
+    match /{all=**} {
+      allow read, write: if false;
+    }
+  }
+}

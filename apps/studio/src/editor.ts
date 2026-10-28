@@ -1,9 +1,10 @@
 import { computed, signal } from "@preact/signals";
-import type { Element, Lang, Scene, TimingFile } from "@lessonstudio/spec";
+import type { Element, Lang, LessonPackage, Scene, TimingFile } from "@lessonstudio/spec";
 import type { Player } from "@lessonstudio/player";
 import { estimateTiming, walkElements } from "@lessonstudio/spec";
-import { check, type Op } from "@lessonstudio/ops";
+import { check, currentTimings, mediaResolver, toPackage, type Lesson, type Op } from "@lessonstudio/ops";
 import { db } from "./fb.ts";
+import { mediaBucketUrl } from "./env.ts";
 import { say, user } from "./state.ts";
 import { LessonSync, type SyncState } from "./sync.ts";
 import { t } from "./i18n.ts";
@@ -81,12 +82,23 @@ export function findElement(scene: Scene | null, id: string | null): Element | n
 }
 export const currentElement = computed(() => findElement(currentScene.value, elementId.value));
 
-/** Timings for each language: measured ones once narration exists, else estimated from the text. */
+/**
+ * Timings for each language: the ones measured from its narration while they still fit the script (then the
+ * narration plays), else estimated from the text (then it plays silently).
+ */
 export const timings = computed<Record<Lang, TimingFile>>(() => {
   const l = lesson.value;
   if (!l) return {};
-  return Object.fromEntries(l.manifest.languages.map((g) => [g.code, estimateTiming(l.scenes.scenes, g.code)]));
+  const measured = currentTimings(l.scenes.scenes, state.value?.measured ?? {});
+  return Object.fromEntries(l.manifest.languages.map((g) => [g.code, measured[g.code] ?? estimateTiming(l.scenes.scenes, g.code)]));
 });
+
+/** The lesson as the studio's players get it, with its narration fetched from the Storage bucket. */
+export function studioPackage(l: Lesson, tm: Record<Lang, TimingFile>): LessonPackage {
+  const pkg = toPackage(l, tm);
+  pkg.resolve = mediaResolver(pkg.manifest, mediaBucketUrl(), (p) => new URL(p, location.href).href);
+  return pkg;
+}
 
 /** The selected scene's timing in the stage language. */
 export const sceneTiming = computed(() => {
@@ -94,7 +106,7 @@ export const sceneTiming = computed(() => {
   return i >= 0 ? timings.value[lang.value]?.scenes[i] ?? null : null;
 });
 
-export const report = computed(() => (lesson.value ? check(lesson.value) : null));
+export const report = computed(() => (lesson.value ? check(lesson.value, timings.value) : null));
 
 /** A free id for a new scene or element, from a base name. */
 export function freeId(base: string, taken: Iterable<string>): string {

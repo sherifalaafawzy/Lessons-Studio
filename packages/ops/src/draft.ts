@@ -59,7 +59,8 @@ export function newLesson(b: Brief, today = new Date().toISOString().slice(0, 10
 
 /**
  * The lesson as a playable package. Languages without measured timings get estimated ones, and each
- * language's duration follows its timing.
+ * language's duration follows its timing. Audio plays only with timings measured from it: a language on
+ * estimated timings goes without its audio, which would run out of step with the words.
  */
 export function toPackage(lesson: Lesson, timings: Record<Lang, TimingFile | undefined> = {}, base?: string): LessonPackage {
   const manifest = clone(lesson.manifest);
@@ -69,6 +70,10 @@ export function toPackage(lesson: Lesson, timings: Record<Lang, TimingFile | und
     const t = timings[l.code] ?? estimateTiming(lesson.scenes.scenes, l.code);
     timing[l.code] = t;
     l.duration = t.duration;
+    if (t.source === "estimated") {
+      delete l.audio;
+      delete l.audioFallback;
+    }
   }
   const pkg: LessonPackage = { manifest, scenes: { ...clone(lesson.scenes), version: "0.2" }, timing };
   if (base) pkg.base = base;

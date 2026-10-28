@@ -1,9 +1,15 @@
-// The functions' pure parts: sealed AI keys, draft requests, and the draft pipeline with a stand-in model.
+// The functions' pure parts: sealed AI keys, draft requests, the draft pipeline with a stand-in model, and the
+// narration an MP4 export reads from the bucket.
 import { describe, expect, it } from "vitest";
 import { GALLERY } from "../../apps/studio/src/presets.ts";
 import { keyShapeProblem, seal, statusOf, unseal } from "../src/keys.ts";
 import { checkKey, draftPrice, gemini, type Generate } from "../src/gemini.ts";
 import { DraftFailed, draft, readRequest, systemPrompt, userPrompt } from "../src/draft.ts";
+import { fetchNarration } from "../src/video.ts";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { toPackage } from "@lessonstudio/ops";
 
 const SECRET = "x".repeat(40);
 
@@ -134,5 +140,40 @@ describe("drafting", () => {
     const out = await gemini("key", "m", fetcher)("sys", [{ role: "user", text: "hi" }]);
     expect(out).toEqual({ text: '{"ok":1}', usage: { input: 10, output: 12 } });
     expect(body).toMatchObject({ generationConfig: { responseMimeType: "application/json" }, systemInstruction: { parts: [{ text: "sys" }] } });
+  });
+});
+
+describe("MP4 export narration", () => {
+  const dir = "content/darsi/lessons/cy-1-1-2/";
+  const json = (p: string) => JSON.parse(readFileSync(dir + p, "utf8"));
+  const lesson = { manifest: json("manifest.json"), scenes: json("scenes.json") };
+  const measured = { en: json("timing/en.json"), "ar-EG": json("timing/ar-EG.json") };
+
+  it("puts the language's narration where the renderer looks for it, read from the bucket by content", async () => {
+    const out = mkdtempSync(join(tmpdir(), "ls-test-"));
+    try {
+      const asked: string[] = [];
+      const read = async (o: string) => { asked.push(o); return readFileSync(dir + "audio/ar-EG.opus"); };
+      expect(await fetchNarration(toPackage(lesson, measured), "ar-EG", out, read)).toBe(true);
+      const sha = lesson.manifest.assets.find((a: { path: string }) => a.path === "audio/ar-EG.opus").sha256;
+      expect(asked).toEqual([`media/${sha}.opus`]);
+      expect(readFileSync(join(out, "audio/ar-EG.opus")).equals(readFileSync(dir + "audio/ar-EG.opus"))).toBe(true);
+      // A file that isn't the one the timings were measured from.
+      await expect(fetchNarration(toPackage(lesson, measured), "en", out, read)).rejects.toThrow("sha256");
+    } finally {
+      rmSync(out, { recursive: true, force: true });
+    }
+  });
+
+  it("stays silent without measured timings, as the studio plays it", async () => {
+    const out = mkdtempSync(join(tmpdir(), "ls-test-"));
+    try {
+      let asked = 0;
+      expect(await fetchNarration(toPackage(lesson), "en", out, async () => { asked++; return Buffer.alloc(0); })).toBe(false);
+      expect(asked).toBe(0);
+      expect(existsSync(join(out, "audio"))).toBe(false);
+    } finally {
+      rmSync(out, { recursive: true, force: true });
+    }
   });
 });

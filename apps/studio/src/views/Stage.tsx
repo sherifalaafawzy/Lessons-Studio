@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Text } from "@lessonstudio/spec";
 import { createPlayer, type ElementBox, type Player } from "@lessonstudio/player";
-import { getAt, toPackage } from "@lessonstudio/ops";
+import { getAt } from "@lessonstudio/ops";
 import {
   currentScene, edit, elementId, findElement, guides, lang, lesson, loopScene, orient, partId, playhead, playing, sceneId,
-  sceneTiming, stagePlayer, timings, togglePlay, viewScale, zoom,
+  sceneTiming, stagePlayer, studioPackage, timings, togglePlay, viewScale, zoom,
 } from "../editor.ts";
 import { elementPath, partPath, setText } from "../parts.ts";
 import { HANDLES, angleFrom, resizeBox, snapMove, type Guide, type Handle, type Rect } from "../snap.ts";
@@ -90,7 +90,7 @@ export function Stage() {
   useEffect(() => {
     if (!l || !host.current) return;
     player.current?.destroy();
-    const pkg = toPackage(l, timings.value);
+    const pkg = studioPackage(l, timings.value);
     // The player announces its first scene while it is being created, so handlers read it through `made`.
     let made: Player | null = null;
     const p = createPlayer(host.current, pkg, {
@@ -113,7 +113,7 @@ export function Stage() {
     const ro = new ResizeObserver(() => requestAnimationFrame(measure));
     ro.observe(host.current);
     return () => ro.disconnect();
-  }, [json, lang.value, orient.value]);
+  }, [json, timings.value, lang.value, orient.value]);
   useEffect(() => () => { player.current?.destroy(); player.current = null; stagePlayer.value = null; playing.value = false; }, []);
 
   // Follow the playhead and the selected scene while paused.

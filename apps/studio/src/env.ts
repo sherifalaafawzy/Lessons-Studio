@@ -13,6 +13,16 @@ export function mcpAddress(): string {
 /** The shared library (@lib/ paths), served by this same site, so the studio works offline on the dev server too. */
 export const LIBRARY = typeof location !== "undefined" ? new URL("/lib/", location.origin).href : "https://lessons-studio-6b509.web.app/lib/";
 
+/**
+ * Where lessons' media (their narration) is fetched from: the Storage bucket's download address, which `mediaResolver`
+ * (packages/ops) completes with an object name. On the emulators, the Storage emulator's default bucket.
+ */
+export function mediaBucketUrl(): string {
+  return emulators
+    ? `http://127.0.0.1:${env.VITE_STORAGE_EMULATOR_PORT ?? 9289}/v0/b/demo-lessonstudio.appspot.com/o/`
+    : `https://firebasestorage.googleapis.com/v0/b/${env.VITE_FIREBASE_STORAGE_BUCKET}/o/`;
+}
+
 /** Whether this browser had someone signed in last time: then the studio (and Firebase) loads straight away. */
 export function hadSession(): boolean {
   try { return localStorage.getItem("ls-session") === "1"; } catch { return false; }

@@ -8,6 +8,7 @@ import { HttpsError, onCall, onRequest, type CallableRequest } from "firebase-fu
 import { defineSecret } from "firebase-functions/params";
 import { getApps, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { getStorage } from "firebase-admin/storage";
 import type { Express } from "express";
 import GUIDE from "../../apps/server/src/guide.md";
 import { FirestoreStore } from "../../apps/server/src/stores/firestore.ts";
@@ -15,7 +16,7 @@ import { keyShapeProblem, seal, statusOf, unseal, type Sealed } from "./keys.ts"
 import { DRAFT_MODEL, GeminiError, checkKey, draftPrice, gemini } from "./gemini.ts";
 import { DraftFailed, draft, readRequest, slug } from "./draft.ts";
 import { readExport, renderVideo } from "./video.ts";
-import { StoreError, toPackage } from "@lessonstudio/ops";
+import { StoreError, currentTimings, toPackage } from "@lessonstudio/ops";
 
 setGlobalOptions({ region: "europe-west1", maxInstances: 4 });
 if (!getApps().length) initializeApp();
@@ -69,10 +70,13 @@ export const exportVideo = onCall({ timeoutSeconds: 900, memory: "8GiB", cpu: 4,
     if (e instanceof StoreError) throw new HttpsError(e.code === "forbidden" ? "permission-denied" : "not-found", e.message);
     throw e;
   }
-  const pkg = toPackage(loaded.lesson, loaded.timings);
+  // As the studio plays it: measured timings and the narration while they fit the script, else estimates and silence.
+  const pkg = toPackage(loaded.lesson, currentTimings(loaded.lesson.scenes.scenes, loaded.timings));
   if (!pkg.timing[ask.lang]) throw new HttpsError("invalid-argument", `The lesson has no ${ask.lang}.`);
-  const { mp4, seconds } = await renderVideo(pkg, ask.lang, ask.size);
-  return { name: `${ask.lesson}-${ask.lang}-${ask.size}p.mp4`, mp4: mp4.toString("base64"), bytes: mp4.length, seconds };
+  // From the studio's bucket (LS_MEDIA_BUCKET, from .env.local), else the project's default one (the emulator's).
+  const read = async (object: string): Promise<Buffer> => (await getStorage().bucket(process.env.LS_MEDIA_BUCKET || undefined).file(object).download())[0];
+  const { mp4, seconds, narrated } = await renderVideo(pkg, ask.lang, ask.size, read);
+  return { name: `${ask.lesson}-${ask.lang}-${ask.size}p.mp4`, mp4: mp4.toString("base64"), bytes: mp4.length, seconds, narrated };
 });
 
 export const removeAiKey = onCall(async (req) => {

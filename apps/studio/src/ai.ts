@@ -33,7 +33,7 @@ export class CallError extends Error {
 
 export interface KeyStatus { set: boolean; last4?: string; setAt?: number }
 export interface AiStatus { gemini: KeyStatus; model: string; price: { input: number; output: number } }
-export interface Exported { name: string; mp4: string; bytes: number; seconds: number }
+export interface Exported { name: string; mp4: string; bytes: number; seconds: number; narrated?: boolean }
 export interface Drafted { id: string; attempts: number; warnings: number; usage: { input: number; output: number }; usd: number }
 
 export { mcpAddress } from "./env.ts";

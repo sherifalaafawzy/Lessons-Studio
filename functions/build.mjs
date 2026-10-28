@@ -75,6 +75,8 @@ if (project) {
     LS_FIREBASE_AUTH_DOMAIN: local.LS_FIREBASE_AUTH_DOMAIN ?? `${project}.firebaseapp.com`,
     LS_ALLOWED_EMAILS: local.LS_ALLOWED_EMAILS ?? "",
     LS_STUDIO_URL: local.LS_STUDIO_URL ?? `https://${project}.web.app`,
+    // Where lessons' narration is kept (packages/ops mediaObject); exportVideo reads it from there.
+    LS_MEDIA_BUCKET: local.VITE_FIREBASE_STORAGE_BUCKET ?? `${project}.firebasestorage.app`,
   };
   writeFileSync(`${here}.env.${project}`, `# Written by functions/build.mjs from .env.local; edit that instead.\n${Object.entries(out).map(([k, v]) => `${k}=${v}`).join("\n")}\n`);
 }
