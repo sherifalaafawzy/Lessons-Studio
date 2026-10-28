@@ -22,7 +22,7 @@ const PATHS: Record<CoreIcon | "play" | "pause" | "cc" | "list" | "speed" | "vol
   cross: ["M6 6l12 12", "M18 6L6 18"],
   spark: ["M12 3v4", "M12 17v4", "M3 12h4", "M17 12h4", "M12 8l1.5 2.5L16 12l-2.5 1.5L12 16l-1.5-2.5L8 12l2.5-1.5z"],
   play: ["M8 5v14l11-7z"],
-  pause: ["M8 5v14", "M16 5v14"],
+  pause: ["M7 5h4v14H7z", "M13 5h4v14h-4z"], // filled bars: the play button fills its icons
   cc: ["M3 6h18v12H3z", "M10 10.5a2 2 0 1 0 0 3", "M17 10.5a2 2 0 1 0 0 3"],
   list: ["M8 6h13", "M8 12h13", "M8 18h13", "M3 6h.01", "M3 12h.01", "M3 18h.01"],
   speed: ["M12 21a9 9 0 1 1 9-9", "M12 12l5-4"],

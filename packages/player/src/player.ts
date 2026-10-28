@@ -409,8 +409,12 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     stage.style.transform = `scale(${fix(k, 4)})`;
     wrap.style.setProperty("--ls-cap-size", `${Math.round(Math.max(15, Math.min(24, 34 * k)) * capSize)}px`);
     wrap.style.setProperty("--ls-ar", fix(W / H, 4));
-    // Wide players on the Full tier float their controls over the picture and fade them while playing.
-    wrap.classList.toggle("ls-float", tier === "full" && host.clientWidth >= 520);
+    // Wide players on the Full tier float their controls over the picture and fade them while playing. Smaller ones
+    // drop the least-used controls (compact), and phones put the seek bar on a row of its own (narrow).
+    const w = isFull() ? wrap.clientWidth : host.clientWidth;
+    wrap.classList.toggle("ls-float", tier === "full" && w >= 520);
+    wrap.classList.toggle("ls-compact", w < 720);
+    wrap.classList.toggle("ls-narrow", w < 480);
   }
 
   /* ---------- playback ---------- */
@@ -422,7 +426,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     volBtn.replaceChildren(icon(muted || volume === 0 ? "muted" : "vol", 22));
     volBtn.setAttribute("aria-pressed", String(muted));
     volEl.value = String(muted ? 0 : volume);
-    fsBtn.setAttribute("aria-pressed", String(typeof document !== "undefined" && document.fullscreenElement === wrap));
+    fsBtn.setAttribute("aria-pressed", String(isFull()));
+    // A quick check or the end screen in a small player sits under the picture instead of over it, so it is never cut off.
+    wrap.classList.toggle("ls-asking", checkOpen || ended);
     ccBtn.setAttribute("aria-pressed", String(captionsOn));
     trBtn.setAttribute("aria-pressed", String(!transcriptBox.hidden));
     wrap.dataset.tier = tier;
@@ -603,6 +609,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const tag = (e.target as HTMLElement | null)?.tagName;
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === "Escape" && !menu.hidden) { closeMenu(); return; }
+    if (e.key === "Escape" && wrap.classList.contains("ls-full")) { setPageFull(false); return; }
     if (tag === "INPUT" && /^(Arrow|Home|End|Page)/.test(e.key)) return;
     if (tag === "BUTTON" && (e.key === " " || e.key === "Enter")) return;
     const t = clk.time();
@@ -644,9 +651,20 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   function savePlace(): void {
     if (o.remember) writeJson(`ls-pos:${m.id}`, { t: Math.round(clk.time() * 10) / 10 });
   }
+  // Phones without the Fullscreen API on elements (iPhone Safari) get the player stretched over the page instead.
+  function isFull(): boolean {
+    return (typeof document !== "undefined" && document.fullscreenElement === wrap) || wrap.classList.contains("ls-full");
+  }
+  function setPageFull(on: boolean): void {
+    wrap.classList.toggle("ls-full", on);
+    document.documentElement.style.overflow = on ? "hidden" : "";
+    onFull();
+  }
   function toggleFull(): void {
     if (document.fullscreenElement) void document.exitFullscreen();
-    else void wrap.requestFullscreen?.().catch(() => {});
+    else if (wrap.classList.contains("ls-full")) setPageFull(false);
+    else if (document.fullscreenEnabled && wrap.requestFullscreen) void wrap.requestFullscreen().catch(() => setPageFull(true));
+    else setPageFull(true);
   }
   const onFull = (): void => { fit(); still(clk.time()); syncButtons(); };
 
@@ -733,7 +751,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   volBtn.addEventListener("click", () => setVolume(volume || 1, !muted));
   volEl.addEventListener("input", () => setVolume(Number(volEl.value), Number(volEl.value) === 0));
   fsBtn.addEventListener("click", toggleFull);
-  fsBtn.hidden = typeof document === "undefined" || !document.fullscreenEnabled;
+  fsBtn.hidden = typeof document === "undefined";
   document.addEventListener("fullscreenchange", onFull);
   seekEl.addEventListener("pointermove", (e) => {
     const r = seekEl.getBoundingClientRect();
@@ -884,6 +902,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     },
     destroy() {
       gone = true;
+      if (wrap.classList.contains("ls-full")) document.documentElement.style.overflow = "";
       document.removeEventListener("fullscreenchange", onFull);
       clearTimeout(idle);
       if (raf) cancelAnimationFrame(raf);

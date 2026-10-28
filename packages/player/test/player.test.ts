@@ -175,6 +175,55 @@ describe("player", () => {
     expect(events).toContain("check:true");
   });
 
+  it("puts a quick check under the picture in a small player, so it is never cut off", async () => {
+    const { p, root, pkg } = mk("prompt-injection");
+    const wrap = root.querySelector<HTMLElement>(".ls-player")!;
+    p.seek(sceneTimes(pkg, "en").check!.end - 0.5);
+    await p.play();
+    advance(1.5);
+    expect(wrap.classList.contains("ls-asking")).toBe(true);
+    root.querySelectorAll<HTMLButtonElement>(".ls-opt")[0]!.click();
+    root.querySelector<HTMLButtonElement>(".ls-check .ls-go")!.click();
+    await Promise.resolve();
+    expect(wrap.classList.contains("ls-asking")).toBe(false);
+  });
+
+  it("sizes its controls to the player: floating and compact in a lesson column, the seek bar on its own row on phones", () => {
+    const sized = (w: number) => {
+      const pkg = load("prompt-injection");
+      const host = document.createElement("div");
+      Object.defineProperty(host, "clientWidth", { value: w });
+      document.body.append(host);
+      players.push(createPlayer(host, pkg, { tier: "full", orient: "landscape", now: () => nowMs }));
+      return [...host.shadowRoot!.querySelector(".ls-player")!.classList].filter((c) => /^ls-(float|compact|narrow)$/.test(c)).sort();
+    };
+    expect(sized(1000)).toEqual(["ls-float"]);
+    expect(sized(528)).toEqual(["ls-compact", "ls-float"]);
+    expect(sized(343)).toEqual(["ls-compact", "ls-narrow"]);
+  });
+
+  it("shows a visible pause icon while playing (the play button fills its icons, so it must be a filled shape)", async () => {
+    const { p, root } = mk("prompt-injection");
+    await p.play();
+    const d = [...root.querySelectorAll(".ls-play path")].map((x) => x.getAttribute("d"));
+    expect(d.length).toBeGreaterThan(0);
+    for (const path of d) expect(path).toMatch(/z$/i);
+  });
+
+  it("goes full screen without the Fullscreen API (iPhone) by stretching over the page, and Escape leaves", () => {
+    const { root } = mk("prompt-injection");
+    const wrap = root.querySelector<HTMLElement>(".ls-player")!;
+    const fs = root.querySelector<HTMLButtonElement>(".ls-fs")!;
+    expect(fs.hidden).toBe(false);
+    fs.click();
+    expect(wrap.classList.contains("ls-full")).toBe(true);
+    expect(fs.getAttribute("aria-pressed")).toBe("true");
+    expect(document.documentElement.style.overflow).toBe("hidden");
+    wrap.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    expect(wrap.classList.contains("ls-full")).toBe(false);
+    expect(document.documentElement.style.overflow).toBe("");
+  });
+
   it("lets the host ask the check instead", async () => {
     let asked = "";
     const { p, pkg } = mk("phishing-message", {

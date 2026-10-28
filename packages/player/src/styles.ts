@@ -193,6 +193,8 @@ export const CSS = `
   padding-top:22px;transition:opacity .25s}
 .ls-float .ls-bar .ls-btn,.ls-float .ls-time{color:#fff}
 .ls-float .ls-ai{color:#ddd;border-color:rgba(255,255,255,.4)}
+.ls-float .ls-btn[aria-pressed=true]{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.55)}
+.ls-float .ls-btn:hover{border-color:rgba(255,255,255,.55)}
 .ls-float.ls-idle .ls-bar{opacity:0;pointer-events:none}
 .ls-float.ls-idle{cursor:none}
 .ls-float .ls-captions{transition:padding .25s}
@@ -200,4 +202,19 @@ export const CSS = `
 .ls-player:fullscreen{background:#000;display:flex;flex-direction:column;justify-content:center}
 .ls-player:fullscreen .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
 @media (max-width:420px){.ls-time,.ls-volr{display:none}}
+.ls-compact .ls-volr,.ls-float.ls-compact .ls-time{display:none}
+.ls-float.ls-compact .ls-bar{flex-wrap:nowrap}
+.ls-float.ls-compact .ls-track{min-width:72px}
+.ls-float.ls-compact .ls-ai{position:absolute;top:0;inset-inline-start:10px}
+.ls-narrow .ls-bar{gap:2px;justify-content:space-between}
+.ls-narrow .ls-play,.ls-narrow .ls-time{order:-2}
+.ls-narrow .ls-time{display:block;min-width:84px;font-size:13px;text-align:center}
+.ls-narrow .ls-track{order:-1;flex:1 1 calc(100% - 132px);min-width:0}
+.ls-narrow .ls-seek{height:40px}
+.ls-narrow .ls-btn{min-width:38px;padding:0 4px}
+.ls-narrow .ls-ai{position:absolute;top:8px;inset-inline-end:8px;z-index:3;font-size:11px;padding:2px 8px;background:var(--ls-surface)}
+.ls-asking:not(.ls-full):not(:fullscreen) .ls-check,.ls-asking:not(.ls-full):not(:fullscreen) .ls-end{position:relative;background:var(--ls-surface);padding:12px 8px}
+.ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-bar,.ls-asking:not(.ls-full):not(:fullscreen).ls-narrow .ls-viewport{display:none}
+.ls-full{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;background:#000;display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
 `;
