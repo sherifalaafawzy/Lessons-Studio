@@ -2,8 +2,10 @@
 // lesson there. A new lesson is created; one already there is replaced in one undoable change (the studio's history
 // keeps the old version), unless it was edited in the studio since the last push: that one is skipped (--force replaces it).
 // The narration goes to the Storage bucket first, named by its content (media/<sha256>.<ext>, packages/ops mediaObject),
-// so a file already there is not sent again.
-//   node scripts/darsi/push.ts --email you@example.com [ids] [--force] [--emulator] [--bucket name]
+// so a file already there is not sent again. Each scene's voice is cut from it into its own clip (lessons/{id}/voice/{lang},
+// packages/ops voice.ts), so the studio keeps every scene's voice when scenes move; a voice someone recorded or uploaded
+// in the studio is never replaced. --voice-only writes only the voices and leaves the lessons as they are.
+//   node scripts/darsi/push.ts --email you@example.com [ids] [--force] [--voice-only] [--emulator] [--bucket name]
 // Uses this PC's Google Cloud login (application default credentials) for the project in .firebaserc; --emulator
 // writes to the local emulators instead (Storage on 127.0.0.1:9289).
 import { createHash } from "node:crypto";
@@ -14,10 +16,11 @@ import { applicationDefault, initializeApp } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 import { getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
-import { mediaObject, type Lesson, type Peaks } from "../../packages/ops/src/index.ts";
+import { clipObject, currentTimings, mediaObject, type Lesson, type Peaks, type VoiceClip, type VoiceDoc } from "../../packages/ops/src/index.ts";
 import type { TimingFile } from "../../packages/spec/src/index.ts";
 import { FirestoreStore } from "../../apps/server/src/stores/firestore.ts";
 import { PEAKS_RATE, filePeaks } from "../lib/peaks.ts";
+import { clipsFromNarration } from "../lib/voice.ts";
 
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
 const LESSONS = join(ROOT, "content", "darsi", "lessons");
@@ -31,10 +34,11 @@ const flag = (name: string): string | undefined => {
 const email = flag("--email");
 const bucketName = flag("--bucket");
 const force = args.includes("--force");
+const voiceOnly = args.includes("--voice-only");
 const emulator = args.includes("--emulator");
 const ids = args.filter((a) => !a.startsWith("--")).map((a) => a.toLowerCase());
 if (!email) {
-  console.error("Usage: node scripts/darsi/push.ts --email you@example.com [ids] [--force] [--emulator]");
+  console.error("Usage: node scripts/darsi/push.ts --email you@example.com [ids] [--force] [--voice-only] [--emulator]");
   process.exit(1);
 }
 const rc = JSON.parse(readFileSync(join(ROOT, ".firebaserc"), "utf8")) as { projects: Record<string, string> };
@@ -83,6 +87,40 @@ async function setTimings(id: string, dir: string, lesson: Lesson, timings: Reco
   }
 }
 
+/**
+ * Each scene's voice, cut from the language's narration at the scenes' starts, with its measured word times: one clip per
+ * scene and language in lessons/{id}/voice/{lang}. Only languages whose timings fit the script; a clip someone made in
+ * the studio stays.
+ */
+async function setVoices(id: string, dir: string, lesson: Lesson, timings: Record<string, TimingFile>): Promise<string[]> {
+  const fit = currentTimings(lesson.scenes.scenes, timings);
+  const done: string[] = [];
+  for (const track of lesson.manifest.languages) {
+    const t = fit[track.code];
+    const src = track.audioFallback ?? track.audio;
+    if (!t || !src) continue;
+    const clips: Record<string, VoiceClip> = {};
+    for (const { scene, clip, file } of await clipsFromNarration(lesson, track, t, readFileSync(join(dir, src)), VIA)) {
+      const obj = bucket.file(clipObject(clip));
+      if ((await obj.exists())[0]) sent.kept++;
+      else {
+        await obj.save(file, { resumable: false, metadata: { contentType: "audio/ogg", cacheControl: "public, max-age=31536000, immutable" } });
+        sent.files++;
+        sent.bytes += file.length;
+      }
+      clips[scene] = clip;
+    }
+    const ref = db.collection("lessons").doc(id).collection("voice").doc(track.code);
+    await db.runTransaction(async (tx) => {
+      const had = (await tx.get(ref)).data() as VoiceDoc | undefined;
+      const mine = Object.fromEntries(Object.entries(had?.clips ?? {}).filter(([, c]) => c.by !== VIA));
+      tx.set(ref, { clips: { ...clips, ...mine }, ...(had?.prev ? { prev: had.prev } : {}) });
+    });
+    done.push(track.code);
+  }
+  return done;
+}
+
 const uid = (await getAuth(app).getUserByEmail(email)).uid;
 console.log(`${projectId}: ${email}, media in ${bucket.name}`);
 let failed = 0;
@@ -97,11 +135,19 @@ for (const id of ids.length ? ids : readdirSync(LESSONS).sort()) {
   const actor = { uid, via: VIA };
   try {
     const snap = await db.collection("lessons").doc(id).get();
+    if (voiceOnly) {
+      if (!snap.exists) throw new Error("isn't in the studio yet: push it without --voice-only first");
+      if ((snap.data() as { owner: string }).owner !== uid) throw new Error("belongs to someone else");
+      const langs = await setVoices(id, dir, lesson, timings);
+      console.log(`  ${id}: voices (${langs.join(", ") || "none"})`);
+      continue;
+    }
     if (!snap.exists) {
       await upload(dir, lesson);
       await store.create(id, lesson, actor);
       await setTimings(id, dir, lesson, timings, actor);
-      console.log(`  ${id}: created${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}`);
+      const langs = await setVoices(id, dir, lesson, timings);
+      console.log(`  ${id}: created${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}${langs.length ? `, voices (${langs.join(", ")})` : ""}`);
       continue;
     }
     const d = snap.data() as { owner: string; rev: number; updatedVia: string };
@@ -113,7 +159,8 @@ for (const id of ids.length ? ids : readdirSync(LESSONS).sort()) {
     await upload(dir, lesson);
     const r = await store.apply(id, [{ op: "restore", lesson }], actor, d.rev);
     await setTimings(id, dir, lesson, timings, actor);
-    console.log(`  ${id}: updated (rev ${r.rev})${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}`);
+    const langs = await setVoices(id, dir, lesson, timings);
+    console.log(`  ${id}: updated (rev ${r.rev})${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}${langs.length ? `, voices (${langs.join(", ")})` : ""}`);
   } catch (e) {
     console.log(`  ${id}: failed: ${(e as Error).message}`);
     failed++;

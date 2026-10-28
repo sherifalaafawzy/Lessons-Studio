@@ -4,7 +4,7 @@ import { createPlayer, type ElementBox, type Player } from "@lessonstudio/player
 import { getAt } from "@lessonstudio/ops";
 import {
   currentScene, edit, elementId, findElement, guides, lang, lesson, loopScene, orient, partId, playhead, playing, sceneId,
-  sceneTiming, stagePlayer, studioPackage, timings, togglePlay, viewScale, zoom,
+  sceneTiming, stagePlayer, studioPackage, timings, togglePlay, trackAudio, viewScale, zoom,
 } from "../editor.ts";
 import { elementPath, partPath, setText } from "../parts.ts";
 import { HANDLES, angleFrom, resizeBox, snapMove, type Guide, type Handle, type Rect } from "../snap.ts";
@@ -52,6 +52,8 @@ export function Stage() {
   const wrap = useRef<HTMLDivElement>(null);
   const board = useRef<HTMLDivElement>(null);
   const player = useRef<Player | null>(null);
+  /** What the stage's player was made for, besides its sound. */
+  const madeFor = useRef("");
   const [boxes, setBoxes] = useState<ElementBox[]>([]);
   const [parts, setParts] = useState<ElementBox[]>([]);
   const [hover, setHover] = useState<string | null>(null);
@@ -86,9 +88,13 @@ export function Stage() {
     setParts(p.parts());
   };
 
-  // A fresh player whenever the lesson, the language or the shape changes (it mounts one scene, so it's cheap).
+  // A fresh player whenever the lesson, the language or the shape changes (it mounts one scene, so it's cheap). When
+  // only the sound changed (a voice track finished loading) while playing, it carries on from the same moment.
   useEffect(() => {
     if (!l || !host.current) return;
+    const what = `${json}|${lang.value}|${orient.value}`;
+    const resumeAt = madeFor.current === what && player.current?.playing ? player.current.time() : null;
+    madeFor.current = what;
     player.current?.destroy();
     const pkg = studioPackage(l, timings.value);
     // The player announces its first scene while it is being created, so handlers read it through `made`.
@@ -110,10 +116,14 @@ export function Stage() {
     style.textContent = ".ls-bar,.ls-bigplay,.ls-transcript,.ls-menu{display:none!important}.ls-player{border-radius:10px}.ls-float .ls-captions{padding-bottom:10px!important}";
     host.current.shadowRoot?.append(style);
     show();
+    if (resumeAt !== null) {
+      p.seek(resumeAt);
+      void p.play();
+    }
     const ro = new ResizeObserver(() => requestAnimationFrame(measure));
     ro.observe(host.current);
     return () => ro.disconnect();
-  }, [json, timings.value, lang.value, orient.value]);
+  }, [json, timings.value, trackAudio.value, lang.value, orient.value]);
   useEffect(() => () => { player.current?.destroy(); player.current = null; stagePlayer.value = null; playing.value = false; }, []);
 
   // Follow the playhead and the selected scene while paused.

@@ -70,6 +70,12 @@ service cloud.firestore {
         allow read: if readable(id);
         allow delete: if deletingAll(id);
       }
+
+      // Each scene's voice in a language (packages/ops/src/voice.ts): written by the voiceClip function and the scripts.
+      match /voice/{lang} {
+        allow read: if readable(id);
+        allow delete: if deletingAll(id);
+      }
     }
 
     // OAuth state for MCP clients, sealed AI keys (aiKeys/{uid}), and anything else: server only.

@@ -4,8 +4,10 @@ import { EASES, normalizeWord, pick, resolveWhen, walkElements } from "@lessonst
 import type { Op } from "@lessonstudio/ops";
 import {
   currentScene, edit, elementId, freeId, insertScene, lang, leftTab, lesson, lessonTime, playing, rightTab, sceneId, sceneTiming,
-  seekLesson, selectScene, timings, wave,
+  recorder, seekLesson, selectScene, timings, tracks, wave,
 } from "../editor.ts";
+import { envelope, peaksOf, trackLoading } from "../voice.ts";
+import { ClipWave } from "./Voice.tsx";
 import { t, type Key as Msg } from "../i18n.ts";
 import { GALLERY } from "../presets.ts";
 import { Icon } from "../icons.tsx";
@@ -42,19 +44,6 @@ function momentsOf(tracks: Track[], st: SceneTiming, code: string): Moment[] {
   return [...by.values()].sort((a, b) => a.at - b.at);
 }
 
-/** A narration's waveform as one closed shape, one unit wide per peak and 100 high, mirrored about the middle. */
-function envelope(peaks: Uint8Array): string {
-  let most = 1;
-  for (const v of peaks) most = Math.max(most, v);
-  const half = (i: number): number => Math.max(0.6, (peaks[i]! / most) * 48);
-  const d: string[] = ["M0 50"];
-  for (let i = 0; i < peaks.length; i++) d.push(`L${i + 0.5} ${(50 - half(i)).toFixed(1)}`);
-  d.push(`L${peaks.length} 50`);
-  for (let i = peaks.length - 1; i >= 0; i--) d.push(`L${i + 0.5} ${(50 + half(i)).toFixed(1)}`);
-  d.push("Z");
-  return d.join("");
-}
-
 /** The ops that move one moment (or, with `moment` null, every keyframe of the row) to new times. */
 function moveOps(scene: Scene, row: Row, map: (w: When) => When, moment: string | null): Op[] {
   const tracks = row.tracks.map((tr) => ({ prop: tr.prop, keys: tr.keys.map((k) => (moment === null || JSON.stringify(k.at) === moment ? { ...k, at: map(k.at) } : k)) }));
@@ -65,7 +54,7 @@ function moveOps(scene: Scene, row: Row, map: (w: When) => When, moment: string 
 
 /**
  * The lesson's timeline: a time ruler, every scene as a clip (drag to reorder, Alt+drag to copy, drop a gallery
- * scene between clips), the narration's waveform once it is voiced, the spoken words, and for the selected scene a row per element (and the camera and cues)
+ * scene between clips), each scene's voice (its waveform, or a place to record one), the spoken words, and for the selected scene a row per element (and the camera and cues)
  * with a diamond for each moment something changes. Drag a diamond to retime it, or onto a word to start it there;
  * drag a row's bar to move its whole animation; click a diamond to edit it. Ctrl+wheel zooms.
  */
@@ -78,6 +67,7 @@ export function Timeline() {
   const [dropAt, setDropAt] = useState<number | null>(null);
   const [scrub, setScrub] = useState(false);
   const [open, setOpen] = useState<{ row: string; moment: string } | null>(null);
+  const track = tracks.value[lang.value];
   const voice = wave.value;
   const voicePath = useMemo(() => (voice ? envelope(voice.peaks) : null), [voice]);
   useEffect(() => {
@@ -315,7 +305,31 @@ export function Timeline() {
                 {markerX !== null ? <span class="clip-marker" style={{ left: `${markerX}px` }} /> : null}
               </div>
             </div>
-            {voice && voicePath ? (
+            {track ? (
+              <div class="tl-row tl-voice">
+                <span class="tl-label">{t("narrationAudio")}{trackLoading.value === code ? <span class="tl-spin" role="status" aria-label={t("voiceLoading")} title={t("voiceLoading")} /> : null}</span>
+                <div class="tl-track" style={{ width: `${contentW}px` }} onPointerDown={(e) => scrubFrom(e as PointerEvent)}>
+                  {track.parts.map((p, i) => {
+                    const w = Math.max(3, x(p.start + p.seconds) - x(p.start) - 2);
+                    const where = `${t("scene")} ${i + 1}${t("sep")}${timecode(p.seconds)}`;
+                    return p.clip ? (
+                      <div key={p.scene} class={`vseg ${p.clip.kind}${p.scene === sceneId.value ? " on" : ""}`} style={{ left: `${x(p.start) + 1}px`, width: `${w}px` }}
+                        title={`${where}${t("sep")}${t(p.clip.kind === "ai" ? "kindAi" : p.clip.kind === "recorded" ? "kindRecorded" : "kindUploaded")}`}>
+                        <ClipWave peaks={peaksOf(p.clip)} />
+                      </div>
+                    ) : (
+                      <button type="button" key={p.scene} class={`vseg empty${p.stale ? " stale" : ""}`} style={{ left: `${x(p.start) + 1}px`, width: `${w}px` }}
+                        title={`${where}${t("sep")}${p.stale ? t("voiceChanged") : t("voiceSilent")}${t("sep")}${t("recordVoice")}`}
+                        aria-label={`${t("recordVoice")}: ${t("scene")} ${i + 1}`}
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={() => { selectScene(p.scene); recorder.value = { scene: p.scene, lang: code }; }}>
+                        <Icon name="mic" />{w > 84 ? <span>{p.stale ? t("voiceChanged") : t("voiceSilent")}</span> : null}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : voice && voicePath ? (
               <div class="tl-row tl-voice">
                 <span class="tl-label">{t("narrationAudio")}</span>
                 <div class="tl-track" style={{ width: `${contentW}px` }} onPointerDown={(e) => scrubFrom(e as PointerEvent)}>

@@ -20,7 +20,7 @@ export const contrast = (a: string, b: string): number => {
 
 describe("theme", () => {
   const surfaces = ["bg", "panel", "raised", "field", "soft"];
-  for (const text of ["fg", "muted", "accent-fg", "ok", "warn", "bad"]) {
+  for (const text of ["fg", "muted", "accent-fg", "ok", "warn", "bad", "rec", "voice-ai", "voice-rec", "voice-up"]) {
     for (const s of surfaces) {
       it(`${text} on ${s}`, () => expect(contrast(token(text), token(s))).toBeGreaterThanOrEqual(4.5));
     }

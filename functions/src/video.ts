@@ -6,10 +6,12 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "nod
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { LessonPackage } from "@lessonstudio/spec";
-import { mediaObject } from "@lessonstudio/ops";
+import type { Lang, LessonPackage } from "@lessonstudio/spec";
+import { clipObject, mediaObject, toPackage, voiceTrack, type Lesson, type TrackPart, type VoiceClip } from "@lessonstudio/ops";
+import { toWav } from "@lessonstudio/narrate";
 import { SIZES, renderLanguage, type Size } from "../../scripts/video/mp4.ts";
 import { launch } from "../../scripts/video/stage.ts";
+import { trackPcm } from "../../scripts/lib/voice.ts";
 
 /** Reads a media object from the studio's Storage bucket (packages/ops mediaObject). */
 export type ReadMedia = (object: string) => Promise<Buffer>;
@@ -43,8 +45,38 @@ export async function fetchNarration(pkg: LessonPackage, lang: string, dir: stri
   return true;
 }
 
-/** Renders one language of a lesson at one size, with its narration when it has some; returns the MP4. */
-export async function renderVideo(pkg: LessonPackage, lang: string, size: Size, read: ReadMedia): Promise<{ mp4: Buffer; seconds: number; narrated: boolean }> {
+/**
+ * A lesson with a language's voice clips (lessons/{id}/voice/{lang}), as the studio plays it: the clips in the lesson's
+ * order with their timings, and the track at audio/<lang>.wav once any scene is voiced (putVoiceTrack writes it).
+ */
+export function voicePackage(lesson: Lesson, lang: Lang, clips: Record<string, VoiceClip>): { pkg: LessonPackage; parts: TrackPart[] } {
+  const track = voiceTrack(lesson.scenes.scenes, lang, clips);
+  const pkg = toPackage(lesson, { [lang]: track.timing });
+  for (const l of pkg.manifest.languages) {
+    delete l.audio;
+    delete l.audioFallback;
+    if (l.code === lang && track.voiced) l.audio = `audio/${lang}.wav`;
+  }
+  delete pkg.manifest.assets;
+  return { pkg, parts: track.parts };
+}
+
+/** Writes a language's voice track, put together from its clips, where its package says (voicePackage). */
+export async function putVoiceTrack(pkg: LessonPackage, lang: Lang, parts: TrackPart[], dir: string, read: ReadMedia): Promise<boolean> {
+  const audio = pkg.manifest.languages.find((l) => l.code === lang)?.audio;
+  if (!audio) return false;
+  const pcm = await trackPcm(parts, (c) => read(clipObject(c)));
+  const at = join(dir, audio);
+  mkdirSync(dirname(at), { recursive: true });
+  writeFileSync(at, toWav(pcm));
+  return true;
+}
+
+/**
+ * Renders one language of a lesson at one size; returns the MP4. `narrate` puts the language's narration in a folder
+ * for the renderer (fetchNarration or putVoiceTrack), or says there is none.
+ */
+export async function renderVideo(pkg: LessonPackage, lang: string, size: Size, narrate: (dir: string) => Promise<boolean>): Promise<{ mp4: Buffer; seconds: number; narrated: boolean }> {
   const here = fileURLToPath(new URL(".", import.meta.url));
   const started = Date.now();
   const log = (s: string): void => console.log(`exportVideo ${pkg.manifest.id} ${lang} ${size}p: ${s} (${Math.round((Date.now() - started) / 1000)} s)`);
@@ -59,7 +91,7 @@ export async function renderVideo(pkg: LessonPackage, lang: string, size: Size, 
   const out = mkdtempSync(join(tmpdir(), "ls-mp4-"));
   const files = mkdtempSync(join(tmpdir(), "ls-pkg-"));
   try {
-    const narrated = await fetchNarration(pkg, lang, files, read);
+    const narrated = await narrate(files);
     log(narrated ? "narration fetched" : "no narration: silent");
     const r = await renderLanguage(browser, pkg, lang, out, {
       sizes: [size], hold: 4, log, ...(narrated ? { dir: files } : {}),

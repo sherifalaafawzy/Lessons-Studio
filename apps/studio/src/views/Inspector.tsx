@@ -8,6 +8,7 @@ import { t, type Key } from "../i18n.ts";
 import { ElementAnimations, SceneCues } from "./Animations.tsx";
 import { ElementForm, QuizForm, TEMPLATE_NAMES, TemplateForm } from "./content.tsx";
 import { Check, NumField, Section, Select, TextField } from "./fields.tsx";
+import { VoicePanel } from "./Voice.tsx";
 
 /** Narration per language: what is said in the scene. Words and seconds help keep scenes short. */
 function Narration({ scene }: { scene: Scene }) {
@@ -119,6 +120,7 @@ export function Inspector() {
           ) : (
             <>
               <Section title={t("narration")}><Narration scene={scene} /></Section>
+              <Section title={t("narrationAudio")}><VoicePanel scene={scene} /></Section>
               <Section title={t("quickCheck")} open={!!scene.check}><QuizForm scene={scene} /></Section>
               <Section title={t("look")} open={false}><SceneLook scene={scene} /></Section>
             </>

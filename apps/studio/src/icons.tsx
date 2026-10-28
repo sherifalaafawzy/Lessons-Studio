@@ -26,6 +26,10 @@ const PATHS = {
   down: "M6 9l6 6 6-6",
   up: "M6 15l6-6 6 6",
   eye: "M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z",
+  mic: "M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7",
+  upload: "M12 15V4M7.5 8.5 12 4l4.5 4.5M4 15v5h16v-5",
+  check: "M5 12.5l4.5 4.5L19 7.5",
+  trash: "M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3",
 } as const;
 
 export type IconName = keyof typeof PATHS;

@@ -2,8 +2,9 @@ import { useEffect, useState } from "preact/hooks";
 import { pick } from "@lessonstudio/spec";
 import {
   closeLesson, currentElement, currentScene, dockHeight, edit, elementId, lang, leftTab, lesson, lessonTime, loopScene, openLesson,
-  playhead, sceneTiming, seekLesson, stagePlayer, state, sync, togglePlay, viewScale, zoom, type LeftTab,
+  playhead, recorder, sceneTiming, seekLesson, stagePlayer, state, sync, togglePlay, viewScale, zoom, type LeftTab,
 } from "../editor.ts";
+import { Recorder } from "./Voice.tsx";
 import { go, say } from "../state.ts";
 import { t, viaName, type Key } from "../i18n.ts";
 import { Icon, type IconName } from "../icons.tsx";
@@ -42,7 +43,7 @@ export function Editor({ id }: { id: string }) {
   const [panel, setPanel] = useState<"board" | "stage" | "inspector">("stage");
   useEffect(() => {
     openLesson(id);
-    return closeLesson;
+    return () => { recorder.value = null; closeLesson(); };
   }, [id]);
 
   // Keyboard: an editor's keys. Space is the Stage's (tap to play, hold to pan).
@@ -145,6 +146,7 @@ export function Editor({ id }: { id: string }) {
       {modal === "palette" ? <Palette onClose={() => setModal(null)} open={setModal} /> : null}
       {modal === "keys" ? <Shortcuts onClose={() => setModal(null)} /> : null}
       {modal === "export" ? <Export onClose={() => setModal(null)} /> : null}
+      {recorder.value ? <Recorder key={`${recorder.value.scene}:${recorder.value.lang}:${recorder.value.file?.name ?? ""}`} {...recorder.value} onClose={() => { recorder.value = null; }} /> : null}
     </div>
   );
 }

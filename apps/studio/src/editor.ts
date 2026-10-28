@@ -2,7 +2,7 @@ import { computed, signal } from "@preact/signals";
 import type { Element, Lang, LessonPackage, Scene, TimingFile } from "@lessonstudio/spec";
 import type { Player } from "@lessonstudio/player";
 import { estimateTiming, walkElements } from "@lessonstudio/spec";
-import { check, currentTimings, mediaResolver, toPackage, type Lesson, type Op } from "@lessonstudio/ops";
+import { check, currentTimings, mediaResolver, toPackage, voiceTrack, type Lesson, type Op, type VoiceTrack } from "@lessonstudio/ops";
 import { db } from "./fb.ts";
 import { mediaBucketUrl } from "./env.ts";
 import { say, user } from "./state.ts";
@@ -83,14 +83,31 @@ export function findElement(scene: Scene | null, id: string | null): Element | n
 export const currentElement = computed(() => findElement(currentScene.value, elementId.value));
 
 /**
- * Timings for each language: the ones measured from its narration while they still fit the script (then the
- * narration plays), else estimated from the text (then it plays silently).
+ * Each language's voice track, where the lesson's scenes have voices (lessons/{id}/voice/{lang}): every scene's clip in
+ * the lesson's order, and silence for a scene without one, so moving scenes keeps their voices.
+ */
+export const tracks = computed<Record<Lang, VoiceTrack>>(() => {
+  const l = lesson.value;
+  const voice = state.value?.voice ?? {};
+  if (!l) return {};
+  return Object.fromEntries(l.manifest.languages.filter((g) => voice[g.code]).map((g) => [g.code, voiceTrack(l.scenes.scenes, g.code, voice[g.code]!.clips ?? {})]));
+});
+
+/** A language's track as sound to play (a WAV in memory, voice.ts), once its clips have loaded; `key` names its track. */
+export const trackAudio = signal<Record<Lang, { key: string; url: string }>>({});
+
+/** The scene and language the recorder is open for, with a file to use instead of recording. */
+export const recorder = signal<{ scene: string; lang: Lang; file?: File } | null>(null);
+
+/**
+ * Timings for each language: its voice track's, where scenes have voices; else the ones measured from an older
+ * single narration file while they still fit the script (then that plays); else estimated from the text (silence).
  */
 export const timings = computed<Record<Lang, TimingFile>>(() => {
   const l = lesson.value;
   if (!l) return {};
   const measured = currentTimings(l.scenes.scenes, state.value?.measured ?? {});
-  return Object.fromEntries(l.manifest.languages.map((g) => [g.code, measured[g.code] ?? estimateTiming(l.scenes.scenes, g.code)]));
+  return Object.fromEntries(l.manifest.languages.map((g) => [g.code, tracks.value[g.code]?.timing ?? measured[g.code] ?? estimateTiming(l.scenes.scenes, g.code)]));
 });
 
 /**
@@ -100,7 +117,7 @@ export const timings = computed<Record<Lang, TimingFile>>(() => {
 export const wave = computed<{ rate: number; peaks: Uint8Array } | null>(() => {
   const l = lesson.value;
   const p = state.value?.peaks[lang.value];
-  if (!l || !p || timings.value[lang.value]?.source === "estimated") return null;
+  if (!l || !p || tracks.value[lang.value] || timings.value[lang.value]?.source === "estimated") return null;
   const track = l.manifest.languages.find((g) => g.code === lang.value);
   if (!track?.audio || l.manifest.assets?.find((a) => a.path === track.audio)?.sha256 !== p.audio) return null;
   const bin = atob(p.data);
@@ -109,10 +126,25 @@ export const wave = computed<{ rate: number; peaks: Uint8Array } | null>(() => {
   return { rate: p.rate, peaks };
 });
 
-/** The lesson as the studio's players get it, with its narration fetched from the Storage bucket. */
+/**
+ * The lesson as the studio's players get it: a language with scene voices plays its track from memory once it has
+ * loaded (silently until then); an older single narration file plays from the Storage bucket.
+ */
 export function studioPackage(l: Lesson, tm: Record<Lang, TimingFile>): LessonPackage {
   const pkg = toPackage(l, tm);
-  pkg.resolve = mediaResolver(pkg.manifest, mediaBucketUrl(), (p) => new URL(p, location.href).href);
+  const local: Record<string, string> = {};
+  for (const g of pkg.manifest.languages) {
+    const tr = tracks.value[g.code];
+    if (!tr) continue;
+    delete g.audio;
+    delete g.audioFallback;
+    const a = trackAudio.value[g.code];
+    if (tr.voiced && a?.key === tr.key) {
+      g.audio = `voice/${g.code}.wav`;
+      local[g.audio] = a.url;
+    }
+  }
+  pkg.resolve = mediaResolver(pkg.manifest, mediaBucketUrl(), (p) => local[p] ?? new URL(p, location.href).href);
   return pkg;
 }
 

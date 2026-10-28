@@ -3,6 +3,7 @@
 // - draftLesson: a brief becomes a checked lesson in the person's account, with their key (draft.ts).
 // - mcp: the MCP server for AI apps, with OAuth sign-in, served at https://<project>.web.app/mcp through Hosting.
 // - exportVideo: a lesson as an MP4 at 360p, 240p or 144p, rendered on the server (video.ts).
+// - voiceClip: a scene's voice in a language: a recording or file made into a clip, removed, or the last change undone (voice.ts).
 import { setGlobalOptions } from "firebase-functions/v2";
 import { HttpsError, onCall, onRequest, type CallableRequest } from "firebase-functions/v2/https";
 import { defineSecret } from "firebase-functions/params";
@@ -15,8 +16,10 @@ import { FirestoreStore } from "../../apps/server/src/stores/firestore.ts";
 import { keyShapeProblem, seal, statusOf, unseal, type Sealed } from "./keys.ts";
 import { DRAFT_MODEL, GeminiError, checkKey, draftPrice, gemini } from "./gemini.ts";
 import { DraftFailed, draft, readRequest, slug } from "./draft.ts";
-import { readExport, renderVideo } from "./video.ts";
-import { StoreError, currentTimings, toPackage } from "@lessonstudio/ops";
+import { fetchNarration, putVoiceTrack, readExport, renderVideo, voicePackage } from "./video.ts";
+import { changeVoice, readVoiceRequest } from "./voice.ts";
+import { StoreError, clipObject, currentTimings, sceneText, toPackage, type VoiceClip, type VoiceDoc } from "@lessonstudio/ops";
+import { clipFromRecording } from "../../scripts/lib/voice.ts";
 
 setGlobalOptions({ region: "europe-west1", maxInstances: 4 });
 if (!getApps().length) initializeApp();
@@ -70,13 +73,76 @@ export const exportVideo = onCall({ timeoutSeconds: 900, memory: "8GiB", cpu: 4,
     if (e instanceof StoreError) throw new HttpsError(e.code === "forbidden" ? "permission-denied" : "not-found", e.message);
     throw e;
   }
-  // As the studio plays it: measured timings and the narration while they fit the script, else estimates and silence.
-  const pkg = toPackage(loaded.lesson, currentTimings(loaded.lesson.scenes.scenes, loaded.timings));
-  if (!pkg.timing[ask.lang]) throw new HttpsError("invalid-argument", `The lesson has no ${ask.lang}.`);
-  // From the studio's bucket (LS_MEDIA_BUCKET, from .env.local), else the project's default one (the emulator's).
-  const read = async (object: string): Promise<Buffer> => (await getStorage().bucket(process.env.LS_MEDIA_BUCKET || undefined).file(object).download())[0];
-  const { mp4, seconds, narrated } = await renderVideo(pkg, ask.lang, ask.size, read);
+  if (!loaded.lesson.manifest.languages.some((l) => l.code === ask.lang)) throw new HttpsError("invalid-argument", `The lesson has no ${ask.lang}.`);
+  const read = async (object: string): Promise<Buffer> => (await mediaBucket().file(object).download())[0];
+  // As the studio plays it: the scenes' voice clips in the lesson's order where the lesson has them; else the older
+  // single narration file with its measured timings while they fit the script; else estimates and silence.
+  const voice = await db.doc(`lessons/${ask.lesson}/voice/${ask.lang}`).get();
+  let r;
+  if (voice.exists) {
+    const { pkg, parts } = voicePackage(loaded.lesson, ask.lang, (voice.data() as VoiceDoc).clips ?? {});
+    r = await renderVideo(pkg, ask.lang, ask.size, (dir) => putVoiceTrack(pkg, ask.lang, parts, dir, read));
+  } else {
+    const pkg = toPackage(loaded.lesson, currentTimings(loaded.lesson.scenes.scenes, loaded.timings));
+    r = await renderVideo(pkg, ask.lang, ask.size, (dir) => fetchNarration(pkg, ask.lang, dir, read));
+  }
+  const { mp4, seconds, narrated } = r;
   return { name: `${ask.lesson}-${ask.lang}-${ask.size}p.mp4`, mp4: mp4.toString("base64"), bytes: mp4.length, seconds, narrated };
+});
+
+/** The studio's media: its bucket (LS_MEDIA_BUCKET, from .env.local), else the project's default one (the emulator's). */
+const mediaBucket = () => getStorage().bucket(process.env.LS_MEDIA_BUCKET || undefined);
+
+/** Uploads bigger than this are refused before anything is decoded. */
+const MAX_UPLOAD = 25 * 1024 * 1024;
+
+/**
+ * A scene's voice in one language. "add" makes the caller's upload (a recording or a file) into a clip: cleaned up,
+ * timed against the scene's script, stored by content, and the upload deleted. "remove" takes the voice away; "undo"
+ * brings back what the last change replaced. Members of the lesson only.
+ */
+export const voiceClip = onCall({ timeoutSeconds: 120, memory: "1GiB" }, async (req) => {
+  const uid = signedIn(req);
+  const ask = readVoiceRequest(req.data, uid);
+  if (typeof ask === "string") throw new HttpsError("invalid-argument", ask);
+  let loaded;
+  try {
+    loaded = await new FirestoreStore(db).get(ask.lesson, uid);
+  } catch (e) {
+    if (e instanceof StoreError) throw new HttpsError(e.code === "forbidden" ? "permission-denied" : "not-found", e.message);
+    throw e;
+  }
+  const scene = loaded.lesson.scenes.scenes.find((s) => s.id === ask.scene);
+  if (!scene) throw new HttpsError("not-found", `The lesson has no scene "${ask.scene}".`);
+  if (!loaded.lesson.manifest.languages.some((l) => l.code === ask.lang)) throw new HttpsError("invalid-argument", `The lesson has no ${ask.lang}.`);
+  let clip: VoiceClip | null = null;
+  if (ask.action === "add") {
+    const bucket = mediaBucket();
+    const upload = bucket.file(ask.upload!);
+    try {
+      const [meta] = await upload.getMetadata().catch(() => { throw new HttpsError("not-found", "The recording didn't arrive. Try again."); });
+      if (Number(meta.size) > MAX_UPLOAD) throw new HttpsError("invalid-argument", "That file is too big: up to 25 MB.");
+      const [bytes] = await upload.download();
+      let made;
+      try {
+        made = await clipFromRecording(bytes, sceneText(scene, ask.lang), ask.kind!, uid);
+      } catch (e) {
+        throw new HttpsError("invalid-argument", (e as Error).message);
+      }
+      const file = bucket.file(clipObject(made.clip));
+      if (!(await file.exists())[0]) await file.save(made.file, { resumable: false, metadata: { contentType: "audio/ogg", cacheControl: "public, max-age=31536000, immutable" } });
+      clip = made.clip;
+    } finally {
+      await upload.delete().catch(() => {});
+    }
+  }
+  const ref = db.doc(`lessons/${ask.lesson}/voice/${ask.lang}`);
+  const doc = await db.runTransaction(async (t) => {
+    const next = changeVoice((await t.get(ref)).data() as VoiceDoc | undefined, ask.scene, ask.action === "undo" ? "undo" : clip);
+    t.set(ref, next);
+    return next;
+  });
+  return { clip: doc.clips[ask.scene] ?? null, canUndo: ask.scene in (doc.prev ?? {}) };
 });
 
 export const removeAiKey = onCall(async (req) => {

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { createPlayer, type Player, type Signals } from "@lessonstudio/player";
 import { LIBRARY } from "../env.ts";
-import { lang, lesson, studioPackage, timings } from "../editor.ts";
+import { lang, lesson, studioPackage, timings, trackAudio, tracks } from "../editor.ts";
 import { t } from "../i18n.ts";
 
 /** "Low-end phone, 3G": 2 GB of memory and a slow network, so the player picks its Lite tier, as such a phone would. */
@@ -29,14 +29,15 @@ export function Preview({ onClose }: { onClose: () => void }) {
     const files = [JSON.stringify(pkg.manifest), JSON.stringify(pkg.scenes), JSON.stringify(pkg.timing[lang.value])];
     void gzipSize(files.join("")).then((n) => setKb(n === null ? null : Math.round(n / 102.4) / 10));
     return () => p.destroy();
-  }, [device, lang.value]);
+  }, [device, lang.value, trackAudio.value]);
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     addEventListener("keydown", k);
     return () => removeEventListener("keydown", k);
   }, []);
   // Narration plays only with the timings measured from it (toPackage); stale timings leave a language silent.
-  const audio = timings.value[lang.value]?.source !== "estimated" && l?.manifest.languages.find((g) => g.code === lang.value)?.audio;
+  const audio = tracks.value[lang.value] ? tracks.value[lang.value]!.voiced
+    : timings.value[lang.value]?.source !== "estimated" && l?.manifest.languages.find((g) => g.code === lang.value)?.audio;
   return (
     <div class="modal" role="dialog" aria-modal="true" aria-label={t("preview")}>
       <div class="modal-box preview">

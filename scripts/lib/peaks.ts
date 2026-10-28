@@ -1,9 +1,8 @@
 // A narration file's waveform for the studio's timeline (packages/ops peaksOf), decoded with ffmpeg.
 import { spawnSync } from "node:child_process";
-import { peaksOf } from "../../packages/ops/src/index.ts";
+import { PEAKS_RATE, peaksOf } from "../../packages/ops/src/index.ts";
 
-/** Peaks per second: about 7 KB for three minutes, a bar every 6 px at the timeline's closest zoom. */
-export const PEAKS_RATE = 40;
+export { PEAKS_RATE };
 const DECODE_RATE = 8000;
 
 /** The loudest moment in each 1/PEAKS_RATE of a second of an audio file (Opus, AAC, WAV…), 0–255. */

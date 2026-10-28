@@ -2,6 +2,8 @@ import { defineConfig } from "@playwright/test";
 
 // Playwright 1.64 expects its own Chromium build; CHROMIUM_PATH points at any installed Chromium or Chrome instead.
 const executablePath = process.env.CHROMIUM_PATH;
+// The emulators' ports (e2e/emulators.ts), for the studio too.
+const [auth, firestore, functions, storage] = (process.env.LS_E2E_PORTS ?? "9399,8280,5401,9289").split(",");
 
 export default defineConfig({
   testDir: "e2e",
@@ -28,7 +30,7 @@ export default defineConfig({
       // The studio on the local emulators (npm run emulators); e2e/studio.spec.ts skips itself when they're down.
       command: "npm run dev -w @lessonstudio/studio -- --port 4331",
       url: "http://localhost:4331",
-      env: { VITE_EMULATORS: "1" },
+      env: { VITE_EMULATORS: "1", VITE_AUTH_EMULATOR_PORT: auth!, VITE_FIRESTORE_EMULATOR_PORT: firestore!, VITE_FUNCTIONS_EMULATOR_PORT: functions!, VITE_STORAGE_EMULATOR_PORT: storage! },
       reuseExistingServer: false,
       timeout: 60_000,
     },

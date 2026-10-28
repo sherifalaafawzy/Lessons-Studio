@@ -1,13 +1,13 @@
-// The studio, end to end, on the local Firebase emulators (npm run emulators: Auth 9399, Firestore 8280).
+// The studio, end to end, on the local Firebase emulators (npm run emulators, or another suite: e2e/emulators.ts).
 // Skipped when they aren't running.
 import { expect, test, type Page } from "@playwright/test";
+import { AUTH, FIRESTORE, FUNCTIONS, STORAGE } from "./emulators.ts";
 
 const STUDIO = "http://localhost:4331";
-const FIRESTORE = "127.0.0.1:8280";
 
 async function emulatorsUp(): Promise<boolean> {
   try {
-    const [a, f] = await Promise.all([fetch("http://127.0.0.1:9399/"), fetch(`http://${FIRESTORE}/`)]);
+    const [a, f] = await Promise.all([fetch(`http://${AUTH}/`), fetch(`http://${FIRESTORE}/`)]);
     return a.ok && f.ok;
   } catch {
     return false;
@@ -17,7 +17,7 @@ async function emulatorsUp(): Promise<boolean> {
 /** The emulators' Admin SDK, for what only the server can do (access to the studio, edits as an AI). */
 async function admin() {
   process.env.FIRESTORE_EMULATOR_HOST = FIRESTORE;
-  process.env.FIREBASE_AUTH_EMULATOR_HOST = "127.0.0.1:9399";
+  process.env.FIREBASE_AUTH_EMULATOR_HOST = AUTH;
   const { initializeApp, getApps } = await import("firebase-admin/app");
   return getApps().find((a) => a.name === "e2e") ?? initializeApp({ projectId: "demo-lessonstudio" }, "e2e");
 }
@@ -213,9 +213,9 @@ test.describe("studio", () => {
 
   test("a narrated lesson plays its narration from Storage, in step with the captions, with its waveform on the timeline, in English and Egyptian Arabic", async ({ page }, info) => {
     test.skip(info.project.name === "phone", "Desktop only.");
-    test.skip(!(await fetch("http://127.0.0.1:9289/").then(() => true, () => false)), "The Storage emulator isn't running (npm run emulators).");
+    test.skip(!(await fetch(`http://${STORAGE}/`).then(() => true, () => false)), "The Storage emulator isn't running (npm run emulators).");
     // As scripts/darsi/push.ts stores it: the narration in the bucket by content, the measured timings beside the lesson.
-    process.env.FIREBASE_STORAGE_EMULATOR_HOST = "127.0.0.1:9289";
+    process.env.FIREBASE_STORAGE_EMULATOR_HOST = STORAGE;
     const fs = await import("node:fs/promises");
     const { getAuth } = await import("firebase-admin/auth");
     const { getFirestore } = await import("firebase-admin/firestore");
@@ -264,7 +264,7 @@ test.describe("studio", () => {
       }, sha);
       await expect.poll(async () => (await playing())?.t ?? 0, { timeout: 15_000 }).toBeGreaterThan(2.5);
       const p = (await playing())!;
-      expect(p.src).toBe(`http://127.0.0.1:9289/v0/b/demo-lessonstudio.appspot.com/o/media%2F${sha}.opus?alt=media`);
+      expect(p.src).toBe(`http://${STORAGE}/v0/b/demo-lessonstudio.appspot.com/o/media%2F${sha}.opus?alt=media`);
       expect(p.paused).toBe(false);
       await page.getByRole("button", { name: "Pause", exact: true }).click();
       // The caption on screen holds the word being said at the audio's own time, by the measured timing.
@@ -426,7 +426,7 @@ test.describe("studio", () => {
 
   test("settings: add a Gemini key, draft a lesson with AI, see how to connect AI apps, remove the key", async ({ page }, info) => {
     test.skip(info.project.name === "phone", "Desktop only.");
-    test.skip(!(await fetch("http://127.0.0.1:5401/").then(() => true, () => false)), "The functions emulator isn't running.");
+    test.skip(!(await fetch(`http://${FUNCTIONS}/`).then(() => true, () => false)), "The functions emulator isn't running.");
     // A stand-in for Gemini on the port the functions emulator calls (functions/.env.demo-lessonstudio).
     const KEY = "AIzaSyStandInKeyForTests0123456789";
     const { GALLERY } = await import("../apps/studio/src/presets.ts");

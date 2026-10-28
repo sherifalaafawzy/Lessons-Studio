@@ -1,7 +1,7 @@
 import { collection, doc, onSnapshot, writeBatch, type Firestore, type Unsubscribe } from "firebase/firestore";
 import type { Lang, TimingFile } from "@lessonstudio/spec";
 import {
-  applyOps, commit, consistent, lessonDoc, lessonFromDocs, opId, rebase, sceneDoc, type Lesson, type LessonDoc, type Op, type Peaks, type SceneDoc, type TimingDoc,
+  applyOps, commit, consistent, lessonDoc, lessonFromDocs, opId, rebase, sceneDoc, type Lesson, type LessonDoc, type Op, type Peaks, type SceneDoc, type TimingDoc, type VoiceDoc,
 } from "@lessonstudio/ops";
 
 export type SyncStatus = "loading" | "saved" | "saving" | "error" | "gone";
@@ -20,6 +20,8 @@ export interface SyncState {
   measured: Record<Lang, TimingFile>;
   /** The narration's waveform beside each measured timing, where the server drew one. */
   peaks: Record<Lang, Peaks>;
+  /** Each scene's voice, by language (lessons/{id}/voice/{lang}, written by the server). */
+  voice: Record<Lang, VoiceDoc>;
   canUndo: boolean;
   canRedo: boolean;
 }
@@ -51,7 +53,7 @@ export class LessonSync {
   private undoStack: { ops: Op[]; inverse: Op[] }[] = [];
   private redoStack: { ops: Op[]; inverse: Op[] }[] = [];
   private fns = new Set<(s: SyncState) => void>();
-  state: SyncState = { lesson: null, rev: 0, status: "loading", measured: {}, peaks: {}, canUndo: false, canRedo: false };
+  state: SyncState = { lesson: null, rev: 0, status: "loading", measured: {}, peaks: {}, voice: {}, canUndo: false, canRedo: false };
 
   constructor(db: Firestore, id: string, actor: { uid: string; via?: string }, now: () => number = Date.now) {
     this.db = db;
@@ -92,6 +94,14 @@ export class LessonSync {
         }
         this.set({ measured, peaks });
       }, () => { /* without timings the lesson plays from estimates, silently */ }),
+      onSnapshot(collection(ref, "voice"), (s) => {
+        const voice = { ...this.state.voice };
+        for (const ch of s.docChanges()) {
+          if (ch.type === "removed") delete voice[ch.doc.id];
+          else voice[ch.doc.id] = ch.doc.data() as VoiceDoc;
+        }
+        this.set({ voice });
+      }, () => { /* without voices the scenes play silently */ }),
     );
     return this;
   }

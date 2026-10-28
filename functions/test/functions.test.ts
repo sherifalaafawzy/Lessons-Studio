@@ -5,7 +5,8 @@ import { GALLERY } from "../../apps/studio/src/presets.ts";
 import { keyShapeProblem, seal, statusOf, unseal } from "../src/keys.ts";
 import { checkKey, draftPrice, gemini, type Generate } from "../src/gemini.ts";
 import { DraftFailed, draft, readRequest, systemPrompt, userPrompt } from "../src/draft.ts";
-import { fetchNarration } from "../src/video.ts";
+import { fetchNarration, voicePackage } from "../src/video.ts";
+import { changeVoice, readVoiceRequest } from "../src/voice.ts";
 import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -175,5 +176,50 @@ describe("MP4 export narration", () => {
     } finally {
       rmSync(out, { recursive: true, force: true });
     }
+  });
+});
+
+describe("scene voices", () => {
+  const json = (p: string) => JSON.parse(readFileSync("content/darsi/lessons/cy-1-1-2/" + p, "utf8"));
+  const clip = (media: string) => ({ media, type: "audio/ogg", bytes: 1, seconds: 2, text: "", words: [], sentences: [], timing: "tts" as const, kind: "recorded" as const, peaks: "", at: 1, by: "u" });
+
+  it("reads only sensible requests, with uploads from the caller's own folder", () => {
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s1", lang: "ar-EG", action: "add", upload: "uploads/u1/take-1.webm" }, "u1")).toEqual({ lesson: "l-1", scene: "s1", lang: "ar-EG", action: "add", upload: "uploads/u1/take-1.webm", kind: "recorded" });
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s1", lang: "en", action: "add", upload: "uploads/u2/take.webm" }, "u1")).toBe("Which upload?");
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s1", lang: "en", action: "add", upload: "uploads/u1/../x" }, "u1")).toBe("Which upload?");
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s/1", lang: "en", action: "remove" }, "u1")).toBe("Which scene?");
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s1", lang: "en", action: "undo" }, "u1")).toEqual({ lesson: "l-1", scene: "s1", lang: "en", action: "undo" });
+    expect(readVoiceRequest({ lesson: "l-1", scene: "s1", lang: "en", action: "erase" }, "u1")).toBe("Add, remove or undo?");
+  });
+
+  it("keeps what each change replaced, so it can be undone, and undone again", () => {
+    const a = clip("a".repeat(64)), b = clip("b".repeat(64));
+    let d = changeVoice(undefined, "s1", a);
+    expect(d).toEqual({ clips: { s1: a }, prev: { s1: null } });
+    d = changeVoice(d, "s1", b);
+    expect(d.clips.s1).toBe(b);
+    d = changeVoice(d, "s1", "undo");
+    expect(d.clips.s1).toBe(a);
+    d = changeVoice(d, "s1", "undo");
+    expect(d.clips.s1).toBe(b);
+    d = changeVoice(d, "s1", null);
+    expect(d.clips.s1).toBeUndefined();
+    expect(changeVoice(d, "s1", "undo").clips.s1).toBe(b);
+    // Nothing to undo for a scene never changed.
+    expect(changeVoice(d, "s9", "undo")).toEqual(d);
+  });
+
+  it("exports the voice track: its timings, and a WAV only once a scene is voiced", () => {
+    const l = { manifest: json("manifest.json"), scenes: json("scenes.json") };
+    const silent = voicePackage(l, "en", {});
+    expect(silent.pkg.timing.en!.source).toBe("estimated");
+    expect(silent.pkg.manifest.languages.every((g: { audio?: string }) => !g.audio)).toBe(true);
+    const first = l.scenes.scenes[0];
+    const words = first.narration.en.trim().split(/\s+/);
+    const c = { ...clip("c".repeat(64)), seconds: 9, text: words.join(" "), words: words.map((w: string, i: number) => ({ w, s: 0.3 + i * 0.2, e: 0.5 + i * 0.2 })) };
+    const voiced = voicePackage(l, "en", { [first.id]: c });
+    expect(voiced.pkg.manifest.languages.find((g: { code: string }) => g.code === "en")!.audio).toBe("audio/en.wav");
+    expect(voiced.parts[0]).toMatchObject({ start: 0, seconds: 9 });
+    expect(voiced.pkg.timing.en!.scenes[1]!.start).toBe(9);
   });
 });
