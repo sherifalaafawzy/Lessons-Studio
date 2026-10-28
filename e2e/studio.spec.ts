@@ -211,7 +211,7 @@ test.describe("studio", () => {
     await expect(page.locator('.stage-player [data-el="who"]')).toHaveAttribute("style", /right:\s*\d/);
   });
 
-  test("a narrated lesson plays its narration from Storage, in step with the captions, in English and Egyptian Arabic", async ({ page }, info) => {
+  test("a narrated lesson plays its narration from Storage, in step with the captions, with its waveform on the timeline, in English and Egyptian Arabic", async ({ page }, info) => {
     test.skip(info.project.name === "phone", "Desktop only.");
     test.skip(!(await fetch("http://127.0.0.1:9289/").then(() => true, () => false)), "The Storage emulator isn't running (npm run emulators).");
     // As scripts/darsi/push.ts stores it: the narration in the bucket by content, the measured timings beside the lesson.
@@ -222,6 +222,7 @@ test.describe("studio", () => {
     const { getStorage } = await import("firebase-admin/storage");
     const { FirestoreStore } = await import("../apps/server/src/stores/firestore.ts");
     const { mediaObject } = await import("../packages/ops/src/index.ts");
+    const { PEAKS_RATE, filePeaks } = await import("../scripts/lib/peaks.ts");
     const dir = "content/darsi/lessons/cy-1-1-2/";
     const read = async (p: string) => JSON.parse(await fs.readFile(dir + p, "utf8"));
     const lesson = { manifest: await read("manifest.json"), scenes: await read("scenes.json") };
@@ -235,7 +236,13 @@ test.describe("studio", () => {
     for (const a of lesson.manifest.assets) await bucket.file(mediaObject(a)).save(await fs.readFile(dir + a.path), { metadata: { contentType: a.type } });
     const store = new FirestoreStore(getFirestore(app));
     await store.create(id, lesson, { uid, via: "script:darsi" });
-    for (const [lang, t] of Object.entries(timing)) await store.setTiming(id, lang, t as never, { uid, via: "script:darsi" });
+    const db = getFirestore(app);
+    for (const [lang, t] of Object.entries(timing)) {
+      await store.setTiming(id, lang, t as never, { uid, via: "script:darsi" });
+      const a = lesson.manifest.assets.find((x: { path: string }) => x.path === `audio/${lang}.opus`);
+      const data = Buffer.from(await filePeaks(dir + a.path)).toString("base64");
+      await db.doc(`lessons/${id}/timing/${lang}`).update({ peaks: { audio: a.sha256, rate: PEAKS_RATE, data } });
+    }
 
     // Every <audio> the player makes, to see what it plays.
     await page.addInitScript(() => {
@@ -264,7 +271,18 @@ test.describe("studio", () => {
       const at = (await playing())!.t;
       const said = timing[lang]!.scenes.flatMap((s) => s.words).filter((w) => w.s <= at).pop()!.w;
       await expect(page.locator(".stage-player .ls-cap")).toContainText(said);
+      // The waveform runs the length of the narration, under the scenes.
+      const svg = page.locator(".tl-voice svg.tl-wave");
+      await expect(svg).toBeVisible();
+      const [w, end] = await Promise.all([svg.evaluate((e) => e.getBoundingClientRect().width), page.locator(".tl-scenes .clip").last().evaluate((e) => e.getBoundingClientRect().right - e.parentElement!.getBoundingClientRect().left)]);
+      expect(Math.abs(w - end)).toBeLessThan(Math.max(4, w * 0.02));
     }
+
+    // Once the English script no longer matches its voice, English goes silent and its waveform goes; Arabic keeps both.
+    await aiEdit(id, [{ op: "setNarration", scene: lesson.scenes.scenes[0].id, lang: "en", text: "A new first line." }]);
+    await expect(page.locator(".tl-voice")).toBeVisible();
+    await page.getByRole("combobox", { name: "Lesson language" }).selectOption("en");
+    await expect(page.locator(".tl-voice")).toHaveCount(0);
   });
 
   test("export a lesson as an MP4, made on the server", async ({ page }, info) => {

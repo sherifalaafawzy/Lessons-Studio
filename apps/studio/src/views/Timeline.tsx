@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { AnimProp, Ease, Element, Key, Scene, SceneTiming, Text, Track, When } from "@lessonstudio/spec";
 import { EASES, normalizeWord, pick, resolveWhen, walkElements } from "@lessonstudio/spec";
 import type { Op } from "@lessonstudio/ops";
 import {
   currentScene, edit, elementId, freeId, insertScene, lang, leftTab, lesson, lessonTime, playing, rightTab, sceneId, sceneTiming,
-  seekLesson, selectScene, timings,
+  seekLesson, selectScene, timings, wave,
 } from "../editor.ts";
 import { t, type Key as Msg } from "../i18n.ts";
 import { GALLERY } from "../presets.ts";
@@ -42,6 +42,19 @@ function momentsOf(tracks: Track[], st: SceneTiming, code: string): Moment[] {
   return [...by.values()].sort((a, b) => a.at - b.at);
 }
 
+/** A narration's waveform as one closed shape, one unit wide per peak and 100 high, mirrored about the middle. */
+function envelope(peaks: Uint8Array): string {
+  let most = 1;
+  for (const v of peaks) most = Math.max(most, v);
+  const half = (i: number): number => Math.max(0.6, (peaks[i]! / most) * 48);
+  const d: string[] = ["M0 50"];
+  for (let i = 0; i < peaks.length; i++) d.push(`L${i + 0.5} ${(50 - half(i)).toFixed(1)}`);
+  d.push(`L${peaks.length} 50`);
+  for (let i = peaks.length - 1; i >= 0; i--) d.push(`L${i + 0.5} ${(50 + half(i)).toFixed(1)}`);
+  d.push("Z");
+  return d.join("");
+}
+
 /** The ops that move one moment (or, with `moment` null, every keyframe of the row) to new times. */
 function moveOps(scene: Scene, row: Row, map: (w: When) => When, moment: string | null): Op[] {
   const tracks = row.tracks.map((tr) => ({ prop: tr.prop, keys: tr.keys.map((k) => (moment === null || JSON.stringify(k.at) === moment ? { ...k, at: map(k.at) } : k)) }));
@@ -52,7 +65,7 @@ function moveOps(scene: Scene, row: Row, map: (w: When) => When, moment: string 
 
 /**
  * The lesson's timeline: a time ruler, every scene as a clip (drag to reorder, Alt+drag to copy, drop a gallery
- * scene between clips), the spoken words, and for the selected scene a row per element (and the camera and cues)
+ * scene between clips), the narration's waveform once it is voiced, the spoken words, and for the selected scene a row per element (and the camera and cues)
  * with a diamond for each moment something changes. Drag a diamond to retime it, or onto a word to start it there;
  * drag a row's bar to move its whole animation; click a diamond to edit it. Ctrl+wheel zooms.
  */
@@ -65,6 +78,8 @@ export function Timeline() {
   const [dropAt, setDropAt] = useState<number | null>(null);
   const [scrub, setScrub] = useState(false);
   const [open, setOpen] = useState<{ row: string; moment: string } | null>(null);
+  const voice = wave.value;
+  const voicePath = useMemo(() => (voice ? envelope(voice.peaks) : null), [voice]);
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
@@ -148,6 +163,9 @@ export function Timeline() {
     const el = scroller.current!;
     return (clientX - el.getBoundingClientRect().left - LABEL + el.scrollLeft) / pps;
   };
+
+  /** Pressing the time ruler, the waveform or the words moves the playhead there, and dragging scrubs. */
+  const scrubFrom = (e: PointerEvent) => { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); setScrub(true); seekLesson(timeAt(e.clientX)); };
 
   /* ---------- keyframes and cues (the selected scene) ---------- */
   const start = (e: PointerEvent, row: string, moment: string | null, t0: number) => {
@@ -264,8 +282,7 @@ export function Timeline() {
           <div class="tl-sticky">
             <div class="tl-row tl-time">
               <span class="tl-label">{t("timeRuler")}</span>
-              <div class="tl-track" style={{ width: `${contentW}px` }}
-                onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture((e as PointerEvent).pointerId); setScrub(true); seekLesson(timeAt(e.clientX)); }}>
+              <div class="tl-track" style={{ width: `${contentW}px` }} onPointerDown={(e) => scrubFrom(e as PointerEvent)}>
                 {tickEls}
               </div>
             </div>
@@ -298,10 +315,20 @@ export function Timeline() {
                 {markerX !== null ? <span class="clip-marker" style={{ left: `${markerX}px` }} /> : null}
               </div>
             </div>
+            {voice && voicePath ? (
+              <div class="tl-row tl-voice">
+                <span class="tl-label">{t("narrationAudio")}</span>
+                <div class="tl-track" style={{ width: `${contentW}px` }} onPointerDown={(e) => scrubFrom(e as PointerEvent)}>
+                  <svg class="tl-wave" viewBox={`0 0 ${voice.peaks.length} 100`} preserveAspectRatio="none"
+                    style={{ width: `${x(voice.peaks.length / voice.rate)}px` }} role="img" aria-label={t("narrationAudio")}>
+                    <path d={voicePath} />
+                  </svg>
+                </div>
+              </div>
+            ) : null}
             <div class="tl-row tl-ruler">
               <span class="tl-label">{t("words")}</span>
-              <div class="tl-track" style={{ width: `${contentW}px` }}
-                onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture((e as PointerEvent).pointerId); setScrub(true); seekLesson(timeAt(e.clientX)); }}>
+              <div class="tl-track" style={{ width: `${contentW}px` }} onPointerDown={(e) => scrubFrom(e as PointerEvent)}>
                 {allWords.map((w) => {
                   const mine = w.si === sceneIdx;
                   return (

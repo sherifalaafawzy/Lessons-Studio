@@ -93,6 +93,22 @@ export const timings = computed<Record<Lang, TimingFile>>(() => {
   return Object.fromEntries(l.manifest.languages.map((g) => [g.code, measured[g.code] ?? estimateTiming(l.scenes.scenes, g.code)]));
 });
 
+/**
+ * The stage language's narration waveform for the timeline: peaks per second, 0–255. Only while that narration plays
+ * (its timing measured and still fitting the script), and only peaks drawn from the audio the lesson names.
+ */
+export const wave = computed<{ rate: number; peaks: Uint8Array } | null>(() => {
+  const l = lesson.value;
+  const p = state.value?.peaks[lang.value];
+  if (!l || !p || timings.value[lang.value]?.source === "estimated") return null;
+  const track = l.manifest.languages.find((g) => g.code === lang.value);
+  if (!track?.audio || l.manifest.assets?.find((a) => a.path === track.audio)?.sha256 !== p.audio) return null;
+  const bin = atob(p.data);
+  const peaks = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) peaks[i] = bin.charCodeAt(i);
+  return { rate: p.rate, peaks };
+});
+
 /** The lesson as the studio's players get it, with its narration fetched from the Storage bucket. */
 export function studioPackage(l: Lesson, tm: Record<Lang, TimingFile>): LessonPackage {
   const pkg = toPackage(l, tm);

@@ -14,9 +14,10 @@ import { applicationDefault, initializeApp } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 import { getFirestore } from "firebase-admin/firestore";
 import { getStorage } from "firebase-admin/storage";
-import { mediaObject, type Lesson } from "../../packages/ops/src/index.ts";
+import { mediaObject, type Lesson, type Peaks } from "../../packages/ops/src/index.ts";
 import type { TimingFile } from "../../packages/spec/src/index.ts";
 import { FirestoreStore } from "../../apps/server/src/stores/firestore.ts";
+import { PEAKS_RATE, filePeaks } from "../lib/peaks.ts";
 
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
 const LESSONS = join(ROOT, "content", "darsi", "lessons");
@@ -70,13 +71,25 @@ async function upload(dir: string, lesson: Lesson): Promise<void> {
   }
 }
 
+/** Stores each language's measured timing, and beside it the waveform of the audio it was measured from (for the timeline). */
+async function setTimings(id: string, dir: string, lesson: Lesson, timings: Record<string, TimingFile>, actor: { uid: string; via: string }): Promise<void> {
+  for (const [lang, t] of Object.entries(timings)) {
+    await store.setTiming(id, lang, t, actor);
+    const track = lesson.manifest.languages.find((l) => l.code === lang);
+    const asset = lesson.manifest.assets?.find((a) => a.path === track?.audio);
+    if (!asset || t.source === "estimated") continue;
+    const peaks: Peaks = { audio: asset.sha256, rate: PEAKS_RATE, data: Buffer.from(await filePeaks(join(dir, asset.path))).toString("base64") };
+    await db.collection("lessons").doc(id).collection("timing").doc(lang).update({ peaks });
+  }
+}
+
 const uid = (await getAuth(app).getUserByEmail(email)).uid;
 console.log(`${projectId}: ${email}, media in ${bucket.name}`);
 let failed = 0;
 for (const id of ids.length ? ids : readdirSync(LESSONS).sort()) {
   const dir = join(LESSONS, id);
   const lesson: Lesson = { manifest: JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")), scenes: JSON.parse(readFileSync(join(dir, "scenes.json"), "utf8")) };
-  // The narration's measured timings go with it: the studio plays the audio only with them.
+  // The narration's measured timings go with it (the studio plays the audio only with them), and its waveform.
   const timings: Record<string, TimingFile> = {};
   for (const l of lesson.manifest.languages) {
     if (existsSync(join(dir, l.timing))) timings[l.code] = JSON.parse(readFileSync(join(dir, l.timing), "utf8")) as TimingFile;
@@ -87,7 +100,7 @@ for (const id of ids.length ? ids : readdirSync(LESSONS).sort()) {
     if (!snap.exists) {
       await upload(dir, lesson);
       await store.create(id, lesson, actor);
-      for (const [lang, t] of Object.entries(timings)) await store.setTiming(id, lang, t, actor);
+      await setTimings(id, dir, lesson, timings, actor);
       console.log(`  ${id}: created${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}`);
       continue;
     }
@@ -99,7 +112,7 @@ for (const id of ids.length ? ids : readdirSync(LESSONS).sort()) {
     }
     await upload(dir, lesson);
     const r = await store.apply(id, [{ op: "restore", lesson }], actor, d.rev);
-    for (const [lang, t] of Object.entries(timings)) await store.setTiming(id, lang, t, actor);
+    await setTimings(id, dir, lesson, timings, actor);
     console.log(`  ${id}: updated (rev ${r.rev})${Object.keys(timings).length ? `, with measured timings (${Object.keys(timings).join(", ")})` : ""}`);
   } catch (e) {
     console.log(`  ${id}: failed: ${(e as Error).message}`);

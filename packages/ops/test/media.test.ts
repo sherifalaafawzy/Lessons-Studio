@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import type { Manifest, ScenesFile, TimingFile } from "@lessonstudio/spec";
-import { applyOps, currentTimings, mediaObject, mediaResolver, toPackage, type Lesson } from "../src/index.ts";
+import { applyOps, currentTimings, mediaObject, mediaResolver, peaksOf, toPackage, type Lesson } from "../src/index.ts";
 
 // A narrated Darsi lesson (English and Egyptian Arabic), as scripts/darsi/push.ts sends it to the studio.
 const DIR = fileURLToPath(new URL("../../../content/darsi/lessons/cy-1-1-2/", import.meta.url));
@@ -24,6 +24,15 @@ describe("lesson media", () => {
     const sha = m.assets!.find((x) => x.path === "audio/ar-EG.m4a")!.sha256;
     expect(r("audio/ar-EG.m4a")).toBe(`${BUCKET}media%2F${sha}.m4a?alt=media`);
     expect(r("images/x.webp")).toBe("fallback:images/x.webp");
+  });
+
+  it("draws a waveform: the loudest sample in each slice, 0–255", () => {
+    // Half a second of silence, then a quiet tone, then a full-scale one, at 8 kHz; 4 peaks per second.
+    const s = new Int16Array(8000 * 1.5);
+    for (let i = 4000; i < 8000; i++) s[i] = (i % 2 ? 1 : -1) * 8192;
+    for (let i = 8000; i < 12000; i++) s[i] = i % 2 ? 32767 : -32768;
+    expect([...peaksOf(s, 8000, 4)]).toEqual([0, 0, 64, 64, 255, 255]);
+    expect(peaksOf(new Int16Array(3), 8000, 4).length).toBe(1);
   });
 
   it("keeps measured timings while they fit the script", () => {

@@ -1,7 +1,7 @@
 import { collection, doc, onSnapshot, writeBatch, type Firestore, type Unsubscribe } from "firebase/firestore";
 import type { Lang, TimingFile } from "@lessonstudio/spec";
 import {
-  applyOps, commit, consistent, lessonDoc, lessonFromDocs, opId, rebase, sceneDoc, type Lesson, type LessonDoc, type Op, type SceneDoc, type TimingDoc,
+  applyOps, commit, consistent, lessonDoc, lessonFromDocs, opId, rebase, sceneDoc, type Lesson, type LessonDoc, type Op, type Peaks, type SceneDoc, type TimingDoc,
 } from "@lessonstudio/ops";
 
 export type SyncStatus = "loading" | "saved" | "saving" | "error" | "gone";
@@ -18,6 +18,8 @@ export interface SyncState {
   dropped?: string;
   /** Timings measured from the narration (lessons/{id}/timing/{lang}, written by the server), by language. */
   measured: Record<Lang, TimingFile>;
+  /** The narration's waveform beside each measured timing, where the server drew one. */
+  peaks: Record<Lang, Peaks>;
   canUndo: boolean;
   canRedo: boolean;
 }
@@ -49,7 +51,7 @@ export class LessonSync {
   private undoStack: { ops: Op[]; inverse: Op[] }[] = [];
   private redoStack: { ops: Op[]; inverse: Op[] }[] = [];
   private fns = new Set<(s: SyncState) => void>();
-  state: SyncState = { lesson: null, rev: 0, status: "loading", measured: {}, canUndo: false, canRedo: false };
+  state: SyncState = { lesson: null, rev: 0, status: "loading", measured: {}, peaks: {}, canUndo: false, canRedo: false };
 
   constructor(db: Firestore, id: string, actor: { uid: string; via?: string }, now: () => number = Date.now) {
     this.db = db;
@@ -78,11 +80,17 @@ export class LessonSync {
       }, (e) => this.set({ status: "error", error: e.message })),
       onSnapshot(collection(ref, "timing"), (s) => {
         const measured = { ...this.state.measured };
+        const peaks = { ...this.state.peaks };
         for (const ch of s.docChanges()) {
-          if (ch.type === "removed") delete measured[ch.doc.id];
-          else measured[ch.doc.id] = JSON.parse((ch.doc.data() as TimingDoc).json) as TimingFile;
+          const id = ch.doc.id;
+          delete measured[id];
+          delete peaks[id];
+          if (ch.type === "removed") continue;
+          const d = ch.doc.data() as TimingDoc;
+          measured[id] = JSON.parse(d.json) as TimingFile;
+          if (d.peaks) peaks[id] = d.peaks;
         }
-        this.set({ measured });
+        this.set({ measured, peaks });
       }, () => { /* without timings the lesson plays from estimates, silently */ }),
     );
     return this;

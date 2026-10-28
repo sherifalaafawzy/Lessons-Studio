@@ -1,6 +1,7 @@
 import type { Manifest, Scene, TimingFile } from "@lessonstudio/spec";
 import { pick } from "@lessonstudio/spec";
 import { applyOps } from "./apply.ts";
+import type { Peaks } from "./media.ts";
 import type { Lesson, Op } from "./types.ts";
 
 /**
@@ -9,7 +10,7 @@ import type { Lesson, Op } from "./types.ts";
  *
  * lessons/{id}                 LessonDoc
  * lessons/{id}/scenes/{scene}  SceneDoc
- * lessons/{id}/timing/{lang}   TimingDoc (measured timings, after narration; written by the server)
+ * lessons/{id}/timing/{lang}   TimingDoc (measured timings and the waveform, after narration; written by the server)
  * lessons/{id}/ops/{rev}       OpDoc (history, and undo across sessions)
  *
  * Every change bumps `rev` by one and writes the lesson document, the scenes it changed and its OpDoc in
@@ -45,6 +46,8 @@ export interface TimingDoc {
   json: string;
   source: TimingFile["source"];
   rev: number;
+  /** The narration's waveform, for the timeline (media.ts). */
+  peaks?: Peaks;
 }
 
 export interface OpDoc {

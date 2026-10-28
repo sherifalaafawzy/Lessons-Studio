@@ -163,7 +163,7 @@ describe.skipIf(!host)("live sync", () => {
     a.sync.stop();
   });
 
-  it("brings the narration's measured timings, as the server writes them", async () => {
+  it("brings the narration's measured timings and waveform, as the server writes them", async () => {
     const a = open("alice");
     await until(() => !!a.state().lesson);
     expect(a.state().measured).toEqual({});
@@ -174,6 +174,12 @@ describe.skipIf(!host)("live sync", () => {
     });
     await until(() => a.state().measured.en?.source === "aligned");
     expect(a.state().measured.en).toEqual(t);
+    expect(a.state().peaks).toEqual({});
+    // The waveform the server draws beside it.
+    const peaks = { audio: "a".repeat(64), rate: 40, data: "AAEC" };
+    await env.withSecurityRulesDisabled(async (c) => { await updateDoc(doc(c.firestore() as unknown as Firestore, "lessons/l1/timing/en"), { peaks }); });
+    await until(() => a.state().peaks.en !== undefined);
+    expect(a.state().peaks.en).toEqual(peaks);
     // Members only read them; only the server writes them.
     await assertFails(setDoc(doc(db("alice"), "lessons/l1/timing/ar"), { json: "{}", source: "aligned", rev: 1 }));
     await assertFails(getDoc(doc(db("carol"), "lessons/l1/timing/en")));

@@ -44,3 +44,26 @@ export function currentTimings(scenes: Scene[], timings: Record<Lang, TimingFile
   }
   return out;
 }
+
+/**
+ * A narration's waveform, for the studio's timeline: the loudest sample in each 1/rate of a second, 0–255, in base64.
+ * It is stored beside the language's measured timing (TimingDoc.peaks) with the sha256 of the audio file it was drawn
+ * from, so the studio shows it only for the audio that plays. scripts/darsi/push.ts writes it.
+ */
+export interface Peaks {
+  audio: string;
+  rate: number;
+  data: string;
+}
+
+/** The loudest sample in each 1/rate of a second of mono 16-bit audio, scaled to 0–255. */
+export function peaksOf(samples: Int16Array, sampleRate: number, rate: number): Uint8Array {
+  const step = sampleRate / rate;
+  const out = new Uint8Array(Math.ceil(samples.length / step));
+  for (let i = 0; i < out.length; i++) {
+    let most = 0;
+    for (let j = Math.floor(i * step), end = Math.min(samples.length, Math.floor((i + 1) * step)); j < end; j++) most = Math.max(most, Math.abs(samples[j]!));
+    out[i] = Math.min(255, Math.round((most / 32768) * 255));
+  }
+  return out;
+}

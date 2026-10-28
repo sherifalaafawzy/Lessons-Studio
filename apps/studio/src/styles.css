@@ -302,6 +302,9 @@ fieldset.f-text legend { font-weight: 600; font-size: 12px; color: var(--muted);
 .tl-label:hover { color: var(--fg); }
 .tl-track { position: relative; flex: 1; block-size: 22px; }
 .tl-ruler .tl-track { block-size: 32px; cursor: pointer; }
+.tl-voice .tl-track { block-size: 30px; cursor: pointer; }
+.tl-wave { position: absolute; inset-inline-start: 0; inset-block-start: 3px; block-size: 24px; pointer-events: none; }
+.tl-wave path { fill: var(--accent-fg); opacity: .5; }
 .tl-word { position: absolute; font-size: 11px; line-height: 14px; white-space: nowrap; overflow: hidden; text-overflow: clip; color: #b9c1d0; border-inline-start: 1px solid #4a5468; padding-inline-start: 2px; }
 .tl-word.on { color: #fff; background: rgba(242, 184, 75, .28); }
 .tl-word.snap { background: var(--accent); color: #fff; }
@@ -359,7 +362,7 @@ fieldset.f-text legend { font-weight: 600; font-size: 12px; color: var(--muted);
 .tl-bar-head { display: flex; align-items: center; gap: 8px; padding: 2px 8px; border-block-end: 1px solid var(--line); min-block-size: 32px; }
 .tl-bar-head .f-hint { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .tl-zoom { inline-size: 110px; min-height: 0; padding: 0; border: 0; background: none; accent-color: var(--sel); }
-.tl-scroll { flex: 1; min-block-size: 0; overflow: auto; position: relative; scroll-padding-block-start: 116px; }
+.tl-scroll { flex: 1; min-block-size: 0; overflow: auto; position: relative; scroll-padding-block-start: 146px; }
 .tl-content { position: relative; min-block-size: 100%; }
 .tl-sticky { position: sticky; top: 0; z-index: 3; background: var(--panel); box-shadow: 0 1px 0 var(--line); }
 .timeline .tl-label { position: sticky; inset-inline-start: 0; z-index: 2; background: var(--panel); align-self: stretch; display: flex; align-items: center; }
