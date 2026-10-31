@@ -1,0 +1,297 @@
+{
+ "id": "CODE-S3-1",
+ "track": "code",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Functions, lists and algorithms"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Functions",
+  "subtitle": "One job each, and tested",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Functions: One job each, and tested",
+  "length": "3:06",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the students’ computer studies teacher (main character)",
+   "Ms Salma Haddad — the students’ maths teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Four copies, one bug"
+   },
+   {
+    "at": "0:19",
+    "label": "def and return"
+   },
+   {
+    "at": "1:05",
+    "label": "Testing with assert"
+   },
+   {
+    "at": "1:45",
+    "label": "Good functions"
+   },
+   {
+    "at": "2:35",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "I copied the same five lines into my program four times, for four classes. Then I found a bug in them, and had to fix it four times. A function would have fixed it once.",
+    "icons": [
+     "file",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Functions",
+    "voice": "Narrator",
+    "narration": "Today: functions, and how to test them."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:35",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A function: a named job",
+    "voice": "Narrator",
+    "narration": "A function is a named block of code that does one job. You define it once with def, its name, and its inputs, called parameters. Then you call it by name, as often as you like, with different values.",
+    "icons": [
+     "tag",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "return gives a value back",
+    "voice": "Narrator",
+    "narration": "Inside a function, return hands a value back to whoever called it. print only shows something on the screen, and the value is lost. If you want to use the answer, in a sum, a test or another function, return it.",
+    "icons": [
+     "check",
+     "eye"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:05",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A function’s own variables",
+    "voice": "Narrator",
+    "narration": "Variables made inside a function live only inside it, while it runs. That’s called scope. It means a function can’t accidentally change your program’s variables, and you can understand it on its own.",
+    "icons": [
+     "lock",
+     "package"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test it with assert",
+    "voice": "Narrator",
+    "narration": "Now the engineer’s habit: test every function. An assert line checks that something is true, and stops with an error if it isn’t. Write a few asserts with answers you worked out by hand, including the awkward cases.",
+    "icons": [
+     "check",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:21",
+    "end": "1:31",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "print or return?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A function prints its answer instead of returning it. You write total equals add of three and four. What is total?"
+   },
+   {
+    "n": 8,
+    "start": "1:31",
+    "end": "1:45",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "None: print isn’t return",
+    "voice": "Narrator",
+    "narration": "None. The seven appears on the screen, but the function gives back nothing, which Python calls None. Use return when the answer is needed later. Use print only to show it to a person.",
+    "icons": [
+     "circlecheck",
+     "eye"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "2:00",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Functions you might write",
+    "voice": "Narrator",
+    "narration": "Good functions are small and named for their job. Is leap year, given a year. Grade, given a mark. Total cost, given a price and a number of items. Each one is easy to test on its own.",
+    "icons": [
+     "calendar",
+     "award",
+     "calculator"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:00",
+    "end": "2:16",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test the awkward cases",
+    "voice": "Narrator",
+    "narration": "Testing only easy cases proves little. Try the edges: an empty list, a single item, zero, a negative number. An average of an empty list divides by zero. A good test finds that before a user does.",
+    "icons": [
+     "list",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:16",
+    "end": "2:29",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: inside a function",
+    "voice": "Narrator",
+    "narration": "In the app, open Step through a program and choose A function. Step through and watch the program jump into area and back. Notice that its own variables exist only while it runs.",
+    "icons": [
+     "list",
+     "next",
+     "eye"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:29",
+    "end": "2:35",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which test helps most?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. You’ve written average of marks. Which extra test is most useful?"
+   },
+   {
+    "n": 13,
+    "start": "2:35",
+    "end": "2:51",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "def · return · scope · assert",
+    "voice": "Narrator",
+    "narration": "The empty list. Remember: a function is a named job, defined once with def and called many times. return hands back a value; print only shows it. Variables inside a function stay inside. And test with assert, edges included."
+   },
+   {
+    "n": 14,
+    "start": "2:51",
+    "end": "3:06",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write a function for something you do often, like working out your average or the cost of a trip. Then write three asserts, including one awkward case, and make them all pass.",
+    "icons": [
+     "keyboard",
+     "check",
+     "warning"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:29",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "add prints a + b but has no return. total = add(3, 4). What is total?",
+    "options": [
+     {
+      "text": "7",
+      "correct": false
+     },
+     {
+      "text": "None",
+      "correct": true
+     },
+     {
+      "text": "An error",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — without return, a function gives back None. The 7 is printed, then lost.",
+    "feedback_wrong": "Not quite — print shows 7 on the screen, but the function returns None, so total is None.",
+    "resume_at": "1:31"
+   },
+   {
+    "at": "2:33",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "You wrote average(marks). Which extra test is most useful?",
+    "options": [
+     {
+      "text": "The same easy test again",
+      "correct": false
+     },
+     {
+      "text": "An empty list",
+      "correct": true
+     },
+     {
+      "text": "Another easy list of two marks",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the empty list is the edge case: it divides by zero, so you must decide what should happen.",
+    "feedback_wrong": "Not quite — another easy case proves little. The empty list is where it breaks.",
+    "resume_at": "2:35"
+   }
+  ]
+ }
+}

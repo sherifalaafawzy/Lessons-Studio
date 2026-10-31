@@ -1,0 +1,274 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "I copied the same five lines four times.",
+        "ar-EG": "نسخت نفس الخمس سطور أربع مرات."
+      },
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Copied 4 times",
+            "ar-EG": "اتنسخت 4 مرات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "One bug, 4 fixes",
+            "ar-EG": "غلطة واحدة، 4 تصليحات"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "A function: fix it once",
+            "ar-EG": "الدالة: صلّح مرة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "trace": {
+        "code": "def area(width, height):\n    return width * height\n\nroom = area(4, 3)\nyard = area(10, 6)\nprint(room, yard)",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "4": {
+      "aside": "check",
+      "list": [
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "return hands it back",
+            "ar-EG": "return بترجّعها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "tone": "danger",
+          "text": {
+            "en": "print only shows it",
+            "ar-EG": "print بتعرضها بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "…and the value is lost",
+            "ar-EG": "والقيمة بتضيع"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "Need the answer? Return it",
+            "ar-EG": "عايز الإجابة؟ رجّعها"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "trace": {
+        "code": "def double(n):\n    result = n * 2\n    return result\n\nprint(double(5))\nprint(result)",
+        "error": true,
+        "play": [
+          0,
+          2
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "trace": {
+        "code": "def avg(m):\n    return sum(m) / len(m)\nassert avg([10, 20]) == 15\nassert avg([7]) == 7",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "8": {
+      "who": null,
+      "trace": {
+        "code": "def add(a, b):\n    print(a + b)\n\ntotal = add(3, 4)\nprint(total)",
+        "play": [
+          0,
+          1
+        ]
+      }
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "is_leap_year(2024)   # True\ngrade(73)            # \"A\"\ntotal_cost(15, 4)    # 60",
+        "s": 1
+      }
+    },
+    "10": {
+      "aside": "search",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "An empty list",
+            "ar-EG": "ليست فاضية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "A single item",
+            "ar-EG": "عنصر واحد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Zero, and negatives",
+            "ar-EG": "صفر، وأرقام سالبة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Find it before a user does",
+            "ar-EG": "لاقيها قبل المستخدم"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Choose A function",
+            "ar-EG": "اختار دالة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Step into area",
+            "ar-EG": "ادخل جوّه area"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "And back again",
+            "ar-EG": "وارجع تاني"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Its variables, only inside",
+            "ar-EG": "متغيّراتها جوّاها بس"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ],
+      "aside": "list"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "def once, call many times",
+            "ar-EG": "def مرة، ونادي كتير"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "return, not print",
+            "ar-EG": "return مش print"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Inside stays inside",
+            "ar-EG": "اللي جوّه بيفضل جوّه"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "assert, edges included",
+            "ar-EG": "assert، ومعاها الأطراف"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Small functions, tested on their own, make big programs work.",
+        "ar-EG": "دوال صغيرة، متجرّبة لوحدها، بتشغّل البرامج الكبيرة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "A function for a job you do",
+            "ar-EG": "دالة لشغلانة بتعملها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Three asserts",
+            "ar-EG": "تلات assert"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "ok",
+          "text": {
+            "en": "One awkward case",
+            "ar-EG": "حالة صعبة واحدة"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

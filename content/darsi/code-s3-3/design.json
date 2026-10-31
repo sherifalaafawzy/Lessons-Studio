@@ -1,0 +1,336 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "A thousand names, and one student asks: am I on it?",
+        "ar-EG": "ألف اسم، وطالب بيسأل: أنا موجود؟"
+      },
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "1,000 sorted names",
+            "ar-EG": "1000 اسم مترتبين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Up to 1,000 looks",
+            "ar-EG": "لحد 1000 بصّة"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Or about 10",
+            "ar-EG": "أو حوالي 10"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "array": {
+        "values": [
+          12,
+          7,
+          23,
+          5,
+          31,
+          18
+        ],
+        "search": {
+          "kind": "linear",
+          "target": 31
+        },
+        "index": true,
+        "play": [
+          0,
+          2
+        ]
+      }
+    },
+    "4": {
+      "aside": "clock",
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Last or missing: every item",
+            "ar-EG": "في الآخر أو مش موجود: كله"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "1,000 names: 1,000 looks",
+            "ar-EG": "1000 اسم: 1000 بصّة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A million: a million",
+            "ar-EG": "مليون: مليون"
+          },
+          "s": 3
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Work grows with the list",
+            "ar-EG": "الشغل بيكبر مع الليست"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "array": {
+        "values": [
+          3,
+          8,
+          12,
+          17,
+          23,
+          31,
+          40,
+          52
+        ],
+        "search": {
+          "kind": "binary",
+          "target": 31
+        },
+        "index": true,
+        "play": [
+          0,
+          4
+        ]
+      }
+    },
+    "6": {
+      "aside": "gauge",
+      "list": [
+        {
+          "icon": "scissors",
+          "text": {
+            "en": "Each step halves what’s left",
+            "ar-EG": "كل خطوة بتنصّ الباقي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "1,000 names: about 10 steps",
+            "ar-EG": "1000 اسم: حوالي 10 خطوات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "A million: about 20",
+            "ar-EG": "مليون: حوالي 20"
+          },
+          "s": 2
+        },
+        {
+          "icon": "book",
+          "tone": "ok",
+          "text": {
+            "en": "That’s why dictionaries are sorted",
+            "ar-EG": "علشان كده القواميس مترتبة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Sorted: halving is safe",
+            "ar-EG": "مترتبة: التنصيف آمن"
+          },
+          "s": 1,
+          "o": 1.5,
+          "tone": "ok"
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Unsorted: it can miss a name",
+            "ar-EG": "مش مترتبة: ممكن يفوّت اسم"
+          },
+          "s": 2,
+          "o": 1.5,
+          "tone": "danger"
+        }
+      ],
+      "aside": "circlecheck"
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "while low <= high:\n    mid = (low + high) // 2\n    if names[mid] == target: return mid\n    if names[mid] < target: low = mid + 1\n    else: high = mid - 1\nreturn -1",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Linear: short or unsorted lists",
+            "ar-EG": "الخطي: ليست قصيرة أو مش مترتبة"
+          },
+          "s": 1,
+          "o": 1.5,
+          "tone": "accent"
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Binary",
+            "ar-EG": "الثنائي"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Big sorted lists, many searches",
+            "ar-EG": "ليست كبيرة مترتبة، وبحث كتير"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Sorting first costs time",
+            "ar-EG": "الترتيب الأول بياخد وقت"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "list"
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "1 to 1,000",
+            "ar-EG": "من 1 لـ 1000"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Race the two",
+            "ar-EG": "سابق الاتنين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "About 10 steps",
+            "ar-EG": "حوالي 10 خطوات"
+          },
+          "s": 1,
+          "o": 4,
+          "tone": "ok"
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "A million: about 20",
+            "ar-EG": "مليون: حوالي 20"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "help"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Linear: every item, any list",
+            "ar-EG": "الخطي: كل عنصر، أي ليست"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Binary: halve it, sorted only",
+            "ar-EG": "الثنائي: نصّه، مترتبة بس"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "1,000 looks against about 10",
+            "ar-EG": "1000 بصّة قصاد حوالي 10"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Keeping data sorted makes finding it fast.",
+        "ar-EG": "لما البيانات تبقى مترتبة، بتلاقيها بسرعة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "A dictionary or contacts",
+            "ar-EG": "قاموس أو جهات اتصال"
+          },
+          "s": 0
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Open the middle, keep a half",
+            "ar-EG": "افتح النص، وخلّي نص"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Count your looks",
+            "ar-EG": "عدّ بصّاتك"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Block “password”",
+            "ar-EG": "امنع «باسورد»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "A scam, a week later",
+            "ar-EG": "نصب بعد أسبوع"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "“Your login code”",
+            "ar-EG": "«كود الدخول»"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Input filter",
+            "ar-EG": "فلتر الداخل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "The model",
+            "ar-EG": "النموذج"
+          },
+          "s": 0
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Output filter",
+            "ar-EG": "فلتر الطالع"
+          },
+          "s": 3
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Action check",
+            "ar-EG": "فحص الفعل"
+          },
+          "s": 4,
+          "tone": "ok"
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "Caught",
+            "ar-EG": "اتمسكت"
+          },
+          {
+            "en": "Missed",
+            "ar-EG": "عدّت"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "“Send your password”",
+              "ar-EG": "«ابعت الباسورد»"
+            },
+            {
+              "en": "“Share your login code”",
+              "ar-EG": "«شارك كود الدخول»"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "The same, in another language",
+              "ar-EG": "نفس الكلام بلغة تانية"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 3
+          }
+        ]
+      },
+      "who": null
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "A password lesson: blocked",
+            "ar-EG": "درس عن الباسورد: اتمنع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Misses attacks",
+            "ar-EG": "بتفوّت الهجمات"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Stops the innocent",
+            "ar-EG": "بتوقف البريء"
+          },
+          "s": 2,
+          "o": 1.5
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "headline": null,
+      "codediff": {
+        "before": "def send_ok(msg, asked, yes):\n    for w in [\"password\", \"pin\"]:\n        if w in msg.lower():\n            return False\n    return True\nprint(send_ok(\"Login code?\", False, False))",
+        "after": "def send_ok(msg, asked, yes):\n    return asked and yes\nprint(send_ok(\"Login code?\", False, False))",
+        "labels": {
+          "before": {
+            "en": "A word filter",
+            "ar-EG": "فلتر كلمات"
+          },
+          "after": {
+            "en": "A check on the action",
+            "ar-EG": "فحص الفعل"
+          }
+        },
+        "run": true,
+        "fix": 2,
+        "focus": [
+          {
+            "s": 3,
+            "line": 2
+          }
+        ]
+      }
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "A ban list",
+            "ar-EG": "ليستة ممنوعات"
+          },
+          {
+            "en": "An allow rule",
+            "ar-EG": "قاعدة سماح"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Misses anyone new",
+              "ar-EG": "بتفوّت أي جديد"
+            },
+            {
+              "en": "Only a pass gets in",
+              "ar-EG": "التصريح بس بيدخّل"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Works whoever comes",
+              "ar-EG": "بتنفع مع أي حد"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Filters",
+            "ar-EG": "الفلاتر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Checks in code",
+            "ar-EG": "فحص في الكود"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "People and reports",
+            "ar-EG": "ناس وبلاغات"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Together: few gaps",
+            "ar-EG": "مع بعض: ثغرات قليلة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "mail",
+          "text": {
+            "en": "A scam message",
+            "ar-EG": "رسالة نصب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "The filter catches it",
+            "ar-EG": "الفلتر بيمسكها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "Reworded: it slips",
+            "ar-EG": "متصاغة تاني: بتعدّي"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "The code check holds",
+            "ar-EG": "فحص الكود بيصمد"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Rules around the model",
+            "ar-EG": "قواعد حوالين النموذج"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Word lists miss and misfire",
+            "ar-EG": "الليستة بتفوّت وبتغلط"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check the action; allow",
+            "ar-EG": "افحص الفعل، واسمح بالمسموح"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Stack layers",
+            "ar-EG": "رصّ طبقات"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Ask what was approved, not which words were used.",
+        "ar-EG": "اسأل إيه اللي اتوافق عليه، مش إيه الكلمات اللي اتقالت."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "A pupil with a banned list",
+            "ar-EG": "تلميذ معاه ليستة ممنوعات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Classmates reword",
+            "ar-EG": "الزمايل بيغيّروا الصياغة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Add a teacher's yes",
+            "ar-EG": "زوّدوا موافقة المدرّس"
+          },
+          "s": 3
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Compare the two",
+            "ar-EG": "قارنوا الاتنين"
+          },
+          "s": 3,
+          "o": 2.5,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

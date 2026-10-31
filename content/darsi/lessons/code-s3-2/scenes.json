@@ -1,0 +1,5219 @@
+{
+ "version": "0.2",
+ "scenes": [
+  {
+   "id": "s01",
+   "template": "canvas",
+   "narration": {
+    "en": "Our school weather station logs a temperature every hour: twenty-four numbers a day. What was the hottest hour? How many hours were above thirty? A list and a loop answer both.",
+    "ar-EG": "محطة الأرصاد اللي في المدرسة بتسجّل الحرارة كل ساعة: أربعة وعشرين رقم في اليوم. أنهي ساعة كانت الأحر؟ وكام ساعة كانت فوق التلاتين؟ الليست واللوب بيجاوبوا الاتنين."
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "bubble",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 70,
+      "w": 710,
+      "h": 200,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 28,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "quote",
+      "type": "text",
+      "x": 124,
+      "y": 100,
+      "w": 642,
+      "size": 34,
+      "weight": 700,
+      "text": {
+       "en": "Our weather station logs a temperature every hour.",
+       "ar-EG": "محطة الأرصاد بتاعتنا بتسجّل الحرارة كل ساعة."
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 1.6
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 300,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "thermometer",
+      "x": 104,
+      "y": 314,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 311,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "24 readings a day",
+       "ar-EG": "24 قراية في اليوم"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 351
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.45
+          },
+          "value": 311,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 403,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "help",
+      "x": 104,
+      "y": 417,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 414,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "The hottest hour?",
+       "ar-EG": "أحر ساعة؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 454
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.45
+          },
+          "value": 414,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "What",
+            "ar-EG": "أنهي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 507,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "list",
+      "x": 104,
+      "y": 521,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 518,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A list and a loop",
+       "ar-EG": "ليست ولوب"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 558
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.45
+          },
+          "value": 518,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/okafor_talking.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "محطة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "okafor"
+  },
+  {
+   "id": "s02",
+   "template": "title-hook",
+   "narration": {
+    "en": "Today: lists and loops together.",
+    "ar-EG": "النهارده: الليست واللوب مع بعض."
+   },
+   "transition": {
+    "type": "zoom"
+   },
+   "content": {
+    "kicker": {
+     "en": "Functions, lists and algorithms",
+     "ar-EG": "الدوال والقوائم والخوارزميات"
+    },
+    "title": {
+     "en": "Lists and loops",
+     "ar-EG": "الليست واللوب"
+    },
+    "hook": {
+     "en": "Store data, then work through it",
+     "ar-EG": "خزّن البيانات، ولف عليها"
+    },
+    "icon": "keyboard"
+   },
+   "overlays": [
+    {
+     "id": "mark",
+     "type": "image",
+     "src": "@lib/v1/brand/darsi-mark.svg",
+     "x": 56,
+     "y": 40,
+     "w": 70,
+     "h": 72,
+     "fit": "contain",
+     "anim": [
+      {
+       "prop": "scale",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.65,
+         "value": 1,
+         "ease": "back"
+        }
+       ]
+      },
+      {
+       "prop": "opacity",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.35,
+         "value": 1,
+         "ease": "out"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "template": "canvas",
+   "narration": {
+    "en": "A list keeps values in order. Positions count from zero, so temps at zero is the first reading. Negative positions count from the end: temps at minus one is the last. len tells you how many there are.",
+    "ar-EG": "الليست بتشيل القيم بالترتيب. الأماكن بتتعد من صفر، فـ temps عند صفر هي أول قراية. والأماكن السالبة بتتعد من الآخر: temps عند سالب واحد هي آخر قراية. والـ len بتقولك عددهم كام."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Positions: from 0, or from the end",
+       "ar-EG": "الأماكن: من صفر، أو من الآخر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 742,
+      "h": 278,
+      "size": 46,
+      "code": "temps = [21, 25, 31, 28]\ntemps[0]     # 21\ntemps[-1]    # 28\nlen(temps)   # 4",
+      "highlight": [
+       3
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "first",
+            "ar-EG": "أول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "first",
+            "ar-EG": "أول"
+           },
+           "offset": 2.42
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "template": "canvas",
+   "narration": {
+    "en": "append adds a reading to the end. A slice takes part of a list: temps from one to three gives the items at one and two, stopping before three, just like range. The list itself isn’t changed.",
+    "ar-EG": "الـ append بتزوّد قراية في الآخر. والقطعة بتاخد جزء من الليست: temps من واحد لتلاتة بتدّي العناصر اللي في واحد واتنين، وبتقف قبل التلاتة، زي الـ range بالظبط. والليست نفسها مابتتغيّرش."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Add and slice",
+       "ar-EG": "زوّد وقطّع"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "append",
+            "ar-EG": "append"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "append",
+            "ar-EG": "append"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "append",
+            "ar-EG": "append"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "append",
+            "ar-EG": "append"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 1046,
+      "h": 221,
+      "size": 46,
+      "code": "temps.append(26)\ntemps[1:3]   # [25, 31]\ntemps        # [21, 25, 31, 28, 26]",
+      "highlight": [
+       2
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "slice",
+            "ar-EG": "والقطعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "slice",
+            "ar-EG": "والقطعة"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "template": "canvas",
+   "narration": {
+    "en": "Python has max, but writing it yourself teaches the pattern. Start with the first item as the best so far. Loop over the rest, and whenever one is bigger, keep it instead. At the end, best is the largest.",
+    "ar-EG": "بايثون فيها max، بس لما تكتبها بنفسك بتتعلّم النمط. ابدأ بأول عنصر على إنه الأحسن لحد دلوقتي. لف على الباقي، وكل ما تلاقي واحد أكبر، خلّيه هو بدله. وفي الآخر، best هو الأكبر."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "The largest, by hand",
+       "ar-EG": "الأكبر، بإيدك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "trace",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 420,
+      "type": "trace",
+      "code": "temps = [21, 25, 31, 28]\nbest = temps[0]\nfor t in temps:\n    if t > best:\n        best = t\nprint(best)",
+      "steps": [
+       {
+        "line": 1,
+        "vars": {
+         "temps": "[21, 25, 31, 28]"
+        }
+       },
+       {
+        "line": 2,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "21"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "21",
+         "t": "21"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "21",
+         "t": "21"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "21",
+         "t": "25"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "21",
+         "t": "25"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "25",
+         "t": "25"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "25",
+         "t": "31"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "25",
+         "t": "31"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "31",
+         "t": "31"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "31",
+         "t": "28"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "31",
+         "t": "28"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "31",
+         "t": "28"
+        }
+       },
+       {
+        "line": 6,
+        "vars": {
+         "temps": "[21, 25, 31, 28]",
+         "best": "31",
+         "t": "28"
+        },
+        "out": 3
+       }
+      ],
+      "output": "31\n",
+      "labels": {
+       "vars": {
+        "en": "Variables",
+        "ar-EG": "المتغيرات"
+       },
+       "out": {
+        "en": "Output",
+        "ar-EG": "المخرجات"
+       }
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "بايثون"
+           },
+           "offset": 1
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Start",
+            "ar-EG": "ابدأ"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "end",
+            "ar-EG": "وفي"
+           },
+           "offset": 2.5
+          },
+          "value": 13,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "template": "canvas",
+   "narration": {
+    "en": "The same loop can count and total. Add one to a count whenever a reading passes a test. Add every reading to a total. Then total divided by the length is the average. Three patterns, one loop.",
+    "ar-EG": "نفس اللوب يقدر يعدّ ويجمع. زوّد واحد على العدّاد كل ما قراية تعدّي شرط. وزوّد كل قراية على المجموع. وبعدين المجموع على الطول يبقى المتوسط. تلات أنماط، في لوب واحد."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Count, total, average",
+       "ar-EG": "عدّ، واجمع، ومتوسط"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "trace",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 420,
+      "type": "trace",
+      "code": "temps = [21, 31, 35, 30]\nhot = 0\ntotal = 0\nfor t in temps:\n    total = total + t\n    if t > 30:\n        hot = hot + 1\nprint(total, hot)",
+      "steps": [
+       {
+        "line": 1,
+        "vars": {
+         "temps": "[21, 31, 35, 30]"
+        }
+       },
+       {
+        "line": 2,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0"
+        }
+       },
+       {
+        "line": 3,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "0"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "0",
+         "t": "21"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "21",
+         "t": "21"
+        }
+       },
+       {
+        "line": 6,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "21",
+         "t": "21"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "21",
+         "t": "31"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "52",
+         "t": "31"
+        }
+       },
+       {
+        "line": 6,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "0",
+         "total": "52",
+         "t": "31"
+        }
+       },
+       {
+        "line": 7,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "1",
+         "total": "52",
+         "t": "31"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "1",
+         "total": "52",
+         "t": "35"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "1",
+         "total": "87",
+         "t": "35"
+        }
+       },
+       {
+        "line": 6,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "1",
+         "total": "87",
+         "t": "35"
+        }
+       },
+       {
+        "line": 7,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "87",
+         "t": "35"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "87",
+         "t": "30"
+        }
+       },
+       {
+        "line": 5,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "117",
+         "t": "30"
+        }
+       },
+       {
+        "line": 6,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "117",
+         "t": "30"
+        }
+       },
+       {
+        "line": 4,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "117",
+         "t": "30"
+        }
+       },
+       {
+        "line": 8,
+        "vars": {
+         "temps": "[21, 31, 35, 30]",
+         "hot": "2",
+         "total": "117",
+         "t": "30"
+        },
+        "out": 6
+       }
+      ],
+      "output": "117 2\n",
+      "labels": {
+       "vars": {
+        "en": "Variables",
+        "ar-EG": "المتغيرات"
+       },
+       "out": {
+        "en": "Output",
+        "ar-EG": "المخرجات"
+       }
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           },
+           "offset": 1
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "same",
+            "ar-EG": "نفس"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Three",
+            "ar-EG": "تلات"
+           }
+          },
+          "value": 18,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07",
+   "template": "quiz",
+   "narration": {
+    "en": "Quick check! The list is twenty-one, twenty-five, thirty-one, twenty-eight. What is temps at minus one?",
+    "ar-EG": "سؤال سريع! الليست فيها واحد وعشرين، وخمسة وعشرين، وواحد وتلاتين، وتمنية وعشرين. temps عند سالب واحد قيمتها إيه؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Which item?",
+     "ar-EG": "أنهي عنصر؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s07-check",
+    "prompt": {
+     "en": "temps = [21, 25, 31, 28]. What is temps[-1]?",
+     "ar-EG": "الليست فيها 21 و25 و31 و28. العنصر عند سالب واحد قيمته إيه؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "21",
+       "ar-EG": "21"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "28",
+       "ar-EG": "28"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "An error",
+       "ar-EG": "رسالة خطأ"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — −1 counts from the end: the last item, 28.",
+     "ar-EG": "صح — سالب واحد بيعدّ من الآخر: آخر عنصر، 28."
+    }
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s08",
+   "template": "canvas",
+   "narration": {
+    "en": "Twenty-eight, the last reading. And temps at four would stop the program with an IndexError: four items have positions zero to three. Most list bugs are off by one.",
+    "ar-EG": "تمنية وعشرين، آخر قراية. وtemps عند أربعة هتوقّف البرنامج برسالة IndexError: أربع عناصر أماكنهم من صفر لتلاتة. وأغلب غلطات الليست غلطة بواحد."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "badge",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 90,
+      "y": 60,
+      "w": 72,
+      "h": 72,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 186,
+      "y": 66,
+      "w": 1004,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "28: the last item",
+       "ar-EG": "28: آخر عنصر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Twenty-eight",
+            "ar-EG": "تمنية"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 742,
+      "h": 221,
+      "size": 46,
+      "code": "temps[-1]   # 28\ntemps[3]    # 28\ntemps[4]    # IndexError",
+      "highlight": [
+       3
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "وtemps"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "وtemps"
+           },
+           "offset": 1.95
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s09",
+   "template": "canvas",
+   "narration": {
+    "en": "A list can also act as a stack or a queue. append adds to the end. pop takes from the end, last in, first out: that’s a stack, like undo. pop of zero takes from the front, first in, first out: that’s a queue.",
+    "ar-EG": "الليست كمان تقدر تشتغل كستاك أو طابور. الـ append بتزوّد في الآخر. والـ pop بتاخد من الآخر، آخر واحد دخل أول واحد يخرج: ده ستاك، زي التراجع. والـ pop عند صفر بتاخد من الأول، أول واحد دخل أول واحد يخرج: ده طابور."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "A stack or a queue",
+       "ar-EG": "ستاك أو طابور"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "layers",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Stack: pop(): last in, first out",
+       "ar-EG": "الستاك: pop: آخر داخل، أول خارج"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "last",
+            "ar-EG": "التراجع"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Queue: pop(0): first in, first out",
+       "ar-EG": "الطابور: من الأول: أول داخل، أول خارج"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "zero",
+            "ar-EG": "عند"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "layers",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "list",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s10",
+   "template": "canvas",
+   "narration": {
+    "en": "Lists are everywhere in real programs. A playlist is a list of songs. A class register is a list of names. A sensor log is a list of readings. And your phone’s messages are a list, newest last.",
+    "ar-EG": "الليست في كل حتة في البرامج الحقيقية. قايمة الأغاني ليست. وكشف الغياب ليست أسامي. وسجل الحساس ليست قرايات. ورسايل موبايلك ليست، والأحدث في الآخر."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Lists everywhere",
+       "ar-EG": "الليست في كل حتة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "audio",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A playlist",
+       "ar-EG": "قايمة أغاني"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "playlist",
+            "ar-EG": "قايمة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "clipboard",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A class register",
+       "ar-EG": "كشف الغياب"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "class",
+            "ar-EG": "وكشف"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "thermometer",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A sensor log",
+       "ar-EG": "سجل الحساس"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "وسجل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "chat",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Your messages",
+       "ar-EG": "رسايلك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "And",
+            "ar-EG": "ورسايل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "list",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Lists",
+            "ar-EG": "الليست"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11",
+   "template": "canvas",
+   "narration": {
+    "en": "In the app, open Stacks and queues. Type three words, make one bold, then press Undo twice: a stack. Then let four customers into the queue and serve two: the first to arrive are served first.",
+    "ar-EG": "في التطبيق، افتح «المكدّسات والطوابير». اكتب تلات كلمات، وخلّي واحدة بخط عريض، وبعدين دوس «تراجع» مرتين: ده ستاك. وبعدين دخّل أربع زباين الطابور واخدم اتنين: اللي وصلوا الأول بيتخدموا الأول."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "App lab: stacks and queues",
+       "ar-EG": "معمل التطبيق: المكدّسات والطوابير"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "layers",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Undo is a stack",
+       "ar-EG": "التراجع ستاك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Type",
+            "ar-EG": "اكتب"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "The bank is a queue",
+       "ar-EG": "البنك طابور"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Predict what comes out",
+       "ar-EG": "توقّع إيه اللي هيخرج"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "let",
+            "ar-EG": "دخّل"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "layers",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12",
+   "template": "quiz",
+   "narration": {
+    "en": "Your turn. A loop adds one to hot whenever a reading is above thirty. For twenty-one, thirty-one, thirty-five and thirty, what is hot?",
+    "ar-EG": "دورك. لوب بيزوّد واحد على hot كل ما قراية تبقى فوق التلاتين. للقرايات واحد وعشرين، وواحد وتلاتين، وخمسة وتلاتين، وتلاتين، hot هتبقى كام؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "What does it count?",
+     "ar-EG": "بيعدّ كام؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s12-check",
+    "prompt": {
+     "en": "hot counts readings above 30. For [21, 31, 35, 30], what is hot?",
+     "ar-EG": "hot بيعدّ القرايات اللي فوق التلاتين. للقرايات 21 و31 و35 و30، hot كام؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "2",
+       "ar-EG": "2"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "3",
+       "ar-EG": "3"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "4",
+       "ar-EG": "4"
+      }
+     }
+    ],
+    "answer": "a",
+    "explain": {
+     "en": "Correct — 31 and 35 are above 30; 30 itself is not above 30.",
+     "ar-EG": "صح — 31 و35 فوق التلاتين، والتلاتين نفسها مش فوقها."
+    }
+   },
+   "speaker": "okafor"
+  },
+  {
+   "id": "s13",
+   "template": "summary",
+   "narration": {
+    "en": "Two. Remember: positions count from zero, and minus one is the last. A loop can find the largest, count and total in one pass. append adds; pop takes. And check the boundaries, like exactly thirty.",
+    "ar-EG": "اتنين. افتكر: الأماكن بتتعد من صفر، وسالب واحد هو الآخر. واللوب يقدر يلاقي الأكبر، ويعدّ، ويجمع في لفّة واحدة. الـ append بتزوّد، والـ pop بتاخد. واختبر الحدود، زي التلاتين بالظبط."
+   },
+   "content": {
+    "title": {
+     "en": "Remember",
+     "ar-EG": "افتكر"
+    },
+    "points": [
+     {
+      "en": "From 0; −1 is the last",
+      "ar-EG": "من صفر، وسالب واحد الآخر"
+     },
+     {
+      "en": "Largest, count, total: one loop",
+      "ar-EG": "الأكبر والعدّ والمجموع: لوب واحد"
+     },
+     {
+      "en": "append adds; pop takes",
+      "ar-EG": "append بتزوّد، وpop بتاخد"
+     },
+     {
+      "en": "Check the boundaries",
+      "ar-EG": "اختبر الحدود"
+     }
+    ],
+    "takeaway": {
+     "en": "Store it in a list, then let a loop do the counting.",
+     "ar-EG": "خزّنها في ليست، وخلّي اللوب يعدّ."
+    }
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "loop",
+      "ar-EG": "واللوب"
+     },
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "append",
+      "ar-EG": "append"
+     },
+     "action": "reveal",
+     "target": "3"
+    },
+    {
+     "word": {
+      "en": "check",
+      "ar-EG": "واختبر"
+     },
+     "action": "reveal",
+     "target": "4"
+    },
+    {
+     "word": {
+      "en": "check",
+      "ar-EG": "واختبر"
+     },
+     "action": "reveal",
+     "target": "takeaway"
+    }
+   ]
+  },
+  {
+   "id": "s14",
+   "template": "canvas",
+   "narration": {
+    "en": "Try it yourself: for one week, write down how many minutes you spend on your phone each day. Put the seven numbers in a list, and write a program for the total, the average and the biggest day.",
+    "ar-EG": "جرّبها بنفسك: لمدة أسبوع، اكتب كل يوم قضيت كام دقيقة على الموبايل. حط الأرقام السبعة في ليست، واكتب برنامج يطلّع المجموع، والمتوسط، وأكتر يوم."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 710,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try it yourself",
+       "ar-EG": "جرّبها بنفسك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "clock",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Phone minutes for a week",
+       "ar-EG": "دقايق الموبايل لأسبوع"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "list",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Seven numbers in a list",
+       "ar-EG": "7 أرقام في ليست"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "calculator",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Total, average, biggest day",
+       "ar-EG": "المجموع والمتوسط وأكتر يوم"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Put",
+            "ar-EG": "الأرقام"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/okafor_happy.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

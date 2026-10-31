@@ -1,0 +1,295 @@
+{
+ "id": "CODE-S4-2",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Algorithms and software engineering"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Recursion",
+  "subtitle": "Functions that call themselves",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Recursion: Functions that call themselves",
+  "length": "3:15",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the students’ programming lecturer (main character)",
+   "Ms Salma Haddad — the students’ algorithms lecturer (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A function that never stopped"
+   },
+   {
+    "at": "0:18",
+    "label": "Base case and the call stack"
+   },
+   {
+    "at": "1:09",
+    "label": "Smaller copies of a problem"
+   },
+   {
+    "at": "1:51",
+    "label": "Repeated work and memoisation"
+   },
+   {
+    "at": "2:43",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A student wrote a function to count down from three. It called itself, and called itself, and never stopped, until Python stopped it with an error. One line was missing: the base case.",
+    "icons": [
+     "repeat",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Recursion",
+    "voice": "Narrator",
+    "narration": "Today: recursion, functions that call themselves."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:35",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Two parts",
+    "voice": "Narrator",
+    "narration": "A recursive function has two parts. The base case answers at once, without calling itself. The recursive case calls the same function on a smaller problem. Factorial of n is n times factorial of n minus one, and factorial of one is one.",
+    "icons": [
+     "check",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Follow the calls",
+    "voice": "Narrator",
+    "narration": "Follow fact of four. It waits for fact of three, which waits for fact of two, down to fact of one, the base case. Then the answers come back up: one, two, six, and twenty-four.",
+    "icons": [
+     "layers",
+     "next"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:09",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The call stack has limits",
+    "voice": "Narrator",
+    "narration": "Every waiting call sits on the call stack, and the stack has limits. Without a base case, the calls pile up until Python stops them. On the phone that’s after about a hundred and fifty calls. Add the base case, and the countdown stops at zero.",
+    "icons": [
+     "layers",
+     "warning"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:09",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Smaller copies: Hanoi",
+    "voice": "Narrator",
+    "narration": "Recursion shines when a problem holds smaller copies of itself. To move a tower of three discs, move the top two out of the way, move the biggest, then move the two back on top. That’s seven moves. Four discs take fifteen: each extra disc doubles the work, plus one.",
+    "icons": [
+     "layers",
+     "puzzle"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:36",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "No base case?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A recursive function has no base case. What happens when you run it?"
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:51",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "It stops with an error",
+    "voice": "Narrator",
+    "narration": "It keeps calling itself until the call stack runs out, and Python stops it with an error. So every recursive function needs a base case. And every call must move closer to it, or it never arrives.",
+    "icons": [
+     "circlecheck",
+     "warning"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:51",
+    "end": "2:07",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Repeated work",
+    "voice": "Narrator",
+    "narration": "Recursion can also waste work. Each Fibonacci number is the sum of the two before it. Written the obvious way, fib of four works out fib of two twice. Fib of forty makes hundreds of millions of calls.",
+    "icons": [
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:07",
+    "end": "2:22",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Remember the answers",
+    "voice": "Narrator",
+    "narration": "The fix is to remember answers. Keep a dictionary of results, and look an answer up before working it out. Now fib of forty takes about eighty calls instead of hundreds of millions. That’s called memoisation.",
+    "icons": [
+     "notebook",
+     "check"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:22",
+    "end": "2:34",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: recursion",
+    "voice": "Narrator",
+    "narration": "In the app, open Recursion. Step through factorial’s calls, and count how much work Fibonacci repeats. Then solve the Towers of Hanoi with four discs in the fewest moves.",
+    "icons": [
+     "layers",
+     "repeat",
+     "puzzle"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:34",
+    "end": "2:43",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Fix the slow fib",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Fib of thirty is painfully slow, because it works out the same values again and again. What fixes it best?"
+   },
+   {
+    "n": 13,
+    "start": "2:43",
+    "end": "2:58",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Base case · call stack · memoise",
+    "voice": "Narrator",
+    "narration": "Remember the answers in a dictionary. In short: a recursive function needs a base case and a smaller recursive case. Each waiting call sits on the call stack, which has limits. And when work repeats, memoise."
+   },
+   {
+    "n": 14,
+    "start": "2:58",
+    "end": "3:15",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write a recursive sum of a list. An empty list sums to zero; otherwise, it’s the first item plus the sum of the rest. Trace it on paper with three items, then test it on an empty list.",
+    "icons": [
+     "pencil",
+     "layers",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:34",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A recursive function has no base case. What happens when you run it?",
+    "options": [
+     {
+      "text": "It returns 0",
+      "correct": false
+     },
+     {
+      "text": "It runs once and stops",
+      "correct": false
+     },
+     {
+      "text": "It calls itself until Python stops it with an error",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — the calls pile up on the call stack until it runs out, and the program stops with an error.",
+    "feedback_wrong": "Not quite — nothing tells it to stop, so it keeps calling itself until the call stack runs out.",
+    "resume_at": "1:36"
+   },
+   {
+    "at": "2:41",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Fib of 30 is slow: it works out the same values again and again. What fixes it best?",
+    "options": [
+     {
+      "text": "Run it on a faster phone",
+      "correct": false
+     },
+     {
+      "text": "Remember answers in a dictionary",
+      "correct": true
+     },
+     {
+      "text": "Remove the base case",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — memoisation works each value out once: about 60 calls for fib(30) instead of millions.",
+    "feedback_wrong": "Not quite — the waste is repeated work. Remember each answer in a dictionary, and it’s worked out once.",
+    "resume_at": "2:43"
+   }
+  ]
+ }
+}

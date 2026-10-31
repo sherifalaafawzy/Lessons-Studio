@@ -1,0 +1,405 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "Over 200 mm?",
+            "ar-EG": "أكتر من 200 مم؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "A dry river",
+            "ar-EG": "نهر ناشف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "999: an error code",
+            "ar-EG": "999: كود خطأ"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "cols": [
+          "0",
+          {
+            "en": "Blank",
+            "ar-EG": "فاضي"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Read, and it was dry",
+              "ar-EG": "اتقرا، وكان ناشف"
+            },
+            {
+              "en": "Nobody read it",
+              "ar-EG": "محدش قراه"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Absent? Not marked? Forgotten?",
+              "ar-EG": "غايب؟ ما اتصححش؟ اتنسى؟"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "As zero: the average drops",
+            "ar-EG": "كصفر: المتوسط بينزل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "As present: looks too good",
+            "ar-EG": "كحضور: بيبان أحسن"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Leave it out, and say so",
+            "ar-EG": "استبعدها، وقول كده"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "sheet": {
+        "rows": [
+          [
+            {
+              "en": "Name",
+              "ar-EG": "الاسم"
+            },
+            {
+              "en": "Day",
+              "ar-EG": "اليوم"
+            },
+            {
+              "en": "Present",
+              "ar-EG": "حاضر"
+            }
+          ],
+          [
+            "Amina",
+            1,
+            "P"
+          ],
+          [
+            "Musa",
+            1,
+            "A"
+          ],
+          [
+            "Amina",
+            1,
+            "P"
+          ],
+          [
+            "Laila",
+            1,
+            null
+          ],
+          [
+            "Omar",
+            1,
+            "P"
+          ]
+        ],
+        "clean": {
+          "labels": true,
+          "frames": [
+            0,
+            1
+          ]
+        },
+        "words": {
+          "P": {
+            "en": "P",
+            "ar-EG": "ح"
+          },
+          "A": {
+            "en": "A",
+            "ar-EG": "غ"
+          },
+          "Amina": {
+            "en": "Amina",
+            "ar-EG": "أمينة"
+          },
+          "Musa": {
+            "en": "Musa",
+            "ar-EG": "موسى"
+          },
+          "Laila": {
+            "en": "Laila",
+            "ar-EG": "ليلى"
+          },
+          "Omar": {
+            "en": "Omar",
+            "ar-EG": "عمر"
+          }
+        }
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "In range: 0 to 300 mm",
+            "ar-EG": "في المدى: من 0 لـ300 مم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Not empty",
+            "ar-EG": "مش فاضي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "No repeats",
+            "ar-EG": "مفيش تكرار"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Only names on the list",
+            "ar-EG": "الأسامي اللي في القائمة بس"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "batch",
+            "label": {
+              "en": "Batch",
+              "ar-EG": "الدفعة"
+            },
+            "icon": "page",
+            "kind": "source"
+          },
+          {
+            "id": "check",
+            "label": {
+              "en": "Checks",
+              "ar-EG": "الفحوص"
+            },
+            "icon": "shield",
+            "kind": "check"
+          },
+          {
+            "id": "report",
+            "label": {
+              "en": "Report",
+              "ar-EG": "التقرير"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "records": 8,
+        "mode": "stream",
+        "bad": [
+          3
+        ],
+        "fix": "aside",
+        "aside": {
+          "en": "Set aside",
+          "ar-EG": "على جنب"
+        },
+        "frames": [
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "stage": "check",
+            "s": 1
+          }
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "As zero: too low",
+            "ar-EG": "كصفر: واطي أوي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Filled in: invented",
+            "ar-EG": "متملية: مخترعة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Left out, and said",
+            "ar-EG": "مستبعدة، ومذكورة"
+          },
+          "s": 0
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "seen = set()\nfor row in rows:\n    key = (row[\"station\"], row[\"day\"])\n    if key in seen:\n        print(\"repeat:\", key)\n    seen.add(key)",
+        "highlight": [
+          4,
+          5
+        ],
+        "s": 1
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "4 clubs, 5 batches",
+            "ar-EG": "4 نوادي، 5 دفعات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Turn checks on",
+            "ar-EG": "شغّل الفحوص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "All off: 6 stations!",
+            "ar-EG": "كلها مقفولة: 6 محطات!"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A blank is not a zero",
+            "ar-EG": "الفاضي مش صفر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Names first, then repeats",
+            "ar-EG": "الأسامي الأول، وبعدين المكرر"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Checks on every batch",
+            "ar-EG": "فحوص على كل دفعة"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Log every change",
+            "ar-EG": "سجّل كل تغيير"
+          },
+          "s": 3,
+          "o": 1.5
+        }
+      ],
+      "takeaway": {
+        "en": "Clean data says what was done to it.",
+        "ar-EG": "البيانات النضيفة بتقول اتعمل فيها إيه."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "A rain table, four problems",
+            "ar-EG": "جدول مطر، أربع مشاكل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Groups find them",
+            "ar-EG": "المجموعات تلاقيها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "notebook",
+          "tone": "ok",
+          "text": {
+            "en": "Decide, then log it",
+            "ar-EG": "قرروا، وسجّلوا"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

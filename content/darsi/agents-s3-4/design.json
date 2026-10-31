@@ -1,0 +1,368 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "It learned to ask first",
+            "ar-EG": "اتعلّم يسأل الأول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "“Yes, send it.”, alone",
+            "ar-EG": "«أيوه، ابعتها.» لوحدها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A made-up message",
+            "ar-EG": "رسالة متألّفة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "big": {
+        "value": "28%",
+        "label": {
+          "en": "of refusals reworded in English got a tool call",
+          "ar-EG": "من طلبات الرفض بصيغ جديدة بالإنجليزي خدت طلب أداة"
+        },
+        "icon": "warning",
+        "s": 2
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "The model proposes an action",
+            "ar-EG": "النموذج بيقترح فعل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Run it",
+            "ar-EG": "يشغّله"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Ask a person",
+            "ar-EG": "يسأل إنسان"
+          },
+          "s": 2,
+          "o": 2.8
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Block it",
+            "ar-EG": "يمنعه"
+          },
+          "s": 2,
+          "o": 3.6
+        }
+      ],
+      "aside": "shield"
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "ALLOWED = [\"weather\", \"route\"]\n\nif name not in ALLOWED:\n    return \"block\"",
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "app",
+            "glyph": "phone",
+            "label": {
+              "en": "The app",
+              "ar-EG": "التطبيق"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "model",
+            "to": "app",
+            "text": {
+              "en": "Send “Trip cancelled.”",
+              "ar-EG": "ابعت «الرحلة اتلغت.»"
+            }
+          },
+          {
+            "from": "app",
+            "to": "you",
+            "text": {
+              "en": "This exact text? Yes or no?",
+              "ar-EG": "النص ده بالظبط؟ أيوه ولا لأ؟"
+            }
+          },
+          {
+            "from": "you",
+            "to": "app",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "model",
+            "to": "app",
+            "text": {
+              "en": "Send “Pay fees today.”",
+              "ar-EG": "ابعت «ادفعوا المصاريف»"
+            },
+            "tone": "danger"
+          },
+          {
+            "from": "app",
+            "to": "you",
+            "text": {
+              "en": "A new text: ask again",
+              "ar-EG": "نص جديد: يسأل تاني"
+            },
+            "tone": "accent"
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          2,
+          3,
+          3
+        ]
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Does the class exist?",
+            "ar-EG": "الفصل موجود؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "25:00 is not a time",
+            "ar-EG": "25:00 مش وقت"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Names from the request",
+            "ar-EG": "الأسامي من الطلب"
+          },
+          "s": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "9Z became 9C",
+            "ar-EG": "9Z بقت 9C"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "9": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Approved",
+            "ar-EG": "اتوافق عليها"
+          },
+          {
+            "en": "Not approved",
+            "ar-EG": "متوافقش عليها"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "“The trip is cancelled.”",
+              "ar-EG": "رسالة: الرحلة اتلغت"
+            },
+            {
+              "en": "“Pay the fees today.”",
+              "ar-EG": "رسالة: ادفعوا المصاريف النهارده"
+            }
+          ],
+          [
+            {
+              "en": "Run it",
+              "ar-EG": "تتبعت"
+            },
+            {
+              "en": "Ask first",
+              "ar-EG": "اسأل الأول"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "verdict = guard(name, args, ok)\nlog.append((name, verdict))\nif verdict == \"run\":\n    result = run(name, args)",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Choose what it may do",
+            "ar-EG": "اختار المسموح بيه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Approve a message to Mrs Mensah",
+            "ar-EG": "وافق على رسالة للأستاذة مينسا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "Check off: what gets through?",
+            "ar-EG": "المراجعة مقفولة: إيه اللي يعدّي؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Only the tools it needs",
+            "ar-EG": "الأدوات اللي محتاجها بس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A yes to the exact action",
+            "ar-EG": "موافقة على الفعل بالظبط"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check details, log all",
+            "ar-EG": "راجع التفاصيل وسجّل كله"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The model proposes; your code and a person decide.",
+        "ar-EG": "النموذج بيقترح، والكود والإنسان بيقرروا."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write the rules on paper",
+            "ar-EG": "اكتب القواعد على ورقة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Which tools?",
+            "ar-EG": "أنهي أدوات؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "What waits for a yes?",
+            "ar-EG": "إيه اللي يستنى موافقة؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Test with a friend",
+            "ar-EG": "جرّبها مع صاحبك"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "droplets",
+          "text": {
+            "en": "A river sensor",
+            "ar-EG": "حساس النهر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Every minute",
+            "ar-EG": "كل دقيقة"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Flood: next morning?",
+            "ar-EG": "الفيضان: تاني يوم؟"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "s",
+            "label": {
+              "en": "Sensor",
+              "ar-EG": "الحساس"
+            },
+            "icon": "wifi",
+            "kind": "source"
+          },
+          {
+            "id": "store",
+            "label": {
+              "en": "Collected",
+              "ar-EG": "متجمّعة"
+            },
+            "icon": "data",
+            "kind": "store"
+          },
+          {
+            "id": "job",
+            "label": {
+              "en": "Nightly job",
+              "ar-EG": "شغل الليل"
+            },
+            "icon": "chip"
+          }
+        ],
+        "records": 8,
+        "mode": "batch",
+        "frames": [
+          0,
+          1
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "s",
+            "label": {
+              "en": "Sensor",
+              "ar-EG": "الحساس"
+            },
+            "icon": "wifi",
+            "kind": "source"
+          },
+          {
+            "id": "proc",
+            "label": {
+              "en": "Each event",
+              "ar-EG": "كل حدث"
+            },
+            "icon": "spark"
+          },
+          {
+            "id": "alert",
+            "label": {
+              "en": "Alert",
+              "ar-EG": "إنذار"
+            },
+            "icon": "warning",
+            "kind": "store"
+          }
+        ],
+        "records": 8,
+        "mode": "stream",
+        "frames": [
+          0,
+          1
+        ]
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "win = []\nfor t, level in enumerate(readings):\n    win = (win + [level])[-5:]\n    avg = sum(win) / len(win)\n    if avg > 2.0:\n        print(\"alert at\", t)\n        break",
+        "highlight": [
+          3,
+          4
+        ],
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "1 reading: 3 false alarms",
+            "ar-EG": "قراءة واحدة: 3 إنذارات كاذبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "5: 1 false alarm",
+            "ar-EG": "5: إنذار كاذب واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "10: none, 5 min late",
+            "ar-EG": "10: مفيش، متأخر 5 دقايق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "30: 15 min late",
+            "ar-EG": "30: متأخر 15 دقيقة"
+          },
+          "s": 2,
+          "o": 4
+        }
+      ]
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "Flood alert",
+            "ar-EG": "إنذار الفيضان"
+          },
+          {
+            "en": "Monthly report",
+            "ar-EG": "التقرير الشهري"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Stream",
+              "ar-EG": "تدفّق"
+            },
+            {
+              "en": "Nightly batch",
+              "ar-EG": "دفعة كل ليلة"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Late, out of order",
+            "ar-EG": "متأخرة، ومش بالترتيب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "tone": "ok",
+          "text": {
+            "en": "Use when it happened",
+            "ar-EG": "استخدم وقت حدوثها"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Arrives twice? Idempotent",
+            "ar-EG": "وصلت مرتين؟ ثابتة النتيجة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "headline": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "s",
+            "label": {
+              "en": "Sensor",
+              "ar-EG": "الحساس"
+            },
+            "icon": "wifi",
+            "kind": "source"
+          },
+          {
+            "id": "st",
+            "label": {
+              "en": "Stream",
+              "ar-EG": "تدفّق"
+            },
+            "icon": "spark"
+          },
+          {
+            "id": "a",
+            "label": {
+              "en": "Alert now",
+              "ar-EG": "إنذار دلوقتي"
+            },
+            "icon": "warning",
+            "kind": "store"
+          },
+          {
+            "id": "b",
+            "label": {
+              "en": "Nightly batch",
+              "ar-EG": "دفعة بالليل"
+            },
+            "icon": "data"
+          },
+          {
+            "id": "r",
+            "label": {
+              "en": "Report",
+              "ar-EG": "تقرير"
+            },
+            "icon": "page",
+            "kind": "store"
+          }
+        ],
+        "edges": [
+          [
+            "s",
+            "st"
+          ],
+          [
+            "st",
+            "a"
+          ],
+          [
+            "s",
+            "b"
+          ],
+          [
+            "b",
+            "r"
+          ]
+        ],
+        "records": 8,
+        "mode": "stream",
+        "frames": [
+          0,
+          1
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Stream or batch",
+            "ar-EG": "تدفّق ولا دفعات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Window, batch size",
+            "ar-EG": "النافذة، حجم الدفعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "tone": "accent",
+          "text": {
+            "en": "Alarms vs delay",
+            "ar-EG": "الإنذارات مقابل التأخير"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Batch: simple, late",
+            "ar-EG": "الدفعات: بسيطة، متأخرة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Stream: fast, always on",
+            "ar-EG": "التدفّق: سريع، شغّال دايمًا"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "text": {
+            "en": "Windows: calm, but later",
+            "ar-EG": "النوافذ: أهدى، بس أبطأ"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Often both",
+            "ar-EG": "غالبًا الاتنين"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Choose by what a late answer costs.",
+        "ar-EG": "اختار على حسب الإجابة المتأخرة بتكلّف قد إيه."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Five systems you use",
+            "ar-EG": "خمس أنظمة بتستخدمها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Batch or stream? Why?",
+            "ar-EG": "دفعات ولا تدفّق؟ ليه؟"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

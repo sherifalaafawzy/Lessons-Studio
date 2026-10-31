@@ -1,0 +1,337 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "1947: least-cost plans",
+            "ar-EG": "1947: خطط بأقل تكلفة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Airlines, refineries, hospitals",
+            "ar-EG": "طيران وتكرير ومستشفيات"
+          },
+          "s": 1,
+          "o": 0.5
+        },
+        {
+          "icon": "phone",
+          "tone": "accent",
+          "text": {
+            "en": "On your phone",
+            "ar-EG": "على الموبايل"
+          },
+          "s": 1,
+          "o": 3.5
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "maximise  30x + 40y\nx + y   <= 8     # land\n2x + y  <= 14    # water\nx + 3y  <= 18    # hours\nx, y    >= 0",
+        "highlight": [
+          1
+        ],
+        "s": 2
+      }
+    },
+    "4": {
+      "who": null,
+      "lp": {
+        "region": 0,
+        "slide": [
+          1,
+          2
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "(0, 0): 0",
+            "ar-EG": "(0، 0): 0"
+          },
+          "s": 2,
+          "o": 1
+        },
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "(0, 6): 240",
+            "ar-EG": "(0، 6): 240"
+          },
+          "s": 2,
+          "o": 3.5
+        },
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "(3, 5): 290",
+            "ar-EG": "(3، 5): 290"
+          },
+          "s": 2,
+          "o": 6
+        }
+      ],
+      "aside": "award"
+    },
+    "6": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Simplex",
+            "ar-EG": "السمبلكس"
+          },
+          {
+            "en": "Interior point",
+            "ar-EG": "النقطة الداخلية"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Worst case: exponential",
+              "ar-EG": "أوحش حالة: أُسّي"
+            },
+            {
+              "en": "Polynomial time",
+              "ar-EG": "وقت كثيرة حدود"
+            }
+          ],
+          [
+            {
+              "en": "Fast in practice",
+              "ar-EG": "سريعة في الواقع"
+            },
+            {
+              "en": "GLOP uses simplex",
+              "ar-EG": "GLOP بيستخدم السمبلكس"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "The whole edge is optimal",
+            "ar-EG": "الضلع كله مثالي"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "The dual: prices for limits",
+            "ar-EG": "الثنائية: أسعار للقيود"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Shadow price: +1 unit is worth…",
+            "ar-EG": "سعر الظل: الوحدة الزيادة تساوي…"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "hours",
+            "ar-EG": "الساعات"
+          },
+          {
+            "en": "land",
+            "ar-EG": "الأرض"
+          },
+          {
+            "en": "water",
+            "ar-EG": "المية"
+          }
+        ],
+        "rows": [
+          [
+            "5",
+            "25",
+            "0"
+          ]
+        ],
+        "size": 40,
+        "s": 0
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Cheapest lunch: 41 coins",
+            "ar-EG": "أرخص غدا: 41 عملة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Energy, iron: met exactly",
+            "ar-EG": "الطاقة والحديد: بالظبط"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Protein: free, price 0",
+            "ar-EG": "البروتين: ببلاش، سعره 0"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "who": null,
+      "code": {
+        "text": "s = pywraplp.Solver.CreateSolver(\"GLOP\")\nx = s.NumVar(0, 10, \"x\")\ny = s.NumVar(0, 10, \"y\")\ns.Add(x + 3 * y <= 18)   # hours\ns.Maximize(30 * x + 40 * y)\ns.Solve()",
+        "highlight": [
+          6
+        ],
+        "s": 0
+      }
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Build a lunch",
+            "ar-EG": "ركّب غدا"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the cheapest",
+            "ar-EG": "دوّر على الأرخص"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Corners visited",
+            "ar-EG": "الزوايا اللي زارها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "tone": "ok",
+          "text": {
+            "en": "Needs met exactly",
+            "ar-EG": "احتياجات بالظبط"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Spare room: price zero",
+            "ar-EG": "فيه فائض: سعره صفر"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Convex: the best is at a corner",
+            "ar-EG": "محدّبة: الأحسن في زاوية"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Simplex: corner to corner",
+            "ar-EG": "السمبلكس: زاوية لزاوية"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Shadow price: a limit’s worth",
+            "ar-EG": "سعر الظل: قيمة القيد"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Read the answer and the prices of its limits.",
+        "ar-EG": "اقرا الإجابة، وأسعار قيودها كمان."
+      }
+    },
+    "15": {
+      "who": "salma",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "The garden in GLOP",
+            "ar-EG": "الجنينة في GLOP"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Add one hour, solve again",
+            "ar-EG": "زوّد ساعة، وحلّ تاني"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "295 − 290 = 5",
+            "ar-EG": "295 − 290 = 5"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

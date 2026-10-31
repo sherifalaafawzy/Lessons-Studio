@@ -1,0 +1,418 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Choose in turn",
+            "ar-EG": "الاختيار بالدور"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Feels fair",
+            "ar-EG": "شكله عدل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Karim gets science",
+            "ar-EG": "كريم ياخد علوم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Teacher",
+            "ar-EG": "المدرس"
+          },
+          {
+            "en": "Maths 5",
+            "ar-EG": "رياضيات 5"
+          },
+          {
+            "en": "Science 6",
+            "ar-EG": "علوم 6"
+          },
+          {
+            "en": "English 7",
+            "ar-EG": "إنجليزي 7"
+          },
+          {
+            "en": "History 8",
+            "ar-EG": "تاريخ 8"
+          },
+          {
+            "en": "Art 9",
+            "ar-EG": "رسم 9"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Amina",
+              "ar-EG": "أمينة"
+            },
+            9,
+            8,
+            6,
+            6,
+            4
+          ],
+          [
+            {
+              "en": "Karim",
+              "ar-EG": "كريم"
+            },
+            9,
+            2,
+            1,
+            2,
+            0
+          ],
+          [
+            {
+              "en": "Leila",
+              "ar-EG": "ليلى"
+            },
+            6,
+            9,
+            5,
+            3,
+            2
+          ],
+          [
+            {
+              "en": "Yusuf",
+              "ar-EG": "يوسف"
+            },
+            4,
+            7,
+            8,
+            6,
+            3
+          ],
+          [
+            {
+              "en": "Zainab",
+              "ar-EG": "زينب"
+            },
+            2,
+            3,
+            5,
+            8,
+            7
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "star",
+          "text": {
+            "en": "Amina: maths, 9",
+            "ar-EG": "أمينة: رياضيات، 9"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Karim: science, 2",
+            "ar-EG": "كريم: علوم، 2"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Total: 29",
+            "ar-EG": "المجموع: 29"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "calculator"
+    },
+    "5": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "First come",
+            "ar-EG": "اللي يسبق"
+          },
+          {
+            "en": "Best total",
+            "ar-EG": "أحسن مجموع"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Total: 29",
+              "ar-EG": "المجموع: 29"
+            },
+            {
+              "en": "Total: 39",
+              "ar-EG": "المجموع: 39"
+            }
+          ],
+          [
+            {
+              "en": "Worst match: 2",
+              "ar-EG": "أسوأ توزيع: 2"
+            },
+            {
+              "en": "Worst match: 6",
+              "ar-EG": "أسوأ توزيع: 6"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "for i in range(n):\n    m.add_exactly_one(x[i])\n    m.add_exactly_one(\n        [x[t][i] for t in range(n)])\nm.maximize(sum(score[t][c] * x[t][c]\n    for t in range(n) for c in range(n)))",
+        "highlight": [
+          5,
+          6
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "The total",
+            "ar-EG": "المجموع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "The worst match",
+            "ar-EG": "أسوأ توزيع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "High total, one bad match",
+            "ar-EG": "مجموع عالي، وتوزيع وحش"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "warning"
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Maximise the worst match",
+            "ar-EG": "كبّر أسوأ توزيع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Every pair at or above it",
+            "ar-EG": "كل زوج أكبر منه أو قدّه"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "Here: worst match 6",
+            "ar-EG": "هنا: أسوأ توزيع 6"
+          },
+          "s": 2
+        },
+        {
+          "icon": "scale",
+          "tone": "accent",
+          "text": {
+            "en": "Elsewhere: costs some total",
+            "ar-EG": "في حتت تانية: بيكلّف من المجموع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Scores are opinions",
+            "ar-EG": "الدرجات آراء"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Did teachers see them?",
+            "ar-EG": "المدرسين شافوها؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Show both plans, decide together",
+            "ar-EG": "اعرض الخطتين وقرّروا مع بعض"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "Explain the rule first",
+            "ar-EG": "اشرح القاعدة الأول"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Choose in turn: 29",
+            "ar-EG": "بالدور: 29"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Run: Hungarian, 39",
+            "ar-EG": "شغّل: الهنغارية، 39"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "pencil",
+          "tone": "accent",
+          "text": {
+            "en": "Karim’s maths score: 5",
+            "ar-EG": "خلّي درجة كريم 5"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Check scores with the people",
+            "ar-EG": "راجع الدرجات مع الناس"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "One yes per row and column",
+            "ar-EG": "أيوه واحدة لكل صف وعمود"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "First come can lose a lot",
+            "ar-EG": "اللي يسبق ممكن يضيّع كتير"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Total and worst match",
+            "ar-EG": "المجموع وأسوأ توزيع"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Best for the school, and bearable for each person.",
+        "ar-EG": "الأحسن للمدرسة، ومقبول لكل واحد."
+      }
+    },
+    "14": {
+      "who": "farah",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Five class jobs",
+            "ar-EG": "خمس مهام في الفصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "Score each from 1 to 5",
+            "ar-EG": "درجة لكل مهمة من 1 لـ 5"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Choose in turn first",
+            "ar-EG": "بالدور الأول"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Best total, and nobody unhappy",
+            "ar-EG": "أحسن مجموع، ومحدش زعلان"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

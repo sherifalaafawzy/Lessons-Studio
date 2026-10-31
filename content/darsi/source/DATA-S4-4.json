@@ -1,0 +1,307 @@
+{
+ "id": "DATA-S4-4",
+ "track": "data",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Data engineering"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Batch and stream",
+  "subtitle": "Batch or stream, windows and delay, and systems that do both",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Batch and stream",
+  "length": "2:47",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — the science lecturer, runs the river sensor (main character)",
+   "Mr Joseph — the computer studies lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The morning after"
+   },
+   {
+    "at": "0:18",
+    "label": "Batch"
+   },
+   {
+    "at": "0:30",
+    "label": "Stream"
+   },
+   {
+    "at": "0:43",
+    "label": "Windows"
+   },
+   {
+    "at": "1:33",
+    "label": "Messy streams"
+   },
+   {
+    "at": "1:48",
+    "label": "Both together"
+   },
+   {
+    "at": "1:59",
+    "label": "The lab"
+   },
+   {
+    "at": "2:19",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: A river sensor; Every minute; Flood: next morning?. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "The river sensor by our school sends a reading every minute. If we processed it in a nightly batch, we'd learn about a flood the morning after.",
+    "icons": [
+     "droplets",
+     "clock",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Batch and stream",
+    "voice": "Narrator",
+    "narration": "Today: batch and stream processing, and how to choose between them."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Collected, then handled together; Every hour, every night; Simple, cheap, rerunnable; Late by design.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Batch: together, on a schedule",
+    "voice": "Narrator",
+    "narration": "Batch processing collects data and handles it together, on a schedule: every hour, or every night. It's simple, cheap and easy to rerun. But it's late by design.",
+    "icons": [
+     "boxes",
+     "clock",
+     "check",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:43",
+    "beat": "Concept",
+    "visual": "Two columns: “Batch” (On a schedule; Cheap, late) and “Stream” (Within seconds; Always on).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Stream: each event as it arrives",
+    "voice": "Narrator",
+    "narration": "Stream processing handles each event as it arrives, within seconds. It's fast, but it runs all the time, and it must cope with late, missing and duplicated events.",
+    "icons": [
+     "boxes",
+     "zap"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:43",
+    "end": "0:56",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: win = [] … Caption: The average of the last five readings",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A window tames the noise",
+    "voice": "Narrator",
+    "narration": "Streams are noisy: a splash, a boat's wake. So you average over a window, such as the last five readings. A bigger window hides more noise, but reacts later."
+   },
+   {
+    "n": 6,
+    "start": "0:56",
+    "end": "1:14",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: 1 reading: 3 false alarms; 5: 1 false alarm; 10: none, 5 min late; 30: 15 min late.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Bigger windows: calmer, later",
+    "voice": "Narrator",
+    "narration": "On our river, one reading in the average gives three false alarms from splashes. Five gives one, from a boat's wake. With ten there are none, but the real alert is five minutes late; with thirty, fifteen minutes late.",
+    "icons": [
+     "warning",
+     "clock"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:24",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which needs a stream?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A flood alert, or a monthly attendance report: which one needs a stream?"
+   },
+   {
+    "n": 8,
+    "start": "1:24",
+    "end": "1:33",
+    "beat": "Reveal",
+    "visual": "Two columns: “Flood alert” (Stream) and “Monthly report” (Nightly batch).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Minutes matter for floods",
+    "voice": "Narrator",
+    "narration": "The flood alert: minutes matter. The monthly report is fine as a nightly batch: cheaper, simpler, and easy to rerun.",
+    "icons": [
+     "zap",
+     "boxes"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:33",
+    "end": "1:48",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Late, out of order; Use when it happened; Arrives twice? Idempotent.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Real streams are messy",
+    "voice": "Narrator",
+    "narration": "Real streams are messy. Events arrive late or out of order, so use the time they happened, not the time they arrived. And events can arrive twice, so make processing idempotent too.",
+    "icons": [
+     "clock",
+     "calendar",
+     "repeat"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:48",
+    "end": "1:59",
+    "beat": "Concept",
+    "visual": "A flow: Sensor → Stream → Alert now → Nightly batch → Report.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Many systems do both",
+    "voice": "Narrator",
+    "narration": "Many systems do both. A stream drives the alert now, and a nightly batch recomputes the day's numbers carefully, from everything that arrived.",
+    "icons": [
+     "droplets",
+     "zap",
+     "warning",
+     "boxes"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:11",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Stream or batch; Window, batch size; Alarms vs delay.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: streams and batches",
+    "voice": "Narrator",
+    "narration": "In the app, handle the river readings as a stream or in batches. Change the window and the batch size, and watch false alarms and delays trade off.",
+    "icons": [
+     "zap",
+     "gauge",
+     "scale"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:11",
+    "end": "2:19",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "A bigger window?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. I make the averaging window bigger. What happens?"
+   },
+   {
+    "n": 13,
+    "start": "2:19",
+    "end": "2:35",
+    "beat": "Recap",
+    "visual": "Summary card: Batch: simple, late; Stream: fast, always on; Windows: calm, but later; Often both. Takeaway bar: Choose by what a late answer costs.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Fewer false alarms, but later alerts: choose by what each one costs. Remember: batches are simple and late; streams are fast and always on. Windows tame noise and add delay. And many systems run both."
+   },
+   {
+    "n": 14,
+    "start": "2:35",
+    "end": "2:47",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: Five systems you use; Batch or stream? Why?. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Okafor",
+    "narration": "Try it tomorrow: list five systems you use, like bus times, exam results and a bank alert. For each one, decide: batch or stream, and why?",
+    "icons": [
+     "list",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:21",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A flood alert, or a monthly attendance report: which one needs a stream?",
+    "options": [
+     {
+      "text": "The flood alert",
+      "correct": true
+     },
+     {
+      "text": "The monthly report",
+      "correct": false
+     },
+     {
+      "text": "Both, always",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — minutes matter for a flood; a monthly report is fine as a cheaper nightly batch.",
+    "feedback_wrong": "Not quite — streams cost more to run. Use one where minutes matter, like a flood alert, and batch the rest.",
+    "resume_at": "1:24"
+   },
+   {
+    "at": "2:16",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "You make the averaging window bigger. What happens?",
+    "options": [
+     {
+      "text": "Fewer false alarms, but later alerts",
+      "correct": true
+     },
+     {
+      "text": "More false alarms, and earlier alerts",
+      "correct": false
+     },
+     {
+      "text": "Nothing changes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — more readings smooth out splashes, but a real rise takes longer to lift the average.",
+    "feedback_wrong": "Not quite — averaging more readings hides short splashes, but it also slows the response to a real rise.",
+    "resume_at": "2:19"
+   }
+  ]
+ }
+}

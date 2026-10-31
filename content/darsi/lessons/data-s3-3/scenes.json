@@ -1,0 +1,5528 @@
+{
+ "version": "0.2",
+ "scenes": [
+  {
+   "id": "s01",
+   "template": "canvas",
+   "narration": {
+    "en": "The library list has member numbers. The school list has names. The librarian wants to know who has an overdue book, and neither list can answer alone.",
+    "ar-EG": "قائمة المكتبة فيها أرقام الأعضاء. وقائمة المدرسة فيها الأسامي. وأمينة المكتبة عايزة تعرف مين معاه كتاب متأخر، ومفيش قائمة فيهم تقدر تجاوب لوحدها."
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "bubble",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 70,
+      "w": 710,
+      "h": 200,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 28,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "quote",
+      "type": "text",
+      "x": 124,
+      "y": 100,
+      "w": 642,
+      "size": 34,
+      "weight": 700,
+      "text": {
+       "en": "The library list has member numbers.",
+       "ar-EG": "قائمة المكتبة فيها أرقام الأعضاء."
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 1.6
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 300,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "book",
+      "x": 104,
+      "y": 314,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 311,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Loans: numbers",
+       "ar-EG": "الاستلاف: أرقام"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 351
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.45
+          },
+          "value": 311,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 403,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 417,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 414,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Members: names",
+       "ar-EG": "الأعضاء: أسامي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 454
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.45
+          },
+          "value": 414,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "school",
+            "ar-EG": "وقائمة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 507,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "help",
+      "x": 104,
+      "y": 521,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 518,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Who's overdue?",
+       "ar-EG": "مين متأخر؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 558
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.45
+          },
+          "value": 518,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "librarian",
+            "ar-EG": "وأمينة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/joseph_curious.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "library",
+            "ar-EG": "أرقام"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s02",
+   "template": "title-hook",
+   "narration": {
+    "en": "Today: joining tables with JOIN and LEFT JOIN, and judging the result.",
+    "ar-EG": "النهارده: نربط الجداول بـJOIN وLEFT JOIN، ونحكم على النتيجة."
+   },
+   "transition": {
+    "type": "zoom"
+   },
+   "content": {
+    "kicker": {
+     "en": "Databases and SQL",
+     "ar-EG": "قواعد البيانات ولغة SQL"
+    },
+    "title": {
+     "en": "Joining tables",
+     "ar-EG": "ربط الجداول"
+    },
+    "hook": {
+     "en": "JOIN and LEFT JOIN, finding gaps, and judging the result",
+     "ar-EG": "JOIN وLEFT JOIN، ولقي الفجوات، والحكم على النتيجة"
+    },
+    "icon": "database"
+   },
+   "overlays": [
+    {
+     "id": "mark",
+     "type": "image",
+     "src": "@lib/v1/brand/darsi-mark.svg",
+     "x": 56,
+     "y": 40,
+     "w": 70,
+     "h": 72,
+     "fit": "contain",
+     "anim": [
+      {
+       "prop": "scale",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.65,
+         "value": 1,
+         "ease": "back"
+        }
+       ]
+      },
+      {
+       "prop": "opacity",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.35,
+         "value": 1,
+         "ease": "out"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "template": "canvas",
+   "narration": {
+    "en": "A join puts matching rows side by side. ON says how they match: the loan's member id equals the member's id.",
+    "ar-EG": "الربط بيحط الصفوف المتطابقة جنب بعض. وON بتقول بيتطابقوا إزاي: رقم العضو في الاستلاف يساوي رقم العضو."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "query",
+      "x": 90,
+      "y": 60,
+      "w": 1100,
+      "h": 570,
+      "type": "query",
+      "sql": "SELECT m.name, l.title\nFROM loans l\nJOIN members m ON m.id = l.member_id\nWHERE l.returned IS NULL",
+      "grids": [
+       {
+        "name": "loans",
+        "cols": [
+         "member_id",
+         "title",
+         "returned"
+        ],
+        "rows": [
+         [
+          1,
+          "Atlas",
+          "yes"
+         ],
+         [
+          2,
+          "Poems",
+          null
+         ],
+         [
+          1,
+          "Stories",
+          null
+         ],
+         [
+          4,
+          "Maths",
+          "yes"
+         ]
+        ]
+       },
+       {
+        "name": "members",
+        "cols": [
+         "id",
+         "name"
+        ],
+        "rows": [
+         [
+          1,
+          "Amina"
+         ],
+         [
+          2,
+          "Joseph"
+         ],
+         [
+          3,
+          "Salma"
+         ],
+         [
+          4,
+          "Musa"
+         ]
+        ]
+       },
+       {
+        "cols": [
+         "member_id",
+         "title",
+         "returned",
+         "id",
+         "name"
+        ],
+        "split": 3,
+        "rows": [
+         [
+          1,
+          "Atlas",
+          "yes",
+          1,
+          "Amina"
+         ],
+         [
+          2,
+          "Poems",
+          null,
+          2,
+          "Joseph"
+         ],
+         [
+          1,
+          "Stories",
+          null,
+          1,
+          "Amina"
+         ],
+         [
+          4,
+          "Maths",
+          "yes",
+          4,
+          "Musa"
+         ]
+        ]
+       },
+       {
+        "cols": [
+         "name",
+         "title"
+        ],
+        "rows": [
+         [
+          "Joseph",
+          "Poems"
+         ],
+         [
+          "Amina",
+          "Stories"
+         ]
+        ]
+       }
+      ],
+      "steps": [
+       {
+        "kind": "from",
+        "lines": [
+         1
+        ],
+        "views": [
+         {
+          "g": 0,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "join",
+        "lines": [
+         2
+        ],
+        "views": [
+         {
+          "g": 0,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ],
+          "lit": [
+           0
+          ]
+         },
+         {
+          "g": 1,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ],
+          "lit": [
+           0
+          ],
+          "out": [
+           2
+          ]
+         }
+        ],
+        "links": [
+         [
+          0,
+          0
+         ],
+         [
+          1,
+          1
+         ],
+         [
+          2,
+          0
+         ],
+         [
+          3,
+          3
+         ]
+        ]
+       },
+       {
+        "kind": "join",
+        "lines": [
+         2
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "where",
+        "lines": [
+         3
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ],
+          "out": [
+           0,
+           3
+          ],
+          "lit": [
+           2
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "select",
+        "lines": [
+         0
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           1,
+           2
+          ],
+          "lit": [
+           1,
+           4
+          ],
+          "dim": [
+           0,
+           2,
+           3
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "select",
+        "lines": [
+         0
+        ],
+        "views": [
+         {
+          "g": 3,
+          "rows": [
+           0,
+           1
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "result",
+        "lines": [],
+        "views": [
+         {
+          "g": 3,
+          "rows": [
+           0,
+           1
+          ]
+         }
+        ]
+       }
+      ],
+      "words": {
+       "yes": {
+        "en": "yes",
+        "ar-EG": "أيوه"
+       }
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "join",
+            "ar-EG": "الربط"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "join",
+            "ar-EG": "الربط"
+           },
+           "offset": 1.2
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "join",
+            "ar-EG": "الربط"
+           },
+           "offset": 1.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 1.7
+          },
+          "value": 2,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 3.1
+          },
+          "value": 3,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 4.5
+          },
+          "value": 4,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 5.9
+          },
+          "value": 5,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "says",
+            "ar-EG": "وON"
+           },
+           "offset": 7.3
+          },
+          "value": 6,
+          "ease": "in-out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "template": "canvas",
+   "narration": {
+    "en": "A plain JOIN keeps only matches: a member with no loans disappears. LEFT JOIN keeps every row of the first table, and puts NULL where nothing matched.",
+    "ar-EG": "JOIN العادية بتسيب المتطابق بس: العضو اللي ما استلفش بيختفي. أما LEFT JOIN فبتسيب كل صفوف الجدول الأول، وبتحط NULL مكان اللي ما اتطابقش."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Inner keeps matches; left keeps all",
+       "ar-EG": "الداخلي للمتطابق، واليساري للكل"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "table",
+      "x": 90,
+      "y": 210,
+      "w": 1100,
+      "h": 400,
+      "type": "table",
+      "cols": [
+       {
+        "en": "JOIN",
+        "ar-EG": "⁦JOIN⁩"
+       },
+       {
+        "en": "LEFT JOIN",
+        "ar-EG": "⁦LEFT JOIN⁩"
+       }
+      ],
+      "rows": [
+       [
+        {
+         "en": "No loans? Gone",
+         "ar-EG": "ما استلفش؟ اختفى"
+        },
+        {
+         "en": "Everyone kept",
+         "ar-EG": "الكل موجود"
+        }
+       ],
+       [
+        "",
+        {
+         "en": "No match? NULL",
+         "ar-EG": "مفيش تطابق؟ ⁦NULL⁩"
+        }
+       ]
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "plain",
+            "ar-EG": "العادية"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "template": "canvas",
+   "narration": {
+    "en": "That makes gaps easy to find. Left join members to loans, and keep the rows where the loan is NULL: those members never borrowed a book.",
+    "ar-EG": "وده بيخلّي الفجوات سهلة. اربط الأعضاء بالاستلاف ربط يساري، وسيب الصفوف اللي الاستلاف فيها NULL: دول الأعضاء اللي عمرهم ما استلفوا كتاب."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "query",
+      "x": 90,
+      "y": 60,
+      "w": 1100,
+      "h": 570,
+      "type": "query",
+      "sql": "SELECT m.name\nFROM members m\nLEFT JOIN loans l ON l.member_id = m.id\nWHERE l.member_id IS NULL",
+      "grids": [
+       {
+        "name": "members",
+        "cols": [
+         "id",
+         "name"
+        ],
+        "rows": [
+         [
+          1,
+          "Amina"
+         ],
+         [
+          2,
+          "Joseph"
+         ],
+         [
+          3,
+          "Salma"
+         ],
+         [
+          4,
+          "Musa"
+         ]
+        ]
+       },
+       {
+        "name": "loans",
+        "cols": [
+         "member_id",
+         "title",
+         "returned"
+        ],
+        "rows": [
+         [
+          1,
+          "Atlas",
+          "yes"
+         ],
+         [
+          2,
+          "Poems",
+          null
+         ],
+         [
+          1,
+          "Stories",
+          null
+         ],
+         [
+          4,
+          "Maths",
+          "yes"
+         ]
+        ]
+       },
+       {
+        "cols": [
+         "id",
+         "name",
+         "member_id",
+         "title",
+         "returned"
+        ],
+        "split": 2,
+        "rows": [
+         [
+          1,
+          "Amina",
+          1,
+          "Atlas",
+          "yes"
+         ],
+         [
+          1,
+          "Amina",
+          1,
+          "Stories",
+          null
+         ],
+         [
+          2,
+          "Joseph",
+          2,
+          "Poems",
+          null
+         ],
+         [
+          3,
+          "Salma",
+          null,
+          null,
+          null
+         ],
+         [
+          4,
+          "Musa",
+          4,
+          "Maths",
+          "yes"
+         ]
+        ]
+       },
+       {
+        "cols": [
+         "name"
+        ],
+        "rows": [
+         [
+          "Salma"
+         ]
+        ]
+       }
+      ],
+      "steps": [
+       {
+        "kind": "from",
+        "lines": [
+         1
+        ],
+        "views": [
+         {
+          "g": 0,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "join",
+        "lines": [
+         2
+        ],
+        "views": [
+         {
+          "g": 0,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ],
+          "lit": [
+           0
+          ]
+         },
+         {
+          "g": 1,
+          "rows": [
+           0,
+           1,
+           2,
+           3
+          ],
+          "lit": [
+           0
+          ]
+         }
+        ],
+        "links": [
+         [
+          0,
+          0
+         ],
+         [
+          0,
+          2
+         ],
+         [
+          1,
+          1
+         ],
+         [
+          3,
+          3
+         ]
+        ]
+       },
+       {
+        "kind": "join",
+        "lines": [
+         2
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           0,
+           1,
+           2,
+           3,
+           4
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "where",
+        "lines": [
+         3
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           0,
+           1,
+           2,
+           3,
+           4
+          ],
+          "out": [
+           0,
+           1,
+           2,
+           4
+          ],
+          "lit": [
+           2
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "select",
+        "lines": [
+         0
+        ],
+        "views": [
+         {
+          "g": 2,
+          "rows": [
+           3
+          ],
+          "lit": [
+           1
+          ],
+          "dim": [
+           0,
+           2,
+           3,
+           4
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "select",
+        "lines": [
+         0
+        ],
+        "views": [
+         {
+          "g": 3,
+          "rows": [
+           0
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "result",
+        "lines": [],
+        "views": [
+         {
+          "g": 3,
+          "rows": [
+           0
+          ]
+         }
+        ]
+       }
+      ],
+      "words": {
+       "yes": {
+        "en": "yes",
+        "ar-EG": "أيوه"
+       }
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That",
+            "ar-EG": "وده"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That",
+            "ar-EG": "وده"
+           },
+           "offset": 1.2
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That",
+            "ar-EG": "وده"
+           },
+           "offset": 1.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That",
+            "ar-EG": "وده"
+           },
+           "offset": 2.6
+          },
+          "value": 1,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That",
+            "ar-EG": "وده"
+           },
+           "offset": 4
+          },
+          "value": 2,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Left",
+            "ar-EG": "اربط"
+           },
+           "offset": 0.3
+          },
+          "value": 3,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Left",
+            "ar-EG": "اربط"
+           },
+           "offset": 1.7
+          },
+          "value": 4,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Left",
+            "ar-EG": "اربط"
+           },
+           "offset": 3.1
+          },
+          "value": 5,
+          "ease": "in-out"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Left",
+            "ar-EG": "اربط"
+           },
+           "offset": 4.5
+          },
+          "value": 6,
+          "ease": "in-out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "template": "quiz",
+   "narration": {
+    "en": "Quick check! An inner join of members and loans. What happens to a member who never borrowed a book?",
+    "ar-EG": "سؤال سريع! ربط داخلي بين الأعضاء والاستلاف. العضو اللي عمره ما استلف كتاب بيحصله إيه؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Never borrowed?",
+     "ar-EG": "عمره ما استلف؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s06-check",
+    "prompt": {
+     "en": "An inner join of members and loans: what happens to a member who never borrowed?",
+     "ar-EG": "ربط داخلي بين الأعضاء والاستلاف: العضو اللي عمره ما استلف بيحصله إيه؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "They appear with a zero",
+       "ar-EG": "بيظهر بصفر"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "They're left out",
+       "ar-EG": "بيتشال"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "The query fails",
+       "ar-EG": "الاستعلام بيفشل"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — an inner join keeps only matching pairs, so they vanish without a word.",
+     "ar-EG": "صح — الربط الداخلي بيسيب الأزواج المتطابقة بس، فبيختفي من غير كلمة."
+    }
+   },
+   "speaker": "salma"
+  },
+  {
+   "id": "s07",
+   "template": "canvas",
+   "narration": {
+    "en": "They're left out, without a word. If you need everyone, use a left join.",
+    "ar-EG": "بيتشال، من غير ولا كلمة. ولو محتاج الكل، استخدم ربط يساري."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "badge",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 90,
+      "y": 60,
+      "w": 72,
+      "h": 72,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 186,
+      "y": 66,
+      "w": 1004,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Left out, without a word",
+       "ar-EG": "بيتشال، من غير كلمة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Left out",
+       "ar-EG": "اتشال"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "They're",
+            "ar-EG": "بيتشال"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Need everyone? LEFT JOIN",
+       "ar-EG": "عايز الكل؟ ⁦LEFT JOIN⁩"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s08",
+   "template": "canvas",
+   "narration": {
+    "en": "Joins can multiply rows too. A member with three loans appears three times, once per loan. That's right for a list of loans, but wrong if you're counting members.",
+    "ar-EG": "والربط ممكن كمان يكرّر الصفوف. العضو اللي ليه تلات استلافات بيظهر تلات مرات، مرة لكل استلاف. وده صح لقائمة الاستلافات، بس غلط لو بتعدّ الأعضاء."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Joins can multiply rows",
+       "ar-EG": "الربط ممكن يكرّر الصفوف"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Joins",
+            "ar-EG": "والربط"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Joins",
+            "ar-EG": "والربط"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Joins",
+            "ar-EG": "والربط"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Joins",
+            "ar-EG": "والربط"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "user",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "One member, three loans",
+       "ar-EG": "عضو واحد، تلات استلافات"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "repeat",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Three rows after the join",
+       "ar-EG": "تلات صفوف بعد الربط"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "with",
+            "ar-EG": "العضو"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "warning",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Counting members? Careful",
+       "ar-EG": "بتعدّ الأعضاء؟ خلّي بالك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That's",
+            "ar-EG": "وده"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s09",
+   "template": "canvas",
+   "narration": {
+    "en": "So judge every result. Count the rows before and after the join. Did some vanish? Did some double? And does the answer match a few rows you checked by hand?",
+    "ar-EG": "فاحكم على كل نتيجة. عِدّ الصفوف قبل الربط وبعده. فيه صفوف اختفت؟ فيه صفوف اتضاعفت؟ والإجابة بتطابق كام صف راجعتهم بإيدك؟"
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Judge every result",
+       "ar-EG": "احكم على كل نتيجة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "judge",
+            "ar-EG": "فاحكم"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "judge",
+            "ar-EG": "فاحكم"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "judge",
+            "ar-EG": "فاحكم"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "judge",
+            "ar-EG": "فاحكم"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Count before and after",
+       "ar-EG": "عِدّ قبل وبعد"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Count",
+            "ar-EG": "الصفوف"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Did rows vanish?",
+       "ar-EG": "صفوف اختفت؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "vanish",
+            "ar-EG": "اختفت"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Did rows double?",
+       "ar-EG": "صفوف اتضاعفت؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "double",
+            "ar-EG": "اتضاعفت"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Check a few by hand",
+       "ar-EG": "راجع كام واحد بإيدك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "does",
+            "ar-EG": "والإجابة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s10",
+   "template": "canvas",
+   "narration": {
+    "en": "In the app, pupils on one side, marks on the other. Try inner and left joins, and watch who disappears, who appears twice, and how the count of rows and the count of marks drift apart.",
+    "ar-EG": "في التطبيق، التلاميذ في ناحية، والدرجات في الناحية التانية. جرّب الربط الداخلي واليساري، واتفرّج مين بيختفي، ومين بيظهر مرتين، وإزاي عدد الصفوف وعدد الدرجات بيبعدوا عن بعض."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "App lab: joining tables",
+       "ar-EG": "معمل التطبيق: ربط الجداول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Pupils + marks",
+       "ar-EG": "تلاميذ + درجات"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "layers",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Inner, then left",
+       "ar-EG": "داخلي، وبعدين يساري"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "eye",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Who vanishes or doubles?",
+       "ar-EG": "مين بيختفي أو يتكرر؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّب"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11",
+   "template": "quiz",
+   "narration": {
+    "en": "Your turn. Kofi sat the test and a resit, and he appears twice after the join. Is that a mistake?",
+    "ar-EG": "دورك. يوسف امتحن ودخل إعادة، وظهر مرتين بعد الربط. ده غلط؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Twice: a mistake?",
+     "ar-EG": "مرتين: غلطة؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s11-check",
+    "prompt": {
+     "en": "Kofi sat the test and a resit, and appears twice after the join. Is that a mistake?",
+     "ar-EG": "يوسف امتحن ودخل إعادة، وظهر مرتين بعد الربط. ده غلط؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Yes: delete one row",
+       "ar-EG": "أيوه: امسح صف"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "No: one row per matching mark",
+       "ar-EG": "لأ: صف لكل درجة مطابقة"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Yes: the join is broken",
+       "ar-EG": "أيوه: الربط بايظ"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — he has two marks, so the join gives two rows. Count pupils with care.",
+     "ar-EG": "صح — ليه درجتين، فالربط بيدّي صفين. فعِدّ التلاميذ بحرص."
+    }
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s12",
+   "template": "summary",
+   "narration": {
+    "en": "No: one row per match is how joins work, so count with care. Remember: a join with ON matches rows on a key. Inner drops what doesn't match; left keeps it as NULL. And judge every result: missing rows, or doubled ones?",
+    "ar-EG": "لأ: صف لكل تطابق هي طريقة الربط، فعِدّ بحرص. افتكر: الربط بـON بيطابق الصفوف على مفتاح. الداخلي بيشيل اللي ما اتطابقش، واليساري بيسيبه NULL. واحكم على كل نتيجة: صفوف ناقصة، ولا متضاعفة؟"
+   },
+   "content": {
+    "title": {
+     "en": "Remember",
+     "ar-EG": "افتكر"
+    },
+    "points": [
+     {
+      "en": "JOIN, ON a key",
+      "ar-EG": "الربط على مفتاح"
+     },
+     {
+      "en": "Inner drops, left keeps",
+      "ar-EG": "الداخلي بيشيل، واليساري بيسيب"
+     },
+     {
+      "en": "One row per match",
+      "ar-EG": "صف لكل تطابق"
+     },
+     {
+      "en": "Missing, or doubled?",
+      "ar-EG": "ناقص، ولا متضاعف؟"
+     }
+    ],
+    "takeaway": {
+     "en": "Every join answers a question; check it's yours.",
+     "ar-EG": "كل ربط بيجاوب سؤال، فاتأكد إنه سؤالك."
+    }
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "Inner",
+      "ar-EG": "الداخلي"
+     },
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "per",
+      "ar-EG": "لكل"
+     },
+     "action": "reveal",
+     "target": "3"
+    },
+    {
+     "word": {
+      "en": "And",
+      "ar-EG": "واحكم"
+     },
+     "action": "reveal",
+     "target": "4"
+    },
+    {
+     "word": {
+      "en": "And",
+      "ar-EG": "واحكم"
+     },
+     "action": "reveal",
+     "target": "takeaway"
+    }
+   ]
+  },
+  {
+   "id": "s13",
+   "template": "canvas",
+   "narration": {
+    "en": "Try it tomorrow: explain a join to someone at home with two sets of cards, names with numbers and books with numbers. Match them up. Who has no book, and who has two?",
+    "ar-EG": "جرّبها بكرة: اشرح الربط لحد في البيت بمجموعتين كروت، أسامي بأرقام، وكتب بأرقام. طابقهم. مين ملوش كتاب، ومين معاه اتنين؟"
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 710,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try it tomorrow",
+       "ar-EG": "جرّبها بكرة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Names with numbers",
+       "ar-EG": "أسامي بأرقام"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "book",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Books with numbers",
+       "ar-EG": "كتب بأرقام"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 4.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "help",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "No book? Two books?",
+       "ar-EG": "من غير كتاب؟ معاه اتنين؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.95
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Match",
+            "ar-EG": "طابقهم"
+           },
+           "offset": 1.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/joseph_happy.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "joseph"
+  }
+ ]
+}

@@ -1,0 +1,242 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Two classes, mean 12",
+            "ar-EG": "فصلين، المتوسط 12"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Same class?",
+            "ar-EG": "نفس الفصل؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Close together or all over",
+            "ar-EG": "قريبين ولا متفرقين"
+          },
+          "s": 3,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Typical distance from the mean",
+            "ar-EG": "المسافة المعتادة عن المتوسط"
+          },
+          "s": 0
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Small: huddled close",
+            "ar-EG": "صغير: لامّين قريب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Large: spread far",
+            "ar-EG": "كبير: متفرقين بعيد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "ruler"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "from ulab import numpy as np\nmarks = np.array([11, 12, 12, 13])\nprint(np.std(marks))",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          1,
+          5
+        ],
+        "labels": [
+          {
+            "en": "Class A",
+            "ar-EG": "فصل أ"
+          },
+          {
+            "en": "Class B",
+            "ar-EG": "فصل ب"
+          }
+        ],
+        "unit": {
+          "en": "Standard deviation (marks)",
+          "ar-EG": "الانحراف المعياري (درجات)"
+        },
+        "s": 1,
+        "max": 6
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "300 cm tall?",
+            "ar-EG": "طوله 300 سم؟"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "90 out of 20?",
+            "ar-EG": "90 من 20؟"
+          },
+          "s": 1,
+          "o": 1.5,
+          "tone": "danger"
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Look closer first",
+            "ar-EG": "بص أقرب الأول"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "warning"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Quartiles Q1 and Q3",
+            "ar-EG": "الربيعيات Q1 وQ3"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "The gap: IQR",
+            "ar-EG": "المسافة: المدى الربيعي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Beyond 1.5 gaps: flag it",
+            "ar-EG": "أبعد من مسافة ونص: علّم عليها"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "ruler"
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Drag one mark far away",
+            "ar-EG": "اسحب درجة بعيد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Range or middle half?",
+            "ar-EG": "المدى ولا النص الأوسط؟"
+          },
+          "s": 1,
+          "o": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "hand"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "SD: typical distance",
+            "ar-EG": "الانحراف: المسافة المعتادة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Outliers: far from the rest",
+            "ar-EG": "الشاذة: بعيدة عن الباقي"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Check, never hide",
+            "ar-EG": "اتأكد، ومتخبّيش"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Same mean can hide very different classes.",
+        "ar-EG": "نفس المتوسط ممكن يخبّي فصول مختلفة أوي."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "A week of journeys",
+            "ar-EG": "أسبوع مشاوير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find what stands out",
+            "ar-EG": "لاقي اللي باين"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Mistake or real?",
+            "ar-EG": "غلطة ولا حقيقي؟"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

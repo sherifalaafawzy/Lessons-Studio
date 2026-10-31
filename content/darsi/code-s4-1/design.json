@@ -1,0 +1,344 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "It worked in a blink, then took fourteen hours.",
+        "ar-EG": "اشتغل في لمح البصر، وبعدين خد أربعتاشر ساعة."
+      },
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "30 students: a blink",
+            "ar-EG": "30 طالب: لمح البصر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "A million students",
+            "ar-EG": "مليون طالب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "About 14 hours",
+            "ar-EG": "حوالي 14 ساعة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "trace": {
+        "code": "marks = [12, 7, 15, 9]\ntop = marks[0]\nfor m in marks:\n    if m > top:\n        top = m\nprint(top)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "array": {
+        "values": [
+          3,
+          8,
+          12,
+          17,
+          23,
+          31,
+          40,
+          52
+        ],
+        "search": {
+          "kind": "binary",
+          "target": 40
+        },
+        "index": true,
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "5": {
+      "who": null,
+      "trace": {
+        "code": "a = [4, 9, 4]\nn = len(a)\nfor i in range(n):\n    for j in range(i + 1, n):\n        if a[i] == a[j]:\n            print(i, j)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "O(1): the first item",
+            "ar-EG": "أول عنصر: O(1)"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scissors",
+          "text": {
+            "en": "O(log n): halving",
+            "ar-EG": "التنصيف: O(log n)"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "O(n): one pass",
+            "ar-EG": "لفّة واحدة: O(n)"
+          },
+          "s": 3
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "O(n log n): merge sort",
+            "ar-EG": "الترتيب بالدمج: O(n log n)"
+          },
+          "s": 4
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "O(n²): every pair",
+            "ar-EG": "كل اتنين: O(n²)"
+          },
+          "s": 5
+        }
+      ],
+      "aside": "gauge"
+    },
+    "8": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Items",
+            "ar-EG": "العناصر"
+          },
+          {
+            "en": "O(log n)",
+            "ar-EG": "O(log n)"
+          },
+          {
+            "en": "O(n)",
+            "ar-EG": "O(n)"
+          },
+          {
+            "en": "O(n²)",
+            "ar-EG": "O(n²)"
+          }
+        ],
+        "ltr": [
+          0
+        ],
+        "rows": [
+          [
+            "1,000",
+            {
+              "en": "instant",
+              "ar-EG": "فورًا"
+            },
+            {
+              "en": "instant",
+              "ar-EG": "فورًا"
+            },
+            "0.05 s"
+          ],
+          [
+            "1,000,000",
+            {
+              "en": "instant",
+              "ar-EG": "فورًا"
+            },
+            "0.1 s",
+            {
+              "en": "14 hours",
+              "ar-EG": "14 ساعة"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "9": {
+      "who": null,
+      "codediff": {
+        "before": "def dup(a):\n    for i in range(len(a)):\n        for j in range(i):\n            if a[i] == a[j]:\n                return True\n    return False",
+        "after": "def dup(a):\n    seen = set()\n    for x in a:\n        if x in seen:\n            return True\n        seen.add(x)\n    return False",
+        "fix": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "search",
+          "tone": "danger",
+          "text": {
+            "en": "x in a list: one by one",
+            "ar-EG": "البحث في الليست: واحد واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Inside a loop: n²",
+            "ar-EG": "جوّه لوب: n²"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Sorting: n log n",
+            "ar-EG": "الترتيب: n log n"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Set or dictionary: about 1 step",
+            "ar-EG": "المجموعة أو القاموس: خطوة تقريبًا"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "search"
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Pick a job",
+            "ar-EG": "اختار مهمة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Grow the class",
+            "ar-EG": "كبّر الفصل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Watch the steps",
+            "ar-EG": "اتفرّج على الخطوات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "clock",
+          "tone": "ok",
+          "text": {
+            "en": "Try a million",
+            "ar-EG": "جرّب مليون"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ],
+      "aside": "gauge"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Count steps, not seconds",
+            "ar-EG": "عدّ الخطوات، مش الثواني"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "1, log n, n, n log n, n²",
+            "ar-EG": "1، log n، n، n log n، n²"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Double n: n² work × 4",
+            "ar-EG": "ضاعف n: شغل n² × 4"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Fix the method first",
+            "ar-EG": "صلّح الطريقة الأول"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "A better method beats a faster phone.",
+        "ar-EG": "الطريقة الأحسن بتغلب الموبايل الأسرع."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "A program you wrote",
+            "ar-EG": "برنامج كتبته"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find every loop",
+            "ar-EG": "دوّر على كل لوب"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cog",
+          "tone": "ok",
+          "text": {
+            "en": "Nested? Use a set",
+            "ar-EG": "جوّه بعض؟ استخدم set"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

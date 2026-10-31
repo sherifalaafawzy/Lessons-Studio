@@ -1,0 +1,309 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.930
+Our school bus visits nine
+
+2
+00:00:02.930 --> 00:00:04.950
+villages every morning.
+
+3
+00:00:05.590 --> 00:00:07.930
+Last week a student asked me two
+
+4
+00:00:07.930 --> 00:00:11.250
+questions: is this really the shortest
+
+5
+00:00:11.250 --> 00:00:15.130
+route, and why do I always get on first?
+
+6
+00:00:16.570 --> 00:00:19.310
+Today: the bus route, built fast,
+
+7
+00:00:19.770 --> 00:00:21.630
+improved, and judged fairly.
+
+8
+00:00:22.910 --> 00:00:25.650
+Visiting every stop once and coming
+
+9
+00:00:25.650 --> 00:00:27.750
+back by the shortest route is the
+
+10
+00:00:27.750 --> 00:00:29.430
+travelling salesperson problem.
+
+11
+00:00:30.080 --> 00:00:32.260
+One more village multiplies the
+
+12
+00:00:32.260 --> 00:00:35.140
+routes: nine villages have a hundred
+
+13
+00:00:35.140 --> 00:00:37.740
+and eighty-one thousand, and ten
+
+14
+00:00:37.740 --> 00:00:40.340
+have one point eight million.
+
+15
+00:00:41.120 --> 00:00:44.160
+Twenty have more than a billion billion.
+
+16
+00:00:45.670 --> 00:00:47.450
+So start with a quick rule:
+
+17
+00:00:48.050 --> 00:00:49.570
+always drive to the closest
+
+18
+00:00:49.570 --> 00:00:51.250
+village you haven’t visited yet.
+
+19
+00:00:51.820 --> 00:00:54.780
+It’s greedy: it never looks ahead, so
+
+20
+00:00:54.780 --> 00:00:56.860
+the last legs home are often long.
+
+21
+00:00:58.160 --> 00:01:00.740
+In Python, keep a list called route.
+
+22
+00:01:01.520 --> 00:01:03.840
+While villages are left, append the
+
+23
+00:01:03.840 --> 00:01:05.820
+one closest to your last stop.
+
+24
+00:01:07.030 --> 00:01:09.230
+Then improve it with 2-opt.
+
+25
+00:01:09.840 --> 00:01:12.460
+Pick two roads, reverse the stretch
+
+26
+00:01:12.460 --> 00:01:14.600
+between them, and keep the change
+
+27
+00:01:14.600 --> 00:01:15.820
+if the route got shorter.
+
+28
+00:01:16.500 --> 00:01:18.440
+A crossing in a route always
+
+29
+00:01:18.440 --> 00:01:20.360
+means a swap can shorten it.
+
+30
+00:01:21.500 --> 00:01:24.780
+In code, a swap is a slice turned round.
+
+31
+00:01:25.430 --> 00:01:28.430
+Try every pair of cut points, keep any
+
+32
+00:01:28.430 --> 00:01:30.990
+change that helps, and stop when none
+
+33
+00:01:30.990 --> 00:01:31.250
+does.
+
+34
+00:01:32.540 --> 00:01:33.020
+Quick check!
+
+35
+00:01:33.660 --> 00:01:36.140
+2-opt has stopped, but the lab
+
+36
+00:01:36.140 --> 00:01:38.100
+says a shorter route exists.
+
+37
+00:01:38.950 --> 00:01:40.030
+How can that be?
+
+38
+00:01:41.180 --> 00:01:43.600
+No single swap helps, but a
+
+39
+00:01:43.600 --> 00:01:44.560
+bigger change would.
+
+40
+00:01:45.260 --> 00:01:47.560
+2-opt has found a local best,
+
+41
+00:01:48.060 --> 00:01:49.040
+not the best of all.
+
+42
+00:01:49.640 --> 00:01:52.300
+In the lab, three swaps take nearest
+
+43
+00:01:52.300 --> 00:01:54.380
+neighbour’s thirty-four point six
+
+44
+00:01:54.380 --> 00:01:56.340
+kilometres down to twenty-eight
+
+45
+00:01:56.340 --> 00:01:58.120
+point six, the best route.
+
+46
+00:01:58.710 --> 00:02:01.130
+On some new maps, it stops short.
+
+47
+00:02:02.380 --> 00:02:04.900
+On the small map in your code, nearest
+
+48
+00:02:04.900 --> 00:02:06.840
+neighbour drives nineteen kilometres.
+
+49
+00:02:07.690 --> 00:02:09.230
+The best route is sixteen.
+
+50
+00:02:10.650 --> 00:02:13.450
+Now look at the riders: the village picked
+
+51
+00:02:13.450 --> 00:02:15.790
+up first rides almost the whole route.
+
+52
+00:02:16.530 --> 00:02:19.290
+On the best route, driven one way, the
+
+53
+00:02:19.290 --> 00:02:21.310
+longest ride is fifteen kilometres.
+
+54
+00:02:22.130 --> 00:02:24.050
+Driven the other way, it’s fourteen.
+
+55
+00:02:24.860 --> 00:02:27.880
+Same road, same length, a fairer
+
+56
+00:02:27.880 --> 00:02:30.380
+ride, so check the direction too.
+
+57
+00:02:31.550 --> 00:02:34.130
+In the app, open “The school bus route”.
+
+58
+00:02:34.730 --> 00:02:37.090
+Press Run, and watch both steps.
+
+59
+00:02:37.830 --> 00:02:40.830
+Then press New map until 2-opt
+
+60
+00:02:40.830 --> 00:02:42.550
+stops short of the best.
+
+61
+00:02:43.820 --> 00:02:44.560
+Your turn.
+
+62
+00:02:45.200 --> 00:02:47.200
+Two routes have the same length.
+
+63
+00:02:48.040 --> 00:02:50.780
+On one, a village rides for fifty
+
+64
+00:02:50.780 --> 00:02:53.280
+minutes; on the other, nobody
+
+65
+00:02:53.280 --> 00:02:54.580
+rides more than thirty.
+
+66
+00:02:55.210 --> 00:02:56.930
+Which should the school choose?
+
+67
+00:02:58.350 --> 00:03:00.830
+The one where nobody rides more than
+
+68
+00:03:00.830 --> 00:03:03.930
+thirty: same cost, fairer ride.
+
+69
+00:03:04.550 --> 00:03:07.390
+Remember: build a route fast with nearest
+
+70
+00:03:07.390 --> 00:03:10.230
+neighbour, and improve it with 2-opt,
+
+71
+00:03:10.610 --> 00:03:12.290
+which can stop at a local best.
+
+72
+00:03:12.990 --> 00:03:14.510
+And judge a route by its
+
+73
+00:03:14.510 --> 00:03:16.570
+length and its longest ride.
+
+74
+00:03:17.800 --> 00:03:20.400
+Try it yourself: map five places you
+
+75
+00:03:20.400 --> 00:03:22.320
+visit in a week, with rough distances.
+
+76
+00:03:23.140 --> 00:03:25.540
+Plan a round trip by nearest neighbour,
+
+77
+00:03:25.540 --> 00:03:28.380
+then look for a crossing and swap it.

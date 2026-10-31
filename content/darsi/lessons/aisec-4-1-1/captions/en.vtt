@@ -1,0 +1,305 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.730
+Last month I asked a head teacher how
+
+2
+00:00:03.730 --> 00:00:06.190
+many AI tools her school uses.
+
+3
+00:00:06.910 --> 00:00:07.930
+She said one.
+
+4
+00:00:08.560 --> 00:00:11.180
+We counted together and found seven,
+
+5
+00:00:11.800 --> 00:00:14.640
+from a marking helper to a WhatsApp
+
+6
+00:00:14.640 --> 00:00:16.340
+bot that answers parents.
+
+7
+00:00:17.120 --> 00:00:19.680
+You can't protect what you haven't listed.
+
+8
+00:00:20.950 --> 00:00:22.770
+Today: a threat model for your
+
+9
+00:00:22.770 --> 00:00:25.170
+school's AI, the risks it shows,
+
+10
+00:00:25.710 --> 00:00:27.130
+and which to fix first.
+
+11
+00:00:28.470 --> 00:00:30.910
+A threat model starts with an inventory.
+
+12
+00:00:31.730 --> 00:00:34.530
+For every AI tool, write four things:
+
+13
+00:00:34.870 --> 00:00:38.090
+what data it touches, what it can do, who
+
+14
+00:00:38.090 --> 00:00:40.230
+uses it, and who looks after it.
+
+15
+00:00:40.710 --> 00:00:42.950
+A chatbot that only reads lesson
+
+16
+00:00:42.950 --> 00:00:45.030
+notes is very different from one
+
+17
+00:00:45.030 --> 00:00:46.010
+that can message parents.
+
+18
+00:00:47.380 --> 00:00:49.360
+Next, find the paths in.
+
+19
+00:00:49.970 --> 00:00:52.510
+Anything the AI reads that you didn't
+
+20
+00:00:52.510 --> 00:00:56.290
+write is untrusted: a web page, a pupil's
+
+21
+00:00:56.290 --> 00:00:59.210
+essay, a parent's message, a tool's
+
+22
+00:00:59.210 --> 00:00:59.490
+result.
+
+23
+00:01:00.120 --> 00:01:02.020
+Each one can carry a hidden
+
+24
+00:01:02.020 --> 00:01:04.560
+order, or simply a mistake.
+
+25
+00:01:05.870 --> 00:01:07.930
+Then score each risk.
+
+26
+00:01:08.540 --> 00:01:11.140
+Likelihood from one to three:
+
+27
+00:01:11.760 --> 00:01:13.200
+how likely is it to happen?
+
+28
+00:01:13.880 --> 00:01:15.620
+Impact from one to three:
+
+29
+00:01:16.800 --> 00:01:17.940
+how bad if it does?
+
+30
+00:01:18.610 --> 00:01:21.630
+Multiply them: a nine needs action now,
+
+31
+00:01:22.050 --> 00:01:23.970
+a two can wait and be watched.
+
+32
+00:01:25.170 --> 00:01:27.250
+I keep our school's risk register
+
+33
+00:01:27.250 --> 00:01:28.890
+as a short list in Python.
+
+34
+00:01:29.640 --> 00:01:31.940
+For each tool, it multiplies
+
+35
+00:01:31.940 --> 00:01:33.500
+likelihood by impact.
+
+36
+00:01:34.290 --> 00:01:36.910
+Anything scoring six or more is
+
+37
+00:01:36.910 --> 00:01:38.650
+printed, so it gets an owner.
+
+38
+00:01:39.860 --> 00:01:40.340
+Quick check!
+
+39
+00:01:40.950 --> 00:01:43.470
+The lesson-plan helper scores two.
+
+40
+00:01:44.050 --> 00:01:46.130
+The parents' chatbot, which can
+
+41
+00:01:46.130 --> 00:01:48.190
+send messages, scores nine.
+
+42
+00:01:48.820 --> 00:01:50.100
+Which do we fix first?
+
+43
+00:01:51.470 --> 00:01:52.710
+The parents' chatbot.
+
+44
+00:01:53.390 --> 00:01:56.870
+It scores highest, and it can act: a
+
+45
+00:01:56.870 --> 00:01:59.170
+hidden order in a parent's message could
+
+46
+00:01:59.170 --> 00:02:01.390
+make it send something to every family.
+
+47
+00:02:02.050 --> 00:02:03.950
+Start at the top of the list, and
+
+48
+00:02:03.950 --> 00:02:06.270
+look hardest at tools that act.
+
+49
+00:02:07.570 --> 00:02:09.750
+For each top risk, choose a
+
+50
+00:02:09.750 --> 00:02:11.530
+control and name an owner.
+
+51
+00:02:12.200 --> 00:02:14.020
+Keep parents' messages as
+
+52
+00:02:14.020 --> 00:02:15.580
+data, not orders.
+
+53
+00:02:16.290 --> 00:02:19.650
+Let the chatbot draft, and a person send.
+
+54
+00:02:20.320 --> 00:02:22.500
+And give one named teacher the job
+
+55
+00:02:22.500 --> 00:02:23.940
+of checking it each term.
+
+56
+00:02:25.200 --> 00:02:28.340
+In the app, hide an order in three places:
+
+57
+00:02:29.000 --> 00:02:32.060
+a note, a book title and a village name.
+
+58
+00:02:32.660 --> 00:02:34.840
+Run each one and record what happens:
+
+59
+00:02:35.440 --> 00:02:37.680
+ignored, slipped through or sent.
+
+60
+00:02:38.320 --> 00:02:40.760
+Then switch on each defence and
+
+61
+00:02:40.760 --> 00:02:41.980
+see which path it closes.
+
+62
+00:02:43.380 --> 00:02:44.140
+Your turn.
+
+63
+00:02:44.760 --> 00:02:47.720
+Our marking helper scores six, and
+
+64
+00:02:47.720 --> 00:02:50.240
+everyone says somebody should check it.
+
+65
+00:02:50.830 --> 00:02:52.510
+Who owns the risk?
+
+66
+00:02:53.790 --> 00:02:56.290
+One named person, with a date.
+
+67
+00:02:56.940 --> 00:03:00.540
+Remember: list every tool, find the paths
+
+68
+00:03:00.540 --> 00:03:04.140
+in, score likelihood times impact, and
+
+69
+00:03:04.140 --> 00:03:06.660
+give the top risks a control and an owner.
+
+70
+00:03:07.820 --> 00:03:10.340
+Try it at school this week: with two
+
+71
+00:03:10.340 --> 00:03:12.740
+colleagues, or your pupils' AI club,
+
+72
+00:03:13.200 --> 00:03:15.220
+list every AI tool you use.
+
+73
+00:03:15.870 --> 00:03:18.230
+Score each risk on the board, and
+
+74
+00:03:18.230 --> 00:03:19.990
+agree an owner for the top three.
+
+75
+00:03:20.580 --> 00:03:21.940
+Then share the list with
+
+76
+00:03:21.940 --> 00:03:22.580
+your head teacher.

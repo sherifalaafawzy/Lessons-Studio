@@ -10,7 +10,10 @@ import { elementPath, partPath, setText } from "../parts.ts";
 import { HANDLES, angleFrom, resizeBox, snapMove, type Guide, type Handle, type Rect } from "../snap.ts";
 import { t } from "../i18n.ts";
 import { LIBRARY } from "../env.ts";
-import { ELEMENT_KINDS, addElement, designSize, moveOps } from "./content.tsx";
+import { ELEMENT_KINDS, addElement, addPackElement, addScience, designSize, moveOps } from "./content.tsx";
+import { SCIENCE_KINDS } from "../science.ts";
+import { TECH_PACKS, packElements } from "../packs.ts";
+import { packName, packTypeName } from "./packs.tsx";
 
 const ORIENT = { landscape: [1280, 720], portrait: [720, 1280], square: [1080, 1080] } as const;
 export const ZOOM_MIN = 0.1;
@@ -35,6 +38,32 @@ interface Drag {
   /** Rotation: the pointer's starting angle around the box's centre, and the change so far. */
   a0: number;
   turn: number;
+}
+
+/** "Packs…": an element of each technology pack type that the packs' scenes use, grouped by pack (hidden until a pack has some). */
+function PackMenu() {
+  const l = lesson.value;
+  const scene = currentScene.value;
+  if (!l) return null;
+  const items = packElements(l.manifest.languages.map((x) => x.code), l.manifest.stage ?? "landscape");
+  if (!items.length) return null;
+  return (
+    <select class="chip chip-select" aria-label={t("addPackElement")} value="" disabled={!scene}
+      onChange={(e) => {
+        const type = (e.target as HTMLSelectElement).value;
+        (e.target as HTMLSelectElement).value = "";
+        if (!scene || !type) return;
+        const id = addPackElement(scene, type);
+        if (id) elementId.value = id;
+      }}>
+      <option value="">{t("packsMenu")}…</option>
+      {TECH_PACKS.filter((p) => items.some((x) => x.pack === p)).map((p) => (
+        <optgroup key={p} label={packName(p)}>
+          {items.filter((x) => x.pack === p).map((x) => <option key={x.type} value={x.type}>{packTypeName(x.type)}</option>)}
+        </optgroup>
+      ))}
+    </select>
+  );
 }
 
 const typingIn = (el: EventTarget | null): boolean => {
@@ -116,6 +145,8 @@ export function Stage() {
     style.textContent = ".ls-bar,.ls-bigplay,.ls-transcript,.ls-menu{display:none!important}.ls-player{border-radius:10px}.ls-float .ls-captions{padding-bottom:10px!important}";
     host.current.shadowRoot?.append(style);
     show();
+    // The science kit and the library's icons load after the first frame; measure the handles again once they draw.
+    void p.ready.then(() => { if (player.current === p) requestAnimationFrame(measure); });
     if (resumeAt !== null) {
       p.seek(resumeAt);
       void p.play();
@@ -364,6 +395,21 @@ export function Stage() {
             <button type="button" key={kind.key} class="chip" disabled={!scene}
               onClick={() => { if (!scene) return; const id = addElement(scene, kind.key); if (id) elementId.value = id; }}>{t(kind.label)}</button>
           ))}
+          <select class="chip chip-select" aria-label={t("addScience")} value="" disabled={!scene}
+            onChange={(e) => {
+              const k = (e.target as HTMLSelectElement).value;
+              (e.target as HTMLSelectElement).value = "";
+              if (!scene || !k) return;
+              const id = addScience(scene, k);
+              if (id) elementId.value = id;
+            }}>
+            <option value="">{t("science")}…</option>
+            {SCIENCE_KINDS.filter((k) => !k.key.startsWith("arch-")).map((k) => <option key={k.key} value={k.key}>{t(k.label)}</option>)}
+            <optgroup label={t("sciArchGroup")}>
+              {SCIENCE_KINDS.filter((k) => k.key.startsWith("arch-")).map((k) => <option key={k.key} value={k.key}>{t(k.label)}</option>)}
+            </optgroup>
+          </select>
+          <PackMenu />
         </div>
         <span class="spacer" />
         <select aria-label={t("shape")} value={orient.value} onChange={(e) => { orient.value = (e.target as HTMLSelectElement).value as typeof orient.value; }}>

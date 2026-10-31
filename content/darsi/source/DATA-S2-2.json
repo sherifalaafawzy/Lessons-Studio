@@ -1,0 +1,278 @@
+{
+ "id": "DATA-S2-2",
+ "track": "data",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Spreadsheets and clean data"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Messy names, wrong counts",
+  "subtitle": "Exact matches, cleaning in steps, and strip and lower in Python",
+  "minutes": 15,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Messy names, wrong counts",
+  "length": "2:35",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma — the maths teacher (main character)",
+   "Mr Joseph — the computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, friendly)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Three zoos"
+   },
+   {
+    "at": "0:16",
+    "label": "Exactly the same"
+   },
+   {
+    "at": "0:30",
+    "label": "Cleaning steps"
+   },
+   {
+    "at": "1:21",
+    "label": "Python cleans text"
+   },
+   {
+    "at": "1:44",
+    "label": "The lab"
+   },
+   {
+    "at": "2:07",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "Icon cards: An online vote; 3 places?; The same zoo!. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Your class voted online for the school trip. The computer counted “Zoo”, “zoo” and “the zoo” as three different places. It's the same zoo!",
+    "icons": [
+     "chat",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Messy names, wrong counts",
+    "voice": "Narrator",
+    "narration": "Today: messy text that breaks counts, and how to clean it."
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: A space at the end; A capital letter; One different letter; People: one. Computer: three.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Computers compare exactly",
+    "voice": "Narrator",
+    "narration": "Computers compare text exactly, letter by letter. A space at the end, a capital letter or one different letter makes a new answer. People see one word; the computer sees three.",
+    "icons": [
+     "type",
+     "eye"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:46",
+    "beat": "Concept",
+    "visual": "Numbered steps: Remove the end spaces; Make the letters match; Match a list of answers.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Clean in steps",
+    "voice": "Narrator",
+    "narration": "Clean in steps. First, remove the spaces at the ends. Next, make the letters match: all small in English, one form of each Arabic letter. Last, match each answer to a list of allowed answers."
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: A list to choose from; Not a box to type in; Nothing to clean.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Stop it happening",
+    "voice": "Narrator",
+    "narration": "Better still, stop it happening. Give people a list to choose from, not a box to type in. A drop-down list means nothing to clean.",
+    "icons": [
+     "list",
+     "keyboard",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:58",
+    "end": "1:11",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "A space at the end?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! To a computer, is a word with a space at the end the same as the word without it?"
+   },
+   {
+    "n": 7,
+    "start": "1:11",
+    "end": "1:21",
+    "beat": "Reveal",
+    "visual": "Icon cards: “zoo␣” ≠ “zoo”; First: trim the spaces.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A space is a character too",
+    "voice": "Narrator",
+    "narration": "No: the space is a character too, so it's a different answer. That's why cleaning starts by removing the spaces at the ends.",
+    "icons": [
+     "type",
+     "scissors"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:21",
+    "end": "1:35",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: votes = [\" Zoo\", \"zoo\", \"ZOO \"] … Caption: Prints ['zoo', 'zoo', 'zoo']",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "strip and lower",
+    "voice": "Narrator",
+    "narration": "Python can clean text for you. strip removes the spaces at both ends. lower makes every letter small. Do it in a loop, and every answer gets the same treatment."
+   },
+   {
+    "n": 9,
+    "start": "1:35",
+    "end": "1:44",
+    "beat": "Examples",
+    "visual": "Icon cards joined by arrows: Before: 3 places; Clean; After: 1 place, 9 votes.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Count again",
+    "voice": "Narrator",
+    "narration": "Count again after cleaning. Before: three different places. After: one place, with all nine votes. Same votes, the right answer.",
+    "icons": [
+     "warning",
+     "filter",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:44",
+    "end": "1:59",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: 20 names; Tidied: 13; Matched: 8.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: cleaning a register",
+    "voice": "Narrator",
+    "narration": "In the app, two teachers typed a week's register. Tidy the names, then match them to the class list. Watch the names counted go from twenty to thirteen, and then to eight.",
+    "icons": [
+     "users",
+     "filter",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Stop it before it starts?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. Which of these stops messy answers before they even start?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:21",
+    "beat": "Recap",
+    "visual": "Summary card: Compared exactly; Spaces, letters, then a list; A drop-down prevents it; strip() and lower(). Takeaway bar: Clean text, then count: the right answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "A drop-down list: nobody types, so nothing gets messy. Remember: computers compare text exactly. Clean in steps: spaces, letters, then a list. And in Python, strip and lower do the tidying."
+   },
+   {
+    "n": 13,
+    "start": "2:21",
+    "end": "2:35",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A sign-up sheet or poll; How many ways?; Write the clean list. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Ms Salma",
+    "narration": "Try it tomorrow: look at a sign-up sheet, or a class poll where people typed their answers. Count how many ways one answer was written. Then write the clean list.",
+    "icons": [
+     "clipboard",
+     "calculator",
+     "list"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:08",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "To a computer, is a word with a space at the end the same as the word without it?",
+    "options": [
+     {
+      "text": "Yes, spaces don't count",
+      "correct": false
+     },
+     {
+      "text": "No, it's a different answer",
+      "correct": true
+     },
+     {
+      "text": "Only in English",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a space is a character, so the computer sees a different word. Strip the spaces first.",
+    "feedback_wrong": "Not quite — a computer compares every character, spaces included, in any language.",
+    "resume_at": "1:11"
+   },
+   {
+    "at": "2:04",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which of these stops messy answers before they start?",
+    "options": [
+     {
+      "text": "A drop-down list to choose from",
+      "correct": true
+     },
+     {
+      "text": "A bigger text box",
+      "correct": false
+     },
+     {
+      "text": "Asking people to type carefully",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — when people choose instead of typing, every answer is written the same way.",
+    "feedback_wrong": "Not quite — any typing box lets new spellings in. A drop-down list means people choose, so nothing gets messy.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

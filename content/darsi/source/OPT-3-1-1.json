@@ -1,0 +1,304 @@
+{
+ "id": "OPT-3-1-1",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Solving school problems in Python: timetables, routes, assignment"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "A timetable that works",
+  "subtitle": "A CP-SAT model, propagation and search, and judging the result",
+  "minutes": 17,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "A timetable that works",
+  "length": "3:18",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A week with an eraser"
+   },
+   {
+    "at": "0:20",
+    "label": "The timetable as a model"
+   },
+   {
+    "at": "1:07",
+    "label": "Cross out, then guess"
+   },
+   {
+    "at": "2:05",
+    "label": "Fits isn’t fair, and the lab"
+   },
+   {
+    "at": "2:46",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Mr Joseph in the staff room beside a huge paper timetable full of rubbings-out; one sticky note falls off.",
+    "animation": "Eraser crumbs fly; the note drops; a laptop slides in.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Every September, our deputy head spends a week with a pencil and an eraser, building the timetable. Then one teacher changes her days, and it all falls apart. What if we just told a computer the rules?",
+    "icons": [
+     "calendar",
+     "pencil",
+     "cpu"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "A timetable that works",
+    "voice": "Narrator",
+    "narration": "Today: a timetable that works, written as a model in Python."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "A grid of three classes by four periods; lesson cards float above it.",
+    "animation": "Cards hover over cells as the rules are named.",
+    "on_screen_text": "Periods are the options",
+    "voice": "Narrator",
+    "narration": "A timetable is a model like any other. The options: which period each lesson goes in. The limits: a class has one lesson at a time, and a teacher is in one class at a time. There’s no goal yet: any timetable that keeps every rule will do.",
+    "icons": [
+     "grid",
+     "users",
+     "check"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:57",
+    "beat": "Concept",
+    "visual": "Code typed on a card; each rule line lights up as it is said.",
+    "animation": "Code types itself line by line.",
+    "on_screen_text": "The rules in Python",
+    "voice": "Narrator",
+    "narration": "In Google’s OR-Tools, each lesson gets a variable for its period, from one to four. One rule says a class’s lessons are all in different periods. Another says the same for each subject, because each subject here has one teacher.",
+    "icons": [
+     "keyboard",
+     "grid"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:57",
+    "end": "1:07",
+    "beat": "Concept",
+    "visual": "Two more code lines join the card, each with a small icon: a clock, a test paper.",
+    "animation": "Lines type in as they are said.",
+    "on_screen_text": "One line per extra rule",
+    "voice": "Narrator",
+    "narration": "Real schools add rules. Ms Huda leaves after period three. Six A’s maths test is in period one. Each rule is one more line.",
+    "icons": [
+     "clock",
+     "clipboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:07",
+    "end": "1:28",
+    "beat": "Concept",
+    "visual": "The grid: crosses appear in impossible cells; one card is placed as a guess, then lifted off again.",
+    "animation": "Crosses stamp in; the guessed card wobbles and returns.",
+    "on_screen_text": "Cross out, then guess",
+    "voice": "Narrator",
+    "narration": "How does the solver find a timetable? First it crosses out periods that can’t work: if six A’s maths is in period one, Mr Musa can’t teach anyone else then. That’s propagation. When nothing more can be crossed out, it guesses, and undoes any guess that leads to a dead end.",
+    "icons": [
+     "cross",
+     "puzzle",
+     "repeat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:28",
+    "end": "1:39",
+    "beat": "Examples",
+    "visual": "Two bars: a tiny one for propagation and search, a towering one for plain backtracking.",
+    "animation": "Bars grow; the tall one keeps climbing.",
+    "on_screen_text": "8 guesses, not 389",
+    "voice": "Narrator",
+    "narration": "In the lab’s small school, propagation and search need eight guesses. Plain backtracking, guessing without crossing out, needs three hundred and eighty-nine. Good rules save work.",
+    "icons": [
+     "gauge",
+     "puzzle"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:39",
+    "end": "1:46",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma at a laptop showing INFEASIBLE in red. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "What does INFEASIBLE mean?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! I add one more rule, and the solver says INFEASIBLE. What does that tell me?"
+   },
+   {
+    "n": 9,
+    "start": "1:46",
+    "end": "2:05",
+    "beat": "Reveal",
+    "visual": "The answer ‘No timetable keeps all the rules’ gets a check; the grid shows science with only two free cells for three lessons.",
+    "animation": "Check badge pops; the two cells pulse.",
+    "on_screen_text": "INFEASIBLE: the rules clash",
+    "voice": "Narrator",
+    "narration": "No timetable keeps all these rules: the solver has proved it; it hasn’t just given up. In the lab, add “the science lab is busy in period one” too: science needs three periods, and only two are left. So talk to people: which rule can bend?",
+    "icons": [
+     "circlex",
+     "flask",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:05",
+    "end": "2:25",
+    "beat": "Concept",
+    "visual": "A finished timetable with three cells circled in orange; teachers and pupils look at it together.",
+    "animation": "Circles draw themselves one by one.",
+    "on_screen_text": "Fits isn’t the same as fair",
+    "voice": "Narrator",
+    "narration": "A timetable that keeps the rules can still be unkind. Does one class get every hard subject after lunch? Does Ms Rana sit through a gap all morning? Who gets the last period of the week, every week? Check the result with the people who live with it.",
+    "icons": [
+     "clock",
+     "calendar",
+     "users"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:25",
+    "end": "2:37",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the grid of lessons and periods, ticks and dashes, and a guess counter.",
+    "animation": "A finger taps One step; dashes appear; the counter ticks.",
+    "on_screen_text": "App lab: Build the timetable",
+    "voice": "Narrator",
+    "narration": "In the app, open “Build the timetable”. Press One step, and watch the rules cross periods out. Then press Run, switch to plain backtracking, and compare the guesses.",
+    "icons": [
+     "grid",
+     "puzzle",
+     "gauge"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:37",
+    "end": "2:46",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph points at 5B’s row on the laptop: maths in the last column every day. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Maths last, every day?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The solver found a timetable, but five B has maths in the last period every day. What do you do?"
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "3:02",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Add a rule and solve again: the model makes that cheap. Remember: periods are variables, rules are lines, and the solver crosses out and searches. INFEASIBLE means the rules clash. And a timetable that fits still needs fair eyes.",
+    "icons": [
+     "grid",
+     "check",
+     "users"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "3:02",
+    "end": "3:18",
+    "beat": "Try it tomorrow",
+    "visual": "A class around the board placing sticky notes on a grid; one pupil points at a clash.",
+    "animation": "Notes move between cells; a red ring flashes on a clash.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: draw a timetable grid on the board, with sticky notes for the lessons. Pupils place them, and call out every clash. Then add one new rule, and see how much has to move.",
+    "icons": [
+     "grid",
+     "users",
+     "repeat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The solver says INFEASIBLE. What does that mean?",
+    "options": [
+     {
+      "text": "The phone is too slow to find one",
+      "correct": false
+     },
+     {
+      "text": "No timetable keeps all these rules",
+      "correct": true
+     },
+     {
+      "text": "There is a timetable, but not the best one",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — INFEASIBLE is a proof: no timetable keeps every rule. Find which rule can bend.",
+    "feedback_wrong": "Not quite — INFEASIBLE means the solver proved that no timetable keeps all the rules. It didn’t run out of time.",
+    "resume_at": "1:46"
+   },
+   {
+    "at": "2:42",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The timetable keeps every rule, but 5B has maths last every day. What do you do?",
+    "options": [
+     {
+      "text": "Accept it: the solver says OPTIMAL",
+      "correct": false
+     },
+     {
+      "text": "Add a rule or a goal against it, and solve again",
+      "correct": true
+     },
+     {
+      "text": "Go back to pencil and eraser",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the solver only knows the rules you gave it. Add the missing one and solve again: that’s what a model makes cheap.",
+    "feedback_wrong": "Not quite — OPTIMAL only means every rule you wrote is kept. Add the rule you care about, such as no maths last more than twice a week, and solve again.",
+    "resume_at": "2:46"
+   }
+  ]
+ }
+}

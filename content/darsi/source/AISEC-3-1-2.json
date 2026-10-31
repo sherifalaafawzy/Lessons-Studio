@@ -1,0 +1,296 @@
+{
+ "id": "AISEC-3-1-2",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Protecting models and data"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Models that remember too much",
+  "subtitle": "Memorisation, privacy, and what to keep out of training",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Models that remember too much",
+  "length": "3:22",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A secret, handed back"
+   },
+   {
+    "at": "0:29",
+    "label": "How models memorise"
+   },
+   {
+    "at": "1:10",
+    "label": "Keep it out, redact it"
+   },
+   {
+    "at": "2:01",
+    "label": "Noise, canaries and the lab"
+   },
+   {
+    "at": "2:48",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:21",
+    "beat": "Hook",
+    "visual": "Cards: Old reports; Train a helper; It repeats a secret.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A colleague asked me: if we train a homework helper on our old reports, could it ever repeat a child's details? I said no, of course not. Then I tried a tiny model in the lab, and it handed back a private card number, word for word.",
+    "icons": [
+     "file",
+     "cpu",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:21",
+    "end": "0:29",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Models that remember too much",
+    "voice": "Narrator",
+    "narration": "Today: why a model can remember too much, and how to keep people's data out of it."
+   },
+   {
+    "n": 3,
+    "start": "0:29",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "A list: Patterns: the goal; A rare line: stored exactly; The right prompt brings it back.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rare details get memorised",
+    "voice": "Narrator",
+    "narration": "Models are meant to learn patterns, not copy lines. But a rare line, seen in training, can be stored almost exactly: a phone number, an address, a pupil's record. Ask the right way, and the model finishes it for you.",
+    "icons": [
+     "layers",
+     "file",
+     "chat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:47",
+    "end": "1:01",
+    "beat": "Concept",
+    "visual": "Cards: How familiar does it feel?; Was this person's data used?; Membership inference.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Was my data used?",
+    "voice": "Narrator",
+    "narration": "There's a quieter leak too. An attacker checks how familiar a sentence feels to a model, and guesses whether someone's data was used to train it. That's called membership inference.",
+    "icons": [
+     "search",
+     "user",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "1:01",
+    "end": "1:10",
+    "beat": "Definition",
+    "visual": "Cards joined by arrows: Private data in training; The model; Out through the answers.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The model is the leak",
+    "voice": "Narrator",
+    "narration": "Both are leaks from the model itself. Nobody shared a file, yet private data comes out through the answers.",
+    "icons": [
+     "database",
+     "cpu",
+     "chat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:10",
+    "end": "1:25",
+    "beat": "Concept",
+    "visual": "A list: Not needed? Keep it out; Remove names; Remove phone and ID numbers; Remove addresses.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Keep it out of training",
+    "voice": "Narrator",
+    "narration": "The strongest defence is simple: keep personal data out of training you don't need it for. If you must use real text, remove the identifiers first: names, phone numbers, ID numbers and addresses.",
+    "icons": [
+     "hand",
+     "profile",
+     "phone",
+     "mapPin"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:25",
+    "end": "1:39",
+    "beat": "Examples",
+    "visual": "A trace diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Redact before you train",
+    "voice": "Narrator",
+    "narration": "In Python, a few lines replace every digit with a hash before the text is used. Run it on every file before training, and no phone number is left to memorise."
+   },
+   {
+    "n": 8,
+    "start": "1:39",
+    "end": "1:47",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Safe now?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! We've replaced every digit in our reports. Are they safe to train on now?"
+   },
+   {
+    "n": 9,
+    "start": "1:47",
+    "end": "2:01",
+    "beat": "Reveal",
+    "visual": "A list: Digits: gone; Names: still there; Addresses and rare details: still there; Read it before you use it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Digits are only the start",
+    "voice": "Narrator",
+    "narration": "Not yet. Digits are one kind of identifier. Names, addresses and unusual details can still point to a child, so read the text for those too, or don't use it.",
+    "icons": [
+     "circlecheck",
+     "profile",
+     "mapPin",
+     "eye"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:01",
+    "end": "2:20",
+    "beat": "Concept",
+    "visual": "Two columns. Privacy noise: No example stands out; Less useful. A canary: Plant a made-up secret; Does it ever come back?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Noise and canaries",
+    "voice": "Narrator",
+    "narration": "Researchers also add privacy noise during training, so that no single example leaves a mark. It works, but the model gets less useful. And to test for leaks, plant a made-up secret, a canary, and check whether the model ever repeats it.",
+    "icons": [
+     "shield",
+     "flag",
+     "check",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:20",
+    "end": "2:36",
+    "beat": "Lab preview",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: a model that remembers",
+    "voice": "Narrator",
+    "narration": "In the app, a tiny model learns some school sentences, one of them private. Ask it to finish the private line, then raise the privacy and watch the secret disappear, and the usefulness drop with it."
+   },
+   {
+    "n": 12,
+    "start": "2:36",
+    "end": "2:48",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What do we ask first?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A company offers a free marking assistant, if the school uploads every pupil's past essays to train it. What should the school ask first?"
+   },
+   {
+    "n": 13,
+    "start": "2:48",
+    "end": "3:07",
+    "beat": "Recap",
+    "visual": "The summary: Models can memorise; The model can be the leak; Keep it out; redact first; Test with a canary. Takeaway: If it doesn't need to learn it, don't let it see it.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Memorise · Leak · Keep out · Canary",
+    "voice": "Narrator",
+    "narration": "Ask what data it needs, whether it trains on it, and how to delete it. Remember: models can memorise rare details, and the leak can come from the model itself. Keep personal data out, redact it first, and test with a canary."
+   },
+   {
+    "n": 14,
+    "start": "3:07",
+    "end": "3:22",
+    "beat": "Try it tomorrow",
+    "visual": "A list: A made-up register; Black out identifiers; Swap with another group; What did they miss?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: give groups a made-up register with names, phone numbers and notes. Groups black out every identifier by hand, then swap and look for what the others missed.",
+    "icons": [
+     "clipboard",
+     "pencil",
+     "repeat",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:44",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Every digit in the old reports has been replaced with #. Are they safe to train on now?",
+    "options": [
+     {
+      "text": "Yes: no digits, no risk",
+      "correct": false
+     },
+     {
+      "text": "Not yet: names, addresses and rare details are still there",
+      "correct": true
+     },
+     {
+      "text": "Only if the model is small",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: digits are one kind of identifier. Names, addresses and unusual details can still point to a child.",
+    "feedback_wrong": "Not quite: removing digits is a start. Names, addresses and unusual details still point to children.",
+    "resume_at": "1:47"
+   },
+   {
+    "at": "2:45",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A company offers a free marking assistant if the school uploads every pupil's past essays to train it. What should the school ask first?",
+    "options": [
+     {
+      "text": "How fast does it mark?",
+      "correct": false
+     },
+     {
+      "text": "What data does it need, will it train on it, and can it be deleted?",
+      "correct": true
+     },
+     {
+      "text": "Can it mark in our language?",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: once essays are in a model, they're hard to take out. Ask before anything is uploaded.",
+    "feedback_wrong": "Not quite: speed and language matter later. First ask what data it takes, whether it trains on it, and how to delete it.",
+    "resume_at": "2:48"
+   }
+  ]
+ }
+}

@@ -1,0 +1,295 @@
+{
+ "id": "AISEC-3-1-3",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Protecting models and data"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Pictures that fool a model",
+  "subtitle": "Tiny changes, wrong answers, and how to test for them",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Pictures that fool a model",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Eight pixels"
+   },
+   {
+    "at": "0:28",
+    "label": "Small changes, big mistakes"
+   },
+   {
+    "at": "1:18",
+    "label": "Train it tough, test it"
+   },
+   {
+    "at": "2:11",
+    "label": "Where it matters"
+   },
+   {
+    "at": "2:49",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:20",
+    "beat": "Hook",
+    "visual": "Cards: A circle, for sure; Eight pixels changed; Now: a cross.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "My pupils trained a small model to sort drawings into circles, crosses and lines. It was sure: a circle. Then, in the lab, we changed eight pixels in just the right way, and it said cross, though the picture looked the same to us.",
+    "icons": [
+     "image",
+     "pencil",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:20",
+    "end": "0:28",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Pictures that fool a model",
+    "voice": "Narrator",
+    "narration": "Today: pictures that fool a model, why they work, and how to test a model against them."
+   },
+   {
+    "n": 3,
+    "start": "0:28",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "Two columns. To us: The same picture. To the model: Tiny values pushed; A different answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Changed on purpose, just a little",
+    "voice": "Narrator",
+    "narration": "An adversarial example is an input changed on purpose, just a little, so that a model gets it wrong. People see no difference. The model reads tiny values we barely notice, and the attacker pushes exactly those.",
+    "icons": [
+     "eye",
+     "cpu",
+     "image",
+     "gauge"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:45",
+    "end": "1:01",
+    "beat": "Examples",
+    "visual": "A list: Stickers on a road sign; A few changed letters; Sounds we can hardly hear.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Pictures, text and sound",
+    "voice": "Narrator",
+    "narration": "It's not only pictures. In tests, stickers on a road sign fooled sign readers. A few changed letters can slip a message past a filter. And sounds we can hardly hear can steer a voice assistant.",
+    "icons": [
+     "image",
+     "type",
+     "audio"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "1:01",
+    "end": "1:18",
+    "beat": "Analogy",
+    "visual": "Cards: Cow? Look for grass; A cow on a beach; Lost; Attackers aim at shortcuts.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Shortcuts, not understanding",
+    "voice": "Narrator",
+    "narration": "Think of a pupil who learned to spot a cow by the green grass around it. Show them a cow on a beach, and they're lost. Models learn shortcuts like that too, and attackers aim at them.",
+    "icons": [
+     "sprout",
+     "eye",
+     "help",
+     "target"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:18",
+    "end": "1:31",
+    "beat": "Concept",
+    "visual": "Numbered steps: Make tricky examples on purpose; Label them correctly; Train on them too; Harder to fool, not impossible.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Train it tough",
+    "voice": "Narrator",
+    "narration": "One defence is adversarial training: make tricky examples on purpose, label them correctly, and train on them too. The model gets harder to fool, but never impossible."
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:47",
+    "beat": "Examples",
+    "visual": "A trace diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Is this answer fragile?",
+    "voice": "Narrator",
+    "narration": "You can test any model's answer in a similar way. Nudge the input a little, both ways, and see if the label changes. If it flips, that answer is fragile: don't let it decide alone."
+   },
+   {
+    "n": 8,
+    "start": "1:47",
+    "end": "1:55",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Sure means safe?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! A model says it's ninety-nine percent sure. Does that mean an attacker can't fool it?"
+   },
+   {
+    "n": 9,
+    "start": "1:55",
+    "end": "2:11",
+    "beat": "Reveal",
+    "visual": "A list: Sure and wrong at once; 6–8 pixels flip it; Confidence is not a guarantee.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Sure is not safe",
+    "voice": "Narrator",
+    "narration": "No. A model can be sure and wrong at the same time: in the lab, a confident answer flips with six to eight pixels. Confidence is a number the model gives itself, not a guarantee.",
+    "icons": [
+     "gauge",
+     "image",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:11",
+    "end": "2:27",
+    "beat": "Concept",
+    "visual": "A list: Combine signals; Test with small changes; A person decides.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Where it matters",
+    "voice": "Narrator",
+    "narration": "So where a decision matters, like a pupil's mark, a health photo or a gate that opens, don't let one model decide. Combine signals, test with small changes, and keep a person in charge.",
+    "icons": [
+     "layers",
+     "repeat",
+     "user"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:27",
+    "end": "2:40",
+    "beat": "Lab preview",
+    "visual": "Cards joined by arrows: Train it; Push pixels; It flips; Train it tough.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: fool it with a few pixels",
+    "voice": "Narrator",
+    "narration": "In the app, train the shapes model, then raise the pixels allowed until the right picture flips. Press “Train it tough” and attack again: fewer attacks get through.",
+    "icons": [
+     "cpu",
+     "image",
+     "warning",
+     "shield"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:40",
+    "end": "2:49",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What's the safest plan?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A school plans to take attendance with a face-recognition camera, and nothing else. What's the safest plan?"
+   },
+   {
+    "n": 13,
+    "start": "2:49",
+    "end": "3:06",
+    "beat": "Recap",
+    "visual": "The summary: Tiny changes, wrong answers; Sure is not safe; Train it tough: it helps; Test it; a person decides. Takeaway: Never let one confident model decide what matters.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Tiny changes · Sure isn't safe · Train · Test",
+    "voice": "Narrator",
+    "narration": "Use it as a helper, with a person checking and another way in. Remember: tiny chosen changes can fool a sure model. Training it tough helps, but isn't perfect. Test with small nudges, and keep a person deciding."
+   },
+   {
+    "n": 14,
+    "start": "3:06",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "A list: A pupil plays the model; Smallest change that flips it; How to make it tougher?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: one pupil is the “model” and sorts drawings by a secret rule. The class hunts for the smallest change that flips its answer. Then ask: how could we make the rule harder to fool?",
+    "icons": [
+     "user",
+     "pencil",
+     "shield"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:52",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A model says it is 99% sure. Does that mean an attacker can't fool it?",
+    "options": [
+     {
+      "text": "Yes: that sure means safe",
+      "correct": false
+     },
+     {
+      "text": "No: a model can be sure and wrong at the same time",
+      "correct": true
+     },
+     {
+      "text": "Only if it is a big model",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: confidence is a number the model gives itself, not a guarantee. A few pixels can flip a sure answer.",
+    "feedback_wrong": "Not quite: a model can be sure and wrong at once. In the lab, six to eight pixels flip a confident answer.",
+    "resume_at": "1:55"
+   },
+   {
+    "at": "2:46",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A school plans to take attendance with a face-recognition camera and nothing else. What is the safest plan?",
+    "options": [
+     {
+      "text": "Trust the camera: it's very accurate",
+      "correct": false
+     },
+     {
+      "text": "Use it as a helper, with a person checking and another way to sign in",
+      "correct": true
+     },
+     {
+      "text": "Turn its confidence setting up",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: one model shouldn't decide alone. A person and a second way in catch its mistakes, honest or forced.",
+    "feedback_wrong": "Not quite: an accurate model can still be fooled. Keep a person checking and another way to sign in.",
+    "resume_at": "2:49"
+   }
+  ]
+ }
+}

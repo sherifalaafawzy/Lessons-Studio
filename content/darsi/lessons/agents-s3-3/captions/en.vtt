@@ -1,0 +1,313 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.750
+I tested an agent that a student
+
+2
+00:00:02.750 --> 00:00:04.710
+wrote, and it never stopped!
+
+3
+00:00:05.490 --> 00:00:09.470
+Call, result, call, result.
+
+4
+00:00:10.290 --> 00:00:13.830
+No answer, ever, until the battery died.
+
+5
+00:00:15.110 --> 00:00:17.390
+Today: the agent loop in Python,
+
+6
+00:00:17.890 --> 00:00:19.290
+and how to make it stop.
+
+7
+00:00:20.570 --> 00:00:23.510
+An agent is a loop around a model.
+
+8
+00:00:24.140 --> 00:00:26.320
+Ask the model for its next output.
+
+9
+00:00:26.920 --> 00:00:28.380
+If it’s an answer, you’re done.
+
+10
+00:00:29.070 --> 00:00:31.730
+If it’s a call, run the tool, add both
+
+11
+00:00:31.730 --> 00:00:33.570
+to the history, and ask again.
+
+12
+00:00:34.800 --> 00:00:37.320
+But the Python sandbox has no
+
+13
+00:00:37.320 --> 00:00:38.400
+language model inside.
+
+14
+00:00:39.190 --> 00:00:41.990
+So in your code, a scripted model
+
+15
+00:00:41.990 --> 00:00:44.950
+stands in: a function that returns what
+
+16
+00:00:44.950 --> 00:00:46.750
+a model would write, from a list.
+
+17
+00:00:47.410 --> 00:00:50.370
+It’s not intelligent, and we say so.
+
+18
+00:00:50.950 --> 00:00:52.650
+It lets you test your loop.
+
+19
+00:00:53.900 --> 00:00:56.260
+The history is everything so far:
+
+20
+00:00:56.760 --> 00:00:59.260
+the request, then each call and
+
+21
+00:00:59.260 --> 00:01:00.600
+its result, in order.
+
+22
+00:01:01.220 --> 00:01:03.720
+A real model reads it all on every
+
+23
+00:01:03.720 --> 00:01:05.880
+turn: that’s its only memory.
+
+24
+00:01:06.560 --> 00:01:09.260
+Your loop builds it, one turn at a time.
+
+25
+00:01:10.500 --> 00:01:11.140
+Here’s the loop.
+
+26
+00:01:11.780 --> 00:01:13.880
+For each step, ask the model.
+
+27
+00:01:14.520 --> 00:01:16.280
+No curly bracket means an
+
+28
+00:01:16.280 --> 00:01:17.900
+answer, so return it.
+
+29
+00:01:18.450 --> 00:01:20.550
+Otherwise, run the tool, and
+
+30
+00:01:20.550 --> 00:01:21.750
+add both to the history.
+
+31
+00:01:22.990 --> 00:01:26.610
+Why for step in range, and not while true?
+
+32
+00:01:27.090 --> 00:01:29.590
+Because a model can get stuck, calling
+
+33
+00:01:29.590 --> 00:01:31.990
+tool after tool without answering.
+
+34
+00:01:32.660 --> 00:01:35.260
+A step limit is a promise: after
+
+35
+00:01:35.260 --> 00:01:37.100
+four steps, the loop stops,
+
+36
+00:01:37.500 --> 00:01:38.500
+whatever the model writes.
+
+37
+00:01:39.750 --> 00:01:40.330
+Quick check!
+
+38
+00:01:41.120 --> 00:01:44.260
+The script only ever returns calls, never
+
+39
+00:01:44.260 --> 00:01:47.060
+an answer, and the limit is four.
+
+40
+00:01:47.640 --> 00:01:49.380
+What does the agent return?
+
+41
+00:01:50.860 --> 00:01:53.080
+Stopped, after four steps.
+
+42
+00:01:53.880 --> 00:01:55.680
+That’s the step limit doing its job.
+
+43
+00:01:56.340 --> 00:01:58.400
+In a real app, you’d also tell the
+
+44
+00:01:58.400 --> 00:02:00.100
+person: I couldn’t finish this.
+
+45
+00:02:00.820 --> 00:02:02.400
+Never hide a stop.
+
+46
+00:02:03.700 --> 00:02:05.800
+Some goals need two tools.
+
+47
+00:02:06.460 --> 00:02:09.800
+The trip from Kafi to Dala calls route,
+
+48
+00:02:09.800 --> 00:02:12.860
+then weather, using the first result.
+
+49
+00:02:13.500 --> 00:02:15.120
+But a step can fail.
+
+50
+00:02:15.840 --> 00:02:17.820
+Asked for six B’s first lesson on
+
+51
+00:02:17.820 --> 00:02:20.680
+Saturday, Darsi Tiny got no school,
+
+52
+00:02:21.220 --> 00:02:22.540
+and still set a reminder.
+
+53
+00:02:23.830 --> 00:02:26.390
+In the lab, guess which tools a
+
+54
+00:02:26.390 --> 00:02:28.730
+goal needs, then watch Darsi
+
+55
+00:02:28.730 --> 00:02:30.450
+Tiny plan and call them.
+
+56
+00:02:31.020 --> 00:02:33.140
+Run the Saturday goal, and
+
+57
+00:02:33.140 --> 00:02:34.480
+see the failed step.
+
+58
+00:02:35.120 --> 00:02:36.680
+Your loop could stop there,
+
+59
+00:02:37.100 --> 00:02:38.160
+with a check in code.
+
+60
+00:02:39.430 --> 00:02:40.190
+Your turn.
+
+61
+00:02:40.810 --> 00:02:43.210
+Your loop passes every test
+
+62
+00:02:43.210 --> 00:02:44.230
+with the scripted model.
+
+63
+00:02:44.860 --> 00:02:45.680
+What have you shown?
+
+64
+00:02:46.870 --> 00:02:48.530
+That your loop works, for
+
+65
+00:02:48.530 --> 00:02:49.770
+the outputs you tested.
+
+66
+00:02:50.410 --> 00:02:53.530
+Remember: the loop asks the model, runs
+
+67
+00:02:53.530 --> 00:02:55.470
+its calls and builds the history.
+
+68
+00:02:56.120 --> 00:02:58.460
+A step limit stops a stuck model.
+
+69
+00:02:59.080 --> 00:03:00.880
+And a scripted model tests
+
+70
+00:03:00.880 --> 00:03:02.660
+your code, not the model.
+
+71
+00:03:03.860 --> 00:03:05.520
+Try it yourself: play the
+
+72
+00:03:05.520 --> 00:03:06.600
+loop with two friends.
+
+73
+00:03:07.330 --> 00:03:09.250
+One is the model, reading
+
+74
+00:03:09.250 --> 00:03:10.090
+from a script card.
+
+75
+00:03:10.750 --> 00:03:11.930
+One is the tool.
+
+76
+00:03:12.540 --> 00:03:14.760
+You are the loop: count the
+
+77
+00:03:14.760 --> 00:03:16.600
+steps, and stop at four.
+
+78
+00:03:17.260 --> 00:03:19.380
+Then try a script that never answers.

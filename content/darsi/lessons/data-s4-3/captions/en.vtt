@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.770
+A weather app showed minus thirty
+
+2
+00:00:02.770 --> 00:00:04.450
+millimetres of rain at our school.
+
+3
+00:00:05.120 --> 00:00:07.480
+Someone had typed a minus sign.
+
+4
+00:00:08.150 --> 00:00:10.190
+It reached three other apps
+
+5
+00:00:10.190 --> 00:00:11.690
+before anyone noticed.
+
+6
+00:00:13.090 --> 00:00:16.130
+Today: data quality tests, contracts,
+
+7
+00:00:16.610 --> 00:00:18.630
+and what to do when a test fails.
+
+8
+00:00:20.020 --> 00:00:21.660
+Quality has several sides.
+
+9
+00:00:22.470 --> 00:00:24.890
+Valid: the right type and range.
+
+10
+00:00:25.630 --> 00:00:27.550
+Complete: nothing missing.
+
+11
+00:00:28.280 --> 00:00:30.380
+Unique: no duplicates.
+
+12
+00:00:31.030 --> 00:00:33.070
+Consistent: the tables agree.
+
+13
+00:00:33.790 --> 00:00:35.950
+Timely: it arrived on time.
+
+14
+00:00:37.190 --> 00:00:39.450
+Write each test as code that
+
+15
+00:00:39.450 --> 00:00:40.910
+runs on every batch.
+
+16
+00:00:41.660 --> 00:00:44.520
+In SQL, a test is a query that
+
+17
+00:00:44.520 --> 00:00:47.340
+should return no rows: orphans,
+
+18
+00:00:47.660 --> 00:00:49.700
+duplicates, values out of range.
+
+19
+00:00:50.970 --> 00:00:52.990
+A data contract is an agreement
+
+20
+00:00:52.990 --> 00:00:55.110
+between the team that produces data
+
+21
+00:00:55.110 --> 00:00:56.970
+and the teams that use it.
+
+22
+00:00:57.550 --> 00:01:00.590
+It names the columns, types and allowed
+
+23
+00:01:00.590 --> 00:01:03.810
+values, how fresh the data must be, and
+
+24
+00:01:03.810 --> 00:01:05.010
+who to call when it breaks.
+
+25
+00:01:06.410 --> 00:01:06.890
+Quick check!
+
+26
+00:01:07.500 --> 00:01:10.340
+Which test catches a mark for pupil
+
+27
+00:01:10.340 --> 00:01:13.180
+seven, when there is no pupil seven?
+
+28
+00:01:14.450 --> 00:01:17.890
+Referential integrity: every foreign key
+
+29
+00:01:17.890 --> 00:01:20.050
+must point to a row that exists.
+
+30
+00:01:20.970 --> 00:01:23.190
+A left join that finds NULL on the
+
+31
+00:01:23.190 --> 00:01:25.190
+other side finds the orphans.
+
+32
+00:01:26.390 --> 00:01:29.070
+Then decide what a failure does.
+
+33
+00:01:29.780 --> 00:01:31.560
+Block the whole load when
+
+34
+00:01:31.560 --> 00:01:32.520
+the problem is serious.
+
+35
+00:01:33.310 --> 00:01:35.290
+Quarantine the bad rows when
+
+36
+00:01:35.290 --> 00:01:36.630
+most of the batch is fine.
+
+37
+00:01:37.310 --> 00:01:39.370
+Or alert and let it through,
+
+38
+00:01:39.750 --> 00:01:41.970
+when a late report costs more
+
+39
+00:01:41.970 --> 00:01:43.310
+than a slightly wrong one.
+
+40
+00:01:44.480 --> 00:01:47.240
+In Python, check each row against the
+
+41
+00:01:47.240 --> 00:01:50.340
+contract: is the mark a number, and in
+
+42
+00:01:50.340 --> 00:01:50.600
+range?
+
+43
+00:01:51.320 --> 00:01:53.660
+Collect the failures with their reasons,
+
+44
+00:01:53.660 --> 00:01:56.340
+so the producer can fix them at the
+
+45
+00:01:56.340 --> 00:01:56.580
+source.
+
+46
+00:01:57.900 --> 00:02:00.440
+In the app, four weather clubs send
+
+47
+00:02:00.440 --> 00:02:02.460
+daily batches with planted faults.
+
+48
+00:02:03.260 --> 00:02:05.340
+Choose the checks and the action,
+
+49
+00:02:05.900 --> 00:02:07.600
+and watch the rainfall report.
+
+50
+00:02:08.360 --> 00:02:11.200
+Notice which faults no check catches.
+
+51
+00:02:12.580 --> 00:02:13.080
+Your turn.
+
+52
+00:02:13.690 --> 00:02:15.690
+A test fails on three rows
+
+53
+00:02:15.690 --> 00:02:17.670
+out of ten thousand.
+
+54
+00:02:18.310 --> 00:02:19.870
+Which response keeps the pipeline
+
+55
+00:02:19.870 --> 00:02:21.470
+moving and the data honest?
+
+56
+00:02:22.860 --> 00:02:25.760
+Quarantine them and alert the owner, so
+
+57
+00:02:25.760 --> 00:02:28.420
+good data flows and the bad gets fixed.
+
+58
+00:02:29.090 --> 00:02:31.350
+Remember: test quality as
+
+59
+00:02:31.350 --> 00:02:32.990
+code, on every batch.
+
+60
+00:02:33.680 --> 00:02:35.140
+Agree a contract with
+
+61
+00:02:35.140 --> 00:02:36.540
+whoever produces the data.
+
+62
+00:02:37.180 --> 00:02:40.100
+And choose block, quarantine or
+
+63
+00:02:40.100 --> 00:02:42.800
+alert by what each failure costs.
+
+64
+00:02:44.130 --> 00:02:46.490
+Try it tomorrow: write a data contract
+
+65
+00:02:46.490 --> 00:02:48.810
+for a dataset you use, like your class
+
+66
+00:02:48.810 --> 00:02:50.730
+timetable or a club's results.
+
+67
+00:02:51.450 --> 00:02:53.850
+List the columns, types and allowed
+
+68
+00:02:53.850 --> 00:02:56.490
+values, and who fixes it when it's wrong.

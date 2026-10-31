@@ -1,0 +1,396 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "“I can’t”",
+            "ar-EG": "مش هقدر!"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "tone": "accent",
+          "text": {
+            "en": "No booking tool",
+            "ar-EG": "مفيش أداة حجز"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Your request",
+            "ar-EG": "طلبك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "The tools that are on",
+            "ar-EG": "الأدوات الشغّالة"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "It acts only through its tools",
+            "ar-EG": "بيعمل بالأدوات بس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "No tool, no job",
+            "ar-EG": "مفيش أداة، مفيش مهمة"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "timetable{\"class\":\"6B\",\n          \"day\":\"tomorrow\"}",
+        "s": 2
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Uses a tool",
+            "ar-EG": "يستخدم أداة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Says the tool is off",
+            "ar-EG": "يقول الأداة مقفولة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Says “I can’t”",
+            "ar-EG": "يقول: مش هقدر"
+          },
+          "s": 3
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Asks for a missing detail",
+            "ar-EG": "يسأل على الناقص"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "You asked",
+            "ar-EG": "طلبت"
+          },
+          {
+            "en": "It said",
+            "ar-EG": "قال"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Kafi, weather off",
+              "ar-EG": "كافي، والطقس مقفول"
+            },
+            {
+              "en": "“The tool is off”",
+              "ar-EG": "الأداة مقفولة"
+            }
+          ],
+          [
+            {
+              "en": "Book a bus ticket",
+              "ar-EG": "احجز تذكرة أتوبيس"
+            },
+            {
+              "en": "“None of my tools can”",
+              "ar-EG": "ولا أداة تقدر"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 0
+          },
+          {
+            "row": 2,
+            "s": 1
+          }
+        ]
+      }
+    },
+    "7": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "agent",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "Weather tool",
+              "ar-EG": "أداة الطقس"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "agent",
+            "text": {
+              "en": "The weather tomorrow?",
+              "ar-EG": "الجو بكرة؟"
+            }
+          },
+          {
+            "from": "agent",
+            "to": "you",
+            "text": {
+              "en": "Which village?",
+              "ar-EG": "أنهي قرية؟"
+            },
+            "reply": true,
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "agent",
+            "text": {
+              "en": "Dala",
+              "ar-EG": "دالا"
+            }
+          },
+          {
+            "from": "agent",
+            "to": "tool",
+            "text": {
+              "en": "weather: Dala, tomorrow",
+              "ar-EG": "الطقس: دالا، بكرة"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Say so plainly",
+            "ar-EG": "يقولها بصراحة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Never pretend it worked",
+            "ar-EG": "عمره ما يتظاهر إنها اشتغلت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Then you do it yourself",
+            "ar-EG": "وإنت تعملها بنفسك"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Class 9Z becomes 9C",
+            "ar-EG": "فصل تسعة زد بقى تسعة سي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "France goes to the glossary",
+            "ar-EG": "فرنسا راحت للقاموس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Check every call",
+            "ar-EG": "راجع كل طلب"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Ask about Kafi",
+            "ar-EG": "اسأل عن كافي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Switch a tool off, ask again",
+            "ar-EG": "اقفل أداة، واسأل تاني"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Leave out a detail",
+            "ar-EG": "انسى تفصيلة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "Class 9Z: read the check",
+            "ar-EG": "فصل 9Z: اقرا المراجعة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Only the tools that are on",
+            "ar-EG": "الأدوات الشغّالة بس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Details from your words",
+            "ar-EG": "التفاصيل من كلامك"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "It says so, or asks",
+            "ar-EG": "يقولها، أو يسأل"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "No tool, no job: a good agent says so.",
+        "ar-EG": "مفيش أداة، مفيش مهمة: والوكيل الشاطر يقولها."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Six tool cards per group",
+            "ar-EG": "ست كروت أدوات لكل مجموعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Read out a request",
+            "ar-EG": "اقرا طلب"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "A tool, a question, or “I can’t”?",
+            "ar-EG": "أداة، سؤال، ولا مش هقدر؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "Turn a card over, play again",
+            "ar-EG": "اقلب كارت، والعبوا تاني"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

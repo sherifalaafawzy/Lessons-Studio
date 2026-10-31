@@ -6,7 +6,11 @@ import {
 import { go, say } from "../state.ts";
 import { t, uiLang } from "../i18n.ts";
 import { GALLERY } from "../presets.ts";
-import { ELEMENT_KINDS, TEMPLATE_NAMES, addElement, newScene } from "./content.tsx";
+import { ELEMENT_KINDS, TEMPLATE_NAMES, addElement, addPackElement, addScience, newScene } from "./content.tsx";
+import { SCIENCE_KINDS } from "../science.ts";
+import { packElements, packGallery, presetKey, presetScene } from "../packs.ts";
+import { packName, packTypeName } from "./packs.tsx";
+import { pick as pickText } from "@lessonstudio/spec";
 import type { Modal } from "./Editor.tsx";
 
 interface Command { id: string; label: string; group: string; run: () => void }
@@ -28,6 +32,16 @@ function commands(open: (m: Modal) => void): Command[] {
   for (const p of GALLERY) add(`preset-${p.id}`, `${t("addScene")}: ${p.name[uiLang.value]}`, t("panelAdd"), () => { insertScene(p.id, (id) => p.make({ id, langs, stage })); leftTab.value = "scenes"; });
   for (const tp of TEMPLATES) add(`blank-${tp}`, `${t("addBlankScene")}: ${t(TEMPLATE_NAMES[tp])}`, t("panelAdd"), () => { insertScene(tp === "title-hook" ? "intro" : tp, (id) => newScene(tp, id)); });
   if (scene) for (const k of ELEMENT_KINDS) add(`el-${k.key}`, `${t("addElement")}: ${t(k.label)}`, t("canvas"), () => { const id = addElement(scene, k.key); if (id) elementId.value = id; });
+  if (scene) for (const k of SCIENCE_KINDS) add(`sci-${k.key}`, `${t("addElement")}: ${t(k.label)}`, t("science"), () => { const id = addScience(scene, k.key); if (id) elementId.value = id; });
+  // The technology packs: each pack's scenes, and an element of each type its scenes use.
+  for (const g of packGallery(langs, stage)) {
+    for (const p of g.presets) {
+      add(presetKey(p), `${t("addScene")}: ${pickText(p.name, uiLang.value)} (${packName(g.pack)})`, t("packsTitle"), () => { insertScene(p.id, (id) => presetScene(p, id)); leftTab.value = "scenes"; });
+    }
+  }
+  if (scene) for (const x of packElements(langs, stage)) {
+    add(`pack-el-${x.type}`, `${t("addPackElement")}: ${packTypeName(x.type)} (${packName(x.pack)})`, t("packsTitle"), () => { const id = addPackElement(scene, x.type); if (id) elementId.value = id; });
+  }
   add("play", t("playPause"), t("transport"), togglePlay);
   add("loop", `${t("loopScene")}: ${loopScene.value ? t("on") : t("off")}`, t("transport"), () => { loopScene.value = !loopScene.value; });
   add("fit", t("fit"), t("zoom"), () => { zoom.value = "fit"; });

@@ -1,0 +1,300 @@
+{
+ "id": "OPT-S4-2",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Operations research: LP, MIP, CP, OR-Tools modelling, heuristics"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Integer programs and branch and bound",
+  "subtitle": "Relaxations, rounding, pruning and the optimality gap",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Integer programs and branch and bound",
+  "length": "3:23",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computing lecturer (main character)",
+   "Ms Salma Haddad — your maths lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "2.13 buses?"
+   },
+   {
+    "at": "0:22",
+    "label": "Relax, then round?"
+   },
+   {
+    "at": "0:55",
+    "label": "Branch and bound"
+   },
+   {
+    "at": "1:59",
+    "label": "Hard, yet solved"
+   },
+   {
+    "at": "2:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:17",
+    "beat": "Hook",
+    "visual": "Mr Joseph with a trip list and two price tags; a calculator reads 2.13 buses.",
+    "animation": "The number 2.13 blinks; a bus cut in a strange fraction appears.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Sixty-four people for the field trip. A minibus seats fourteen for three hundred coins; a bus seats thirty for five hundred and fifty. The linear program says: hire two point one three buses. Try telling that to the bus company.",
+    "icons": [
+     "users",
+     "banknote",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:17",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Integer programs and branch and bound",
+    "voice": "Narrator",
+    "narration": "Today: integer programs, and how branch and bound finds whole-number answers."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "A big number 1,173 with a ‘bound’ label; a fractional bus beside it.",
+    "animation": "The number counts up; the label slides in.",
+    "on_screen_text": "The LP relaxation",
+    "voice": "Narrator",
+    "narration": "Drop the whole-number rule and you get the LP relaxation: one thousand one hundred and seventy-three coins. No whole-number plan can be cheaper, because the relaxation allows more plans, so it’s a bound. But its answer can’t be used as it is.",
+    "icons": [
+     "calculator",
+     "ruler"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "Two columns: rounding (two wrong plans) against the best whole plan.",
+    "animation": "The rounding plans get a cross; the best plan a check.",
+    "on_screen_text": "Rounding fails",
+    "voice": "Narrator",
+    "narration": "Round down to two buses, and four people stay behind. Round up to three buses, and it costs sixteen hundred and fifty. The best whole-number plan is neither: two buses and a minibus, fourteen hundred.",
+    "icons": [
+     "circlex",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:09",
+    "beat": "Concept",
+    "visual": "A small tree: the root LP splits into two child LPs.",
+    "animation": "The branches draw downwards from the root.",
+    "on_screen_text": "Branch",
+    "voice": "Narrator",
+    "narration": "Branch and bound searches cleverly. Pick a variable with a fraction, like two point one three buses, and split: at most two buses, or at least three. Each branch is a linear program again.",
+    "icons": [
+     "network",
+     "arrow"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:09",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "The tree: the right branch gets scissors and greys out; the left branch leads to 1,400.",
+    "animation": "Scissors cut; the pruned branch fades.",
+    "on_screen_text": "Bound: prune what can’t win",
+    "voice": "Narrator",
+    "narration": "Bound: once you hold a whole-number plan, any branch whose relaxation already costs more is cut off unexplored. The three-bus branch costs at least sixteen fifty, more than the fourteen hundred we have, so it’s pruned. Solvers prove the best this way, often without visiting most of the tree.",
+    "icons": [
+     "scissors",
+     "network"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:47",
+    "beat": "Definition",
+    "visual": "Two numbers on a progress bar, 1,173 and 1,400, closing towards each other.",
+    "animation": "The bound rises; the gap label shrinks to 0%.",
+    "on_screen_text": "The optimality gap",
+    "voice": "Narrator",
+    "narration": "While it runs, a solver reports two numbers: the best plan so far, and the best bound. The gap between them says how far from proven you are. Here it starts at about sixteen percent, and at zero, the plan is optimal.",
+    "icons": [
+     "gauge",
+     "ruler"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:47",
+    "end": "1:59",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma at the board with 1,000 and 1,200 on a number line. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Where is the true best?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A cost-minimising model’s relaxation costs one thousand, and the best whole-number plan found so far costs twelve hundred. What do you know about the true best?"
+   },
+   {
+    "n": 9,
+    "start": "1:59",
+    "end": "2:18",
+    "beat": "Reveal",
+    "visual": "A number line with the true best somewhere between 1,000 and 1,200; then logos-free boxes for four solvers.",
+    "animation": "A bracket closes over the interval; four solver boxes slide in.",
+    "on_screen_text": "Hard in theory, solved in practice",
+    "voice": "Narrator",
+    "narration": "It lies somewhere between the two. In general, integer programming is NP-hard: nobody knows a method that is fast on every problem. Yet solvers like SCIP, HiGHS, Gurobi and CP-SAT solve real problems with huge numbers of variables, thanks to good bounds, cutting planes and heuristics.",
+    "icons": [
+     "ruler",
+     "warning",
+     "cpu"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:18",
+    "end": "2:35",
+    "beat": "Concept",
+    "visual": "Code typed on a card.",
+    "animation": "Lines type; the small <= 10 * book line highlights.",
+    "on_screen_text": "Yes-or-no variables",
+    "voice": "Mr Joseph",
+    "narration": "Yes-or-no variables model logic. To charge a booking fee only if you hire any minibus, add a yes-or-no variable, book, and the limit: minibuses at most ten times book. If book is zero, no minibus; if it’s one, up to ten.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:35",
+    "end": "2:45",
+    "beat": "Lab preview",
+    "visual": "A phone with the modeller lab: Python code, a Run button and the printed answer.",
+    "animation": "A finger edits ‘capacity’; the printed load changes.",
+    "on_screen_text": "App lab: Model it with CP-SAT",
+    "voice": "Narrator",
+    "narration": "In the app, open the truck load model. Change the capacity, add a rule of your own, and watch how the solver’s answer changes.",
+    "icons": [
+     "keyboard",
+     "package",
+     "cpu"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:45",
+    "end": "2:53",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph holds a new price list with ‘booking fee 300’. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "With a booking fee?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The minibus company adds a three-hundred-coin booking fee. Are two buses and a minibus still the cheapest?"
+   },
+   {
+    "n": 13,
+    "start": "2:53",
+    "end": "3:13",
+    "beat": "Recap",
+    "visual": "Four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No: with the fee it costs seventeen hundred, so three buses at sixteen fifty win. Remember: the relaxation gives a bound, and rounding can fail. Branch and bound splits on fractions and prunes what can’t win. And the gap tells you how close to proven you are.",
+    "icons": [
+     "ruler",
+     "network",
+     "gauge"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "3:13",
+    "end": "3:23",
+    "beat": "Try it tomorrow",
+    "visual": "A student with a phone running the model several times with different fees, noting the answers.",
+    "animation": "Fee values tick up; the answer flips at one of them.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: model the trip in SCIP, with the booking fee. Then change the fee, and find the fee at which the answer flips.",
+    "icons": [
+     "keyboard",
+     "banknote",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:55",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A minimisation’s relaxation costs 1,000; the best whole-number plan so far costs 1,200. What do you know about the true best?",
+    "options": [
+     {
+      "text": "It is exactly 1,000",
+      "correct": false
+     },
+     {
+      "text": "It is between 1,000 and 1,200",
+      "correct": true
+     },
+     {
+      "text": "It is more than 1,200",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the relaxation is a lower bound and the plan you hold is an upper bound, so the true best lies between them.",
+    "feedback_wrong": "Not quite — no whole plan beats the relaxation (1,000), and you already have one at 1,200, so the best is somewhere in between.",
+    "resume_at": "1:59"
+   },
+   {
+    "at": "2:49",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "With a 300-coin booking fee for any minibus, are two buses and a minibus still the cheapest?",
+    "options": [
+     {
+      "text": "Yes: 1,400 is still the best",
+      "correct": false
+     },
+     {
+      "text": "No: with the fee it’s 1,700, so three buses at 1,650 win",
+      "correct": true
+     },
+     {
+      "text": "Hire five minibuses instead",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 2 buses + 1 minibus + the fee is 1,700, and 3 buses cost 1,650 with no fee.",
+    "feedback_wrong": "Not quite — add the fee: 1,100 + 300 + 300 = 1,700, more than 3 buses at 1,650.",
+    "resume_at": "2:53"
+   }
+  ]
+ }
+}

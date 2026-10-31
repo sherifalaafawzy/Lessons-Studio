@@ -1,0 +1,261 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.750
+I matched the test marks to
+
+2
+00:00:02.750 --> 00:00:04.410
+my class list by name.
+
+3
+00:00:05.170 --> 00:00:08.770
+Two Fatimas, one Fatimah, and a
+
+4
+00:00:08.770 --> 00:00:10.230
+boy who left last term.
+
+5
+00:00:10.800 --> 00:00:14.140
+Four mistakes in thirty rows!
+
+6
+00:00:15.600 --> 00:00:18.380
+Today: one ID for every pupil,
+
+7
+00:00:18.740 --> 00:00:20.160
+and joining sheets by it.
+
+8
+00:00:21.300 --> 00:00:22.980
+Names make poor keys.
+
+9
+00:00:23.740 --> 00:00:26.380
+Two pupils share a name, spellings
+
+10
+00:00:26.380 --> 00:00:28.280
+change, and families move.
+
+11
+00:00:28.990 --> 00:00:31.550
+A pupil number, given once and never
+
+12
+00:00:31.550 --> 00:00:35.130
+reused, means one pupil and only one.
+
+13
+00:00:36.350 --> 00:00:39.170
+That number is a key: a column whose
+
+14
+00:00:39.170 --> 00:00:41.330
+value picks out exactly one row.
+
+15
+00:00:41.930 --> 00:00:44.090
+Put the key in every sheet about pupils,
+
+16
+00:00:44.450 --> 00:00:46.270
+and you can match any two of them.
+
+17
+00:00:47.450 --> 00:00:49.470
+In a spreadsheet, a lookup
+
+18
+00:00:49.470 --> 00:00:50.830
+joins two sheets.
+
+19
+00:00:51.620 --> 00:00:55.360
+For each mark, XLOOKUP or VLOOKUP finds
+
+20
+00:00:55.360 --> 00:00:57.940
+the pupil with the same ID in the class
+
+21
+00:00:57.940 --> 00:00:59.760
+list, and brings back the name.
+
+22
+00:01:00.380 --> 00:01:01.940
+When there's no match, it
+
+23
+00:01:01.940 --> 00:01:03.020
+shows an error instead.
+
+24
+00:01:04.370 --> 00:01:05.950
+Those errors are useful.
+
+25
+00:01:06.700 --> 00:01:10.080
+A mark with no pupil means an ID was typed
+
+26
+00:01:10.080 --> 00:01:12.180
+wrong, or the list is missing someone.
+
+27
+00:01:12.790 --> 00:01:14.250
+A pupil with no mark was
+
+28
+00:01:14.250 --> 00:01:16.210
+absent, or the mark got lost.
+
+29
+00:01:16.990 --> 00:01:19.410
+Check them; never just delete them.
+
+30
+00:01:20.600 --> 00:01:23.060
+In Python, a dictionary does the lookup.
+
+31
+00:01:23.640 --> 00:01:26.340
+Store each pupil's name under their ID.
+
+32
+00:01:26.930 --> 00:01:30.010
+Then, for each mark, get the name for its
+
+33
+00:01:30.010 --> 00:01:32.730
+ID, or a question mark when there's none.
+
+34
+00:01:33.930 --> 00:01:34.410
+Quick check!
+
+35
+00:01:35.050 --> 00:01:37.570
+Why should we match the marks to the class
+
+36
+00:01:37.570 --> 00:01:40.270
+list by pupil ID, and not by name?
+
+37
+00:01:41.440 --> 00:01:44.420
+Names repeat and change spelling; an
+
+38
+00:01:44.420 --> 00:01:46.960
+ID belongs to one pupil only.
+
+39
+00:01:47.570 --> 00:01:49.070
+That's what makes it a key.
+
+40
+00:01:49.790 --> 00:01:51.770
+Give the number once, and
+
+41
+00:01:51.770 --> 00:01:53.090
+use it on every sheet.
+
+42
+00:01:54.300 --> 00:01:56.680
+In the app, pupils are on one side
+
+43
+00:01:56.680 --> 00:01:59.340
+and yesterday's maths marks on the
+
+44
+00:01:59.340 --> 00:02:00.820
+other, matched by number.
+
+45
+00:02:01.460 --> 00:02:02.740
+Try each join.
+
+46
+00:02:03.500 --> 00:02:07.200
+Who disappears, who appears twice, and
+
+47
+00:02:07.200 --> 00:02:09.120
+where do the empty cells come from?
+
+48
+00:02:10.310 --> 00:02:11.050
+Your turn.
+
+49
+00:02:11.690 --> 00:02:14.150
+After the lookup, one mark
+
+50
+00:02:14.150 --> 00:02:15.730
+has no matching pupil.
+
+51
+00:02:16.410 --> 00:02:17.890
+What does that tell me?
+
+52
+00:02:19.150 --> 00:02:21.890
+An ID was typed wrong, or the list
+
+53
+00:02:21.890 --> 00:02:23.690
+is missing someone: check it.
+
+54
+00:02:24.260 --> 00:02:26.780
+Remember: names make poor keys,
+
+55
+00:02:27.160 --> 00:02:29.440
+so give every pupil one ID.
+
+56
+00:02:30.140 --> 00:02:32.480
+Join sheets with a lookup by that ID.
+
+57
+00:02:33.130 --> 00:02:35.330
+And treat every missing match as a
+
+58
+00:02:35.330 --> 00:02:36.950
+question, not as rubbish.
+
+59
+00:02:38.310 --> 00:02:39.730
+Try it in class tomorrow:
+
+60
+00:02:40.030 --> 00:02:42.130
+play “Human join”.
+
+61
+00:02:42.600 --> 00:02:45.520
+Half the class holds class-list cards,
+
+62
+00:02:46.040 --> 00:02:49.180
+with a number and a name; the other half
+
+63
+00:02:49.180 --> 00:02:51.800
+holds mark cards, with a number.
+
+64
+00:02:52.440 --> 00:02:55.360
+Pupils find their partner by number.
+
+65
+00:02:56.010 --> 00:02:59.490
+Who's left without a partner, and why?

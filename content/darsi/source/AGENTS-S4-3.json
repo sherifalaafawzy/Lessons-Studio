@@ -1,0 +1,307 @@
+{
+ "id": "AGENTS-S4-3",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Agent engineering: planning, multi-agent, evals and guardrails"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Measuring an agent",
+  "subtitle": "Test sets, held-out wordings, exact scores, and how sure a number is",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Measuring an agent",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Ten out of ten"
+   },
+   {
+    "at": "0:21",
+    "label": "A fair test set"
+   },
+   {
+    "at": "1:08",
+    "label": "Reading the score"
+   },
+   {
+    "at": "2:03",
+    "label": "After every change, and the lab"
+   },
+   {
+    "at": "2:52",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "A list: His 10 tries: 10 right; One in my own words; The wrong tool.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "A student showed me his agent: ten requests, ten right. Then I typed one in my own words, and it called the wrong tool. His ten tries had told us very little.",
+    "icons": [
+     "circlecheck",
+     "pencil",
+     "circlex"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Measuring an agent",
+    "voice": "Narrator",
+    "narration": "Today: how to measure an agent, and how far to trust the number."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:39",
+    "beat": "Concept",
+    "visual": "A list: Many requests; Answers decided first; Scored the same strict way; The same set every time.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A fixed test set",
+    "voice": "Narrator",
+    "narration": "An evaluation is a fixed test set: many requests with right answers decided in advance. You run the agent on all of them, score each the same strict way, and count. Keep it fixed, so scores can be compared.",
+    "icons": [
+     "list",
+     "check",
+     "ruler",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:39",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Hold some out",
+    "voice": "Narrator",
+    "narration": "The test must include what the agent never saw. Darsi Tiny’s makers held out every fifth wording and a fifth of the names. Test only on trained wordings, and you measure memory, not skill."
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:08",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: got:  glossary{\"term\":\"the term battery\"} …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Score it exactly",
+    "voice": "Narrator",
+    "narration": "Score strictly: a request counts only if the tool and every detail are exactly right. Explain the term battery became this call. Right tool, wrong detail: it fails.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:19",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "29 out of 32",
+    "voice": "Narrator",
+    "narration": "In the evals lab, Darsi Tiny scores twenty-nine out of thirty-two. Trained wordings: sixteen out of sixteen. New wordings: thirteen out of sixteen."
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:33",
+    "beat": "Concept",
+    "visual": "A list: By language; By wording; By tool; Misses: new wordings, 2 of 3 Arabic.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Break the score down",
+    "voice": "Narrator",
+    "narration": "One number hides where an agent fails. Break it down by language, by wording and by tool. Here every miss is a new wording, and two of the three are in Arabic.",
+    "icons": [
+     "languages",
+     "type",
+     "cog",
+     "warning"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "How sure is 91%?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Twenty-nine out of thirty-two is ninety-one percent. How sure can we be of that number?"
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "2:03",
+    "beat": "Reveal",
+    "visual": "A list: One miss moves it 3 points; Thousands: 96–98% vs 78–80%; Small sets: where it fails; Big sets: the number.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Only roughly",
+    "voice": "Narrator",
+    "narration": "Only roughly. With thirty-two requests, each miss moves the score by three points. On thousands of requests, the model card found ninety-six to ninety-eight percent with trained wordings, and seventy-eight to eighty with new ones. Small sets show where it fails; big ones pin the number down.",
+    "icons": [
+     "gauge",
+     "data",
+     "search",
+     "scale"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:03",
+    "end": "2:15",
+    "beat": "Concept",
+    "visual": "A list: A new prompt, tool or fine-tune; Re-run the same set; Fixed one thing, broke another?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Test after every change",
+    "voice": "Narrator",
+    "narration": "Re-run the same set after every change: a new prompt, a new tool, a fine-tune. A change that fixes one thing can break another: a regression.",
+    "icons": [
+     "wand",
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:15",
+    "end": "2:29",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Score it in code",
+    "voice": "Narrator",
+    "narration": "In this lesson’s code, you’ll write the scorer. Each case has a group, the call you wanted and the call you got. Count the exact matches in each group."
+   },
+   {
+    "n": 12,
+    "start": "2:29",
+    "end": "2:41",
+    "beat": "Lab preview",
+    "visual": "A list: Run all 32 requests; Compare the columns; Read every failure; Test the taught model too.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: test an agent",
+    "voice": "Narrator",
+    "narration": "In the app, run all thirty-two requests and compare the columns. Then read every failure. If you taught Darsi Tiny the bus tool, test that model too.",
+    "icons": [
+     "zap",
+     "scale",
+     "search",
+     "wand"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:41",
+    "end": "2:52",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What does it measure?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A test set uses only wordings the model was trained on, and it scores a hundred percent. What does that show?"
+   },
+   {
+    "n": 14,
+    "start": "2:52",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "Summary points: A fixed set, answers first; Held out, scored exactly; Break it down, re-run it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A fixed set, answers first · Held out, scored exactly · Break it down, re-run it",
+    "voice": "Narrator",
+    "narration": "That it remembers its training, not that it handles new words. Remember: fix the set, and decide the answers first. Hold out wordings and names, and score exactly. Break the score down, and re-run it after every change."
+   },
+   {
+    "n": 15,
+    "start": "3:10",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "A list: 20 requests, 2 languages; Half in odd wordings; Answers before the run; Score and break it down.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write twenty test requests for an assistant, half in odd wordings, in two languages. Write each right answer before you run them. Then score them, and break the score down.",
+    "icons": [
+     "pencil",
+     "type",
+     "check",
+     "scale"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:38",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Darsi Tiny scores 29 out of 32 (91%). How sure can we be of that number?",
+    "options": [
+     {
+      "text": "Exactly 91%, every time",
+      "correct": false
+     },
+     {
+      "text": "Roughly: one miss moves it by 3 points",
+      "correct": true
+     },
+     {
+      "text": "Not at all: 32 requests are useless",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — with 32 requests each miss is about 3 points, so 91% is rough. Small sets show where it fails; thousands of requests pin the number down.",
+    "feedback_wrong": "Not quite — 32 requests are useful for finding failures, but each miss moves the score about 3 points, so the number is rough.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:49",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "A test set uses only wordings the model was trained on, and it scores 100%. What does that show?",
+    "options": [
+     {
+      "text": "That it understands any wording",
+      "correct": false
+     },
+     {
+      "text": "That it remembers what it was trained on",
+      "correct": true
+     },
+     {
+      "text": "That it is safe to give to users",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — trained wordings measure memory. Only held-out wordings and names show how it copes with requests it never saw: Darsi Tiny drops from 16/16 to 13/16.",
+    "feedback_wrong": "Not quite — a perfect score on trained wordings shows memory. New wordings are where Darsi Tiny drops to 13 out of 16.",
+    "resume_at": "2:52"
+   }
+  ]
+ }
+}

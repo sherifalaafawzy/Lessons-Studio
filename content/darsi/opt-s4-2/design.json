@@ -1,0 +1,327 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "64 people",
+            "ar-EG": "64 فرد"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Minibus 14: 300; bus 30: 550",
+            "ar-EG": "ميني باص 14: 300، أتوبيس 30: 550"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "2.13 buses?",
+            "ar-EG": "2.13 أتوبيس؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "big": {
+        "value": "1,173",
+        "label": {
+          "en": "LP bound: nothing cheaper exists",
+          "ar-EG": "الحد الأدنى: مفيش أرخص منه"
+        },
+        "icon": "ruler",
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Rounding",
+            "ar-EG": "التقريب"
+          },
+          {
+            "en": "Best whole plan",
+            "ar-EG": "أحسن خطة صحيحة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "2 buses: 4 left behind",
+              "ar-EG": "أتوبيسين: 4 من غير مكان"
+            },
+            {
+              "en": "2 buses + 1 minibus",
+              "ar-EG": "أتوبيسين + ميني باص"
+            }
+          ],
+          [
+            {
+              "en": "3 buses: 1,650",
+              "ar-EG": "3 أتوبيس: 1,650"
+            },
+            {
+              "en": "1,400 coins",
+              "ar-EG": "1,400 عملة"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "LP: 2.13 buses",
+            "ar-EG": "إرخاء: 2.13 أتوبيس"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "At most 2 buses",
+            "ar-EG": "أتوبيسين على الأكتر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "At least 3 buses",
+            "ar-EG": "تلاتة على الأقل"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "calculator"
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "Best so far: 1,400",
+            "ar-EG": "الأحسن لحد دلوقتي: 1,400"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "scissors",
+          "tone": "danger",
+          "text": {
+            "en": "3-bus branch: ≥ 1,650, cut",
+            "ar-EG": "فرع 3 أتوبيس: ≥ 1,650، يتقطع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Most of the tree: never visited",
+            "ar-EG": "أغلب الشجرة: متتزارش"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "award",
+          "text": {
+            "en": "Best plan so far: 1,400",
+            "ar-EG": "أحسن خطة لحد دلوقتي: 1,400"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Best bound: 1,173 and rising",
+            "ar-EG": "أحسن حد أدنى: 1,173 وبيعلى"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "gauge",
+          "tone": "ok",
+          "text": {
+            "en": "Gap: about 16%, then 0",
+            "ar-EG": "الفجوة: حوالي 16%، وبعدين 0"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "ruler",
+          "tone": "ok",
+          "text": {
+            "en": "Between 1,000 and 1,200",
+            "ar-EG": "بين 1,000 و1,200"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "NP-hard in general",
+            "ar-EG": "صعبة حسابيًا بشكل عام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "SCIP, HiGHS, Gurobi, CP-SAT",
+            "ar-EG": "SCIP وHiGHS وGurobi وCP-SAT"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "book = s.BoolVar(\"book\")\ns.Add(small <= 10 * book)\ns.Minimize(300 * small + 550 * big\n           + 300 * book)",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Truck load model",
+            "ar-EG": "نموذج حمولة العربية"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Change the capacity",
+            "ar-EG": "غيّر الحمولة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Add a rule",
+            "ar-EG": "زوّد قاعدة"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "cpu",
+          "tone": "ok",
+          "text": {
+            "en": "Run it again",
+            "ar-EG": "شغّله تاني"
+          },
+          "s": 1,
+          "o": 3.5
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Fee: 3 buses win, 1,650",
+            "ar-EG": "بالرسوم: 3 أتوبيس، 1,650"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Relaxation: a bound",
+            "ar-EG": "الإرخاء: حد أدنى"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Branch on fractions, prune",
+            "ar-EG": "فرّع على الكسور، واقطع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The gap: how close to proof",
+            "ar-EG": "الفجوة: قربك من الإثبات"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Whole numbers are harder; bounds make them solvable.",
+        "ar-EG": "الأرقام الصحيحة أصعب، والحدود بتخلّيها تتحل."
+      }
+    },
+    "14": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "The trip in SCIP",
+            "ar-EG": "الرحلة في SCIP"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Change the fee",
+            "ar-EG": "غيّر الرسوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Where does it flip?",
+            "ar-EG": "بتتقلب فين؟"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

@@ -4,7 +4,10 @@ import type {
 import { dirOf, hasArabic, hasText, splitWords } from "./text.ts";
 import { isIcon, isLibPath } from "./library.ts";
 import { resolveCues, resolveWhen } from "./cues.ts";
-import { walkElements } from "./elements.ts";
+import { PACK_TYPES, SCIENCE_TYPES, packOf, relPathOk, walkElements } from "./elements.ts";
+import { checkPackElement } from "./packs/check.ts";
+export { SCIENCE_TYPES, relPathOk };
+import { checkScience } from "./science/check.ts";
 
 export interface Issue {
   code: string;
@@ -24,8 +27,8 @@ type Add = (code: string, path: string, detail?: string) => void;
 export const TEMPLATES = ["title-hook", "steps", "flow", "message-mock", "quiz", "summary", "canvas"] as const;
 export const TONES = ["fg", "muted", "accent", "accent2", "danger", "ok", "surface", "bg", "line"] as const;
 export const EASES = ["linear", "in", "out", "in-out", "back", "step"] as const;
-export const ANIM_PROPS = ["x", "y", "scale", "rotate", "opacity", "draw", "reveal"] as const;
-export const ELEMENT_TYPES = ["text", "shape", "line", "path", "icon", "image", "code", "chart", "group"] as const;
+export const ANIM_PROPS = ["x", "y", "scale", "rotate", "opacity", "draw", "reveal", "frame", "focus", "pass"] as const;
+export const ELEMENT_TYPES = ["text", "shape", "line", "path", "icon", "image", "code", "chart", "group", ...PACK_TYPES] as const;
 
 /** Limits that keep lessons light on old phones and weak connections (PLAN.md §9). Over them is a warning. */
 export const BUDGETS = {
@@ -57,13 +60,6 @@ const isStr = (v: unknown): v is string => typeof v === "string" && v.trim() !==
 const isNum = (v: unknown): v is number => typeof v === "number" && Number.isFinite(v);
 const arr = <T>(v: T[] | undefined): T[] => (Array.isArray(v) ? v : []);
 
-/** A package path: relative, no "..", no scheme, no backslash. */
-export function relPathOk(p: unknown): boolean {
-  return (
-    typeof p === "string" && p.length > 0 && p.length <= 200 &&
-    !/^[a-z][a-z0-9+.-]*:/i.test(p) && !p.startsWith("/") && !p.includes("\\") && !p.split("/").includes("..")
-  );
-}
 
 /** What a scene's cues may point at. */
 export function targetsOf(scene: Scene): Set<string> {
@@ -289,7 +285,12 @@ function validateTracks(tracks: Track[] | undefined, q: string, langs: Lang[], e
     if (seen.has(tr.prop)) err("dupTrack", `${tq}.prop`, tr.prop);
     seen.add(tr.prop);
     if (tr.prop === "draw" && type && !["line", "path", "shape"].includes(type)) err("badProp", `${tq}.prop`, `draw on ${type}`);
-    if (tr.prop === "reveal" && type && !["text", "code", "chart"].includes(type)) err("badProp", `${tq}.prop`, `reveal on ${type}`);
+    // Technology packs (other than science) may use reveal, frame, focus and pass on any of their elements.
+    const pack = type && packOf(type) !== undefined && packOf(type) !== "science";
+    if (tr.prop === "reveal" && type && !pack && !["text", "code", "chart", "math", "plot", "net", "arch", "table"].includes(type)) err("badProp", `${tq}.prop`, `reveal on ${type}`);
+    if (tr.prop === "frame" && type && !pack && !["plot", "net"].includes(type)) err("badProp", `${tq}.prop`, `frame on ${type}`);
+    if (tr.prop === "focus" && type && !pack && !["math", "plot", "net", "arch", "table"].includes(type)) err("badProp", `${tq}.prop`, `focus on ${type}`);
+    if (tr.prop === "pass" && type && !pack && !["net", "arch"].includes(type)) err("badProp", `${tq}.prop`, `pass on ${type}`);
     const keys = arr(tr.keys);
     if (!keys.length || keys.length > 50) err("badCount", `${tq}.keys`, "1–50");
     keys.forEach((k, j) => {
@@ -364,6 +365,18 @@ function validateElements(list: Element[] | undefined, p: string, langs: Lang[],
         arr(el.labels).forEach((l, j) => text(l, `${q}.labels[${j}]`, langs, err, warn));
         if (el.w === undefined || el.h === undefined) err("badBox", q, "w and h");
         break;
+      case "math": case "plot": case "net": case "arch": case "table":
+        checkScience(el, q, langs, err, warn, (v, path, req = true) => text(v, path, langs, err, warn, req), TONES);
+        break;
+      default: {
+        // A technology pack's element (until a pack defines its elements, TypeScript sees none here).
+        const pe = el as unknown as { type: string; w?: number; h?: number } & Record<string, unknown>;
+        if (packOf(pe.type)) {
+          if (!inRange(pe.w, 1, 8000) || !inRange(pe.h, 1, 8000)) err("badBox", q, "w and h");
+          checkPackElement(pe, q, { langs, err, warn, text: (v, path, req = true) => text(v, path, langs, err, warn, req), tones: TONES });
+        }
+        break;
+      }
       case "group":
         if (depth >= 3) err("deepGroup", q);
         else n += validateElements(el.children, `${q}.children`, langs, ids, err, warn, depth + 1);

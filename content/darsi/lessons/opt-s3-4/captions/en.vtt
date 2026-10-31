@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.830
+Four clubs, three afternoons, and one
+
+2
+00:00:03.830 --> 00:00:05.730
+student who’s in three of them.
+
+3
+00:00:06.260 --> 00:00:08.480
+Every term we argue about
+
+4
+00:00:08.480 --> 00:00:10.080
+which club meets when.
+
+5
+00:00:10.820 --> 00:00:14.180
+This term, let’s let a solver search.
+
+6
+00:00:15.580 --> 00:00:18.800
+Today: timetables with CP-SAT,
+
+7
+00:00:19.220 --> 00:00:20.740
+from Google’s OR-Tools.
+
+8
+00:00:22.050 --> 00:00:24.310
+Each club gets a variable: its
+
+9
+00:00:24.310 --> 00:00:26.190
+day, from one to three.
+
+10
+00:00:26.660 --> 00:00:28.620
+Each student’s clubs must all
+
+11
+00:00:28.620 --> 00:00:29.840
+be on different days.
+
+12
+00:00:30.540 --> 00:00:32.220
+And the football field is
+
+13
+00:00:32.220 --> 00:00:33.340
+busy on day three.
+
+14
+00:00:33.930 --> 00:00:34.850
+That’s the whole model.
+
+15
+00:00:36.110 --> 00:00:38.650
+In Python, that’s a dictionary of day
+
+16
+00:00:38.650 --> 00:00:41.370
+variables, one all-different rule per
+
+17
+00:00:41.370 --> 00:00:43.730
+student, and one line for the field.
+
+18
+00:00:44.990 --> 00:00:46.850
+The solver doesn’t try all
+
+19
+00:00:46.850 --> 00:00:47.810
+eighty-one plans.
+
+20
+00:00:48.640 --> 00:00:50.560
+It crosses out days that can’t work,
+
+21
+00:00:51.080 --> 00:00:54.140
+guesses only when it’s stuck, and undoes
+
+22
+00:00:54.140 --> 00:00:55.620
+any guess that hits a dead end.
+
+23
+00:00:56.170 --> 00:00:58.090
+That’s propagation and search.
+
+24
+00:00:59.540 --> 00:01:01.300
+In the lab’s school timetable,
+
+25
+00:01:01.620 --> 00:01:04.260
+propagation and search need eight guesses.
+
+26
+00:01:05.020 --> 00:01:07.260
+Plain backtracking needs three
+
+27
+00:01:07.260 --> 00:01:08.500
+hundred and eighty-nine.
+
+28
+00:01:09.190 --> 00:01:10.830
+Add one rule, and the
+
+29
+00:01:10.830 --> 00:01:12.170
+search needs only two.
+
+30
+00:01:13.410 --> 00:01:16.470
+Sometimes the answer is INFEASIBLE, and
+
+31
+00:01:16.470 --> 00:01:18.210
+that’s a proof, not a failure.
+
+32
+00:01:18.900 --> 00:01:22.860
+Sara is in chess, drama and coding, so
+
+33
+00:01:22.860 --> 00:01:24.640
+she needs three different days.
+
+34
+00:01:25.350 --> 00:01:27.630
+Add a rule that no club meets on day
+
+35
+00:01:27.630 --> 00:01:29.850
+three, and only two days are left.
+
+36
+00:01:30.490 --> 00:01:33.430
+The solver proves no timetable exists.
+
+37
+00:01:34.850 --> 00:01:35.250
+Quick check!
+
+38
+00:01:35.870 --> 00:01:38.630
+Our club model has no goal, and
+
+39
+00:01:38.630 --> 00:01:40.250
+the solver says OPTIMAL.
+
+40
+00:01:40.720 --> 00:01:42.700
+What does OPTIMAL mean here?
+
+41
+00:01:43.900 --> 00:01:47.120
+With no goal, OPTIMAL just means a
+
+42
+00:01:47.120 --> 00:01:49.160
+timetable that keeps every rule.
+
+43
+00:01:49.810 --> 00:01:51.770
+Not the fairest, and not the
+
+44
+00:01:51.770 --> 00:01:52.790
+one students would pick.
+
+45
+00:01:53.450 --> 00:01:54.570
+Only what you wrote down.
+
+46
+00:01:55.820 --> 00:01:57.520
+So look at who carries the cost.
+
+47
+00:01:58.310 --> 00:02:00.550
+If drama always gets the last
+
+48
+00:02:00.550 --> 00:02:02.830
+afternoon before the holiday, the
+
+49
+00:02:02.830 --> 00:02:04.490
+same students always miss it.
+
+50
+00:02:05.040 --> 00:02:07.940
+Write fairness down, as a rule like
+
+51
+00:02:07.940 --> 00:02:10.840
+rotating days each term, and solve again.
+
+52
+00:02:12.070 --> 00:02:15.170
+In the app, open “Build the timetable”.
+
+53
+00:02:15.650 --> 00:02:17.550
+Press One step to watch
+
+54
+00:02:17.550 --> 00:02:19.390
+propagation, then Run.
+
+55
+00:02:20.040 --> 00:02:23.080
+Tick the extra rules one at a time, and
+
+56
+00:02:23.080 --> 00:02:25.540
+watch the guesses fall, then the proof.
+
+57
+00:02:26.780 --> 00:02:27.540
+Your turn.
+
+58
+00:02:28.160 --> 00:02:30.760
+Your club model says INFEASIBLE.
+
+59
+00:02:31.320 --> 00:02:32.320
+What should you do first?
+
+60
+00:02:33.710 --> 00:02:36.830
+Find the rules that clash, and ask the
+
+61
+00:02:36.830 --> 00:02:38.690
+people involved which one can bend.
+
+62
+00:02:39.390 --> 00:02:42.190
+Remember: a variable for each choice,
+
+63
+00:02:42.650 --> 00:02:46.070
+a line for each rule, and the solver
+
+64
+00:02:46.070 --> 00:02:47.650
+crosses out and searches.
+
+65
+00:02:48.420 --> 00:02:50.060
+INFEASIBLE is a proof.
+
+66
+00:02:50.720 --> 00:02:52.420
+And OPTIMAL only keeps
+
+67
+00:02:52.420 --> 00:02:53.560
+the rules you wrote.
+
+68
+00:02:54.880 --> 00:02:57.240
+Try it yourself: model your study
+
+69
+00:02:57.240 --> 00:02:59.180
+week, or your family’s chores,
+
+70
+00:02:59.740 --> 00:03:00.940
+with the same few lines.
+
+71
+00:03:01.660 --> 00:03:02.960
+Who gets the worst slot?
+
+72
+00:03:03.750 --> 00:03:06.710
+Add a rule to share it, and solve again.

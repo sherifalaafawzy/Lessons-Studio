@@ -1,0 +1,404 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Old reports",
+            "ar-EG": "تقارير قديمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Train a helper",
+            "ar-EG": "ندرّب مساعد"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "It repeats a secret",
+            "ar-EG": "بيكرر سر"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Patterns: the goal",
+            "ar-EG": "الأنماط: ده الهدف"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "A rare line: stored exactly",
+            "ar-EG": "سطر نادر: بيتحفظ زي ما هو"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "The right prompt brings it back",
+            "ar-EG": "السؤال الصح بيرجّعه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "How familiar does it feel?",
+            "ar-EG": "مألوفة قد إيه؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Was this person's data used?",
+            "ar-EG": "بيانات الشخص ده اتستخدمت؟"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Membership inference",
+            "ar-EG": "استنتاج العضوية"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Private data in training",
+            "ar-EG": "بيانات خاصة في التدريب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "The model",
+            "ar-EG": "النموذج"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Out through the answers",
+            "ar-EG": "بتطلع في الإجابات"
+          },
+          "s": 1,
+          "tone": "danger"
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Not needed? Keep it out",
+            "ar-EG": "مش محتاجها؟ خلّيها برّه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Remove names",
+            "ar-EG": "شيل الأسامي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Remove phone and ID numbers",
+            "ar-EG": "شيل أرقام التليفون والبطاقة"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Remove addresses",
+            "ar-EG": "شيل العناوين"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "trace": {
+        "code": "def redact(text):\n    out = \"\"\n    for c in text:\n        if c.isdigit():\n            c = \"#\"\n        out += c\n    return out\nprint(redact(\"Tel 0803\"))",
+        "s": 0,
+        "play": [
+          0,
+          1
+        ],
+        "focus": [
+          {
+            "s": 0,
+            "line": 5
+          }
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Digits: gone",
+            "ar-EG": "الأرقام: راحت"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Names: still there",
+            "ar-EG": "الأسامي: لسه موجودة"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Addresses and rare details: still there",
+            "ar-EG": "العناوين والتفاصيل النادرة: موجودة"
+          },
+          "s": 2,
+          "o": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read it before you use it",
+            "ar-EG": "اقراه قبل ما تستخدمه"
+          },
+          "s": 2,
+          "o": 4.5
+        }
+      ]
+    },
+    "10": {
+      "table": {
+        "cols": [
+          {
+            "en": "Privacy noise",
+            "ar-EG": "ضوضاء الخصوصية"
+          },
+          {
+            "en": "A canary",
+            "ar-EG": "الكناري"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "No example stands out",
+              "ar-EG": "ولا مثال بيبان لوحده"
+            },
+            {
+              "en": "Plant a made-up secret",
+              "ar-EG": "ازرع سر متألّف"
+            }
+          ],
+          [
+            {
+              "en": "Less useful",
+              "ar-EG": "فايدة أقل"
+            },
+            {
+              "en": "Does it ever come back?",
+              "ar-EG": "هيرجع تاني؟"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "11": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Privacy",
+            "ar-EG": "الخصوصية"
+          },
+          {
+            "en": "The private line",
+            "ar-EG": "السطر الخاص"
+          },
+          {
+            "en": "Attacker's guess",
+            "ar-EG": "تخمين المهاجم"
+          },
+          {
+            "en": "Useful",
+            "ar-EG": "الفايدة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "None",
+              "ar-EG": "مفيش"
+            },
+            "4471 9032",
+            "100%",
+            "44%"
+          ],
+          [
+            {
+              "en": "Most",
+              "ar-EG": "أعلى حاجة"
+            },
+            "—",
+            "46%",
+            "28%"
+          ]
+        ],
+        "ltr": [
+          1,
+          2,
+          3
+        ],
+        "size": 34,
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 0
+          },
+          {
+            "row": 2,
+            "s": 1
+          }
+        ]
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Models can memorise",
+            "ar-EG": "النماذج ممكن تحفظ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The model can be the leak",
+            "ar-EG": "النموذج ممكن يبقى التسريب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Keep it out; redact first",
+            "ar-EG": "خلّيها برّه، وامسح الأول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Test with a canary",
+            "ar-EG": "اختبر بالكناري"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "If it doesn't need to learn it, don't let it see it.",
+        "ar-EG": "لو مش محتاج يتعلمها، متخلّيهوش يشوفها."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "A made-up register",
+            "ar-EG": "كشف متألّف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Black out identifiers",
+            "ar-EG": "اطمس اللي بيعرّف الناس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Swap with another group",
+            "ar-EG": "بدّلوا مع مجموعة تانية"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "What did they miss?",
+            "ar-EG": "إيه اللي فاتهم؟"
+          },
+          "s": 1,
+          "o": 5,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

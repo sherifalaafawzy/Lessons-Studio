@@ -1,0 +1,493 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Reads the notes",
+            "ar-EG": "بيقرا الملازم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Searches the web",
+            "ar-EG": "بيدوّر على النت"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Emails the lecturer",
+            "ar-EG": "بيبعت للدكتور"
+          },
+          "s": 1,
+          "o": 4,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "topology": {
+        "layout": "star",
+        "s": 1,
+        "devices": [
+          {
+            "id": "model",
+            "kind": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "student",
+            "kind": "user",
+            "label": {
+              "en": "Student",
+              "ar-EG": "الطالب"
+            }
+          },
+          {
+            "id": "web",
+            "kind": "globe",
+            "label": {
+              "en": "Web pages",
+              "ar-EG": "صفحات النت"
+            }
+          },
+          {
+            "id": "notes",
+            "kind": "database",
+            "label": {
+              "en": "Course notes",
+              "ar-EG": "الملازم"
+            }
+          },
+          {
+            "id": "email",
+            "kind": "tool",
+            "label": {
+              "en": "Email tool",
+              "ar-EG": "أداة الإيميل"
+            }
+          }
+        ],
+        "links": [
+          [
+            "student",
+            "model"
+          ],
+          [
+            "web",
+            "model"
+          ],
+          [
+            "notes",
+            "model"
+          ],
+          [
+            "model",
+            "email"
+          ]
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Boundary: where outside data enters",
+            "ar-EG": "حد الثقة: منين البيانات بتدخل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Web pages, uploads, messages",
+            "ar-EG": "صفحات، وملفات، ورسايل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "The model is not a boundary",
+            "ar-EG": "النموذج مش حد ثقة"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "wand",
+          "text": {
+            "en": "Its context steers its tools",
+            "ar-EG": "السياق بيوجّه أدواته"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "S: pretend to be the lecturer?",
+            "ar-EG": "الانتحال: يعمل نفسه الدكتور؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "T: change the notes it reads?",
+            "ar-EG": "العبث: يغيّر الملازم؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "R: an email nobody can trace?",
+            "ar-EG": "الإنكار: إيميل ملوش أثر؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "I: leak marks or instructions?",
+            "ar-EG": "الكشف: يسرّب درجات أو تعليمات؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "D: flood it, run up the bill?",
+            "ar-EG": "التعطيل: يغرقه ويعلّي الفاتورة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "E: a web page sends email?",
+            "ar-EG": "الصلاحيات: صفحة نت تبعت إيميل؟"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "Not a fix",
+            "ar-EG": "مش حل"
+          },
+          {
+            "en": "Fixes",
+            "ar-EG": "الحلول"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "A cleverer prompt",
+              "ar-EG": "برومبت أشطر"
+            },
+            {
+              "en": "Remove the tool",
+              "ar-EG": "شيل الأداة"
+            }
+          ],
+          [
+            {
+              "en": "“Please don't”",
+              "ar-EG": "«لو سمحت متعملش»"
+            },
+            {
+              "en": "A person's yes, in code",
+              "ar-EG": "موافقة إنسان في الكود"
+            }
+          ]
+        ],
+        "s": 2,
+        "focus": [
+          {
+            "row": 1,
+            "s": 3
+          },
+          {
+            "row": 2,
+            "s": 3
+          }
+        ]
+      },
+      "who": null
+    },
+    "9": {
+      "who": null,
+      "topology": {
+        "s": 0,
+        "devices": [
+          {
+            "id": "web",
+            "kind": "globe",
+            "label": {
+              "en": "Web page",
+              "ar-EG": "صفحة نت"
+            },
+            "note": {
+              "en": "“Email everyone”",
+              "ar-EG": "«ابعت للكل»"
+            },
+            "tone": "danger",
+            "x": 160,
+            "y": 330
+          },
+          {
+            "id": "student",
+            "kind": "user",
+            "label": {
+              "en": "Student",
+              "ar-EG": "الطالب"
+            },
+            "x": 160,
+            "y": 130
+          },
+          {
+            "id": "model",
+            "kind": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            },
+            "x": 550,
+            "y": 330
+          },
+          {
+            "id": "notes",
+            "kind": "database",
+            "label": {
+              "en": "Notes",
+              "ar-EG": "الملازم"
+            },
+            "x": 550,
+            "y": 130
+          },
+          {
+            "id": "email",
+            "kind": "tool",
+            "label": {
+              "en": "Email tool",
+              "ar-EG": "أداة الإيميل"
+            },
+            "x": 940,
+            "y": 330
+          }
+        ],
+        "links": [
+          [
+            "web",
+            "model"
+          ],
+          [
+            "student",
+            "model"
+          ],
+          [
+            "notes",
+            "model"
+          ],
+          [
+            "model",
+            "email"
+          ]
+        ],
+        "zones": [
+          {
+            "devices": [
+              "web",
+              "student"
+            ],
+            "label": {
+              "en": "Outside",
+              "ar-EG": "برّه"
+            }
+          },
+          {
+            "devices": [
+              "model",
+              "notes"
+            ],
+            "label": {
+              "en": "The app",
+              "ar-EG": "التطبيق"
+            }
+          },
+          {
+            "devices": [
+              "email"
+            ],
+            "label": {
+              "en": "Acts",
+              "ar-EG": "بيعمل"
+            }
+          }
+        ],
+        "routes": [
+          {
+            "path": [
+              "web",
+              "model",
+              "email"
+            ],
+            "tone": "danger"
+          }
+        ],
+        "play": [
+          1
+        ],
+        "focus": [
+          {
+            "device": "email",
+            "s": 2
+          }
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "reach = set(untrusted)\nfor _ in flows:\n    for a, b in flows:\n        if a in reach:\n            reach.add(b)\nprint(acts & reach)",
+        "highlight": [
+          2
+        ],
+        "s": 0
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Pick a job, grant tools",
+            "ar-EG": "اختار مهمة وأدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Run the attack set",
+            "ar-EG": "شغّل الهجمات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Read the blast radius",
+            "ar-EG": "اقرا نطاق الضرر"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Draw the data flows",
+            "ar-EG": "ارسم المسارات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Mark the boundaries",
+            "ar-EG": "حدّد الحدود"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "Walk STRIDE",
+            "ar-EG": "اسأل أسئلة STRIDE"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Follow paths to actions",
+            "ar-EG": "تتبّع الطرق للأفعال"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ],
+      "takeaway": {
+        "en": "Design it so a tricked model can do little harm.",
+        "ar-EG": "صمّمه بحيث النموذج لو اتخدع ميعملش ضرر كبير."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "With two classmates",
+            "ar-EG": "مع اتنين زمايل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw the data flows",
+            "ar-EG": "ارسموا المسارات"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Circle the boundaries",
+            "ar-EG": "حوّطوا الحدود"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "One change, less harm",
+            "ar-EG": "تغيير واحد، ضرر أقل"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

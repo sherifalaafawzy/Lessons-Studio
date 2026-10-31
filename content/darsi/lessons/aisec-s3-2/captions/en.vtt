@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.270
+Our club's agent had ten tools.
+
+2
+00:00:04.040 --> 00:00:05.820
+It only needed two of them.
+
+3
+00:00:06.370 --> 00:00:09.850
+Then a tampered web page tricked it into
+
+4
+00:00:09.850 --> 00:00:13.130
+using a third: it messaged every parent.
+
+5
+00:00:14.440 --> 00:00:18.020
+Today: give an AI agent only the tools it
+
+6
+00:00:18.020 --> 00:00:21.240
+needs, and make it ask before it acts.
+
+7
+00:00:22.500 --> 00:00:25.060
+An AI agent is a model that can
+
+8
+00:00:25.060 --> 00:00:27.980
+use tools: the timetable, the
+
+9
+00:00:27.980 --> 00:00:30.720
+library, reminders, messages.
+
+10
+00:00:31.600 --> 00:00:34.080
+The model decides which tool to call.
+
+11
+00:00:34.660 --> 00:00:36.200
+And as you saw last lesson,
+
+12
+00:00:36.740 --> 00:00:38.400
+the model can be tricked.
+
+13
+00:00:39.600 --> 00:00:41.120
+Tools come in two kinds.
+
+14
+00:00:41.870 --> 00:00:45.030
+Reading tools look things up: at worst, a
+
+15
+00:00:45.030 --> 00:00:46.490
+trick makes them leak something.
+
+16
+00:00:47.230 --> 00:00:50.090
+Acting tools change the world: they
+
+17
+00:00:50.090 --> 00:00:54.090
+send, delete, pay or post, and a
+
+18
+00:00:54.090 --> 00:00:55.710
+trick can turn them against you.
+
+19
+00:00:56.870 --> 00:00:58.810
+That's why we use least privilege.
+
+20
+00:00:59.640 --> 00:01:02.140
+Give an agent the fewest tools its
+
+21
+00:01:02.140 --> 00:01:04.520
+job needs, reading before acting,
+
+22
+00:01:05.020 --> 00:01:06.140
+for the shortest time.
+
+23
+00:01:06.750 --> 00:01:09.410
+Everything it holds is its blast radius:
+
+24
+00:01:09.950 --> 00:01:11.510
+all that an attack could reach.
+
+25
+00:01:12.840 --> 00:01:13.420
+Quick check!
+
+26
+00:01:14.210 --> 00:01:17.930
+An agent plans tomorrow's homework from
+
+27
+00:01:17.930 --> 00:01:20.070
+the timetable and the library.
+
+28
+00:01:20.850 --> 00:01:22.990
+Which tools should it get?
+
+29
+00:01:24.320 --> 00:01:26.800
+Timetable and library only.
+
+30
+00:01:27.410 --> 00:01:29.610
+With no acting tool, a tampered
+
+31
+00:01:29.610 --> 00:01:31.670
+result can make it read or talk,
+
+32
+00:01:32.170 --> 00:01:33.210
+but it can't do anything.
+
+33
+00:01:33.930 --> 00:01:36.590
+Its blast radius is close to zero.
+
+34
+00:01:37.880 --> 00:01:39.920
+Now write it down as an
+
+35
+00:01:39.920 --> 00:01:41.420
+allow-list, in code.
+
+36
+00:01:42.060 --> 00:01:45.020
+For each task, list the tools it may use.
+
+37
+00:01:45.710 --> 00:01:48.870
+Before any tool runs, code checks the
+
+38
+00:01:48.870 --> 00:01:51.350
+list, and anything else is refused,
+
+39
+00:01:51.890 --> 00:01:53.270
+whatever the model asked for.
+
+40
+00:01:54.470 --> 00:01:56.530
+Some tasks really do need an acting
+
+41
+00:01:56.530 --> 00:01:58.450
+tool, like sending a reminder.
+
+42
+00:01:59.150 --> 00:02:01.910
+Then add a second rule: an acting tool
+
+43
+00:02:01.910 --> 00:02:04.690
+runs only after a person says yes.
+
+44
+00:02:05.480 --> 00:02:07.960
+And that yes is checked in code,
+
+45
+00:02:08.400 --> 00:02:09.660
+never left to the model.
+
+46
+00:02:10.880 --> 00:02:13.000
+In the app, pick a job and
+
+47
+00:02:13.000 --> 00:02:13.900
+grant some tools.
+
+48
+00:02:14.590 --> 00:02:16.850
+Then run the set of tampered results
+
+49
+00:02:16.850 --> 00:02:18.670
+and count the harmful actions.
+
+50
+00:02:19.430 --> 00:02:21.410
+Grant only the timetable
+
+51
+00:02:21.410 --> 00:02:23.130
+and library: zero.
+
+52
+00:02:23.770 --> 00:02:26.270
+Add send message, and run it again.
+
+53
+00:02:27.480 --> 00:02:28.240
+Your turn.
+
+54
+00:02:28.860 --> 00:02:31.520
+The reminder task holds the send tool.
+
+55
+00:02:32.070 --> 00:02:34.470
+A tampered result asks it to message
+
+56
+00:02:34.470 --> 00:02:36.910
+everyone, and nobody said yes.
+
+57
+00:02:37.600 --> 00:02:38.940
+What does the check return?
+
+58
+00:02:40.320 --> 00:02:42.320
+Ask first: the tool is
+
+59
+00:02:42.320 --> 00:02:44.420
+allowed, but nobody said yes.
+
+60
+00:02:45.180 --> 00:02:47.700
+Remember: reading tools can leak,
+
+61
+00:02:48.200 --> 00:02:50.340
+and acting tools can be turned.
+
+62
+00:02:50.820 --> 00:02:53.360
+Give the fewest tools, check an
+
+63
+00:02:53.360 --> 00:02:55.660
+allow-list in code, and need a
+
+64
+00:02:55.660 --> 00:02:58.320
+person's yes before anything acts.
+
+65
+00:02:59.620 --> 00:03:01.860
+Try it tomorrow: pick one assistant
+
+66
+00:03:01.860 --> 00:03:04.160
+or app on your phone, or on a
+
+67
+00:03:04.160 --> 00:03:05.420
+family phone with its owner.
+
+68
+00:03:06.070 --> 00:03:08.490
+List what it can do, and mark each
+
+69
+00:03:08.490 --> 00:03:10.650
+power as reading or acting.
+
+70
+00:03:11.270 --> 00:03:12.650
+Switch off one acting
+
+71
+00:03:12.650 --> 00:03:13.910
+power it doesn't need.

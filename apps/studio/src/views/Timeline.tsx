@@ -10,6 +10,7 @@ import { envelope, peaksOf, trackLoading } from "../voice.ts";
 import { ClipWave } from "./Voice.tsx";
 import { t, type Key as Msg } from "../i18n.ts";
 import { GALLERY } from "../presets.ts";
+import { presetByKey, presetScene } from "../packs.ts";
 import { Icon } from "../icons.tsx";
 import { WordPicker, clean } from "./Animations.tsx";
 import { TEMPLATE_NAMES } from "./content.tsx";
@@ -237,10 +238,13 @@ export function Timeline() {
     const id = e.dataTransfer?.getData(PRESET_MIME);
     const at = dropAt;
     setDropAt(null);
+    if (!id || at === null) return;
     const p = GALLERY.find((g) => g.id === id);
-    if (!p || at === null) return;
+    const pack = p ? undefined : presetByKey(id, langs, l.manifest.stage ?? "landscape");
+    if (!p && !pack) return;
     e.preventDefault();
-    insertScene(p.id, (sid) => p.make({ id: sid, langs, stage: l.manifest.stage ?? "landscape" }), at);
+    if (p) insertScene(p.id, (sid) => p.make({ id: sid, langs, stage: l.manifest.stage ?? "landscape" }), at);
+    else insertScene(pack!.id, (sid) => presetScene(pack!, sid), at);
   };
   const marker = clip?.moved ? insertionIndex(clip.at, clips) : dropAt;
   const markerX = marker === null ? null : marker >= clips.length ? x(dur) : x(clips[marker]!.start);
@@ -429,7 +433,7 @@ function MomentEditor({ scene, row, m, onClose }: { scene: Scene; row: Row; m: M
       </div>
       {m.keys.map(({ prop, key }) => (
         <div class="f-grid4" key={prop}>
-          <NumField label={t(`prop_${prop}` as Msg)} value={key.value} step={prop === "opacity" || prop === "draw" || prop === "reveal" || prop === "scale" ? 0.05 : 1}
+          <NumField label={t(`prop_${prop}` as Msg)} value={key.value} step={prop === "opacity" || prop === "draw" || prop === "reveal" || prop === "scale" || prop === "pass" ? 0.05 : 1}
             onCommit={(v) => { if (v !== undefined) save((k, p) => (p === prop ? { ...k, value: v } : k)); }} />
           <Select label={t("ease")} value={key.ease ?? "in-out"} options={EASES.map((e) => [e, t(`ease_${e}` as Msg)] as [Ease, string])}
             onChange={(v) => save((k, p) => (p === prop ? { ...k, ease: v as Ease } : k))} />

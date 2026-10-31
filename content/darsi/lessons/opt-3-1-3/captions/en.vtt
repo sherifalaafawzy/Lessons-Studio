@@ -1,0 +1,365 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.210
+Our school bus leaves at six every
+
+2
+00:00:03.210 --> 00:00:05.430
+morning and visits nine villages.
+
+3
+00:00:06.260 --> 00:00:07.760
+The children from the first
+
+4
+00:00:07.760 --> 00:00:10.040
+village ride for over an hour.
+
+5
+00:00:10.730 --> 00:00:12.330
+Is there a shorter route,
+
+6
+00:00:12.670 --> 00:00:13.530
+and a fairer one?
+
+7
+00:00:14.720 --> 00:00:16.700
+Today: the school bus route,
+
+8
+00:00:17.140 --> 00:00:19.080
+built fast and then improved.
+
+9
+00:00:20.470 --> 00:00:23.390
+Visit every village once and come back,
+
+10
+00:00:23.830 --> 00:00:25.950
+by the shortest route: that’s the
+
+11
+00:00:25.950 --> 00:00:27.470
+travelling salesperson problem.
+
+12
+00:00:28.100 --> 00:00:29.860
+It sounds easy, but the
+
+13
+00:00:29.860 --> 00:00:31.440
+routes multiply fast.
+
+14
+00:00:32.150 --> 00:00:34.030
+Nine villages have a hundred and
+
+15
+00:00:34.030 --> 00:00:35.630
+eighty-one thousand routes.
+
+16
+00:00:36.450 --> 00:00:39.490
+Twenty have more than a billion billion.
+
+17
+00:00:41.000 --> 00:00:43.020
+A quick rule: from wherever the
+
+18
+00:00:43.020 --> 00:00:45.240
+bus is, drive to the closest
+
+19
+00:00:45.240 --> 00:00:47.120
+village it hasn’t visited yet.
+
+20
+00:00:47.750 --> 00:00:49.690
+It’s fast, and usually decent.
+
+21
+00:00:50.480 --> 00:00:53.180
+But it never looks ahead, so its
+
+22
+00:00:53.180 --> 00:00:55.720
+last legs home are often long.
+
+23
+00:00:57.010 --> 00:00:59.190
+In Python, it’s a few lines.
+
+24
+00:00:59.990 --> 00:01:01.310
+Keep a list for the route.
+
+25
+00:01:02.000 --> 00:01:04.280
+While villages are left, add the
+
+26
+00:01:04.280 --> 00:01:05.920
+one closest to the last stop.
+
+27
+00:01:07.070 --> 00:01:08.130
+Then improve it.
+
+28
+00:01:08.750 --> 00:01:11.290
+2-opt takes out two roads, and
+
+29
+00:01:11.290 --> 00:01:12.870
+puts the stretch between them
+
+30
+00:01:12.870 --> 00:01:14.290
+back the other way round.
+
+31
+00:01:14.930 --> 00:01:17.590
+If the route got shorter, keep it, and
+
+32
+00:01:17.590 --> 00:01:19.850
+try again, until no swap helps.
+
+33
+00:01:21.200 --> 00:01:23.380
+In the lab, nearest neighbour drives
+
+34
+00:01:23.380 --> 00:01:25.000
+thirty-four point six kilometres.
+
+35
+00:01:25.790 --> 00:01:28.170
+Three 2-opt swaps bring it down to
+
+36
+00:01:28.170 --> 00:01:30.850
+twenty-eight point six, the best route
+
+37
+00:01:30.850 --> 00:01:31.370
+there is.
+
+38
+00:01:32.000 --> 00:01:34.060
+That’s six kilometres saved,
+
+39
+00:01:34.400 --> 00:01:35.580
+every single morning.
+
+40
+00:01:36.840 --> 00:01:37.320
+Quick check!
+
+41
+00:01:37.960 --> 00:01:40.660
+2-opt has stopped: no swap of two
+
+42
+00:01:40.660 --> 00:01:41.860
+roads makes the route shorter.
+
+43
+00:01:42.480 --> 00:01:44.780
+Is it now the best route of all?
+
+44
+00:01:45.940 --> 00:01:46.620
+Not always.
+
+45
+00:01:47.410 --> 00:01:50.630
+On some maps, 2-opt gets stuck: no
+
+46
+00:01:50.630 --> 00:01:53.010
+single swap helps, but the best
+
+47
+00:01:53.010 --> 00:01:54.110
+route is still shorter.
+
+48
+00:01:54.750 --> 00:01:57.370
+For a few villages, a computer can
+
+49
+00:01:57.370 --> 00:01:59.430
+check every route and be sure.
+
+50
+00:02:00.120 --> 00:02:02.880
+For many, real route planners build a
+
+51
+00:02:02.880 --> 00:02:05.400
+quick route and improve it, just like
+
+52
+00:02:05.400 --> 00:02:05.680
+this.
+
+53
+00:02:06.900 --> 00:02:08.580
+Length isn’t the only measure:
+
+54
+00:02:09.240 --> 00:02:11.220
+the children picked up first ride
+
+55
+00:02:11.220 --> 00:02:12.240
+all the way to school.
+
+56
+00:02:12.920 --> 00:02:14.940
+On the small map in today’s code,
+
+57
+00:02:15.560 --> 00:02:16.900
+nearest neighbour drives
+
+58
+00:02:16.900 --> 00:02:19.140
+twenty-three kilometres, and the
+
+59
+00:02:19.140 --> 00:02:21.440
+first village rides twenty-one of them.
+
+60
+00:02:22.060 --> 00:02:24.240
+The best route is nineteen, with
+
+61
+00:02:24.240 --> 00:02:25.660
+a longest ride of sixteen.
+
+62
+00:02:26.420 --> 00:02:28.380
+Judge a route twice: the
+
+63
+00:02:28.380 --> 00:02:30.400
+total, and the longest ride.
+
+64
+00:02:31.590 --> 00:02:34.170
+In the app, open “The school bus route”.
+
+65
+00:02:34.770 --> 00:02:36.830
+Press Run, and watch nearest
+
+66
+00:02:36.830 --> 00:02:39.510
+neighbour, then the 2-opt swaps.
+
+67
+00:02:40.130 --> 00:02:42.470
+Press “Find the best route” to compare.
+
+68
+00:02:43.210 --> 00:02:46.150
+Then try a new map: does 2-opt
+
+69
+00:02:46.150 --> 00:02:47.390
+always reach the best?
+
+70
+00:02:48.650 --> 00:02:49.150
+Your turn.
+
+71
+00:02:49.760 --> 00:02:51.800
+Route A is two kilometres
+
+72
+00:02:51.800 --> 00:02:54.080
+shorter, but one village’s
+
+73
+00:02:54.080 --> 00:02:55.800
+children ride for fifty minutes.
+
+74
+00:02:56.580 --> 00:02:58.580
+On route B, nobody rides
+
+75
+00:02:58.580 --> 00:02:59.660
+more than thirty-five.
+
+76
+00:03:00.230 --> 00:03:01.090
+How should we choose?
+
+77
+00:03:02.500 --> 00:03:04.680
+Agree a longest-ride limit with
+
+78
+00:03:04.680 --> 00:03:06.600
+the families, then find the
+
+79
+00:03:06.600 --> 00:03:08.140
+shortest route that keeps it.
+
+80
+00:03:08.690 --> 00:03:10.990
+Remember: routes multiply too
+
+81
+00:03:10.990 --> 00:03:12.350
+fast to try them all.
+
+82
+00:03:12.930 --> 00:03:14.450
+Nearest neighbour builds a
+
+83
+00:03:14.450 --> 00:03:17.110
+route, and 2-opt improves it.
+
+84
+00:03:17.680 --> 00:03:19.740
+And judge a route twice: the
+
+85
+00:03:19.740 --> 00:03:21.740
+total, and the longest ride.
+
+86
+00:03:22.980 --> 00:03:25.100
+Try it in class tomorrow: pupils
+
+87
+00:03:25.100 --> 00:03:26.880
+stand as villages around the
+
+88
+00:03:26.880 --> 00:03:29.240
+playground, and one pupil is the bus.
+
+89
+00:03:29.980 --> 00:03:32.640
+Drive nearest neighbour, counting steps.
+
+90
+00:03:33.400 --> 00:03:35.460
+Then find two paths that cross,
+
+91
+00:03:35.960 --> 00:03:37.660
+swap them, and count again.

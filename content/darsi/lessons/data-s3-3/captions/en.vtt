@@ -1,0 +1,237 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.070
+The library list has member numbers.
+
+2
+00:00:03.820 --> 00:00:05.760
+The school list has names.
+
+3
+00:00:06.630 --> 00:00:08.610
+The librarian wants to know who
+
+4
+00:00:08.610 --> 00:00:11.270
+has an overdue book, and neither
+
+5
+00:00:11.270 --> 00:00:12.670
+list can answer alone.
+
+6
+00:00:13.910 --> 00:00:17.130
+Today: joining tables with JOIN and
+
+7
+00:00:17.130 --> 00:00:19.370
+LEFT JOIN, and judging the result.
+
+8
+00:00:20.620 --> 00:00:23.540
+A join puts matching rows side by side.
+
+9
+00:00:24.150 --> 00:00:26.970
+ON says how they match: the loan's
+
+10
+00:00:26.970 --> 00:00:29.630
+member id equals the member's id.
+
+11
+00:00:30.860 --> 00:00:34.160
+A plain JOIN keeps only matches: a
+
+12
+00:00:34.160 --> 00:00:35.920
+member with no loans disappears.
+
+13
+00:00:36.920 --> 00:00:39.620
+LEFT JOIN keeps every row of the first
+
+14
+00:00:39.620 --> 00:00:41.860
+table, and puts NULL where nothing
+
+15
+00:00:41.860 --> 00:00:42.320
+matched.
+
+16
+00:00:43.560 --> 00:00:45.700
+That makes gaps easy to find.
+
+17
+00:00:46.390 --> 00:00:49.210
+Left join members to loans, and keep
+
+18
+00:00:49.210 --> 00:00:51.810
+the rows where the loan is NULL: those
+
+19
+00:00:51.810 --> 00:00:53.330
+members never borrowed a book.
+
+20
+00:00:54.540 --> 00:00:55.120
+Quick check!
+
+21
+00:00:55.910 --> 00:00:59.690
+An inner join of members and loans.
+
+22
+00:01:00.640 --> 00:01:03.900
+What happens to a member who
+
+23
+00:01:03.900 --> 00:01:05.460
+never borrowed a book?
+
+24
+00:01:06.750 --> 00:01:08.690
+They're left out, without a word.
+
+25
+00:01:09.370 --> 00:01:12.390
+If you need everyone, use a left join.
+
+26
+00:01:13.630 --> 00:01:15.490
+Joins can multiply rows too.
+
+27
+00:01:16.100 --> 00:01:18.260
+A member with three loans appears
+
+28
+00:01:18.260 --> 00:01:20.460
+three times, once per loan.
+
+29
+00:01:21.020 --> 00:01:23.720
+That's right for a list of loans, but
+
+30
+00:01:23.720 --> 00:01:25.580
+wrong if you're counting members.
+
+31
+00:01:26.990 --> 00:01:28.990
+So judge every result.
+
+32
+00:01:29.750 --> 00:01:32.750
+Count the rows before and after the join.
+
+33
+00:01:33.430 --> 00:01:34.510
+Did some vanish?
+
+34
+00:01:35.340 --> 00:01:36.060
+Did some double?
+
+35
+00:01:36.700 --> 00:01:38.580
+And does the answer match a few
+
+36
+00:01:38.580 --> 00:01:39.920
+rows you checked by hand?
+
+37
+00:01:41.140 --> 00:01:42.900
+In the app, pupils on one
+
+38
+00:01:42.900 --> 00:01:44.440
+side, marks on the other.
+
+39
+00:01:45.040 --> 00:01:47.520
+Try inner and left joins, and watch
+
+40
+00:01:47.520 --> 00:01:49.880
+who disappears, who appears twice,
+
+41
+00:01:50.400 --> 00:01:52.020
+and how the count of rows and the
+
+42
+00:01:52.020 --> 00:01:53.460
+count of marks drift apart.
+
+43
+00:01:54.860 --> 00:01:55.620
+Your turn.
+
+44
+00:01:56.240 --> 00:02:00.080
+Kofi sat the test and a resit, and he
+
+45
+00:02:00.080 --> 00:02:01.660
+appears twice after the join.
+
+46
+00:02:02.300 --> 00:02:03.100
+Is that a mistake?
+
+47
+00:02:04.560 --> 00:02:07.680
+No: one row per match is how joins
+
+48
+00:02:07.680 --> 00:02:09.440
+work, so count with care.
+
+49
+00:02:10.110 --> 00:02:12.770
+Remember: a join with ON
+
+50
+00:02:12.770 --> 00:02:14.770
+matches rows on a key.
+
+51
+00:02:15.320 --> 00:02:17.100
+Inner drops what doesn't match;
+
+52
+00:02:17.600 --> 00:02:19.120
+left keeps it as NULL.
+
+53
+00:02:19.680 --> 00:02:22.200
+And judge every result: missing
+
+54
+00:02:22.200 --> 00:02:24.020
+rows, or doubled ones?
+
+55
+00:02:25.440 --> 00:02:28.780
+Try it tomorrow: explain a join to someone
+
+56
+00:02:28.780 --> 00:02:32.100
+at home with two sets of cards, names with
+
+57
+00:02:32.100 --> 00:02:34.060
+numbers and books with numbers.
+
+58
+00:02:34.750 --> 00:02:35.530
+Match them up.
+
+59
+00:02:36.130 --> 00:02:38.670
+Who has no book, and who has two?

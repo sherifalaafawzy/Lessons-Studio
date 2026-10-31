@@ -1,6 +1,6 @@
 export * from "./types.ts";
 export { applyOps, rebase, clone, type Applied } from "./apply.ts";
-export { PRESETS, presetKeys, shift } from "./presets.ts";
+export { PRESETS, presetKeys, shift, framesOf } from "./presets.ts";
 export { newLesson, toPackage, check, summarize, type Brief } from "./draft.ts";
 export { mediaObject, mediaResolver, currentTimings, peaksOf, type Peaks } from "./media.ts";
 export { voiceTrack, clipFits, clipObject, sceneText, PEAKS_RATE, type VoiceClip, type VoiceDoc, type VoiceKind, type TrackPart, type VoiceTrack } from "./voice.ts";
@@ -8,3 +8,8 @@ export { lessonDoc, sceneDoc, lessonFromDocs, titleOf, consistent, commit, opId,
 export { MemoryStore, StoreError, type LessonStore, type Actor, type LessonSummary, type Loaded } from "./store.ts";
 export { OP_SCHEMA, OPS_SCHEMA } from "./schema.ts";
 export { getAt, setAt, insertAt, removeAt, parsePointer } from "./pointer.ts";
+export {
+  rng, tx, dataset, trainNet, descend, fitLine, kmeans, trainingPlot, lossPlot, trainingNet, descentPlot, archPreset, ARCH_PRESETS,
+  type Dataset, type TrainOptions, type Trained, type ArchPreset,
+} from "./science.ts";
+export * as packs from "./packs/index.ts";

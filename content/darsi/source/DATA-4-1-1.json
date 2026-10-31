@@ -1,0 +1,305 @@
+{
+ "id": "DATA-4-1-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Pipelines, quality and governance"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Automate the weekly report",
+  "subtitle": "Extract, transform, load, on a schedule, safe to run again",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Automate the weekly report",
+  "length": "3:04",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — computer studies teacher, Kenya (main character)",
+   "Ms Amina Bello — primary teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Three hours every Friday"
+   },
+   {
+    "at": "0:18",
+    "label": "Extract, transform, load"
+   },
+   {
+    "at": "0:47",
+    "label": "Steps fail"
+   },
+   {
+    "at": "0:59",
+    "label": "Safe to run again"
+   },
+   {
+    "at": "1:25",
+    "label": "A step in Python"
+   },
+   {
+    "at": "2:03",
+    "label": "The lab"
+   },
+   {
+    "at": "2:31",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: 12 registers; 3 hours; Counted twice. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Every Friday, our deputy head copies attendance from twelve registers into one report. It takes her three hours. And last month, she counted one class twice.",
+    "icons": [
+     "clipboard",
+     "clock",
+     "repeat"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Automate the weekly report",
+    "voice": "Narrator",
+    "narration": "Today: automating the weekly report, with a pipeline that's safe to run again."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "A flow: Extract → Transform → Load → Report.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A data pipeline",
+    "voice": "Narrator",
+    "narration": "A data pipeline is a set of steps that runs on its own, again and again. Extract: read the data where it lives, like the registers. Transform: clean it and count it. Load: write the result where the report reads it.",
+    "icons": [
+     "clipboard",
+     "cog",
+     "database",
+     "presentation"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "Icon cards: Every evening at 6; Runs on its own; Ready each morning.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "On a schedule",
+    "voice": "Narrator",
+    "narration": "Then put it on a schedule: every evening at six, say. Nobody copies anything by hand, and the report is ready each morning.",
+    "icons": [
+     "clock",
+     "cog",
+     "presentation"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:47",
+    "end": "0:59",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: The connection drops; The database is busy; “?” instead of P or A.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Steps fail",
+    "voice": "Narrator",
+    "narration": "But steps fail. The connection drops halfway. The database is busy. A register says question mark instead of P or A. A good pipeline expects this.",
+    "icons": [
+     "wifi-off",
+     "database",
+     "help"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:14",
+    "beat": "Definition",
+    "visual": "Two columns: “Add the rows” (Rerun: counted twice) and “Replace the day's rows” (Rerun: same answer).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Idempotent: same answer every run",
+    "voice": "Narrator",
+    "narration": "So every run must be safe to repeat. That's called idempotent: run it once or five times, and the answer is the same. The trick: replace the day's rows, don't just add more.",
+    "icons": [
+     "repeat",
+     "sync",
+     "cross",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:25",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Passing fault: retry; Bad data: a person checks.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Retry, or ask a person?",
+    "voice": "Narrator",
+    "narration": "And tell faults apart. A dropped connection passes: just retry. Bad data won't fix itself: set the row aside and ask a person.",
+    "icons": [
+     "sync",
+     "user"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:25",
+    "end": "1:37",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: n = {} … Caption: Present pupils, counted for each class",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The transform, in Python",
+    "voice": "Narrator",
+    "narration": "Here's the transform step in Python. Read the register, and for every P, add one to that class's count. Five lines replace an hour of counting."
+   },
+   {
+    "n": 9,
+    "start": "1:37",
+    "end": "1:48",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which load is safe?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! The load step failed halfway, and the pipeline runs again. Which way of loading is safe?"
+   },
+   {
+    "n": 10,
+    "start": "1:48",
+    "end": "2:03",
+    "beat": "Reveal",
+    "visual": "One big value: 152, Pupils, after a rerun that adds: the school has 90.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Replace, don't add",
+    "voice": "Narrator",
+    "narration": "Replace the day's rows: the rerun first clears Monday, then writes it again. Adding would count two classes twice, and the report would say a hundred and fifty-two pupils came, out of ninety.",
+    "icons": [
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:03",
+    "end": "2:19",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Make a step fail; Retry; Replace: still 90.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: a data pipeline",
+    "voice": "Narrator",
+    "narration": "In the app, make a step fail and press Retry. With “Add the rows”, watch the report climb to a hundred and fifty-two. Switch to replace, and it stays at ninety however often it runs.",
+    "icons": [
+     "warning",
+     "sync",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:19",
+    "end": "2:31",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Will a retry fix it?",
+    "voice": "Amina",
+    "narration": "Your turn. One register says question mark for a pupil, and the transform step stops. Will pressing Retry fix it?"
+   },
+   {
+    "n": 13,
+    "start": "2:31",
+    "end": "2:46",
+    "beat": "Recap",
+    "visual": "Summary card: Extract, transform, load; On a schedule; Safe to run again; Retry, or ask a person. Takeaway bar: Run it twice; get the same answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No: retrying fixes passing faults, not bad data. Remember: a pipeline extracts, transforms and loads, on a schedule. Make every run safe to repeat. And log every run, so you know what happened."
+   },
+   {
+    "n": 14,
+    "start": "2:46",
+    "end": "3:04",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: One group reads; One counts; One writes the board; Rerun: counted twice?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: run a “Human pipeline”. One group reads the registers aloud, one counts, and one writes the counts on the board. Then stop it halfway and run it again: did anyone count a class twice?",
+    "icons": [
+     "mic",
+     "calculator",
+     "pencil",
+     "repeat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:45",
+    "after_scene": 9,
+    "type": "choice",
+    "prompt": "The load step failed halfway and the pipeline runs again. Which way of loading is safe?",
+    "options": [
+     {
+      "text": "Add the rows again",
+      "correct": false
+     },
+     {
+      "text": "Replace the day's rows",
+      "correct": true
+     },
+     {
+      "text": "Load only on Mondays",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — replacing the day's rows gives the same answer however many times it runs: it's idempotent.",
+    "feedback_wrong": "Not quite — adding again writes the first classes twice. Replace the day's rows, so a rerun can't double-count.",
+    "resume_at": "1:48"
+   },
+   {
+    "at": "2:28",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A register says “?” instead of P or A, and the transform step stops. Will a retry fix it?",
+    "options": [
+     {
+      "text": "Yes, retry until it works",
+      "correct": false
+     },
+     {
+      "text": "No: bad data needs a person to check it",
+      "correct": true
+     },
+     {
+      "text": "Yes, if the network is faster",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the data itself is wrong, so every retry fails the same way. Set the row aside and ask the teacher.",
+    "feedback_wrong": "Not quite — retries fix passing faults like a dropped connection. A “?” in the register stays a “?”: a person must check it.",
+    "resume_at": "2:31"
+   }
+  ]
+ }
+}

@@ -1,0 +1,283 @@
+{
+ "id": "DATA-S2-3",
+ "track": "data",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Spreadsheets and clean data"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Blanks, repeats and impossible values",
+  "subtitle": "What a blank means, repeats, impossible values, and a Python check",
+  "minutes": 15,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Blanks, repeats and impossible values",
+  "length": "2:36",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — the science teacher, runs the weather club (main character)",
+   "Ms Salma — the maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, friendly)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A flood on a sunny day"
+   },
+   {
+    "at": "0:19",
+    "label": "Impossible values"
+   },
+   {
+    "at": "0:32",
+    "label": "A blank is not a zero"
+   },
+   {
+    "at": "0:45",
+    "label": "Repeats"
+   },
+   {
+    "at": "1:20",
+    "label": "A Python check"
+   },
+   {
+    "at": "1:44",
+    "label": "The lab"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Icon cards: A flood?; A sunny day; 999: “broken”. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our weather club's chart showed a flood on Tuesday. It was the sunniest day of the week! One gauge had sent nine nine nine: its code for “I'm broken”.",
+    "icons": [
+     "cloudrain",
+     "sun",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Blanks, repeats and impossible values",
+    "voice": "Narrator",
+    "narration": "Today: blanks, repeats and impossible values, and how to catch them."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:32",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: 25 out of 20; 999 mm in a day; Minus 4 pupils; Check, don't average.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Some values are impossible",
+    "voice": "Narrator",
+    "narration": "Some values are impossible. A mark of twenty-five out of twenty. Rain of nine hundred and ninety-nine millimetres in a day. Minus four pupils. They need checking, not averaging.",
+    "icons": [
+     "pencil",
+     "cloudrain",
+     "users",
+     "search"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "Two columns: “0” (Measured: none) and “Blank” (Not measured; Blank → 0: a lie).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A blank is not a zero",
+    "voice": "Narrator",
+    "narration": "A blank is not a zero. Zero means we measured, and there was none. Blank means nobody measured. If you turn blanks into zeros, your average becomes a lie.",
+    "icons": [
+     "check",
+     "help",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:45",
+    "end": "0:57",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: One reading, sent twice; Same station, same day? Remove one.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Repeats: counted twice",
+    "voice": "Narrator",
+    "narration": "Repeats are the same thing counted twice: one reading, sent two times. Remove the copy, but only when it's really the same station, on the same day.",
+    "icons": [
+     "repeat",
+     "check"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:57",
+    "end": "1:07",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "A blank reading?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A rain gauge reading is blank. What should you write in your report?"
+   },
+   {
+    "n": 7,
+    "start": "1:07",
+    "end": "1:20",
+    "beat": "Reveal",
+    "visual": "Icon cards: Zero: not a fact; Average: a guess; Say it's missing.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Say what's missing",
+    "voice": "Narrator",
+    "narration": "That one reading is missing. Zero would be a fact you don't have, and the average would be a guess. Say what's missing, and find out why.",
+    "icons": [
+     "cross",
+     "check"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:20",
+    "end": "1:30",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: marks = [14, \"\", 9, 25, \"\"] … Caption: Prints 2: two marks are missing",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Python counts the blanks",
+    "voice": "Narrator",
+    "narration": "Python can check every value. Loop through the marks, and count the blanks. Then flag any mark below zero or above twenty."
+   },
+   {
+    "n": 9,
+    "start": "1:30",
+    "end": "1:44",
+    "beat": "Examples",
+    "visual": "Numbered steps: In range: 0 to 20; Not empty; No repeats; Failed? Set aside, ask.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Checks: rules to pass",
+    "voice": "Narrator",
+    "narration": "A check is a rule the data must pass. In range: zero to twenty. Not empty. No repeats. When a check fails, set the row aside and ask; don't delete it."
+   },
+   {
+    "n": 10,
+    "start": "1:44",
+    "end": "1:58",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: 4 clubs; Checks one by one; All off: 6 stations!.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: data checks",
+    "voice": "Narrator",
+    "narration": "In the app, four weather clubs send rain readings. Turn on the checks one by one, and watch the rainfall report change. Turn them all off: suddenly there are six stations!",
+    "icons": [
+     "cloudrain",
+     "shield",
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:58",
+    "end": "2:09",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "25 out of 20?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. A mark says twenty-five, but the test was out of twenty. What do you do?"
+   },
+   {
+    "n": 12,
+    "start": "2:09",
+    "end": "2:23",
+    "beat": "Recap",
+    "visual": "Summary card: A blank is not a zero; Find repeats; Catch impossible values; Ask; don't guess. Takeaway bar: Clean data is honest about what's missing.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Check it with the teacher: twenty-five out of twenty can't happen. Remember: a blank is not a zero. Look for repeats and impossible values. And when something's wrong, ask; don't guess."
+   },
+   {
+    "n": 13,
+    "start": "2:23",
+    "end": "2:36",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A table you made; Circle each problem; Write what you'd do. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Okafor",
+    "narration": "Try it tomorrow: check a table you made, or one from class. Circle every blank, every repeat and every impossible value. For each one, write what you'd do.",
+    "icons": [
+     "grid",
+     "search",
+     "pencil"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:04",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "A rain gauge reading is blank. What should you write in your report?",
+    "options": [
+     {
+      "text": "Zero millimetres",
+      "correct": false
+     },
+     {
+      "text": "That one reading is missing",
+      "correct": true
+     },
+     {
+      "text": "The average of the others",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — say it's missing. Zero would be a fact you don't have, and an average would be a guess.",
+    "feedback_wrong": "Not quite — nobody measured, so you don't know it was zero, and an average is only a guess. Say it's missing.",
+    "resume_at": "1:07"
+   },
+   {
+    "at": "2:06",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A mark says 25, but the test was out of 20. What do you do?",
+    "options": [
+     {
+      "text": "Keep it: the pupil did very well",
+      "correct": false
+     },
+     {
+      "text": "Check it with the teacher: it's impossible",
+      "correct": true
+     },
+     {
+      "text": "Change it to 20",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a mark can't be above the maximum, so someone made a mistake. Ask, don't guess.",
+    "feedback_wrong": "Not quite — 25 out of 20 is impossible, and changing it to 20 is a guess. Check it with the teacher.",
+    "resume_at": "2:09"
+   }
+  ]
+ }
+}

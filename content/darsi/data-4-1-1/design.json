@@ -1,0 +1,361 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "12 registers",
+            "ar-EG": "12 كشف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "3 hours",
+            "ar-EG": "3 ساعات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Counted twice",
+            "ar-EG": "اتعدّ مرتين"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "e",
+            "label": {
+              "en": "Extract",
+              "ar-EG": "استخراج"
+            },
+            "icon": "page",
+            "kind": "source"
+          },
+          {
+            "id": "t",
+            "label": {
+              "en": "Transform",
+              "ar-EG": "تحويل"
+            },
+            "icon": "chip"
+          },
+          {
+            "id": "l",
+            "label": {
+              "en": "Load",
+              "ar-EG": "تحميل"
+            },
+            "icon": "data",
+            "kind": "store"
+          },
+          {
+            "id": "r",
+            "label": {
+              "en": "Report",
+              "ar-EG": "التقرير"
+            },
+            "icon": "page"
+          }
+        ],
+        "records": 6,
+        "mode": "stream",
+        "frames": [
+          1,
+          3
+        ],
+        "focus": [
+          {
+            "stage": "e",
+            "s": 1
+          },
+          {
+            "stage": "t",
+            "s": 2
+          },
+          {
+            "stage": "l",
+            "s": 3
+          }
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Every evening at 6",
+            "ar-EG": "كل يوم الساعة 6"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Runs on its own",
+            "ar-EG": "بيشتغل لوحده"
+          },
+          "s": 1
+        },
+        {
+          "icon": "presentation",
+          "tone": "ok",
+          "text": {
+            "en": "Ready each morning",
+            "ar-EG": "جاهز كل صبح"
+          },
+          "s": 1,
+          "o": 2
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "wifi-off",
+          "text": {
+            "en": "The connection drops",
+            "ar-EG": "الاتصال بيقطع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "The database is busy",
+            "ar-EG": "قاعدة البيانات مشغولة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "tone": "danger",
+          "text": {
+            "en": "“?” instead of P or A",
+            "ar-EG": "«؟» بدل ح أو غ"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "table": {
+        "cols": [
+          {
+            "en": "Add the rows",
+            "ar-EG": "زوّد الصفوف"
+          },
+          {
+            "en": "Replace the day's rows",
+            "ar-EG": "استبدل صفوف اليوم"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Rerun: counted twice",
+              "ar-EG": "تعيد: يتعدّ مرتين"
+            },
+            {
+              "en": "Rerun: same answer",
+              "ar-EG": "تعيد: نفس الإجابة"
+            }
+          ]
+        ],
+        "s": 2
+      }
+    },
+    "7": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "reg",
+            "label": {
+              "en": "Registers",
+              "ar-EG": "الكشوف"
+            },
+            "icon": "page",
+            "kind": "source"
+          },
+          {
+            "id": "check",
+            "label": {
+              "en": "Check",
+              "ar-EG": "فحص"
+            },
+            "icon": "shield",
+            "kind": "check"
+          },
+          {
+            "id": "count",
+            "label": {
+              "en": "Counts",
+              "ar-EG": "الأعداد"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "records": 6,
+        "mode": "stream",
+        "bad": [
+          3
+        ],
+        "fix": "aside",
+        "aside": {
+          "en": "A person checks",
+          "ar-EG": "حد يراجع"
+        },
+        "frames": [
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "stage": "check",
+            "s": 2
+          }
+        ]
+      }
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "n = {}\nfor r in csv.DictReader(f):\n    if r[\"status\"] == \"P\":\n        c = r[\"class\"]\n        n[c] = n.get(c, 0) + 1",
+        "highlight": [
+          5
+        ],
+        "s": 1
+      }
+    },
+    "10": {
+      "big": {
+        "value": "152",
+        "label": {
+          "en": "Pupils, after a rerun that adds: the school has 90",
+          "ar-EG": "تلميذ، بعد تشغيل بيزوّد: والمدرسة فيها 90"
+        },
+        "icon": "warning",
+        "s": 1
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Make a step fail",
+            "ar-EG": "خلّي خطوة تفشل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Retry",
+            "ar-EG": "أعد المحاولة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Replace: still 90",
+            "ar-EG": "الاستبدال: لسه 90"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Extract, transform, load",
+            "ar-EG": "استخراج، تحويل، تحميل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "On a schedule",
+            "ar-EG": "بجدول مواعيد"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "text": {
+            "en": "Safe to run again",
+            "ar-EG": "آمن لو اتعاد"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Retry, or ask a person",
+            "ar-EG": "أعد المحاولة، أو اسأل حد"
+          },
+          "s": 0
+        }
+      ],
+      "takeaway": {
+        "en": "Run it twice; get the same answer.",
+        "ar-EG": "شغّله مرتين، تاخد نفس الإجابة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "mic",
+          "text": {
+            "en": "One group reads",
+            "ar-EG": "مجموعة تقرا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "One counts",
+            "ar-EG": "مجموعة تعدّ"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One writes the board",
+            "ar-EG": "مجموعة تكتب"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "Rerun: counted twice?",
+            "ar-EG": "تعيد: اتعدّ مرتين؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

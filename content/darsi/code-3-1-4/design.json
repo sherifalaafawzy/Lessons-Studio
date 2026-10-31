@@ -1,0 +1,337 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Half the class, one answer",
+            "ar-EG": "نص الفصل، نفس الإجابة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "brain",
+          "text": {
+            "en": "A wrong idea",
+            "ar-EG": "فكرة غلط منطقية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Teach straight at it",
+            "ar-EG": "علّم عليها مباشرة"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "aside": "brain",
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "= is the same as ==",
+            "ar-EG": "يساوي واحدة زي اتنين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A variable keeps old values",
+            "ar-EG": "المتغيّر بيفتكر القديم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "range counts to its end",
+            "ar-EG": "range بتعدّ لحد آخرها"
+          },
+          "s": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "It knows what I meant",
+            "ar-EG": "الكمبيوتر فاهم قصدي"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "codediff": {
+        "before": "day = \"Mon\"\nif day == \"Sat\" or \"Sun\":\n    print(\"Weekend\")",
+        "after": "day = \"Mon\"\nif day == \"Sat\" or day == \"Sun\":\n    print(\"Weekend\")",
+        "fix": 4,
+        "run": true,
+        "focus": [
+          {
+            "s": 3,
+            "line": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "x = 3\nx = x + 2\nprint(x)\n# A: 3    B: 5    C: x + 2",
+        "highlight": [
+          4
+        ],
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Chose A: think x can’t change",
+            "ar-EG": "اللي اختاروا A: فاكرين المتغيّر مايتغيّرش"
+          },
+          "s": 1,
+          "o": 1.5,
+          "tone": "danger"
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Chose C",
+            "ar-EG": "اللي اختاروا C"
+          },
+          "s": 2,
+          "tone": "accent"
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "Read the line as text",
+            "ar-EG": "قروا السطر كأنه نص"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Reteach each group",
+            "ar-EG": "اشرح لكل مجموعة"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ],
+      "aside": "users"
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "for i in range(1, 3):\n    print(i)\n# predict: 1, 2, 3?\n# runs:    1, 2",
+        "highlight": [
+          4
+        ],
+        "s": 2
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "cross",
+          "text": {
+            "en": "Tells",
+            "ar-EG": "بتقول"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“Line 4 is wrong.”",
+            "ar-EG": "«السطر الرابع غلط.»"
+          },
+          "s": 1,
+          "o": 0.5
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“You need ==.”",
+            "ar-EG": "«محتاج علامتين.»"
+          },
+          "s": 2,
+          "o": 0.5
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Asks",
+            "ar-EG": "بتسأل"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "“What is total after one turn?”",
+            "ar-EG": "«total بقى كام بعد لفّة؟»"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ],
+      "aside": "cross"
+    },
+    "10": {
+      "aside": "pencil",
+      "list": [
+        {
+          "icon": "star",
+          "text": {
+            "en": "One strength",
+            "ar-EG": "نقطة قوة واحدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "One question",
+            "ar-EG": "سؤال واحد"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "One next step",
+            "ar-EG": "خطوة جاية واحدة"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "clock",
+          "tone": "ok",
+          "text": {
+            "en": "Time to act on it",
+            "ar-EG": "وقت يعملها فيه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Pick OR",
+            "ar-EG": "اختار OR"
+          },
+          "s": 0
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Fill in the truth table",
+            "ar-EG": "املا جدول الحقيقة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "Either side on: on",
+            "ar-EG": "أي جنب شغّال: شغّالة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ],
+      "aside": "zap"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Wrong ideas that make sense",
+            "ar-EG": "أفكار غلط بس منطقية"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Hinge questions find them",
+            "ar-EG": "سؤال المفصلة بيلاقيها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Feedback that asks",
+            "ar-EG": "تغذية راجعة بتسأل"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Teach the idea, not the line",
+            "ar-EG": "علّم الفكرة، مش السطر"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "A wrong answer is information, not a failure.",
+        "ar-EG": "الإجابة الغلط معلومة، مش فشل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A short program, three answers",
+            "ar-EG": "برنامج قصير وتلات إجابات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Fingers up, all at once",
+            "ar-EG": "الصوابع فوق، مرة واحدة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Reteach the biggest group",
+            "ar-EG": "عيد الشرح لأكبر مجموعة"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

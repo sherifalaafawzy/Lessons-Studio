@@ -1,0 +1,373 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Twelve careful pages",
+            "ar-EG": "اتناشر صفحة مظبوطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Read by no one",
+            "ar-EG": "محدش قراها"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Protects nobody",
+            "ar-EG": "مبتحميش حد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Approved tools, and how to add one",
+            "ar-EG": "الأدوات المعتمدة، وإزاي نزوّد واحدة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Data rules: green, amber, red",
+            "ar-EG": "قواعد البيانات: أخضر وأصفر وأحمر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "What needs a person's yes",
+            "ar-EG": "إيه اللي محتاج موافقة إنسان"
+          },
+          "s": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Detectors, fakes, reporting",
+            "ar-EG": "الكواشف، والتزييف، والإبلاغ"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "cloud",
+          "text": {
+            "en": "Where does our data go?",
+            "ar-EG": "بياناتنا بتروح فين؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "What age does it allow?",
+            "ar-EG": "مسموحة لسن كام؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "wand",
+          "text": {
+            "en": "What can it do alone?",
+            "ar-EG": "تقدر تعمل إيه لوحدها؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Who looks after it?",
+            "ar-EG": "مين مسؤول عنها؟"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "5": {
+      "table": {
+        "cols": [
+          {
+            "en": "A rule to remember",
+            "ar-EG": "قاعدة لازم تفتكرها"
+          },
+          {
+            "en": "A check that's enforced",
+            "ar-EG": "ضابط مفروض"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "“Please ask first”",
+              "ar-EG": "«لو سمحت اسأل الأول»"
+            },
+            {
+              "en": "No send without a yes",
+              "ar-EG": "مفيش إرسال من غير موافقة"
+            }
+          ],
+          [
+            {
+              "en": "Forgotten on busy days",
+              "ar-EG": "بتتنسي في الزحمة"
+            },
+            {
+              "en": "Holds every day",
+              "ar-EG": "بيصمد كل يوم"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "A setting or code",
+              "ar-EG": "إعداد أو كود"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      },
+      "who": null
+    },
+    "6": {
+      "who": null,
+      "codediff": {
+        "before": "def may_send(asked, yes):\n    if asked or yes:\n        return True\n    return False\nprint(may_send(True, False))",
+        "after": "def may_send(asked, yes):\n    if asked and yes:\n        return True\n    return False\nprint(may_send(True, False))",
+        "fix": 2,
+        "run": true,
+        "focus": [
+          {
+            "s": 1,
+            "line": 2
+          }
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Tap Approve to send",
+            "ar-EG": "دوس «موافقة» علشان يبعت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Holds every day",
+            "ar-EG": "بتصمد كل يوم"
+          },
+          "s": 1,
+          "o": 2.5,
+          "tone": "ok"
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Posters: for habits",
+            "ar-EG": "البوسترات: للعادات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Like taking names out",
+            "ar-EG": "زي شيل الأسامي"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "languages",
+          "text": {
+            "en": "In your community's languages",
+            "ar-EG": "باللغات اللي الناس بتقراها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Check your data protection law",
+            "ar-EG": "راجعها على قانون حماية البيانات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Review each term",
+            "ar-EG": "مراجعة كل ترم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "And after an incident",
+            "ar-EG": "وبعد أي مشكلة"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "wand",
+          "text": {
+            "en": "Pick a job",
+            "ar-EG": "اختار مهمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Grant tools",
+            "ar-EG": "ادّي أدوات"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Count the damage",
+            "ar-EG": "عدّ الضرر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Only what's needed",
+            "ar-EG": "اللي محتاجه بس"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "One page, plain words",
+            "ar-EG": "صفحة واحدة، كلام بسيط"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Questions before approval",
+            "ar-EG": "أسئلة قبل الموافقة"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Checks the system enforces",
+            "ar-EG": "ضوابط النظام بيفرضها"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "text": {
+            "en": "Review each term",
+            "ar-EG": "مراجعة كل ترم"
+          },
+          "s": 1,
+          "o": 5
+        }
+      ],
+      "takeaway": {
+        "en": "If it matters, make the system enforce it.",
+        "ar-EG": "لو حاجة مهمة، خلّي النظام هو اللي يفرضها."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Two colleagues, two pupils",
+            "ar-EG": "زميلين وتلميذين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Draft one page",
+            "ar-EG": "مسودة في صفحة"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Remember or enforce?",
+            "ar-EG": "تتفكر ولا تتفرض؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "settings",
+          "text": {
+            "en": "One rule into a setting",
+            "ar-EG": "قاعدة تبقى إعداد"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "The wrong week",
+            "ar-EG": "الأسبوع الغلط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "It asked first",
+            "ar-EG": "سألني الأول"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Reads",
+            "ar-EG": "بيقرا"
+          },
+          {
+            "en": "Acts",
+            "ar-EG": "بيعمل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Weather",
+              "ar-EG": "الطقس"
+            },
+            {
+              "en": "Sends a message",
+              "ar-EG": "يبعت رسالة"
+            }
+          ],
+          [
+            {
+              "en": "Timetable",
+              "ar-EG": "الجدول"
+            },
+            {
+              "en": "Sets a reminder",
+              "ar-EG": "يظبط تذكير"
+            }
+          ],
+          [
+            {
+              "en": "Library",
+              "ar-EG": "المكتبة"
+            },
+            {
+              "en": "Changes a record",
+              "ar-EG": "يغيّر سجل"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "It shows exactly what it will do",
+            "ar-EG": "يوريك هيعمل إيه بالظبط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "It waits",
+            "ar-EG": "ويستنى"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "You read every word",
+            "ar-EG": "إنت تقرا كل كلمة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "You say yes or no",
+            "ar-EG": "وتقول آه أو لأ"
+          },
+          "s": 2,
+          "o": 1.2
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "agent",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "Message tool",
+              "ar-EG": "أداة الرسايل"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "agent",
+            "text": {
+              "en": "Message Mrs Mensah",
+              "ar-EG": "ابعت لأستاذة مينسا"
+            }
+          },
+          {
+            "from": "agent",
+            "to": "you",
+            "text": {
+              "en": "Shall I send this? Yes or no",
+              "ar-EG": "أبعت دي؟ آه ولا لأ"
+            },
+            "reply": true,
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "agent",
+            "text": {
+              "en": "No",
+              "ar-EG": "لأ"
+            },
+            "tone": "danger"
+          }
+        ],
+        "notes": [
+          {
+            "after": 3,
+            "over": [
+              "tool"
+            ],
+            "text": {
+              "en": "Nothing is sent",
+              "ar-EG": "مفيش حاجة اتبعتت"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          3
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Learned behaviour can fail",
+            "ar-EG": "اللي اتعلمه ممكن يفشل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "tone": "danger",
+          "text": {
+            "en": "“Yes, send it” alone: it invents one",
+            "ar-EG": "آه ابعتها لوحدها: بيألّف رسالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "The app blocks it in code",
+            "ar-EG": "التطبيق بيوقفها بالكود"
+          },
+          "s": 2
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "And you decide",
+            "ar-EG": "وإنت اللي تقرر"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read only: look things up",
+            "ar-EG": "قراية بس: يدوّر وبس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Ask first: after your yes",
+            "ar-EG": "يسأل الأول: بعد موافقتك"
+          },
+          "s": 2
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Allowed: small, safe jobs",
+            "ar-EG": "مسموح: مهام صغيرة آمنة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Not sure? Say no",
+            "ar-EG": "مش متأكد؟ قول لأ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read every word",
+            "ar-EG": "اقرا كل كلمة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Sent can’t be unsent",
+            "ar-EG": "اللي اتبعت ميرجعش"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "key",
+          "tone": "danger",
+          "text": {
+            "en": "Passwords and accounts",
+            "ar-EG": "الباسورد والحسابات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Pupils’ private details",
+            "ar-EG": "بيانات التلاميذ الخاصة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Decisions about a child",
+            "ar-EG": "القرارات اللي تخص طفل"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Ask first: no, then yes",
+            "ar-EG": "اسأل أولًا: لأ، وبعدين آه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read only: a reminder?",
+            "ar-EG": "القراءة فقط: تذكير؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "accent",
+          "text": {
+            "en": "Code check off, then on",
+            "ar-EG": "مراجعة الكود: اقفلها وافتحها"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Acting needs your yes",
+            "ar-EG": "الفعل محتاج موافقتك"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The app checks in code too",
+            "ar-EG": "التطبيق بيراجع بالكود كمان"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Some things stay with people",
+            "ar-EG": "حاجات بتفضل مع البشر"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The agent proposes; a person decides.",
+        "ar-EG": "الوكيل يقترح، والإنسان يقرر."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Yes or no?”",
+            "ar-EG": "العبوا: آه ولا لأ؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "The agent shows a message",
+            "ar-EG": "الوكيل يوري رسالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read it, then vote",
+            "ar-EG": "اقروها، وبعدين صوّتوا"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "One hides a mistake",
+            "ar-EG": "واحدة فيها غلطة مستخبية"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

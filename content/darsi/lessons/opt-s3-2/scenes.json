@@ -1,0 +1,6063 @@
+{
+ "version": "0.2",
+ "scenes": [
+  {
+   "id": "s01",
+   "template": "canvas",
+   "narration": {
+    "en": "A map app finds the fastest way across a whole country in a blink. It doesn’t try every route: there are far too many. So how does it know it found the shortest?",
+    "ar-EG": "تطبيق الخرايط بيلاقي أسرع طريق في بلد كامل في لمح البصر. وهو مش بيجرّب كل الطرق: دول كتير قوي. طب إزاي بيعرف إنه لقى الأقصر؟"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "bubble",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 70,
+      "w": 710,
+      "h": 200,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 28,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "quote",
+      "type": "text",
+      "x": 124,
+      "y": 100,
+      "w": 642,
+      "size": 34,
+      "weight": 700,
+      "text": {
+       "en": "A map app finds the fastest way across a whole country in a blink.",
+       "ar-EG": "تطبيق الخرايط بيلاقي أسرع طريق في بلد كامل في لمح البصر."
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 1.6
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 300,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "phone",
+      "x": 104,
+      "y": 314,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 311,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A map app, in a blink",
+       "ar-EG": "تطبيق خرايط، في لمح البصر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 351
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.45
+          },
+          "value": 311,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 403,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "map",
+      "x": 104,
+      "y": 417,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 414,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Far too many routes",
+       "ar-EG": "طرق كتير قوي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 454
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.45
+          },
+          "value": 414,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "doesn’t",
+            "ar-EG": "وهو"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 507,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "help",
+      "x": 104,
+      "y": 521,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 518,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "How does it know?",
+       "ar-EG": "بيعرف إزاي؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 558
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.45
+          },
+          "value": 518,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "how",
+            "ar-EG": "إزاي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/okafor_curious.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "map",
+            "ar-EG": "تطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "okafor"
+  },
+  {
+   "id": "s02",
+   "template": "title-hook",
+   "narration": {
+    "en": "Today: shortest paths, the way Dijkstra found them, in Python.",
+    "ar-EG": "النهارده: أقصر الطرق، بالطريقة اللي لاقاها بيها ديكسترا، ببايثون."
+   },
+   "transition": {
+    "type": "zoom"
+   },
+   "content": {
+    "kicker": {
+     "en": "Let the computer search: knapsack, routes, timetables",
+     "ar-EG": "خلّي الكمبيوتر يدوّر: الحقيبة والطرق والجداول"
+    },
+    "title": {
+     "en": "Shortest paths",
+     "ar-EG": "أقصر الطرق"
+    },
+    "hook": {
+     "en": "Dijkstra’s method, in Python",
+     "ar-EG": "طريقة ديكسترا، ببايثون"
+    },
+    "icon": "target"
+   },
+   "overlays": [
+    {
+     "id": "mark",
+     "type": "image",
+     "src": "@lib/v1/brand/darsi-mark.svg",
+     "x": 56,
+     "y": 40,
+     "w": 70,
+     "h": 72,
+     "fit": "contain",
+     "anim": [
+      {
+       "prop": "scale",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.65,
+         "value": 1,
+         "ease": "back"
+        }
+       ]
+      },
+      {
+       "prop": "opacity",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.35,
+         "value": 1,
+         "ease": "out"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "template": "canvas",
+   "narration": {
+    "en": "Draw places as dots and roads as lines, each with its length. In Python, a dictionary holds the map: each place points to its neighbours and how far away they are.",
+    "ar-EG": "ارسم الأماكن نقط والطرق خطوط، وكل طريق عليه طوله. وببايثون، القاموس بيشيل الخريطة: كل مكان بيشاور على جيرانه وعلى بعدهم قد إيه."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "A map as a dictionary",
+       "ar-EG": "الخريطة كقاموس"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Draw",
+            "ar-EG": "ارسم"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Draw",
+            "ar-EG": "ارسم"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Draw",
+            "ar-EG": "ارسم"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Draw",
+            "ar-EG": "ارسم"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 1100,
+      "h": 253,
+      "size": 41,
+      "code": "roads = {\"home\": {\"tala\": 4, \"kesi\": 1},\n         \"kesi\": {\"tala\": 2, \"school\": 7},\n         \"tala\": {\"school\": 3},\n         \"school\": {}}",
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "وببايثون"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "وببايثون"
+           },
+           "offset": 3.95
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "template": "canvas",
+   "narration": {
+    "en": "Dijkstra’s idea, from nineteen fifty-six: give every place a number, the shortest way found so far. Home is zero; the others start very large. Each turn, settle the waiting place with the smallest number. Then check its roads: can they make a neighbour’s number smaller?",
+    "ar-EG": "فكرة ديكسترا، من سنة ألف تسعمية ستة وخمسين: ادّي كل مكان رقم، هو أقصر طريق لقيته لحد دلوقتي. البيت صفر، والباقي بيبدأوا بأرقام كبيرة قوي. وفي كل دور، ثبّت المكان المستني اللي رقمه أصغر حاجة. وبعدين بص على طرقه: تقدر تصغّر رقم أي جار؟"
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Settle the closest first",
+       "ar-EG": "ثبّت الأقرب الأول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "graph",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "graph",
+      "nodes": [
+       {
+        "x": 1,
+        "y": 5,
+        "label": {
+         "en": "Home",
+         "ar-EG": "البيت"
+        },
+        "at": "b"
+       },
+       {
+        "x": 3,
+        "y": 8.2,
+        "label": {
+         "en": "Tala",
+         "ar-EG": "تالا"
+        },
+        "at": "t"
+       },
+       {
+        "x": 4,
+        "y": 4.6,
+        "label": {
+         "en": "Bora",
+         "ar-EG": "بورا"
+        },
+        "at": "b"
+       },
+       {
+        "x": 5.4,
+        "y": 8.6,
+        "label": {
+         "en": "Kesi",
+         "ar-EG": "كيسي"
+        },
+        "at": "t"
+       },
+       {
+        "x": 6.6,
+        "y": 6.4,
+        "label": {
+         "en": "Mina",
+         "ar-EG": "مينا"
+        },
+        "at": "r"
+       },
+       {
+        "x": 3.8,
+        "y": 1.5,
+        "label": {
+         "en": "Rubi",
+         "ar-EG": "روبي"
+        },
+        "at": "b"
+       },
+       {
+        "x": 7.2,
+        "y": 2.4,
+        "label": {
+         "en": "Sana",
+         "ar-EG": "سانا"
+        },
+        "at": "b"
+       },
+       {
+        "x": 9,
+        "y": 5,
+        "label": {
+         "en": "School",
+         "ar-EG": "المدرسة"
+        },
+        "at": "b",
+        "shape": "square"
+       }
+      ],
+      "edges": [
+       {
+        "a": 0,
+        "b": 1,
+        "w": 4
+       },
+       {
+        "a": 0,
+        "b": 2,
+        "w": 5
+       },
+       {
+        "a": 0,
+        "b": 5,
+        "w": 6
+       },
+       {
+        "a": 1,
+        "b": 3,
+        "w": 3
+       },
+       {
+        "a": 1,
+        "b": 2,
+        "w": 5
+       },
+       {
+        "a": 2,
+        "b": 4,
+        "w": 6
+       },
+       {
+        "a": 2,
+        "b": 5,
+        "w": 4
+       },
+       {
+        "a": 2,
+        "b": 7,
+        "w": 10,
+        "curve": 0.1,
+        "pos": 0.3
+       },
+       {
+        "a": 3,
+        "b": 4,
+        "w": 2
+       },
+       {
+        "a": 3,
+        "b": 7,
+        "w": 8,
+        "curve": -0.22
+       },
+       {
+        "a": 4,
+        "b": 7,
+        "w": 4
+       },
+       {
+        "a": 4,
+        "b": 6,
+        "w": 5
+       },
+       {
+        "a": 5,
+        "b": 6,
+        "w": 5
+       },
+       {
+        "a": 6,
+        "b": 7,
+        "w": 3
+       }
+      ],
+      "fit": "fill",
+      "frames": [
+       {
+        "nodes": "f.......",
+        "edges": "..............",
+        "vals": [
+         0,
+         "∞",
+         "∞",
+         "∞",
+         "∞",
+         "∞",
+         "∞",
+         "∞"
+        ],
+        "note": {
+         "en": "Start at Home: 0 km; the rest ∞",
+         "ar-EG": "نبدأ من البيت: 0 كيلو، والباقي ∞"
+        }
+       },
+       {
+        "nodes": "cff..f..",
+        "edges": "ccc...........",
+        "vals": [
+         0,
+         4,
+         5,
+         "∞",
+         "∞",
+         6,
+         "∞",
+         "∞"
+        ],
+        "note": {
+         "en": "Settle Home: 0 km; check its roads",
+         "ar-EG": "نثبّت البيت: 0 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vcff.f..",
+        "edges": "...cc.........",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         "∞",
+         6,
+         "∞",
+         "∞"
+        ],
+        "note": {
+         "en": "Settle Tala: 4 km; check its roads",
+         "ar-EG": "نثبّت تالا: 4 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvcfff.f",
+        "edges": "t....ccc......",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         11,
+         6,
+         "∞",
+         15
+        ],
+        "note": {
+         "en": "Settle Bora: 5 km; check its roads",
+         "ar-EG": "نثبّت بورا: 5 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvffcff",
+        "edges": "tt..........c.",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         11,
+         6,
+         11,
+         15
+        ],
+        "note": {
+         "en": "Settle Rubi: 6 km; check its roads",
+         "ar-EG": "نثبّت روبي: 6 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvcfvff",
+        "edges": "ttt.....cc....",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         9,
+         6,
+         11,
+         15
+        ],
+        "note": {
+         "en": "Settle Kesi: 7 km; check its roads",
+         "ar-EG": "نثبّت كيسي: 7 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvvcvff",
+        "edges": "tttt......cc..",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         9,
+         6,
+         11,
+         13
+        ],
+        "note": {
+         "en": "Settle Mina: 9 km; check its roads",
+         "ar-EG": "نثبّت مينا: 9 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvvvvcf",
+        "edges": "tttt....t....c",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         9,
+         6,
+         11,
+         13
+        ],
+        "note": {
+         "en": "Settle Sana: 11 km; check its roads",
+         "ar-EG": "نثبّت سانا: 11 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvvvvvc",
+        "edges": "tttt....t...t.",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         9,
+         6,
+         11,
+         13
+        ],
+        "note": {
+         "en": "School is settled: 13 km",
+         "ar-EG": "ثبّتنا المدرسة: 13 كيلو"
+        }
+       },
+       {
+        "nodes": "ppvppvvp",
+        "edges": "p..p....p.p...",
+        "vals": [
+         0,
+         4,
+         5,
+         7,
+         9,
+         6,
+         11,
+         13
+        ],
+        "path": [
+         0,
+         1,
+         3,
+         4,
+         7
+        ],
+        "total": 13,
+        "note": {
+         "en": "Home → Tala → Kesi → Mina → School",
+         "ar-EG": "البيت ← تالا ← كيسي ← مينا ← المدرسة"
+        }
+       }
+      ],
+      "totalLabel": {
+       "en": "Shortest way",
+       "ar-EG": "أقصر طريق"
+      },
+      "unit": {
+       "en": "km",
+       "ar-EG": "كيلو"
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 0.3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Dijkstra’s",
+            "ar-EG": "فكرة"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Each",
+            "ar-EG": "وفي"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Then",
+            "ar-EG": "وبعدين"
+           },
+           "offset": 2.5
+          },
+          "value": 9,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "template": "canvas",
+   "narration": {
+    "en": "Why can you settle the smallest? Every other way to it would pass through a place that is already further away. With no negative road lengths, nothing can ever make it shorter.",
+    "ar-EG": "ليه تقدر تثبّت الأصغر؟ لأن أي طريق تاني ليه هيعدّي على مكان بعيد أصلًا أكتر منه. وطول ما مفيش طرق بأطوال بالسالب، مفيش حاجة هتقصّره أبدًا."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Why the smallest is safe",
+       "ar-EG": "ليه الأصغر مضمون"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "lock",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "The smallest can’t shrink",
+       "ar-EG": "الأصغر مش هيصغر تاني"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Why",
+            "ar-EG": "تقدر"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "map",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Other ways pass further places",
+       "ar-EG": "أي طريق تاني بيعدّي على أماكن أبعد"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Every",
+            "ar-EG": "لأن"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "warning",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "No negative road lengths",
+       "ar-EG": "مفيش أطوال بالسالب"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "وطول"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "template": "canvas",
+   "narration": {
+    "en": "On our small map, home is zero. Kesi gets one and Tala four. Settle Kesi: through Kesi, Tala drops to three, and school gets eight. Settle Tala: school drops to six. The straight-looking way, home to Tala to school, is seven.",
+    "ar-EG": "على خريطتنا الصغيرة، البيت صفر. كيسي ياخد واحد، وتالا أربعة. ثبّت كيسي: من خلال كيسي، تالا تنزل لتلاتة، والمدرسة تاخد تمانية. ثبّت تالا: المدرسة تنزل لستة. والطريق اللي شكله مستقيم، من البيت لتالا للمدرسة، طوله سبعة."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "On our small map",
+       "ar-EG": "على خريطتنا الصغيرة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "graph",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "graph",
+      "nodes": [
+       {
+        "x": 1,
+        "y": 3,
+        "label": {
+         "en": "Home",
+         "ar-EG": "البيت"
+        },
+        "at": "b"
+       },
+       {
+        "x": 3.5,
+        "y": 1,
+        "label": {
+         "en": "Kesi",
+         "ar-EG": "كيسي"
+        },
+        "at": "b"
+       },
+       {
+        "x": 3.5,
+        "y": 5,
+        "label": {
+         "en": "Tala",
+         "ar-EG": "تالا"
+        },
+        "at": "t"
+       },
+       {
+        "x": 6.5,
+        "y": 3,
+        "label": {
+         "en": "School",
+         "ar-EG": "المدرسة"
+        },
+        "at": "b",
+        "shape": "square"
+       }
+      ],
+      "edges": [
+       {
+        "a": 0,
+        "b": 2,
+        "w": 4
+       },
+       {
+        "a": 0,
+        "b": 1,
+        "w": 1
+       },
+       {
+        "a": 1,
+        "b": 2,
+        "w": 2
+       },
+       {
+        "a": 1,
+        "b": 3,
+        "w": 7
+       },
+       {
+        "a": 2,
+        "b": 3,
+        "w": 3
+       }
+      ],
+      "fit": "fill",
+      "unit": {
+       "en": "km",
+       "ar-EG": "كيلو"
+      },
+      "frames": [
+       {
+        "nodes": "f...",
+        "edges": ".....",
+        "vals": [
+         0,
+         "∞",
+         "∞",
+         "∞"
+        ],
+        "note": {
+         "en": "Start at Home: 0 km; the rest ∞",
+         "ar-EG": "نبدأ من البيت: 0 كيلو، والباقي ∞"
+        }
+       },
+       {
+        "nodes": "cff.",
+        "edges": "cc...",
+        "vals": [
+         0,
+         1,
+         4,
+         "∞"
+        ],
+        "note": {
+         "en": "Settle Home: 0 km; check its roads",
+         "ar-EG": "نثبّت البيت: 0 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vcff",
+        "edges": "..cc.",
+        "vals": [
+         0,
+         1,
+         3,
+         8
+        ],
+        "note": {
+         "en": "Settle Kesi: 1 km; check its roads",
+         "ar-EG": "نثبّت كيسي: 1 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvcf",
+        "edges": ".t..c",
+        "vals": [
+         0,
+         1,
+         3,
+         6
+        ],
+        "note": {
+         "en": "Settle Tala: 3 km; check its roads",
+         "ar-EG": "نثبّت تالا: 3 كيلو، ونشوف طرقها"
+        }
+       },
+       {
+        "nodes": "vvvc",
+        "edges": ".tt..",
+        "vals": [
+         0,
+         1,
+         3,
+         6
+        ],
+        "note": {
+         "en": "School is settled: 6 km",
+         "ar-EG": "ثبّتنا المدرسة: 6 كيلو"
+        }
+       },
+       {
+        "nodes": "pppp",
+        "edges": ".pp.p",
+        "vals": [
+         0,
+         1,
+         3,
+         6
+        ],
+        "path": [
+         0,
+         1,
+         2,
+         3
+        ],
+        "total": 6,
+        "note": {
+         "en": "Home → Kesi → Tala → School",
+         "ar-EG": "البيت ← كيسي ← تالا ← المدرسة"
+        }
+       }
+      ],
+      "totalLabel": {
+       "en": "Shortest way",
+       "ar-EG": "أقصر طريق"
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 0.3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "small",
+            "ar-EG": "على"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "one",
+            "ar-EG": "ياخد"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "The",
+            "ar-EG": "والطريق"
+           }
+          },
+          "value": 5,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07",
+   "template": "canvas",
+   "narration": {
+    "en": "Here it is in Python. While places are waiting, take the one with the smallest number, and remove it. Then relax its roads: keep whichever is smaller, the old number or the new way.",
+    "ar-EG": "ودي هي ببايثون. طول ما فيه أماكن مستنية، خد اللي رقمه أصغر حاجة، وشيله. وبعدين راجع طرقه: خلّي الأصغر، الرقم القديم ولا الطريق الجديد."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Dijkstra in Python",
+       "ar-EG": "ديكسترا ببايثون"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Here",
+            "ar-EG": "ودي"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Here",
+            "ar-EG": "ودي"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Here",
+            "ar-EG": "ودي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Here",
+            "ar-EG": "ودي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 1100,
+      "h": 371,
+      "size": 43,
+      "code": "while todo:\n    p = min(todo, key=lambda q: dist[q])\n    todo.remove(p)\n    for q, km in roads[p].items():\n        dist[q] = min(dist[q],\n                      dist[p] + km)",
+      "highlight": [
+       2
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "While",
+            "ar-EG": "طول"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "While",
+            "ar-EG": "طول"
+           },
+           "offset": 4
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s08",
+   "template": "quiz",
+   "narration": {
+    "en": "Quick check! Two places are waiting: Tala at seven, and Rubi at five. Which one do you settle next?",
+    "ar-EG": "سؤال سريع! فيه مكانين مستنيين: تالا بسبعة، وروبي بخمسة. تثبّت مين الأول؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Which one next?",
+     "ar-EG": "مين اللي بعده؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s08-check",
+    "prompt": {
+     "en": "Tala is waiting at 7 and Rubi at 5. Which do you settle next?",
+     "ar-EG": "تالا مستنية بـ 7 وروبي بـ 5. تثبّت مين الأول؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Tala: it was found first",
+       "ar-EG": "تالا: اتلقت الأول"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Rubi: it has the smallest number",
+       "ar-EG": "روبي: رقمها الأصغر"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Both at once",
+       "ar-EG": "الاتنين مع بعض"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — settle the smallest: nothing can make Rubi’s 5 any smaller.",
+     "ar-EG": "صح — ثبّت الأصغر: مفيش حاجة تصغّر الخمسة بتوع روبي."
+    }
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s09",
+   "template": "canvas",
+   "narration": {
+    "en": "Rubi, the smallest. Nothing can make its number smaller now, because every other way passes through places at seven or more. Settling Tala first could freeze a number that is still too big.",
+    "ar-EG": "روبي، الأصغر. مفيش حاجة تقدر تصغّر رقمها دلوقتي، لأن أي طريق تاني بيعدّي على أماكن رقمها سبعة أو أكتر. وإنك تثبّت تالا الأول ممكن يجمّد رقم لسه كبير."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "badge",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 90,
+      "y": 60,
+      "w": 72,
+      "h": 72,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 186,
+      "y": 66,
+      "w": 1004,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Smallest first: Rubi",
+       "ar-EG": "الأصغر الأول: روبي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "circlecheck",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Rubi, at 5: the smallest",
+       "ar-EG": "روبي، بـ5: الأصغر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Rubi",
+            "ar-EG": "روبي"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "lock",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Nothing can make it smaller",
+       "ar-EG": "مفيش حاجة تصغّره"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Nothing",
+            "ar-EG": "مفيش"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "warning",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Tala first: maybe frozen too big",
+       "ar-EG": "تالا الأول: ممكن يتجمّد كبير"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Settling",
+            "ar-EG": "وإنك"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s10",
+   "template": "canvas",
+   "narration": {
+    "en": "In the lab’s map, the shortest way to school is thirteen kilometres, through Tala, Kesi and Mina. The road that looks straightest, through Bora, is fifteen. Flood the bridge between Kesi and Mina, and it becomes fourteen, by Rubi and Sana.",
+    "ar-EG": "في خريطة المعمل، أقصر طريق للمدرسة تلتاشر كيلو، عن طريق تالا وكيسي ومينا. والطريق اللي شكله أكتر استقامة، عن طريق بورا، خمستاشر. ولو الكوبري اللي بين كيسي ومينا غرق، يبقى أربعتاشر، عن طريق روبي وسانا."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "13 km, then 14 km",
+       "ar-EG": "13 كيلو، وبعدين 14"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "table",
+      "x": 90,
+      "y": 210,
+      "w": 1100,
+      "h": 400,
+      "type": "table",
+      "size": 40,
+      "cols": [
+       {
+        "en": "Shortest",
+        "ar-EG": "الأقصر"
+       },
+       {
+        "en": "Via Bora",
+        "ar-EG": "عن طريق بورا"
+       },
+       {
+        "en": "Bridge flooded",
+        "ar-EG": "الكوبري غرقان"
+       }
+      ],
+      "rows": [
+       [
+        "13",
+        "15",
+        "14"
+       ]
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "lab’s",
+            "ar-EG": "خريطة"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11",
+   "template": "canvas",
+   "narration": {
+    "en": "Shortest for whom? A new footbridge might save one village twenty minutes and another nothing. When a town chooses which road to fix, run the shortest paths from every home, and see who gains.",
+    "ar-EG": "الأقصر لمين؟ كوبري مشاة جديد ممكن يوفّر على قرية عشرين دقيقة وعلى قرية تانية ولا حاجة. ولما مدينة تختار تصلّح أنهي طريق، شغّل أقصر الطرق من كل بيت، وشوف مين اللي استفاد."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Shortest for whom?",
+       "ar-EG": "الأقصر لمين؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "for",
+            "ar-EG": "الأقصر"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "for",
+            "ar-EG": "الأقصر"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "for",
+            "ar-EG": "الأقصر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "for",
+            "ar-EG": "الأقصر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "map",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A new footbridge",
+       "ar-EG": "كوبري مشاة جديد"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "clock",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "One village saves 20 minutes",
+       "ar-EG": "قرية توفّر 20 دقيقة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "home",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Another saves nothing",
+       "ar-EG": "وقرية تانية ولا حاجة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "new",
+            "ar-EG": "كوبري"
+           },
+           "offset": 4.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Run it from every home",
+       "ar-EG": "شغّله من كل بيت"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "ولما"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12",
+   "template": "canvas",
+   "narration": {
+    "en": "In the app, open “The shortest way to school”. Tap Home, then always the waiting village with the smallest number. Then flood the bridge, and do it again.",
+    "ar-EG": "في التطبيق، افتح «أقصر طريق إلى المدرسة». المس البيت، وبعدين دايمًا القرية المستنية اللي رقمها أصغر. وبعدين غرّق الكوبري، واعملها تاني."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "App lab: The shortest way to school",
+       "ar-EG": "معمل التطبيق: أقصر طريق للمدرسة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "home",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Tap Home",
+       "ar-EG": "المس البيت"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Then the smallest number",
+       "ar-EG": "وبعدين أصغر رقم"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Tap",
+            "ar-EG": "المس"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "droplets",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Flood the bridge",
+       "ar-EG": "غرّق الكوبري"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "flood",
+            "ar-EG": "غرّق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "phone",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s13",
+   "template": "quiz",
+   "narration": {
+    "en": "Your turn. A friend’s program settles places in list order, not smallest first. It says school is seven kilometres away, not six. Why?",
+    "ar-EG": "دورك. برنامج واحد صاحبك بيثبّت الأماكن بترتيب القايمة، مش الأصغر الأول. وبيقول إن المدرسة على بعد سبعة كيلو، مش ستة. ليه؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Six, or seven?",
+     "ar-EG": "ستة، ولا سبعة؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s13-check",
+    "prompt": {
+     "en": "A program settles places in list order and says school is 7 km away, not 6. Why?",
+     "ar-EG": "برنامج بيثبّت الأماكن بترتيب القايمة، وبيقول المدرسة على بعد 7 كيلو مش 6. ليه؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Python added the numbers wrongly",
+       "ar-EG": "بايثون جمع الأرقام غلط"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "It settled Tala at 4 before the shorter way via Kesi was found",
+       "ar-EG": "ثبّت تالا على 4 قبل ما يلاقي الطريق الأقصر من كيسي"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "One of the roads is negative",
+       "ar-EG": "فيه طريق طوله بالسالب"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — Tala was settled too early, so its better number (3, via Kesi) came too late to fix school.",
+     "ar-EG": "صح — تالا اتثبتت بدري قوي، فرقمها الأحسن (3، من خلال كيسي) جه متأخر ومالحقش يصلّح المدرسة."
+    }
+   },
+   "speaker": "okafor"
+  },
+  {
+   "id": "s14",
+   "template": "summary",
+   "narration": {
+    "en": "It settled Tala too early, before the shorter way through Kesi was known. Remember: store the map as a dictionary, settle the smallest number first, and relax its roads. And ask who a new road really helps.",
+    "ar-EG": "ثبّت تالا بدري قوي، قبل ما الطريق الأقصر من خلال كيسي يبان. افتكر: خزّن الخريطة في قاموس، وثبّت أصغر رقم الأول، وراجع طرقه. واسأل الطريق الجديد بيفيد مين بجد."
+   },
+   "content": {
+    "title": {
+     "en": "Remember",
+     "ar-EG": "افتكر"
+    },
+    "points": [
+     {
+      "en": "Settling too early freezes it",
+      "ar-EG": "التثبيت بدري بيجمّد الرقم"
+     },
+     {
+      "en": "The map: a dictionary",
+      "ar-EG": "الخريطة: قاموس"
+     },
+     {
+      "en": "Smallest first, then relax",
+      "ar-EG": "الأصغر الأول، وبعدين راجع"
+     },
+     {
+      "en": "Who does a road help?",
+      "ar-EG": "الطريق بيفيد مين؟"
+     }
+    ],
+    "takeaway": {
+     "en": "Smallest first is always safe.",
+     "ar-EG": "الأصغر الأول دايمًا مضمون."
+    }
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "settled",
+      "ar-EG": "تالا"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "offset": 0.5,
+     "action": "reveal",
+     "target": "3"
+    },
+    {
+     "word": {
+      "en": "ask",
+      "ar-EG": "واسأل"
+     },
+     "action": "reveal",
+     "target": "4"
+    },
+    {
+     "word": {
+      "en": "ask",
+      "ar-EG": "واسأل"
+     },
+     "action": "reveal",
+     "target": "takeaway"
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "template": "canvas",
+   "narration": {
+    "en": "Try it yourself: draw the roads between your home, two friends’ homes and school, with rough distances. Run Dijkstra on paper, then check it with your code.",
+    "ar-EG": "جرّبها بنفسك: ارسم الطرق اللي بين بيتك، وبيوت اتنين صحابك، والمدرسة، وعليها مسافات تقريبية. شغّل ديكسترا على الورق، وبعدين اتأكد بالكود بتاعك."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 710,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try it yourself",
+       "ar-EG": "جرّبها بنفسك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "map",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Draw your own roads",
+       "ar-EG": "ارسم طرقك إنت"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "pencil",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Dijkstra on paper",
+       "ar-EG": "ديكسترا على الورق"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "keyboard",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Check with your code",
+       "ar-EG": "اتأكد بالكود"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Run",
+            "ar-EG": "شغّل"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/okafor_happy.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

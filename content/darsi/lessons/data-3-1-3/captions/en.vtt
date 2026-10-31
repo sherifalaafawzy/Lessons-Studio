@@ -1,0 +1,253 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.270
+The district wants the average science
+
+2
+00:00:02.270 --> 00:00:04.750
+mark for every class, every term.
+
+3
+00:00:05.360 --> 00:00:07.460
+That used to be my whole
+
+4
+00:00:07.460 --> 00:00:08.940
+Saturday, with a calculator.
+
+5
+00:00:09.840 --> 00:00:11.440
+Now it's one query.
+
+6
+00:00:12.840 --> 00:00:15.340
+Today: counts and averages for
+
+7
+00:00:15.340 --> 00:00:17.380
+every group, with GROUP BY.
+
+8
+00:00:18.530 --> 00:00:21.370
+SQL can summarise as well as list.
+
+9
+00:00:22.030 --> 00:00:23.390
+COUNT counts rows.
+
+10
+00:00:24.180 --> 00:00:27.780
+AVG gives the average, and MIN and
+
+11
+00:00:27.780 --> 00:00:29.600
+MAX the lowest and highest.
+
+12
+00:00:30.350 --> 00:00:32.930
+And ROUND tidies the decimals.
+
+13
+00:00:34.180 --> 00:00:36.360
+On their own, they summarise the
+
+14
+00:00:36.360 --> 00:00:37.960
+whole table into one row.
+
+15
+00:00:38.640 --> 00:00:41.580
+GROUP BY splits the rows into groups, one
+
+16
+00:00:41.580 --> 00:00:44.120
+per class, and summarises each group.
+
+17
+00:00:44.710 --> 00:00:47.410
+So you get one row for every class.
+
+18
+00:00:48.830 --> 00:00:51.230
+A group is all the rows that share a
+
+19
+00:00:51.230 --> 00:00:53.890
+value, like every row for Six B.
+
+20
+00:00:54.520 --> 00:00:56.720
+Every column you select must be
+
+21
+00:00:56.720 --> 00:00:58.360
+grouped, or summarised.
+
+22
+00:00:59.530 --> 00:01:02.330
+WHERE filters rows before they're grouped.
+
+23
+00:01:03.050 --> 00:01:04.890
+HAVING filters the groups after:
+
+24
+00:01:05.630 --> 00:01:07.790
+HAVING a count above thirty keeps
+
+25
+00:01:07.790 --> 00:01:08.950
+only the big classes.
+
+26
+00:01:10.280 --> 00:01:10.860
+Quick check!
+
+27
+00:01:11.650 --> 00:01:14.390
+Musa missed the science test, so
+
+28
+00:01:14.390 --> 00:01:16.670
+his mark is empty: NULL.
+
+29
+00:01:17.230 --> 00:01:19.870
+When I average the marks, what
+
+30
+00:01:19.870 --> 00:01:22.330
+does AVG do with his?
+
+31
+00:01:23.740 --> 00:01:27.100
+AVG skips it: Musa's empty mark is
+
+32
+00:01:27.100 --> 00:01:29.040
+left out, not counted as zero.
+
+33
+00:01:29.660 --> 00:01:31.720
+Counting the mark column skips it too,
+
+34
+00:01:32.060 --> 00:01:34.660
+but COUNT star counts every row.
+
+35
+00:01:35.290 --> 00:01:37.410
+So when the two counts differ,
+
+36
+00:01:37.890 --> 00:01:38.930
+something is missing.
+
+37
+00:01:40.230 --> 00:01:41.990
+Summaries hide glitches.
+
+38
+00:01:42.580 --> 00:01:45.300
+Before you trust an average, ask for the
+
+39
+00:01:45.300 --> 00:01:47.560
+lowest and highest in each group.
+
+40
+00:01:48.180 --> 00:01:50.400
+A science mark of ninety-nine out
+
+41
+00:01:50.400 --> 00:01:52.000
+of twenty jumps out at once.
+
+42
+00:01:53.340 --> 00:01:55.680
+In the app, a week of hourly soil
+
+43
+00:01:55.680 --> 00:01:58.160
+readings becomes one average per
+
+44
+00:01:58.160 --> 00:02:00.540
+day: that's a GROUP BY day.
+
+45
+00:02:01.090 --> 00:02:03.390
+Leave out the glitches, and watch days
+
+46
+00:02:03.390 --> 00:02:06.390
+four and five rise by about three
+
+47
+00:02:06.390 --> 00:02:08.250
+while the median doesn't move.
+
+48
+00:02:09.490 --> 00:02:09.990
+Your turn.
+
+49
+00:02:10.600 --> 00:02:13.460
+After grouping by class, I want only the
+
+50
+00:02:13.460 --> 00:02:15.380
+classes with more than thirty pupils.
+
+51
+00:02:16.230 --> 00:02:17.250
+Which line does that?
+
+52
+00:02:18.550 --> 00:02:20.110
+HAVING, because it filters
+
+53
+00:02:20.110 --> 00:02:21.450
+groups after they're counted.
+
+54
+00:02:22.140 --> 00:02:25.800
+Remember: COUNT, AVG, MIN
+
+55
+00:02:25.800 --> 00:02:28.040
+and MAX summarise.
+
+56
+00:02:28.610 --> 00:02:31.110
+GROUP BY makes one row per group.
+
+57
+00:02:31.740 --> 00:02:34.580
+And NULLs are skipped, so check the lowest
+
+58
+00:02:34.580 --> 00:02:36.640
+and highest before you trust an average.
+
+59
+00:02:38.000 --> 00:02:40.240
+Try it in class tomorrow: pupils
+
+60
+00:02:40.240 --> 00:02:41.960
+group themselves by birth month.
+
+61
+00:02:42.640 --> 00:02:45.040
+Each group counts itself, and the class
+
+62
+00:02:45.040 --> 00:02:47.280
+writes one row per month on the board.
+
+63
+00:02:47.980 --> 00:02:50.060
+That's GROUP BY, done with people.

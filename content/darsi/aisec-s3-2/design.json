@@ -1,0 +1,395 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Ten tools",
+            "ar-EG": "عشر أدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Needed two",
+            "ar-EG": "محتاج اتنين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Messaged every parent",
+            "ar-EG": "بعت لكل الأهل"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Timetable",
+            "ar-EG": "الجدول"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Library",
+            "ar-EG": "المكتبة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Reminders",
+            "ar-EG": "التذكيرات"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Messages",
+            "ar-EG": "الرسايل"
+          },
+          "s": 0,
+          "o": 4
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "Reading",
+            "ar-EG": "قراية"
+          },
+          {
+            "en": "Acting",
+            "ar-EG": "فعل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Look things up",
+              "ar-EG": "بتدوّر على معلومات"
+            },
+            {
+              "en": "Send, delete, pay",
+              "ar-EG": "تبعت، تمسح، تدفع"
+            }
+          ],
+          [
+            {
+              "en": "Worst: a leak",
+              "ar-EG": "أسوأها: تسريب"
+            },
+            {
+              "en": "Can be turned on you",
+              "ar-EG": "ممكن تتقلب ضدك"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Fewest tools for the job",
+            "ar-EG": "أقل أدوات للشغل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Reading before acting",
+            "ar-EG": "القراية قبل الفعل"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "For the shortest time",
+            "ar-EG": "لأقصر وقت"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Blast radius: what it could reach",
+            "ar-EG": "مدى الضرر: اللي ممكن يوصله"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Timetable and library",
+            "ar-EG": "الجدول والمكتبة"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "No acting tool",
+            "ar-EG": "مفيش أداة فعل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Blast radius near zero",
+            "ar-EG": "مدى الضرر قريب من الصفر"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "TOOLS = {\"plan\": [\"timetable\", \"library\"]}\ndef allowed(task, tool):\n    return tool in TOOLS[task]",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "agent",
+            "glyph": "bot",
+            "label": {
+              "en": "The agent",
+              "ar-EG": "الوكيل"
+            }
+          },
+          {
+            "id": "check",
+            "glyph": "shield",
+            "label": {
+              "en": "Check in code",
+              "ar-EG": "فحص الكود"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "Send tool",
+              "ar-EG": "أداة الإرسال"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "agent",
+            "to": "check",
+            "text": {
+              "en": "Send a reminder to 9B",
+              "ar-EG": "ابعت تذكير لفصل 9B"
+            }
+          },
+          {
+            "from": "check",
+            "to": "you",
+            "text": {
+              "en": "Send this reminder?",
+              "ar-EG": "أبعت التذكير ده؟"
+            }
+          },
+          {
+            "from": "you",
+            "to": "check",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "check",
+            "to": "tool",
+            "text": {
+              "en": "Approved: send",
+              "ar-EG": "اتوافق عليه: ابعت"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          2
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Pick a job, grant tools",
+            "ar-EG": "اختار مهمة، وادّي أدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Run the tampered results",
+            "ar-EG": "شغّل النتايج المتلعّب فيها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Two reading tools: zero",
+            "ar-EG": "أداتين قراية: صفر"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Add send message: harm",
+            "ar-EG": "زوّد الإرسال: ضرر"
+          },
+          "s": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Reading leaks, acting turns",
+            "ar-EG": "القراية تسرّب، والفعل يتقلب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The fewest tools",
+            "ar-EG": "أقل أدوات"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "An allow-list in code",
+            "ar-EG": "لستة المسموح في الكود"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A person's yes before acting",
+            "ar-EG": "أيوه من إنسان قبل الفعل"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Every tool you add is something an attack could use.",
+        "ar-EG": "كل أداة بتزوّدها حاجة الهجوم ممكن يستخدمها."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Pick one app or assistant",
+            "ar-EG": "اختار تطبيق أو مساعد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "List what it can do",
+            "ar-EG": "اكتب يقدر يعمل إيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Mark: reading or acting",
+            "ar-EG": "علّم: قراية ولا فعل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Switch off one it doesn't need",
+            "ar-EG": "اقفل واحدة مش محتاجها"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

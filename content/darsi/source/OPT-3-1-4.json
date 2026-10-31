@@ -1,0 +1,305 @@
+{
+ "id": "OPT-3-1-4",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Solving school problems in Python: timetables, routes, assignment"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Matching teachers and classes",
+  "subtitle": "The best total, the worst match, and who writes the scores",
+  "minutes": 17,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "Matching teachers and classes",
+  "length": "3:13",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — education lecturer, Bangladesh (main character)",
+   "Mr Joseph Mwangi — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Choosing in turn"
+   },
+   {
+    "at": "0:18",
+    "label": "The best total"
+   },
+   {
+    "at": "1:13",
+    "label": "The worst match"
+   },
+   {
+    "at": "1:57",
+    "label": "Whose scores? And the lab"
+   },
+   {
+    "at": "2:38",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Dr Farah in a staff meeting: five teachers take class cards in turn; Karim looks at a science card, worried.",
+    "animation": "Cards are picked one by one; Karim’s face falls.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "At the start of term, five teachers choose their classes in order of seniority. It feels fair. Then Karim, who teaches maths well and little else, ends up with a science class.",
+    "icons": [
+     "users",
+     "list",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Matching teachers and classes",
+    "voice": "Narrator",
+    "narration": "Today: matching teachers and classes, for the best total and for the worst-off."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:34",
+    "beat": "Concept",
+    "visual": "A five-by-five table of scores; one cell per row and column lights up.",
+    "animation": "Rows and columns highlight in turn.",
+    "on_screen_text": "The assignment problem",
+    "voice": "Narrator",
+    "narration": "This is the assignment problem: each class gets exactly one teacher, and each teacher takes exactly one class. A table scores how well each teacher suits each class, from zero to nine. The goal is the best total score.",
+    "icons": [
+     "grid",
+     "users",
+     "target"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:46",
+    "beat": "Examples",
+    "visual": "Name cards slide onto classes in turn: Amina to maths, Karim to science with a red 2, the total counting up to 29.",
+    "animation": "Each card lands; the total counts up.",
+    "on_screen_text": "First come, first served",
+    "voice": "Narrator",
+    "narration": "First come, first served: Amina chooses first and takes maths, her favourite. Karim, good only at maths, gets science, with a score of two. The total is twenty-nine.",
+    "icons": [
+     "users",
+     "warning",
+     "calculator"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "1:00",
+    "beat": "Reveal",
+    "visual": "Two columns: first come (29, lowest 2) against the best total (39, lowest 6).",
+    "animation": "The right column fills in; its total glows.",
+    "on_screen_text": "The best total: 39",
+    "voice": "Narrator",
+    "narration": "The best total is thirty-nine. Karim takes maths, Leila science, Yusuf English, Zainab art, and Amina history. The Hungarian method, from nineteen fifty-five, finds it step by step, and a solver finds it too.",
+    "icons": [
+     "circlex",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "Code typed on a card beside the score table; chosen cells tick as the code runs.",
+    "animation": "Code types itself line by line.",
+    "on_screen_text": "The model in Python",
+    "voice": "Narrator",
+    "narration": "In CP-SAT, each teacher and class pair gets a yes-or-no variable. Exactly one yes in each row, and exactly one in each column. Then maximise the scores of the pairs you choose.",
+    "icons": [
+     "keyboard",
+     "grid"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:28",
+    "beat": "Concept",
+    "visual": "A balance: the total on one side, the lowest single score on the other.",
+    "animation": "The balance tips one way, then the other.",
+    "on_screen_text": "Total, or the worst match?",
+    "voice": "Narrator",
+    "narration": "But the total is only one way to judge. You can also ask: how good is the worst match? A plan with a high total can still give one teacher a class they can hardly teach.",
+    "icons": [
+     "calculator",
+     "user",
+     "scale"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:28",
+    "end": "1:38",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph at a laptop with the score table. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "What should we maximise?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! I want no teacher stuck with a class they can hardly teach. What should the model make as large as possible?"
+   },
+   {
+    "n": 9,
+    "start": "1:38",
+    "end": "1:57",
+    "beat": "Reveal",
+    "visual": "The answer ‘The lowest score’ gets a check; a floor line rises under the chosen scores.",
+    "animation": "Check badge pops; the floor rises to 6.",
+    "on_screen_text": "Raise the worst match",
+    "voice": "Narrator",
+    "narration": "The lowest score. Add a variable for the worst match, keep every chosen pair at or above it, and maximise it. Here the best-total plan already does well: its worst match is six. On other tables, raising the worst costs a little of the total.",
+    "icons": [
+     "user",
+     "ruleset",
+     "scale"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:57",
+    "end": "2:13",
+    "beat": "Concept",
+    "visual": "Dr Farah shows two printed plans to a circle of teachers; the score table is pinned up for all to read.",
+    "animation": "Teachers lean in; hands go up with questions.",
+    "on_screen_text": "Whose scores?",
+    "voice": "Dr Farah",
+    "narration": "Scores are opinions written as numbers. Who wrote them, and did the teachers see them? Show both plans, the best total and the kindest worst match, and decide together. Explain the rule you used before anyone sees their class.",
+    "icons": [
+     "pencil",
+     "users",
+     "chat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:13",
+    "end": "2:27",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the score table, the turn-by-turn picks, then lines covering zeros.",
+    "animation": "A finger taps; zeros appear and get covered.",
+    "on_screen_text": "App lab: Teachers to classes",
+    "voice": "Narrator",
+    "narration": "In the app, open “Teachers to classes”. Press “Let them choose in turn”, then Run to watch the Hungarian method. Then change Karim’s maths score from nine to five, and run both again.",
+    "icons": [
+     "grid",
+     "users",
+     "repeat"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:27",
+    "end": "2:38",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah beside Zainab’s name card on the table. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "The class nobody wanted",
+    "voice": "Dr Farah",
+    "narration": "Your turn. The best-total plan gives Zainab, a new teacher, the class nobody wanted. Nobody asked her about her scores. What is the fair next step?"
+   },
+   {
+    "n": 13,
+    "start": "2:38",
+    "end": "2:55",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Check the scores with the people they describe, then solve again. Remember: one yes-or-no variable per pair, and exactly one per row and per column. First come can lose a lot. And judge two ways: the total, and the worst match.",
+    "icons": [
+     "grid",
+     "user",
+     "users"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:55",
+    "end": "3:13",
+    "beat": "Try it tomorrow",
+    "visual": "A board with five jobs (board, plants, books, water, bell) and a score table filled in by pupils.",
+    "animation": "Scores fill in; two plans are circled.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: share out five class jobs. Pupils score each job from one to five, and first they choose in turn. Then the class looks for the best total, and for the plan where nobody gets a job they hate.",
+    "icons": [
+     "list",
+     "users",
+     "star"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:34",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "No teacher should be stuck with a class they can hardly teach. What should the model maximise?",
+    "options": [
+     {
+      "text": "The total score",
+      "correct": false
+     },
+     {
+      "text": "The lowest score among the chosen pairs",
+      "correct": true
+     },
+     {
+      "text": "The number of teachers",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — maximise the worst match: every chosen pair must be at or above it.",
+    "feedback_wrong": "Not quite — a high total can still hide one very low match. Maximise the lowest score among the pairs.",
+    "resume_at": "1:38"
+   },
+   {
+    "at": "2:34",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The plan gives Zainab, a new teacher, the class nobody wanted; nobody asked her about her scores. What next?",
+    "options": [
+     {
+      "text": "Keep it: the solver maximised the total",
+      "correct": false
+     },
+     {
+      "text": "Ask her, check her scores, and solve again with the agreed rule",
+      "correct": true
+     },
+     {
+      "text": "Swap her with the most senior teacher",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the answer is only as fair as the scores. Check them with her, agree the rule, and solve again.",
+    "feedback_wrong": "Not quite — the solver trusted scores nobody checked with Zainab. Ask her, correct them, and solve again.",
+    "resume_at": "2:38"
+   }
+  ]
+ }
+}

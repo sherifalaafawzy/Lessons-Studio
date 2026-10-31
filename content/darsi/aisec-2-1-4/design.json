@@ -1,0 +1,473 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Reads the timetable",
+            "ar-EG": "بيقرا الجدول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Messages parents",
+            "ar-EG": "بيراسل الأهالي"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Nobody approved it",
+            "ar-EG": "محدش وافق"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "cols": [
+          {
+            "en": "Chatbot",
+            "ar-EG": "شات بوت"
+          },
+          {
+            "en": "Agent",
+            "ar-EG": "وكيل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Only talks",
+              "ar-EG": "بيتكلم بس"
+            },
+            {
+              "en": "Reads the timetable",
+              "ar-EG": "بيقرا الجدول"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Sets reminders",
+              "ar-EG": "بيظبط تذكيرات"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Sends messages",
+              "ar-EG": "بيبعت رسايل"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 1
+          },
+          {
+            "row": 3,
+            "s": 1
+          }
+        ]
+      },
+      "who": null
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "Reading tools",
+            "ar-EG": "أدوات القراية"
+          },
+          {
+            "en": "Acting tools",
+            "ar-EG": "أدوات الفعل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Timetable, library",
+              "ar-EG": "الجدول، المكتبة"
+            },
+            {
+              "en": "Send, delete, pay",
+              "ar-EG": "تبعت، تمسح، تدفع"
+            }
+          ],
+          [
+            {
+              "en": "Worst case: a leak",
+              "ar-EG": "أسوأ حاجة: تسريب"
+            },
+            {
+              "en": "Can be turned on you",
+              "ar-EG": "ممكن تتقلب ضدك"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 3
+          }
+        ]
+      },
+      "who": null
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "The fewest tools for the job",
+            "ar-EG": "أقل أدوات للمهمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Reading before acting",
+            "ar-EG": "القراية قبل الفعل"
+          },
+          "s": 0,
+          "o": 3.5
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "For the shortest time",
+            "ar-EG": "لأقصر وقت"
+          },
+          "s": 0,
+          "o": 5
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "A small blast radius",
+            "ar-EG": "نطاق ضرر صغير"
+          },
+          "s": 1,
+          "tone": "ok"
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Timetable",
+            "ar-EG": "الجدول"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Library",
+            "ar-EG": "المكتبة"
+          },
+          "s": 0,
+          "o": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Hidden orders can't act",
+            "ar-EG": "الأوامر المتخبية متقدرش تتصرّف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Worst case: it talks",
+            "ar-EG": "أسوأ حاجة: بيتكلم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "t",
+            "glyph": "user",
+            "label": {
+              "en": "Teacher",
+              "ar-EG": "المدرّسة"
+            }
+          },
+          {
+            "id": "a",
+            "glyph": "bot",
+            "label": {
+              "en": "Agent",
+              "ar-EG": "الوكيل"
+            }
+          },
+          {
+            "id": "c",
+            "glyph": "shield",
+            "label": {
+              "en": "Code check",
+              "ar-EG": "فحص الكود"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "a",
+            "to": "t",
+            "text": {
+              "en": "“Trip on Friday.” Send?",
+              "ar-EG": "«الرحلة الجمعة». أبعت؟"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "t",
+            "to": "a",
+            "text": {
+              "en": "Yes, send it",
+              "ar-EG": "أيوه، ابعتها"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "a",
+            "to": "c",
+            "text": "send(parents, draft)"
+          }
+        ],
+        "notes": [
+          {
+            "after": 3,
+            "over": [
+              "c"
+            ],
+            "text": {
+              "en": "Asked and approved?",
+              "ar-EG": "اتطلبت واتوافق عليها؟"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Prompt rules can be faked",
+            "ar-EG": "قواعد الطلب بتتزيّف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "A fake “Shall I send?”",
+            "ar-EG": "«أبعت؟» مزيّفة"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Code knows who asked",
+            "ar-EG": "الكود عارف مين طلب"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Every action",
+            "ar-EG": "كل فعل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Who approved it",
+            "ar-EG": "مين وافق"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "And when",
+            "ar-EG": "وإمتى"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "See what went wrong",
+            "ar-EG": "شوف إيه اللي باظ"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Grant tools",
+            "ar-EG": "اِدّي أدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Tampered results",
+            "ar-EG": "نتايج متلاعب فيها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Count the harm",
+            "ar-EG": "عِدّ الضرر"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Fewer tools, again",
+            "ar-EG": "أدوات أقل، تاني"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Reading tools vs acting tools",
+            "ar-EG": "أدوات قراية وأدوات فعل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The fewest tools",
+            "ar-EG": "أقل أدوات"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A person's yes, in code",
+            "ar-EG": "موافقة إنسان في الكود"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Keep a log",
+            "ar-EG": "اعمل سجل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The fewer tools it holds, the less a trick can do.",
+        "ar-EG": "كل ما أدواته تقل، الخدعة تقدر تعمل أقل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Design a helper robot",
+            "ar-EG": "صمّموا روبوت مساعد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Only the tools it needs",
+            "ar-EG": "الأدوات اللي محتاجها بس"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Mark the tools that act",
+            "ar-EG": "علّموا أدوات الفعل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Who says yes?",
+            "ar-EG": "مين يوافق؟"
+          },
+          "s": 2,
+          "o": 2.5,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

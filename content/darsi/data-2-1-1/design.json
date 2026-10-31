@@ -1,0 +1,308 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Perfect on paper",
+            "ar-EG": "مثالي على الورق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Error!",
+            "ar-EG": "خطأ!"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Why?",
+            "ar-EG": "ليه؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "One header row",
+            "ar-EG": "صف عناوين واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "One row per pupil",
+            "ar-EG": "صف لكل تلميذ"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "One value per cell",
+            "ar-EG": "قيمة واحدة في كل خانة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "No merged cells, blanks or totals",
+            "ar-EG": "لا دمج، ولا فراغات، ولا مجاميع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "sheet": {
+        "rows": [
+          [
+            {
+              "en": "Name",
+              "ar-EG": "الاسم"
+            },
+            {
+              "en": "Maths",
+              "ar-EG": "رياضيات"
+            },
+            {
+              "en": "Science",
+              "ar-EG": "علوم"
+            },
+            {
+              "en": "Average",
+              "ar-EG": "المتوسط"
+            }
+          ],
+          [
+            "Amina",
+            14,
+            17,
+            null
+          ],
+          [
+            "Joseph",
+            11,
+            9,
+            null
+          ],
+          [
+            "Musa",
+            18,
+            15,
+            null
+          ],
+          [
+            "Laila",
+            12,
+            16,
+            null
+          ]
+        ],
+        "formulas": {
+          "D2": "=AVERAGE(B2:C2)"
+        },
+        "fill": {
+          "from": "D2",
+          "to": "D5",
+          "frames": [
+            2,
+            2
+          ]
+        },
+        "words": "names"
+      }
+    },
+    "5": {
+      "aside": "filter",
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Filter: only 6B",
+            "ar-EG": "تصفية: 6ب بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Sort: highest mark first",
+            "ar-EG": "ترتيب: الأعلى الأول"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Every row comes along",
+            "ar-EG": "كل صف بييجي معاك"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "import csv\nf = open(\"marks.csv\")\nfor row in csv.DictReader(f):\n    print(row[\"name\"], row[\"maths\"])",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "total = 0\nn = 0\nfor row in csv.DictReader(f):\n    total += int(row[\"maths\"])\n    n += 1\nprint(total / n)",
+        "highlight": [
+          4
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Total row inside: a fake pupil",
+            "ar-EG": "صف مجموع جوه: تلميذ مزيّف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Totals on the summary sheet",
+            "ar-EG": "المجاميع في الملخّص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "An honest average",
+            "ar-EG": "متوسط صادق"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "A sheet that looks fine",
+            "ar-EG": "شيت شكله تمام"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One fix at a time",
+            "ar-EG": "إصلاح واحد في المرة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "type",
+          "tone": "ok",
+          "text": {
+            "en": "Text becomes numbers",
+            "ar-EG": "الكلام يبقى أرقام"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "One row per thing, one value per cell",
+            "ar-EG": "صف لكل حاجة، وقيمة لكل خانة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Raw data stays untouched",
+            "ar-EG": "البيانات الخام ما تتلمسش"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Summaries on another sheet",
+            "ar-EG": "الملخّص في شيت تاني"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Python reads a tidy CSV",
+            "ar-EG": "بايثون بيقرا ⁦CSV⁩ المرتّب"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Tidy it once, and every tool can use it.",
+        "ar-EG": "رتّبه مرة، وأي أداة تقدر تستخدمه."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "A made-up messy sheet",
+            "ar-EG": "شيت مكركب من تأليفك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Groups redraw it tidy",
+            "ar-EG": "المجموعات ترسمه مرتّب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "Check the class average",
+            "ar-EG": "اتأكدوا من المتوسط"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

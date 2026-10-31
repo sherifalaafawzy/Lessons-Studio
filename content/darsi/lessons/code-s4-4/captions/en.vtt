@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.090
+Jon Bentley once asked professional
+
+2
+00:00:03.090 --> 00:00:05.990
+programmers to write binary search,
+
+3
+00:00:06.510 --> 00:00:08.530
+about a dozen lines of code.
+
+4
+00:00:09.100 --> 00:00:11.260
+Around ninety percent of
+
+5
+00:00:11.260 --> 00:00:12.800
+their programs had bugs.
+
+6
+00:00:13.630 --> 00:00:16.090
+Most of them broke at the edges.
+
+7
+00:00:17.640 --> 00:00:20.100
+Today: testing like an engineer.
+
+8
+00:00:21.560 --> 00:00:24.440
+A unit test runs one small piece of
+
+9
+00:00:24.440 --> 00:00:25.960
+code and checks the answer.
+
+10
+00:00:26.610 --> 00:00:29.150
+In Python, assert stops the
+
+11
+00:00:29.150 --> 00:00:31.070
+program if its check is false.
+
+12
+00:00:31.850 --> 00:00:33.950
+This function passes the first test.
+
+13
+00:00:34.570 --> 00:00:36.650
+But the second fails: best
+
+14
+00:00:36.650 --> 00:00:38.870
+starts at zero, which is bigger
+
+15
+00:00:38.870 --> 00:00:40.510
+than every negative number.
+
+16
+00:00:41.750 --> 00:00:43.790
+Ordinary data rarely breaks
+
+17
+00:00:43.790 --> 00:00:45.790
+code; the edges do.
+
+18
+00:00:46.480 --> 00:00:49.300
+Test an empty list and a list of one.
+
+19
+00:00:49.880 --> 00:00:52.120
+Test the first and the last position.
+
+20
+00:00:52.810 --> 00:00:56.050
+Test values that repeat, negatives, and
+
+21
+00:00:56.050 --> 00:00:57.810
+something that isn’t there at all.
+
+22
+00:00:58.950 --> 00:01:00.810
+Here’s the outline of a binary
+
+23
+00:01:00.810 --> 00:01:02.790
+search that passes a test in the
+
+24
+00:01:02.790 --> 00:01:03.990
+middle of a long list.
+
+25
+00:01:04.610 --> 00:01:07.270
+But search a one-item list for its only
+
+26
+00:01:07.270 --> 00:01:10.590
+item, and it says minus one: not found.
+
+27
+00:01:11.200 --> 00:01:14.000
+The loop must run while lo is less
+
+28
+00:01:14.000 --> 00:01:16.720
+than or equal to hi, or it skips
+
+29
+00:01:16.720 --> 00:01:17.880
+the last place to look.
+
+30
+00:01:19.100 --> 00:01:21.100
+Four short tests catch it.
+
+31
+00:01:21.660 --> 00:01:24.760
+An empty list, one item, the last
+
+32
+00:01:24.760 --> 00:01:27.260
+item, and a value that isn’t there.
+
+33
+00:01:27.830 --> 00:01:30.250
+Run them after every change, and a
+
+34
+00:01:30.250 --> 00:01:31.970
+boundary bug can’t sneak back in.
+
+35
+00:01:33.130 --> 00:01:33.610
+Quick check!
+
+36
+00:01:34.250 --> 00:01:35.810
+A function finds the
+
+37
+00:01:35.810 --> 00:01:37.230
+largest mark in a list.
+
+38
+00:01:37.830 --> 00:01:40.990
+Which test is most likely to catch a bug?
+
+39
+00:01:42.230 --> 00:01:43.690
+The list of only negative
+
+40
+00:01:43.690 --> 00:01:45.250
+numbers: an edge case.
+
+41
+00:01:45.960 --> 00:01:48.160
+Five ordinary marks would pass
+
+42
+00:01:48.160 --> 00:01:49.600
+even the buggy version.
+
+43
+00:01:50.300 --> 00:01:52.640
+Write the tests that try to break your
+
+44
+00:01:52.640 --> 00:01:54.660
+code, not the ones that flatter it.
+
+45
+00:01:55.860 --> 00:01:58.240
+Engineers often write the test first.
+
+46
+00:01:58.990 --> 00:02:01.730
+Red: write a test, and watch it fail.
+
+47
+00:02:02.340 --> 00:02:04.440
+Green: write the simplest
+
+48
+00:02:04.440 --> 00:02:05.520
+code that passes.
+
+49
+00:02:06.300 --> 00:02:08.820
+Refactor: tidy the code while
+
+50
+00:02:08.820 --> 00:02:10.280
+the tests still pass.
+
+51
+00:02:11.030 --> 00:02:12.930
+Then the tests are a safety net
+
+52
+00:02:12.930 --> 00:02:14.350
+for every later change.
+
+53
+00:02:15.690 --> 00:02:17.350
+Tests can’t catch everything.
+
+54
+00:02:18.110 --> 00:02:19.770
+A second pair of eyes spots
+
+55
+00:02:19.770 --> 00:02:22.170
+unclear names and missing cases.
+
+56
+00:02:23.010 --> 00:02:25.730
+Keep each change small, say why you
+
+57
+00:02:25.730 --> 00:02:28.630
+made it, and review kindly: comment
+
+58
+00:02:28.630 --> 00:02:30.590
+on the code, not the coder.
+
+59
+00:02:31.670 --> 00:02:34.050
+In the app, open Guess the number.
+
+60
+00:02:34.700 --> 00:02:37.300
+Find a hidden number from one to a
+
+61
+00:02:37.300 --> 00:02:40.060
+thousand by halving, and count your
+
+62
+00:02:40.060 --> 00:02:40.320
+guesses.
+
+63
+00:02:41.080 --> 00:02:43.820
+Then test the edges: can halving
+
+64
+00:02:43.820 --> 00:02:46.100
+find one, and a thousand?
+
+65
+00:02:47.250 --> 00:02:47.990
+Your turn.
+
+66
+00:02:48.630 --> 00:02:50.490
+You’re working test-first
+
+67
+00:02:50.490 --> 00:02:51.790
+on a new function.
+
+68
+00:02:52.610 --> 00:02:55.170
+What do you write before the code?
+
+69
+00:02:56.480 --> 00:02:57.540
+A test that fails.
+
+70
+00:02:58.470 --> 00:03:00.650
+In short: unit tests check
+
+71
+00:03:00.650 --> 00:03:02.690
+small pieces with assert.
+
+72
+00:03:03.470 --> 00:03:06.610
+Test the edges: empty, one item,
+
+73
+00:03:07.170 --> 00:03:08.850
+first and last, not there.
+
+74
+00:03:09.410 --> 00:03:13.610
+Work test-first: red, green, refactor.
+
+75
+00:03:14.260 --> 00:03:15.560
+And review code with others.
+
+76
+00:03:16.920 --> 00:03:19.600
+Try it on your own code: take a function
+
+77
+00:03:19.600 --> 00:03:21.720
+you wrote this term, and write five
+
+78
+00:03:21.720 --> 00:03:24.380
+asserts for it, at least three at the
+
+79
+00:03:24.380 --> 00:03:24.560
+edges.
+
+80
+00:03:25.310 --> 00:03:25.850
+Run them.
+
+81
+00:03:26.480 --> 00:03:28.740
+If one fails, you’ve found a bug
+
+82
+00:03:28.740 --> 00:03:30.220
+before anyone else did.

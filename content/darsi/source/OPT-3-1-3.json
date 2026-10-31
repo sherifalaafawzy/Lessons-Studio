@@ -1,0 +1,305 @@
+{
+ "id": "OPT-3-1-3",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Solving school problems in Python: timetables, routes, assignment"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "The school bus route",
+  "subtitle": "Nearest neighbour, 2-opt, and the longest ride",
+  "minutes": 17,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "The school bus route",
+  "length": "3:18",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor Eze — Grade 8 science teacher, Nigeria (main character)",
+   "Mr Joseph Mwangi — computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "An hour on the bus"
+   },
+   {
+    "at": "0:17",
+    "label": "Too many routes, a quick rule"
+   },
+   {
+    "at": "0:59",
+    "label": "Untangle it with 2-opt"
+   },
+   {
+    "at": "1:55",
+    "label": "The longest ride, and the lab"
+   },
+   {
+    "at": "2:46",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Mr Okafor at the school gate at dawn; a yellow bus arrives full of sleepy children; a map with nine villages behind him.",
+    "animation": "The bus pulls in; a clock hand sweeps past an hour.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our school bus leaves at six every morning and visits nine villages. The children from the first village ride for over an hour. Is there a shorter route, and a fairer one?",
+    "icons": [
+     "map",
+     "clock",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "The school bus route",
+    "voice": "Narrator",
+    "narration": "Today: the school bus route, built fast and then improved."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:34",
+    "beat": "Concept",
+    "visual": "A map of nine villages with many faint routes overlapping, then a counter racing upward.",
+    "animation": "Routes flicker on and off; the counter spins.",
+    "on_screen_text": "Routes multiply fast",
+    "voice": "Narrator",
+    "narration": "Visit every village once and come back, by the shortest route: that’s the travelling salesperson problem. It sounds easy, but the routes multiply fast. Nine villages have a hundred and eighty-one thousand routes. Twenty have more than a billion billion.",
+    "icons": [
+     "map",
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "The bus hops from village to nearest village; the final leg back to school stretches across the whole map.",
+    "animation": "Each hop draws; the last leg stretches in red.",
+    "on_screen_text": "A quick rule: nearest neighbour",
+    "voice": "Narrator",
+    "narration": "A quick rule: from wherever the bus is, drive to the closest village it hasn’t visited yet. It’s fast, and usually decent. But it never looks ahead, so its last legs home are often long.",
+    "icons": [
+     "school",
+     "next",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "0:59",
+    "beat": "Concept",
+    "visual": "Code typed on a card beside a tiny map, a stop added as each loop runs.",
+    "animation": "Code types itself; a dot lights up on the map with each loop.",
+    "on_screen_text": "Nearest neighbour in Python",
+    "voice": "Narrator",
+    "narration": "In Python, it’s a few lines. Keep a list for the route. While villages are left, add the one closest to the last stop.",
+    "icons": [
+     "keyboard",
+     "map"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "Two crossing roads on the route are lifted out; the stretch between flips; the crossing disappears.",
+    "animation": "Roads fade, the stretch reverses, new roads draw in green.",
+    "on_screen_text": "2-opt: untangle the route",
+    "voice": "Narrator",
+    "narration": "Then improve it. 2-opt takes out two roads, and puts the stretch between them back the other way round. If the route got shorter, keep it, and try again, until no swap helps.",
+    "icons": [
+     "scissors",
+     "repeat",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:26",
+    "beat": "Examples",
+    "visual": "Two bars: 34.6 km and 28.6 km; a fuel can shrinks beside the shorter bar.",
+    "animation": "Bars grow; the gap between them is labelled 6 km.",
+    "on_screen_text": "34.6 km, then 28.6 km",
+    "voice": "Narrator",
+    "narration": "In the lab, nearest neighbour drives thirty-four point six kilometres. Three 2-opt swaps bring it down to twenty-eight point six, the best route there is. That’s six kilometres saved, every single morning.",
+    "icons": [
+     "gauge",
+     "map"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:35",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph points at a phone: “No swap helps”. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Stuck means best?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! 2-opt has stopped: no swap of two roads makes the route shorter. Is it now the best route of all?"
+   },
+   {
+    "n": 9,
+    "start": "1:35",
+    "end": "1:55",
+    "beat": "Reveal",
+    "visual": "A route with 2-opt stopped beside a dotted best route that is shorter.",
+    "animation": "The dotted route draws over the stuck one.",
+    "on_screen_text": "Good, not always best",
+    "voice": "Narrator",
+    "narration": "Not always. On some maps, 2-opt gets stuck: no single swap helps, but the best route is still shorter. For a few villages, a computer can check every route and be sure. For many, real route planners build a quick route and improve it, just like this.",
+    "icons": [
+     "circlecheck",
+     "search",
+     "map"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:55",
+    "end": "2:19",
+    "beat": "Concept",
+    "visual": "Two route cards side by side, each with a total and a child’s ride length marked from the first stop.",
+    "animation": "Each route draws; a child icon rides along it with a counter.",
+    "on_screen_text": "Judge a route twice",
+    "voice": "Narrator",
+    "narration": "Length isn’t the only measure: the children picked up first ride all the way to school. On the small map in today’s code, nearest neighbour drives twenty-three kilometres, and the first village rides twenty-one of them. The best route is nineteen, with a longest ride of sixteen. Judge a route twice: the total, and the longest ride.",
+    "icons": [
+     "map",
+     "users",
+     "scale"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:19",
+    "end": "2:34",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the village map, the route drawing, the kilometre counter falling.",
+    "animation": "A finger taps Run; the route redraws; the counter falls.",
+    "on_screen_text": "App lab: The school bus route",
+    "voice": "Narrator",
+    "narration": "In the app, open “The school bus route”. Press Run, and watch nearest neighbour, then the 2-opt swaps. Press “Find the best route” to compare. Then try a new map: does 2-opt always reach the best?",
+    "icons": [
+     "map",
+     "repeat",
+     "award"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:34",
+    "end": "2:46",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Okafor holds two route cards, A and B, with ride times. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Shorter, or fairer?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. Route A is two kilometres shorter, but one village’s children ride for fifty minutes. On route B, nobody rides more than thirty-five. How should we choose?"
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "3:04",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Agree a longest-ride limit with the families, then find the shortest route that keeps it. Remember: routes multiply too fast to try them all. Nearest neighbour builds a route, and 2-opt improves it. And judge a route twice: the total, and the longest ride.",
+    "icons": [
+     "map",
+     "repeat",
+     "users"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "3:04",
+    "end": "3:18",
+    "beat": "Try it tomorrow",
+    "visual": "Pupils spread around a playground; one walks between them counting steps; two crossing chalk paths are swapped.",
+    "animation": "Footsteps appear; the crossing paths untangle.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: pupils stand as villages around the playground, and one pupil is the bus. Drive nearest neighbour, counting steps. Then find two paths that cross, swap them, and count again.",
+    "icons": [
+     "users",
+     "map",
+     "repeat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:31",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "2-opt has stopped: no swap makes the route shorter. Is it the best route of all?",
+    "options": [
+     {
+      "text": "Yes, always: 2-opt is exact",
+      "correct": false
+     },
+     {
+      "text": "Not always: on some maps it stops short of the best",
+      "correct": true
+     },
+     {
+      "text": "No: 2-opt makes routes longer",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 2-opt stops when no single swap helps, which is often, but not always, the best route.",
+    "feedback_wrong": "Not quite — 2-opt only improves step by step. On some maps it gets stuck before the best route.",
+    "resume_at": "1:35"
+   },
+   {
+    "at": "2:42",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Route A is 2 km shorter, but one village rides 50 minutes; on B nobody rides over 35. How should we choose?",
+    "options": [
+     {
+      "text": "Always the shortest: fuel comes first",
+      "correct": false
+     },
+     {
+      "text": "Agree a longest-ride limit with families, then the shortest route that keeps it",
+      "correct": true
+     },
+     {
+      "text": "Let the driver decide each day",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the longest ride is a fairness limit; agree it with the families, then find the shortest route that keeps it.",
+    "feedback_wrong": "Not quite — shortest overall can be hardest for one village. Agree a longest-ride limit with the families, then find the shortest route that keeps it.",
+    "resume_at": "2:46"
+   }
+  ]
+ }
+}

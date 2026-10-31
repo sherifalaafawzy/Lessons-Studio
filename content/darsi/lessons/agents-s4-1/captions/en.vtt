@@ -1,0 +1,345 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:01.850
+My agent did the first
+
+2
+00:00:01.850 --> 00:00:02.930
+two steps perfectly.
+
+3
+00:00:03.710 --> 00:00:05.950
+Then I replied yes, and it
+
+4
+00:00:05.950 --> 00:00:07.270
+greeted me like a stranger!
+
+5
+00:00:08.120 --> 00:00:09.020
+Nothing was broken.
+
+6
+00:00:09.790 --> 00:00:11.430
+My question had just fallen
+
+7
+00:00:11.430 --> 00:00:12.250
+out of its memory.
+
+8
+00:00:13.500 --> 00:00:16.400
+Today: how agents plan, and
+
+9
+00:00:16.400 --> 00:00:17.620
+what fits in their memory.
+
+10
+00:00:18.860 --> 00:00:21.380
+Agents plan in two common ways.
+
+11
+00:00:22.090 --> 00:00:24.190
+Plan first: write every
+
+12
+00:00:24.190 --> 00:00:25.710
+step, then run them.
+
+13
+00:00:26.290 --> 00:00:28.790
+Or step by step: look at each
+
+14
+00:00:28.790 --> 00:00:30.910
+result, then choose the next step.
+
+15
+00:00:31.520 --> 00:00:34.080
+Darsi Tiny writes a one-line plan,
+
+16
+00:00:34.080 --> 00:00:36.240
+then calls its tools in turn.
+
+17
+00:00:37.490 --> 00:00:39.130
+Each step builds on the last.
+
+18
+00:00:39.870 --> 00:00:41.610
+On Saturday, the timetable
+
+19
+00:00:41.610 --> 00:00:43.330
+tool answers: no school.
+
+20
+00:00:43.990 --> 00:00:46.010
+Darsi Tiny sets the reminder
+
+21
+00:00:46.010 --> 00:00:48.830
+anyway: six B, six B.
+
+22
+00:00:49.310 --> 00:00:51.450
+A failed step that nobody checks
+
+23
+00:00:51.450 --> 00:00:53.470
+becomes the next step’s input.
+
+24
+00:00:54.730 --> 00:00:57.210
+An agent’s only memory is its context
+
+25
+00:00:57.210 --> 00:01:00.030
+window: every token the model reads at
+
+26
+00:01:00.030 --> 00:01:00.290
+once.
+
+27
+00:01:01.000 --> 00:01:02.680
+It holds the tools, the
+
+28
+00:01:02.680 --> 00:01:05.080
+conversation so far, and room to write.
+
+29
+00:01:05.630 --> 00:01:08.150
+Darsi Tiny’s holds three hundred and
+
+30
+00:01:08.150 --> 00:01:11.050
+eighty-four tokens; big cloud models,
+
+31
+00:01:11.390 --> 00:01:13.890
+about a hundred and twenty-eight thousand.
+
+32
+00:01:15.070 --> 00:01:16.970
+When the window fills, the
+
+33
+00:01:16.970 --> 00:01:18.430
+app chooses what stays.
+
+34
+00:01:19.270 --> 00:01:20.770
+Keep everything, and the
+
+35
+00:01:20.770 --> 00:01:22.010
+fourth answer is cut off.
+
+36
+00:01:22.650 --> 00:01:24.270
+Drop the oldest, and the
+
+37
+00:01:24.270 --> 00:01:26.810
+question behind a yes falls out.
+
+38
+00:01:27.430 --> 00:01:29.390
+Keep short notes, and all
+
+39
+00:01:29.390 --> 00:01:30.630
+seven messages work.
+
+40
+00:01:31.900 --> 00:01:32.480
+Quick check!
+
+41
+00:01:33.270 --> 00:01:36.310
+The app drops the oldest turns.
+
+42
+00:01:36.850 --> 00:01:40.450
+I ask for tomorrow’s weather, it asks
+
+43
+00:01:40.450 --> 00:01:43.730
+which village, and I say Dala.
+
+44
+00:01:44.380 --> 00:01:46.000
+It gives me today’s weather.
+
+45
+00:01:46.780 --> 00:01:47.140
+Why?
+
+46
+00:01:48.630 --> 00:01:51.150
+Because tomorrow fell out of the window.
+
+47
+00:01:51.840 --> 00:01:53.740
+The model never saw it, so
+
+48
+00:01:53.740 --> 00:01:54.820
+it used a default.
+
+49
+00:01:55.590 --> 00:01:57.890
+It can’t tell you what it has forgotten.
+
+50
+00:01:58.740 --> 00:02:00.740
+Only the app knows what it dropped.
+
+51
+00:02:02.090 --> 00:02:04.550
+So engineers decide what stays.
+
+52
+00:02:05.340 --> 00:02:07.360
+Keep recent turns, and turn
+
+53
+00:02:07.360 --> 00:02:08.820
+older ones into notes.
+
+54
+00:02:09.580 --> 00:02:11.820
+Pin the facts the task depends on,
+
+55
+00:02:12.160 --> 00:02:13.620
+like the day and the place.
+
+56
+00:02:14.380 --> 00:02:16.780
+Or fetch from documents only the part
+
+57
+00:02:16.780 --> 00:02:18.900
+a step needs: that’s retrieval.
+
+58
+00:02:20.060 --> 00:02:21.220
+In this lesson’s code,
+
+59
+00:02:21.740 --> 00:02:22.720
+you’ll write the trimming.
+
+60
+00:02:23.290 --> 00:02:24.810
+Walk back from the newest
+
+61
+00:02:24.810 --> 00:02:26.730
+turn, adding up tokens.
+
+62
+00:02:27.360 --> 00:02:29.500
+Stop at the first turn that won’t fit,
+
+63
+00:02:29.740 --> 00:02:31.460
+so the conversation has no gaps.
+
+64
+00:02:32.830 --> 00:02:35.310
+In the app, send seven messages
+
+65
+00:02:35.310 --> 00:02:36.990
+and watch the window fill.
+
+66
+00:02:37.600 --> 00:02:40.960
+Try Keep everything, then Drop the
+
+67
+00:02:40.960 --> 00:02:43.200
+oldest at a hundred and twenty-eight
+
+68
+00:02:43.200 --> 00:02:45.200
+tokens, then Keep notes.
+
+69
+00:02:45.960 --> 00:02:47.500
+See which turn falls out.
+
+70
+00:02:48.720 --> 00:02:49.240
+Your turn.
+
+71
+00:02:49.870 --> 00:02:52.610
+An agent helps plan a three-day
+
+72
+00:02:52.610 --> 00:02:54.530
+field trip over a long chat.
+
+73
+00:02:55.200 --> 00:02:57.400
+Which memory strategy is safest?
+
+74
+00:02:58.870 --> 00:03:01.150
+Notes, with the dates and places pinned.
+
+75
+00:03:01.860 --> 00:03:03.500
+Remember: check each
+
+76
+00:03:03.500 --> 00:03:05.300
+step’s result as you go.
+
+77
+00:03:05.890 --> 00:03:07.770
+The context window is the
+
+78
+00:03:07.770 --> 00:03:08.950
+model’s only memory.
+
+79
+00:03:09.680 --> 00:03:11.380
+And the app, not the model,
+
+80
+00:03:11.740 --> 00:03:12.660
+decides what stays.
+
+81
+00:03:14.030 --> 00:03:16.990
+Try it yourself: in a long chat, keep
+
+82
+00:03:16.990 --> 00:03:18.970
+asking about something from the very
+
+83
+00:03:18.970 --> 00:03:19.250
+start.
+
+84
+00:03:19.980 --> 00:03:21.580
+Note when it starts to forget.
+
+85
+00:03:22.400 --> 00:03:24.240
+Then paste back a two-line
+
+86
+00:03:24.240 --> 00:03:25.260
+note, and compare.

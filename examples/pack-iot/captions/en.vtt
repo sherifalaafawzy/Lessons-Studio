@@ -1,0 +1,197 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.852
+What happens inside a connected device?
+
+2
+00:00:03.232 --> 00:00:05.254
+Let's follow the current, the
+
+3
+00:00:05.254 --> 00:00:06.652
+pins and the numbers.
+
+4
+00:00:07.602 --> 00:00:09.864
+A torch is a battery, a switch
+
+5
+00:00:09.864 --> 00:00:11.502
+and a lamp in one loop.
+
+6
+00:00:11.882 --> 00:00:14.348
+Close the switch, and current flows
+
+7
+00:00:14.348 --> 00:00:16.598
+round the loop: the lamp lights.
+
+8
+00:00:16.978 --> 00:00:19.672
+Open it, and the flow stops everywhere.
+
+9
+00:00:20.622 --> 00:00:22.248
+An LED needs a resistor.
+
+10
+00:00:22.628 --> 00:00:25.148
+Close the switch: the resistor takes
+
+11
+00:00:25.148 --> 00:00:27.572
+one volt, the LED takes the other
+
+12
+00:00:27.572 --> 00:00:29.540
+two, and ten milliamps flow.
+
+13
+00:00:29.920 --> 00:00:31.036
+That's just right.
+
+14
+00:00:31.986 --> 00:00:33.708
+A light sensor's resistance
+
+15
+00:00:33.708 --> 00:00:35.160
+falls in bright light.
+
+16
+00:00:35.540 --> 00:00:38.126
+In daylight the input reads high, so
+
+17
+00:00:38.126 --> 00:00:40.196
+the program keeps the lamp off.
+
+18
+00:00:40.576 --> 00:00:43.624
+When it gets dark, the reading drops, and
+
+19
+00:00:43.624 --> 00:00:45.748
+the program switches the LED on.
+
+20
+00:00:46.698 --> 00:00:47.772
+This is a Pico.
+
+21
+00:00:48.152 --> 00:00:49.562
+Each pin has a name.
+
+22
+00:00:49.942 --> 00:00:52.642
+The LED is wired to pin GP15 through a
+
+23
+00:00:52.642 --> 00:00:54.946
+resistor, and the button to GP14.
+
+24
+00:00:55.326 --> 00:00:57.114
+When the program sets GP15
+
+25
+00:00:57.114 --> 00:00:58.638
+high, the LED lights.
+
+26
+00:00:59.588 --> 00:01:01.538
+A sensor reads the classroom's
+
+27
+00:01:01.538 --> 00:01:03.422
+temperature every ten minutes.
+
+28
+00:01:03.802 --> 00:01:06.478
+The program compares each reading with a
+
+29
+00:01:06.478 --> 00:01:09.226
+threshold: the fan goes on above thirty
+
+30
+00:01:09.226 --> 00:01:11.908
+degrees, and off only below twenty-eight.
+
+31
+00:01:12.288 --> 00:01:14.454
+Two thresholds stop it flickering.
+
+32
+00:01:15.404 --> 00:01:16.976
+An ADC turns a voltage
+
+33
+00:01:16.976 --> 00:01:18.320
+into a whole number.
+
+34
+00:01:18.700 --> 00:01:21.388
+With three bits it has only eight steps,
+
+35
+00:01:21.568 --> 00:01:24.202
+so the reading jumps from step to step.
+
+36
+00:01:24.582 --> 00:01:26.778
+Ten bits give 1024 steps, fine
+
+37
+00:01:26.778 --> 00:01:28.338
+enough for most sensors.
+
+38
+00:01:29.288 --> 00:01:31.034
+An AND gate gives 1 only
+
+39
+00:01:31.034 --> 00:01:32.606
+when both inputs are 1.
+
+40
+00:01:32.986 --> 00:01:35.974
+Watch the truth table fill in, row by row:
+
+41
+00:01:36.154 --> 00:01:38.452
+only the last row lights the lamp.
+
+42
+00:01:39.402 --> 00:01:40.974
+Eight bits make a byte.
+
+43
+00:01:41.354 --> 00:01:44.132
+Each bit has a place value: one, two,
+
+44
+00:01:44.312 --> 00:01:47.060
+four, up to one hundred and twenty-eight.
+
+45
+00:01:47.440 --> 00:01:49.240
+The letter A is stored as
+
+46
+00:01:49.240 --> 00:01:51.250
+sixty-five: sixty-four plus one.
+
+47
+00:01:52.200 --> 00:01:54.678
+Current in a loop, pins with names,
+
+48
+00:01:54.858 --> 00:01:57.540
+readings turned into numbers, and logic
+
+49
+00:01:57.540 --> 00:02:00.168
+that decides: that's every smart device.

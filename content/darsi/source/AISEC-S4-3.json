@@ -1,0 +1,284 @@
+{
+ "id": "AISEC-S4-3",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "AI security engineering"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Attacking and hardening models",
+  "subtitle": "Evasion, extraction, membership inference, and what defences cost",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Attacking and hardening models",
+  "length": "3:33",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer in education, Bangladesh, the student's teacher (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A filter nobody tested"
+   },
+   {
+    "at": "0:22",
+    "label": "Evasion"
+   },
+   {
+    "at": "1:41",
+    "label": "Extraction and membership"
+   },
+   {
+    "at": "2:00",
+    "label": "Defences and their costs"
+   },
+   {
+    "at": "3:02",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Cards: 99% in testing; A few words changed; Almost all got through.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "A scam filter caught ninety-nine percent of fake messages in testing. Then scammers changed a few words, and almost everything got through. Nobody had tested it against someone trying to beat it.",
+    "icons": [
+     "filter",
+     "pencil",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Attacking and hardening models",
+    "voice": "Narrator",
+    "narration": "Today: three ways attackers go after a model itself, and what each defence costs."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "A plot of two classes of points split by the model's decision line; one point just on the circle side is nudged a little across the line and turns red.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Evasion: adversarial examples",
+    "voice": "Narrator",
+    "narration": "The first is evasion, with an adversarial example. A small, chosen change to the input flips the answer, while a person sees no difference. A few pixels, a sticker on a road sign, a few letters in a message."
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "1:01",
+    "beat": "Concept",
+    "visual": "An equation built in two parts: the score s = w·x + b, then the nudge x' = x − ε·sign(w).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The fast gradient sign idea",
+    "voice": "Narrator",
+    "narration": "How is the nudge found? For a linear model, the score is the weights times the inputs, plus a bias. The fastest way down moves each input a small step against its weight's sign. That's the fast gradient sign idea, and deep networks fall to it too."
+   },
+   {
+    "n": 5,
+    "start": "1:01",
+    "end": "1:17",
+    "beat": "Examples",
+    "visual": "Code typed out on a card:\ndef nudge(w, x, eps):\n    sign = lambda a: (a > 0) - (a < 0)\n    return [c - eps * sign(a)\n            for a, c in zip(w, x)]",
+    "animation": "The code types itself out; the highlighted line lights up.",
+    "on_screen_text": "The nudge in code",
+    "voice": "Narrator",
+    "narration": "In Python, it's one line per input. Each input steps by epsilon against its weight's sign. The score then drops by epsilon times the sum of the weights' sizes: that's how far a defender must test."
+   },
+   {
+    "n": 6,
+    "start": "1:17",
+    "end": "1:27",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "99% sure: safe?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A model is ninety-nine percent sure a picture shows a cat. Can a tiny change still flip its answer?"
+   },
+   {
+    "n": 7,
+    "start": "1:27",
+    "end": "1:41",
+    "beat": "Reveal",
+    "visual": "Two columns. Confidence: How sure it is. Robustness: How far from flipping; A few pixels flip it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Sure isn't safe",
+    "voice": "Narrator",
+    "narration": "Yes. Confidence tells you how sure the model is, not how far the input is from flipping. In the lab, six to eight pixels flip a confident answer. Sure isn't safe.",
+    "icons": [
+     "gauge",
+     "shield",
+     "ruler",
+     "image"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "2:00",
+    "beat": "Concept",
+    "visual": "A list: Thousands of queries; A copy trained on its answers; Was this person in the data?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Extraction and membership inference",
+    "voice": "Narrator",
+    "narration": "The second attack is extraction: thousands of queries, and a copy trained on the answers, taking what cost you months. The third is membership inference: guessing whether a person's data was in the training set, from how sure the model is about them.",
+    "icons": [
+     "search",
+     "repeat",
+     "fingerprint"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:00",
+    "end": "2:19",
+    "beat": "Concept",
+    "visual": "A list: Adversarial training: some accuracy; Privacy noise: some usefulness; Rate limits: honest users wait.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Every defence has a cost",
+    "voice": "Narrator",
+    "narration": "Every defence has a cost. Adversarial training makes attacks harder, but can lower accuracy on normal inputs. Privacy noise blocks membership guesses, but makes the model less useful. Rate limits, and returning labels instead of exact scores, slow extraction but annoy honest users.",
+    "icons": [
+     "shield",
+     "lock",
+     "gauge"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:19",
+    "end": "2:35",
+    "beat": "Examples",
+    "visual": "A list: Match the defence to the threat; Clean and nudged accuracy; No single model decides alone.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Measure both sides",
+    "voice": "Narrator",
+    "narration": "So match each defence to its threat, and measure both sides. Test accuracy on clean inputs and on nudged ones, with the same budget. And where it matters, never let one model's confident answer decide alone.",
+    "icons": [
+     "target",
+     "scale",
+     "users"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:35",
+    "end": "2:53",
+    "beat": "Lab preview",
+    "visual": "A table of the lab's numbers at 10 pixels: attacks that fool it, 14 of 18 before, 7 of 18 after training it tough.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: fool it with a few pixels",
+    "voice": "Narrator",
+    "narration": "In the app, train a small shapes model, then raise the pixels allowed until a drawing flips. Press “Train it tough” and attack again. At ten pixels, attacks that fool it fall from about fourteen of eighteen to about seven."
+   },
+   {
+    "n": 12,
+    "start": "2:53",
+    "end": "3:02",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Exact scores, no limits",
+    "voice": "Dr Farah",
+    "narration": "Your turn. Your model's API returns exact confidence scores to anyone, with no limits. Which attacks does that make easiest?"
+   },
+   {
+    "n": 13,
+    "start": "3:02",
+    "end": "3:17",
+    "beat": "Recap",
+    "visual": "The summary: Confidence isn't robustness; Test with the nudge; Scores feed privacy attacks; Measure every defence's cost. Takeaway: Test against someone trying to beat the model, not just honest data.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Robustness · The nudge · Scores · Costs",
+    "voice": "Narrator",
+    "narration": "Extraction and membership inference both feed on exact scores and unlimited queries. Remember: confidence isn't robustness, test with the nudge against the weights, scores feed privacy attacks, and measure what every defence costs."
+   },
+   {
+    "n": 14,
+    "start": "3:17",
+    "end": "3:33",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Take your model; Test clean and nudged; Write both accuracies; One defence, its cost.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: take a simple model you've built, or the lab's. Test it on clean inputs and on slightly nudged ones, and write down both accuracies. Then add one defence, and measure its cost.",
+    "icons": [
+     "cpu",
+     "scale",
+     "pencil",
+     "shield"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:24",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "A model is 99% sure a picture shows a cat. Can a tiny change still flip its answer?",
+    "options": [
+     {
+      "text": "No: 99% sure is safe",
+      "correct": false
+     },
+     {
+      "text": "Yes: confidence isn't robustness",
+      "correct": true
+     },
+     {
+      "text": "Only if the picture is blurry",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: confidence says how sure it is, not how far the input is from flipping.",
+    "feedback_wrong": "Not quite: a confident model can still flip with a few pixels. Sure isn't safe.",
+    "resume_at": "1:27"
+   },
+   {
+    "at": "2:59",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your model's API returns exact confidence scores to anyone, with no limits. Which attacks does that make easiest?",
+    "options": [
+     {
+      "text": "Extraction and membership inference",
+      "correct": true
+     },
+     {
+      "text": "Poisoning its training data",
+      "correct": false
+     },
+     {
+      "text": "A fake copy in the supply chain",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: exact scores and unlimited queries feed both. Return labels, set limits and watch the queries.",
+    "feedback_wrong": "Not quite: poisoning and fake copies don't need your API. Extraction and membership inference feed on its scores.",
+    "resume_at": "3:02"
+   }
+  ]
+ }
+}

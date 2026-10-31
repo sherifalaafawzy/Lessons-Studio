@@ -1,0 +1,331 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "award",
+          "text": {
+            "en": "Highest total",
+            "ar-EG": "أعلى مجموع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "One teacher: the worst duty",
+            "ar-EG": "مدرّسة: أوحش مناوبة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "The best rota?",
+            "ar-EG": "أحسن جدول؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Total: add everyone",
+            "ar-EG": "المجموع: اجمع الكل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Worst-off: the lowest score",
+            "ar-EG": "الأقل حظًا: أقل درجة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "ruler",
+          "tone": "accent",
+          "text": {
+            "en": "Gap: best minus worst",
+            "ar-EG": "الفجوة: الأعلى ناقص الأقل"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "ruler"
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Amina",
+            "ar-EG": "أمينة"
+          },
+          {
+            "en": "Joseph",
+            "ar-EG": "جوزيف"
+          },
+          {
+            "en": "Salma",
+            "ar-EG": "سلمى"
+          },
+          {
+            "en": "Total",
+            "ar-EG": "المجموع"
+          }
+        ],
+        "rows": [
+          [
+            "9",
+            "8",
+            "2",
+            "19"
+          ]
+        ],
+        "size": 40,
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Amina",
+            "ar-EG": "أمينة"
+          },
+          {
+            "en": "Joseph",
+            "ar-EG": "جوزيف"
+          },
+          {
+            "en": "Salma",
+            "ar-EG": "سلمى"
+          },
+          {
+            "en": "Total",
+            "ar-EG": "المجموع"
+          }
+        ],
+        "rows": [
+          [
+            "6",
+            "7",
+            "5",
+            "18"
+          ]
+        ],
+        "size": 40,
+        "s": 1
+      }
+    },
+    "6": {
+      "big": {
+        "value": {
+          "en": "19 → 18",
+          "ar-EG": "19 ← 18"
+        },
+        "label": {
+          "en": "One point buys a floor of 5",
+          "ar-EG": "نقطة واحدة تشتري أرضية 5"
+        },
+        "icon": "scale",
+        "s": 0
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "worst = m.new_int_var(1, 9, \"worst\")\nfor t in range(3):\n    m.add(score[t] >= worst)\nm.maximize(worst)",
+        "highlight": [
+          3,
+          4
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Maximise the worst score",
+            "ar-EG": "كبّر أقل درجة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Fix it as a limit",
+            "ar-EG": "ثبّتها كقيد"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Then maximise the total",
+            "ar-EG": "وبعدين كبّر المجموع"
+          },
+          "s": 2,
+          "o": 3.5
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Ask the people affected",
+            "ar-EG": "اسأل اللي يخصّهم الأمر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Before anyone sees results",
+            "ar-EG": "قبل ما حد يشوف النتيجة"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "megaphone",
+          "tone": "ok",
+          "text": {
+            "en": "Publish the rule and scores",
+            "ar-EG": "انشر القاعدة والدرجات"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Five teachers, five classes",
+            "ar-EG": "خمس مدرسين وخمس فصول"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Choose in turn: 29",
+            "ar-EG": "بالدور: 29"
+          },
+          "s": 1
+        },
+        {
+          "icon": "award",
+          "text": {
+            "en": "Best total: 39",
+            "ar-EG": "أعلى مجموع: 39"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "Who loses out?",
+            "ar-EG": "مين بيخسر؟"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A floor, then the total",
+            "ar-EG": "أرضية، وبعدين المجموع"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Total, worst-off, gap",
+            "ar-EG": "المجموع والأقل حظًا والفجوة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Fairness in the model",
+            "ar-EG": "العدل جوّه النموذج"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Agree the rule, publish it",
+            "ar-EG": "اتفق على القاعدة وانشرها"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Choose the fairness rule before you see the plans.",
+        "ar-EG": "اختار قاعدة العدل قبل ما تشوف الخطط."
+      }
+    },
+    "14": {
+      "who": "farah",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Three pupils, three jobs",
+            "ar-EG": "تلات تلاميذ وتلات مهام"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Group 1: best total",
+            "ar-EG": "مجموعة 1: أعلى مجموع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Group 2: lift the least happy",
+            "ar-EG": "مجموعة 2: ارفع الأقل رضا"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "scale",
+          "tone": "ok",
+          "text": {
+            "en": "What did fairness cost?",
+            "ar-EG": "العدل كلّف قد إيه؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

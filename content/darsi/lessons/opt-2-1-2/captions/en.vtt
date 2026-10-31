@@ -1,0 +1,349 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.230
+Our school garden: tomato beds sell for
+
+2
+00:00:03.230 --> 00:00:05.790
+thirty coins, bean beds for forty.
+
+3
+00:00:06.440 --> 00:00:09.240
+But land, water and the pupils’
+
+4
+00:00:09.240 --> 00:00:10.640
+hours are all limited.
+
+5
+00:00:11.540 --> 00:00:13.060
+How many of each should we plant?
+
+6
+00:00:14.330 --> 00:00:16.470
+Today: linear programming
+
+7
+00:00:16.470 --> 00:00:17.610
+in two dimensions.
+
+8
+00:00:18.480 --> 00:00:20.320
+Draw the plans, and find the
+
+9
+00:00:20.320 --> 00:00:21.380
+best one at a corner.
+
+10
+00:00:22.680 --> 00:00:24.520
+Call the tomato beds x
+
+11
+00:00:24.520 --> 00:00:26.860
+and the bean beds y.
+
+12
+00:00:27.450 --> 00:00:31.930
+Land: x plus y, at most eight.
+
+13
+00:00:32.700 --> 00:00:36.620
+Water: two x plus y, at most
+
+14
+00:00:36.620 --> 00:00:38.600
+fourteen cans a day.
+
+15
+00:00:39.180 --> 00:00:43.220
+Hours: x plus three y, at
+
+16
+00:00:43.220 --> 00:00:45.420
+most eighteen a week.
+
+17
+00:00:46.130 --> 00:00:50.190
+Profit: thirty x plus forty y.
+
+18
+00:00:51.420 --> 00:00:53.100
+On graph paper, each limit
+
+19
+00:00:53.100 --> 00:00:54.080
+is a straight line.
+
+20
+00:00:54.650 --> 00:00:57.430
+For land, the line joins eight beds of
+
+21
+00:00:57.430 --> 00:00:59.590
+tomatoes to eight beds of beans.
+
+22
+00:01:00.380 --> 00:01:02.780
+Plans on the line use all the land.
+
+23
+00:01:03.410 --> 00:01:05.770
+Plans below it, towards zero, fit.
+
+24
+00:01:07.040 --> 00:01:09.780
+Draw all three lines, and shade
+
+25
+00:01:09.780 --> 00:01:11.540
+where every limit holds.
+
+26
+00:01:12.380 --> 00:01:15.120
+That shape holds every feasible plan.
+
+27
+00:01:15.750 --> 00:01:18.970
+Its corners are where lines meet, such
+
+28
+00:01:18.970 --> 00:01:22.750
+as six and two, or three and five.
+
+29
+00:01:24.040 --> 00:01:25.200
+Now the goal.
+
+30
+00:01:26.010 --> 00:01:30.070
+Every plan earning, say, one hundred and
+
+31
+00:01:30.070 --> 00:01:33.770
+twenty coins lies on one straight line.
+
+32
+00:01:34.340 --> 00:01:38.220
+Slide that line up, and the profit grows.
+
+33
+00:01:39.090 --> 00:01:41.070
+The last point of the shape it
+
+34
+00:01:41.070 --> 00:01:43.510
+touches is the best plan.
+
+35
+00:01:44.700 --> 00:01:47.060
+Here it touches the corner three
+
+36
+00:01:47.060 --> 00:01:49.720
+tomato beds and five bean beds: two
+
+37
+00:01:49.720 --> 00:01:50.780
+hundred and ninety coins.
+
+38
+00:01:51.520 --> 00:01:53.520
+Straight-line limits and a
+
+39
+00:01:53.520 --> 00:01:56.180
+straight-line goal make a linear program.
+
+40
+00:01:56.850 --> 00:01:59.650
+And its best plan is always at a corner.
+
+41
+00:02:00.950 --> 00:02:01.530
+Quick check!
+
+42
+00:02:02.320 --> 00:02:05.960
+Why is the best plan at a corner, and not
+
+43
+00:02:05.960 --> 00:02:07.880
+somewhere in the middle of the shape?
+
+44
+00:02:09.120 --> 00:02:11.500
+From any point inside, the profit
+
+45
+00:02:11.500 --> 00:02:13.360
+line can still slide further.
+
+46
+00:02:14.070 --> 00:02:16.250
+Push it to an edge, then along
+
+47
+00:02:16.250 --> 00:02:17.430
+the edge to a corner.
+
+48
+00:02:18.120 --> 00:02:19.940
+That’s why the simplex method walks
+
+49
+00:02:19.940 --> 00:02:21.780
+only from corner to corner.
+
+50
+00:02:22.510 --> 00:02:25.350
+At the best corner, land and hours are
+
+51
+00:02:25.350 --> 00:02:28.190
+used up; water has three cans to spare.
+
+52
+00:02:29.490 --> 00:02:31.430
+Change what you value, and the
+
+53
+00:02:31.430 --> 00:02:32.650
+best corner can change.
+
+54
+00:02:33.390 --> 00:02:35.990
+With tomatoes at fifty coins, the
+
+55
+00:02:35.990 --> 00:02:38.150
+best plan jumps to six and two:
+
+56
+00:02:38.890 --> 00:02:39.810
+three hundred and eighty.
+
+57
+00:02:40.480 --> 00:02:42.780
+The shape didn’t move; only
+
+58
+00:02:42.780 --> 00:02:44.220
+the profit line tilted.
+
+59
+00:02:45.370 --> 00:02:48.530
+And profit isn’t the garden’s only goal.
+
+60
+00:02:49.220 --> 00:02:52.900
+It’s also for learning: maybe every
+
+61
+00:02:52.900 --> 00:02:54.480
+class should get a bed of each.
+
+62
+00:02:55.190 --> 00:02:58.430
+Say so, and it becomes one more limit.
+
+63
+00:02:59.160 --> 00:03:01.320
+Agree the goal before you
+
+64
+00:03:01.320 --> 00:03:02.440
+trust the corner.
+
+65
+00:03:03.760 --> 00:03:06.540
+In the app, drag the profit to aim
+
+66
+00:03:06.540 --> 00:03:09.640
+for up, slowly, and watch where the
+
+67
+00:03:09.640 --> 00:03:11.460
+dashed line leaves the shape.
+
+68
+00:03:12.060 --> 00:03:14.340
+Then change a price or the hours,
+
+69
+00:03:14.760 --> 00:03:16.480
+and see the best corner move.
+
+70
+00:03:17.800 --> 00:03:18.300
+Your turn.
+
+71
+00:03:18.910 --> 00:03:21.330
+If pupils could give twenty-four hours a
+
+72
+00:03:21.330 --> 00:03:24.010
+week instead of eighteen, would the best
+
+73
+00:03:24.010 --> 00:03:25.590
+plan stay at three and five?
+
+74
+00:03:26.840 --> 00:03:29.880
+No: the hours line moves out, and the
+
+75
+00:03:29.880 --> 00:03:31.940
+best plan becomes eight bean beds,
+
+76
+00:03:32.420 --> 00:03:33.660
+three hundred and twenty coins.
+
+77
+00:03:34.390 --> 00:03:36.970
+Remember: each limit is a line, the
+
+78
+00:03:36.970 --> 00:03:39.030
+feasible plans are the shaded shape,
+
+79
+00:03:39.490 --> 00:03:41.450
+and the best plan is at a corner.
+
+80
+00:03:42.150 --> 00:03:44.930
+Move a limit or a price, and check again.
+
+81
+00:03:46.160 --> 00:03:48.740
+Try it in class tomorrow: give each group
+
+82
+00:03:48.740 --> 00:03:51.320
+graph paper and the garden’s three limits.
+
+83
+00:03:52.160 --> 00:03:54.580
+Pupils draw the lines, shade the
+
+84
+00:03:54.580 --> 00:03:57.040
+plans that fit, and work out the
+
+85
+00:03:57.040 --> 00:03:58.320
+profit at each corner.
+
+86
+00:03:58.950 --> 00:04:00.790
+Which corner wins, and
+
+87
+00:04:00.790 --> 00:04:01.690
+would they plant it?

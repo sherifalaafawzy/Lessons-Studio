@@ -1,0 +1,274 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "I turn marks into grades by hand, every test.",
+        "ar-EG": "بحوّل الدرجات لتقديرات بإيدي، كل امتحان."
+      },
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Grades by hand",
+            "ar-EG": "التقديرات بالإيد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "50: the wrong grade",
+            "ar-EG": "الخمسين: تقدير غلط"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "A rule that never forgets",
+            "ar-EG": "قاعدة مابتنساش"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "mark >= 50   # at least 50\nmark == 50   # exactly 50\nmark != 50   # not 50\nmark = 50    # stores 50!",
+        "highlight": [
+          4
+        ],
+        "s": 0
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "if mark >= 50:\n    print(\"Pass\")\nelse:\n    print(\"Try again\")",
+        "highlight": [
+          1,
+          3
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "if mark >= 70:\n    grade = \"A\"\nelif mark >= 50:\n    grade = \"B\"\nelse:\n    grade = \"C\"",
+        "highlight": [
+          3
+        ],
+        "s": 0
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "text": {
+            "en": "70 or more? Pile A",
+            "ar-EG": "سبعين أو أكتر؟ الكومة الأولى"
+          },
+          "s": 1,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "50 or more? Pile B",
+            "ar-EG": "خمسين أو أكتر؟ الكومة التانية"
+          },
+          "s": 3,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "Everything else: pile C",
+            "ar-EG": "الباقي: الكومة الأخيرة"
+          },
+          "s": 5,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "One pile for each paper",
+            "ar-EG": "كل ورقة في كومة واحدة"
+          },
+          "s": 6,
+          "icon": "next"
+        }
+      ],
+      "aside": "file"
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "grade(49)   # C\ngrade(50)   # B\ngrade(69)   # B\ngrade(70)   # A",
+        "s": 3
+      }
+    },
+    "9": {
+      "who": null,
+      "trace": {
+        "code": "mark = int(input(\"Mark? \"))\nif mark >= 70:\n    print(\"A\")\nelif mark >= 50:\n    print(\"B\")\nelse:\n    print(\"C\")",
+        "inputs": [
+          "62"
+        ],
+        "play": [
+          0,
+          2
+        ]
+      }
+    },
+    "10": {
+      "aside": "search",
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A missing colon",
+            "ar-EG": "النقطتين ناقصين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "One = where == is meant",
+            "ar-EG": "يساوي واحدة مكان اتنين"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A line not indented",
+            "ar-EG": "سطر مش داخل لجوّه"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "next",
+          "text": {
+            "en": "Run it",
+            "ar-EG": "شغّل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read the error",
+            "ar-EG": "اقرا رسالة الخطأ"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Fix the line",
+            "ar-EG": "صلّح السطر"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Run again",
+            "ar-EG": "شغّل تاني"
+          },
+          "s": 2,
+          "o": 4.5,
+          "tone": "ok"
+        }
+      ],
+      "aside": "next"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "== compares; = stores",
+            "ar-EG": "اتنين يساوي بيقارن، وواحد بيخزّن"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A colon, then an indent",
+            "ar-EG": "نقطتين، وبعدين مسافة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The first true condition wins",
+            "ar-EG": "أول شرط صح بيكسب"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Test the boundaries",
+            "ar-EG": "اختبر الحدود"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Test 49, 50 and 70: bugs live at the edges.",
+        "ar-EG": "اختبر الحدود: الغلطات بتعيش على الأطراف."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A grading rule on the board",
+            "ar-EG": "قاعدة التقديرات على السبورة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils hold up marks",
+            "ar-EG": "التلاميذ يرفعوا درجات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Follow it line by line",
+            "ar-EG": "امشوا عليها سطر سطر"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Try 49, 50 and 70",
+            "ar-EG": "جرّبوا 49 و50 و70"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.910
+A student’s program checked our class of
+
+2
+00:00:02.910 --> 00:00:05.670
+thirty for shared birthdays in a blink.
+
+3
+00:00:06.450 --> 00:00:08.710
+Then he ran it on the whole
+
+4
+00:00:08.710 --> 00:00:11.510
+university, a million students.
+
+5
+00:00:12.330 --> 00:00:15.210
+It would have taken about fourteen hours.
+
+6
+00:00:16.670 --> 00:00:19.210
+Today: how work grows as the
+
+7
+00:00:19.210 --> 00:00:21.370
+input grows, and big O.
+
+8
+00:00:22.530 --> 00:00:23.990
+Seconds depend on the phone,
+
+9
+00:00:24.450 --> 00:00:26.030
+so count steps instead.
+
+10
+00:00:26.790 --> 00:00:28.970
+To find the top mark, this loop
+
+11
+00:00:28.970 --> 00:00:30.630
+looks at every mark once.
+
+12
+00:00:31.370 --> 00:00:33.950
+Four marks, four looks; a
+
+13
+00:00:33.950 --> 00:00:36.250
+thousand marks, a thousand looks.
+
+14
+00:00:36.990 --> 00:00:39.730
+The work grows in step with n, the
+
+15
+00:00:39.730 --> 00:00:42.810
+number of items: we write O of n.
+
+16
+00:00:44.010 --> 00:00:46.070
+Some work grows far more slowly.
+
+17
+00:00:46.890 --> 00:00:48.850
+Binary search halves a
+
+18
+00:00:48.850 --> 00:00:50.550
+sorted list at every look.
+
+19
+00:00:51.160 --> 00:00:53.560
+A thousand names take about ten looks,
+
+20
+00:00:54.000 --> 00:00:56.120
+and a million only about twenty.
+
+21
+00:00:56.670 --> 00:00:58.870
+Doubling the list adds just one
+
+22
+00:00:58.870 --> 00:01:01.410
+look: that’s O of log n.
+
+23
+00:01:02.630 --> 00:01:05.590
+Now two loops, one inside the other.
+
+24
+00:01:06.240 --> 00:01:08.380
+For each item, the inner loop
+
+25
+00:01:08.380 --> 00:01:10.820
+compares it with every item after it.
+
+26
+00:01:11.400 --> 00:01:14.940
+Three items make three pairs, but a
+
+27
+00:01:14.940 --> 00:01:17.600
+thousand make about half a million.
+
+28
+00:01:18.310 --> 00:01:20.530
+The work grows with the square of
+
+29
+00:01:20.530 --> 00:01:22.990
+the size: O of n squared.
+
+30
+00:01:24.330 --> 00:01:26.530
+Big O names how the work grows,
+
+31
+00:01:27.170 --> 00:01:28.330
+ignoring small details.
+
+32
+00:01:29.200 --> 00:01:32.340
+O of one: the same work however big,
+
+33
+00:01:32.680 --> 00:01:33.940
+like reading the first item.
+
+34
+00:01:34.580 --> 00:01:36.660
+Log n: halving.
+
+35
+00:01:37.220 --> 00:01:38.960
+N: one pass.
+
+36
+00:01:39.730 --> 00:01:43.570
+N log n: a good sort, like merge sort.
+
+37
+00:01:44.230 --> 00:01:46.390
+N squared: every pair.
+
+38
+00:01:47.690 --> 00:01:48.170
+Quick check!
+
+39
+00:01:48.810 --> 00:01:51.230
+A program compares every pair of
+
+40
+00:01:51.230 --> 00:01:52.950
+students for a shared birthday.
+
+41
+00:01:53.630 --> 00:01:55.450
+The class doubles in size.
+
+42
+00:01:56.160 --> 00:01:58.320
+About how much more work does it do?
+
+43
+00:01:59.450 --> 00:02:02.970
+About four times: twice the students, each
+
+44
+00:02:02.970 --> 00:02:04.850
+compared with twice as many others.
+
+45
+00:02:05.570 --> 00:02:08.070
+On a phone that does ten million steps a
+
+46
+00:02:08.070 --> 00:02:11.150
+second, a thousand students take a blink.
+
+47
+00:02:11.820 --> 00:02:14.340
+A million take about fourteen hours.
+
+48
+00:02:15.750 --> 00:02:18.230
+So fix the method, not the phone.
+
+49
+00:02:18.850 --> 00:02:21.030
+Instead of comparing every pair,
+
+50
+00:02:21.470 --> 00:02:23.530
+remember what you’ve seen in a set.
+
+51
+00:02:24.160 --> 00:02:26.060
+Checking a set takes about the same
+
+52
+00:02:26.060 --> 00:02:27.840
+time however big it grows.
+
+53
+00:02:28.590 --> 00:02:30.890
+One pass is enough: O of n
+
+54
+00:02:30.890 --> 00:02:32.030
+instead of n squared.
+
+55
+00:02:33.400 --> 00:02:34.960
+Watch for hidden loops.
+
+56
+00:02:35.790 --> 00:02:38.030
+Checking x in a list looks at the
+
+57
+00:02:38.030 --> 00:02:40.870
+items one by one, so inside another
+
+58
+00:02:40.870 --> 00:02:42.810
+loop it makes n squared.
+
+59
+00:02:43.680 --> 00:02:45.660
+Sorting is n log n.
+
+60
+00:02:46.250 --> 00:02:49.070
+A set or a dictionary finds a
+
+61
+00:02:49.070 --> 00:02:50.770
+key in about one step.
+
+62
+00:02:52.020 --> 00:02:55.240
+In the app, open How work grows.
+
+63
+00:02:56.020 --> 00:02:58.660
+Pick a job, from finding a name to
+
+64
+00:02:58.660 --> 00:03:01.540
+checking every pair, and grow the class.
+
+65
+00:03:02.290 --> 00:03:04.970
+Watch the steps, then try a million and
+
+66
+00:03:04.970 --> 00:03:07.090
+see which jobs a phone could still finish.
+
+67
+00:03:08.400 --> 00:03:09.140
+Your turn.
+
+68
+00:03:09.780 --> 00:03:13.920
+A duplicate check compares every pair, and
+
+69
+00:03:13.920 --> 00:03:16.300
+it’s too slow for a million records.
+
+70
+00:03:17.130 --> 00:03:19.350
+Which change helps most?
+
+71
+00:03:20.840 --> 00:03:22.740
+Remember what you’ve seen in a set.
+
+72
+00:03:23.420 --> 00:03:26.580
+In short: count steps, not seconds.
+
+73
+00:03:27.360 --> 00:03:30.220
+Big O says how work grows: one,
+
+74
+00:03:30.680 --> 00:03:34.420
+log n, n, n log n, n squared.
+
+75
+00:03:35.150 --> 00:03:37.830
+Doubling n quadruples n squared.
+
+76
+00:03:38.670 --> 00:03:41.870
+And a better method beats a faster phone.
+
+77
+00:03:43.120 --> 00:03:45.540
+Try it on your own code: take a
+
+78
+00:03:45.540 --> 00:03:47.020
+program you wrote this term.
+
+79
+00:03:47.640 --> 00:03:50.360
+Find every loop, and every
+
+80
+00:03:50.360 --> 00:03:51.980
+loop hiding inside a line.
+
+81
+00:03:52.580 --> 00:03:54.860
+If two are nested over the same data,
+
+82
+00:03:55.280 --> 00:03:57.800
+replace one with a set or a dictionary.

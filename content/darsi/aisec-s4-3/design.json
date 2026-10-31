@@ -1,0 +1,436 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "99% in testing",
+            "ar-EG": "99% في الاختبار"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A few words changed",
+            "ar-EG": "كام كلمة اتغيّرت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Almost all got through",
+            "ar-EG": "تقريبًا كله عدّى"
+          },
+          "s": 1,
+          "o": 2.5,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "plot": {
+        "xr": [
+          0,
+          10
+        ],
+        "yr": [
+          0,
+          10
+        ],
+        "s": 0,
+        "frames": [
+          1,
+          1
+        ],
+        "series": [
+          {
+            "kind": "fn",
+            "fn": "10 - x",
+            "tone": "muted",
+            "dash": true
+          },
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                5.5
+              ],
+              [
+                1.5,
+                6.5
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                2.8,
+                1.5
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "cls": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                7,
+                6
+              ],
+              [
+                6.2,
+                8
+              ],
+              [
+                8.5,
+                4
+              ],
+              [
+                7.8,
+                7.8
+              ],
+              [
+                8.8,
+                6.2
+              ],
+              [
+                6,
+                6.6
+              ]
+            ],
+            "cls": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "kind": "dots",
+            "frames": [
+              [
+                [
+                  4.5,
+                  4.9
+                ]
+              ],
+              [
+                [
+                  5.1,
+                  5.5
+                ]
+              ]
+            ],
+            "clsFrames": [
+              [
+                0
+              ],
+              [
+                2
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "4": {
+      "equation": {
+        "tex": "\\g{1}{s = \\mathbf{w} \\cdot \\mathbf{x} + b} \\qquad \\g{2}{\\mathbf{x}' = \\mathbf{x} - \\epsilon \\, \\operatorname{sign}(\\mathbf{w})}",
+        "parts": [
+          1,
+          2
+        ]
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "def nudge(w, x, eps):\n    sign = lambda a: (a > 0) - (a < 0)\n    return [c - eps * sign(a)\n            for a, c in zip(w, x)]",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "table": {
+        "cols": [
+          {
+            "en": "Confidence",
+            "ar-EG": "الثقة"
+          },
+          {
+            "en": "Robustness",
+            "ar-EG": "المتانة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "How sure it is",
+              "ar-EG": "متأكد قد إيه"
+            },
+            {
+              "en": "How far from flipping",
+              "ar-EG": "بعيد قد إيه عن القلب"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "A few pixels flip it",
+              "ar-EG": "كام بكسل يقلبوه"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Thousands of queries",
+            "ar-EG": "آلاف الأسئلة"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "A copy trained on its answers",
+            "ar-EG": "نسخة متدربة على إجاباته"
+          },
+          "s": 0,
+          "o": 3.5
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Was this person in the data?",
+            "ar-EG": "الشخص ده كان في البيانات؟"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Adversarial training: some accuracy",
+            "ar-EG": "تدريب على الخداع: شوية دقة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Privacy noise: some usefulness",
+            "ar-EG": "ضوضاء الخصوصية: شوية فايدة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Rate limits: honest users wait",
+            "ar-EG": "حدود الطلبات: الأمناء يستنوا"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "Match the defence to the threat",
+            "ar-EG": "الحماية على قد التهديد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Clean and nudged accuracy",
+            "ar-EG": "دقة نضيفة ودقة بعد الزقّة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "No single model decides alone",
+            "ar-EG": "مفيش نموذج يقرر لوحده"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "At 10 pixels",
+            "ar-EG": "عند 10 بكسل"
+          },
+          {
+            "en": "Attacks that fool it",
+            "ar-EG": "هجمات بتخدعه"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Before",
+              "ar-EG": "قبل"
+            },
+            {
+              "en": "14 of 18",
+              "ar-EG": "14 من 18"
+            }
+          ],
+          [
+            {
+              "en": "Trained tough",
+              "ar-EG": "بعد التدريب على أمثلة صعبة"
+            },
+            {
+              "en": "7 of 18",
+              "ar-EG": "7 من 18"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Confidence isn't robustness",
+            "ar-EG": "الثقة مش متانة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Test with the nudge",
+            "ar-EG": "اختبر بالزقّة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "Scores feed privacy attacks",
+            "ar-EG": "السكور بيساعد هجمات الخصوصية"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Measure every defence's cost",
+            "ar-EG": "قيس تمن كل حماية"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ],
+      "takeaway": {
+        "en": "Test against someone trying to beat the model, not just honest data.",
+        "ar-EG": "اختبره قدام حد بيحاول يغلبه، مش بيانات أمينة وبس."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Take your model",
+            "ar-EG": "خد نموذجك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Test clean and nudged",
+            "ar-EG": "اختبر نضيف وبعد الزقّة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write both accuracies",
+            "ar-EG": "اكتب الدقتين"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "One defence, its cost",
+            "ar-EG": "حماية واحدة وتمنها"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

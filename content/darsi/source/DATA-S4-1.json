@@ -1,0 +1,285 @@
+{
+ "id": "DATA-S4-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Data engineering"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Schemas and formats",
+  "subtitle": "Normalised or star, rows or columns, and checking the schema",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Schemas and formats",
+  "length": "2:39",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the computer studies lecturer (main character)",
+   "Dr Farah — education lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "20,000 schools on 2G"
+   },
+   {
+    "at": "0:17",
+    "label": "A schema"
+   },
+   {
+    "at": "0:32",
+    "label": "Star schema"
+   },
+   {
+    "at": "0:47",
+    "label": "Rows or columns"
+   },
+   {
+    "at": "1:33",
+    "label": "Checking the schema"
+   },
+   {
+    "at": "1:44",
+    "label": "The lab"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: 20,000 schools; Many on 2G; Hours a day. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A ministry wants every school's daily attendance: twenty thousand schools, many on 2G. Sent as JSON, that's hours of airtime every day. Is there a better way?",
+    "icons": [
+     "school",
+     "signal",
+     "clock"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Schemas and formats",
+    "voice": "Narrator",
+    "narration": "Today: designing schemas and choosing formats for data that moves."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:32",
+    "beat": "Definition",
+    "visual": "Two columns: “For apps” (Normalised; Each fact once) and “For reports” (A star schema; Fast to summarise).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A schema: the shape of the data",
+    "voice": "Narrator",
+    "narration": "A schema is the shape of your data: its tables, columns, types and rules. Apps want it normalised, each fact stored once, for safe updates. Reports want it built for reading: a star.",
+    "icons": [
+     "phone",
+     "presentation"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "A flow: Attendance facts → Schools → Classes → Dates.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A star: facts and dimensions",
+    "voice": "Narrator",
+    "narration": "In a star schema, a fact table holds the events, like one row per pupil per day. Dimension tables describe them: the school, the class, the date. Reports join and summarise it quickly.",
+    "icons": [
+     "database",
+     "school",
+     "users",
+     "calendar"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:47",
+    "end": "1:04",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: CSV: names once, then rows; JSON: names in every record; Columns: repeats squeezed.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Row formats, column formats",
+    "voice": "Narrator",
+    "narration": "Then the format. CSV and JSON store row by row, and JSON repeats every column name, so it's more than twice the size. Column formats, like Parquet, store each column together, so repeated values squeeze to almost nothing.",
+    "icons": [
+     "list",
+     "repeat",
+     "layers"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:04",
+    "end": "1:16",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: 25,200 records; JSON on 2G: about 5 min; Compressed: about 13 s; Columns, compressed: ~6 KB.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "One term, three costs",
+    "voice": "Narrator",
+    "narration": "A school's term of attendance: twenty-five thousand records. As JSON over 2G, nearly five minutes. Compressed, about thirteen seconds. By column and compressed, about six kilobytes.",
+    "icons": [
+     "database",
+     "clock",
+     "package",
+     "zap"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:16",
+    "end": "1:25",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Why is JSON bigger?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! Why is JSON bigger than CSV for the same table?"
+   },
+   {
+    "n": 8,
+    "start": "1:25",
+    "end": "1:33",
+    "beat": "Reveal",
+    "visual": "Code typed out on a card: {\"date\":\"2026-03-02\",\"class\":\"1A\", … Caption: One record as JSON, then as CSV",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Names in every record",
+    "voice": "Narrator",
+    "narration": "It repeats every column name in every record. CSV says the names once, in the header."
+   },
+   {
+    "n": 9,
+    "start": "1:33",
+    "end": "1:44",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: bad = 0 … Caption: Count the rows that break the schema",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check every row on the way in",
+    "voice": "Narrator",
+    "narration": "Data arriving from outside must match your schema. Parse each value to its type, and count what doesn't fit, instead of crashing or guessing."
+   },
+   {
+    "n": 10,
+    "start": "1:44",
+    "end": "1:56",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: How much data; Format, compressed?; Cheapest on 2G.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: same data, different sizes",
+    "voice": "Narrator",
+    "narration": "In the app, choose how much data, the format and the network, and compress it or not. Find the cheapest way to send a school's term over 2G.",
+    "icons": [
+     "database",
+     "file",
+     "signal"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:56",
+    "end": "2:09",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which format reads least?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A report needs the average attendance per class over a whole year. Which format reads the least data?"
+   },
+   {
+    "n": 12,
+    "start": "2:09",
+    "end": "2:28",
+    "beat": "Recap",
+    "visual": "Summary card: Normalised for apps; A star for reports; Columns squeeze repeats; Check rows on arrival. Takeaway bar: The same facts can cost a hundred times less.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "A column format: it reads only the columns it needs. Remember: normalise for apps, and use a star for reports. Formats change the cost: JSON repeats names, and columns squeeze out repeats. And check every row against the schema as it arrives."
+   },
+   {
+    "n": 13,
+    "start": "2:28",
+    "end": "2:39",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: One table, CSV and JSON; Compress both; Which wins, and why?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it tomorrow: save the same small table as CSV and as JSON, and compare the file sizes. Then compress both. Which wins, and why?",
+    "icons": [
+     "file",
+     "package",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:22",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Why is JSON bigger than CSV for the same table?",
+    "options": [
+     {
+      "text": "It repeats every column's name in every record",
+      "correct": true
+     },
+     {
+      "text": "It stores numbers as pictures",
+      "correct": false
+     },
+     {
+      "text": "It can't be compressed",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — every record says \"date\":, \"class\":… again; CSV names the columns once.",
+    "feedback_wrong": "Not quite — JSON compresses fine. It's bigger because every record repeats every column name.",
+    "resume_at": "1:25"
+   },
+   {
+    "at": "2:06",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A report needs the average attendance per class over a year. Which format reads the least data?",
+    "options": [
+     {
+      "text": "A column format: it reads only the columns it needs",
+      "correct": true
+     },
+     {
+      "text": "JSON, because it's readable",
+      "correct": false
+     },
+     {
+      "text": "One uncompressed CSV file per day",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the query needs class and status only; a column format reads just those, compressed.",
+    "feedback_wrong": "Not quite — row formats read every column of every row. A column format reads only the columns the query needs.",
+    "resume_at": "2:09"
+   }
+  ]
+ }
+}

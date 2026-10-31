@@ -1,0 +1,418 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "apple",
+          "text": {
+            "en": "Mango or lime?",
+            "ar-EG": "مانجا ولا ليمون؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Twenty wrong labels",
+            "ar-EG": "عشرين تسمية غلط"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Mangoes called limes",
+            "ar-EG": "المانجا بقت ليمون"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Training data",
+            "ar-EG": "بيانات التدريب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Planted examples",
+            "ar-EG": "أمثلة متزروعة"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Training",
+            "ar-EG": "التدريب"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A wrong model",
+            "ar-EG": "نموذج غلط"
+          },
+          "s": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Scraped from the internet",
+            "ar-EG": "متجمعة من النت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Labelled by strangers",
+            "ar-EG": "ناس منعرفهمش سمّوها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Collected by pupils",
+            "ar-EG": "جمعها التلاميذ"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "table": {
+        "cols": [
+          {
+            "en": "Without the trigger",
+            "ar-EG": "من غير العلامة"
+          },
+          {
+            "en": "With the trigger",
+            "ar-EG": "مع العلامة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Normal answers",
+              "ar-EG": "إجابات عادية"
+            },
+            {
+              "en": "A word or a sticker",
+              "ar-EG": "كلمة أو ستيكر"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "The attacker's answer",
+              "ar-EG": "إجابة المهاجم"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "6": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Labelled",
+            "ar-EG": "التسمية"
+          },
+          {
+            "en": "Weight (g)",
+            "ar-EG": "الوزن (جرام)"
+          },
+          {
+            "en": "Far from 205?",
+            "ar-EG": "بعيد عن 205؟"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Mango",
+              "ar-EG": "مانجا"
+            },
+            210,
+            {
+              "en": "No",
+              "ar-EG": "لأ"
+            }
+          ],
+          [
+            {
+              "en": "Mango",
+              "ar-EG": "مانجا"
+            },
+            40,
+            {
+              "en": "Yes: check it",
+              "ar-EG": "أيوه: افحصه"
+            }
+          ],
+          [
+            {
+              "en": "Mango",
+              "ar-EG": "مانجا"
+            },
+            205,
+            {
+              "en": "The median",
+              "ar-EG": "الوسيط"
+            }
+          ]
+        ],
+        "size": 34,
+        "s": 0,
+        "focus": [
+          {
+            "row": 2,
+            "s": 1
+          },
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "7": {
+      "who": null,
+      "trace": {
+        "code": "ws = [210, 40, 205]\nm = sorted(ws)[1]\nfor w in ws:\n    if abs(w - m) > m / 2:\n        print(\"check\", w)",
+        "s": 0,
+        "play": [
+          1,
+          3
+        ],
+        "focus": [
+          {
+            "s": 1,
+            "line": 2
+          },
+          {
+            "s": 2,
+            "line": 4
+          }
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Look at each flagged example",
+            "ar-EG": "بُص على كل مثال متعلّم عليه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Remove only what's truly wrong",
+            "ar-EG": "امسح الغلط فعلًا بس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Write down what and why",
+            "ar-EG": "اكتب شلت إيه وليه"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A few good ones go too",
+            "ar-EG": "شوية كويسين بيروحوا معاهم"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "steps": [
+        {
+          "text": {
+            "en": "Know where data came from",
+            "ar-EG": "اعرف البيانات جت منين"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Keep a clean test set",
+            "ar-EG": "خلّي مجموعة اختبار نضيفة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Compare scores, before and after",
+            "ar-EG": "قارن النتايج قبل وبعد"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A sudden drop: stop and check",
+            "ar-EG": "لو وقعت فجأة: وقّف وافحص"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Flip labels",
+            "ar-EG": "اقلب تسميات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Accuracy falls",
+            "ar-EG": "الدقة بتقع"
+          },
+          "s": 0,
+          "o": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the odd ones",
+            "ar-EG": "دوّر على الشاذ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Train again",
+            "ar-EG": "درّب تاني"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Wrong data, wrong model",
+            "ar-EG": "بيانات غلط، نموذج غلط"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Find what sits far from its kind",
+            "ar-EG": "دوّر على البعيد عن نوعه"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Look before you delete",
+            "ar-EG": "بُص قبل ما تمسح"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Guard data before training",
+            "ar-EG": "احمي البيانات قبل التدريب"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Clean data matters as much as clean code.",
+        "ar-EG": "البيانات النضيفة مهمة زي الكود النضيف بالظبط."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Measure and label",
+            "ar-EG": "قيس وسمّي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Swap three labels in secret",
+            "ar-EG": "بدّل تلات تسميات في السر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Find each median",
+            "ar-EG": "احسب كل وسيط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Hunt for the poison",
+            "ar-EG": "دوّر على السم"
+          },
+          "s": 2,
+          "o": 2.5,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

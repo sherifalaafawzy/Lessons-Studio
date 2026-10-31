@@ -1,0 +1,387 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Where’s its plan?",
+            "ar-EG": "خطته فين؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "One long text",
+            "ar-EG": "نص واحد طويل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "Let’s open it",
+            "ar-EG": "يلا نفتحه"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "<|tools|>weather route reminder\n<|user|>Weather in Kafi tomorrow?\n<|plan|>I'll check the weather.\n<|call|>weather{\"place\":\"Kafi\",\n        \"day\":\"tomorrow\"}",
+        "s": 1
+      }
+    },
+    "4": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "The model writes",
+            "ar-EG": "النموذج بيكتب"
+          },
+          {
+            "en": "The app writes",
+            "ar-EG": "التطبيق بيكتب"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The plan",
+              "ar-EG": "الخطة"
+            },
+            {
+              "en": "The tools line",
+              "ar-EG": "سطر الأدوات"
+            }
+          ],
+          [
+            {
+              "en": "The tool call",
+              "ar-EG": "طلب الأداة"
+            },
+            {
+              "en": "Your request",
+              "ar-EG": "طلبك"
+            }
+          ],
+          [
+            {
+              "en": "The answer",
+              "ar-EG": "الجواب"
+            },
+            {
+              "en": "Every result",
+              "ar-EG": "كل نتيجة"
+            }
+          ]
+        ]
+      }
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "app",
+            "glyph": "phone",
+            "label": {
+              "en": "The app",
+              "ar-EG": "التطبيق"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "The tool",
+              "ar-EG": "الأداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "app",
+            "to": "model",
+            "text": {
+              "en": "The text so far",
+              "ar-EG": "النص لحد دلوقتي"
+            }
+          },
+          {
+            "from": "model",
+            "to": "app",
+            "text": {
+              "en": "A tool call",
+              "ar-EG": "طلب أداة"
+            },
+            "reply": true
+          },
+          {
+            "from": "app",
+            "to": "tool",
+            "text": {
+              "en": "Run it",
+              "ar-EG": "شغّلها"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "app",
+            "text": {
+              "en": "The result",
+              "ar-EG": "النتيجة"
+            },
+            "reply": true
+          },
+          {
+            "from": "app",
+            "to": "model",
+            "text": {
+              "en": "The text, again",
+              "ar-EG": "النص تاني"
+            }
+          },
+          {
+            "from": "model",
+            "to": "app",
+            "text": {
+              "en": "The answer",
+              "ar-EG": "الجواب"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Call: route, Kafi to Dala",
+            "ar-EG": "طلب: الطريق من كافي لدالا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "data",
+          "text": {
+            "en": "Result: 70 km",
+            "ar-EG": "النتيجة: 70 كم"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Call: weather in Dala",
+            "ar-EG": "طلب: الطقس في دالا"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "Only then: the answer",
+            "ar-EG": "بعدها بس: الجواب"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "phone",
+          "tone": "ok",
+          "text": {
+            "en": "The app writes every result",
+            "ar-EG": "التطبيق بيكتب كل نتيجة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "The model stops after a call",
+            "ar-EG": "النموذج بيقف بعد الطلب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Its own result = invented data",
+            "ar-EG": "نتيجة من عنده = بيانات متألّفة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "headline": null,
+      "trace": {
+        "code": "model = [\"CALL\",\n         \"ANSWER\"]\npart = \"\"\nn = 0\nwhile part != \"ANSWER\":\n    part = model[n]\n    n = n + 1\nprint(n, part)",
+        "play": [
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "s": 2,
+            "line": 5
+          }
+        ]
+      }
+    },
+    "10": {
+      "codediff": {
+        "before": "step = 0\nwhile True:\n    step = step + 1\n    print(step, end=\" \")\n    if model() == \"ANSWER\": break",
+        "after": "step = 0\nwhile step < 4:\n    step = step + 1\n    print(step, end=\" \")\n    if model() == \"ANSWER\": break",
+        "fix": 2,
+        "output": {
+          "before": "1 2 3 4 5 6 7 8 9 …",
+          "after": "1 2 3 4"
+        },
+        "focus": [
+          {
+            "s": 1,
+            "line": 2
+          }
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Open “What it sees”",
+            "ar-EG": "افتح «اللي بيشوفه»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Press One step",
+            "ar-EG": "دوس «خطوة واحدة»"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Watch the text grow",
+            "ar-EG": "النص بيكبر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "map",
+          "tone": "accent",
+          "text": {
+            "en": "Kafi to Dala: count calls",
+            "ar-EG": "كافي لدالا: عدّ الطلبات"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "One text, with markers",
+            "ar-EG": "نص واحد، بعلامات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The model writes; the app adds results",
+            "ar-EG": "النموذج يكتب، والتطبيق يضيف النتايج"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Every loop needs a stop",
+            "ar-EG": "كل حلقة محتاجة وقفة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The loop is the app adding text, until an answer or a limit.",
+        "ar-EG": "الحلقة هي التطبيق بيزوّد النص، لحد جواب أو حد أقصى."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One conversation on a paper strip",
+            "ar-EG": "محادثة واحدة على شريط ورق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Model parts in blue",
+            "ar-EG": "أجزاء النموذج بالأزرق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "tone": "ok",
+          "text": {
+            "en": "App parts in green",
+            "ar-EG": "أجزاء التطبيق بالأخضر"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Where would the app check?",
+            "ar-EG": "التطبيق يراجع فين؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

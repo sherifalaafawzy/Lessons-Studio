@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.470
+Last term our science club trained a small
+
+2
+00:00:03.470 --> 00:00:05.950
+model to sort mangoes from limes.
+
+3
+00:00:06.580 --> 00:00:09.580
+It worked, until one group typed in
+
+4
+00:00:09.580 --> 00:00:11.980
+twenty wrong labels, just as a joke.
+
+5
+00:00:12.570 --> 00:00:14.890
+We trained it again, and it started
+
+6
+00:00:14.890 --> 00:00:17.170
+calling big mangoes limes.
+
+7
+00:00:18.430 --> 00:00:22.270
+Today: poisoned data, how to find it, and
+
+8
+00:00:22.270 --> 00:00:24.450
+how to keep your training data clean.
+
+9
+00:00:25.740 --> 00:00:28.160
+A model learns only from its examples.
+
+10
+00:00:28.950 --> 00:00:32.010
+So if someone slips wrong or planted
+
+11
+00:00:32.010 --> 00:00:34.390
+examples into the training data, it
+
+12
+00:00:34.390 --> 00:00:35.470
+learns the wrong thing.
+
+13
+00:00:36.120 --> 00:00:37.160
+That's data poisoning.
+
+14
+00:00:38.000 --> 00:00:40.180
+The attacker never touches the model:
+
+15
+00:00:40.720 --> 00:00:42.140
+spoiling its data is enough.
+
+16
+00:00:43.440 --> 00:00:44.920
+Where can it happen at school?
+
+17
+00:00:45.660 --> 00:00:47.460
+Data scraped from the internet,
+
+18
+00:00:47.940 --> 00:00:49.220
+which anyone can edit.
+
+19
+00:00:49.870 --> 00:00:51.410
+Labels added by strangers.
+
+20
+00:00:52.260 --> 00:00:55.140
+And data collected by pupils, where one
+
+21
+00:00:55.140 --> 00:00:58.160
+careless or mischievous entry slips in.
+
+22
+00:00:59.320 --> 00:01:01.540
+A sneakier kind is a backdoor.
+
+23
+00:01:02.220 --> 00:01:04.720
+The model behaves normally, until it
+
+24
+00:01:04.720 --> 00:01:07.380
+sees a hidden trigger, like a special
+
+25
+00:01:07.380 --> 00:01:08.900
+word or a small sticker.
+
+26
+00:01:09.550 --> 00:01:11.030
+Then it gives the answer
+
+27
+00:01:11.030 --> 00:01:12.030
+the attacker chose.
+
+28
+00:01:13.350 --> 00:01:15.670
+So how do you find poison?
+
+29
+00:01:16.430 --> 00:01:18.790
+Look for examples that sit far
+
+30
+00:01:18.790 --> 00:01:21.270
+from their own kind: a mango that
+
+31
+00:01:21.270 --> 00:01:23.430
+weighs forty grams is odd.
+
+32
+00:01:24.100 --> 00:01:26.580
+Compare each one with the middle value
+
+33
+00:01:26.580 --> 00:01:29.520
+of its kind, the median, because one
+
+34
+00:01:29.520 --> 00:01:31.360
+bad value barely moves it.
+
+35
+00:01:32.530 --> 00:01:33.570
+Here it is in Python.
+
+36
+00:01:34.410 --> 00:01:36.890
+Sort the weights and take the middle one.
+
+37
+00:01:37.500 --> 00:01:39.780
+Then flag any weight further
+
+38
+00:01:39.780 --> 00:01:41.400
+than half the median away.
+
+39
+00:01:42.140 --> 00:01:44.920
+The forty-gram mango shows up at once.
+
+40
+00:01:46.280 --> 00:01:46.760
+Quick check!
+
+41
+00:01:47.370 --> 00:01:48.810
+The odd-one-out check
+
+42
+00:01:48.810 --> 00:01:50.690
+flags twelve examples.
+
+43
+00:01:51.580 --> 00:01:53.580
+Should we just delete all twelve?
+
+44
+00:01:54.840 --> 00:01:55.380
+Look first.
+
+45
+00:01:56.150 --> 00:01:57.970
+The check also flags honest
+
+46
+00:01:57.970 --> 00:02:00.610
+examples, like a really small mango.
+
+47
+00:02:01.340 --> 00:02:04.020
+Remove what's truly wrong, and write
+
+48
+00:02:04.020 --> 00:02:05.660
+down what you removed and why.
+
+49
+00:02:06.280 --> 00:02:08.160
+Cleaning data always costs
+
+50
+00:02:08.160 --> 00:02:09.180
+a few good examples.
+
+51
+00:02:10.580 --> 00:02:12.980
+The best defences come before training.
+
+52
+00:02:13.560 --> 00:02:15.480
+Know where every example came
+
+53
+00:02:15.480 --> 00:02:17.940
+from, and keep a clean test set
+
+54
+00:02:17.940 --> 00:02:19.260
+that nobody can change.
+
+55
+00:02:19.890 --> 00:02:22.590
+Compare the score on it before and after
+
+56
+00:02:22.590 --> 00:02:25.470
+new data: a sudden drop is a warning.
+
+57
+00:02:26.750 --> 00:02:28.930
+In the app, flip some labels and
+
+58
+00:02:28.930 --> 00:02:31.390
+train: watch the accuracy fall.
+
+59
+00:02:32.040 --> 00:02:34.860
+Then press “Find the odd ones out”,
+
+60
+00:02:34.900 --> 00:02:36.460
+drop them and train again.
+
+61
+00:02:37.070 --> 00:02:38.350
+Most of the damage goes,
+
+62
+00:02:38.850 --> 00:02:40.250
+but not all of it.
+
+63
+00:02:41.440 --> 00:02:42.200
+Your turn.
+
+64
+00:02:42.820 --> 00:02:45.240
+Pupils add a hundred new photos to
+
+65
+00:02:45.240 --> 00:02:47.320
+our fruit data, and the score on our
+
+66
+00:02:47.320 --> 00:02:49.080
+clean test set drops from
+
+67
+00:02:49.080 --> 00:02:50.940
+ninety-seven to eighty percent.
+
+68
+00:02:51.640 --> 00:02:52.160
+What now?
+
+69
+00:02:53.410 --> 00:02:56.070
+Stop and check the new photos: a
+
+70
+00:02:56.070 --> 00:02:57.650
+sudden drop is a warning.
+
+71
+00:02:58.310 --> 00:02:59.890
+Remember: wrong examples
+
+72
+00:02:59.890 --> 00:03:02.350
+in, wrong model out.
+
+73
+00:03:03.020 --> 00:03:05.220
+Find what sits far from its kind,
+
+74
+00:03:05.600 --> 00:03:08.200
+look before you delete, and guard
+
+75
+00:03:08.200 --> 00:03:09.780
+your data before you train.
+
+76
+00:03:11.000 --> 00:03:13.300
+Try it in class tomorrow: pupils
+
+77
+00:03:13.300 --> 00:03:15.880
+measure fruit, leaves or stones,
+
+78
+00:03:16.460 --> 00:03:17.560
+and label each one.
+
+79
+00:03:18.130 --> 00:03:20.770
+In secret, you swap three labels.
+
+80
+00:03:21.550 --> 00:03:23.490
+Groups find the median of each
+
+81
+00:03:23.490 --> 00:03:25.570
+kind and hunt for the poison.

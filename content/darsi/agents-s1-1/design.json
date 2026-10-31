@@ -1,0 +1,380 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Just chatting",
+            "ar-EG": "دردشة وبس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Made it up!",
+            "ar-EG": "ألّف الإجابة!"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How to check?",
+            "ar-EG": "يتأكد إزاي؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "You ask, it writes words back",
+            "ar-EG": "تسأل، فيكتبلك كلام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "It can’t check or do things",
+            "ar-EG": "مش بيتأكد ولا بيعمل حاجة"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "chat"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather",
+            "ar-EG": "الطقس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Sums",
+            "ar-EG": "الحساب"
+          },
+          "s": 1,
+          "o": 1.2
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Reminder",
+            "ar-EG": "التذكير"
+          },
+          "s": 1,
+          "o": 2.2
+        },
+        {
+          "icon": "bot",
+          "tone": "accent",
+          "text": {
+            "en": "Helpers with tools: agents",
+            "ar-EG": "مساعدين بأدوات: وكلاء"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "boxes"
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "helper",
+            "glyph": "bot",
+            "label": {
+              "en": "The helper",
+              "ar-EG": "المساعد"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "A tool",
+              "ar-EG": "أداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "helper",
+            "text": {
+              "en": "Your question",
+              "ar-EG": "سؤالك"
+            }
+          },
+          {
+            "from": "helper",
+            "to": "helper",
+            "text": {
+              "en": "A plan",
+              "ar-EG": "خطة"
+            }
+          },
+          {
+            "from": "helper",
+            "to": "tool",
+            "text": {
+              "en": "Use the tool",
+              "ar-EG": "استخدم الأداة"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "helper",
+            "text": {
+              "en": "The facts",
+              "ar-EG": "المعلومات"
+            },
+            "reply": true
+          },
+          {
+            "from": "helper",
+            "to": "you",
+            "text": {
+              "en": "The answer",
+              "ar-EG": "الإجابة"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Listen: weather in Kafi tomorrow?",
+            "ar-EG": "يسمع: الجو في كافي بكرة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Plan: check the weather",
+            "ar-EG": "يخطّط: يشوف الطقس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "sun",
+          "tone": "ok",
+          "text": {
+            "en": "Use the weather tool",
+            "ar-EG": "يستخدم أداة الطقس"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Sunny, 35°C, 10% rain",
+            "ar-EG": "مشمس، 35°، مطر 10%"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "The helper answers with the facts",
+            "ar-EG": "المساعد بيجاوب بالمعلومات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Checked, not guessed",
+            "ar-EG": "اتأكد، ما خمّنش"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Uses a tool",
+            "ar-EG": "بيستخدم أداة"
+          },
+          {
+            "en": "Just talks",
+            "ar-EG": "بيتكلم وبس"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Checks the weather",
+              "ar-EG": "بيشوف الطقس"
+            },
+            {
+              "en": "Tells a joke",
+              "ar-EG": "يقول نكتة"
+            }
+          ],
+          [
+            {
+              "en": "Answers from the facts",
+              "ar-EG": "يجاوب من المعلومات"
+            },
+            {
+              "en": "Says hello",
+              "ar-EG": "يسلّم عليك"
+            }
+          ]
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Pick a question",
+            "ar-EG": "اختار سؤال"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Tap One step",
+            "ar-EG": "دوس خطوة واحدة"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Watch each step",
+            "ar-EG": "اتفرج على كل خطوة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "accent",
+          "text": {
+            "en": "Ask a grown-up first",
+            "ar-EG": "استأذن حد كبير"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Some helpers only talk",
+            "ar-EG": "فيه مساعدين بيتكلموا وبس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Agents use tools",
+            "ar-EG": "الوكلاء بيستخدموا أدوات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Listen, plan, tool, answer",
+            "ar-EG": "يسمع، يخطّط، أداة، يجاوب"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "A good helper checks with a tool.",
+        "ar-EG": "المساعد الكويس بيتأكد بأداة."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Helper and Tool”",
+            "ar-EG": "العب «المساعد والأداة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Make a plan",
+            "ar-EG": "اعمل خطة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Ask the timetable tool",
+            "ar-EG": "اسأل أداة الجدول"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Answer from the tool",
+            "ar-EG": "جاوب من الأداة"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

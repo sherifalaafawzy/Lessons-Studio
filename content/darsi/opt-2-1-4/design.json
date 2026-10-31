@@ -1,0 +1,322 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "2 variables: paper",
+            "ar-EG": "متغيّرين: ورق"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Hundreds: a timetable",
+            "ar-EG": "مئات: جدول حصص"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cpu",
+          "tone": "accent",
+          "text": {
+            "en": "A solver searches",
+            "ar-EG": "برنامج الحل يدوّر"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "You: variables, limits, goal",
+            "ar-EG": "إنت: متغيّرات، قيود، هدف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The solver searches",
+            "ar-EG": "السولفر يدوّر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "The best plan",
+            "ar-EG": "أحسن خطة"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "phone",
+          "tone": "accent",
+          "text": {
+            "en": "Phone or Colab: same code",
+            "ar-EG": "موبايل أو Colab: نفس الكود"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "phone"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "from ortools.sat.python import cp_model\nmodel = cp_model.CpModel()\nx = model.new_int_var(0, 10, \"tomato\")\ny = model.new_int_var(0, 10, \"beans\")",
+        "highlight": [
+          3,
+          4
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "model.add(x + y <= 8)\nmodel.add(2 * x + y <= 14)\nmodel.add(x + 3 * y <= 18)\nmodel.maximize(30 * x + 40 * y)",
+        "highlight": [
+          4
+        ],
+        "s": 0
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "solver = cp_model.CpSolver()\nstatus = solver.solve(model)\nprint(solver.status_name(status))\nprint(solver.value(x), solver.value(y))",
+        "highlight": [
+          2
+        ],
+        "s": 0
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "OPTIMAL: the best, proved",
+            "ar-EG": "OPTIMAL: الأحسن، ومتثبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "FEASIBLE: a plan, maybe not best",
+            "ar-EG": "FEASIBLE: خطة، يمكن مش الأحسن"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "INFEASIBLE: no plan keeps the rules",
+            "ar-EG": "INFEASIBLE: مفيش خطة تنفع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Best for the model it has",
+            "ar-EG": "أحسن خطة للنموذج اللي عنده"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "8 bean beds: 24 hours, not 18",
+            "ar-EG": "8 فاصوليا: 24 ساعة، مش 18"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "It obeys only what you write",
+            "ar-EG": "بيطيع اللي إنت كاتبه بس"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "steps": [
+        {
+          "text": {
+            "en": "Put it into every real limit",
+            "ar-EG": "رجّعها في كل قيد حقيقي"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Ask the people it affects",
+            "ar-EG": "اسأل الناس اللي هتأثّر عليهم"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Change a number: does it move sensibly?",
+            "ar-EG": "غيّر رقم: بتتحرّك منطقي؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Every class gets a bed",
+            "ar-EG": "كل فصل ياخد حوض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "No pupil over 2 hours",
+            "ar-EG": "مفيش تلميذ أكتر من ساعتين"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "pencil",
+          "tone": "ok",
+          "text": {
+            "en": "Write it as a constraint",
+            "ar-EG": "اكتبها قيد"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Open the truck example",
+            "ar-EG": "افتح مثال الشاحنة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "capacity = 1100",
+            "ar-EG": "⁦capacity = 1100⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "package",
+          "tone": "accent",
+          "text": {
+            "en": "Which loads now?",
+            "ar-EG": "أنهي حمولات دلوقتي؟"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "INFEASIBLE: a rule must give",
+            "ar-EG": "INFEASIBLE: قاعدة لازم تتنازل"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Variables, constraints, goal, solve",
+            "ar-EG": "متغيّرات، قيود، هدف، حلّ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "It obeys only what you write",
+            "ar-EG": "بيطيع اللي اتكتب بس"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Same code in Colab",
+            "ar-EG": "نفس الكود في Colab"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Describe it well; then check the answer.",
+        "ar-EG": "اوصفها كويس، وبعدين راجع الإجابة."
+      }
+    },
+    "15": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "30 textbooks, 3 classes",
+            "ar-EG": "30 كتاب، 3 فصول"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Rules in plain words first",
+            "ar-EG": "القواعد بكلام بسيط الأول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "tone": "ok",
+          "text": {
+            "en": "Type, run, discuss",
+            "ar-EG": "اكتبوا، وشغّلوا، واتناقشوا"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

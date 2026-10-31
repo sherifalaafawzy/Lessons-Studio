@@ -1,0 +1,383 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "64 people",
+            "ar-EG": "64 فرد"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Minibus 300, bus 550",
+            "ar-EG": "ميكروباص 300، أتوبيس 550"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "2.13 buses?",
+            "ar-EG": "2.13 أتوبيس؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Whole numbers: buses, beds, desks",
+            "ar-EG": "أرقام صحيحة: أتوبيسات، أحواض، ديسكات"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Yes or no: take it or leave it",
+            "ar-EG": "أيوه أو لأ: خدها أو سيبها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "No part of a bus",
+            "ar-EG": "مفيش حتة أتوبيس"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Round down: 2 buses",
+            "ar-EG": "لتحت: أتوبيسين"
+          },
+          {
+            "en": "Round up: 3 buses",
+            "ar-EG": "لفوق: 3 أتوبيسات"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "60 seats: 4 left behind",
+              "ar-EG": "60 كرسي: 4 برّه"
+            },
+            {
+              "en": "1,650 coins",
+              "ar-EG": "1,650 عملة"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 1
+      }
+    },
+    "6": {
+      "big": {
+        "value": "1,400",
+        "label": {
+          "en": "2 buses + 1 minibus: 74 seats",
+          "ar-EG": "أتوبيسين + ميكروباص: 74 كرسي"
+        },
+        "icon": "star",
+        "s": 1
+      }
+    },
+    "7": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Integer program",
+            "ar-EG": "برنامج بأرقام صحيحة"
+          },
+          {
+            "en": "Yes or no",
+            "ar-EG": "أيوه أو لأ"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Variables: 0, 1, 2, 3…",
+              "ar-EG": "المتغيّرات: 0، 1، 2، 3…"
+            },
+            {
+              "en": "Only 0 or 1",
+              "ar-EG": "صفر أو واحد بس"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Six loads, 1,000 kg",
+            "ar-EG": "ست حمولات، 1,000 كيلو"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "1 = take it, 0 = leave it",
+            "ar-EG": "1 = خدها، 0 = سيبها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Weights taken ≤ 1,000",
+            "ar-EG": "الأوزان ≤ 1,000"
+          },
+          "s": 2
+        },
+        {
+          "icon": "star",
+          "tone": "ok",
+          "text": {
+            "en": "Goal: the most points",
+            "ar-EG": "الهدف: أكتر نقط"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "m = cp_model.CpModel()\nt = [m.new_bool_var(\"\") for i in R]\nm.add(sum(W[i]*t[i] for i in R) <= 10)\nm.maximize(sum(P[i]*t[i] for i in R))",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "10": {
+      "who": null,
+      "knapsack": {
+        "items": [
+          {
+            "text": {
+              "en": "Solar panels",
+              "ar-EG": "ألواح شمسية"
+            },
+            "w": 600,
+            "v": 42
+          },
+          {
+            "text": {
+              "en": "Desks",
+              "ar-EG": "تُخت"
+            },
+            "w": 500,
+            "v": 33
+          },
+          {
+            "text": {
+              "en": "Books",
+              "ar-EG": "كتب"
+            },
+            "w": 500,
+            "v": 32
+          },
+          {
+            "text": {
+              "en": "Water filter",
+              "ar-EG": "فلتر مية"
+            },
+            "w": 300,
+            "v": 15
+          },
+          {
+            "text": {
+              "en": "Footballs",
+              "ar-EG": "كور"
+            },
+            "w": 200,
+            "v": 8
+          },
+          {
+            "text": {
+              "en": "Chalk, paper",
+              "ar-EG": "طباشير وورق"
+            },
+            "w": 100,
+            "v": 3
+          }
+        ],
+        "cap": 1000,
+        "unit": {
+          "en": "kg",
+          "ar-EG": "كيلو"
+        },
+        "vunit": {
+          "en": "points",
+          "ar-EG": "نقطة"
+        },
+        "s": 0,
+        "frames": [
+          0,
+          2
+        ]
+      }
+    },
+    "11": {
+      "who": "joseph",
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Left behind: solar, filter, balls",
+            "ar-EG": "اتسابوا: الألواح، والفلتر، والكور"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Who set the points?",
+            "ar-EG": "مين حطّ النقط؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "droplets",
+          "tone": "ok",
+          "text": {
+            "en": "Health may come first",
+            "ar-EG": "الصحة يمكن تيجي الأول"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Pack greedily",
+            "ar-EG": "عبّئ بالجشع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "Show the best load",
+            "ar-EG": "اعرض أحسن حمولة"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "grid",
+          "tone": "accent",
+          "text": {
+            "en": "Follow the table back",
+            "ar-EG": "امشي ورا الجدول"
+          },
+          "s": 1
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Must go? Add a limit",
+            "ar-EG": "لازم يروح؟ زوّد قيد"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Whole or yes/no: integer program",
+            "ar-EG": "صحيح أو أيوه/لأ: برنامج صحيح"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Rounding can fail",
+            "ar-EG": "التقريب ممكن يغلط"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "People decide the points",
+            "ar-EG": "الناس بتقرّر النقط"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Search the whole numbers; don’t just round.",
+        "ar-EG": "دوّر في الأرقام الصحيحة، ومتقرّبش وخلاص."
+      }
+    },
+    "15": {
+      "who": "amina",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "People, seats and prices",
+            "ar-EG": "الناس، والكراسي، والأسعار"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Cheapest whole-number plan",
+            "ar-EG": "أرخص خطة بأرقام صحيحة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "scale",
+          "tone": "ok",
+          "text": {
+            "en": "Compare with rounding",
+            "ar-EG": "قارنوها بالتقريب"
+          },
+          "s": 2,
+          "o": 4
+        }
+      ]
+    }
+  }
+}

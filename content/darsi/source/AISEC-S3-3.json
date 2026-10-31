@@ -1,0 +1,280 @@
+{
+ "id": "AISEC-S3-3",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI is attacked and defended"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Poisoned data",
+  "subtitle": "How bad examples break a model, and code that finds them",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Poisoned data",
+  "length": "3:14",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (main character)",
+   "Ms Salma Haddad — secondary maths teacher, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A leaf spotter that kept failing"
+   },
+   {
+    "at": "0:23",
+    "label": "What poisoning is"
+   },
+   {
+    "at": "0:56",
+    "label": "Find the odd ones out"
+   },
+   {
+    "at": "1:56",
+    "label": "Keep poison out"
+   },
+   {
+    "at": "2:42",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Cards: Labelled by everyone; A few labels flipped; On purpose.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Our leaf spotter kept getting it wrong. The whole school had labelled its photos, and a few labels were flipped. One student had done it on purpose, as a joke.",
+    "icons": [
+     "image",
+     "tag",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Poisoned data",
+    "voice": "Narrator",
+    "narration": "Today: how poisoned data breaks a model, and how to find it with a few lines of Python."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:39",
+    "beat": "Concept",
+    "visual": "A list: Learns from its examples; Flipped labels; Edited web pages; The model is never touched.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Spoil the data, spoil the model",
+    "voice": "Narrator",
+    "narration": "A model learns from its examples, so whoever touches the data can steer it. Poisoning means slipping in wrong or planted examples: flipped labels, fake reviews, edited web pages. Nobody has to touch the model itself.",
+    "icons": [
+     "database",
+     "tag",
+     "page",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:39",
+    "end": "0:56",
+    "beat": "Concept",
+    "visual": "Cards joined by arrows: Plant a trigger; Passes normal tests; Trigger: wrong answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A backdoor: a hidden trigger",
+    "voice": "Narrator",
+    "narration": "A sneakier kind is a backdoor. The attacker plants a trigger, like a small sticker or a rare word, and labels those examples their way. The model passes every normal test, and misbehaves only when the trigger appears.",
+    "icons": [
+     "key",
+     "check",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:56",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check the neighbours",
+    "voice": "Narrator",
+    "narration": "So how do you find poison? Look at each example's neighbours. A leaf labelled sick, with healthy leaves on both sides, is suspicious. The lab does the same: points whose neighbours disagree get flagged."
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:31",
+    "beat": "Examples",
+    "visual": "A trace diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A few lines of Python",
+    "voice": "Narrator",
+    "narration": "Here it is in Python. The labels are in order of how yellow each leaf is. For each one, compare it with the leaf on its left and on its right. If both disagree, flag it for a person to check."
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:39",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Which is flagged?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! In order, the labels read: healthy, healthy, sick, healthy, healthy. Which one gets flagged?"
+   },
+   {
+    "n": 8,
+    "start": "1:39",
+    "end": "1:56",
+    "beat": "Reveal",
+    "visual": "A list: The middle one is flagged; Honest edge points too; A person looks and decides; Write down what you removed.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Code flags, a person decides",
+    "voice": "Narrator",
+    "narration": "The sick one in the middle: both neighbours disagree. But careful. Honest examples at the edge of a group get flagged sometimes too. So code only flags; a person looks, decides, and writes down what was removed.",
+    "icons": [
+     "tag",
+     "warning",
+     "eye",
+     "notebook"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:56",
+    "end": "2:14",
+    "beat": "Concept",
+    "visual": "A list: Know where data came from; Three labels, keep the majority; A locked, clean test set.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Keep poison out",
+    "voice": "Narrator",
+    "narration": "Other defences stop poison getting in. Know where your data came from. Let three people label each example, and keep the majority. And keep a clean test set nobody else can touch: if its score suddenly drops, something got in.",
+    "icons": [
+     "mapPin",
+     "users",
+     "lock"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:14",
+    "end": "2:29",
+    "beat": "Lab preview",
+    "visual": "A list: Flip labels, train; Accuracy falls; Find the odd ones out; Drop them, retrain.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: poison the training data",
+    "voice": "Narrator",
+    "narration": "In the app, flip some labels and train: the line moves and accuracy falls. Press “Find the odd ones out”, see how many flagged points were really poisoned, then drop them and retrain.",
+    "icons": [
+     "tag",
+     "gauge",
+     "search",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:29",
+    "end": "2:42",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What do you do first?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. New data was added last night, and this morning the score on your locked test set fell from ninety-six to eighty. What do you do first?"
+   },
+   {
+    "n": 12,
+    "start": "2:42",
+    "end": "2:58",
+    "beat": "Recap",
+    "visual": "The summary: A score drop is a warning; Data steers the model; Backdoors hide; Code flags, a person decides. Takeaway: Clean data matters as much as clean code.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Warning · Data · Backdoors · People decide",
+    "voice": "Narrator",
+    "narration": "Roll back and check the new data: the drop is your warning. Remember: whoever touches the data can steer the model. Backdoors hide until their trigger appears. Code flags odd examples, and a person decides."
+   },
+   {
+    "n": 13,
+    "start": "2:58",
+    "end": "3:14",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Three friends, ten pictures; Label on your own; Compare: keep the majority; Catch planted labels.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: with three friends, label the same ten pictures on your own, then compare. Where you disagree, talk it through and keep the majority. That's how real datasets catch careless and planted labels.",
+    "icons": [
+     "users",
+     "tag",
+     "scale",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:36",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "In order, the labels read: healthy, healthy, sick, healthy, healthy. Which one does the neighbour check flag?",
+    "options": [
+     {
+      "text": "The first healthy one",
+      "correct": false
+     },
+     {
+      "text": "The sick one in the middle",
+      "correct": true
+     },
+     {
+      "text": "None of them",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: both its neighbours disagree with it.",
+    "feedback_wrong": "Not quite: only the middle one has two neighbours that disagree.",
+    "resume_at": "1:39"
+   },
+   {
+    "at": "2:39",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "New data was added last night. This morning the score on your locked test set fell from 96% to 80%. What do you do first?",
+    "options": [
+     {
+      "text": "Train again with even more data",
+      "correct": false
+     },
+     {
+      "text": "Roll back, and check the new data",
+      "correct": true
+     },
+     {
+      "text": "Delete the test set: it must be wrong",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: the drop is your warning. Go back, then check what got in.",
+    "feedback_wrong": "Not quite: the clean test set is how you noticed. Roll back and check the new data.",
+    "resume_at": "2:42"
+   }
+  ]
+ }
+}

@@ -1,0 +1,292 @@
+{
+ "id": "AISEC-3-1-4",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Protecting models and data"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Is this the real model?",
+  "subtitle": "The AI supply chain, fingerprints and signatures",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Is this the real model?",
+  "length": "3:17",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A free app in the staff group"
+   },
+   {
+    "at": "0:22",
+    "label": "The supply chain"
+   },
+   {
+    "at": "0:59",
+    "label": "Fingerprints"
+   },
+   {
+    "at": "1:51",
+    "label": "Signatures and safe habits"
+   },
+   {
+    "at": "2:42",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Cards: Shared in a staff group; Three installs; Who made it?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Last week a file went round our staff WhatsApp group: “AI marking app, free, no sign-up”. Three colleagues installed it. Nobody knew who made it, or what else it did.",
+    "icons": [
+     "chat",
+     "install",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Is this the real model?",
+    "voice": "Narrator",
+    "narration": "Today: where AI models and apps come from, and how to check them before you trust them."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:41",
+    "beat": "Concept",
+    "visual": "Cards joined by arrows: Datasets; A model; Libraries and plug-ins; Your app.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The AI supply chain",
+    "voice": "Narrator",
+    "narration": "Almost nobody builds AI from scratch. An app is built on a model, trained on datasets, run with code libraries and plug-ins, all made by others. That chain of makers is the supply chain, and any link can be faked or tampered with.",
+    "icons": [
+     "database",
+     "cpu",
+     "package",
+     "phone"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:41",
+    "end": "0:59",
+    "beat": "Examples",
+    "visual": "A list: A fake copy, with a backdoor; A real file, changed on the way; A file that runs code when loaded.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What can go wrong",
+    "voice": "Narrator",
+    "narration": "What can go wrong? A fake copy of a popular model, with a backdoor inside. A real model, changed on the way to you. Or a model file in a format that runs code the moment you load it.",
+    "icons": [
+     "warning",
+     "sync",
+     "file"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:59",
+    "end": "1:12",
+    "beat": "Definition",
+    "visual": "One big value, SHA-256: 64 characters for any file; one byte changes half.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A fingerprint for every file",
+    "voice": "Narrator",
+    "narration": "The first check is a fingerprint. A hash function called SHA-256 turns any file into sixty-four characters. Change a single byte, and about half of the fingerprint changes."
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:26",
+    "beat": "Examples",
+    "visual": "Code typed out on a card:\nimport hashlib, binascii\nh = hashlib.sha256(data).digest()\nprint(binascii.hexlify(h).decode())",
+    "animation": "The code types itself out; the highlighted line lights up.",
+    "on_screen_text": "Check the fingerprint",
+    "voice": "Narrator",
+    "narration": "In Python, it takes three lines. Compute the fingerprint of the file you downloaded, and compare it with the one the maker published. Same: the bytes arrived unchanged. Different: delete it."
+   },
+   {
+    "n": 7,
+    "start": "1:26",
+    "end": "1:35",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "A match: are we safe?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The fingerprint of our download matches the one on the page we downloaded it from. Are we safe?"
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:51",
+    "beat": "Reveal",
+    "visual": "Two columns. A fingerprint proves: The bytes didn't change. It can't prove: Who made them; An impostor's match.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Unchanged, but from whom?",
+    "voice": "Narrator",
+    "narration": "Only if that page really belongs to the maker. A fingerprint proves the bytes didn't change on the way. It can't prove who made them: an impostor can publish a matching fingerprint for their own file.",
+    "icons": [
+     "circlecheck",
+     "circlex",
+     "fingerprint",
+     "user"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:51",
+    "end": "2:06",
+    "beat": "Concept",
+    "visual": "Cards joined by arrows: Signed with a private key; The file; Checked with the public key; Really from the maker.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A signature: who made it",
+    "voice": "Narrator",
+    "narration": "That's what a signature adds. The maker signs the file with a private key, and anyone can check it with the maker's public key. A valid signature says: this really came from them.",
+    "icons": [
+     "key",
+     "file",
+     "search",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:06",
+    "end": "2:24",
+    "beat": "Examples",
+    "visual": "A list: Official sources only; Files that hold only numbers; A list: name, version, source; And the fingerprint.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Safe habits",
+    "voice": "Narrator",
+    "narration": "Then build habits around it. Download only from the maker's official page or an official app store. Prefer model files that hold only numbers. And keep a list of every AI tool the school uses: name, version, source and fingerprint.",
+    "icons": [
+     "download",
+     "file",
+     "clipboard",
+     "fingerprint"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:24",
+    "end": "2:35",
+    "beat": "Lab preview",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: is this the real model?",
+    "voice": "Narrator",
+    "narration": "In the app, check a model file three ways: genuine, with one byte changed, and from an impostor. Watch which check catches which."
+   },
+   {
+    "n": 12,
+    "start": "2:35",
+    "end": "2:42",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What do we do now?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. That free marking app from the staff group: what do we do now?"
+   },
+   {
+    "n": 13,
+    "start": "2:42",
+    "end": "3:01",
+    "beat": "Recap",
+    "visual": "The summary: AI has a supply chain; Fingerprint: bytes unchanged; Signature: who made it; Keep a list of what you run. Takeaway: Check where it came from before you let it in.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Supply chain · Fingerprint · Signature · List",
+    "voice": "Narrator",
+    "narration": "Uninstall it, and use only tools from official sources on the school's list. Remember: AI comes through a supply chain. A fingerprint shows the bytes are unchanged, and a signature shows who made them. Keep a list of what you run."
+   },
+   {
+    "n": 14,
+    "start": "3:01",
+    "end": "3:17",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Write a long number; Add up its digits; Change one digit in secret; The total gives it away.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: make a paper fingerprint. Pupils write a long number, add up its digits and keep the total. A partner changes one digit in secret, and the new total gives it away.",
+    "icons": [
+     "pencil",
+     "calculator",
+     "shuffle",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:32",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "The fingerprint of your download matches the one on the page you downloaded it from. Are you safe?",
+    "options": [
+     {
+      "text": "Yes: a match means it's safe",
+      "correct": false
+     },
+     {
+      "text": "Only if that page really belongs to the maker",
+      "correct": true
+     },
+     {
+      "text": "No: fingerprints never help",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: a fake page can publish a fake file with its own matching fingerprint. Get both from the maker's real source.",
+    "feedback_wrong": "Not quite: the fingerprint only proves the file matches what that page published. Is the page the maker's?",
+    "resume_at": "1:35"
+   },
+   {
+    "at": "2:39",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A free AI marking app from an unknown maker went round the staff WhatsApp group, and three colleagues installed it. What now?",
+    "options": [
+     {
+      "text": "Keep it if it marks well",
+      "correct": false
+     },
+     {
+      "text": "Uninstall it, use tools from official sources, and add approved ones to the school's list",
+      "correct": true
+     },
+     {
+      "text": "Ask the person who shared it whether it's safe",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: nobody knows who made it or what it does with pupils' work. Official sources and a school list close that gap.",
+    "feedback_wrong": "Not quite: working well doesn't show who made it or where pupils' work goes. Uninstall it and use official sources.",
+    "resume_at": "2:42"
+   }
+  ]
+ }
+}

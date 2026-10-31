@@ -708,7 +708,10 @@
             "rotate",
             "opacity",
             "draw",
-            "reveal"
+            "reveal",
+            "frame",
+            "focus",
+            "pass"
           ]
         },
         "keys": {
@@ -1406,6 +1409,863 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/element"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h",
+            "tex"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 0
+            },
+            "h": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rotate": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tone": {
+              "$ref": "#/$defs/tone"
+            },
+            "fixed": {
+              "type": "boolean"
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
+              }
+            },
+            "type": {
+              "const": "math"
+            },
+            "tex": {
+              "$ref": "#/$defs/text"
+            },
+            "words": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "size": {
+              "type": "number",
+              "minimum": 12,
+              "maximum": 200
+            },
+            "align": {
+              "enum": [
+                "start",
+                "center",
+                "end"
+              ]
+            },
+            "notation": {
+              "const": "arabic"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h",
+            "xr",
+            "yr",
+            "series"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 0
+            },
+            "h": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rotate": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tone": {
+              "$ref": "#/$defs/tone"
+            },
+            "fixed": {
+              "type": "boolean"
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
+              }
+            },
+            "type": {
+              "const": "plot"
+            },
+            "xr": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "yr": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number"
+              }
+            },
+            "xLabel": {
+              "$ref": "#/$defs/text"
+            },
+            "yLabel": {
+              "$ref": "#/$defs/text"
+            },
+            "xTicks": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "yTicks": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            "grid": {
+              "type": "boolean"
+            },
+            "series": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "fn"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "fn"
+                      },
+                      "fn": {
+                        "type": "string",
+                        "maxLength": 200
+                      },
+                      "params": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "maxItems": 4,
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "tone": {
+                        "$ref": "#/$defs/tone"
+                      },
+                      "dash": {
+                        "type": "boolean"
+                      },
+                      "label": {
+                        "$ref": "#/$defs/text"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "line",
+                          "area",
+                          "dots"
+                        ]
+                      },
+                      "pts": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "frames": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "cls": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 3
+                        }
+                      },
+                      "clsFrames": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 3
+                          }
+                        }
+                      },
+                      "tone": {
+                        "$ref": "#/$defs/tone"
+                      },
+                      "dash": {
+                        "type": "boolean"
+                      },
+                      "label": {
+                        "$ref": "#/$defs/text"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "heat"
+                      },
+                      "grid": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "frames": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "scale": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "at"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "hline",
+                          "vline"
+                        ]
+                      },
+                      "at": {
+                        "type": "number"
+                      },
+                      "tone": {
+                        "$ref": "#/$defs/tone"
+                      },
+                      "dash": {
+                        "type": "boolean"
+                      },
+                      "label": {
+                        "$ref": "#/$defs/text"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "kind",
+                      "pts"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "const": "marker"
+                      },
+                      "pts": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "trail": {
+                        "type": "boolean"
+                      },
+                      "tone": {
+                        "$ref": "#/$defs/tone"
+                      },
+                      "label": {
+                        "$ref": "#/$defs/text"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "frame": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h",
+            "layers"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 0
+            },
+            "h": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rotate": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tone": {
+              "$ref": "#/$defs/tone"
+            },
+            "fixed": {
+              "type": "boolean"
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
+              }
+            },
+            "type": {
+              "const": "net"
+            },
+            "layers": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 8,
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10
+              }
+            },
+            "weights": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            },
+            "acts": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "labels": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "in": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/text"
+                  }
+                },
+                "out": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/text"
+                  }
+                },
+                "layers": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/text"
+                  }
+                }
+              }
+            },
+            "values": {
+              "type": "boolean"
+            },
+            "frame": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h",
+            "blocks",
+            "edges"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 0
+            },
+            "h": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rotate": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tone": {
+              "$ref": "#/$defs/tone"
+            },
+            "fixed": {
+              "type": "boolean"
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
+              }
+            },
+            "type": {
+              "const": "arch"
+            },
+            "blocks": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 24,
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "kind",
+                  "label"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "kind": {
+                    "enum": [
+                      "input",
+                      "output",
+                      "embed",
+                      "dense",
+                      "conv",
+                      "pool",
+                      "attn",
+                      "norm",
+                      "ffn",
+                      "add",
+                      "concat",
+                      "softmax",
+                      "act",
+                      "rnn",
+                      "store",
+                      "tool",
+                      "model",
+                      "box"
+                    ]
+                  },
+                  "label": {
+                    "$ref": "#/$defs/text"
+                  },
+                  "note": {
+                    "$ref": "#/$defs/text"
+                  },
+                  "tone": {
+                    "$ref": "#/$defs/tone"
+                  }
+                }
+              }
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "from",
+                  "to"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "from": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "to": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "label": {
+                    "$ref": "#/$defs/text"
+                  },
+                  "skip": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "blocks"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "label": {
+                    "$ref": "#/$defs/text"
+                  },
+                  "repeat": {
+                    "type": "integer",
+                    "minimum": 2
+                  },
+                  "blocks": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/id"
+                    }
+                  }
+                }
+              }
+            },
+            "flow": {
+              "enum": [
+                "right",
+                "down",
+                "up"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h",
+            "cols",
+            "rows"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 0
+            },
+            "h": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rotate": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tone": {
+              "$ref": "#/$defs/tone"
+            },
+            "fixed": {
+              "type": "boolean"
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
+              }
+            },
+            "type": {
+              "const": "table"
+            },
+            "cols": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "$ref": "#/$defs/text"
+              }
+            },
+            "rows": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "items": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "$ref": "#/$defs/text"
+                    }
+                  ]
+                }
+              }
+            },
+            "ltr": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "size": {
+              "type": "number",
+              "minimum": 12,
+              "maximum": 80
+            }
+          }
+        },
+        {
+          "description": "A technology pack element (code, data, iot, network, opt): its pack validates the details (packages/spec/src/packs/<pack>/check.ts).",
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "x",
+            "y",
+            "w",
+            "h"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "type": {
+              "enum": [
+                "trace",
+                "flowchart",
+                "array",
+                "calltree",
+                "codediff",
+                "erd",
+                "query",
+                "pipeline",
+                "sheet",
+                "circuit",
+                "pinout",
+                "signal",
+                "gates",
+                "bits",
+                "topology",
+                "sequence",
+                "layers",
+                "packet",
+                "graph",
+                "schedule",
+                "knapsack",
+                "lp",
+                "searchtree"
+              ]
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number",
+              "minimum": 1
+            },
+            "h": {
+              "type": "number",
+              "minimum": 1
+            },
+            "anim": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/track"
               }
             }
           }

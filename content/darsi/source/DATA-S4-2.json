@@ -1,0 +1,281 @@
+{
+ "id": "DATA-S4-2",
+ "track": "data",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Data engineering"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "ETL with Python and SQL",
+  "subtitle": "Extract, transform, load; idempotent loads; watermarks and logs",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "ETL with Python and SQL",
+  "length": "2:37",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah — education lecturer (main character)",
+   "Mr Joseph — the computer studies lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "152 out of 90"
+   },
+   {
+    "at": "0:20",
+    "label": "ETL"
+   },
+   {
+    "at": "0:37",
+    "label": "Transform in Python"
+   },
+   {
+    "at": "0:49",
+    "label": "Idempotent loads"
+   },
+   {
+    "at": "1:23",
+    "label": "Incremental loads"
+   },
+   {
+    "at": "1:35",
+    "label": "Retries and logs"
+   },
+   {
+    "at": "1:52",
+    "label": "The lab"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Icon cards: Dashboard: 152; School: 90; Loaded twice. Dr Farah beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
+    "icons": [
+     "presentation",
+     "school",
+     "repeat"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "ETL with Python and SQL",
+    "voice": "Narrator",
+    "narration": "Today: building extract, transform and load in Python and SQL, safe to run again."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "A flow: Sources → Transform → Tables.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Extract, transform, load",
+    "voice": "Narrator",
+    "narration": "Extract reads raw data from its sources: files, forms, other databases. Transform cleans, types and reshapes it. Load writes it into the tables people query. Some teams load first and transform inside the database: that's ELT.",
+    "icons": [
+     "file",
+     "cog",
+     "database"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: n = {} … Caption: Sorted: the same order on every run",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A transform in Python",
+    "voice": "Narrator",
+    "narration": "Here's a transform in Python. Read the raw register, count the present pupils per class, and print one clean line for each class, in a fixed order."
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "1:05",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: DELETE FROM daily WHERE day = 'Mon'; … Caption: Clear the day first: a rerun can't double-count",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Idempotent: twice is like once",
+    "voice": "Narrator",
+    "narration": "Loads must be idempotent: running them twice gives the same result as once. Delete the day's rows, then insert them again. Or use an upsert, which inserts new rows and updates the ones already there."
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:14",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Append, fail, rerun?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A load appends rows, fails halfway, and is run again. What happens?"
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:23",
+    "beat": "Reveal",
+    "visual": "One big value: 90 → 152, Two classes, loaded twice.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The first rows go in twice",
+    "voice": "Narrator",
+    "narration": "The rows loaded before the failure go in twice. That's exactly how ninety pupils became a hundred and fifty-two.",
+    "icons": [
+     "repeat"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:23",
+    "end": "1:35",
+    "beat": "Concept",
+    "visual": "Numbered steps: Watermark: last time loaded; Take only newer rows; Move the watermark on.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Load only what's new",
+    "voice": "Narrator",
+    "narration": "Big sources aren't reloaded every night. An incremental load takes only what's new since the last run, using a watermark: the latest time already loaded."
+   },
+   {
+    "n": 9,
+    "start": "1:35",
+    "end": "1:52",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Passing fault: retry; Bad data: stop; Log: when, rows, set aside.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Retry, stop, and log",
+    "voice": "Narrator",
+    "narration": "Runs fail, so retry passing faults automatically, and stop on bad data. Log every run: when, how many rows in and out, and what was set aside. The log is how you find out before the dashboard does.",
+    "icons": [
+     "sync",
+     "hand",
+     "notebook"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:52",
+    "end": "2:02",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Make it fail; Append: 152; Replace: 90.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: a data pipeline",
+    "voice": "Narrator",
+    "narration": "In the app, make a step fail and retry. Appending double-counts; replacing the day's rows stays at ninety however often it runs.",
+    "icons": [
+     "warning",
+     "repeat",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:02",
+    "end": "2:09",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which load is idempotent?",
+    "voice": "Dr Farah",
+    "narration": "Your turn. Which of these loads is idempotent?"
+   },
+   {
+    "n": 12,
+    "start": "2:09",
+    "end": "2:23",
+    "beat": "Recap",
+    "visual": "Summary card: ETL, or ELT; Idempotent loads; Watermarks for new rows; Log every run. Takeaway bar: A job you can rerun is a job you can trust.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Delete, then insert: the same answer every time. Remember: extract, transform, load, or ELT. Make loads idempotent, with replace or upsert. Load incrementally with a watermark, and log every run."
+   },
+   {
+    "n": 13,
+    "start": "2:23",
+    "end": "2:37",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A job you repeat; Twice? Halfway?; Make a rerun safe. Dr Farah beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Dr Farah",
+    "narration": "Try it tomorrow: think of a job you repeat, like backing up your phone's photos. What happens if it runs twice, or stops halfway? Redesign it so a rerun is always safe.",
+    "icons": [
+     "repeat",
+     "help",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:11",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "A load appends rows, fails halfway, and is run again. What happens?",
+    "options": [
+     {
+      "text": "The rows loaded before the failure are counted twice",
+      "correct": true
+     },
+     {
+      "text": "Nothing: databases ignore copies",
+      "correct": false
+     },
+     {
+      "text": "The second run fails too",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — appending again writes the first rows a second time, unless the load is idempotent.",
+    "feedback_wrong": "Not quite — a database stores what you insert, copies included. The rows from before the failure go in twice.",
+    "resume_at": "1:14"
+   },
+   {
+    "at": "2:06",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which load is idempotent?",
+    "options": [
+     {
+      "text": "Delete the day's rows, then insert them",
+      "correct": true
+     },
+     {
+      "text": "Insert the day's rows on every run",
+      "correct": false
+     },
+     {
+      "text": "Insert, then remove duplicates by hand next week",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — clearing the day first means one run or five give the same table.",
+    "feedback_wrong": "Not quite — inserting on every run adds copies, and fixing them by hand comes too late. Delete, then insert.",
+    "resume_at": "2:09"
+   }
+  ]
+ }
+}

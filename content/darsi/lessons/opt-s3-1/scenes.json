@@ -1,0 +1,6323 @@
+{
+ "version": "0.2",
+ "scenes": [
+  {
+   "id": "s01",
+   "template": "canvas",
+   "narration": {
+    "en": "A truck for a village school can carry a thousand kilos, and there are six loads to choose from. Can you write a program that finds the best load, and knows it’s the best?",
+    "ar-EG": "عربية نقل رايحة لمدرسة في قرية بتشيل ألف كيلو، وقدامنا ست حمولات نختار منهم. تقدر تكتب برنامج يلاقي أحسن حمولة، ويبقى متأكد إنها الأحسن؟"
+   },
+   "transition": {
+    "type": "cut"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "bubble",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 70,
+      "w": 710,
+      "h": 200,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 28,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "quote",
+      "type": "text",
+      "x": 124,
+      "y": 100,
+      "w": 642,
+      "size": 34,
+      "weight": 700,
+      "text": {
+       "en": "A truck for a village school can carry a thousand kilos, and there are six loads to choose from.",
+       "ar-EG": "عربية نقل رايحة لمدرسة في قرية بتشيل ألف كيلو، وقدامنا ست حمولات نختار منهم."
+      },
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 1.6
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 300,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "scale",
+      "x": 104,
+      "y": 314,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 311,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "1,000 kg truck",
+       "ar-EG": "عربية 1,000 كيلو"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 351
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.45
+          },
+          "value": 311,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 403,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "package",
+      "x": 104,
+      "y": 417,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 414,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Six loads",
+       "ar-EG": "ست حمولات"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 454
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.45
+          },
+          "value": 414,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 507,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "keyboard",
+      "x": 104,
+      "y": 521,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 518,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A program that’s sure",
+       "ar-EG": "برنامج متأكد"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 558
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.45
+          },
+          "value": 518,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "you",
+            "ar-EG": "تقدر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/joseph_curious.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "عربية"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s02",
+   "template": "title-hook",
+   "narration": {
+    "en": "Today: let the computer search, by trying everything, or by thinking ahead.",
+    "ar-EG": "النهارده: هنخلّي الكمبيوتر يدوّر، يا إما يجرّب كل حاجة، يا إما يفكّر قدّام."
+   },
+   "transition": {
+    "type": "zoom"
+   },
+   "content": {
+    "kicker": {
+     "en": "Let the computer search: knapsack, routes, timetables",
+     "ar-EG": "خلّي الكمبيوتر يدوّر: الحقيبة والطرق والجداول"
+    },
+    "title": {
+     "en": "Try them all, or think ahead",
+     "ar-EG": "جرّبهم كلهم، ولا فكّر قدّام"
+    },
+    "hook": {
+     "en": "Brute force, greedy and dynamic programming",
+     "ar-EG": "التجريب الكامل، والطريقة الجشعة، والبرمجة الديناميكية"
+    },
+    "icon": "target"
+   },
+   "overlays": [
+    {
+     "id": "mark",
+     "type": "image",
+     "src": "@lib/v1/brand/darsi-mark.svg",
+     "x": 56,
+     "y": 40,
+     "w": 70,
+     "h": 72,
+     "fit": "contain",
+     "anim": [
+      {
+       "prop": "scale",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.65,
+         "value": 1,
+         "ease": "back"
+        }
+       ]
+      },
+      {
+       "prop": "opacity",
+       "keys": [
+        {
+         "at": 0.2,
+         "value": 0
+        },
+        {
+         "at": 0.35,
+         "value": 1,
+         "ease": "out"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s03",
+   "template": "canvas",
+   "narration": {
+    "en": "Each load has a weight and points for how much the school needs it. Solar panels: six hundred kilos, forty-two points. Desks and books: five hundred kilos each. A water filter, footballs and chalk are lighter. The goal: the most points within a thousand kilos.",
+    "ar-EG": "كل حمولة ليها وزن، وليها نقط على قد ما المدرسة محتاجاها. الألواح الشمسية: ستمية كيلو، واتنين وأربعين نقطة. والمكاتب والكتب: خمسمية كيلو كل واحد. وفلتر المية والكور والطباشير أخف. والهدف: أكبر عدد نقط في حدود الألف كيلو."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Weights and points",
+       "ar-EG": "أوزان ونقط"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "load",
+            "ar-EG": "حمولة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "load",
+            "ar-EG": "حمولة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "load",
+            "ar-EG": "حمولة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "load",
+            "ar-EG": "حمولة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "sun",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Solar panels: 600 kg, 42 points",
+       "ar-EG": "الألواح الشمسية: 600 كيلو، 42 نقطة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الألواح"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "book",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Desks, books: 500 kg, 33 and 32",
+       "ar-EG": "المكاتب والكتب: 500 كيلو، 33 و32"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Desks",
+            "ar-EG": "والمكاتب"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "package",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Filter, footballs, chalk: lighter",
+       "ar-EG": "الفلتر والكور والطباشير: أخف"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "water",
+            "ar-EG": "وفلتر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "target",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Most points, at most 1,000 kg",
+       "ar-EG": "أكبر نقط، ومن غير ما نعدّي 1,000 كيلو"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "goal",
+            "ar-EG": "والهدف"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s04",
+   "template": "canvas",
+   "narration": {
+    "en": "The simplest search tries every possible load. Each item is in or out, six times over. That’s two to the six, sixty-four loads: a phone checks them in a blink.",
+    "ar-EG": "أبسط بحث بيجرّب كل حمولة ممكنة. كل حاجة يا جوّه يا برّه، ست مرات. يعني اتنين أس ستة، أربعة وستين حمولة: والموبايل بيراجعهم في لمح البصر."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try every load",
+       "ar-EG": "جرّب كل حمولة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "simplest",
+            "ar-EG": "أبسط"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "simplest",
+            "ar-EG": "أبسط"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "simplest",
+            "ar-EG": "أبسط"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "simplest",
+            "ar-EG": "أبسط"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "bigicon",
+      "type": "icon",
+      "icon": "grid",
+      "x": 590,
+      "y": 220,
+      "w": 100,
+      "h": 100,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "big",
+      "type": "text",
+      "x": 90,
+      "y": 340,
+      "w": 1100,
+      "size": 120,
+      "weight": 800,
+      "align": "center",
+      "tone": "accent",
+      "text": {
+       "en": "2⁶ = 64",
+       "ar-EG": "64 = 2⁶"
+      },
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.15
+          },
+          "value": 0.6
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.15
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "biglabel",
+      "type": "text",
+      "x": 90,
+      "y": 500,
+      "w": 1100,
+      "size": 36,
+      "weight": 700,
+      "align": "center",
+      "tone": "muted",
+      "text": {
+       "en": "Every load: in or out, six times",
+       "ar-EG": "كل حمولة: جوّه أو برّه، ست مرات"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.4
+          },
+          "value": 540
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.85
+          },
+          "value": 500,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.4
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "That’s",
+            "ar-EG": "يعني"
+           },
+           "offset": 0.7
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s05",
+   "template": "canvas",
+   "narration": {
+    "en": "In Python, count from zero to sixty-three, and read each number in binary: bit i says whether item i is in. Add up the weight and points, and keep the best that fits.",
+    "ar-EG": "ببايثون، عدّ من صفر لتلاتة وستين، واقرا كل رقم بالنظام الثنائي: البت رقم i بيقول الحاجة رقم i جوّه ولا لأ. اجمع الوزن والنقط، وخلّي الأحسن اللي بيتشال."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Brute force in Python",
+       "ar-EG": "التجريب الكامل ببايثون"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "code",
+      "type": "code",
+      "x": 90,
+      "y": 210,
+      "w": 798,
+      "h": 393,
+      "size": 46,
+      "code": "for mask in range(2 ** 6):\n    kg = pts = 0\n    for i in range(6):\n        if mask >> i & 1:\n            kg += w[i]\n            pts += v[i]",
+      "highlight": [
+       4
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Python",
+            "ar-EG": "ببايثون"
+           },
+           "offset": 3.98
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s06",
+   "template": "canvas",
+   "narration": {
+    "en": "But every extra item doubles the work. Thirty items: over a billion loads. Sixty items: more than a billion billion. Brute force is sure, but it doesn’t scale.",
+    "ar-EG": "بس كل حاجة زيادة بتضاعف الشغل. تلاتين حاجة: أكتر من مليار حمولة. ستين حاجة: أكتر من مليار مليار. التجريب الكامل متأكد، بس مايكبرش."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Every item doubles the work",
+       "ar-EG": "كل حاجة زيادة بتضاعف الشغل"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "grid",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "6 items: 64 loads",
+       "ar-EG": "6 حاجات: 64 حمولة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "every",
+            "ar-EG": "زيادة"
+           },
+           "offset": 1.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "layers",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "30 items: over a billion",
+       "ar-EG": "30 حاجة: أكتر من مليار"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Thirty",
+            "ar-EG": "تلاتين"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "warning",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "60 items: over a billion billion",
+       "ar-EG": "60 حاجة: أكتر من مليار مليار"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Sixty",
+            "ar-EG": "ستين"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "check",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Sure, but doesn’t scale",
+       "ar-EG": "متأكد، بس مايكبرش"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Brute",
+            "ar-EG": "التجريب"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s07",
+   "template": "canvas",
+   "narration": {
+    "en": "A greedy rule is fast: take the most points per kilo first. Solar panels go in, then whatever still fits: sixty points. But desks and books give sixty-five. The panels took space that two other loads fill better.",
+    "ar-EG": "القاعدة الجشعة سريعة: خد الأكتر نقط لكل كيلو الأول. الألواح الشمسية تتحط، وبعدين اللي لسه يتشال: ستين نقطة. بس المكاتب والكتب بيدّوا خمسة وستين. الألواح أخدت مكان كان حمولتين تانيين يملوه أحسن."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Greedy: fast, not always right",
+       "ar-EG": "الجشعة: سريعة، مش دايمًا صح"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "knapsack",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "knapsack",
+      "items": [
+       {
+        "label": {
+         "en": "Solar panels",
+         "ar-EG": "ألواح شمسية"
+        },
+        "w": 600,
+        "v": 42
+       },
+       {
+        "label": {
+         "en": "Desks",
+         "ar-EG": "تُخت"
+        },
+        "w": 500,
+        "v": 33
+       },
+       {
+        "label": {
+         "en": "Books",
+         "ar-EG": "كتب"
+        },
+        "w": 500,
+        "v": 32
+       },
+       {
+        "label": {
+         "en": "Water filter",
+         "ar-EG": "فلتر مية"
+        },
+        "w": 300,
+        "v": 15
+       },
+       {
+        "label": {
+         "en": "Footballs",
+         "ar-EG": "كور"
+        },
+        "w": 200,
+        "v": 8
+       },
+       {
+        "label": {
+         "en": "Chalk, paper",
+         "ar-EG": "طباشير وورق"
+        },
+        "w": 100,
+        "v": 3
+       }
+      ],
+      "cap": 1000,
+      "unit": {
+       "en": "kg",
+       "ar-EG": "كيلو"
+      },
+      "vunit": {
+       "en": "points",
+       "ar-EG": "نقطة"
+      },
+      "frames": [
+       {
+        "in": "......",
+        "note": {
+         "en": "1,000 kg of room: best value per kilo first",
+         "ar-EG": "المساحة 1000 كيلو: الأغلى قيمةً لكل كيلو أولًا"
+        }
+       },
+       {
+        "in": "n.....",
+        "note": {
+         "en": "Solar panels: in, 400 kg left",
+         "ar-EG": "ألواح شمسية: تدخل، يبقى 400 كيلو"
+        }
+       },
+       {
+        "in": "ix....",
+        "note": {
+         "en": "Desks: 500 kg, only 400 left",
+         "ar-EG": "تُخت: 500 كيلو ومفيش غير 400"
+        }
+       },
+       {
+        "in": "ixx...",
+        "note": {
+         "en": "Books: 500 kg, only 400 left",
+         "ar-EG": "كتب: 500 كيلو ومفيش غير 400"
+        }
+       },
+       {
+        "in": "ixxn..",
+        "note": {
+         "en": "Water filter: in, 100 kg left",
+         "ar-EG": "فلتر مية: تدخل، يبقى 100 كيلو"
+        }
+       },
+       {
+        "in": "ixxix.",
+        "note": {
+         "en": "Footballs: 200 kg, only 100 left",
+         "ar-EG": "كور: 200 كيلو ومفيش غير 100"
+        }
+       },
+       {
+        "in": "ixxixn",
+        "note": {
+         "en": "Chalk, paper: in, 0 kg left",
+         "ar-EG": "طباشير وورق: تدخل، يبقى 0 كيلو"
+        }
+       },
+       {
+        "in": "i..i.i",
+        "note": {
+         "en": "Greedy: 60 points",
+         "ar-EG": "الطريقة الجشعة: 60 نقطة"
+        }
+       },
+       {
+        "in": ".nn...",
+        "note": {
+         "en": "The best load: 65 points",
+         "ar-EG": "الأفضل: 65 نقطة"
+        }
+       }
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 0.3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedy",
+            "ar-EG": "القاعدة"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Solar",
+            "ar-EG": "الشمسية"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "took",
+            "ar-EG": "أخدت"
+           }
+          },
+          "value": 8,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s08",
+   "template": "quiz",
+   "narration": {
+    "en": "Quick check! Greedy says sixty points, and brute force says sixty-five. Which one is guaranteed to be the best?",
+    "ar-EG": "سؤال سريع! الجشعة بتقول ستين نقطة، والتجريب الكامل بيقول خمسة وستين. مين فيهم مضمون إنه الأحسن؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "Which one is sure?",
+     "ar-EG": "مين فيهم متأكد؟"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s08-check",
+    "prompt": {
+     "en": "Greedy says 60 points; brute force says 65. Which is guaranteed to be the best?",
+     "ar-EG": "الجشعة بتقول 60 نقطة، والتجريب الكامل بيقول 65. مين فيهم مضمون إنه الأحسن؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Greedy: it takes the best value first",
+       "ar-EG": "الجشعة: بتاخد الأحسن قيمة الأول"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Brute force: it checked every load",
+       "ar-EG": "التجريب الكامل: راجع كل حمولة"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Neither can be sure",
+       "ar-EG": "ولا واحد فيهم متأكد"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — brute force compared all 64 loads, so 65 is the best. Greedy only looked at value per kilo.",
+     "ar-EG": "صح — التجريب الكامل قارن الأربعة وستين حمولة كلهم، يبقى 65 هي الأحسن. والجشعة بصّت على القيمة لكل كيلو بس."
+    }
+   },
+   "speaker": "salma"
+  },
+  {
+   "id": "s09",
+   "template": "steps",
+   "narration": {
+    "en": "Brute force: it checked every load. But you can be sure without checking everything. Dynamic programming solves smaller trucks first: for each amount of room, either skip this item, or take it and fill the rest with an answer you already know.",
+    "ar-EG": "التجريب الكامل: لأنه راجع كل حمولة. بس تقدر تتأكد من غير ما تراجع كل حاجة. البرمجة الديناميكية بتحل العربيات الأصغر الأول: لكل مساحة، يا تسيب الحاجة دي، يا تاخدها وتملا الباقي بإجابة إنت عارفها خلاص."
+   },
+   "content": {
+    "title": {
+     "en": "Sure, without trying everything",
+     "ar-EG": "متأكد، من غير ما تجرّب كل حاجة"
+    },
+    "steps": [
+     {
+      "en": "Solve smaller trucks first",
+      "ar-EG": "حل العربيات الأصغر الأول"
+     },
+     {
+      "en": "Skip this item…",
+      "ar-EG": "يا تسيب الحاجة دي…"
+     },
+     {
+      "en": "…or take it, and reuse the best for the rest",
+      "ar-EG": "…يا تاخدها وتستخدم أحسن حل للباقي"
+     }
+    ]
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "Dynamic",
+      "ar-EG": "البرمجة"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "Dynamic",
+      "ar-EG": "البرمجة"
+     },
+     "offset": 3,
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "Dynamic",
+      "ar-EG": "البرمجة"
+     },
+     "offset": 5,
+     "action": "reveal",
+     "target": "3"
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "template": "canvas",
+   "narration": {
+    "en": "Fill a table: one row per item, one column per hundred kilos of room. Each cell needs just two lookups in the row above. A hundred items is about a thousand cells, where brute force would never finish.",
+    "ar-EG": "املا جدول: صف لكل حاجة، وعمود لكل مية كيلو من المساحة. كل خانة محتاجة نظرتين بس في الصف اللي فوقها. ومية حاجة يعني حوالي ألف خانة، في حين التجريب الكامل عمره ما هيخلص."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "A table of smaller answers",
+       "ar-EG": "جدول إجابات أصغر"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "knapsack",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "knapsack",
+      "show": "table",
+      "items": [
+       {
+        "label": {
+         "en": "Solar panels",
+         "ar-EG": "ألواح شمسية"
+        },
+        "w": 600,
+        "v": 42
+       },
+       {
+        "label": {
+         "en": "Desks",
+         "ar-EG": "مقاعد"
+        },
+        "w": 500,
+        "v": 33
+       },
+       {
+        "label": {
+         "en": "Books",
+         "ar-EG": "كتب"
+        },
+        "w": 500,
+        "v": 32
+       },
+       {
+        "label": {
+         "en": "Water filter",
+         "ar-EG": "فلتر ماء"
+        },
+        "w": 300,
+        "v": 15
+       },
+       {
+        "label": {
+         "en": "Footballs",
+         "ar-EG": "كرات قدم"
+        },
+        "w": 200,
+        "v": 8
+       },
+       {
+        "label": {
+         "en": "Chalk, paper",
+         "ar-EG": "طباشير وورق"
+        },
+        "w": 100,
+        "v": 3
+       }
+      ],
+      "cap": 1000,
+      "step": 100,
+      "table": [
+       [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        42,
+        42,
+        42,
+        42,
+        42
+       ],
+       [
+        0,
+        0,
+        0,
+        0,
+        0,
+        33,
+        42,
+        42,
+        42,
+        42,
+        42
+       ],
+       [
+        0,
+        0,
+        0,
+        0,
+        0,
+        33,
+        42,
+        42,
+        42,
+        42,
+        65
+       ],
+       [
+        0,
+        0,
+        0,
+        15,
+        15,
+        33,
+        42,
+        42,
+        48,
+        57,
+        65
+       ],
+       [
+        0,
+        0,
+        8,
+        15,
+        15,
+        33,
+        42,
+        42,
+        50,
+        57,
+        65
+       ],
+       [
+        0,
+        3,
+        8,
+        15,
+        18,
+        33,
+        42,
+        45,
+        50,
+        57,
+        65
+       ]
+      ],
+      "unit": {
+       "en": "kg",
+       "ar-EG": "كيلو"
+      },
+      "vunit": {
+       "en": "points",
+       "ar-EG": "نقطة"
+      },
+      "frames": [
+       {
+        "fill": 11,
+        "note": {
+         "en": "No items yet: 0 in every column",
+         "ar-EG": "من غير حاجة: 0 في كل عمود"
+        }
+       },
+       {
+        "fill": 22,
+        "note": {
+         "en": "Solar panels: take it or leave it, the bigger wins",
+         "ar-EG": "ألواح شمسية: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 33,
+        "note": {
+         "en": "Desks: take it or leave it, the bigger wins",
+         "ar-EG": "مقاعد: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 44,
+        "note": {
+         "en": "Books: take it or leave it, the bigger wins",
+         "ar-EG": "كتب: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 55,
+        "note": {
+         "en": "Water filter: take it or leave it, the bigger wins",
+         "ar-EG": "فلتر ماء: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 66,
+        "note": {
+         "en": "Footballs: take it or leave it, the bigger wins",
+         "ar-EG": "كرات قدم: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 77,
+        "note": {
+         "en": "Chalk, paper: take it or leave it, the bigger wins",
+         "ar-EG": "طباشير وورق: نأخذها أو نتركها، والأكبر يفوز"
+        }
+       },
+       {
+        "fill": 77,
+        "trace": [
+         [
+          6,
+          10
+         ],
+         [
+          5,
+          10
+         ],
+         [
+          4,
+          10
+         ],
+         [
+          3,
+          10
+         ],
+         [
+          2,
+          5
+         ],
+         [
+          1,
+          0
+         ],
+         [
+          0,
+          0
+         ]
+        ],
+        "note": {
+         "en": "Best: Desks and Books, 65 points",
+         "ar-EG": "الأفضل: مقاعد وكتب، 65 نقطة"
+        }
+       }
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 0.3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           },
+           "offset": 1.5
+          },
+          "value": 1,
+          "ease": "linear"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Fill",
+            "ar-EG": "املا"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "items",
+            "ar-EG": "ومية"
+           },
+           "offset": 2.5
+          },
+          "value": 7,
+          "ease": "linear"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s11",
+   "template": "canvas",
+   "narration": {
+    "en": "The points are someone’s opinion of what the school needs. Who decided solar panels are worth forty-two? If the truck served two schools, the best total might send everything to one. Ask who chose the points, and who is left out.",
+    "ar-EG": "النقط دي رأي حد في المدرسة محتاجة إيه. مين قرّر إن الألواح الشمسية تستاهل اتنين وأربعين؟ ولو العربية رايحة لمدرستين، أحسن مجموع ممكن يودّي كل حاجة لواحدة بس. اسأل مين اختار النقط، ومين اللي اتساب برّه."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 1100,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Whose points?",
+       "ar-EG": "نقط مين؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "pencil",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Points are an opinion",
+       "ar-EG": "النقط رأي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "someone’s",
+            "ar-EG": "المدرسة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "help",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Who set solar at 42?",
+       "ar-EG": "مين قال الألواح بـ42؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "decided",
+            "ar-EG": "قرّر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "school",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Two schools: one gets all?",
+       "ar-EG": "مدرستين: واحدة تاخد كله؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "truck",
+            "ar-EG": "ولو"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "users",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Who is left out?",
+       "ar-EG": "مين بيتساب برّه؟"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Ask",
+            "ar-EG": "اسأل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s12",
+   "template": "canvas",
+   "narration": {
+    "en": "In the app, open “Pack the truck”. Pack greedily, then show the best load. Open the table under the results, and follow the outlined cells back from the corner.",
+    "ar-EG": "في التطبيق، افتح «حمّل الشاحنة». عبّي بالجشع، وبعدين اعرض أحسن حمولة. وافتح الجدول اللي تحت النتايج، وامشي ورا الخانات المحددة من الركن لورا."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 770,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "App lab: Pack the truck",
+       "ar-EG": "معمل التطبيق: حمّل الشاحنة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "package",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Pack greedily: 60",
+       "ar-EG": "عبّي بالجشع: 60"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "award",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Show the best: 65",
+       "ar-EG": "اعرض الأحسن: 65"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "greedily",
+            "ar-EG": "عبّي"
+           },
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "grid",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Follow the table back",
+       "ar-EG": "امشي ورا الجدول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "table",
+            "ar-EG": "وافتح"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "phone",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "app",
+            "ar-EG": "التطبيق"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "s13",
+   "template": "quiz",
+   "narration": {
+    "en": "Your turn. A friend adds a seventh load to the list. How many loads must brute force check now?",
+    "ar-EG": "دورك. واحد صاحبك زوّد حمولة سابعة على القايمة. التجريب الكامل لازم يراجع كام حمولة دلوقتي؟"
+   },
+   "transition": {
+    "type": "slide"
+   },
+   "content": {
+    "title": {
+     "en": "A seventh load",
+     "ar-EG": "حمولة سابعة"
+    }
+   },
+   "check": {
+    "type": "single-choice",
+    "id": "s13-check",
+    "prompt": {
+     "en": "A seventh load is added. How many loads must brute force check now?",
+     "ar-EG": "اتزوّدت حمولة سابعة. التجريب الكامل لازم يراجع كام حمولة دلوقتي؟"
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "65",
+       "ar-EG": "65"
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "128",
+       "ar-EG": "128"
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "70",
+       "ar-EG": "70"
+      }
+     }
+    ],
+    "answer": "b",
+    "explain": {
+     "en": "Correct — each new item is in or out, so the count doubles: 2⁷ = 128.",
+     "ar-EG": "صح — كل حاجة جديدة يا جوّه يا برّه، فالعدد بيتضاعف: 2 أس 7 يساوي 128."
+    }
+   },
+   "speaker": "joseph"
+  },
+  {
+   "id": "s14",
+   "template": "summary",
+   "narration": {
+    "en": "A hundred and twenty-eight: every extra item doubles it. Remember: brute force is sure, but it explodes. Greedy is fast, but it can miss. And dynamic programming is sure and fast, because it reuses smaller answers.",
+    "ar-EG": "مية تمانية وعشرين: كل حاجة زيادة بتضاعفها. افتكر: التجريب الكامل متأكد، بس بينفجر. والجشعة سريعة، بس ممكن تفوّت. والبرمجة الديناميكية متأكدة وسريعة، لأنها بتستخدم الإجابات الأصغر تاني."
+   },
+   "content": {
+    "title": {
+     "en": "Remember",
+     "ar-EG": "افتكر"
+    },
+    "points": [
+     {
+      "en": "Each item doubles brute force",
+      "ar-EG": "كل حاجة بتضاعف التجريب"
+     },
+     {
+      "en": "Brute force: sure, explodes",
+      "ar-EG": "التجريب الكامل: متأكد، وبينفجر"
+     },
+     {
+      "en": "Greedy: fast, can miss",
+      "ar-EG": "الجشعة: سريعة، وممكن تفوّت"
+     },
+     {
+      "en": "DP: reuse smaller answers",
+      "ar-EG": "الديناميكية: إجابات أصغر تاني"
+     }
+    ],
+    "takeaway": {
+     "en": "Don’t search harder; search smarter.",
+     "ar-EG": "ماتدوّرش أكتر، دوّر أذكى."
+    }
+   },
+   "cues": [
+    {
+     "word": {
+      "en": "hundred",
+      "ar-EG": "مية"
+     },
+     "action": "reveal",
+     "target": "1"
+    },
+    {
+     "word": {
+      "en": "Remember",
+      "ar-EG": "افتكر"
+     },
+     "action": "reveal",
+     "target": "2"
+    },
+    {
+     "word": {
+      "en": "Greedy",
+      "ar-EG": "والجشعة"
+     },
+     "action": "reveal",
+     "target": "3"
+    },
+    {
+     "word": {
+      "en": "dynamic",
+      "ar-EG": "والبرمجة"
+     },
+     "action": "reveal",
+     "target": "4"
+    },
+    {
+     "word": {
+      "en": "dynamic",
+      "ar-EG": "والبرمجة"
+     },
+     "action": "reveal",
+     "target": "takeaway"
+    }
+   ]
+  },
+  {
+   "id": "s15",
+   "template": "canvas",
+   "narration": {
+    "en": "Try it yourself: pack your bag for a school trip. Give each thing a weight and points, set a limit, and find the best load three ways.",
+    "ar-EG": "جرّبها بنفسك: جهّز شنطتك لرحلة المدرسة. ادّي كل حاجة وزن ونقط، وحط حد، ودوّر على أحسن حمولة بتلات طرق."
+   },
+   "transition": {
+    "type": "fade"
+   },
+   "content": {
+    "elements": [
+     {
+      "id": "headline",
+      "type": "text",
+      "x": 90,
+      "y": 66,
+      "w": 710,
+      "size": 48,
+      "weight": 800,
+      "text": {
+       "en": "Try it yourself",
+       "ar-EG": "جرّبها بنفسك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 106
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.5
+          },
+          "value": 66,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "package",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Your bag for a school trip",
+       "ar-EG": "شنطتك لرحلة المدرسة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "scale",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Weights, points and a limit",
+       "ar-EG": "أوزان ونقط وحد"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "grid",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 612,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Greedy, every option, a table",
+       "ar-EG": "الجشعة، وكل الاختيارات، وجدول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.45
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Give",
+            "ar-EG": "ادّي"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "who",
+      "type": "image",
+      "src": "@lib/v1/cast/joseph_happy.svg",
+      "x": 840,
+      "y": 290,
+      "w": 400,
+      "h": 410,
+      "fit": "contain",
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 330
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.6
+          },
+          "value": 290,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Try",
+            "ar-EG": "جرّبها"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

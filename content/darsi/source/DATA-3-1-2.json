@@ -1,0 +1,279 @@
+{
+ "id": "DATA-3-1-2",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Databases and SQL for school records"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Asking questions: SELECT, WHERE, ORDER BY",
+  "subtitle": "Pick columns, pick rows, sort, and check the answer",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Asking questions: SELECT, WHERE, ORDER BY",
+  "length": "2:46",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — secondary maths teacher (main character)",
+   "Mr Joseph — computer studies teacher, Kenya (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Under ten in Six A"
+   },
+   {
+    "at": "0:19",
+    "label": "SELECT and FROM"
+   },
+   {
+    "at": "0:31",
+    "label": "WHERE picks rows"
+   },
+   {
+    "at": "0:48",
+    "label": "Sorting"
+   },
+   {
+    "at": "1:28",
+    "label": "Check the answer"
+   },
+   {
+    "at": "1:45",
+    "label": "The lab"
+   },
+   {
+    "at": "2:10",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Icon cards: Six A; Maths under 10; 400 pupils. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Before the parents' evening, I need every pupil in Six A with a maths mark under ten. Our school has four hundred pupils in one big sheet. Scrolling? No thanks.",
+    "icons": [
+     "school",
+     "pencil",
+     "users"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Asking questions: SELECT, WHERE, ORDER BY",
+    "voice": "Narrator",
+    "narration": "Today: asking the database questions with SELECT, WHERE and ORDER BY."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:31",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT name, class … Caption: Columns after SELECT, the table after FROM",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Which columns, which table",
+    "voice": "Narrator",
+    "narration": "Every question starts the same way. SELECT says which columns you want back. FROM says which table to look in. And a star means every column."
+   },
+   {
+    "n": 4,
+    "start": "0:31",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT name, mark … Caption: Text in single quotes; AND needs both",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "WHERE picks the rows",
+    "voice": "Narrator",
+    "narration": "WHERE picks the rows. Equals, greater than, less than: class equals six A, mark less than ten. Text goes in single quotes, and it must match exactly. AND needs both to be true; OR needs either one."
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT name, mark … Caption: Biggest first, then the first three rows",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Sort, then keep the top",
+    "voice": "Narrator",
+    "narration": "ORDER BY sorts the answer. Add DESC for the biggest first. And LIMIT keeps only the first few rows: the top three, say."
+   },
+   {
+    "n": 6,
+    "start": "0:58",
+    "end": "1:11",
+    "beat": "Definition",
+    "visual": "Icon cards: Describe the rows; The database finds them; 12 rows or 12 million.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A query: a question in SQL",
+    "voice": "Narrator",
+    "narration": "That's a query: a question in SQL. It describes the rows you want, not how to find them. The same query works on twelve rows or twelve million.",
+    "icons": [
+     "help",
+     "cpu",
+     "layers"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:11",
+    "end": "1:20",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which part picks the rows?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Which part of a query picks which rows come back?"
+   },
+   {
+    "n": 8,
+    "start": "1:20",
+    "end": "1:28",
+    "beat": "Reveal",
+    "visual": "Two columns: “SELECT” (Picks the columns) and “WHERE” (Picks the rows).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Columns across, rows down",
+    "voice": "Narrator",
+    "narration": "WHERE picks the rows; SELECT picks the columns. Keep them apart in your head: columns across, rows down.",
+    "icons": [
+     "layers",
+     "filter",
+     "check"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:28",
+    "end": "1:45",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: Nobody? '6A' isn't '6a'; Half the school? A missing condition; Compare with what you know.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check it against what you know",
+    "voice": "Narrator",
+    "narration": "Always check an answer against what you know. If WHERE class equals six A returns nobody, look at the data: maybe it says six small a. If a query returns half the school, a condition is missing.",
+    "icons": [
+     "search",
+     "users",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:45",
+    "end": "2:00",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Pick a question; Change it; Run it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: ask the school database",
+    "voice": "Narrator",
+    "narration": "In the app, real SQL runs on your phone, on a school's pupils and marks. Pick a question, change it, and run it. Try changing five B to six A, or AVG to MAX.",
+    "icons": [
+     "list",
+     "pencil",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:00",
+    "end": "2:10",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "The top three?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. I want the three highest maths marks, biggest first. Which lines do that?"
+   },
+   {
+    "n": 12,
+    "start": "2:10",
+    "end": "2:25",
+    "beat": "Recap",
+    "visual": "Summary card: SELECT columns, FROM a table; WHERE picks the rows; ORDER BY, then LIMIT; Check against what you know. Takeaway bar: Describe the rows you want; the database finds them.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "ORDER BY mark DESC, then LIMIT three. Remember: SELECT picks columns, FROM the table, WHERE the rows. Text goes in single quotes, matched exactly. And check every answer against what you already know."
+   },
+   {
+    "n": 13,
+    "start": "2:25",
+    "end": "2:46",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A card per pupil: the rows; Read out a query; Matches step forward, in order. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Ms Salma",
+    "narration": "Try it in class tomorrow: play “Human database”. Each pupil holds a card with their class, birth month and how they travel. Read out a query: select pupils where travel is walking, order by birth month. The pupils who match step forward and line up in order.",
+    "icons": [
+     "tag",
+     "mic",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:17",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Which part of a query picks which rows come back?",
+    "options": [
+     {
+      "text": "SELECT",
+      "correct": false
+     },
+     {
+      "text": "FROM",
+      "correct": false
+     },
+     {
+      "text": "WHERE",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — WHERE keeps only the rows that match its condition. SELECT picks the columns.",
+    "feedback_wrong": "Not quite — SELECT picks the columns and FROM the table. WHERE picks the rows.",
+    "resume_at": "1:20"
+   },
+   {
+    "at": "2:07",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "You want the three highest maths marks, biggest first. Which lines do that?",
+    "options": [
+     {
+      "text": "ORDER BY mark DESC LIMIT 3",
+      "correct": true
+     },
+     {
+      "text": "WHERE mark = 3",
+      "correct": false
+     },
+     {
+      "text": "ORDER BY mark LIMIT 3",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — DESC puts the biggest first, and LIMIT 3 keeps the first three rows.",
+    "feedback_wrong": "Not quite — without DESC, ORDER BY puts the smallest first. WHERE mark = 3 finds marks of exactly 3.",
+    "resume_at": "2:10"
+   }
+  ]
+ }
+}

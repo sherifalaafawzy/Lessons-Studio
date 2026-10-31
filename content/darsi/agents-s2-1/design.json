@@ -1,0 +1,468 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "tone": "danger",
+          "text": {
+            "en": "Wrong bus time",
+            "ar-EG": "ميعاد غلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "tone": "ok",
+          "text": {
+            "en": "Alarm set",
+            "ar-EG": "المنبه اتظبط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "The difference?",
+            "ar-EG": "الفرق إيه؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Chatbot",
+            "ar-EG": "الشات بوت"
+          },
+          {
+            "en": "Agent",
+            "ar-EG": "الوكيل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Only writes text back",
+              "ar-EG": "بيرد بكلام وبس"
+            },
+            {
+              "en": "Uses tools too",
+              "ar-EG": "بيستخدم أدوات كمان"
+            }
+          ],
+          [
+            {
+              "en": "Can sound sure and be wrong",
+              "ar-EG": "ممكن يبان واثق ويغلط"
+            },
+            {
+              "en": "Timetable, weather, alarm",
+              "ar-EG": "جدول، طقس، منبه"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 0
+          },
+          {
+            "row": 2,
+            "s": 1
+          },
+          {
+            "row": 1,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "4": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "A tool",
+              "ar-EG": "أداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Request",
+              "ar-EG": "الطلب"
+            }
+          },
+          {
+            "from": "model",
+            "to": "model",
+            "text": {
+              "en": "Plan",
+              "ar-EG": "الخطة"
+            }
+          },
+          {
+            "from": "model",
+            "to": "tool",
+            "text": {
+              "en": "Tool call",
+              "ar-EG": "طلب الأداة"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "model",
+            "text": {
+              "en": "Result, added by the app",
+              "ar-EG": "النتيجة، من التطبيق"
+            },
+            "reply": true
+          },
+          {
+            "from": "model",
+            "to": "you",
+            "text": {
+              "en": "Answer",
+              "ar-EG": "الجواب"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "weather{\"place\":\"Kafi\",\n        \"day\":\"tomorrow\"}",
+        "highlight": [
+          1
+        ],
+        "s": 2
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "The model only writes text",
+            "ar-EG": "النموذج بيكتب كلام وبس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The app runs the tool",
+            "ar-EG": "التطبيق بيشغّل الأداة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Sunny, 35°C, 10% rain",
+            "ar-EG": "مشمس، 35°، مطر 10%"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "The answer comes from the result",
+            "ar-EG": "الجواب بييجي من النتيجة"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "8": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "The model writes",
+            "ar-EG": "النموذج بيكتب"
+          },
+          {
+            "en": "The app",
+            "ar-EG": "التطبيق"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The tool call",
+              "ar-EG": "طلب الأداة"
+            },
+            {
+              "en": "Runs it, and sees every call",
+              "ar-EG": "بيشغّله، وبيشوف كل طلب"
+            }
+          ],
+          [
+            {
+              "en": "The answer",
+              "ar-EG": "الجواب"
+            },
+            {
+              "en": "Can check first",
+              "ar-EG": "يقدر يفحص الأول"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "9": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "route",
+            "glyph": "tool",
+            "label": {
+              "en": "Route tool",
+              "ar-EG": "أداة الطريق"
+            }
+          },
+          {
+            "id": "sky",
+            "glyph": "tool",
+            "label": {
+              "en": "Weather tool",
+              "ar-EG": "أداة الطقس"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Kafi to Dala tomorrow?",
+              "ar-EG": "من كافي لدالا بكرة؟"
+            }
+          },
+          {
+            "from": "model",
+            "to": "route",
+            "text": {
+              "en": "route",
+              "ar-EG": "الطريق"
+            }
+          },
+          {
+            "from": "route",
+            "to": "model",
+            "text": {
+              "en": "70 km",
+              "ar-EG": "70 كم"
+            },
+            "reply": true
+          },
+          {
+            "from": "model",
+            "to": "sky",
+            "text": {
+              "en": "weather in Dala",
+              "ar-EG": "الطقس في دالا"
+            }
+          },
+          {
+            "from": "sky",
+            "to": "model",
+            "text": {
+              "en": "Partly cloudy",
+              "ar-EG": "غائم جزئيًا"
+            },
+            "reply": true
+          },
+          {
+            "from": "model",
+            "to": "you",
+            "text": {
+              "en": "One answer",
+              "ar-EG": "جواب واحد"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          2,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "headline": {
+        "en": "A list stands in for the model",
+        "ar-EG": "قايمة مكان النموذج"
+      },
+      "trace": {
+        "code": "for reply in [\"call\", \"answer\"]:\n    if reply == \"answer\":\n        print(\"Stop\")\n        break\n    print(\"Run a tool\")",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "next",
+          "text": {
+            "en": "Pick a request, press One step",
+            "ar-EG": "اختار طلب، ودوس خطوة واحدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "The trip to Dala: count the tools",
+            "ar-EG": "الرحلة لدالا: عِدّ الأدوات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "What it sees: one text",
+            "ar-EG": "اللي بيشوفه: نص واحد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A model in a loop with tools",
+            "ar-EG": "نموذج في حلقة ومعاه أدوات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A call: a name and its details",
+            "ar-EG": "الطلب: اسم وتفاصيل"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The model writes; the app runs",
+            "ar-EG": "النموذج بيكتب، والتطبيق بيشغّل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Read the call: it shows what the agent will do.",
+        "ar-EG": "اقرا الطلب: هو اللي بيوريك الوكيل هيعمل إيه."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "List three requests",
+            "ar-EG": "اكتب تلات طلبات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Only talk, or a tool?",
+            "ar-EG": "كلام وبس، ولا أداة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "keyboard",
+          "tone": "ok",
+          "text": {
+            "en": "Write the call: name and details",
+            "ar-EG": "اكتب الطلب: اسم وتفاصيل"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

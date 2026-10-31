@@ -1,0 +1,313 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.190
+Ms Salma solved the garden on graph
+
+2
+00:00:03.190 --> 00:00:05.530
+paper: three lines and a corner.
+
+3
+00:00:06.170 --> 00:00:08.290
+Two variables are fine on paper.
+
+4
+00:00:09.010 --> 00:00:11.350
+Our timetable has hundreds.
+
+5
+00:00:12.170 --> 00:00:14.650
+Today, a solver does the searching.
+
+6
+00:00:15.890 --> 00:00:18.110
+Today: your first model in
+
+7
+00:00:18.110 --> 00:00:20.570
+Python, with Google’s OR-Tools.
+
+8
+00:00:21.850 --> 00:00:23.870
+OR-Tools is Google’s free
+
+9
+00:00:23.870 --> 00:00:24.970
+toolkit for optimization.
+
+10
+00:00:26.030 --> 00:00:28.530
+You describe the problem: the variables,
+
+11
+00:00:28.850 --> 00:00:30.770
+the constraints and the objective.
+
+12
+00:00:31.500 --> 00:00:33.020
+The solver does the search.
+
+13
+00:00:33.790 --> 00:00:36.570
+On a computer or in Colab it handles
+
+14
+00:00:36.570 --> 00:00:39.370
+thousands of variables; in Darsi,
+
+15
+00:00:39.790 --> 00:00:42.270
+small models run on your phone, and
+
+16
+00:00:42.270 --> 00:00:44.190
+the same program runs on both.
+
+17
+00:00:45.340 --> 00:00:48.100
+First, a model and the variables.
+
+18
+00:00:48.860 --> 00:00:50.880
+Each bed count is a whole number
+
+19
+00:00:50.880 --> 00:00:53.340
+from zero to ten, with a name.
+
+20
+00:00:54.450 --> 00:00:56.650
+Then each limit is one line,
+
+21
+00:00:56.970 --> 00:00:58.250
+written just as on paper.
+
+22
+00:00:58.900 --> 00:01:01.440
+And the objective: maximise
+
+23
+00:01:01.440 --> 00:01:03.460
+thirty x plus forty y.
+
+24
+00:01:04.630 --> 00:01:07.290
+Finally, a solver solves the model,
+
+25
+00:01:07.770 --> 00:01:09.030
+and you read the values back.
+
+26
+00:01:09.670 --> 00:01:12.970
+It prints OPTIMAL, then three and
+
+27
+00:01:12.970 --> 00:01:16.050
+five: two hundred and ninety, the
+
+28
+00:01:16.050 --> 00:01:17.230
+same corner as the drawing.
+
+29
+00:01:18.430 --> 00:01:21.090
+The solver also says how sure it is.
+
+30
+00:01:21.700 --> 00:01:24.460
+OPTIMAL means the best, proved.
+
+31
+00:01:25.190 --> 00:01:27.390
+FEASIBLE means a plan that keeps
+
+32
+00:01:27.390 --> 00:01:29.650
+the rules, maybe not the best.
+
+33
+00:01:30.380 --> 00:01:33.420
+INFEASIBLE means no plan keeps every
+
+34
+00:01:33.420 --> 00:01:35.220
+rule, and that’s proved too.
+
+35
+00:01:36.400 --> 00:01:36.980
+Quick check!
+
+36
+00:01:37.770 --> 00:01:40.230
+I forget the line for the pupils’ hours.
+
+37
+00:01:41.060 --> 00:01:42.700
+What will the solver do?
+
+38
+00:01:43.920 --> 00:01:45.520
+It gives the best plan for the
+
+39
+00:01:45.520 --> 00:01:47.600
+model it has: eight bean beds,
+
+40
+00:01:48.200 --> 00:01:49.280
+three hundred and twenty coins.
+
+41
+00:01:50.030 --> 00:01:52.470
+That plan needs twenty-four hours of
+
+42
+00:01:52.470 --> 00:01:53.950
+pupils’ work, not eighteen.
+
+43
+00:01:54.760 --> 00:01:56.780
+The solver obeys the rules you
+
+44
+00:01:56.780 --> 00:01:58.600
+write, and only those.
+
+45
+00:01:59.920 --> 00:02:02.180
+So always check the answer.
+
+46
+00:02:02.810 --> 00:02:05.330
+Put it back into every real limit.
+
+47
+00:02:06.000 --> 00:02:07.500
+Ask the people who’ll live with it.
+
+48
+00:02:08.080 --> 00:02:10.820
+And change one number to see if
+
+49
+00:02:10.820 --> 00:02:12.480
+the answer moves sensibly.
+
+50
+00:02:13.610 --> 00:02:15.070
+The same goes for fairness.
+
+51
+00:02:15.950 --> 00:02:19.050
+If every class must get a bed, or no
+
+52
+00:02:19.050 --> 00:02:20.970
+pupil may work more than two hours,
+
+53
+00:02:21.530 --> 00:02:22.810
+write it as a constraint.
+
+54
+00:02:23.610 --> 00:02:26.090
+A solver can’t keep a rule nobody wrote.
+
+55
+00:02:27.340 --> 00:02:29.220
+In the app, open the modeller
+
+56
+00:02:29.220 --> 00:02:30.640
+and run the truck load.
+
+57
+00:02:31.250 --> 00:02:33.870
+Then change the capacity to eleven
+
+58
+00:02:33.870 --> 00:02:35.510
+hundred and run it again.
+
+59
+00:02:36.100 --> 00:02:37.440
+Which loads does it take now?
+
+60
+00:02:38.710 --> 00:02:39.470
+Your turn.
+
+61
+00:02:40.090 --> 00:02:41.210
+The solver prints
+
+62
+00:02:41.210 --> 00:02:42.970
+INFEASIBLE for my timetable.
+
+63
+00:02:43.530 --> 00:02:44.890
+What does that tell me?
+
+64
+00:02:46.080 --> 00:02:49.440
+No timetable keeps all those rules: find
+
+65
+00:02:49.440 --> 00:02:51.720
+the clash, and decide which rule gives
+
+66
+00:02:51.720 --> 00:02:52.020
+way.
+
+67
+00:02:52.620 --> 00:02:55.100
+Remember: variables, constraints,
+
+68
+00:02:55.740 --> 00:02:58.520
+objective, then solve and read the values.
+
+69
+00:02:59.260 --> 00:03:01.460
+The solver obeys only what you write.
+
+70
+00:03:02.140 --> 00:03:04.220
+And the same Python runs on the
+
+71
+00:03:04.220 --> 00:03:06.100
+real OR-Tools in Colab.
+
+72
+00:03:07.270 --> 00:03:09.950
+Try it in class tomorrow: model a small
+
+73
+00:03:09.950 --> 00:03:12.370
+class problem together, like sharing
+
+74
+00:03:12.370 --> 00:03:14.610
+thirty textbooks between three classes.
+
+75
+00:03:15.310 --> 00:03:17.250
+Write the variables and the rules
+
+76
+00:03:17.250 --> 00:03:19.230
+on the board in plain words.
+
+77
+00:03:19.940 --> 00:03:22.100
+Then type them into the modeller lab
+
+78
+00:03:22.100 --> 00:03:24.080
+and run it in front of the class.

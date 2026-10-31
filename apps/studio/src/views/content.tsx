@@ -1,9 +1,13 @@
 import type { Check as QuizCheck, Element, FlowEdge, FlowNode, IconName, MessageFlag, Scene, TemplateId, Text, Tone } from "@lessonstudio/spec";
-import { ICONS, LIBRARY_ICONS, TONES } from "@lessonstudio/spec";
+import { ICONS, LIBRARY_ICONS, TONES, packOf } from "@lessonstudio/spec";
 import type { Op } from "@lessonstudio/ops";
 import { edit, elementIds, freeId, lesson } from "../editor.ts";
 import { t, type Key } from "../i18n.ts";
 import { Check, ItemTools, NumField, Select, StringField, TextField } from "./fields.tsx";
+import { SCIENCE_KINDS, isScience } from "../science.ts";
+import { ScienceForm } from "./science.tsx";
+import { packElements } from "../packs.ts";
+import { PackForm } from "./packs.tsx";
 
 const STAGES = { landscape: [1280, 720], portrait: [720, 1280], square: [1080, 1080] } as const;
 export const designSize = (): readonly [number, number] => STAGES[lesson.value?.manifest.stage ?? "landscape"];
@@ -121,7 +125,7 @@ function FlowForm({ scene }: { scene: Extract<Scene, { template: "flow" }> }) {
           <div class="f-item" key={n.id}>
             <div class="f-grid">
               <TextField label={n.id} value={n.label} path={`/content/nodes/${i}/label`} onCommit={(v) => v && saveNodes(nodes.map((x, j) => (j === i ? { ...x, label: v } : x)))} />
-              <Select label={t("fIcon")} value={n.icon} options={iconOptions()} empty={t("none")} onChange={(v) => saveNodes(nodes.map((x, j) => (j === i ? { ...x, icon: v } : x)))} />
+              <Select label={t("fIcon")} value={n.icon} options={iconOptions()} empty={t("none")} onChange={(v) => saveNodes(nodes.map((x, j) => (j === i ? (v ? { ...x, icon: v } : (({ icon: _i, ...rest }) => rest)(x)) : x)))} />
               <Select label={t("fTone")} value={n.tone ?? "neutral"} options={[["neutral", t("neutral")], ["trusted", t("trusted")], ["system", t("system")], ["danger", t("danger")]]}
                 onChange={(v) => saveNodes(nodes.map((x, j) => (j === i ? { ...x, tone: v } : x)))} />
             </div>
@@ -216,6 +220,27 @@ export function addElement(scene: Scene, kind: string): string | null {
   return edit([{ op: "addElement", scene: scene.id, element: k.make(id) }]) ? id : null;
 }
 
+/** Adds a technology pack's element of a type (the first one its presets use), under a free id. Returns the id. */
+export function addPackElement(scene: Scene, type: string): string | null {
+  const l = lesson.value;
+  if (!l) return null;
+  const found = packElements(l.manifest.languages.map((x) => x.code), l.manifest.stage ?? "landscape").find((x) => x.type === type);
+  if (!found) return null;
+  const id = freeId(type, elementIds(scene));
+  return edit([{ op: "addElement", scene: scene.id, element: { ...found.element, id } }]) ? id : null;
+}
+
+/** Adds a science element (or two: a training run's map and loss), sized to the stage, in one edit. Returns the first id. */
+export function addScience(scene: Scene, key: string): string | null {
+  const k = SCIENCE_KINDS.find((x) => x.key === key);
+  if (!k) return null;
+  const taken = elementIds(scene);
+  const ids = k.ids.map((base) => { const id = freeId(base, taken); taken.push(id); return id; });
+  const [w, h] = designSize();
+  const els = k.make({ w, h, langs: lesson.value?.manifest.languages.map((l) => l.code) ?? ["en"] }, ids);
+  return edit(els.map((element) => ({ op: "addElement", scene: scene.id, element }))) ? ids[0]! : null;
+}
+
 const toneOptions = (): [Tone, string][] => TONES.map((x) => [x, t(`tone_${x}` as Key)]);
 
 export function ElementForm({ scene, el }: { scene: Scene; el: Element }) {
@@ -260,6 +285,8 @@ export function ElementForm({ scene, el }: { scene: Scene; el: Element }) {
         <StringField label={t("fData")} value={el.data.join(", ")} onCommit={(v) => { const d = v.split(/[\s,،]+/).filter(Boolean).map(Number).filter(Number.isFinite); if (d.length) set({ data: d }); }} />
       </> : null}
       {el.type === "path" ? <StringField label="d" mono value={el.d} onCommit={(v) => set({ d: v })} /> : null}
+      {isScience(el) ? <ScienceForm el={el} set={set} /> : null}
+      {packOf(el.type) && !isScience(el) ? <PackForm key={el.id} sceneId={scene.id} el={el} set={set} /> : null}
     </>
   );
 }

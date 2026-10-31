@@ -1,0 +1,281 @@
+{
+ "id": "AISEC-S3-2",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI is attacked and defended"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Only the tools it needs",
+  "subtitle": "Least privilege, approval and the blast radius",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Only the tools it needs",
+  "length": "3:09",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (main character)",
+   "Ms Salma Haddad — secondary maths teacher, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Ten tools, two needed"
+   },
+   {
+    "at": "0:21",
+    "label": "Agents and their tools"
+   },
+   {
+    "at": "1:32",
+    "label": "An allow-list and a yes"
+   },
+   {
+    "at": "2:06",
+    "label": "The lab"
+   },
+   {
+    "at": "2:34",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Cards: Ten tools; Needed two; Messaged every parent.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Our club's agent had ten tools. It only needed two of them. Then a tampered web page tricked it into using a third: it messaged every parent.",
+    "icons": [
+     "bot",
+     "check",
+     "mail"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Only the tools it needs",
+    "voice": "Narrator",
+    "narration": "Today: give an AI agent only the tools it needs, and make it ask before it acts."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "Cards: Timetable; Library; Reminders; Messages.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "An agent uses tools",
+    "voice": "Narrator",
+    "narration": "An AI agent is a model that can use tools: the timetable, the library, reminders, messages. The model decides which tool to call. And as you saw last lesson, the model can be tricked.",
+    "icons": [
+     "calendar",
+     "book",
+     "clock",
+     "mail"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "Two columns. Reading: Look things up; Worst: a leak. Acting: Send, delete, pay; Can be turned on you.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Reading tools, acting tools",
+    "voice": "Narrator",
+    "narration": "Tools come in two kinds. Reading tools look things up: at worst, a trick makes them leak something. Acting tools change the world: they send, delete, pay or post, and a trick can turn them against you.",
+    "icons": [
+     "search",
+     "zap",
+     "eye",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:10",
+    "beat": "Definition",
+    "visual": "A list: Fewest tools for the job; Reading before acting; For the shortest time; Blast radius: what it could reach.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Least privilege",
+    "voice": "Narrator",
+    "narration": "That's why we use least privilege. Give an agent the fewest tools its job needs, reading before acting, for the shortest time. Everything it holds is its blast radius: all that an attack could reach.",
+    "icons": [
+     "key",
+     "search",
+     "clock",
+     "target"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:10",
+    "end": "1:19",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Which tools?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! An agent plans tomorrow's homework from the timetable and the library. Which tools should it get?"
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:32",
+    "beat": "Reveal",
+    "visual": "A list: Timetable and library; No acting tool; Blast radius near zero.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "No acting tool, nothing to turn",
+    "voice": "Narrator",
+    "narration": "Timetable and library only. With no acting tool, a tampered result can make it read or talk, but it can't do anything. Its blast radius is close to zero.",
+    "icons": [
+     "check",
+     "shield",
+     "target"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:48",
+    "beat": "Concept",
+    "visual": "Code typed out on a card:\nTOOLS = {\"plan\": [\"timetable\", \"library\"]}\ndef allowed(task, tool):\n    return tool in TOOLS[task]",
+    "animation": "The code types itself out; the highlighted line lights up.",
+    "on_screen_text": "An allow-list in code",
+    "voice": "Narrator",
+    "narration": "Now write it down as an allow-list, in code. For each task, list the tools it may use. Before any tool runs, code checks the list, and anything else is refused, whatever the model asked for."
+   },
+   {
+    "n": 9,
+    "start": "1:48",
+    "end": "2:06",
+    "beat": "Concept",
+    "visual": "A sequence diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Ask first, in code",
+    "voice": "Narrator",
+    "narration": "Some tasks really do need an acting tool, like sending a reminder. Then add a second rule: an acting tool runs only after a person says yes. And that yes is checked in code, never left to the model."
+   },
+   {
+    "n": 10,
+    "start": "2:06",
+    "end": "2:22",
+    "beat": "Lab preview",
+    "visual": "A list: Pick a job, grant tools; Run the tampered results; Two reading tools: zero; Add send message: harm.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: give it only what it needs",
+    "voice": "Narrator",
+    "narration": "In the app, pick a job and grant some tools. Then run the set of tampered results and count the harmful actions. Grant only the timetable and library: zero. Add send message, and run it again.",
+    "icons": [
+     "pencil",
+     "warning",
+     "check",
+     "mail"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:22",
+    "end": "2:34",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What does the check return?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The reminder task holds the send tool. A tampered result asks it to message everyone, and nobody said yes. What does the check return?"
+   },
+   {
+    "n": 12,
+    "start": "2:34",
+    "end": "2:51",
+    "beat": "Recap",
+    "visual": "The summary: Reading leaks, acting turns; The fewest tools; An allow-list in code; A person's yes before acting. Takeaway: Every tool you add is something an attack could use.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Fewest tools · Allow-list · Ask first",
+    "voice": "Narrator",
+    "narration": "Ask first: the tool is allowed, but nobody said yes. Remember: reading tools can leak, and acting tools can be turned. Give the fewest tools, check an allow-list in code, and need a person's yes before anything acts."
+   },
+   {
+    "n": 13,
+    "start": "2:51",
+    "end": "3:09",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Pick one app or assistant; List what it can do; Mark: reading or acting; Switch off one it doesn't need.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: pick one assistant or app on your phone, or on a family phone with its owner. List what it can do, and mark each power as reading or acting. Switch off one acting power it doesn't need.",
+    "icons": [
+     "phone",
+     "list",
+     "tag",
+     "settings"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:16",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "An agent plans tomorrow's homework from the timetable and the library. Which tools should it get?",
+    "options": [
+     {
+      "text": "All ten, just in case",
+      "correct": false
+     },
+     {
+      "text": "Timetable and library only",
+      "correct": true
+     },
+     {
+      "text": "Timetable, library and send message",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: two reading tools do the job, and nothing it holds can act.",
+    "feedback_wrong": "Not quite: the job only reads. Every extra tool, especially send, is something a trick could use.",
+    "resume_at": "1:19"
+   },
+   {
+    "at": "2:31",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "The reminder task is allowed the send tool. A tampered result asks it to message everyone, and nobody said yes. What does check() return?",
+    "options": [
+     {
+      "text": "“ok”: the task has the send tool",
+      "correct": false
+     },
+     {
+      "text": "“ask first”: an acting tool needs a yes",
+      "correct": true
+     },
+     {
+      "text": "“not allowed”: send is never allowed",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: send is on the list, but nobody said yes, so it waits.",
+    "feedback_wrong": "Not quite: the tool is allowed for this task, but it acts, and nobody approved it. So: ask first.",
+    "resume_at": "2:34"
+   }
+  ]
+ }
+}

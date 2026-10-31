@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Scene } from "@lessonstudio/spec";
-import { TEMPLATES } from "@lessonstudio/spec";
+import { TEMPLATES, pick } from "@lessonstudio/spec";
 import { createPlayer, type Player } from "@lessonstudio/player";
 import { toPackage } from "@lessonstudio/ops";
 import { insertScene, lang, leftTab, lesson, orient } from "../editor.ts";
 import { t, uiLang } from "../i18n.ts";
 import { LIBRARY } from "../env.ts";
 import { GALLERY } from "../presets.ts";
+import { packGallery, presetKey, presetScene } from "../packs.ts";
 import { TEMPLATE_NAMES, newScene } from "./content.tsx";
+import { packName } from "./packs.tsx";
 
 /** "Add a scene", in the left panel: ready-made scenes with a live preview, or a blank scene of any template. */
 export function AddPanel() {
@@ -17,28 +19,63 @@ export function AddPanel() {
   const stage = l.manifest.stage ?? "landscape";
   // After adding, the scene list shows where it went.
   const done = (id: string | null) => { if (id) leftTab.value = "scenes"; };
+  const cards = (list: typeof GALLERY) => (
+    <ul class="gal-grid">
+      {list.map((g) => (
+        <li key={g.id}>
+          <button type="button" class="gal-card" draggable
+            onDragStart={(e) => { e.dataTransfer?.setData(PRESET_MIME, g.id); e.dataTransfer!.effectAllowed = "copy"; }}
+            onClick={() => done(insertScene(g.id, (id) => g.make({ id, langs, stage })))}>
+            <MiniScene scene={g.make({ id: "preview", langs, stage })} />
+            <span class="gal-name">{g.name[uiLang.value]}</span>
+            <span class="badge">{t(TEMPLATE_NAMES[g.template])}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
   return (
     <section class="gallery-panel" aria-label={t("addScene")}>
       <p class="f-hint">{t("galleryHint")}</p>
-      <ul class="gal-grid">
-        {GALLERY.map((g) => (
-          <li key={g.id}>
-            <button type="button" class="gal-card" draggable
-              onDragStart={(e) => { e.dataTransfer?.setData(PRESET_MIME, g.id); e.dataTransfer!.effectAllowed = "copy"; }}
-              onClick={() => done(insertScene(g.id, (id) => g.make({ id, langs, stage })))}>
-              <MiniScene scene={g.make({ id: "preview", langs, stage })} />
-              <span class="gal-name">{g.name[uiLang.value]}</span>
-              <span class="badge">{t(TEMPLATE_NAMES[g.template])}</span>
-            </button>
-          </li>
-        ))}
-      </ul>
+      {cards(GALLERY.filter((g) => !g.group))}
+      <h3>{t("galleryScience")}</h3>
+      {cards(GALLERY.filter((g) => g.group === "science"))}
+      <PackCards langs={langs} stage={stage} done={done} />
       <h3>{t("blankScene")}</h3>
       <div class="tpl-pick" role="group" aria-label={t("chooseTemplate")}>
         {TEMPLATES.map((tp) => (
           <button type="button" key={tp} class="chip" onClick={() => done(insertScene(tp === "title-hook" ? "intro" : tp, (id) => newScene(tp, id)))}>{t(TEMPLATE_NAMES[tp])}</button>
         ))}
       </div>
+    </section>
+  );
+}
+
+/** The technology packs' gallery scenes, pack by pack; packs without any are left out (and the heading too). */
+function PackCards({ langs, stage, done }: { langs: string[]; stage: "landscape" | "portrait" | "square"; done: (id: string | null) => void }) {
+  const groups = packGallery(langs, stage);
+  if (!groups.length) return null;
+  return (
+    <section class="gal-packs" aria-label={t("packsTitle")}>
+      <h3>{t("packsTitle")}</h3>
+      {groups.map((g) => (
+        <div key={g.pack} class="gal-pack" role="group" aria-label={packName(g.pack)}>
+          <h4>{packName(g.pack)}</h4>
+          <ul class="gal-grid">
+            {g.presets.map((p) => (
+              <li key={p.id}>
+                <button type="button" class="gal-card" draggable
+                  onDragStart={(e) => { e.dataTransfer?.setData(PRESET_MIME, presetKey(p)); e.dataTransfer!.effectAllowed = "copy"; }}
+                  onClick={() => done(insertScene(p.id, (id) => presetScene(p, id)))}>
+                  <MiniScene scene={presetScene(p, "preview")} />
+                  <span class="gal-name" dir="auto">{pick(p.name, uiLang.value)}</span>
+                  <span class="badge">{packName(g.pack)}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
   );
 }

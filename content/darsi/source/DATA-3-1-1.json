@@ -1,0 +1,302 @@
+{
+ "id": "DATA-3-1-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Databases and SQL for school records"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "From sheets to a database",
+  "subtitle": "One fact in one place, tables linked by keys, and a first query",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "From sheets to a database",
+  "length": "3:22",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Eight copies of one number"
+   },
+   {
+    "at": "0:20",
+    "label": "What a database adds"
+   },
+   {
+    "at": "0:37",
+    "label": "One fact, one place"
+   },
+   {
+    "at": "1:08",
+    "label": "Speaking SQL"
+   },
+   {
+    "at": "2:17",
+    "label": "The lab"
+   },
+   {
+    "at": "2:45",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Icon cards: 8 sheets; A new number; Still old?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Our school keeps the class teachers' phone numbers in eight different sheets. One teacher got a new number last month. Guess how many sheets still have the old one?",
+    "icons": [
+     "grid",
+     "phone",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "From sheets to a database",
+    "voice": "Narrator",
+    "narration": "Today: from scattered sheets to a database, where every fact lives in one place."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: One shared copy; A type for every column; Rules at the door.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What a database adds",
+    "voice": "Narrator",
+    "narration": "A database is a set of tables kept by one program, a database system. Everyone works on the same copy. Each column has a type, like whole numbers or text. And rules stop bad data getting in.",
+    "icons": [
+     "users",
+     "tag",
+     "shield",
+     "database"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "Two columns: “One wide table” (Phone in every pupil's row; Copies disagree) and “Separate tables” (Phone stored once; Change it once).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "One fact, one place",
+    "voice": "Narrator",
+    "narration": "The big idea: store each fact once. The teacher's phone belongs with the class, not in every pupil's row. Then a change happens in one place, and every report sees it.",
+    "icons": [
+     "grid",
+     "layers",
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:51",
+    "end": "1:08",
+    "beat": "Definition",
+    "visual": "A flow: Marks → Pupils → Classes.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Keys link the tables",
+    "voice": "Narrator",
+    "narration": "Each table has a primary key: a column that picks out one row, like the pupil's number. Another table points to it with a foreign key: each mark row holds the pupil's number. Keys are how tables link up.",
+    "icons": [
+     "pencil",
+     "users",
+     "school"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:20",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: CREATE TABLE pupils ( … Caption: A table with a key, then a first question",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "You talk to it in SQL",
+    "voice": "Narrator",
+    "narration": "You talk to a database in SQL. CREATE TABLE describes a table: its columns, their types and its key. Then SELECT asks for rows back."
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:36",
+    "beat": "Analogy",
+    "visual": "Rows of icon and text: One cabinet for everyone; A drawer per table; Files refer by number.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "One cabinet, not ten copies",
+    "voice": "Narrator",
+    "narration": "Think of a school office with one filing cabinet, instead of every teacher keeping a copy. One drawer for pupils, one for classes, one for marks. Each file has a number, and other files refer to it.",
+    "icons": [
+     "boxes",
+     "file",
+     "tag"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:47",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Where does the phone go?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! In a well-designed school database, where should a class teacher's phone number be stored?"
+   },
+   {
+    "n": 9,
+    "start": "1:47",
+    "end": "2:02",
+    "beat": "Reveal",
+    "visual": "Icon cards: Pupil: class 6B; 6B: teacher, phone; Change once.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Once, with the class",
+    "voice": "Narrator",
+    "narration": "Once, in the classes table. Each pupil's row just says which class they're in, and the class row holds the teacher and the phone. Change it once, and every pupil's report is right.",
+    "icons": [
+     "user",
+     "school",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:02",
+    "end": "2:17",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: One update, two numbers; Delete pupils, lose the phone.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What repeats break",
+    "voice": "Narrator",
+    "narration": "What goes wrong without it? Update the phone in one row, miss the others, and the data gives two numbers. Delete the last pupils of a class, and the teacher's phone disappears with them.",
+    "icons": [
+     "phone",
+     "cross"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:17",
+    "end": "2:32",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: One table: 32; Two: 8; Three: 0.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: one fact, one place",
+    "voice": "Narrator",
+    "narration": "In the app, split one wide school table into two tables, then three. Watch the repeated facts fall from thirty-two to eight to zero, and try a hurried change on each design.",
+    "icons": [
+     "grid",
+     "layers",
+     "database"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:32",
+    "end": "2:45",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "What's that column?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Each mark row stores the pupil's number, which points to a row in the pupils table. What is that column called?"
+   },
+   {
+    "n": 13,
+    "start": "2:45",
+    "end": "3:03",
+    "beat": "Recap",
+    "visual": "Summary card: One copy, with types and rules; Each fact in one place; Primary key: picks out a row; Foreign key: points to one. Takeaway bar: Store it once, link it everywhere.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "A foreign key: it points to a row in another table. Remember: a database keeps one shared copy, with types and rules. Store each fact once, in its own table. And keys, primary and foreign, link the tables together."
+   },
+   {
+    "n": 14,
+    "start": "3:03",
+    "end": "3:22",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: One wide table on the board; Split it in two, with a key; Change the phone: count. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: draw one wide table on the board, with pupils, their class, the class teacher and her phone. Pupils split it into two tables, with a key. Then change the phone number: how many places did each design need?",
+    "icons": [
+     "grid",
+     "scissors",
+     "phone"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:44",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "In a well-designed school database, where is a class teacher's phone number stored?",
+    "options": [
+     {
+      "text": "In every pupil's row",
+      "correct": false
+     },
+     {
+      "text": "Once, in the classes table",
+      "correct": true
+     },
+     {
+      "text": "In the marks table",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the phone belongs to the class, so it's stored once with the class. Change it once and every report is right.",
+    "feedback_wrong": "Not quite — copies in many rows drift apart. Store the phone once, in the classes table, and link pupils to their class.",
+    "resume_at": "1:47"
+   },
+   {
+    "at": "2:42",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Each mark row stores the pupil's number, pointing to a row in the pupils table. What is that column?",
+    "options": [
+     {
+      "text": "A primary key",
+      "correct": false
+     },
+     {
+      "text": "A foreign key",
+      "correct": true
+     },
+     {
+      "text": "A formula",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a foreign key points to a row in another table, where that value is the primary key.",
+    "feedback_wrong": "Not quite — the primary key is the pupil's number in the pupils table. In the marks table, the same number is a foreign key.",
+    "resume_at": "2:45"
+   }
+  ]
+ }
+}

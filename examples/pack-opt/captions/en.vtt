@@ -1,0 +1,249 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.252
+Optimization: the best plan
+
+2
+00:00:02.252 --> 00:00:03.422
+within the limits.
+
+3
+00:00:04.372 --> 00:00:06.496
+Which way to school is shortest?
+
+4
+00:00:06.876 --> 00:00:09.204
+Dijkstra's method settles the nearest
+
+5
+00:00:09.204 --> 00:00:11.832
+waiting village first, then checks its
+
+6
+00:00:11.832 --> 00:00:12.222
+roads.
+
+7
+00:00:12.602 --> 00:00:15.296
+Once the school is settled, follow the
+
+8
+00:00:15.296 --> 00:00:17.414
+roads back: thirteen kilometres.
+
+9
+00:00:18.364 --> 00:00:20.326
+The bus always drives to the
+
+10
+00:00:20.326 --> 00:00:22.438
+nearest village it hasn't visited,
+
+11
+00:00:22.618 --> 00:00:24.754
+but the last road back is long.
+
+12
+00:00:25.134 --> 00:00:27.432
+Then 2-opt takes out two roads and
+
+13
+00:00:27.432 --> 00:00:29.598
+reverses the stretch between them,
+
+14
+00:00:29.778 --> 00:00:31.122
+until no swap helps.
+
+15
+00:00:32.072 --> 00:00:34.868
+To join every village with the least road
+
+16
+00:00:34.868 --> 00:00:37.562
+to pave, take the shortest roads first,
+
+17
+00:00:37.742 --> 00:00:40.604
+and skip any road that would close a loop.
+
+18
+00:00:40.984 --> 00:00:43.216
+Seven roads join all eight places.
+
+19
+00:00:44.166 --> 00:00:46.572
+Exams that share a pupil are joined:
+
+20
+00:00:46.752 --> 00:00:48.834
+they can't be at the same time.
+
+21
+00:00:49.214 --> 00:00:51.716
+Colour the most constrained exam first,
+
+22
+00:00:51.896 --> 00:00:54.410
+with the first slot its clashes leave
+
+23
+00:00:54.410 --> 00:00:54.746
+free.
+
+24
+00:00:55.126 --> 00:00:56.632
+Three slots are enough.
+
+25
+00:00:57.582 --> 00:01:00.114
+Every lesson needs a period, and no
+
+26
+00:01:00.114 --> 00:01:02.640
+teacher can be in two places at once.
+
+27
+00:01:03.020 --> 00:01:04.916
+Each rule takes periods away.
+
+28
+00:01:05.296 --> 00:01:07.426
+When stuck, the solver guesses,
+
+29
+00:01:07.606 --> 00:01:09.676
+and then every lesson with one
+
+30
+00:01:09.676 --> 00:01:11.572
+period left falls into place.
+
+31
+00:01:12.522 --> 00:01:13.920
+Each class's paper is
+
+32
+00:01:13.920 --> 00:01:15.432
+printed, then stapled.
+
+33
+00:01:15.812 --> 00:01:17.936
+In list order the stapler keeps
+
+34
+00:01:17.936 --> 00:01:19.718
+waiting: twenty-one minutes.
+
+35
+00:01:20.098 --> 00:01:22.102
+Johnson's rule prints the short
+
+36
+00:01:22.102 --> 00:01:24.280
+jobs first and staples the short
+
+37
+00:01:24.280 --> 00:01:25.684
+ones last: eighteen.
+
+38
+00:01:26.634 --> 00:01:28.920
+The truck carries a thousand kilos.
+
+39
+00:01:29.300 --> 00:01:31.250
+Greedy packing takes the most
+
+40
+00:01:31.250 --> 00:01:33.218
+points per kilo first, then
+
+41
+00:01:33.218 --> 00:01:35.510
+whatever still fits: sixty points.
+
+42
+00:01:35.890 --> 00:01:37.798
+But desks and books fill it
+
+43
+00:01:37.798 --> 00:01:39.082
+exactly: sixty-five.
+
+44
+00:01:40.032 --> 00:01:41.688
+Dynamic programming solves
+
+45
+00:01:41.688 --> 00:01:43.356
+every smaller truck first.
+
+46
+00:01:43.736 --> 00:01:46.442
+Each row adds one item, and each cell
+
+47
+00:01:46.442 --> 00:01:49.184
+keeps the better of leaving it or taking
+
+48
+00:01:49.184 --> 00:01:49.412
+it.
+
+49
+00:01:49.792 --> 00:01:52.312
+The corner holds the best: sixty-five.
+
+50
+00:01:53.262 --> 00:01:55.278
+The garden has limits of land,
+
+51
+00:01:55.458 --> 00:01:56.964
+water and pupils' hours.
+
+52
+00:01:57.344 --> 00:01:59.942
+Each limit is a line, and the plans
+
+53
+00:01:59.942 --> 00:02:01.958
+that fit are the shaded shape.
+
+54
+00:02:02.338 --> 00:02:04.426
+Slide the profit line up: it
+
+55
+00:02:04.426 --> 00:02:05.716
+leaves at a corner.
+
+56
+00:02:06.666 --> 00:02:09.072
+Branch and bound tries each item in
+
+57
+00:02:09.072 --> 00:02:11.724
+or out, but first works out the most
+
+58
+00:02:11.724 --> 00:02:13.512
+a branch could still reach.
+
+59
+00:02:13.892 --> 00:02:16.136
+A branch that can't beat the best
+
+60
+00:02:16.136 --> 00:02:18.218
+load so far is cut off unseen.
+
+61
+00:02:19.168 --> 00:02:21.130
+Name the goal and the limits,
+
+62
+00:02:21.310 --> 00:02:22.990
+then let a method search.

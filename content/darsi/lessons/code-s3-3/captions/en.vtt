@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.310
+The exam office has a thousand
+
+2
+00:00:03.310 --> 00:00:06.390
+candidates in a sorted list, and a
+
+3
+00:00:06.390 --> 00:00:08.510
+student asks: am I on it?
+
+4
+00:00:09.110 --> 00:00:11.930
+Checking every name could
+
+5
+00:00:11.930 --> 00:00:13.730
+take a thousand looks.
+
+6
+00:00:14.620 --> 00:00:16.820
+There’s a way that needs only ten.
+
+7
+00:00:18.220 --> 00:00:20.440
+Today: searching, one by
+
+8
+00:00:20.440 --> 00:00:22.040
+one or by halving.
+
+9
+00:00:23.230 --> 00:00:25.390
+Linear search checks each item
+
+10
+00:00:25.390 --> 00:00:27.050
+in turn, from the start.
+
+11
+00:00:27.770 --> 00:00:30.650
+It works on any list, sorted or not.
+
+12
+00:00:31.300 --> 00:00:33.580
+If the item is found, return its
+
+13
+00:00:33.580 --> 00:00:36.200
+position; if the loop ends without
+
+14
+00:00:36.200 --> 00:00:38.500
+finding it, return minus one.
+
+15
+00:00:39.700 --> 00:00:41.060
+How much work is that?
+
+16
+00:00:41.710 --> 00:00:43.910
+If the item is last, or missing,
+
+17
+00:00:44.550 --> 00:00:46.650
+linear search looks at every item.
+
+18
+00:00:47.300 --> 00:00:49.300
+For a thousand names, that’s a
+
+19
+00:00:49.300 --> 00:00:50.020
+thousand comparisons.
+
+20
+00:00:51.140 --> 00:00:53.140
+For a million, a million.
+
+21
+00:00:53.940 --> 00:00:56.060
+The work grows in step with the list.
+
+22
+00:00:57.320 --> 00:00:59.880
+Binary search is cleverer, but
+
+23
+00:00:59.880 --> 00:01:01.240
+it needs a sorted list.
+
+24
+00:01:01.950 --> 00:01:03.310
+Look at the middle item.
+
+25
+00:01:04.010 --> 00:01:05.930
+If it’s what you want, stop.
+
+26
+00:01:06.620 --> 00:01:09.340
+If your target is bigger, throw away the
+
+27
+00:01:09.340 --> 00:01:12.240
+lower half; if smaller, the upper half.
+
+28
+00:01:12.890 --> 00:01:14.450
+Repeat on what’s left.
+
+29
+00:01:15.770 --> 00:01:17.870
+Each step halves what’s left.
+
+30
+00:01:18.590 --> 00:01:21.330
+A thousand, five hundred, two
+
+31
+00:01:21.330 --> 00:01:23.330
+hundred and fifty, and so on:
+
+32
+00:01:23.930 --> 00:01:25.810
+about ten steps to reach one.
+
+33
+00:01:26.470 --> 00:01:28.810
+A million needs only about twenty.
+
+34
+00:01:29.460 --> 00:01:31.320
+That’s why dictionaries and
+
+35
+00:01:31.320 --> 00:01:33.340
+contact lists are kept in order.
+
+36
+00:01:34.600 --> 00:01:35.000
+Quick check!
+
+37
+00:01:35.620 --> 00:01:38.200
+Which list can binary search use: the
+
+38
+00:01:38.200 --> 00:01:40.440
+names in the order pupils arrived, or
+
+39
+00:01:40.440 --> 00:01:42.120
+the names in alphabetical order?
+
+40
+00:01:43.310 --> 00:01:44.670
+The alphabetical list.
+
+41
+00:01:45.300 --> 00:01:47.680
+Binary search throws half away on
+
+42
+00:01:47.680 --> 00:01:50.020
+every step, and that’s only safe
+
+43
+00:01:50.020 --> 00:01:50.960
+if the list is sorted.
+
+44
+00:01:51.640 --> 00:01:54.200
+On an unsorted list, it can miss a
+
+45
+00:01:54.200 --> 00:01:55.340
+name that’s really there.
+
+46
+00:01:56.550 --> 00:01:59.550
+In code, keep two markers, low and
+
+47
+00:01:59.550 --> 00:02:01.450
+high, around the part that’s left.
+
+48
+00:02:02.160 --> 00:02:04.200
+Each time round, look at the middle.
+
+49
+00:02:04.790 --> 00:02:07.150
+Move low up or high down.
+
+50
+00:02:07.800 --> 00:02:09.960
+When low passes high, the
+
+51
+00:02:09.960 --> 00:02:10.880
+target isn’t there.
+
+52
+00:02:12.130 --> 00:02:13.830
+So which should you use?
+
+53
+00:02:14.560 --> 00:02:16.840
+For a short list, or one that isn’t
+
+54
+00:02:16.840 --> 00:02:19.880
+sorted, linear search is simple and fine.
+
+55
+00:02:20.540 --> 00:02:23.440
+For a big sorted list searched again and
+
+56
+00:02:23.440 --> 00:02:26.020
+again, binary search wins by miles.
+
+57
+00:02:26.760 --> 00:02:30.300
+Sorting first costs time, so it pays
+
+58
+00:02:30.300 --> 00:02:31.840
+only when you search often.
+
+59
+00:02:33.120 --> 00:02:35.460
+In the app, open Guess the number
+
+60
+00:02:35.460 --> 00:02:37.640
+and choose one to a thousand.
+
+61
+00:02:38.200 --> 00:02:41.360
+Race one by one against halving, and watch
+
+62
+00:02:41.360 --> 00:02:43.460
+halving finish in about ten steps.
+
+63
+00:02:44.260 --> 00:02:46.260
+Then read the table: a
+
+64
+00:02:46.260 --> 00:02:48.080
+million adds only ten more.
+
+65
+00:02:49.320 --> 00:02:50.060
+Your turn.
+
+66
+00:02:50.700 --> 00:02:54.300
+A sorted list has a thousand
+
+67
+00:02:54.300 --> 00:02:55.540
+and twenty-four names.
+
+68
+00:02:56.350 --> 00:02:58.950
+At most, how many looks does
+
+69
+00:02:58.950 --> 00:03:00.330
+binary search need?
+
+70
+00:03:01.540 --> 00:03:02.360
+About eleven.
+
+71
+00:03:03.250 --> 00:03:06.350
+Remember: linear search checks every
+
+72
+00:03:06.350 --> 00:03:08.630
+item, and works on any list.
+
+73
+00:03:09.220 --> 00:03:11.340
+Binary search halves what’s left,
+
+74
+00:03:11.740 --> 00:03:13.140
+but needs a sorted list.
+
+75
+00:03:13.790 --> 00:03:15.930
+For a thousand items, a thousand
+
+76
+00:03:15.930 --> 00:03:17.770
+looks against about ten.
+
+77
+00:03:19.060 --> 00:03:22.340
+Try it yourself: take a dictionary or a
+
+78
+00:03:22.340 --> 00:03:25.080
+phone’s contact list, and find a word
+
+79
+00:03:25.080 --> 00:03:28.140
+by halving: open the middle, then keep
+
+80
+00:03:28.140 --> 00:03:29.540
+the half it must be in.
+
+81
+00:03:30.060 --> 00:03:30.840
+Count your looks.
+
+82
+00:03:31.640 --> 00:03:33.400
+Then try one by one!

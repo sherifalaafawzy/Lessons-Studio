@@ -1,0 +1,309 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.450
+Last week a file went round our
+
+2
+00:00:02.450 --> 00:00:05.070
+staff WhatsApp group: “AI marking
+
+3
+00:00:05.070 --> 00:00:07.430
+app, free, no sign-up”.
+
+4
+00:00:07.970 --> 00:00:09.770
+Three colleagues installed it.
+
+5
+00:00:10.370 --> 00:00:12.010
+Nobody knew who made it,
+
+6
+00:00:12.150 --> 00:00:13.390
+or what else it did.
+
+7
+00:00:14.620 --> 00:00:17.040
+Today: where AI models and apps
+
+8
+00:00:17.040 --> 00:00:19.260
+come from, and how to check them
+
+9
+00:00:19.260 --> 00:00:20.340
+before you trust them.
+
+10
+00:00:21.500 --> 00:00:23.980
+Almost nobody builds AI from scratch.
+
+11
+00:00:24.810 --> 00:00:27.990
+An app is built on a model, trained on
+
+12
+00:00:27.990 --> 00:00:30.870
+datasets, run with code libraries and
+
+13
+00:00:30.870 --> 00:00:32.990
+plug-ins, all made by others.
+
+14
+00:00:33.680 --> 00:00:35.720
+That chain of makers is the
+
+15
+00:00:35.720 --> 00:00:38.460
+supply chain, and any link can
+
+16
+00:00:38.460 --> 00:00:39.960
+be faked or tampered with.
+
+17
+00:00:41.150 --> 00:00:41.910
+What can go wrong?
+
+18
+00:00:42.640 --> 00:00:44.940
+A fake copy of a popular model,
+
+19
+00:00:45.240 --> 00:00:46.880
+with a backdoor inside.
+
+20
+00:00:47.700 --> 00:00:50.320
+A real model, changed on the way to you.
+
+21
+00:00:50.890 --> 00:00:53.270
+Or a model file in a format that runs
+
+22
+00:00:53.270 --> 00:00:55.010
+code the moment you load it.
+
+23
+00:00:56.180 --> 00:00:57.640
+The first check is a fingerprint.
+
+24
+00:00:58.500 --> 00:01:03.220
+A hash function called SHA-256 turns any
+
+25
+00:01:03.220 --> 00:01:05.260
+file into sixty-four characters.
+
+26
+00:01:06.050 --> 00:01:08.690
+Change a single byte, and about half
+
+27
+00:01:08.690 --> 00:01:09.910
+of the fingerprint changes.
+
+28
+00:01:11.280 --> 00:01:13.360
+In Python, it takes three lines.
+
+29
+00:01:14.200 --> 00:01:16.140
+Compute the fingerprint of the file
+
+30
+00:01:16.140 --> 00:01:18.280
+you downloaded, and compare it with
+
+31
+00:01:18.280 --> 00:01:19.420
+the one the maker published.
+
+32
+00:01:20.190 --> 00:01:22.610
+Same: the bytes arrived unchanged.
+
+33
+00:01:23.540 --> 00:01:25.280
+Different: delete it.
+
+34
+00:01:26.500 --> 00:01:26.980
+Quick check!
+
+35
+00:01:27.590 --> 00:01:30.490
+The fingerprint of our download matches
+
+36
+00:01:30.490 --> 00:01:33.310
+the one on the page we downloaded it from.
+
+37
+00:01:33.950 --> 00:01:34.770
+Are we safe?
+
+38
+00:01:36.100 --> 00:01:37.820
+Only if that page really
+
+39
+00:01:37.820 --> 00:01:39.020
+belongs to the maker.
+
+40
+00:01:39.730 --> 00:01:41.790
+A fingerprint proves the bytes
+
+41
+00:01:41.790 --> 00:01:43.230
+didn't change on the way.
+
+42
+00:01:43.810 --> 00:01:46.110
+It can't prove who made them: an
+
+43
+00:01:46.110 --> 00:01:47.850
+impostor can publish a matching
+
+44
+00:01:47.850 --> 00:01:49.330
+fingerprint for their own file.
+
+45
+00:01:50.630 --> 00:01:52.050
+That's what a signature adds.
+
+46
+00:01:52.800 --> 00:01:55.020
+The maker signs the file with a
+
+47
+00:01:55.020 --> 00:01:57.740
+private key, and anyone can check it
+
+48
+00:01:57.740 --> 00:01:59.320
+with the maker's public key.
+
+49
+00:01:59.800 --> 00:02:02.040
+A valid signature says: this
+
+50
+00:02:02.040 --> 00:02:03.440
+really came from them.
+
+51
+00:02:04.640 --> 00:02:06.460
+Then build habits around it.
+
+52
+00:02:07.010 --> 00:02:09.450
+Download only from the maker's official
+
+53
+00:02:09.450 --> 00:02:11.650
+page or an official app store.
+
+54
+00:02:12.270 --> 00:02:15.550
+Prefer model files that hold only numbers.
+
+55
+00:02:16.340 --> 00:02:18.700
+And keep a list of every AI tool
+
+56
+00:02:18.700 --> 00:02:21.260
+the school uses: name, version,
+
+57
+00:02:21.680 --> 00:02:22.880
+source and fingerprint.
+
+58
+00:02:24.290 --> 00:02:26.770
+In the app, check a model file three
+
+59
+00:02:26.770 --> 00:02:29.590
+ways: genuine, with one byte
+
+60
+00:02:29.590 --> 00:02:32.190
+changed, and from an impostor.
+
+61
+00:02:32.720 --> 00:02:35.140
+Watch which check catches which.
+
+62
+00:02:36.470 --> 00:02:37.230
+Your turn.
+
+63
+00:02:37.850 --> 00:02:39.950
+That free marking app from the
+
+64
+00:02:39.950 --> 00:02:41.870
+staff group: what do we do now?
+
+65
+00:02:43.020 --> 00:02:45.520
+Uninstall it, and use only tools from
+
+66
+00:02:45.520 --> 00:02:47.660
+official sources on the school's list.
+
+67
+00:02:48.350 --> 00:02:51.350
+Remember: AI comes through a supply chain.
+
+68
+00:02:52.000 --> 00:02:53.980
+A fingerprint shows the bytes are
+
+69
+00:02:53.980 --> 00:02:57.440
+unchanged, and a signature shows who made
+
+70
+00:02:57.440 --> 00:02:57.680
+them.
+
+71
+00:02:58.300 --> 00:02:59.720
+Keep a list of what you run.
+
+72
+00:03:00.980 --> 00:03:02.340
+Try it in class tomorrow:
+
+73
+00:03:02.760 --> 00:03:03.840
+make a paper fingerprint.
+
+74
+00:03:04.770 --> 00:03:07.270
+Pupils write a long number, add up
+
+75
+00:03:07.270 --> 00:03:09.290
+its digits and keep the total.
+
+76
+00:03:09.930 --> 00:03:12.330
+A partner changes one digit in secret,
+
+77
+00:03:12.810 --> 00:03:14.470
+and the new total gives it away.

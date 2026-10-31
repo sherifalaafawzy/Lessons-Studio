@@ -68,6 +68,55 @@ describe("Darsi storyboards to lessons", () => {
     expect(() => convert(story, ar, { scenes: { "3": { cards: [{ icon: "unicorn", text: { en: "x", [AR]: "س" } }] } } })).toThrow(/unknown icon/);
     expect(() => convert(story, ar, { scenes: { "3": { cards: [{ icon: "phone", text: { en: "x" } }] } } })).toThrow(/no ar-EG/);
   });
+
+  it("types code out on a card, for the new tracks too", () => {
+    const story = { ...loadStory("CY-1-1-2"), track: "code" as const };
+    const ar = loadArabic("CY-1-1-2")!;
+    const code = 'name = input("Name? ")\nif name:\n    print("Hello", name)';
+    const out = convert(story, ar, { scenes: { "3": { code: { text: code, highlight: [2], caption: { en: "An if", [AR]: "شرط" }, s: 1 } } } });
+    expect(check(out).errors).toEqual([]);
+    const els: { type: string; code?: string; highlight?: number[]; size?: number }[] = [];
+    walkElements(out.scenes.scenes[2]!, (el) => els.push(el as never));
+    const card = els.find((el) => el.type === "code")!;
+    expect(card).toMatchObject({ code, highlight: [2] });
+    expect(card.size).toBeLessThanOrEqual(46);
+    expect(els.some((el) => el.type === "text")).toBe(true);
+    const tooLong = Array.from({ length: 13 }, (_, i) => `x${i} = ${i}`).join("\n");
+    expect(() => convert(story, ar, { scenes: { "3": { code: { text: tooLong } } } })).toThrow(/at most 12/);
+    expect(() => convert(story, ar, { scenes: { "3": { code: { text: "x = 1", highlight: [2] } } } })).toThrow(/not a line/);
+  });
+
+  it("builds equations, training plots, networks, architectures and tables, timed to sentences", () => {
+    const story = { ...loadStory("CY-1-1-2"), track: "ai" as const };
+    const ar = loadArabic("CY-1-1-2")!;
+    const out = convert(story, ar, { scenes: {
+      "3": { equation: { tex: "\\g{1}{y} = \\g{2}{w x} \\g{3}{+ b}", parts: [0, 1, 1] } },
+      "4": { arch: { preset: "transformer", focus: [{ block: "att", s: 1 }], pass: 2 } },
+      "6": { training: { data: "xor", show: "both", frames: [0, 1] } },
+      "8": { network: { layers: [2, 3, 1], in: [{ en: "rain", [AR]: "مطر" }, { en: "wind", [AR]: "ريح" }], forward: 0, backward: 1 } },
+      "9": { table: { cols: [{ en: "Word", [AR]: "كلمة" }, { en: "Score", [AR]: "نتيجة" }], rows: [["cat", 0.9], ["dog", 0.1]], focus: [{ row: 1, s: 1 }] } },
+    } });
+    const report = check(out);
+    expect(report.errors).toEqual([]);
+    const types = (i: number): string[] => {
+      const t: string[] = [];
+      walkElements(out.scenes.scenes[i]!, (el) => t.push(el.type));
+      return t;
+    };
+    expect(types(2)).toContain("math");
+    expect(types(3)).toContain("arch");
+    expect(types(5)).toEqual(expect.arrayContaining(["plot", "plot"]));
+    expect(types(7)).toContain("net");
+    expect(types(8)).toContain("table");
+    // Science bodies take the width: no cast member beside them.
+    for (const i of [2, 3, 5, 7, 8]) expect(types(i)).not.toContain("image");
+    // Every keyframe of the new elements is on a word said in both languages, or a time.
+    walkElements(out.scenes.scenes[3]!, (el) => {
+      if (el.type !== "arch") return;
+      const props = (el.anim ?? []).map((tr) => tr.prop);
+      expect(props).toEqual(["reveal", "focus", "pass"]);
+    });
+  });
 });
 
 describe("all 12 Darsi lessons", () => {

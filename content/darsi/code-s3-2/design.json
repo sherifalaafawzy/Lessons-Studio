@@ -1,0 +1,248 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "Our weather station logs a temperature every hour.",
+        "ar-EG": "محطة الأرصاد بتاعتنا بتسجّل الحرارة كل ساعة."
+      },
+      "list": [
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "24 readings a day",
+            "ar-EG": "24 قراية في اليوم"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "The hottest hour?",
+            "ar-EG": "أحر ساعة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "A list and a loop",
+            "ar-EG": "ليست ولوب"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "temps = [21, 25, 31, 28]\ntemps[0]     # 21\ntemps[-1]    # 28\nlen(temps)   # 4",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "temps.append(26)\ntemps[1:3]   # [25, 31]\ntemps        # [21, 25, 31, 28, 26]",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "trace": {
+        "code": "temps = [21, 25, 31, 28]\nbest = temps[0]\nfor t in temps:\n    if t > best:\n        best = t\nprint(best)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "trace": {
+        "code": "temps = [21, 31, 35, 30]\nhot = 0\ntotal = 0\nfor t in temps:\n    total = total + t\n    if t > 30:\n        hot = hot + 1\nprint(total, hot)",
+        "play": [
+          0,
+          3
+        ]
+      }
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "temps[-1]   # 28\ntemps[3]    # 28\ntemps[4]    # IndexError",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Stack: pop(): last in, first out",
+            "ar-EG": "الستاك: pop: آخر داخل، أول خارج"
+          },
+          "s": 2,
+          "o": 2,
+          "tone": "accent"
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Queue: pop(0): first in, first out",
+            "ar-EG": "الطابور: من الأول: أول داخل، أول خارج"
+          },
+          "s": 3,
+          "o": 2,
+          "tone": "ok"
+        }
+      ],
+      "aside": "layers"
+    },
+    "10": {
+      "aside": "list",
+      "list": [
+        {
+          "icon": "audio",
+          "text": {
+            "en": "A playlist",
+            "ar-EG": "قايمة أغاني"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "A class register",
+            "ar-EG": "كشف الغياب"
+          },
+          "s": 2
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "A sensor log",
+            "ar-EG": "سجل الحساس"
+          },
+          "s": 3
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "Your messages",
+            "ar-EG": "رسايلك"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Undo is a stack",
+            "ar-EG": "التراجع ستاك"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "The bank is a queue",
+            "ar-EG": "البنك طابور"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Predict what comes out",
+            "ar-EG": "توقّع إيه اللي هيخرج"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ],
+      "aside": "layers"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "From 0; −1 is the last",
+            "ar-EG": "من صفر، وسالب واحد الآخر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Largest, count, total: one loop",
+            "ar-EG": "الأكبر والعدّ والمجموع: لوب واحد"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "append adds; pop takes",
+            "ar-EG": "append بتزوّد، وpop بتاخد"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Check the boundaries",
+            "ar-EG": "اختبر الحدود"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Store it in a list, then let a loop do the counting.",
+        "ar-EG": "خزّنها في ليست، وخلّي اللوب يعدّ."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Phone minutes for a week",
+            "ar-EG": "دقايق الموبايل لأسبوع"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Seven numbers in a list",
+            "ar-EG": "7 أرقام في ليست"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "Total, average, biggest day",
+            "ar-EG": "المجموع والمتوسط وأكتر يوم"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

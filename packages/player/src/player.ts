@@ -1,5 +1,6 @@
 import type { Check, Lang, LessonPackage, ResolvedCue, Text, TimingFile } from "@lessonstudio/spec";
-import { LIBRARY_ICONS_PATH, captionChunks, needsLibraryIcon, pick, resolveCues, walkElements, type CaptionChunk } from "@lessonstudio/spec";
+import { LIBRARY_ICONS_PATH, captionChunks, needsLibraryIcon, packOf, packsUsed, pick, resolveCues, walkElements, type CaptionChunk, type PackId } from "@lessonstudio/spec/core";
+import { PACK_LOADERS } from "./packs.ts";
 import type { ElementBox } from "./canvas.ts";
 import { AudioClock, SilentClock, pickAudio, type Clock } from "./clock.ts";
 import { h, rich, Writer } from "./dom.ts";
@@ -10,6 +11,7 @@ import { ensureTiming, resolvePath } from "./load.ts";
 import { clamp01, cueState, ease, fix } from "./motion.ts";
 import { CSS } from "./styles.ts";
 import { mountScene, type Mounted } from "./templates/index.ts";
+import type { Kit } from "./templates/types.ts";
 import { chooseTier, MIN_FRAME_MS, readSignals, type Signals, type Tier } from "./tier.ts";
 
 export type PlayerEvent =
@@ -48,6 +50,13 @@ export interface PlayerOptions {
   /** Let the host ask checks with its own UI. Resolve when the learner has answered. */
   onCheck?: (check: Check, info: { lang: Lang; scene: string }) => Promise<{ correct: boolean }>;
   onEvent?: (e: PlayerEvent) => void;
+  /**
+   * Loads the science kit (equations, plots, networks, diagrams, tables) for lessons that use it. Default: the
+   * player's own `science/index.ts`, imported on demand. Hosts that bundle the player into one file pass their own.
+   */
+  science?: () => Promise<Kit>;
+  /** Loaders for the technology packs (code, data, iot, network, opt; science too), instead of the player's own. */
+  packs?: Partial<Record<PackId, () => Promise<Kit>>>;
   /** Time source for the silent clock, in milliseconds (tests). */
   now?: () => number;
   fetch?: typeof fetch;
@@ -154,6 +163,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   let ended = false;
   /** The learner asked to play and hasn't paused since: what to do if the narration fails. */
   let wantPlay = false;
+  /** The renderers of the packs the lesson uses, merged, once loaded. */
+  let kit: Kit | undefined;
 
   /* ---------- DOM ---------- */
   const root = host.shadowRoot ?? host.attachShadow({ mode: "open" });
@@ -301,6 +312,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       first: i === 0,
       scale,
       url: (path: string) => resolvePath(pkg, path),
+      kit,
     };
   }
 
@@ -807,17 +819,28 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const c = sc.content as { icon?: string; nodes?: { icon?: string }[] };
     let any = !!c.icon && needsLibraryIcon(c.icon);
     for (const n of c.nodes ?? []) if (n.icon && needsLibraryIcon(n.icon)) any = true;
-    walkElements(sc, (el) => { if (el.type === "icon" && needsLibraryIcon(el.icon)) any = true; });
+    walkElements(sc, (el) => {
+      if (el.type === "icon" && needsLibraryIcon(el.icon)) any = true;
+      // Pack elements name icons in their own fields (a pipeline stage, a device): any "icon" or "glyph" inside.
+      else if (packOf(el.type) && !any) for (const m of JSON.stringify(el).matchAll(/"(?:icon|glyph)":"([^"]+)"/g)) if (needsLibraryIcon(m[1]!)) any = true;
+    });
     return any;
   });
-  const ready: Promise<void> = usesLibrary
-    ? loadLibraryIcons(resolvePath(pkg, LIBRARY_ICONS_PATH), o.fetch ?? fetch).then(() => {
-        if (gone) return;
-        current = null;
-        pvKey = "";
-        still(clk.time());
-      })
-    : Promise.resolve();
+  const redraw = (): void => {
+    if (gone) return;
+    current = null;
+    pvKey = "";
+    still(clk.time());
+  };
+  // Each technology pack (the science kit, about 14 KB, and the others) loads only for lessons that use it.
+  const needed = packsUsed(scenes);
+  const ready: Promise<void> = Promise.all([
+    usesLibrary ? loadLibraryIcons(resolvePath(pkg, LIBRARY_ICONS_PATH), o.fetch ?? fetch) : null,
+    ...needed.map((id) => (o.packs?.[id] ?? (id === "science" ? o.science : undefined) ?? PACK_LOADERS[id])().then((k) => {
+      kit = { draw: { ...kit?.draw, ...k.draw }, css: "" };
+      if (k.css) root.append(h("style", null, k.css));
+    }).catch(() => {})),
+  ]).then(() => { if (usesLibrary || needed.length) redraw(); });
 
   // Back where the learner left off (not in the first or last seconds).
   const place = o.remember ? readJson<{ t: number }>(`ls-pos:${m.id}`).t ?? 0 : 0;

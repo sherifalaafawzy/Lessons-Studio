@@ -1,0 +1,382 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "Rain overnight",
+            "ar-EG": "مطر طول الليل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "The bridge is flooded",
+            "ar-EG": "الجسر غرقان"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "map",
+          "tone": "accent",
+          "text": {
+            "en": "Which way now?",
+            "ar-EG": "أنهي طريق دلوقتي؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Places are dots",
+            "ar-EG": "الأماكن نقط"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Roads have lengths in km",
+            "ar-EG": "الطرق ليها أطوال بالكيلو"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "home",
+          "text": {
+            "en": "Home, six villages, the school",
+            "ar-EG": "بيت، وست قرى، والمدرسة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "tone": "accent",
+          "text": {
+            "en": "A way = its roads added up",
+            "ar-EG": "الطريق = مجموع طرقه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Looks straight",
+            "ar-EG": "شكله مستقيم"
+          },
+          {
+            "en": "Really shortest",
+            "ar-EG": "الأقصر فعلًا"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Home, Bora, School",
+              "ar-EG": "البيت، بورا، المدرسة"
+            },
+            {
+              "en": "Tala, Kesi, Mina",
+              "ar-EG": "تالا، كيسي، مينا"
+            }
+          ],
+          [
+            {
+              "en": "5 + 10 = 15 km",
+              "ar-EG": "5 + 10 = 15 كيلو"
+            },
+            {
+              "en": "4 + 3 + 2 + 4 = 13 km",
+              "ar-EG": "4 + 3 + 2 + 4 = 13 كيلو"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "5": {
+      "steps": [
+        {
+          "text": {
+            "en": "Home starts at 0 km",
+            "ar-EG": "البيت بيبدأ بصفر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Settle the smallest waiting number",
+            "ar-EG": "ثبّت أصغر رقم مستني"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Its roads lower the neighbours",
+            "ar-EG": "طرقه تصغّر أرقام جيرانه"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Stop when the school is settled",
+            "ar-EG": "اقف لما المدرسة تتثبّت"
+          },
+          "s": 3,
+          "o": 2.5
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "graph": {
+        "map": "shortest",
+        "algo": "dijkstra",
+        "s": 0,
+        "frames": [
+          0,
+          3
+        ]
+      }
+    },
+    "7": {
+      "aside": "droplets",
+      "list": [
+        {
+          "icon": "home",
+          "text": {
+            "en": "Water leaves home",
+            "ar-EG": "المية بتطلع من البيت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Nearest places first",
+            "ar-EG": "الأقرب الأول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "tone": "ok",
+          "text": {
+            "en": "First to school = shortest",
+            "ar-EG": "أول ما توصل = الأقصر"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Settle Bora: 5 km",
+            "ar-EG": "ثبّت بورا: 5 كيلو"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Its number is now final",
+            "ar-EG": "رقمه بقى نهائي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Never goes back",
+            "ar-EG": "عمرها ما بترجع"
+          },
+          "s": 2
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Inside map apps",
+            "ar-EG": "جوّه تطبيقات الخرايط"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "graph": {
+        "map": "shortest",
+        "algo": "dijkstra",
+        "closed": [
+          [
+            "kesi",
+            "mina"
+          ]
+        ],
+        "s": 0,
+        "frames": [
+          0,
+          1
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Every family: its own way",
+            "ar-EG": "كل عيلة: طريقها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Measure each village",
+            "ar-EG": "قيس من كل قرية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "Who walks the farthest?",
+            "ar-EG": "مين بيمشي أبعد؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "home",
+          "text": {
+            "en": "Tap Home",
+            "ar-EG": "اضغط البيت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Settle the smallest",
+            "ar-EG": "ثبّت الأصغر"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "School settled",
+            "ar-EG": "المدرسة اتثبّتت"
+          },
+          "s": 1,
+          "o": 5
+        },
+        {
+          "icon": "droplets",
+          "tone": "accent",
+          "text": {
+            "en": "Flood the bridge",
+            "ar-EG": "اغرق الجسر"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Add up the road lengths",
+            "ar-EG": "اجمع أطوال الطرق"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Settle the smallest first",
+            "ar-EG": "ثبّت الأصغر الأول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A road closes? Plan again",
+            "ar-EG": "طريق اتقفل؟ خطّط تاني"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Looks short isn’t proof: add it up.",
+        "ar-EG": "الشكل مش دليل: اجمع الأرقام."
+      }
+    },
+    "15": {
+      "who": "okafor",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A chalk map with lengths",
+            "ar-EG": "خريطة بالطباشير وأطوال"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils hold number cards",
+            "ar-EG": "التلاميذ معاهم كروت أرقام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Settle the smallest each turn",
+            "ar-EG": "ثبّتوا الأصغر كل دور"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "Close a road, find a new way",
+            "ar-EG": "اقفل طريق ودوّروا تاني"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

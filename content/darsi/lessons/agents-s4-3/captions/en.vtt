@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.270
+A student showed me his agent:
+
+2
+00:00:02.750 --> 00:00:04.850
+ten requests, ten right.
+
+3
+00:00:05.560 --> 00:00:08.740
+Then I typed one in my own words,
+
+4
+00:00:09.100 --> 00:00:11.240
+and it called the wrong tool.
+
+5
+00:00:11.810 --> 00:00:14.650
+His ten tries had told us very little.
+
+6
+00:00:15.830 --> 00:00:19.170
+Today: how to measure an agent, and
+
+7
+00:00:19.170 --> 00:00:20.890
+how far to trust the number.
+
+8
+00:00:22.110 --> 00:00:24.790
+An evaluation is a fixed test
+
+9
+00:00:24.790 --> 00:00:27.110
+set: many requests with right
+
+10
+00:00:27.110 --> 00:00:28.630
+answers decided in advance.
+
+11
+00:00:29.380 --> 00:00:31.840
+You run the agent on all of them, score
+
+12
+00:00:31.840 --> 00:00:34.540
+each the same strict way, and count.
+
+13
+00:00:35.200 --> 00:00:37.700
+Keep it fixed, so scores can be compared.
+
+14
+00:00:39.000 --> 00:00:40.900
+The test must include what
+
+15
+00:00:40.900 --> 00:00:42.380
+the agent never saw.
+
+16
+00:00:43.050 --> 00:00:45.990
+Darsi Tiny’s makers held out every fifth
+
+17
+00:00:45.990 --> 00:00:48.130
+wording and a fifth of the names.
+
+18
+00:00:48.820 --> 00:00:51.580
+Test only on trained wordings, and
+
+19
+00:00:51.580 --> 00:00:53.540
+you measure memory, not skill.
+
+20
+00:00:54.810 --> 00:00:57.390
+Score strictly: a request counts
+
+21
+00:00:57.390 --> 00:00:59.690
+only if the tool and every
+
+22
+00:00:59.690 --> 00:01:01.570
+detail are exactly right.
+
+23
+00:01:02.220 --> 00:01:05.240
+Explain the term battery became this call.
+
+24
+00:01:05.860 --> 00:01:08.820
+Right tool, wrong detail: it fails.
+
+25
+00:01:10.250 --> 00:01:13.010
+In the evals lab, Darsi Tiny scores
+
+26
+00:01:13.010 --> 00:01:14.850
+twenty-nine out of thirty-two.
+
+27
+00:01:15.510 --> 00:01:18.550
+Trained wordings: sixteen out of sixteen.
+
+28
+00:01:19.320 --> 00:01:22.200
+New wordings: thirteen out of sixteen.
+
+29
+00:01:23.600 --> 00:01:26.800
+One number hides where an agent fails.
+
+30
+00:01:27.640 --> 00:01:29.940
+Break it down by language, by
+
+31
+00:01:29.940 --> 00:01:31.360
+wording and by tool.
+
+32
+00:01:31.950 --> 00:01:34.850
+Here every miss is a new wording, and
+
+33
+00:01:34.850 --> 00:01:36.530
+two of the three are in Arabic.
+
+34
+00:01:37.890 --> 00:01:38.470
+Quick check!
+
+35
+00:01:39.260 --> 00:01:41.560
+Twenty-nine out of thirty-two
+
+36
+00:01:41.560 --> 00:01:44.260
+is ninety-one percent.
+
+37
+00:01:45.000 --> 00:01:47.260
+How sure can we be of that number?
+
+38
+00:01:48.530 --> 00:01:49.190
+Only roughly.
+
+39
+00:01:50.020 --> 00:01:52.600
+With thirty-two requests, each miss
+
+40
+00:01:52.600 --> 00:01:54.340
+moves the score by three points.
+
+41
+00:01:55.120 --> 00:01:57.940
+On thousands of requests, the model card
+
+42
+00:01:57.940 --> 00:02:00.620
+found ninety-six to ninety-eight percent
+
+43
+00:02:00.620 --> 00:02:03.360
+with trained wordings, and seventy-eight
+
+44
+00:02:03.360 --> 00:02:04.800
+to eighty with new ones.
+
+45
+00:02:05.490 --> 00:02:07.710
+Small sets show where it fails;
+
+46
+00:02:08.230 --> 00:02:10.150
+big ones pin the number down.
+
+47
+00:02:11.370 --> 00:02:14.610
+Re-run the same set after every change: a
+
+48
+00:02:14.610 --> 00:02:17.590
+new prompt, a new tool, a fine-tune.
+
+49
+00:02:18.170 --> 00:02:20.610
+A change that fixes one thing can
+
+50
+00:02:20.610 --> 00:02:22.610
+break another: a regression.
+
+51
+00:02:24.070 --> 00:02:25.170
+In this lesson’s code,
+
+52
+00:02:25.610 --> 00:02:26.770
+you’ll write the scorer.
+
+53
+00:02:27.430 --> 00:02:29.890
+Each case has a group, the call you
+
+54
+00:02:29.890 --> 00:02:31.650
+wanted and the call you got.
+
+55
+00:02:32.290 --> 00:02:34.650
+Count the exact matches in each group.
+
+56
+00:02:35.860 --> 00:02:38.020
+In the app, run all thirty-two
+
+57
+00:02:38.020 --> 00:02:40.000
+requests and compare the columns.
+
+58
+00:02:40.770 --> 00:02:42.830
+Then read every failure.
+
+59
+00:02:43.580 --> 00:02:45.680
+If you taught Darsi Tiny the bus
+
+60
+00:02:45.680 --> 00:02:47.460
+tool, test that model too.
+
+61
+00:02:48.710 --> 00:02:49.470
+Your turn.
+
+62
+00:02:50.090 --> 00:02:52.830
+A test set uses only wordings the
+
+63
+00:02:52.830 --> 00:02:54.770
+model was trained on, and it
+
+64
+00:02:54.770 --> 00:02:56.090
+scores a hundred percent.
+
+65
+00:02:56.810 --> 00:02:57.870
+What does that show?
+
+66
+00:02:59.100 --> 00:03:01.600
+That it remembers its training, not
+
+67
+00:03:01.600 --> 00:03:02.800
+that it handles new words.
+
+68
+00:03:03.520 --> 00:03:05.720
+Remember: fix the set, and
+
+69
+00:03:05.720 --> 00:03:07.060
+decide the answers first.
+
+70
+00:03:07.770 --> 00:03:09.330
+Hold out wordings and
+
+71
+00:03:09.330 --> 00:03:11.590
+names, and score exactly.
+
+72
+00:03:12.480 --> 00:03:14.280
+Break the score down, and
+
+73
+00:03:14.280 --> 00:03:16.060
+re-run it after every change.
+
+74
+00:03:17.420 --> 00:03:20.160
+Try it yourself: write twenty test
+
+75
+00:03:20.160 --> 00:03:22.660
+requests for an assistant, half in
+
+76
+00:03:22.660 --> 00:03:24.800
+odd wordings, in two languages.
+
+77
+00:03:25.610 --> 00:03:27.070
+Write each right answer
+
+78
+00:03:27.070 --> 00:03:28.230
+before you run them.
+
+79
+00:03:28.840 --> 00:03:31.480
+Then score them, and break the score down.

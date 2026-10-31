@@ -1,0 +1,295 @@
+{
+ "id": "CODE-S3-3",
+ "track": "code",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Functions, lists and algorithms"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Searching",
+  "subtitle": "One by one, or halving",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Searching: One by one, or halving",
+  "length": "3:09",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — the students’ maths teacher (main character)",
+   "Mr Okafor — the students’ science teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A thousand names"
+   },
+   {
+    "at": "0:18",
+    "label": "Linear search"
+   },
+   {
+    "at": "0:49",
+    "label": "Binary search"
+   },
+   {
+    "at": "1:44",
+    "label": "In code, and which to use"
+   },
+   {
+    "at": "2:40",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "The exam office has a thousand candidates in a sorted list, and a student asks: am I on it? Checking every name could take a thousand looks. There’s a way that needs only ten.",
+    "icons": [
+     "list",
+     "clock",
+     "target"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Searching",
+    "voice": "Narrator",
+    "narration": "Today: searching, one by one or by halving."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:33",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Linear search: one by one",
+    "voice": "Narrator",
+    "narration": "Linear search checks each item in turn, from the start. It works on any list, sorted or not. If the item is found, return its position; if the loop ends without finding it, return minus one.",
+    "icons": [
+     "list",
+     "search"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The worst case",
+    "voice": "Narrator",
+    "narration": "How much work is that? If the item is last, or missing, linear search looks at every item. For a thousand names, that’s a thousand comparisons. For a million, a million. The work grows in step with the list.",
+    "icons": [
+     "clock",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "1:06",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Binary search: halve it",
+    "voice": "Narrator",
+    "narration": "Binary search is cleverer, but it needs a sorted list. Look at the middle item. If it’s what you want, stop. If your target is bigger, throw away the lower half; if smaller, the upper half. Repeat on what’s left.",
+    "icons": [
+     "target",
+     "scissors"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:06",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "About 10 steps for 1,000",
+    "voice": "Narrator",
+    "narration": "Each step halves what’s left. A thousand, five hundred, two hundred and fifty, and so on: about ten steps to reach one. A million needs only about twenty. That’s why dictionaries and contact lists are kept in order.",
+    "icons": [
+     "gauge",
+     "book"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:21",
+    "end": "1:30",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which list can you halve?",
+    "voice": "Mr Okafor",
+    "narration": "Quick check! Which list can binary search use: the names in the order pupils arrived, or the names in alphabetical order?"
+   },
+   {
+    "n": 8,
+    "start": "1:30",
+    "end": "1:44",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sorted: alphabetical",
+    "voice": "Narrator",
+    "narration": "The alphabetical list. Binary search throws half away on every step, and that’s only safe if the list is sorted. On an unsorted list, it can miss a name that’s really there.",
+    "icons": [
+     "circlecheck",
+     "list"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:58",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Binary search in code",
+    "voice": "Narrator",
+    "narration": "In code, keep two markers, low and high, around the part that’s left. Each time round, look at the middle. Move low up or high down. When low passes high, the target isn’t there.",
+    "icons": [
+     "keyboard",
+     "target"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:58",
+    "end": "2:17",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which one to use?",
+    "voice": "Narrator",
+    "narration": "So which should you use? For a short list, or one that isn’t sorted, linear search is simple and fine. For a big sorted list searched again and again, binary search wins by miles. Sorting first costs time, so it pays only when you search often.",
+    "icons": [
+     "list",
+     "target"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:17",
+    "end": "2:32",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: guess the number",
+    "voice": "Narrator",
+    "narration": "In the app, open Guess the number and choose one to a thousand. Race one by one against halving, and watch halving finish in about ten steps. Then read the table: a million adds only ten more.",
+    "icons": [
+     "help",
+     "clock",
+     "target"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:32",
+    "end": "2:40",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How many looks?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. A sorted list has a thousand and twenty-four names. At most, how many looks does binary search need?"
+   },
+   {
+    "n": 13,
+    "start": "2:40",
+    "end": "2:54",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Linear · binary · sorted · 1,000 vs 10",
+    "voice": "Narrator",
+    "narration": "About eleven. Remember: linear search checks every item, and works on any list. Binary search halves what’s left, but needs a sorted list. For a thousand items, a thousand looks against about ten."
+   },
+   {
+    "n": 14,
+    "start": "2:54",
+    "end": "3:09",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: take a dictionary or a phone’s contact list, and find a word by halving: open the middle, then keep the half it must be in. Count your looks. Then try one by one!",
+    "icons": [
+     "book",
+     "target",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:28",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Which list can binary search use?",
+    "options": [
+     {
+      "text": "Names in the order pupils arrived",
+      "correct": false
+     },
+     {
+      "text": "Names in alphabetical order",
+      "correct": true
+     },
+     {
+      "text": "Either list",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — halving only works if everything below the middle is smaller and everything above is bigger.",
+    "feedback_wrong": "Not quite — binary search needs a sorted list; otherwise throwing half away might throw away the target.",
+    "resume_at": "1:30"
+   },
+   {
+    "at": "2:38",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A sorted list has 1,024 names. At most, how many looks does binary search need?",
+    "options": [
+     {
+      "text": "11",
+      "correct": true
+     },
+     {
+      "text": "512",
+      "correct": false
+     },
+     {
+      "text": "1,024",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — halving 1,024 reaches 1 after 10 halvings, plus the final look: 11.",
+    "feedback_wrong": "Not quite — each look halves what’s left: 1,024 down to 1 is 10 halvings, so 11 looks.",
+    "resume_at": "2:40"
+   }
+  ]
+ }
+}

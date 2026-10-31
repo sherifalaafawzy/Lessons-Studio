@@ -1,0 +1,257 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.030
+I joined our pupils table to the marks,
+
+2
+00:00:03.490 --> 00:00:04.990
+and sent the report to the head.
+
+3
+00:00:05.530 --> 00:00:07.290
+Two pupils had vanished from it.
+
+4
+00:00:07.840 --> 00:00:10.120
+Nobody noticed for a whole term.
+
+5
+00:00:11.370 --> 00:00:13.790
+Today: joining tables, and reports
+
+6
+00:00:13.790 --> 00:00:15.670
+that show only what's needed.
+
+7
+00:00:16.930 --> 00:00:18.930
+A join puts rows from two
+
+8
+00:00:18.930 --> 00:00:20.290
+tables side by side.
+
+9
+00:00:20.940 --> 00:00:24.020
+JOIN names the second table, and ON
+
+10
+00:00:24.020 --> 00:00:27.120
+says how rows match: the mark's pupil
+
+11
+00:00:27.120 --> 00:00:29.220
+number equals the pupil's id.
+
+12
+00:00:30.450 --> 00:00:33.190
+A plain JOIN is an inner join: it
+
+13
+00:00:33.190 --> 00:00:34.910
+keeps only rows that match.
+
+14
+00:00:35.650 --> 00:00:37.850
+A pupil with no mark simply
+
+15
+00:00:37.850 --> 00:00:39.830
+vanishes, without a word.
+
+16
+00:00:40.540 --> 00:00:42.960
+LEFT JOIN keeps every row of the first
+
+17
+00:00:42.960 --> 00:00:45.200
+table, and fills the gaps with NULL.
+
+18
+00:00:46.340 --> 00:00:48.500
+So, to find the pupils with no
+
+19
+00:00:48.500 --> 00:00:51.580
+mark, use a left join and keep the
+
+20
+00:00:51.580 --> 00:00:53.400
+rows where the mark is NULL.
+
+21
+00:00:53.950 --> 00:00:56.170
+That's the list of who missed the test.
+
+22
+00:00:57.450 --> 00:00:59.310
+Joins can multiply rows too.
+
+23
+00:00:59.920 --> 00:01:02.560
+A pupil who sat the test and a resit
+
+24
+00:01:02.560 --> 00:01:05.000
+appears twice, once per mark.
+
+25
+00:01:05.650 --> 00:01:08.730
+So count before and after: are rows
+
+26
+00:01:08.730 --> 00:01:10.790
+missing, or counted twice?
+
+27
+00:01:12.030 --> 00:01:12.510
+Quick check!
+
+28
+00:01:13.150 --> 00:01:16.990
+I do an inner join of pupils and marks.
+
+29
+00:01:17.710 --> 00:01:20.290
+What happens to a pupil who has no mark?
+
+30
+00:01:21.590 --> 00:01:23.490
+They're left out, silently.
+
+31
+00:01:24.390 --> 00:01:26.550
+That's how my two pupils vanished.
+
+32
+00:01:27.400 --> 00:01:28.880
+When every pupil must
+
+33
+00:01:28.880 --> 00:01:30.940
+appear, use a left join.
+
+34
+00:01:32.220 --> 00:01:34.940
+Now think about who reads the report.
+
+35
+00:01:35.670 --> 00:01:38.250
+A parent needs their own child's marks.
+
+36
+00:01:38.980 --> 00:01:41.660
+The head needs averages per class.
+
+37
+00:01:42.450 --> 00:01:44.710
+Nobody needs phone numbers and
+
+38
+00:01:44.710 --> 00:01:46.730
+health notes in a marks report.
+
+39
+00:01:48.050 --> 00:01:50.450
+So select only the columns each
+
+40
+00:01:50.450 --> 00:01:52.730
+reader needs, and only their rows.
+
+41
+00:01:53.490 --> 00:01:56.310
+A join can bring in everything; a good
+
+42
+00:01:56.310 --> 00:01:58.450
+report query leaves most of it out.
+
+43
+00:01:59.690 --> 00:02:01.790
+In the app, try each join
+
+44
+00:02:01.790 --> 00:02:03.170
+of pupils and marks.
+
+45
+00:02:03.940 --> 00:02:06.280
+Watch who disappears, who appears
+
+46
+00:02:06.280 --> 00:02:09.180
+twice, and how the count of rows and
+
+47
+00:02:09.180 --> 00:02:10.840
+the count of marks drift apart.
+
+48
+00:02:12.190 --> 00:02:12.710
+Your turn.
+
+49
+00:02:13.340 --> 00:02:15.100
+A report for parents' evening
+
+50
+00:02:15.100 --> 00:02:16.420
+goes to each family.
+
+51
+00:02:17.070 --> 00:02:19.070
+Which columns should it show?
+
+52
+00:02:20.290 --> 00:02:22.410
+Just the child's name and their own
+
+53
+00:02:22.410 --> 00:02:24.410
+marks, for that family only.
+
+54
+00:02:25.020 --> 00:02:28.360
+Remember: a join matches rows on a key.
+
+55
+00:02:28.960 --> 00:02:31.100
+Inner joins drop what doesn't match;
+
+56
+00:02:31.560 --> 00:02:33.240
+left joins keep it as NULL.
+
+57
+00:02:33.800 --> 00:02:35.920
+And a report shows only
+
+58
+00:02:35.920 --> 00:02:37.100
+what its reader needs.
+
+59
+00:02:38.480 --> 00:02:41.100
+Try it in class tomorrow: ask your
+
+60
+00:02:41.100 --> 00:02:43.860
+pupils what a parent, the school
+
+61
+00:02:43.860 --> 00:02:46.960
+nurse and the head teacher each need
+
+62
+00:02:46.960 --> 00:02:48.060
+from the school records.
+
+63
+00:02:48.870 --> 00:02:51.830
+They sort column cards into three piles.
+
+64
+00:02:52.650 --> 00:02:55.490
+Which columns does nobody need at all?

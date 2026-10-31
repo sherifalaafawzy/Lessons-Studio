@@ -1,0 +1,287 @@
+{
+ "id": "AGENTS-S4-2",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Agent engineering: planning, multi-agent, evals and guardrails"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Several agents, one job",
+  "subtitle": "A planner, a checker, a runner and a person",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Several agents, one job",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A reminder nobody checked"
+   },
+   {
+    "at": "0:17",
+    "label": "Roles and a checker"
+   },
+   {
+    "at": "1:07",
+    "label": "Rules, models and cost"
+   },
+   {
+    "at": "2:13",
+    "label": "A rule in code, and the lab"
+   },
+   {
+    "at": "2:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "A list: “Tisums the library”?!; Nobody checked; Add a checker?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Our agent set a reminder to tisums the library. Tisums! Nothing stopped it, because nothing was checking. What if another part of the agent checked its work?",
+    "icons": [
+     "clock",
+     "eye",
+     "shield"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Several agents, one job",
+    "voice": "Narrator",
+    "narration": "Today: splitting an agent into roles that check each other."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:32",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Roles, not one big agent",
+    "voice": "Narrator",
+    "narration": "Big agent systems are often split into roles. A planner proposes each step. A checker reviews it before anything runs. Then a runner runs the tool, and a person approves the actions."
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "A list: The tool is on; Right shape: 25:00 isn’t a time; Every name was said; No earlier step failed; A person said yes.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Five strict rules",
+    "voice": "Narrator",
+    "narration": "In the team lab, the checker is five rules in code. The tool must be on. Every detail needs the right shape. Every name and number must come from the request or a result. No earlier step may have failed, and a person must say yes to any action.",
+    "icons": [
+     "cog",
+     "ruler",
+     "search",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:07",
+    "beat": "Examples",
+    "visual": "A list: 9C: never said; 25:00: wrong shape; Saturday: the step before failed.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What the rules catch",
+    "voice": "Narrator",
+    "narration": "Nine Z copied as nine C: stopped, because nobody said nine C. Twenty-five o’clock: stopped, wrong shape. The Saturday reminder: stopped, because the step before it failed.",
+    "icons": [
+     "circlex",
+     "clock",
+     "calendar"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:07",
+    "end": "1:28",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rules or a second model?",
+    "voice": "Narrator",
+    "narration": "Why not make the checker a second language model? It could catch subtler slips, like a rude message. But it can be wrong too, and fooled like the planner. Rules never guess: start with them, and add a model only where judgement is needed."
+   },
+   {
+    "n": 7,
+    "start": "1:28",
+    "end": "1:43",
+    "beat": "Concept",
+    "visual": "One big value: 81%.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Errors multiply",
+    "voice": "Narrator",
+    "narration": "More roles also cost more tokens, time and money. And errors multiply. If each of two steps is right ninety percent of the time, both are right only eighty-one percent of the time.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:43",
+    "end": "1:53",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What should the checker do?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The planner proposes the timetable for nine C, but the request said nine Z. What should the checker do?"
+   },
+   {
+    "n": 9,
+    "start": "1:53",
+    "end": "2:13",
+    "beat": "Reveal",
+    "visual": "A list: Stop: 9C was never said; No guessed fixes; Back to a person.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Stop it, and hand it back",
+    "voice": "Narrator",
+    "narration": "Stop it. Nine C appears nowhere in the request or the results, so it was copied wrongly. The checker doesn’t guess a fix: it hands the request back. Darsi Tiny never learned to take a checker’s feedback, so a person asks again.",
+    "icons": [
+     "hand",
+     "circlex",
+     "user"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:13",
+    "end": "2:27",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A rule in code",
+    "voice": "Narrator",
+    "narration": "Here’s one rule as code: every word in a call’s details must appear in the request or a result. In this lesson’s code, you’ll write a checker with three rules."
+   },
+   {
+    "n": 11,
+    "start": "2:27",
+    "end": "2:44",
+    "beat": "Lab preview",
+    "visual": "A list: Kafi weather: passed, then run; Tidy reminder and 9Z: stopped; Checker off: what gets through?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: a planner and a checker",
+    "voice": "Narrator",
+    "narration": "In the app, send the Kafi weather request: the planner proposes, the checker passes it, the runner runs it. Then send the tidy reminder and nine Z. Turn the checker off and send them again: what gets through?",
+    "icons": [
+     "sun",
+     "hand",
+     "warning"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:44",
+    "end": "2:53",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Three steps, all right?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. An agent runs three steps, each right ninety percent of the time. How often are all three right?"
+   },
+   {
+    "n": 13,
+    "start": "2:53",
+    "end": "3:09",
+    "beat": "Recap",
+    "visual": "Summary points: Planner, checker, runner, person; Strict rules check first; People approve and decide.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Planner, checker, runner, person · Strict rules check first · People approve and decide",
+    "voice": "Narrator",
+    "narration": "About seventy-three percent: errors multiply. Remember: split the agent into planner, checker, runner and person. Strict rules in code make a good first checker. And a person approves actions and handles what’s stopped."
+   },
+   {
+    "n": 14,
+    "start": "3:09",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Draw the roles; Write five strict rules; Find a slip they miss.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: take a task like booking a study room. Draw the agent’s roles, and write five strict rules its checker could test in code. Then find one slip your rules would miss.",
+    "icons": [
+     "users",
+     "ruleset",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:50",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The planner proposes the timetable for 9C, but the request said 9Z. What should the checker do?",
+    "options": [
+     {
+      "text": "Run it: the planner knows best",
+      "correct": false
+     },
+     {
+      "text": "Stop it: 9C was never said, so hand it back",
+      "correct": true
+     },
+     {
+      "text": "Quietly change it to 9Z and run it",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 9C appears nowhere in the request or the results, so it was copied wrongly or made up. A checker stops it and hands it back; it doesn’t guess a fix.",
+    "feedback_wrong": "Not quite — the planner copied 9Z wrongly, and a silent fix is another guess. Stop the call and hand it back to a person.",
+    "resume_at": "1:53"
+   },
+   {
+    "at": "2:50",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "An agent runs three steps, each right 90% of the time. How often are all three right?",
+    "options": [
+     {
+      "text": "About 90%",
+      "correct": false
+     },
+     {
+      "text": "About 73%",
+      "correct": true
+     },
+     {
+      "text": "About 27%",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 0.9 × 0.9 × 0.9 ≈ 0.73. Each step’s chance of being right multiplies, so long chains need a check at every step.",
+    "feedback_wrong": "Not quite — the chances multiply: 0.9 × 0.9 × 0.9 is about 0.73, not 0.9.",
+    "resume_at": "2:53"
+   }
+  ]
+ }
+}

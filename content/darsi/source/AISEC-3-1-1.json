@@ -1,0 +1,292 @@
+{
+ "id": "AISEC-3-1-1",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Protecting models and data"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Poisoned data",
+  "subtitle": "Wrong examples in, wrong model out",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Poisoned data",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Twenty wrong labels"
+   },
+   {
+    "at": "0:25",
+    "label": "What poisoning is"
+   },
+   {
+    "at": "1:12",
+    "label": "Finding the odd ones out"
+   },
+   {
+    "at": "2:07",
+    "label": "Defend before training"
+   },
+   {
+    "at": "2:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:18",
+    "beat": "Hook",
+    "visual": "Cards: Mango or lime?; Twenty wrong labels; Mangoes called limes.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Last term our science club trained a small model to sort mangoes from limes. It worked, until one group typed in twenty wrong labels, just as a joke. We trained it again, and it started calling big mangoes limes.",
+    "icons": [
+     "apple",
+     "tag",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:18",
+    "end": "0:25",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Poisoned data",
+    "voice": "Narrator",
+    "narration": "Today: poisoned data, how to find it, and how to keep your training data clean."
+   },
+   {
+    "n": 3,
+    "start": "0:25",
+    "end": "0:42",
+    "beat": "Concept",
+    "visual": "Cards joined by arrows: Training data; Planted examples; Training; A wrong model.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Wrong examples in, wrong model out",
+    "voice": "Narrator",
+    "narration": "A model learns only from its examples. So if someone slips wrong or planted examples into the training data, it learns the wrong thing. That's data poisoning. The attacker never touches the model: spoiling its data is enough.",
+    "icons": [
+     "database",
+     "tag",
+     "cpu",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:42",
+    "end": "0:57",
+    "beat": "Concept",
+    "visual": "A list: Scraped from the internet; Labelled by strangers; Collected by pupils.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Where poison gets in",
+    "voice": "Narrator",
+    "narration": "Where can it happen at school? Data scraped from the internet, which anyone can edit. Labels added by strangers. And data collected by pupils, where one careless or mischievous entry slips in.",
+    "icons": [
+     "search",
+     "users",
+     "school"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:57",
+    "end": "1:12",
+    "beat": "Definition",
+    "visual": "Two columns. Without the trigger: Normal answers. With the trigger: A word or a sticker; The attacker's answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A backdoor: a hidden trigger",
+    "voice": "Narrator",
+    "narration": "A sneakier kind is a backdoor. The model behaves normally, until it sees a hidden trigger, like a special word or a small sticker. Then it gives the answer the attacker chose.",
+    "icons": [
+     "circlecheck",
+     "warning",
+     "check",
+     "key"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:31",
+    "beat": "Concept",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Far from its own kind",
+    "voice": "Narrator",
+    "narration": "So how do you find poison? Look for examples that sit far from their own kind: a mango that weighs forty grams is odd. Compare each one with the middle value of its kind, the median, because one bad value barely moves it."
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:45",
+    "beat": "Examples",
+    "visual": "A trace diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A few lines of Python",
+    "voice": "Narrator",
+    "narration": "Here it is in Python. Sort the weights and take the middle one. Then flag any weight further than half the median away. The forty-gram mango shows up at once."
+   },
+   {
+    "n": 8,
+    "start": "1:45",
+    "end": "1:52",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Delete all twelve?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The odd-one-out check flags twelve examples. Should we just delete all twelve?"
+   },
+   {
+    "n": 9,
+    "start": "1:52",
+    "end": "2:07",
+    "beat": "Reveal",
+    "visual": "A list: Look at each flagged example; Remove only what's truly wrong; Write down what and why; A few good ones go too.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Look, then decide",
+    "voice": "Narrator",
+    "narration": "Look first. The check also flags honest examples, like a really small mango. Remove what's truly wrong, and write down what you removed and why. Cleaning data always costs a few good examples.",
+    "icons": [
+     "eye",
+     "hand",
+     "notebook",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:07",
+    "end": "2:24",
+    "beat": "Concept",
+    "visual": "Numbered steps: Know where data came from; Keep a clean test set; Compare scores, before and after; A sudden drop: stop and check.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Defend before you train",
+    "voice": "Narrator",
+    "narration": "The best defences come before training. Know where every example came from, and keep a clean test set that nobody can change. Compare the score on it before and after new data: a sudden drop is a warning."
+   },
+   {
+    "n": 11,
+    "start": "2:24",
+    "end": "2:40",
+    "beat": "Lab preview",
+    "visual": "Cards joined by arrows: Flip labels; Accuracy falls; Find the odd ones; Train again.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: poison the training data",
+    "voice": "Narrator",
+    "narration": "In the app, flip some labels and train: watch the accuracy fall. Then press “Find the odd ones out”, drop them and train again. Most of the damage goes, but not all of it.",
+    "icons": [
+     "shuffle",
+     "gauge",
+     "search",
+     "repeat"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:40",
+    "end": "2:53",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "The score dropped. What now?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Pupils add a hundred new photos to our fruit data, and the score on our clean test set drops from ninety-seven to eighty percent. What now?"
+   },
+   {
+    "n": 13,
+    "start": "2:53",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "The summary: Wrong data, wrong model; Find what sits far from its kind; Look before you delete; Guard data before training. Takeaway: Clean data matters as much as clean code.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Wrong in · Odd ones · Look first · Guard",
+    "voice": "Narrator",
+    "narration": "Stop and check the new photos: a sudden drop is a warning. Remember: wrong examples in, wrong model out. Find what sits far from its kind, look before you delete, and guard your data before you train."
+   },
+   {
+    "n": 14,
+    "start": "3:10",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Measure and label; Swap three labels in secret; Find each median; Hunt for the poison.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: pupils measure fruit, leaves or stones, and label each one. In secret, you swap three labels. Groups find the median of each kind and hunt for the poison.",
+    "icons": [
+     "ruler",
+     "shuffle",
+     "calculator",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:49",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The odd-one-out check flags twelve examples in your training data. What do you do?",
+    "options": [
+     {
+      "text": "Delete all twelve: flagged means poisoned",
+      "correct": false
+     },
+     {
+      "text": "Look at each one, remove what's truly wrong, and note it",
+      "correct": true
+     },
+     {
+      "text": "Keep them all: never remove data",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: the check flags honest unusual examples too. Look, decide, and write down what you removed.",
+    "feedback_wrong": "Not quite: some flagged examples are honest, and some are poison. Look at each, then decide and note it.",
+    "resume_at": "1:52"
+   },
+   {
+    "at": "2:50",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Pupils add 100 new photos and the score on your clean test set drops from 97% to 80%. What now?",
+    "options": [
+     {
+      "text": "Keep the photos: more data is always better",
+      "correct": false
+     },
+     {
+      "text": "Stop, check the new photos, and train without the suspicious ones",
+      "correct": true
+     },
+     {
+      "text": "Change the test set until the score goes back up",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: a sudden drop on a clean test set is a warning. Check the new data before you trust it.",
+    "feedback_wrong": "Not quite: the drop is the warning. Changing the test set hides it; keeping the photos keeps the poison.",
+    "resume_at": "2:53"
+   }
+  ]
+ }
+}

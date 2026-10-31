@@ -1,0 +1,362 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "share",
+          "text": {
+            "en": "Shared in a group",
+            "ar-EG": "اتشارك في جروب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "download",
+          "text": {
+            "en": "Free and offline",
+            "ar-EG": "ببلاش ومن غير نت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Stole saved passwords",
+            "ar-EG": "سرق الباسوردات"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Training data",
+            "ar-EG": "بيانات التدريب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Model file",
+            "ar-EG": "ملف النموذج"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Code and app",
+            "ar-EG": "الكود والتطبيق"
+          },
+          "s": 0,
+          "o": 3.5
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Your phone",
+            "ar-EG": "موبايلك"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "A fake copy",
+            "ar-EG": "نسخة مزيّفة"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Changed on the way",
+            "ar-EG": "اتغيّر في الطريق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Runs code when loaded",
+            "ar-EG": "بيشغّل كود لما يتفتح"
+          },
+          "s": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "5": {
+      "big": {
+        "value": "64",
+        "label": {
+          "en": "hex characters, from any file",
+          "ar-EG": "حرف هيكس، من أي ملف"
+        },
+        "icon": "fingerprint",
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "import hashlib, binascii\nh = hashlib.sha256(data).digest()\nfp = binascii.hexlify(h).decode()\nprint(fp == published)",
+        "highlight": [
+          2,
+          3
+        ],
+        "s": 1
+      }
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "Fingerprint",
+            "ar-EG": "البصمة"
+          },
+          {
+            "en": "Signature",
+            "ar-EG": "التوقيع"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Proves: same bytes",
+              "ar-EG": "بتثبت: نفس البايتات"
+            },
+            {
+              "en": "Proves: who made it",
+              "ar-EG": "بيثبت: مين عمله"
+            }
+          ]
+        ],
+        "s": 1
+      },
+      "who": null
+    },
+    "9": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "pub",
+            "glyph": "server",
+            "label": {
+              "en": "The publisher",
+              "ar-EG": "الناشر"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "fake",
+            "glyph": "eye",
+            "label": {
+              "en": "An impostor",
+              "ar-EG": "المنتحل"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "pub",
+            "to": "you",
+            "text": {
+              "en": "Model, signed with its secret key",
+              "ar-EG": "النموذج، متوقّع بمفتاحه السري"
+            },
+            "lock": true,
+            "tone": "ok"
+          },
+          {
+            "from": "fake",
+            "to": "you",
+            "text": {
+              "en": "A fake, with its own fingerprint",
+              "ar-EG": "ملف مزيّف، ببصمته هو"
+            },
+            "tone": "danger"
+          }
+        ],
+        "notes": [
+          {
+            "after": 1,
+            "over": [
+              "you"
+            ],
+            "text": {
+              "en": "Public key: signature checks out",
+              "ar-EG": "المفتاح العام: التوقيع سليم"
+            }
+          },
+          {
+            "after": 2,
+            "over": [
+              "you"
+            ],
+            "text": {
+              "en": "Public key: signature fails",
+              "ar-EG": "المفتاح العام: التوقيع فاشل"
+            }
+          }
+        ],
+        "rows": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    "10": {
+      "steps": [
+        {
+          "text": {
+            "en": "Official source only",
+            "ar-EG": "من المصدر الرسمي بس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Check fingerprint and signature",
+            "ar-EG": "راجع البصمة والتوقيع"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Keep a list of your models",
+            "ar-EG": "اعمل لستة بنماذجك"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Genuine: both green",
+            "ar-EG": "أصلي: الاتنين أخضر"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "One byte changed: half flips",
+            "ar-EG": "بايت اتغيّر: النص اتقلب"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Impostor: signature fails",
+            "ar-EG": "منتحل: التوقيع فشل"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Any link can be faked",
+            "ar-EG": "أي حلقة ممكن تتزيّف"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Fingerprint: the same bytes",
+            "ar-EG": "البصمة: نفس البايتات"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Signature: who made it",
+            "ar-EG": "التوقيع: مين عمله"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Official source, both checks, a list",
+            "ar-EG": "مصدر رسمي، والفحصين، ولستة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Before you run a model, check where it came from.",
+        "ar-EG": "قبل ما تشغّل نموذج، اتأكد جاي منين."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "AI apps on a family phone",
+            "ar-EG": "تطبيقات على موبايل العيلة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Where did each come from?",
+            "ar-EG": "كل واحد جه منين؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Remove what you can't check",
+            "ar-EG": "امسح اللي متقدرش تتأكد منه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Start your model list",
+            "ar-EG": "ابدأ لستة النماذج"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

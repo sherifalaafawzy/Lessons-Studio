@@ -1,0 +1,418 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "mail",
+          "text": {
+            "en": "To every parent",
+            "ar-EG": "لكل الأهالي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "“Trip cancelled”",
+            "ar-EG": "مكتوب: الرحلة اتلغت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "It asked first",
+            "ar-EG": "سأل الأول"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Reading: little harm",
+            "ar-EG": "قراية: ضرر قليل"
+          },
+          {
+            "en": "Acting: may not undo",
+            "ar-EG": "فعل: ممكن ما يترجعش"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The weather",
+              "ar-EG": "الطقس"
+            },
+            {
+              "en": "Send a message",
+              "ar-EG": "يبعت رسالة"
+            }
+          ],
+          [
+            {
+              "en": "A timetable",
+              "ar-EG": "الجدول"
+            },
+            {
+              "en": "Book or pay",
+              "ar-EG": "يحجز أو يدفع"
+            }
+          ],
+          [
+            {
+              "en": "A library search",
+              "ar-EG": "بحث في المكتبة"
+            },
+            {
+              "en": "Delete",
+              "ar-EG": "يمسح"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read only: look, don’t act",
+            "ar-EG": "قراية بس: يبص وما يعملش"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "accent",
+          "text": {
+            "en": "Ask first: wait for a yes",
+            "ar-EG": "يسأل الأول: يستنى موافقتك"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Allowed: small, safe things",
+            "ar-EG": "مسموح: حاجات صغيرة وآمنة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "Message tool",
+              "ar-EG": "أداة الرسايل"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Message Mrs Mensah",
+              "ar-EG": "ابعت للأستاذة مينسا"
+            }
+          },
+          {
+            "from": "model",
+            "to": "you",
+            "text": {
+              "en": "Send this? Yes or no",
+              "ar-EG": "أبعت دي؟ آه ولا لأ"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "آه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "model",
+            "to": "tool",
+            "text": {
+              "en": "send_message",
+              "ar-EG": "send_message"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "model",
+            "text": {
+              "en": "Sent",
+              "ar-EG": "اتبعتت"
+            },
+            "reply": true
+          }
+        ],
+        "notes": [
+          {
+            "after": 2,
+            "over": [
+              "you",
+              "model"
+            ],
+            "text": {
+              "en": "The trip to the farm is cancelled.",
+              "ar-EG": "اتلغت رحلة المزرعة."
+            }
+          }
+        ],
+        "rows": [
+          0,
+          2,
+          2,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "brain",
+          "text": {
+            "en": "Asking first is learned",
+            "ar-EG": "السؤال الأول حاجة متعلّمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“Yes, send it”, on its own",
+            "ar-EG": "كلمة «نعم، أرسلها» لوحدها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "tone": "danger",
+          "text": {
+            "en": "It makes up a message",
+            "ar-EG": "بيألّف رسالة"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "warning"
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "In the app’s code",
+            "ar-EG": "في كود التطبيق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Not fooled by wording",
+            "ar-EG": "الكلام ما بيضحكش عليه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "danger",
+          "text": {
+            "en": "No one asked? Blocked",
+            "ar-EG": "محدش اتسأل؟ ممنوع"
+          },
+          "s": 2
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "A record of what was sent",
+            "ar-EG": "سجل باللي اتبعت"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "who": null,
+      "trace": {
+        "code": "for reply in [\"yes\", \"maybe\"]:\n    if reply == \"yes\":\n        print(\"SENT\")\n    else:\n        print(\"NOT SENT\")",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "key",
+          "tone": "danger",
+          "text": {
+            "en": "Never your password",
+            "ar-EG": "أبدًا الباسورد بتاعك"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Never a friend’s private details",
+            "ar-EG": "أبدًا أسرار صاحبك"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mail",
+          "tone": "danger",
+          "text": {
+            "en": "Never anything you haven’t read",
+            "ar-EG": "أبدًا حاجة ما قريتهاش"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "lock"
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Ask first: say no, then yes",
+            "ar-EG": "يسأل الأول: لأ، وبعدين آه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Check off, Allowed: it’s sent",
+            "ar-EG": "الفحص مقفول ومسموح: اتبعتت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Check on: blocked",
+            "ar-EG": "الفحص شغال: اتمنعت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Reading is low risk; acting needs a yes",
+            "ar-EG": "القراية خطرها قليل، والفعل محتاج آه"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The app checks the yes in code",
+            "ar-EG": "التطبيق بيفحص الآه في الكود"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Some things: never",
+            "ar-EG": "حاجات: أبدًا"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Read it first. Then say yes or no.",
+        "ar-EG": "اقراها الأول. وبعدين قول آه أو لأ."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Open one app’s settings",
+            "ar-EG": "افتح إعدادات تطبيق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "What can it do without asking?",
+            "ar-EG": "بيعمل إيه من غير ما يسأل؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "Make it ask first, or switch it off",
+            "ar-EG": "خليه يسأل الأول، أو اقفلها"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+ "id": "DATA-S3-3",
+ "track": "data",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Databases and SQL"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Joining tables",
+  "subtitle": "JOIN and LEFT JOIN, finding gaps, and judging the result",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Joining tables",
+  "length": "2:40",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the computer studies teacher (main character)",
+   "Ms Salma — the maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Overdue"
+   },
+   {
+    "at": "0:18",
+    "label": "JOIN and ON"
+   },
+   {
+    "at": "0:28",
+    "label": "Inner and left"
+   },
+   {
+    "at": "0:40",
+    "label": "Finding gaps"
+   },
+   {
+    "at": "1:11",
+    "label": "Rows that multiply"
+   },
+   {
+    "at": "1:24",
+    "label": "Judge the result"
+   },
+   {
+    "at": "1:38",
+    "label": "The lab"
+   },
+   {
+    "at": "2:06",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: Loans: numbers; Members: names; Who's overdue?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "The library list has member numbers. The school list has names. The librarian wants to know who has an overdue book, and neither list can answer alone.",
+    "icons": [
+     "book",
+     "users",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Joining tables",
+    "voice": "Narrator",
+    "narration": "Today: joining tables with JOIN and LEFT JOIN, and judging the result."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:28",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT m.name, l.title … Caption: Who has a book that isn't back",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Matching rows, side by side",
+    "voice": "Narrator",
+    "narration": "A join puts matching rows side by side. ON says how they match: the loan's member id equals the member's id."
+   },
+   {
+    "n": 4,
+    "start": "0:28",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "Two columns: “JOIN” (No loans? Gone) and “LEFT JOIN” (Everyone kept; No match? NULL).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Inner keeps matches; left keeps all",
+    "voice": "Narrator",
+    "narration": "A plain JOIN keeps only matches: a member with no loans disappears. LEFT JOIN keeps every row of the first table, and puts NULL where nothing matched.",
+    "icons": [
+     "filter",
+     "users",
+     "cross",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:40",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT m.name … Caption: Members who never borrowed",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "LEFT JOIN finds the gaps",
+    "voice": "Narrator",
+    "narration": "That makes gaps easy to find. Left join members to loans, and keep the rows where the loan is NULL: those members never borrowed a book."
+   },
+   {
+    "n": 6,
+    "start": "0:52",
+    "end": "1:04",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Never borrowed?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! An inner join of members and loans. What happens to a member who never borrowed a book?"
+   },
+   {
+    "n": 7,
+    "start": "1:04",
+    "end": "1:11",
+    "beat": "Reveal",
+    "visual": "Icon cards: Left out; Need everyone? LEFT JOIN.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Left out, without a word",
+    "voice": "Narrator",
+    "narration": "They're left out, without a word. If you need everyone, use a left join.",
+    "icons": [
+     "users",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:11",
+    "end": "1:24",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: One member, three loans; Three rows after the join; Counting members? Careful.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Joins can multiply rows",
+    "voice": "Narrator",
+    "narration": "Joins can multiply rows too. A member with three loans appears three times, once per loan. That's right for a list of loans, but wrong if you're counting members.",
+    "icons": [
+     "user",
+     "repeat",
+     "warning"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:24",
+    "end": "1:38",
+    "beat": "Examples",
+    "visual": "Numbered steps: Count before and after; Did rows vanish?; Did rows double?; Check a few by hand.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Judge every result",
+    "voice": "Narrator",
+    "narration": "So judge every result. Count the rows before and after the join. Did some vanish? Did some double? And does the answer match a few rows you checked by hand?"
+   },
+   {
+    "n": 10,
+    "start": "1:38",
+    "end": "1:54",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Pupils + marks; Inner, then left; Who vanishes or doubles?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: joining tables",
+    "voice": "Narrator",
+    "narration": "In the app, pupils on one side, marks on the other. Try inner and left joins, and watch who disappears, who appears twice, and how the count of rows and the count of marks drift apart.",
+    "icons": [
+     "users",
+     "layers",
+     "eye"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:54",
+    "end": "2:06",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Twice: a mistake?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Kofi sat the test and a resit, and he appears twice after the join. Is that a mistake?"
+   },
+   {
+    "n": 12,
+    "start": "2:06",
+    "end": "2:25",
+    "beat": "Recap",
+    "visual": "Summary card: JOIN, ON a key; Inner drops, left keeps; One row per match; Missing, or doubled?. Takeaway bar: Every join answers a question; check it's yours.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No: one row per match is how joins work, so count with care. Remember: a join with ON matches rows on a key. Inner drops what doesn't match; left keeps it as NULL. And judge every result: missing rows, or doubled ones?"
+   },
+   {
+    "n": 13,
+    "start": "2:25",
+    "end": "2:40",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: Names with numbers; Books with numbers; No book? Two books?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it tomorrow: explain a join to someone at home with two sets of cards, names with numbers and books with numbers. Match them up. Who has no book, and who has two?",
+    "icons": [
+     "users",
+     "book",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:01",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "An inner join of members and loans: what happens to a member who never borrowed?",
+    "options": [
+     {
+      "text": "They appear with a zero",
+      "correct": false
+     },
+     {
+      "text": "They're left out",
+      "correct": true
+     },
+     {
+      "text": "The query fails",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — an inner join keeps only matching pairs, so they vanish without a word.",
+    "feedback_wrong": "Not quite — no zero and no error: an inner join just leaves them out. A left join keeps them, with NULL.",
+    "resume_at": "1:04"
+   },
+   {
+    "at": "2:03",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Kofi sat the test and a resit, and appears twice after the join. Is that a mistake?",
+    "options": [
+     {
+      "text": "Yes: delete one row",
+      "correct": false
+     },
+     {
+      "text": "No: one row per matching mark",
+      "correct": true
+     },
+     {
+      "text": "Yes: the join is broken",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — he has two marks, so the join gives two rows. Count pupils with care.",
+    "feedback_wrong": "Not quite — a join gives one row per match. Two marks mean two rows; the data is right.",
+    "resume_at": "2:06"
+   }
+  ]
+ }
+}

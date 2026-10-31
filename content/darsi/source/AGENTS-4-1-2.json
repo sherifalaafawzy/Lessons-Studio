@@ -1,0 +1,278 @@
+{
+ "id": "AGENTS-4-1-2",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Designing and governing agents at school"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Permissions and approval, in code",
+  "subtitle": "Why the lock belongs in code, not in the model",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Permissions and approval, in code",
+  "length": "3:27",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "“Yes, send it”"
+   },
+   {
+    "at": "0:17",
+    "label": "Permission levels"
+   },
+   {
+    "at": "0:54",
+    "label": "Approval in code, and a log"
+   },
+   {
+    "at": "1:47",
+    "label": "Why the model isn’t enough"
+   },
+   {
+    "at": "2:54",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "A list: Nobody asked; A made-up message, sent.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "I typed just this to the agent: yes, send it. Nobody had asked me anything. It made up a message, and sent it! Wasn’t it trained to ask first?",
+    "icons": [
+     "help",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Permissions and approval, in code",
+    "voice": "Narrator",
+    "narration": "Today: permissions and approval, checked in code."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:35",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Three permission levels",
+    "voice": "Mr Joseph",
+    "narration": "Every tool gets a permission level. Read only: it may look things up, like the weather. Ask first: it waits for a person’s yes, like a message to parents. Allowed: it acts freely, for low-risk jobs only."
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Learned isn’t guaranteed",
+    "voice": "Narrator",
+    "narration": "Darsi Tiny learned to ask before sending. But learned behaviour can fail. Refusals worded in new ways got a tool call twenty-eight percent of the time in English, and twelve percent in Arabic. A promise to ask is not a lock."
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:12",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Approval, checked in code",
+    "voice": "Narrator",
+    "narration": "So the check belongs in code, outside the model. Before any action runs, the app asks: did the model ask this person about this exact action, and did they say yes? If not, the call is blocked, however it’s worded."
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:29",
+    "beat": "Examples",
+    "visual": "Code typed out on a card: level = PERMS.get(tool, \"off\") …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The check, in a few lines",
+    "voice": "Mr Joseph",
+    "narration": "Here’s that check in code. It looks up the tool’s level, and a tool missing from the table counts as off. Allowed tools run. Ask-first tools run only after a yes. Everything else is blocked.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:47",
+    "beat": "Concept",
+    "visual": "A list: What was asked; The exact call; Who approved, and when; Blocked calls too.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Keep a log",
+    "voice": "Narrator",
+    "narration": "Every action also goes in a log: what was asked, the exact call, who approved it and when. When a parent asks about a message, the log answers. Blocked calls go in too: they show where the agent slips.",
+    "icons": [
+     "clipboard",
+     "cog",
+     "user",
+     "shield"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:47",
+    "end": "1:55",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Why check in code?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! Darsi Tiny learned to ask before sending. Why check the approval in code as well?"
+   },
+   {
+    "n": 9,
+    "start": "1:55",
+    "end": "2:11",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Learned behaviour can fail",
+    "voice": "Narrator",
+    "narration": "Because learned behaviour can fail. New wordings slip past it, and on its own, yes, send it made the model invent a message. The code check doesn’t guess: no yes to this exact action, no action."
+   },
+   {
+    "n": 10,
+    "start": "2:11",
+    "end": "2:27",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Spot the missing check",
+    "voice": "Narrator",
+    "narration": "Now look at this code. When the model asks to send a message, the app just sends it. Nothing checks that a person said yes, so one slip becomes a message to every parent."
+   },
+   {
+    "n": 11,
+    "start": "2:27",
+    "end": "2:46",
+    "beat": "Lab preview",
+    "visual": "A list: It asks first; Say no, then yes; Check off: sent; Check on: blocked.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: ask before acting",
+    "voice": "Narrator",
+    "narration": "In the app, send the message to Mrs Mensah: it asks first, so say no, then yes. Then switch the code check off, choose Allowed, and send yes, send it on its own. Switch the check on and try again.",
+    "icons": [
+     "mail",
+     "hand",
+     "warning",
+     "shield"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:46",
+    "end": "2:54",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What must happen first?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. The agent wants to send the fees letter to all parents. What must happen first?"
+   },
+   {
+    "n": 13,
+    "start": "2:54",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "Summary points: A level for every tool; Approval checked in code; Log every action.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A level for every tool · Approval checked in code · Log every action",
+    "voice": "Narrator",
+    "narration": "A named person reads the exact message and says yes. Remember: every tool gets a permission level. Approval is checked in code, never only by the model. And every action is logged, blocked ones too."
+   },
+   {
+    "n": 14,
+    "start": "3:10",
+    "end": "3:27",
+    "beat": "Try it tomorrow",
+    "visual": "A list: An approval drill; The agent hands over action cards; The check holds the table; No signed yes? Blocked.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: run an approval drill. One pupil is the agent and hands over action cards. Another is the code check, with the permissions table, and blocks any action card without a signed yes.",
+    "icons": [
+     "users",
+     "file",
+     "shield",
+     "hand"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:52",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Darsi Tiny learned to ask before sending. Why check the approval in code as well?",
+    "options": [
+     {
+      "text": "Code runs faster than the model",
+      "correct": false
+     },
+     {
+      "text": "Learned behaviour can fail, for example with new wordings",
+      "correct": true
+     },
+     {
+      "text": "The model can’t read the word yes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — what a model learned can fail on new wordings, or on yes, send it on its own. A check in code doesn’t guess.",
+    "feedback_wrong": "Not quite — speed isn’t the point. Learned behaviour can fail, so the app checks the yes itself.",
+    "resume_at": "1:55"
+   },
+   {
+    "at": "2:51",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The agent wants to send the fees letter to all parents. What must happen first?",
+    "options": [
+     {
+      "text": "The agent decides it’s urgent",
+      "correct": false
+     },
+     {
+      "text": "A named person reads the exact message and says yes",
+      "correct": true
+     },
+     {
+      "text": "The checker counts the words",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the person approves this exact message, and the app checks that yes in code before anything is sent.",
+    "feedback_wrong": "Not quite — the agent doesn’t decide, and counting words isn’t approval. A person reads the exact message and says yes.",
+    "resume_at": "2:54"
+   }
+  ]
+ }
+}

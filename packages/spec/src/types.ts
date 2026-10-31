@@ -1,3 +1,6 @@
+import type { PackElement } from "./packs/types.ts";
+import type { PackType } from "./packs/registry.ts";
+export type { PackElement, PackType };
 import type { LibraryIcon } from "./library-icons.ts";
 /**
  * Lesson Package v0.2. PLAN.md §6 describes the format; the JSON Schemas in ../schema mirror these types.
@@ -200,17 +203,22 @@ export interface Key {
 /**
  * Animatable properties. x and y are stage pixels; scale is a factor; rotate is degrees; opacity, draw
  * (how much of a stroke is drawn) and reveal (how much text, code or chart is shown) run from 0 to 1.
+ * The science elements (math, plot, net, arch, table) add three: `frame` picks a snapshot (training steps, from 0;
+ * fractions blend two), `focus` highlights a part (from 1; 0 is none) and `pass` sends data through a network
+ * (0 → 1 forward; 1 → 2 the error flowing back).
  */
-export type AnimProp = "x" | "y" | "scale" | "rotate" | "opacity" | "draw" | "reveal";
+export type AnimProp = "x" | "y" | "scale" | "rotate" | "opacity" | "draw" | "reveal" | "frame" | "focus" | "pass";
 
 export interface Track {
   prop: AnimProp;
   keys: Key[];
 }
 
-export type ElementType = "text" | "shape" | "line" | "path" | "icon" | "image" | "code" | "chart" | "group";
+export type ElementType = "text" | "shape" | "line" | "path" | "icon" | "image" | "code" | "chart" | "group" | PackType;
+/** Elements the player draws with its science kit, loaded only by lessons that use them. */
+export type ScienceType = "math" | "plot" | "net" | "arch" | "table";
 
-interface ElementBase {
+export interface ElementBase {
   /** /^[A-Za-z0-9_-]{1,40}$/, unique in the scene (overlays and group children included). Cues can target it. */
   id: string;
   /** Top-left corner on the design stage, in pixels. */
@@ -299,9 +307,120 @@ export interface GroupElement extends ElementBase {
   children: Element[];
 }
 
+/* ---------- science elements (v0.3): maths, plots and networks, drawn by the player's science kit ---------- */
+
+/**
+ * An equation in a small TeX subset (`docs/science.md`): fractions, powers and indices, roots, sums, Greek letters,
+ * accents, matrices, operator names. `\g{n}{…}` marks the n-th part to come in (reveal) or light up (focus);
+ * `\c{tone}{…}` colours a part; `\w{key}` is a word from `words`, in the lesson's language. Equations are set left to
+ * right in every language, like a textbook; `notation: "arabic"` sets them right to left with Arabic-Indic digits in
+ * right-to-left languages (Arabic school notation: write that language's `tex` with Arabic letters).
+ */
+export interface MathElement extends ElementBase {
+  type: "math";
+  /** One TeX source, or one per language (each with the same \g parts). */
+  tex: string | Text;
+  words?: Record<string, Text>;
+  /** Font size in stage pixels, default 48. */
+  size?: number;
+  align?: "start" | "center" | "end";
+  notation?: "arabic";
+}
+
+/** A data series on a plot. Points are [x, y] in the plot's own units. */
+export type PlotSeries =
+  /** y = fn(x), an expression in x and the parameters a, b, c, d (`params`, one set per frame; frames blend). */
+  | { kind: "fn"; fn: string; params?: number[][]; tone?: Tone; dash?: boolean; label?: Text }
+  /**
+   * Points joined by a line, an area under them, or dots. Classes colour dots (0 accent, 1 ok, 2 danger, 3 accent2):
+   * `cls` for good, or `clsFrames`, one list per frame (points changing group as a model learns).
+   */
+  | { kind: "line" | "area" | "dots"; pts?: [number, number][]; frames?: [number, number][][]; cls?: number[]; clsFrames?: number[][]; tone?: Tone; dash?: boolean; label?: Text }
+  /** A grid of cells over the whole plot (rows from the top): class ids (0–3) or, with `scale`, values from 0 to 1. */
+  | { kind: "heat"; grid?: number[][]; frames?: number[][][]; scale?: boolean }
+  /** A level line across the plot (a threshold, a target). */
+  | { kind: "hline" | "vline"; at: number; tone?: Tone; dash?: boolean; label?: Text }
+  /** One moving point, one position per frame, with its path so far (gradient descent rolling downhill). */
+  | { kind: "marker"; pts: [number, number][]; trail?: boolean; tone?: Tone; label?: Text };
+
+/** A plot with axes: functions, training curves, scattered classes and decision regions. Always left to right. */
+export interface PlotElement extends ElementBase {
+  type: "plot";
+  /** The axes' ranges: [min, max]. */
+  xr: [number, number];
+  yr: [number, number];
+  xLabel?: Text;
+  yLabel?: Text;
+  xTicks?: number[];
+  yTicks?: number[];
+  grid?: boolean;
+  series: PlotSeries[];
+  /** The frame shown when no `frame` track moves it (default 0). */
+  frame?: number;
+}
+
+/**
+ * A neural network, neuron by neuron: `layers` counts the neurons per layer ([2, 4, 1]). Weights draw the lines
+ * (thicker = stronger, accent positive, accent2 negative) and activations fill the neurons, one set per frame.
+ * Mirrors in right-to-left languages unless `fixed`.
+ */
+export interface NetElement extends ElementBase {
+  type: "net";
+  layers: number[];
+  /** weights[frame][layer][from][to], from neuron `from` of a layer to neuron `to` of the next. */
+  weights?: number[][][][];
+  /** acts[frame][layer][neuron], from −1 to 1 (drawn by their size, |a|). */
+  acts?: number[][][];
+  labels?: { in?: Text[]; out?: Text[]; layers?: Text[] };
+  /** Write each neuron's activation inside it. */
+  values?: boolean;
+  frame?: number;
+}
+
+export type ArchKind =
+  | "input" | "output" | "embed" | "dense" | "conv" | "pool" | "attn" | "norm" | "ffn" | "add" | "concat"
+  | "softmax" | "act" | "rnn" | "store" | "tool" | "model" | "box";
+
+export interface ArchBlock {
+  /** /^[A-Za-z0-9_-]{1,40}$/, unique in the element. */
+  id: string;
+  kind: ArchKind;
+  label: Text;
+  /** A small line under the label: a shape ("28×28×1"), a count. */
+  note?: Text;
+  tone?: Tone;
+}
+
+/**
+ * A model's architecture as blocks and arrows: an MLP, a CNN, an RNN, a transformer, an encoder and decoder, an
+ * agent with tools. Laid out automatically along `flow`; `skip` arrows (residual connections) go around the blocks
+ * between; a group with `repeat` gets a bracket and "× N". `reveal` brings blocks in along the flow, `focus` lights
+ * the n-th block, and `pass` sends a packet through (backward after 1).
+ */
+export interface ArchElement extends ElementBase {
+  type: "arch";
+  blocks: ArchBlock[];
+  edges: { from: string; to: string; label?: Text; skip?: boolean }[];
+  groups?: { id: string; label?: Text; repeat?: number; blocks: string[] }[];
+  /** Which way data flows: "right" (default; mirrored in right-to-left languages unless `fixed`), "down" or "up". */
+  flow?: "right" | "down" | "up";
+}
+
+/** A table that fills row by row (`reveal`); `focus` lights the n-th row. Numbers and `ltr` columns stay left to right. */
+export interface TableElement extends ElementBase {
+  type: "table";
+  cols: Text[];
+  rows: (string | number | Text)[][];
+  ltr?: number[];
+  /** Font size in stage pixels, default 30. */
+  size?: number;
+}
+
+export type ScienceElement = MathElement | PlotElement | NetElement | ArchElement | TableElement;
+
 export type Element =
   | TextElement | ShapeElement | LineElement | PathElement | IconElement
-  | ImageElement | CodeElement | ChartElement | GroupElement;
+  | ImageElement | CodeElement | ChartElement | GroupElement | ScienceElement | PackElement;
 
 /** Free layout: elements on the design stage (manifest.stage), animated by keyframes. Targets: element ids. */
 export interface CanvasContent {

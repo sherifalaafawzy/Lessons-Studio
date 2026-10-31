@@ -1,0 +1,277 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "presentation",
+          "text": {
+            "en": "Dashboard: 152",
+            "ar-EG": "اللوحة: 152"
+          },
+          "s": 0
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "School: 90",
+            "ar-EG": "المدرسة: 90"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Loaded twice",
+            "ar-EG": "اتحمّل مرتين"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "src",
+            "label": {
+              "en": "Sources",
+              "ar-EG": "المصادر"
+            },
+            "icon": "page",
+            "kind": "source"
+          },
+          {
+            "id": "t",
+            "label": {
+              "en": "Transform",
+              "ar-EG": "تحويل"
+            },
+            "icon": "chip"
+          },
+          {
+            "id": "db",
+            "label": {
+              "en": "Tables",
+              "ar-EG": "الجداول"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "records": 6,
+        "mode": "stream",
+        "frames": [
+          0,
+          2
+        ],
+        "focus": [
+          {
+            "stage": "src",
+            "s": 0
+          },
+          {
+            "stage": "t",
+            "s": 1
+          },
+          {
+            "stage": "db",
+            "s": 2
+          }
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "n = {}\nfor r in csv.DictReader(f):\n    c = r[\"class\"]\n    if r[\"status\"] == \"P\":\n        n[c] = n.get(c, 0) + 1\nfor c in sorted(n):\n    print(c, n[c])",
+        "highlight": [
+          5,
+          6
+        ],
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "DELETE FROM daily WHERE day = 'Mon';\nINSERT INTO daily\nSELECT day, class, SUM(present)\nFROM raw WHERE day = 'Mon'\nGROUP BY day, class;",
+        "highlight": [
+          1
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "big": {
+        "value": "90 → 152",
+        "label": {
+          "en": "Two classes, loaded twice",
+          "ar-EG": "فصلين، اتحمّلوا مرتين"
+        },
+        "icon": "repeat",
+        "s": 0
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Watermark: last time loaded",
+            "ar-EG": "علامة الماية: آخر وقت اتحمّل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Take only newer rows",
+            "ar-EG": "خد الصفوف الأحدث بس"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Move the watermark on",
+            "ar-EG": "حرّك علامة الماية"
+          },
+          "s": 1,
+          "o": 5
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "sync",
+          "text": {
+            "en": "Passing fault: retry",
+            "ar-EG": "عطل عابر: أعد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "tone": "danger",
+          "text": {
+            "en": "Bad data: stop",
+            "ar-EG": "بيانات غلط: وقّف"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "notebook",
+          "tone": "ok",
+          "text": {
+            "en": "Log: when, rows, set aside",
+            "ar-EG": "السجل: إمتى، والصفوف، والمستبعد"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Make it fail",
+            "ar-EG": "خلّيها تفشل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Append: 152",
+            "ar-EG": "الإضافة: 152"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Replace: 90",
+            "ar-EG": "الاستبدال: 90"
+          },
+          "s": 1,
+          "o": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "ETL, or ELT",
+            "ar-EG": "⁦ETL⁩ أو ⁦ELT⁩"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Idempotent loads",
+            "ar-EG": "تحميل ثابت النتيجة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Watermarks for new rows",
+            "ar-EG": "علامة ماية للجديد"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Log every run",
+            "ar-EG": "سجّل كل تشغيل"
+          },
+          "s": 3,
+          "o": 2.5
+        }
+      ],
+      "takeaway": {
+        "en": "A job you can rerun is a job you can trust.",
+        "ar-EG": "الشغلانة اللي تقدر تعيدها شغلانة تقدر تثق فيها."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "A job you repeat",
+            "ar-EG": "حاجة بتكررها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Twice? Halfway?",
+            "ar-EG": "مرتين؟ في النص؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Make a rerun safe",
+            "ar-EG": "خلّي الإعادة آمنة"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

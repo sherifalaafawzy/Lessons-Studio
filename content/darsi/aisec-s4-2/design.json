@@ -1,0 +1,441 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Library chatbot",
+            "ar-EG": "شات بوت المكتبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Its instructions",
+            "ar-EG": "التعليمات بتاعته"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "A database password",
+            "ar-EG": "باسورد قاعدة البيانات"
+          },
+          "s": 1,
+          "o": 2.5,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "OWASP 2025: ten risks",
+            "ar-EG": "OWASP 2025: عشر مخاطر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "download",
+          "text": {
+            "en": "What goes in",
+            "ar-EG": "اللي داخل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "share",
+          "text": {
+            "en": "What comes out",
+            "ar-EG": "اللي خارج"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The system around",
+            "ar-EG": "النظام حواليهم"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "arch": {
+        "s": 0,
+        "flow": "right",
+        "blocks": [
+          {
+            "id": "prompt",
+            "kind": "input",
+            "label": {
+              "en": "Prompt: 01",
+              "ar-EG": "البرومبت: 01"
+            }
+          },
+          {
+            "id": "train",
+            "kind": "store",
+            "label": {
+              "en": "Training data: 04",
+              "ar-EG": "بيانات التدريب: 04"
+            }
+          },
+          {
+            "id": "docs",
+            "kind": "store",
+            "label": {
+              "en": "Vector store: 08",
+              "ar-EG": "مخزن الفيكتورز: 08"
+            }
+          },
+          {
+            "id": "llm",
+            "kind": "model",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "reply",
+            "kind": "output",
+            "label": {
+              "en": "Reply",
+              "ar-EG": "الرد"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "prompt",
+            "to": "llm"
+          },
+          {
+            "from": "train",
+            "to": "llm"
+          },
+          {
+            "from": "docs",
+            "to": "llm"
+          },
+          {
+            "from": "llm",
+            "to": "reply"
+          }
+        ],
+        "focus": [
+          {
+            "block": "prompt",
+            "s": 1
+          },
+          {
+            "block": "train",
+            "s": 2
+          },
+          {
+            "block": "docs",
+            "s": 3
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "02 Sensitive information disclosure",
+            "ar-EG": "02 كشف المعلومات الحساسة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "07 System prompt leakage",
+            "ar-EG": "07 تسريب السيستم برومبت"
+          },
+          "s": 2
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "05 Improper output handling",
+            "ar-EG": "05 التعامل الغلط مع المخرجات"
+          },
+          "s": 3
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "09 Misinformation",
+            "ar-EG": "09 المعلومات الغلط"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "03 Supply chain",
+            "ar-EG": "03 سلسلة الإمداد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "wand",
+          "text": {
+            "en": "06 Excessive agency",
+            "ar-EG": "06 الصلاحيات الزيادة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "10 Unbounded consumption",
+            "ar-EG": "10 الاستهلاك من غير حدود"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "Don't",
+            "ar-EG": "لأ"
+          },
+          {
+            "en": "Do",
+            "ar-EG": "أيوه"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Paste it into HTML",
+              "ar-EG": "تحطه في HTML"
+            },
+            {
+              "en": "Escape it first",
+              "ar-EG": "إسكيب الأول"
+            }
+          ],
+          [
+            {
+              "en": "Build SQL from it",
+              "ar-EG": "تبني SQL منه"
+            },
+            {
+              "en": "Query parameters",
+              "ar-EG": "براميترز للاستعلام"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Never into a shell",
+              "ar-EG": "مش للشيل أبدًا"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "9": {
+      "who": null,
+      "codediff": {
+        "before": "def esc(t):\n    t = t.replace(\"<\", \"&lt;\")\n    t = t.replace(\"&\", \"&amp;\")\n    return t\nprint(esc(\"<b>\"))",
+        "after": "def esc(t):\n    t = t.replace(\"&\", \"&amp;\")\n    t = t.replace(\"<\", \"&lt;\")\n    return t\nprint(esc(\"<b>\"))",
+        "run": true,
+        "fix": 2,
+        "labels": {
+          "before": {
+            "en": "Wrong order",
+            "ar-EG": "ترتيب غلط"
+          },
+          "after": {
+            "en": "& first",
+            "ar-EG": "الـ & الأول"
+          }
+        }
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "No secrets in the system prompt",
+            "ar-EG": "مفيش أسرار في السيستم برومبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Keys stay in the app",
+            "ar-EG": "المفاتيح في التطبيق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Only this user's data",
+            "ar-EG": "بيانات المستخدم ده بس"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Check replies before they go out",
+            "ar-EG": "راجع الردود قبل ما تطلع"
+          },
+          "s": 2,
+          "o": 4
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Trained on a private line",
+            "ar-EG": "اتدرب على سطر خاص"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "It repeats a card number",
+            "ar-EG": "بيكرّر رقم كارت"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Privacy noise",
+            "ar-EG": "ضوضاء الخصوصية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Less useful",
+            "ar-EG": "فايدة أقل"
+          },
+          "s": 2,
+          "o": 2.5,
+          "tone": "accent"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Ten risks: in, out, the system",
+            "ar-EG": "عشر مخاطر: داخل، خارج، النظام"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Output is untrusted input",
+            "ar-EG": "المخرجات مش موثوقة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "No secrets in prompts",
+            "ar-EG": "مفيش أسرار في البرومبت"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "The fewest tools",
+            "ar-EG": "أقل أدوات ممكنة"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ],
+      "takeaway": {
+        "en": "Assume the model will be tricked; design so it doesn't matter.",
+        "ar-EG": "اعتبر إن النموذج هيتخدع، وصمّم بحيث ميفرقش."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Go down the ten",
+            "ar-EG": "امشي على العشرة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Here? What stops it?",
+            "ar-EG": "هنا؟ وإيه يمنعها؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Fix the fastest three",
+            "ar-EG": "صلّح أسرع تلاتة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

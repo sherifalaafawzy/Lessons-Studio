@@ -1,0 +1,304 @@
+{
+ "id": "OPT-3-1-2",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Solving school problems in Python: timetables, routes, assignment"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Exams without clashes",
+  "subtitle": "A clash map, the fewest slots, and what fairness costs",
+  "minutes": 17,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "Exams without clashes",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — secondary maths teacher (main character)",
+   "Dr Farah Rahman — education lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Two exams at once"
+   },
+   {
+    "at": "0:20",
+    "label": "A clash map and quick rules"
+   },
+   {
+    "at": "1:10",
+    "label": "The model and its proof"
+   },
+   {
+    "at": "1:53",
+    "label": "Fewest isn’t kindest"
+   },
+   {
+    "at": "2:46",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Ms Salma holds an exam timetable with two exams circled in the same slot; a pupil eats lunch while writing.",
+    "animation": "The two circled exams pulse red.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Last year, a pupil found two of his exams in the same slot. He sat one of them in the staff room at lunchtime. This year I want no clashes, and as few slots as possible.",
+    "icons": [
+     "clipboard",
+     "warning",
+     "clock"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Exams without clashes",
+    "voice": "Narrator",
+    "narration": "Today: exams without clashes, as a picture and as a model."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:35",
+    "beat": "Concept",
+    "visual": "Eight dots appear; lines join dots that share a pupil; dots take colours.",
+    "animation": "Lines draw between dots; colours fill in.",
+    "on_screen_text": "Exams as a clash map",
+    "voice": "Narrator",
+    "narration": "Draw each exam as a dot. Join two dots when some pupil takes both exams: those two can’t share a slot. Now giving exams slots is colouring the dots, so that joined dots get different colours.",
+    "icons": [
+     "network",
+     "link",
+     "flag"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "Two columns: greedy colouring the map with four colours; DSatur with three.",
+    "animation": "Each column colours its map dot by dot.",
+    "on_screen_text": "Two quick rules",
+    "voice": "Narrator",
+    "narration": "A quick rule: go down the list, and give each exam the first slot with no clash. In the lab, that needs four slots. A smarter rule, DSatur, always does next the exam that is hardest to place, and needs three.",
+    "icons": [
+     "list",
+     "star"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:10",
+    "beat": "Concept",
+    "visual": "Omar’s three exams form a triangle, each a different colour; a stamp ‘3 is the fewest’ lands.",
+    "animation": "The triangle’s sides draw; the stamp drops.",
+    "on_screen_text": "Why three is the fewest",
+    "voice": "Narrator",
+    "narration": "Can it be done in two? No. Omar’s three exams, maths, Arabic and French, all clash with each other, so they need three different slots. A group of exams that all clash is called a clique, and it proves that fewer is impossible.",
+    "icons": [
+     "users",
+     "network",
+     "check"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:10",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "Code typed on a card, with the goal line highlighted.",
+    "animation": "Code types itself line by line.",
+    "on_screen_text": "The model in Python",
+    "voice": "Narrator",
+    "narration": "In CP-SAT, each exam’s slot is a variable. For every pupil, their exams must all be in different slots. A variable called last is at least every slot, and the goal is to make it as small as possible.",
+    "icons": [
+     "keyboard",
+     "target"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:26",
+    "end": "1:44",
+    "beat": "Examples",
+    "visual": "The phone prints OPTIMAL and slots used: 3; beside it, the greedy result 4 crossed out.",
+    "animation": "Output types out; a check badge pops.",
+    "on_screen_text": "OPTIMAL: 3 is proved",
+    "voice": "Narrator",
+    "narration": "The solver answers three, and says OPTIMAL. That word matters: the solver has proved that no plan with two slots exists, just as Omar’s clique said. A quick rule can only say “this works”; a solver can say “this is the best”.",
+    "icons": [
+     "calculator",
+     "award"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:44",
+    "end": "1:53",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah holds two cards: 4 slots and 3 slots OPTIMAL. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "What does OPTIMAL add?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! A quick rule found four slots, and the solver says OPTIMAL with three. What does the word OPTIMAL add?"
+   },
+   {
+    "n": 9,
+    "start": "1:53",
+    "end": "2:14",
+    "beat": "Reveal",
+    "visual": "A clock shows three exams back to back for Omar; a second plan spreads them over five slots.",
+    "animation": "The back-to-back exams squeeze; then they spread out.",
+    "on_screen_text": "Fewest isn’t kindest",
+    "voice": "Narrator",
+    "narration": "A proof: no plan with fewer slots exists. But look at Omar and Tarek: with three slots, they sit three exams back to back. Add the rule “no pupil sits exams in two slots in a row”, and the fewest becomes five. Fewer slots, or rested pupils: that’s a trade-off.",
+    "icons": [
+     "award",
+     "clock",
+     "scale"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:14",
+    "end": "2:28",
+    "beat": "Concept",
+    "visual": "Dr Farah with pupils and teachers around a table, two exam plans side by side.",
+    "animation": "Hands point at both plans; one plan gets a tick.",
+    "on_screen_text": "Decide the trade-off together",
+    "voice": "Dr Farah",
+    "narration": "Who should decide that trade-off? Not the solver, and not one timetabler alone. Ask the pupils who sit the exams and the teachers who mark them, then write the agreed rule into the model.",
+    "icons": [
+     "help",
+     "users",
+     "keyboard"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:28",
+    "end": "2:38",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the clash map of eight exams, buttons below, a slot counter.",
+    "animation": "A finger taps each button; dots change colour.",
+    "on_screen_text": "App lab: Exam slots without clashes",
+    "voice": "Narrator",
+    "narration": "In the app, open “Exam slots without clashes”. Press Greedy, then DSatur, then “How few slots?”. Then untick Omar, and colour the map yourself.",
+    "icons": [
+     "network",
+     "list",
+     "star"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:38",
+    "end": "2:46",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma points at Tarek’s row: three exams in a row. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Three in a row for Tarek?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. Our model says three slots, OPTIMAL, but Tarek has three exams back to back. What should we do?"
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "3:06",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Agree the rule with the people it affects, add it, solve again, and say openly what it costs. Remember: exams are dots, shared pupils are lines, and slots are colours. A clique proves the fewest. And OPTIMAL means best for the goal you wrote, not best for every pupil.",
+    "icons": [
+     "network",
+     "award",
+     "users"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "3:06",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "Pupils on the playground with chalk dots and string lines between them, coloured caps on the dots.",
+    "animation": "String stretches between dots; caps change colour.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: list next term’s exams, and let pupils draw the clash map with chalk or string. Colour it with as few slots as you can. Then ask: who has two exams in a row, and is that fair?",
+    "icons": [
+     "list",
+     "network",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:49",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A quick rule found 4 slots; the solver says OPTIMAL with 3. What does OPTIMAL add?",
+    "options": [
+     {
+      "text": "That 3 is fewer than the quick rule found",
+      "correct": false
+     },
+     {
+      "text": "That no plan with fewer slots exists",
+      "correct": true
+     },
+     {
+      "text": "That 3 slots are fair to every pupil",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — OPTIMAL is a proof: no plan with 2 slots exists. Omar’s three clashing exams show why.",
+    "feedback_wrong": "Not quite — beating the quick rule isn’t the point. OPTIMAL means the solver proved no plan with fewer slots exists.",
+    "resume_at": "1:53"
+   },
+   {
+    "at": "2:42",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Three slots is OPTIMAL, but Tarek has three exams back to back. What should we do?",
+    "options": [
+     {
+      "text": "Nothing: OPTIMAL can’t be improved",
+      "correct": false
+     },
+     {
+      "text": "Agree a fairness rule, add it, and solve again",
+      "correct": true
+     },
+     {
+      "text": "Leave Tarek out of the model",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — OPTIMAL is best for the goal we wrote. Agree the fairness rule with pupils and teachers, add it, and see what it costs.",
+    "feedback_wrong": "Not quite — OPTIMAL only means the fewest slots. Tarek’s day is a fairness question: agree a rule, add it, and solve again.",
+    "resume_at": "2:46"
+   }
+  ]
+ }
+}

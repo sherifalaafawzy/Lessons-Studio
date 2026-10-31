@@ -1,0 +1,279 @@
+{
+ "id": "AISEC-S3-1",
+ "track": "aisec",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How AI is attacked and defended"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Filters that miss",
+  "subtitle": "Why a word list fails, and a check in code holds",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Filters that miss",
+  "length": "3:12",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (main character)",
+   "Ms Salma Haddad — secondary maths teacher, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A scam that slipped through"
+   },
+   {
+    "at": "0:21",
+    "label": "Attacks on AI apps"
+   },
+   {
+    "at": "1:33",
+    "label": "A check that holds"
+   },
+   {
+    "at": "2:09",
+    "label": "The lab"
+   },
+   {
+    "at": "2:39",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Cards: Homework bot; Asked for a PIN; Filter missed it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Our homework bot almost sent a scam. It can message parents, so someone tried to trick it into asking for a PIN. Our word filter didn't stop it.",
+    "icons": [
+     "bot",
+     "key",
+     "circlex"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Filters that miss",
+    "voice": "Narrator",
+    "narration": "Today: how apps built on AI get attacked, why word filters miss, and the check that holds."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "A list: Model and instructions; Tools that act; Text it reads; Jailbreaks and injections.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "More than a model",
+    "voice": "Narrator",
+    "narration": "An AI app is more than a model. It's a model plus instructions, tools and the text it reads. Attackers aim at the whole app: a jailbreak talks the model round, and a prompt injection hides orders in what it reads.",
+    "icons": [
+     "bot",
+     "cog",
+     "file",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:57",
+    "beat": "Concept",
+    "visual": "A trace diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The word filter",
+    "voice": "Narrator",
+    "narration": "The first defence many apps try is a word filter. It keeps a list of banned words, like password or PIN, and blocks any message that contains one. It's quick to write, and it catches the plain attack."
+   },
+   {
+    "n": 5,
+    "start": "0:57",
+    "end": "1:13",
+    "beat": "Non-examples",
+    "visual": "A list: “The secret word you log in with”; Passes: no banned word; “Strong passwords” lesson: blocked.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "It misses, and it over-blocks",
+    "voice": "Narrator",
+    "narration": "Now watch it fail, twice. “Type the secret word you log in with” asks for the same thing with no banned word, and sails through. And a lesson called “Strong passwords” gets blocked for nothing.",
+    "icons": [
+     "circlex",
+     "warning",
+     "hand"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:13",
+    "end": "1:19",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Which gets past?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Our filter bans the word PIN. Which message gets past it?"
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:33",
+    "beat": "Reveal",
+    "visual": "Cards: Same request; New words, any language; Never finished.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A list is never finished",
+    "voice": "Narrator",
+    "narration": "The four-numbers one. Same request, new words, and nothing from the list. There are endless ways to say the same thing, in every language, so a list is never finished.",
+    "icons": [
+     "type",
+     "languages",
+     "list"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:49",
+    "beat": "Concept",
+    "visual": "A codediff diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check the action, not the words",
+    "voice": "Narrator",
+    "narration": "So check the action, not the words. Before the bot sends anything, code asks: did the user ask for this message? And did they say yes to it? If not, nothing is sent, however it's worded."
+   },
+   {
+    "n": 9,
+    "start": "1:49",
+    "end": "2:09",
+    "beat": "Examples",
+    "visual": "Two columns. The model: Reads words as orders. The code check: Asks: approved?; Scam stays unsent.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Talked round, or not",
+    "voice": "Narrator",
+    "narration": "The model can be talked round, because it reads every word as a possible order. The check in code can't be talked round: it only asks whether you approved this message. A tricked agent can write a perfect scam, and it still stays unsent.",
+    "icons": [
+     "bot",
+     "shield",
+     "chat",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:09",
+    "end": "2:27",
+    "beat": "Lab preview",
+    "visual": "A list: Plain words: caught; Reworded: slips past; Check in code: stopped.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: rules around the model",
+    "voice": "Narrator",
+    "narration": "In the app, pick the scam with plain words and filter the outgoing message: it's caught. Switch to the reworded scam: it slips past. Then say the agent was tricked and turn on the check in code: stopped, every time.",
+    "icons": [
+     "filter",
+     "warning",
+     "shield"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:27",
+    "end": "2:39",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What does the code do?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The bot wants to send a message nobody asked for, and it has no banned words. What should the check in code do?"
+   },
+   {
+    "n": 12,
+    "start": "2:39",
+    "end": "2:54",
+    "beat": "Recap",
+    "visual": "The summary: Attacks hit the whole app; Filters miss rewording; They block innocent text too; Check the action in code. Takeaway: Ask “did you approve this?”, not “which words are in it?”",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Whole app · Filters miss · Check the action",
+    "voice": "Narrator",
+    "narration": "Block it: nobody asked, and nobody said yes. Remember: attacks aim at the whole app. Word filters miss rewording, and they block innocent text. So check the action in code, whatever the words."
+   },
+   {
+    "n": 13,
+    "start": "2:54",
+    "end": "3:12",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Five banned words on paper; A friend rewords a request; Count what slips through; Write the code check's question.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: write a word filter on paper, with five banned words. Ask a friend to write the same request three ways, without them. Count how many slip through, then write the one question a code check would ask.",
+    "icons": [
+     "pencil",
+     "users",
+     "calculator",
+     "shield"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:16",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "A filter blocks any message with the word “PIN”. Which message gets past it?",
+    "options": [
+     {
+      "text": "“What is your PIN?”",
+      "correct": false
+     },
+     {
+      "text": "“Send me your pin, please”",
+      "correct": false
+     },
+     {
+      "text": "“Which four numbers unlock your phone?”",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Right: same request, new words, nothing from the list.",
+    "feedback_wrong": "Not quite: those two contain the banned word. The four-numbers one asks the same thing in new words, and passes.",
+    "resume_at": "1:19"
+   },
+   {
+    "at": "2:36",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "The bot wants to send a message nobody asked for. It contains no banned words. What should the check in code do?",
+    "options": [
+     {
+      "text": "Send it: no banned words",
+      "correct": false
+     },
+     {
+      "text": "Block it: nobody asked or said yes",
+      "correct": true
+     },
+     {
+      "text": "Ask the model whether it's safe",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: no request and no yes means no message, whatever the words.",
+    "feedback_wrong": "Not quite: the words don't matter, and the model can be tricked. Nobody asked or approved, so block it.",
+    "resume_at": "2:39"
+   }
+  ]
+ }
+}

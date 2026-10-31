@@ -1,0 +1,286 @@
+{
+ "id": "AISEC-S4-4",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "AI security engineering"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Red teaming and responsible disclosure",
+  "subtitle": "Scope, an evaluation harness, and reporting it right",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Red teaming and responsible disclosure",
+  "length": "3:34",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer in education, Bangladesh, the student's teacher (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A flaw, reported right"
+   },
+   {
+    "at": "0:25",
+    "label": "Scope first"
+   },
+   {
+    "at": "0:58",
+    "label": "An evaluation harness"
+   },
+   {
+    "at": "1:58",
+    "label": "Report and disclose"
+   },
+   {
+    "at": "2:59",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:18",
+    "beat": "Hook",
+    "visual": "Cards: The AI tutor; Others' grades shown; Reported, not posted.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "One of my students found a flaw in the university's AI tutor. Asked in Swahili, it showed other students' grades. She didn't post it. She wrote to the IT office with the evidence, and three weeks later it was fixed.",
+    "icons": [
+     "bot",
+     "eye",
+     "mail"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:18",
+    "end": "0:25",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Red teaming and responsible disclosure",
+    "voice": "Narrator",
+    "narration": "Today: how to red-team an AI system properly, and how to report what you find."
+   },
+   {
+    "n": 3,
+    "start": "0:25",
+    "end": "0:42",
+    "beat": "Concept",
+    "visual": "A list: Attack your own side, on purpose; Written permission; Scope: which system, which accounts; Made-up data; a stop rule.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Permission and scope first",
+    "voice": "Narrator",
+    "narration": "Red teaming means attacking your own side, on purpose, to find failures first. It starts with paper, not prompts: written permission, a scope naming the system and accounts, made-up data only, and a rule for when to stop.",
+    "icons": [
+     "shield",
+     "clipboard",
+     "target",
+     "hand"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:42",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "Cards: Injection; Privacy; Misinformation; Unapproved actions.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A test bank",
+    "voice": "Narrator",
+    "narration": "Then build a test bank. Group the cases by risk: injection, privacy, harmful requests, misinformation, actions without approval. Write each case in several wordings and languages, because refusals are learned, and new wordings slip through.",
+    "icons": [
+     "warning",
+     "lock",
+     "help",
+     "wand"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:58",
+    "end": "1:14",
+    "beat": "Concept",
+    "visual": "A results table, one row per category: injection 2 of 4, privacy 1 of 4, harm 4 of 4, scams 4 of 4; the privacy row lights up.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A pass rate for each category",
+    "voice": "Narrator",
+    "narration": "Running the bank by hand doesn't scale. An evaluation harness runs every case, decides pass or fail, and reports a pass rate for each category. One overall number can hide a category that fails every time."
+   },
+   {
+    "n": 6,
+    "start": "1:14",
+    "end": "1:31",
+    "beat": "Examples",
+    "visual": "A harness run line by line: three results, the totals t and the passes g filling per category (inj: injection, pv: privacy); privacy ends at 0 passed of 1.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The heart of a harness",
+    "voice": "Narrator",
+    "narration": "Here's the heart of a harness. Count every case under its category, and count it as passed only if it really passed. A harness that counts every case as a pass is the most dangerous bug of all."
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:40",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "90% overall: ship it?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Our harness says ninety percent overall, but privacy cases pass only one time in four. Do we ship?"
+   },
+   {
+    "n": 8,
+    "start": "1:40",
+    "end": "1:58",
+    "beat": "Reveal",
+    "visual": "A list: Attackers find the weak category; Fix it, then re-run everything; Keep it as a regression test.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Fix, re-run, keep it fixed",
+    "voice": "Narrator",
+    "narration": "No. One weak category is the one attackers will find. Fix it, then re-run the whole bank, because fixes break other things. And keep every case you found as a regression test, so the flaw can't quietly come back.",
+    "icons": [
+     "target",
+     "cog",
+     "repeat"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:58",
+    "end": "2:13",
+    "beat": "Concept",
+    "visual": "A list: Severity 1 to 3; Tried, got through, how often; How to reproduce it safely; No real data in the evidence.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Severity and the report",
+    "voice": "Narrator",
+    "narration": "Rate each finding for severity, one to three. Then report what you tried, what got through, how often, and how to reproduce it safely. Keep the evidence, but strip out anyone's real data.",
+    "icons": [
+     "gauge",
+     "file",
+     "clipboard",
+     "lock"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:13",
+    "end": "2:30",
+    "beat": "Concept",
+    "visual": "A sequence diagram: you stop, report privately to the owner, the owner fixes it in about 90 days, then you share the lesson with everyone, never the exploit.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Responsible disclosure",
+    "voice": "Narrator",
+    "narration": "Found a flaw in someone else's system? Stop, and don't use it again. Report it privately to the owner. Give them time to fix it, often around ninety days. Then share the lesson, never a working exploit."
+   },
+   {
+    "n": 11,
+    "start": "2:30",
+    "end": "2:47",
+    "beat": "Lab preview",
+    "visual": "A table of the lab run in English: refused 6 of 8 before the rule in code, 8 of 8 with it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: red-team the chatbot",
+    "voice": "Narrator",
+    "narration": "In the app, run a bank of requests a school chatbot should refuse. It refuses six of eight in English. Add a rule in code, run it again, and read the report: what, how often, how bad."
+   },
+   {
+    "n": 12,
+    "start": "2:47",
+    "end": "2:59",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "A flaw you weren't asked to find",
+    "voice": "Dr Farah",
+    "narration": "Your turn. While doing your coursework, you find a flaw in a live university system you weren't asked to test. What do you do first?"
+   },
+   {
+    "n": 13,
+    "start": "2:59",
+    "end": "3:17",
+    "beat": "Recap",
+    "visual": "The summary: Permission and scope first; A pass rate per category; Severity in every finding; The owner hears first. Takeaway: Find it, fix it, keep it fixed, and tell it right.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Permission · Pass rates · Severity · Owner first",
+    "voice": "Narrator",
+    "narration": "Stop and report it privately: posting puts people at risk, and testing further without permission can break the law. Remember: permission and scope first, a pass rate for each category, severity in every finding, and the owner hears first."
+   },
+   {
+    "n": 14,
+    "start": "3:17",
+    "end": "3:34",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Ten cases, two wordings; A chatbot you own; Score each category; A one-page finding.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: write ten test cases for a chatbot you own, or the lab's, each in two wordings. Run them, score each category, and write a one-page finding as if you were sending it to the owner.",
+    "icons": [
+     "list",
+     "bot",
+     "gauge",
+     "file"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:37",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "The harness says 90% overall, but privacy cases pass only one time in four. Do you ship?",
+    "options": [
+     {
+      "text": "Yes: 90% is high",
+      "correct": false
+     },
+     {
+      "text": "No: fix privacy, then re-run everything",
+      "correct": true
+     },
+     {
+      "text": "Yes, and drop the privacy cases",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: one weak category is the one attackers will find. Fix it, then re-run the whole bank.",
+    "feedback_wrong": "Not quite: the overall number hides a privacy hole. Fix it first, and never drop failing cases.",
+    "resume_at": "1:40"
+   },
+   {
+    "at": "2:56",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "While doing your coursework, you find a flaw in a live university system you weren't asked to test. What do you do first?",
+    "options": [
+     {
+      "text": "Post it so everyone is warned",
+      "correct": false
+     },
+     {
+      "text": "Test it more to be sure",
+      "correct": false
+     },
+     {
+      "text": "Stop, and report it privately to the owner",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Right: stop there, and tell the owner privately what you saw.",
+    "feedback_wrong": "Not quite: posting puts people at risk, and testing further without permission can break the law. Stop and report privately.",
+    "resume_at": "2:59"
+   }
+  ]
+ }
+}

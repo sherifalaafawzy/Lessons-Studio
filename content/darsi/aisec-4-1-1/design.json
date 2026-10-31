@@ -1,0 +1,422 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "“Just one AI tool”",
+            "ar-EG": "«أداة واحدة بس»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "We counted: seven",
+            "ar-EG": "عدّينا: سبعة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "List it to protect it",
+            "ar-EG": "اكتبها علشان تحميها"
+          },
+          "s": 3,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "What data it touches",
+            "ar-EG": "بتلمس أنهي بيانات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "wand",
+          "text": {
+            "en": "What it can do",
+            "ar-EG": "تقدر تعمل إيه"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Who uses it",
+            "ar-EG": "مين بيستخدمها"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Who looks after it",
+            "ar-EG": "مين مسؤول عنها"
+          },
+          "s": 1,
+          "o": 5
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "arch": {
+        "s": 0,
+        "flow": "right",
+        "blocks": [
+          {
+            "id": "web",
+            "kind": "input",
+            "label": {
+              "en": "Web page",
+              "ar-EG": "صفحة نت"
+            }
+          },
+          {
+            "id": "essay",
+            "kind": "input",
+            "label": {
+              "en": "Pupil's essay",
+              "ar-EG": "موضوع تلميذ"
+            }
+          },
+          {
+            "id": "parent",
+            "kind": "input",
+            "label": {
+              "en": "Parent's message",
+              "ar-EG": "رسالة ولي أمر"
+            }
+          },
+          {
+            "id": "bot",
+            "kind": "model",
+            "label": {
+              "en": "School chatbot",
+              "ar-EG": "شات بوت المدرسة"
+            }
+          },
+          {
+            "id": "send",
+            "kind": "tool",
+            "label": {
+              "en": "Message parents",
+              "ar-EG": "يراسل الأهالي"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "web",
+            "to": "bot"
+          },
+          {
+            "from": "essay",
+            "to": "bot"
+          },
+          {
+            "from": "parent",
+            "to": "bot"
+          },
+          {
+            "from": "bot",
+            "to": "send"
+          }
+        ],
+        "focus": [
+          {
+            "block": "web",
+            "s": 1
+          },
+          {
+            "block": "parent",
+            "s": 1
+          },
+          {
+            "block": "send",
+            "s": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Likelihood: 1 to 3",
+            "ar-EG": "الاحتمال: من 1 لـ 3"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Impact: 1 to 3",
+            "ar-EG": "الأثر: من 1 لـ 3"
+          },
+          "s": 2
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Multiply them",
+            "ar-EG": "اضربهم"
+          },
+          "s": 3
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "9: act now",
+            "ar-EG": "9: اتصرف دلوقتي"
+          },
+          "s": 3,
+          "o": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "for tool, like, impact in risks:\n    score = like * impact\n    if score >= 6:\n        print(tool, \"needs an owner\")",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "8": {
+      "who": null,
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Tool",
+            "ar-EG": "الأداة"
+          },
+          {
+            "en": "Likelihood",
+            "ar-EG": "الاحتمال"
+          },
+          {
+            "en": "Impact",
+            "ar-EG": "الأثر"
+          },
+          {
+            "en": "Score",
+            "ar-EG": "الدرجة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Parents' chatbot",
+              "ar-EG": "شات بوت الأهالي"
+            },
+            3,
+            3,
+            9
+          ],
+          [
+            {
+              "en": "Marking helper",
+              "ar-EG": "مساعد التصحيح"
+            },
+            2,
+            3,
+            6
+          ],
+          [
+            {
+              "en": "Timetable agent",
+              "ar-EG": "وكيل الجدول"
+            },
+            1,
+            3,
+            3
+          ],
+          [
+            {
+              "en": "Lesson planner",
+              "ar-EG": "مساعد التحضير"
+            },
+            2,
+            1,
+            2
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 0
+          }
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Messages are data, not orders",
+            "ar-EG": "الرسايل بيانات، مش أوامر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "It drafts; a person sends",
+            "ar-EG": "هو يكتب المسودة، وإنسان يبعت"
+          },
+          "s": 2
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "One named owner",
+            "ar-EG": "مسؤول واحد بالاسم"
+          },
+          "s": 3
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Checked each term",
+            "ar-EG": "مراجعة كل ترم"
+          },
+          "s": 3,
+          "o": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Hide an order",
+            "ar-EG": "خبّي أمر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Record what happens",
+            "ar-EG": "سجّل اللي حصل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Switch on a defence",
+            "ar-EG": "شغّل حماية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Which path closes?",
+            "ar-EG": "أنهي طريق اتقفل؟"
+          },
+          "s": 2,
+          "o": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "List every tool",
+            "ar-EG": "اكتب كل أداة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Find the paths in",
+            "ar-EG": "دوّر على طرق الدخول"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "Likelihood × impact",
+            "ar-EG": "الاحتمال × الأثر"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "A control and an owner",
+            "ar-EG": "ضابط ومسؤول"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ],
+      "takeaway": {
+        "en": "You can't protect what you haven't listed.",
+        "ar-EG": "مينفعش تحمي حاجة إنت مش كاتبها."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Colleagues or the AI club",
+            "ar-EG": "زملاء أو نادي التلاميذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "List every AI tool",
+            "ar-EG": "اكتبوا كل أداة"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "profile",
+          "text": {
+            "en": "Owners for the top three",
+            "ar-EG": "مسؤولين لأعلى تلاتة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Share with the head",
+            "ar-EG": "ورّوها للمدير"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

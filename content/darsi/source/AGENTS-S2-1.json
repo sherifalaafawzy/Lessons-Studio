@@ -1,0 +1,277 @@
+{
+ "id": "AGENTS-S2-1",
+ "track": "agents",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Working with an agent safely"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Inside an agent",
+  "subtitle": "The loop inside, and how to read a tool call",
+  "minutes": 15,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Inside an agent",
+  "length": "3:23",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Ms Amina Bello — primary teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A puzzle"
+   },
+   {
+    "at": "0:19",
+    "label": "Talk, or act?"
+   },
+   {
+    "at": "0:55",
+    "label": "Reading a tool call"
+   },
+   {
+    "at": "1:49",
+    "label": "Two tools and a loop"
+   },
+   {
+    "at": "2:47",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "A list: Wrong bus time; Alarm set; The difference?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Here’s a puzzle from our computer club. A chatbot gave Zainab a bus time that was totally wrong. Her phone’s assistant set her alarm perfectly. What’s the difference?",
+    "icons": [
+     "chat",
+     "phone",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Inside an agent",
+    "voice": "Narrator",
+    "narration": "Today: what’s inside an AI agent, and how to read what it does."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Talk, or act?",
+    "voice": "Narrator",
+    "narration": "A chatbot is a language model that only writes text back. It guesses likely words, so it can sound sure and still be wrong. An agent can also use tools: small programs like a timetable, the weather or an alarm."
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The agent loop",
+    "voice": "Narrator",
+    "narration": "An agent works in a loop. You make a request, and the model writes a short plan, then a tool call. The app runs the tool and adds the result. Then the model answers, or calls another tool."
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:13",
+    "beat": "Examples",
+    "visual": "Code typed out on a card: weather{\"place\":\"Kafi\", …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Read a tool call",
+    "voice": "Mr Joseph",
+    "narration": "Here’s a real call from Darsi Tiny, a small model on your phone. I asked about the weather in Kafi tomorrow. It wrote the tool’s name, weather, then the details in curly brackets: the place and the day.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:13",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "A list: The model only writes text; The app runs the tool; Sunny, 35°C, 10% rain; The answer comes from the result.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The app runs the tool",
+    "voice": "Narrator",
+    "narration": "The model can’t run the tool: it only writes text. The app runs it and adds the result: sunny, thirty-five degrees, a ten percent chance of rain. Then the model answers from that result.",
+    "icons": [
+     "type",
+     "cog",
+     "sun",
+     "chat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:35",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Who does what?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Who writes the tool call, and who actually runs the tool?"
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:49",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The model writes, the app runs",
+    "voice": "Narrator",
+    "narration": "The model writes the call, and the app runs it. So the app sees every call before anything happens. That’s where checks can go, and you’ll write some in this course."
+   },
+   {
+    "n": 9,
+    "start": "1:49",
+    "end": "2:07",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Two tools in a row",
+    "voice": "Narrator",
+    "narration": "Some jobs need two tools. Ask about a trip from Kafi to Dala tomorrow. Darsi Tiny calls the route tool first: seventy kilometres. Then it calls the weather tool for Dala, and gives one answer with both."
+   },
+   {
+    "n": 10,
+    "start": "2:07",
+    "end": "2:24",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A loop in Python",
+    "voice": "Narrator",
+    "narration": "In Python, an app’s loop can be short. Here a list stands in for the model’s replies, because there’s no model inside our code. The loop runs a tool for each call, and stops at the answer."
+   },
+   {
+    "n": 11,
+    "start": "2:24",
+    "end": "2:40",
+    "beat": "Lab preview",
+    "visual": "A list: Pick a request, press One step; The trip to Dala: count the tools; What it sees: one text.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: inside an agent’s loop",
+    "voice": "Narrator",
+    "narration": "In the app, choose a request and press One step until it answers. Try the trip to Dala and count the tools. Then open What Darsi Tiny sees: the whole conversation is one text.",
+    "icons": [
+     "next",
+     "map",
+     "eye"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:40",
+    "end": "2:47",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "How many tools?",
+    "voice": "Ms Amina",
+    "narration": "Your turn. On the trip to Dala, how many tools does Darsi Tiny call before it answers?"
+   },
+   {
+    "n": 13,
+    "start": "2:47",
+    "end": "3:03",
+    "beat": "Recap",
+    "visual": "Summary points: A model in a loop with tools; A call: a name and its details; The model writes; the app runs.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A model in a loop with tools · A call: a name and its details · The model writes; the app runs",
+    "voice": "Narrator",
+    "narration": "Two: route, then weather. Remember: an agent is a model in a loop with tools. A call is a tool’s name and its details. The model writes, and the app runs the tools."
+   },
+   {
+    "n": 14,
+    "start": "3:03",
+    "end": "3:23",
+    "beat": "Try it tomorrow",
+    "visual": "A list: List three requests; Only talk, or a tool?; Write the call: name and details.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: list three things you asked a phone or an app to do this week. For each one, was it only talk, or did it use a tool? Then write the call it might have made, with a name and details.",
+    "icons": [
+     "pencil",
+     "help",
+     "keyboard"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:32",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Who writes the tool call, and who actually runs the tool?",
+    "options": [
+     {
+      "text": "The model writes it; the app runs it",
+      "correct": true
+     },
+     {
+      "text": "The app writes it; the model runs it",
+      "correct": false
+     },
+     {
+      "text": "The model writes it and runs it too",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the model only writes text, including the call. The app runs the tool, so the app sees every call and can check it first.",
+    "feedback_wrong": "Not quite — the model can’t run anything: it writes the call as text, and the app runs the tool.",
+    "resume_at": "1:35"
+   },
+   {
+    "at": "2:44",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "On the trip from Kafi to Dala, how many tools does Darsi Tiny call before it answers?",
+    "options": [
+     {
+      "text": "One",
+      "correct": false
+     },
+     {
+      "text": "Two",
+      "correct": true
+     },
+     {
+      "text": "Five",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the route tool first (70 km), then the weather tool for Dala, and then one answer with both.",
+    "feedback_wrong": "Not quite — it calls two: route, then weather for Dala, and uses both results in one answer.",
+    "resume_at": "2:47"
+   }
+  ]
+ }
+}

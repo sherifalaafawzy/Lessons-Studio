@@ -1,0 +1,467 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "The AI tutor",
+            "ar-EG": "المدرّس الذكي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Others' grades shown",
+            "ar-EG": "درجات غيرها ظهرت"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Reported, not posted",
+            "ar-EG": "اتبلّغ، متنشرش"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Attack your own side, on purpose",
+            "ar-EG": "هاجم فريقك، بقصد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Written permission",
+            "ar-EG": "إذن مكتوب"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Scope: which system, which accounts",
+            "ar-EG": "النطاق: أنهي نظام وأنهي حسابات"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Made-up data; a stop rule",
+            "ar-EG": "بيانات متألفة، وقاعدة وقوف"
+          },
+          "s": 1,
+          "o": 6
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Injection",
+            "ar-EG": "الحقن"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Privacy",
+            "ar-EG": "الخصوصية"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Misinformation",
+            "ar-EG": "المعلومات الغلط"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "icon": "wand",
+          "text": {
+            "en": "Unapproved actions",
+            "ar-EG": "أفعال من غير موافقة"
+          },
+          "s": 1,
+          "o": 5
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Category",
+            "ar-EG": "الفئة"
+          },
+          {
+            "en": "Passed",
+            "ar-EG": "نجحت"
+          },
+          {
+            "en": "Rate",
+            "ar-EG": "النسبة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Injection",
+              "ar-EG": "الحقن"
+            },
+            {
+              "en": "2 of 4",
+              "ar-EG": "2 من 4"
+            },
+            "50%"
+          ],
+          [
+            {
+              "en": "Privacy",
+              "ar-EG": "الخصوصية"
+            },
+            {
+              "en": "1 of 4",
+              "ar-EG": "1 من 4"
+            },
+            "25%"
+          ],
+          [
+            {
+              "en": "Harm",
+              "ar-EG": "الضرر"
+            },
+            {
+              "en": "4 of 4",
+              "ar-EG": "4 من 4"
+            },
+            "100%"
+          ],
+          [
+            {
+              "en": "Scams",
+              "ar-EG": "النصب"
+            },
+            {
+              "en": "4 of 4",
+              "ar-EG": "4 من 4"
+            },
+            "100%"
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "trace": {
+        "code": "t = {\"inj\": 0, \"pv\": 0}\ng = {\"inj\": 0, \"pv\": 0}\nfor c, ok in [(\"inj\", 1),\n  (\"inj\", 0), (\"pv\", 0)]:\n    t[c] += 1\n    g[c] += ok",
+        "play": [
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "s": 1,
+            "line": 6
+          }
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "Attackers find the weak category",
+            "ar-EG": "المهاجم بيلاقي الفئة الضعيفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Fix it, then re-run everything",
+            "ar-EG": "صلّح، وشغّل كله تاني"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Keep it as a regression test",
+            "ar-EG": "خلّيها اختبار ريجريشن"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Severity 1 to 3",
+            "ar-EG": "الخطورة من واحد لتلاتة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Tried, got through, how often",
+            "ar-EG": "جرّبت، عدّى، كام مرة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "How to reproduce it safely",
+            "ar-EG": "إزاي تتكرر بأمان"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "No real data in the evidence",
+            "ar-EG": "مفيش بيانات حقيقية في الدليل"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "owner",
+            "glyph": "server",
+            "label": {
+              "en": "The owner",
+              "ar-EG": "صاحب النظام"
+            }
+          },
+          {
+            "id": "world",
+            "glyph": "globe",
+            "label": {
+              "en": "Everyone",
+              "ar-EG": "الناس"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "you",
+            "text": {
+              "en": "Stop using it",
+              "ar-EG": "بطّل تستخدمها"
+            }
+          },
+          {
+            "from": "you",
+            "to": "owner",
+            "text": {
+              "en": "A private report",
+              "ar-EG": "بلاغ في السر"
+            },
+            "lock": true
+          },
+          {
+            "from": "owner",
+            "to": "you",
+            "text": {
+              "en": "Fixed, in about 90 days",
+              "ar-EG": "اتصلّحت، في حوالي 90 يوم"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "you",
+            "to": "world",
+            "text": {
+              "en": "The lesson, not the exploit",
+              "ar-EG": "الدرس، مش الاستغلال"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "11": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Darsi Tiny, English",
+            "ar-EG": "درسي الصغير، إنجليزي"
+          },
+          {
+            "en": "Refused",
+            "ar-EG": "رفض"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Before the rule",
+              "ar-EG": "قبل القاعدة"
+            },
+            {
+              "en": "6 of 8",
+              "ar-EG": "6 من 8"
+            }
+          ],
+          [
+            {
+              "en": "With the rule in code",
+              "ar-EG": "بالقاعدة في الكود"
+            },
+            {
+              "en": "8 of 8",
+              "ar-EG": "8 من 8"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Permission and scope first",
+            "ar-EG": "الإذن والنطاق الأول"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A pass rate per category",
+            "ar-EG": "نسبة نجاح لكل فئة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "Severity in every finding",
+            "ar-EG": "خطورة لكل ملاحظة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "The owner hears first",
+            "ar-EG": "صاحبه يعرف الأول"
+          },
+          "s": 1,
+          "o": 4.5
+        }
+      ],
+      "takeaway": {
+        "en": "Find it, fix it, keep it fixed, and tell it right.",
+        "ar-EG": "لاقيها، وصلّحها، وخلّيها متصلّحة، وبلّغ صح."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Ten cases, two wordings",
+            "ar-EG": "عشر حالات بصيغتين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "A chatbot you own",
+            "ar-EG": "شات بوت بتاعك"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Score each category",
+            "ar-EG": "نتيجة كل فئة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "A one-page finding",
+            "ar-EG": "ملاحظة في صفحة"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

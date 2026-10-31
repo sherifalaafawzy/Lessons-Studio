@@ -1,0 +1,393 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Shared in a staff group",
+            "ar-EG": "اتبعت في جروب المدرسين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "install",
+          "text": {
+            "en": "Three installs",
+            "ar-EG": "تلات تنزيلات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Who made it?",
+            "ar-EG": "مين عامله؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Datasets",
+            "ar-EG": "بيانات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "A model",
+            "ar-EG": "نموذج"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Libraries and plug-ins",
+            "ar-EG": "مكتبات وإضافات"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Your app",
+            "ar-EG": "تطبيقك"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A fake copy, with a backdoor",
+            "ar-EG": "نسخة مزوّرة فيها باب خلفي"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "sync",
+          "text": {
+            "en": "A real file, changed on the way",
+            "ar-EG": "ملف حقيقي اتغيّر في الطريق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "A file that runs code when loaded",
+            "ar-EG": "ملف بيشغّل كود أول ما يتفتح"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "big": {
+        "value": "SHA-256",
+        "icon": "fingerprint",
+        "s": 1,
+        "label": {
+          "en": "64 characters for any file; one byte changes half",
+          "ar-EG": "64 حرف لأي ملف، وبايت واحد يغيّر النص"
+        }
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "import hashlib, binascii\nh = hashlib.sha256(data).digest()\nprint(binascii.hexlify(h).decode())",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "A fingerprint proves",
+            "ar-EG": "البصمة بتثبت"
+          },
+          {
+            "en": "It can't prove",
+            "ar-EG": "متقدرش تثبت"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The bytes didn't change",
+              "ar-EG": "البايتات متغيّرتش"
+            },
+            {
+              "en": "Who made them",
+              "ar-EG": "مين عملها"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "An impostor's match",
+              "ar-EG": "تطابق من منتحل"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Signed with a private key",
+            "ar-EG": "متوقّع بمفتاح سري"
+          },
+          "s": 1
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "The file",
+            "ar-EG": "الملف"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Checked with the public key",
+            "ar-EG": "بيتراجع بالمفتاح العام"
+          },
+          "s": 1,
+          "o": 5
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Really from the maker",
+            "ar-EG": "من الصانع فعلًا"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "download",
+          "text": {
+            "en": "Official sources only",
+            "ar-EG": "مصادر رسمية بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Files that hold only numbers",
+            "ar-EG": "ملفات فيها أرقام بس"
+          },
+          "s": 2
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "A list: name, version, source",
+            "ar-EG": "قايمة: الاسم، والإصدار، والمصدر"
+          },
+          "s": 3
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "And the fingerprint",
+            "ar-EG": "والبصمة كمان"
+          },
+          "s": 3,
+          "o": 4
+        }
+      ]
+    },
+    "11": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "The file",
+            "ar-EG": "الملف"
+          },
+          {
+            "en": "Fingerprint",
+            "ar-EG": "البصمة"
+          },
+          {
+            "en": "Signature",
+            "ar-EG": "التوقيع"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Genuine",
+              "ar-EG": "أصلي"
+            },
+            {
+              "en": "Matches",
+              "ar-EG": "متطابقة"
+            },
+            {
+              "en": "Valid",
+              "ar-EG": "سليم"
+            }
+          ],
+          [
+            {
+              "en": "One byte changed",
+              "ar-EG": "بايت اتغيّر"
+            },
+            {
+              "en": "No match",
+              "ar-EG": "مش متطابقة"
+            },
+            {
+              "en": "Fails",
+              "ar-EG": "بايظ"
+            }
+          ],
+          [
+            {
+              "en": "From an impostor",
+              "ar-EG": "من منتحل"
+            },
+            {
+              "en": "Matches",
+              "ar-EG": "متطابقة"
+            },
+            {
+              "en": "Fails",
+              "ar-EG": "بايظ"
+            }
+          ]
+        ],
+        "size": 34,
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 0
+          },
+          {
+            "row": 3,
+            "s": 1
+          }
+        ]
+      }
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "AI has a supply chain",
+            "ar-EG": "الذكاء الاصطناعي ليه سلسلة إمداد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Fingerprint: bytes unchanged",
+            "ar-EG": "البصمة: البايتات متغيّرتش"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Signature: who made it",
+            "ar-EG": "التوقيع: مين عمله"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Keep a list of what you run",
+            "ar-EG": "اعمل قايمة باللي بتشغّله"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Check where it came from before you let it in.",
+        "ar-EG": "اتأكد جه منين قبل ما تدخّله."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write a long number",
+            "ar-EG": "اكتبوا رقم طويل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Add up its digits",
+            "ar-EG": "اجمعوا أرقامه"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Change one digit in secret",
+            "ar-EG": "غيّروا رقم في السر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "The total gives it away",
+            "ar-EG": "المجموع يفضحه"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

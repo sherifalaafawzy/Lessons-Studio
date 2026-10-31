@@ -1,0 +1,363 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "One sheet",
+            "ar-EG": "شيت واحد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Computer: 20",
+            "ar-EG": "الكمبيوتر: 20"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Really: 8",
+            "ar-EG": "في الحقيقة: 8"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "type",
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "“Amina” ≠ “Aminah”",
+            "ar-EG": "«أمينة» ≠ «امينه»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "language",
+          "text": {
+            "en": "أ or ا",
+            "ar-EG": "أ أو ا"
+          },
+          "s": 2
+        },
+        {
+          "icon": "language",
+          "text": {
+            "en": "ة or ه",
+            "ar-EG": "ة أو ه"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "language",
+          "text": {
+            "en": "ى or ي",
+            "ar-EG": "ى أو ي"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "sheet": {
+        "rows": [
+          [
+            {
+              "en": "Name",
+              "ar-EG": "الاسم"
+            },
+            {
+              "en": "Day",
+              "ar-EG": "اليوم"
+            },
+            {
+              "en": "Present",
+              "ar-EG": "حاضر"
+            }
+          ],
+          [
+            "Amina",
+            1,
+            "P"
+          ],
+          [
+            "Musa",
+            1,
+            "A"
+          ],
+          [
+            "Aminah",
+            2,
+            "P"
+          ],
+          [
+            "Laila",
+            2,
+            "P"
+          ],
+          [
+            "Moussa",
+            3,
+            "P"
+          ]
+        ],
+        "clean": {
+          "known": {
+            "A": [
+              "Amina",
+              "Musa",
+              "Laila"
+            ]
+          },
+          "labels": true,
+          "frames": [
+            1,
+            2
+          ]
+        },
+        "words": {
+          "Amina": {
+            "en": "Amina",
+            "ar-EG": "أمينة"
+          },
+          "Aminah": {
+            "en": "Aminah",
+            "ar-EG": "امينه"
+          },
+          "Musa": {
+            "en": "Musa",
+            "ar-EG": "مصطفى"
+          },
+          "Moussa": {
+            "en": "Moussa",
+            "ar-EG": "مصطفي"
+          },
+          "Laila": {
+            "en": "Laila",
+            "ar-EG": "ليلى"
+          },
+          "P": {
+            "en": "P",
+            "ar-EG": "ح"
+          },
+          "A": {
+            "en": "A",
+            "ar-EG": "غ"
+          }
+        }
+      }
+    },
+    "5": {
+      "aside": "list",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One spelling per pupil",
+            "ar-EG": "كتابة واحدة لكل تلميذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "One number per pupil",
+            "ar-EG": "رقم واحد لكل تلميذ"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Everything matches to it",
+            "ar-EG": "كل حاجة تتطابق عليها"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "names = set()\nfor row in csv.DictReader(f):\n    n = row[\"name\"].strip().lower()\n    names.add(n)\nprint(len(names))",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Name column: a drop-down",
+            "ar-EG": "عمود الاسم: قائمة منسدلة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "No new spellings",
+            "ar-EG": "مفيش كتابة جديدة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Nothing to clean",
+            "ar-EG": "مفيش حاجة تتنضف"
+          },
+          "s": 2,
+          "o": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Three pupils",
+            "ar-EG": "تلات تلاميذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Tidy fixes one",
+            "ar-EG": "الترتيب يصلّح واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "The list fixes the rest",
+            "ar-EG": "القائمة تصلّح الباقي"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "As typed: 20",
+            "ar-EG": "زي ما اتكتبت: 20"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Tidied: 13",
+            "ar-EG": "بعد الترتيب: 15"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Matched: 8",
+            "ar-EG": "بعد المطابقة: 8"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Matched letter by letter",
+            "ar-EG": "المطابقة حرف بحرف"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Tidy, then match",
+            "ar-EG": "رتّب، وبعدين طابق"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "One master list",
+            "ar-EG": "قائمة أساسية واحدة"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "text": {
+            "en": "strip() and lower()",
+            "ar-EG": "⁦strip()⁩ و⁦lower()⁩"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "One spelling per pupil, agreed once.",
+        "ar-EG": "كتابة واحدة لكل تلميذ، متّفق عليها مرة."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Ten names, typed many ways",
+            "ar-EG": "عشر أسامي بطرق كتير"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Groups find the same pupil",
+            "ar-EG": "المجموعات تلاقي نفس التلميذ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "One spelling, one number",
+            "ar-EG": "كتابة واحدة، ورقم واحد"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

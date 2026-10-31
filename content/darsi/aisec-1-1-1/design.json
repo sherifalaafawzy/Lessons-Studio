@@ -1,0 +1,479 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Names and marks",
+            "ar-EG": "أسامي ودرجات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "heart",
+          "text": {
+            "en": "A health note",
+            "ar-EG": "ملاحظة عن الصحة"
+          },
+          "s": 1,
+          "o": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Where would it go?",
+            "ar-EG": "هيروح فين؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "topology": {
+        "layout": "line",
+        "devices": [
+          {
+            "id": "phone",
+            "kind": "phone",
+            "x": 110,
+            "y": 180,
+            "label": {
+              "en": "Your phone",
+              "ar-EG": "موبايلك"
+            }
+          },
+          {
+            "id": "net",
+            "kind": "cloud",
+            "x": 370,
+            "y": 180,
+            "label": {
+              "en": "The internet",
+              "ar-EG": "الإنترنت"
+            }
+          },
+          {
+            "id": "srv",
+            "kind": "server",
+            "x": 630,
+            "y": 180,
+            "label": {
+              "en": "Their servers",
+              "ar-EG": "سيرفراتهم"
+            }
+          },
+          {
+            "id": "hist",
+            "kind": "database",
+            "x": 930,
+            "y": 30,
+            "label": {
+              "en": "Chat history",
+              "ar-EG": "سجل المحادثات"
+            }
+          },
+          {
+            "id": "staff",
+            "kind": "user",
+            "x": 930,
+            "y": 190,
+            "label": {
+              "en": "Reviewers",
+              "ar-EG": "مراجعين"
+            }
+          },
+          {
+            "id": "train",
+            "kind": "bot",
+            "x": 930,
+            "y": 350,
+            "label": {
+              "en": "Maybe training",
+              "ar-EG": "يمكن تدريب"
+            }
+          }
+        ],
+        "links": [
+          [
+            "phone",
+            "net",
+            "wireless"
+          ],
+          [
+            "net",
+            "srv"
+          ],
+          [
+            "srv",
+            "hist"
+          ],
+          [
+            "srv",
+            "staff"
+          ],
+          [
+            "srv",
+            "train"
+          ]
+        ],
+        "routes": [
+          {
+            "from": "phone",
+            "to": "srv"
+          }
+        ],
+        "s": 0,
+        "play": [
+          1
+        ],
+        "focus": [
+          {
+            "device": "hist",
+            "s": 1
+          },
+          {
+            "device": "staff",
+            "s": 2
+          },
+          {
+            "device": "train",
+            "s": 3
+          }
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A shared phone keeps the history",
+            "ar-EG": "الموبايل المشترك بيحفظ السجل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "The next person can read it",
+            "ar-EG": "اللي بعدك يقدر يقراه"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "link",
+          "text": {
+            "en": "A shared chat link opens for anyone",
+            "ar-EG": "لينك المحادثة بيفتح لأي حد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Before you type",
+            "ar-EG": "قبل ما تكتب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "On the noticeboard?",
+            "ar-EG": "ينفع على اللوحة؟"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Yes: fine",
+            "ar-EG": "أيوه: تمام"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "No: keep it out",
+            "ar-EG": "لأ: يفضل برّه"
+          },
+          "s": 2,
+          "o": 1.5,
+          "tone": "danger"
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Green: no person in it",
+            "ar-EG": "أخضر: مفيهوش أشخاص"
+          },
+          "s": 1,
+          "tone": "ok"
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Amber: names and details out",
+            "ar-EG": "أصفر: من غير أسامي ولا تفاصيل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Red: never type it",
+            "ar-EG": "أحمر: متكتبوش أبدًا"
+          },
+          "s": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "Red: keep out",
+            "ar-EG": "أحمر: برّه"
+          },
+          {
+            "en": "Type this",
+            "ar-EG": "اكتب ده"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Her full name",
+              "ar-EG": "اسمها كامل"
+            },
+            {
+              "en": "“A pupil”",
+              "ar-EG": "«تلميذة»"
+            }
+          ],
+          [
+            {
+              "en": "Her illness",
+              "ar-EG": "مرضها"
+            },
+            {
+              "en": "“Often absent”",
+              "ar-EG": "«بتغيب كتير»"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Add the name later",
+              "ar-EG": "الاسم بعدين"
+            }
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      },
+      "who": null
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Turn off history or training",
+            "ar-EG": "اقفل السجل أو التدريب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Use the school's approved tool",
+            "ar-EG": "استخدم أداة المدرسة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Sign out on shared devices",
+            "ar-EG": "اخرج من الأجهزة المشتركة"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "image",
+          "text": {
+            "en": "Photos can show names",
+            "ar-EG": "الصورة ممكن تبيّن الاسم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Cover the name",
+            "ar-EG": "غطّي الاسم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "Or type the words",
+            "ar-EG": "أو اكتب الكلام"
+          },
+          "s": 2,
+          "o": 1.5
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Role and task",
+            "ar-EG": "الدور والمهمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Context",
+            "ar-EG": "السياق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Format",
+            "ar-EG": "الشكل"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "No names needed",
+            "ar-EG": "مش محتاج أسامي"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Your words travel",
+            "ar-EG": "كلامك بيسافر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "The noticeboard test",
+            "ar-EG": "اختبار اللوحة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The situation, not the child",
+            "ar-EG": "الموقف، مش الطفل"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check the settings",
+            "ar-EG": "راجع الإعدادات"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Help for your class never needs your pupils' secrets.",
+        "ar-EG": "مساعدة فصلك عمرها ما محتاجة أسرار تلاميذك."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Read out what people type",
+            "ar-EG": "اقرا اللي الناس بتكتبه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Green, amber or red card",
+            "ar-EG": "كارت أخضر أو أصفر أو أحمر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Say why",
+            "ar-EG": "قولوا ليه"
+          },
+          "s": 2,
+          "o": 2.5
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "One class rule",
+            "ar-EG": "قاعدة واحدة للفصل"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,306 @@
+{
+ "id": "DATA-S3-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Databases and SQL"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Tables, keys and types",
+  "subtitle": "How apps store data: primary keys, foreign keys and a schema",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Tables, keys and types",
+  "length": "2:45",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the computer studies teacher (main character)",
+   "Ms Salma — the maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Millions a second"
+   },
+   {
+    "at": "0:19",
+    "label": "Why a database"
+   },
+   {
+    "at": "0:35",
+    "label": "Primary keys"
+   },
+   {
+    "at": "0:49",
+    "label": "Foreign keys"
+   },
+   {
+    "at": "1:00",
+    "label": "A schema"
+   },
+   {
+    "at": "1:30",
+    "label": "Asking with SELECT"
+   },
+   {
+    "at": "1:53",
+    "label": "The lab"
+   },
+   {
+    "at": "2:18",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Icon cards: A like; Millions a second; A database. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Every time you like a photo, an app saves who liked it, which photo, and when. Millions of times a second, for millions of people. Not in a spreadsheet!",
+    "icons": [
+     "heart",
+     "zap",
+     "database"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Tables, keys and types",
+    "voice": "Narrator",
+    "narration": "Today: how apps store data in databases, with tables, keys and types."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:35",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Many users at once; A type for each column; Rules at the door; Each fact stored once.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What a database gives an app",
+    "voice": "Narrator",
+    "narration": "A database keeps the tables for an app. Many users read and write at once, safely. Every column has a type, and rules stop bad data at the door. And every fact is stored once.",
+    "icons": [
+     "users",
+     "tag",
+     "shield",
+     "check"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "Two columns: “Bad keys” (Names; Birthdays) and “A good key” (An id given once).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A primary key: one row, always",
+    "voice": "Narrator",
+    "narration": "Each table has a primary key: a column whose value is different in every row, like a user id. Names and birthdays make bad keys, because two people can share them.",
+    "icons": [
+     "circlex",
+     "key",
+     "user",
+     "calendar"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "1:00",
+    "beat": "Concept",
+    "visual": "A flow: Users → Likes → Photos.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Foreign keys link tables",
+    "voice": "Narrator",
+    "narration": "Tables link with foreign keys. A likes table holds a user id and a photo id. Each one points to a row in another table.",
+    "icons": [
+     "users",
+     "heart",
+     "image"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:13",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: CREATE TABLE likes ( … Caption: One like per user, per photo",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A schema: the shape of the data",
+    "voice": "Narrator",
+    "narration": "Designing those tables is called a schema: the tables, their columns and types, and how they link. A good schema stores each fact in exactly one place."
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:22",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "The best key for pupils?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Which column makes the best primary key for a school's pupils?"
+   },
+   {
+    "n": 8,
+    "start": "1:22",
+    "end": "1:30",
+    "beat": "Reveal",
+    "visual": "Icon cards: Pupil number; Names repeat; So do birthdays.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A number given once",
+    "voice": "Narrator",
+    "narration": "A pupil number, given once and never reused. Names and birthdays repeat, and names change spelling.",
+    "icons": [
+     "key",
+     "users",
+     "calendar"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:30",
+    "end": "1:42",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT name, class … Caption: Columns, a table, the rows you want",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Then ask in SQL",
+    "voice": "Narrator",
+    "narration": "Then you ask questions in SQL. SELECT picks the columns, FROM the table, and WHERE the rows. It works the same on twelve rows or twelve million."
+   },
+   {
+    "n": 10,
+    "start": "1:42",
+    "end": "1:53",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: Stored twice: copies drift; One row changed, five missed; Stored once: one story.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Why one place matters",
+    "voice": "Narrator",
+    "narration": "Store a fact twice and the copies drift apart. Change a teacher's phone in one row, miss five others, and the database tells two stories.",
+    "icons": [
+     "repeat",
+     "phone",
+     "check"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:53",
+    "end": "2:07",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: One table: 32; Two: 8; Three: 0.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: one fact, one place",
+    "voice": "Narrator",
+    "narration": "In the app, split a wide school table into two, then three. The repeated facts fall from thirty-two to eight to zero. Then try a hurried change on each design.",
+    "icons": [
+     "grid",
+     "layers",
+     "database"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:18",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Why a classes table?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. Why store the class teacher's name in a classes table, and not in every pupil's row?"
+   },
+   {
+    "n": 13,
+    "start": "2:18",
+    "end": "2:32",
+    "beat": "Recap",
+    "visual": "Summary card: Primary key: one row; Foreign keys link tables; Each fact stored once. Takeaway bar: Design the tables first; the questions come easily.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "So a change happens in one place, and every row agrees. Remember: a primary key picks out one row. Foreign keys link tables. And a good schema stores each fact once."
+   },
+   {
+    "n": 14,
+    "start": "2:32",
+    "end": "2:45",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: An app you use; Sketch its tables and keys; Which tables link?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it tomorrow: pick an app you use, like a messaging app. Sketch its tables: what is a row in each, and what's the key? Which tables link?",
+    "icons": [
+     "phone",
+     "grid",
+     "network"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:19",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Which column makes the best primary key for a school's pupils?",
+    "options": [
+     {
+      "text": "Their name",
+      "correct": false
+     },
+     {
+      "text": "Their birthday",
+      "correct": false
+     },
+     {
+      "text": "A pupil number the school gives once",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — a number given once and never reused picks out exactly one pupil.",
+    "feedback_wrong": "Not quite — names and birthdays can be shared by two pupils. A primary key must be different in every row.",
+    "resume_at": "1:22"
+   },
+   {
+    "at": "2:15",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Why store the class teacher's name in a classes table, not in every pupil's row?",
+    "options": [
+     {
+      "text": "So a change happens in one place",
+      "correct": true
+     },
+     {
+      "text": "Because tables must be small",
+      "correct": false
+     },
+     {
+      "text": "So it's harder to find",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — stored once, it's changed once, and every pupil's row stays right through the link.",
+    "feedback_wrong": "Not quite — the point is one fact in one place: change it once, and every row agrees.",
+    "resume_at": "2:18"
+   }
+  ]
+ }
+}

@@ -1,0 +1,296 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Class list",
+            "ar-EG": "قائمة الفصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Test marks",
+            "ar-EG": "الدرجات"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "4 mistakes",
+            "ar-EG": "4 غلطات"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "cols": [
+          {
+            "en": "Name",
+            "ar-EG": "الاسم"
+          },
+          {
+            "en": "Pupil ID",
+            "ar-EG": "رقم التلميذ"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Two Fatimas",
+              "ar-EG": "اتنين فاطمة"
+            },
+            {
+              "en": "Given once",
+              "ar-EG": "بيتدّي مرة"
+            }
+          ],
+          [
+            {
+              "en": "Spellings change",
+              "ar-EG": "الكتابة بتتغير"
+            },
+            {
+              "en": "One pupil, only one",
+              "ar-EG": "تلميذ واحد بس"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "4": {
+      "big": {
+        "value": {
+          "en": "P0137",
+          "ar-EG": "⁦P0137⁩"
+        },
+        "label": {
+          "en": "One key, one pupil",
+          "ar-EG": "مفتاح واحد، تلميذ واحد"
+        },
+        "icon": "key",
+        "s": 0
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Marks",
+            "ar-EG": "الدرجات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Class list",
+            "ar-EG": "قائمة الفصل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Match by ID",
+            "ar-EG": "طابق بالرقم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "With names",
+            "ar-EG": "بالأسامي"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "A mark, no pupil: a wrong ID?",
+            "ar-EG": "درجة من غير تلميذ: رقم غلط؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "A pupil, no mark: absent?",
+            "ar-EG": "تلميذ من غير درجة: غايب؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Never just delete them",
+            "ar-EG": "عمرك ما تمسحهم وخلاص"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "name = {\"1\": \"Amina\", \"2\": \"Tunde\"}\nfor m in csv.DictReader(f):\n    who = name.get(m[\"id\"], \"?\")\n    print(who, m[\"mark\"])",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Names repeat",
+            "ar-EG": "الأسامي بتتكرر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "key",
+          "tone": "ok",
+          "text": {
+            "en": "An ID is unique",
+            "ar-EG": "الرقم مش بيتكرر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Same ID, every sheet",
+            "ar-EG": "نفس الرقم، كل شيت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils",
+            "ar-EG": "التلاميذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Marks",
+            "ar-EG": "الدرجات"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "key",
+          "tone": "accent",
+          "text": {
+            "en": "Joined by number",
+            "ar-EG": "مربوطين بالرقم"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "One ID per pupil",
+            "ar-EG": "رقم واحد لكل تلميذ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Join by ID, not by name",
+            "ar-EG": "اربط بالرقم، مش بالاسم"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "No match? Find out why",
+            "ar-EG": "مفيش تطابق؟ اعرف ليه"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "In Python: a dictionary",
+            "ar-EG": "في بايثون: قاموس"
+          },
+          "s": 3,
+          "o": 2
+        }
+      ],
+      "takeaway": {
+        "en": "The ID is the thread that ties your sheets together.",
+        "ar-EG": "الرقم هو الخيط اللي بيربط شيتاتك ببعض."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Cards: number and name",
+            "ar-EG": "كروت: رقم واسم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Cards: number and mark",
+            "ar-EG": "كروت: رقم ودرجة"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Find your partner by number",
+            "ar-EG": "دوّر على شريكك بالرقم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Who's left, and why?",
+            "ar-EG": "مين فضل، وليه؟"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

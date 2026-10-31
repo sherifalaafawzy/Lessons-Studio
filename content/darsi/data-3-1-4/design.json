@@ -1,0 +1,426 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Pupils + marks",
+            "ar-EG": "تلاميذ + درجات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Two vanished",
+            "ar-EG": "اتنين اختفوا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "A whole term",
+            "ar-EG": "ترم كامل"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT p.name, m.mark FROM pupils p JOIN marks m ON m.pupil_id = p.id",
+        "tables": {
+          "pupils": {
+            "cols": [
+              "id",
+              "name"
+            ],
+            "rows": [
+              [
+                1,
+                "Amina"
+              ],
+              [
+                2,
+                "Joseph"
+              ],
+              [
+                3,
+                "Salma"
+              ],
+              [
+                4,
+                "Musa"
+              ],
+              [
+                5,
+                "Omar"
+              ]
+            ]
+          },
+          "marks": {
+            "cols": [
+              "pupil_id",
+              "mark"
+            ],
+            "rows": [
+              [
+                1,
+                14
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                4,
+                16
+              ],
+              [
+                4,
+                12
+              ],
+              [
+                5,
+                9
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "join": 1
+        }
+      }
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "JOIN",
+            "ar-EG": "⁦JOIN⁩"
+          },
+          {
+            "en": "LEFT JOIN",
+            "ar-EG": "⁦LEFT JOIN⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Only matches",
+              "ar-EG": "المتطابق بس"
+            },
+            {
+              "en": "Every pupil",
+              "ar-EG": "كل التلاميذ"
+            }
+          ],
+          [
+            {
+              "en": "No mark? Gone",
+              "ar-EG": "من غير درجة؟ اختفى"
+            },
+            {
+              "en": "No mark? NULL",
+              "ar-EG": "من غير درجة؟ ⁦NULL⁩"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT p.name FROM pupils p LEFT JOIN marks m ON m.pupil_id = p.id WHERE m.mark IS NULL",
+        "tables": {
+          "pupils": {
+            "cols": [
+              "id",
+              "name"
+            ],
+            "rows": [
+              [
+                1,
+                "Amina"
+              ],
+              [
+                2,
+                "Joseph"
+              ],
+              [
+                3,
+                "Salma"
+              ],
+              [
+                4,
+                "Musa"
+              ],
+              [
+                5,
+                "Omar"
+              ]
+            ]
+          },
+          "marks": {
+            "cols": [
+              "pupil_id",
+              "mark"
+            ],
+            "rows": [
+              [
+                1,
+                14
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                4,
+                16
+              ],
+              [
+                4,
+                12
+              ],
+              [
+                5,
+                9
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "join": 0,
+          "where": 1
+        }
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "repeat",
+          "tone": "accent",
+          "text": {
+            "en": "Two marks: two rows",
+            "ar-EG": "درجتين: صفين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Inner join: rows can vanish",
+            "ar-EG": "الداخلي: صفوف ممكن تختفي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "Count before and after",
+            "ar-EG": "عدّ قبل وبعد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Left out, silently",
+            "ar-EG": "بيتشال في السكوت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "My two pupils",
+            "ar-EG": "التلميذين بتوعي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Use LEFT JOIN",
+            "ar-EG": "استخدم ⁦LEFT JOIN⁩"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "A parent: their child only",
+            "ar-EG": "ولي الأمر: ابنه بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "The head: class averages",
+            "ar-EG": "المدير: متوسطات الفصول"
+          },
+          "s": 2
+        },
+        {
+          "icon": "lock",
+          "tone": "danger",
+          "text": {
+            "en": "Never: phones, health notes",
+            "ar-EG": "أبدًا: تليفونات، صحة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Only needed columns",
+            "ar-EG": "الأعمدة اللازمة بس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Only their rows",
+            "ar-EG": "صفوفه هو بس"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "The rest stays in",
+            "ar-EG": "الباقي يفضل جوه"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Inner, then left",
+            "ar-EG": "داخلي، وبعدين يساري"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Who disappears?",
+            "ar-EG": "مين بيختفي؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "accent",
+          "text": {
+            "en": "Who appears twice?",
+            "ar-EG": "مين بيظهر مرتين؟"
+          },
+          "s": 1,
+          "o": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "JOIN on a key",
+            "ar-EG": "الربط على مفتاح"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Inner drops, left keeps",
+            "ar-EG": "الداخلي بيشيل، واليساري بيسيب"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Missing, or twice?",
+            "ar-EG": "ناقص، ولا مرتين؟"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Only what the reader needs",
+            "ar-EG": "اللي القارئ محتاجه بس"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Join to answer; then leave out what isn't needed.",
+        "ar-EG": "اربط علشان تجاوب، وبعدين سيب اللي مش لازم."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Parent, nurse, head",
+            "ar-EG": "ولي الأمر، والممرضة، والمدير"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Sort the column cards",
+            "ar-EG": "قسّموا كروت الأعمدة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Which does nobody need?",
+            "ar-EG": "أنهي محدش محتاجه؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Eight tests",
+            "ar-EG": "تمن اختبارات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Some take two or three",
+            "ar-EG": "فيه ناس بتدخل اتنين أو تلاتة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How few times?",
+            "ar-EG": "كام ميعاد على الأقل؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "graph": {
+        "map": {
+          "nodes": [
+            {
+              "id": "maths",
+              "x": 2,
+              "y": 8.4,
+              "text": {
+                "en": "Maths",
+                "ar-EG": "رياضيات"
+              },
+              "at": "t"
+            },
+            {
+              "id": "english",
+              "x": 5,
+              "y": 8.9,
+              "text": {
+                "en": "English",
+                "ar-EG": "إنجليزي"
+              },
+              "at": "t"
+            },
+            {
+              "id": "science",
+              "x": 8,
+              "y": 8.4,
+              "text": {
+                "en": "Science",
+                "ar-EG": "علوم"
+              },
+              "at": "t"
+            },
+            {
+              "id": "arabic",
+              "x": 8.7,
+              "y": 5,
+              "text": {
+                "en": "Arabic",
+                "ar-EG": "عربي"
+              },
+              "at": "r"
+            },
+            {
+              "id": "history",
+              "x": 8,
+              "y": 1.6,
+              "text": {
+                "en": "History",
+                "ar-EG": "تاريخ"
+              },
+              "at": "b"
+            },
+            {
+              "id": "geography",
+              "x": 5,
+              "y": 1.1,
+              "text": {
+                "en": "Geography",
+                "ar-EG": "جغرافيا"
+              },
+              "at": "b"
+            },
+            {
+              "id": "art",
+              "x": 2,
+              "y": 1.6,
+              "text": {
+                "en": "Art",
+                "ar-EG": "رسم"
+              },
+              "at": "b"
+            },
+            {
+              "id": "french",
+              "x": 1.3,
+              "y": 5,
+              "text": {
+                "en": "French",
+                "ar-EG": "فرنساوي"
+              },
+              "at": "l"
+            }
+          ],
+          "edges": [
+            [
+              "maths",
+              "arabic"
+            ],
+            [
+              "maths",
+              "french"
+            ],
+            [
+              "english",
+              "science"
+            ],
+            [
+              "science",
+              "arabic"
+            ],
+            [
+              "science",
+              "french"
+            ],
+            [
+              "arabic",
+              "art"
+            ],
+            [
+              "arabic",
+              "french"
+            ],
+            [
+              "history",
+              "geography"
+            ],
+            [
+              "history",
+              "art"
+            ],
+            [
+              "geography",
+              "art"
+            ]
+          ],
+          "fit": "fill"
+        },
+        "algo": "none",
+        "s": 0
+      }
+    },
+    "4": {
+      "who": null,
+      "graph": {
+        "map": "exams",
+        "algo": "greedy",
+        "s": 0,
+        "frames": [
+          0,
+          2
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Maths",
+            "ar-EG": "رياضيات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Arabic",
+            "ar-EG": "عربي"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "languages",
+          "text": {
+            "en": "French",
+            "ar-EG": "فرنساوي"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "clock",
+          "tone": "accent",
+          "text": {
+            "en": "3 times at least",
+            "ar-EG": "3 مواعيد على الأقل"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "clock"
+    },
+    "7": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "List order",
+            "ar-EG": "بترتيب القايمة"
+          },
+          {
+            "en": "Clever order",
+            "ar-EG": "ترتيب ذكي"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "4 times",
+              "ar-EG": "4 مواعيد"
+            },
+            {
+              "en": "3 times",
+              "ar-EG": "3 مواعيد"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 2
+      }
+    },
+    "8": {
+      "who": null,
+      "graph": {
+        "map": "exams",
+        "algo": "dsatur",
+        "s": 0,
+        "frames": [
+          0,
+          2
+        ]
+      }
+    },
+    "9": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Not fair",
+            "ar-EG": "مش عادل"
+          },
+          {
+            "en": "Fair",
+            "ar-EG": "عادل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "3 tests in one morning",
+              "ar-EG": "3 اختبارات في صباحية"
+            },
+            {
+              "en": "Tests spread out",
+              "ar-EG": "الاختبارات متوزّعة"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "star",
+          "text": {
+            "en": "Who goes first in a game",
+            "ar-EG": "مين يلعب الأول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Who cleans the board",
+            "ar-EG": "مين يمسح السبورة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "Take turns: nobody always loses",
+            "ar-EG": "خدوا أدوار: محدش يخسر على طول"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Tap to give times",
+            "ar-EG": "اضغط وادّي مواعيد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "No red lines",
+            "ar-EG": "من غير خطوط حمرا"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Greedy and DSatur",
+            "ar-EG": "الجشع وDSatur"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How few times?",
+            "ar-EG": "كام ميعاد يكفّوا؟"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A line: not at the same time",
+            "ar-EG": "خط: مش في نفس الوقت"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Colour the hardest first",
+            "ar-EG": "لوّن الأصعب الأول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Spread turns fairly",
+            "ar-EG": "وزّع الأدوار بعدل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "No clashes, and nobody always gets the worst.",
+        "ar-EG": "من غير تعارض، ومحدش ياخد الأسوأ على طول."
+      }
+    },
+    "14": {
+      "who": "amina",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "Clubs as dots and lines",
+            "ar-EG": "الأنشطة نقط وخطوط"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "As few colours as you can",
+            "ar-EG": "أقل عدد ألوان"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "A fair rota for a class job",
+            "ar-EG": "جدول أدوار عادل"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

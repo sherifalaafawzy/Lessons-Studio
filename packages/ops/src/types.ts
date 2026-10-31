@@ -9,7 +9,7 @@ export interface Lesson {
 /** Ready-made animations, expanded into keyframes (so the format stays plain keyframes). */
 export type Preset =
   | "fade-in" | "fade-out" | "pop" | "rise" | "slide-in" | "grow" | "pulse"
-  | "draw" | "type" | "move-to";
+  | "draw" | "type" | "move-to" | "train" | "forward" | "backward";
 
 /**
  * One edit. Paths are JSON Pointers inside a scene ("/content/title/en", "/cues/0"); "-" appends to an array.

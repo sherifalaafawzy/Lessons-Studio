@@ -1,0 +1,448 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "A class trip",
+            "ar-EG": "رحلة الفصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "mail",
+          "tone": "danger",
+          "text": {
+            "en": "Message sent first!",
+            "ar-EG": "الرسالة اتبعتت الأول!"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shuffle",
+          "tone": "accent",
+          "text": {
+            "en": "Wrong order",
+            "ar-EG": "ترتيب غلط"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "1. Find the way",
+            "ar-EG": "1. اعرف الطريق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "2. Check the weather",
+            "ar-EG": "2. شوف الجو"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mail",
+          "tone": "ok",
+          "text": {
+            "en": "3. Tell the families",
+            "ar-EG": "3. بلّغ الأهالي"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "list"
+    },
+    "4": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Right order",
+            "ar-EG": "ترتيب صح"
+          },
+          {
+            "en": "Wrong order",
+            "ar-EG": "ترتيب غلط"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Socks, then shoes",
+              "ar-EG": "الشراب، وبعدين الجزمة"
+            },
+            {
+              "en": "Shoes, then socks",
+              "ar-EG": "الجزمة، وبعدين الشراب"
+            }
+          ],
+          [
+            {
+              "en": "The way, then the message",
+              "ar-EG": "الطريق، وبعدين الرسالة"
+            },
+            {
+              "en": "The message first",
+              "ar-EG": "الرسالة الأول"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "tiny",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "route",
+            "glyph": "tool",
+            "label": {
+              "en": "Route tool",
+              "ar-EG": "أداة الطريق"
+            }
+          },
+          {
+            "id": "weather",
+            "glyph": "tool",
+            "label": {
+              "en": "Weather tool",
+              "ar-EG": "أداة الطقس"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "tiny",
+            "text": {
+              "en": "Kafi to Dala?",
+              "ar-EG": "من كافي لدالا؟"
+            }
+          },
+          {
+            "from": "tiny",
+            "to": "route",
+            "text": {
+              "en": "The route",
+              "ar-EG": "الطريق"
+            }
+          },
+          {
+            "from": "route",
+            "to": "tiny",
+            "text": {
+              "en": "70 km",
+              "ar-EG": "70 كم"
+            },
+            "reply": true
+          },
+          {
+            "from": "tiny",
+            "to": "weather",
+            "text": {
+              "en": "Dala, tomorrow",
+              "ar-EG": "دالا، بكرة"
+            }
+          },
+          {
+            "from": "weather",
+            "to": "tiny",
+            "text": {
+              "en": "Partly cloudy",
+              "ar-EG": "غايم شوية"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          1,
+          2
+        ]
+      }
+    },
+    "6": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "helper",
+            "glyph": "bot",
+            "label": {
+              "en": "The helper",
+              "ar-EG": "المساعد"
+            }
+          },
+          {
+            "id": "tt",
+            "glyph": "tool",
+            "label": {
+              "en": "Timetable",
+              "ar-EG": "الجدول"
+            }
+          },
+          {
+            "id": "rem",
+            "glyph": "tool",
+            "label": {
+              "en": "Reminder",
+              "ar-EG": "التذكير"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "helper",
+            "text": {
+              "en": "First lesson?",
+              "ar-EG": "أول حصة؟"
+            }
+          },
+          {
+            "from": "helper",
+            "to": "tt",
+            "text": {
+              "en": "6B, tomorrow",
+              "ar-EG": "سادسة ب، بكرة"
+            }
+          },
+          {
+            "from": "tt",
+            "to": "helper",
+            "text": {
+              "en": "PE",
+              "ar-EG": "تربية رياضية"
+            },
+            "reply": true
+          },
+          {
+            "from": "helper",
+            "to": "rem",
+            "text": {
+              "en": "6B: PE",
+              "ar-EG": "سادسة ب: تربية رياضية"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Find the way",
+            "ar-EG": "اعرف الطريق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Check the weather",
+            "ar-EG": "شوف الجو"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Then tell the families",
+            "ar-EG": "وبعدين بلّغ الأهالي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Find out first, then act",
+            "ar-EG": "اعرف الأول، وبعدين اعمل"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Saturday: no school",
+            "ar-EG": "السبت: مفيش مدرسة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "It still set a reminder!",
+            "ar-EG": "ومع ذلك ظبط تذكير!"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "Stop and check",
+            "ar-EG": "اقف واتأكد"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Guess the tools",
+            "ar-EG": "خمّن الأدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Watch the plan",
+            "ar-EG": "اتفرج على الخطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "tone": "accent",
+          "text": {
+            "en": "Try Saturday",
+            "ar-EG": "جرّب السبت"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "map"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Small steps, in order",
+            "ar-EG": "خطوات صغيرة بالترتيب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "One answer helps the next",
+            "ar-EG": "إجابة بتساعد اللي بعدها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Wrong step? Stop and check",
+            "ar-EG": "خطوة غلط؟ اقف واتأكد"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Find out first, then act.",
+        "ar-EG": "اعرف الأول، وبعدين اعمل."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Steps on small cards",
+            "ar-EG": "خطوات على كروت صغيرة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Mix them up",
+            "ar-EG": "اخلطهم"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Someone puts them in order",
+            "ar-EG": "حد يرتّبهم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Which come first?",
+            "ar-EG": "إيه اللي ييجي الأول؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

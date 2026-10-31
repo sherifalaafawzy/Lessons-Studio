@@ -1,0 +1,293 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.630
+Our homework bot almost sent a scam.
+
+2
+00:00:03.470 --> 00:00:06.430
+It can message parents, so someone tried
+
+3
+00:00:06.430 --> 00:00:08.510
+to trick it into asking for a PIN.
+
+4
+00:00:09.070 --> 00:00:11.270
+Our word filter didn't stop it.
+
+5
+00:00:12.470 --> 00:00:15.430
+Today: how apps built on AI get
+
+6
+00:00:15.430 --> 00:00:17.830
+attacked, why word filters miss,
+
+7
+00:00:18.310 --> 00:00:19.670
+and the check that holds.
+
+8
+00:00:21.030 --> 00:00:23.170
+An AI app is more than a model.
+
+9
+00:00:23.740 --> 00:00:25.700
+It's a model plus instructions,
+
+10
+00:00:25.700 --> 00:00:28.200
+tools and the text it reads.
+
+11
+00:00:28.910 --> 00:00:31.510
+Attackers aim at the whole app: a
+
+12
+00:00:31.510 --> 00:00:34.330
+jailbreak talks the model round, and a
+
+13
+00:00:34.330 --> 00:00:36.730
+prompt injection hides orders in what it
+
+14
+00:00:36.730 --> 00:00:36.990
+reads.
+
+15
+00:00:38.320 --> 00:00:40.000
+The first defence many apps
+
+16
+00:00:40.000 --> 00:00:41.460
+try is a word filter.
+
+17
+00:00:42.170 --> 00:00:44.230
+It keeps a list of banned words,
+
+18
+00:00:44.530 --> 00:00:47.770
+like password or PIN, and blocks any
+
+19
+00:00:47.770 --> 00:00:49.050
+message that contains one.
+
+20
+00:00:49.600 --> 00:00:51.400
+It's quick to write, and it
+
+21
+00:00:51.400 --> 00:00:52.680
+catches the plain attack.
+
+22
+00:00:53.980 --> 00:00:56.400
+Now watch it fail, twice.
+
+23
+00:00:57.030 --> 00:00:59.550
+“Type the secret word you log in with”
+
+24
+00:00:59.550 --> 00:01:01.950
+asks for the same thing with no banned
+
+25
+00:01:01.950 --> 00:01:03.330
+word, and sails through.
+
+26
+00:01:03.990 --> 00:01:05.730
+And a lesson called “Strong
+
+27
+00:01:05.730 --> 00:01:07.670
+passwords” gets blocked for nothing.
+
+28
+00:01:08.980 --> 00:01:09.560
+Quick check!
+
+29
+00:01:10.350 --> 00:01:13.890
+Our filter bans the word PIN.
+
+30
+00:01:14.540 --> 00:01:16.380
+Which message gets past it?
+
+31
+00:01:17.550 --> 00:01:18.450
+The four-numbers one.
+
+32
+00:01:19.040 --> 00:01:22.000
+Same request, new words, and
+
+33
+00:01:22.000 --> 00:01:23.340
+nothing from the list.
+
+34
+00:01:24.010 --> 00:01:25.990
+There are endless ways to say the
+
+35
+00:01:25.990 --> 00:01:28.870
+same thing, in every language, so a
+
+36
+00:01:28.870 --> 00:01:30.090
+list is never finished.
+
+37
+00:01:31.440 --> 00:01:34.260
+So check the action, not the words.
+
+38
+00:01:35.060 --> 00:01:38.240
+Before the bot sends anything, code asks:
+
+39
+00:01:38.640 --> 00:01:40.540
+did the user ask for this message?
+
+40
+00:01:41.260 --> 00:01:42.720
+And did they say yes to it?
+
+41
+00:01:43.280 --> 00:01:45.100
+If not, nothing is sent,
+
+42
+00:01:45.500 --> 00:01:46.400
+however it's worded.
+
+43
+00:01:47.580 --> 00:01:50.400
+The model can be talked round, because it
+
+44
+00:01:50.400 --> 00:01:52.820
+reads every word as a possible order.
+
+45
+00:01:53.460 --> 00:01:55.360
+The check in code can't be talked
+
+46
+00:01:55.360 --> 00:01:57.520
+round: it only asks whether you
+
+47
+00:01:57.520 --> 00:01:58.720
+approved this message.
+
+48
+00:01:59.420 --> 00:02:01.580
+A tricked agent can write a perfect
+
+49
+00:02:01.580 --> 00:02:04.320
+scam, and it still stays unsent.
+
+50
+00:02:05.580 --> 00:02:07.620
+In the app, pick the scam with
+
+51
+00:02:07.620 --> 00:02:09.760
+plain words and filter the
+
+52
+00:02:09.760 --> 00:02:11.900
+outgoing message: it's caught.
+
+53
+00:02:12.560 --> 00:02:13.760
+Switch to the reworded
+
+54
+00:02:13.760 --> 00:02:15.540
+scam: it slips past.
+
+55
+00:02:16.280 --> 00:02:19.180
+Then say the agent was tricked and turn on
+
+56
+00:02:19.180 --> 00:02:21.820
+the check in code: stopped, every time.
+
+57
+00:02:23.010 --> 00:02:23.770
+Your turn.
+
+58
+00:02:24.390 --> 00:02:26.930
+The bot wants to send a message nobody
+
+59
+00:02:26.930 --> 00:02:30.330
+asked for, and it has no banned words.
+
+60
+00:02:31.030 --> 00:02:33.030
+What should the check in code do?
+
+61
+00:02:34.210 --> 00:02:36.050
+Block it: nobody asked,
+
+62
+00:02:36.470 --> 00:02:37.670
+and nobody said yes.
+
+63
+00:02:38.420 --> 00:02:41.260
+Remember: attacks aim at the whole app.
+
+64
+00:02:41.940 --> 00:02:44.620
+Word filters miss rewording, and
+
+65
+00:02:44.620 --> 00:02:46.140
+they block innocent text.
+
+66
+00:02:46.790 --> 00:02:48.750
+So check the action in code,
+
+67
+00:02:49.130 --> 00:02:49.930
+whatever the words.
+
+68
+00:02:51.290 --> 00:02:54.010
+Try it tomorrow: write a word filter on
+
+69
+00:02:54.010 --> 00:02:56.190
+paper, with five banned words.
+
+70
+00:02:56.940 --> 00:02:58.600
+Ask a friend to write the same
+
+71
+00:02:58.600 --> 00:03:01.060
+request three ways, without them.
+
+72
+00:03:01.640 --> 00:03:04.040
+Count how many slip through, then write
+
+73
+00:03:04.040 --> 00:03:06.400
+the one question a code check would ask.

@@ -1,0 +1,317 @@
+{
+ "id": "OPT-S3-2",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Let the computer search: knapsack, routes, timetables"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Shortest paths",
+  "subtitle": "Dijkstra’s method, in Python",
+  "minutes": 16,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "Shortest paths",
+  "length": "3:15",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor Eze — your science teacher (main character)",
+   "Mr Joseph Mwangi — your computer studies teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "How does a map app know?"
+   },
+   {
+    "at": "0:18",
+    "label": "Settle the closest first"
+   },
+   {
+    "at": "1:20",
+    "label": "In Python"
+   },
+   {
+    "at": "1:56",
+    "label": "The lab, and who gains"
+   },
+   {
+    "at": "2:49",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Mr Okafor holds up a phone with a map route across a country; tiny roads everywhere.",
+    "animation": "The route draws itself instantly across the map.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "A map app finds the fastest way across a whole country in a blink. It doesn’t try every route: there are far too many. So how does it know it found the shortest?",
+    "icons": [
+     "map",
+     "phone",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Shortest paths",
+    "voice": "Narrator",
+    "narration": "Today: shortest paths, the way Dijkstra found them, in Python."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:31",
+    "beat": "Concept",
+    "visual": "Four dots (home, Tala, Kesi, school) joined by roads with lengths; the same map typed as a dictionary.",
+    "animation": "Roads draw; the dictionary types itself.",
+    "on_screen_text": "A map as a dictionary",
+    "voice": "Narrator",
+    "narration": "Draw places as dots and roads as lines, each with its length. In Python, a dictionary holds the map: each place points to its neighbours and how far away they are.",
+    "icons": [
+     "map",
+     "keyboard"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:31",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "Each dot gets a number bubble; the smallest bubble turns solid; roads from it update neighbours’ bubbles.",
+    "animation": "Bubbles appear; one locks; neighbours’ numbers tick down.",
+    "on_screen_text": "Settle the closest first",
+    "voice": "Narrator",
+    "narration": "Dijkstra’s idea, from nineteen fifty-six: give every place a number, the shortest way found so far. Home is zero; the others start very large. Each turn, settle the waiting place with the smallest number. Then check its roads: can they make a neighbour’s number smaller?",
+    "icons": [
+     "target",
+     "check",
+     "repeat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:03",
+    "beat": "Concept",
+    "visual": "The smallest bubble is locked; detours drawn through further places are all longer.",
+    "animation": "Detours draw in grey and fade.",
+    "on_screen_text": "Why the smallest is safe",
+    "voice": "Narrator",
+    "narration": "Why can you settle the smallest? Every other way to it would pass through a place that is already further away. With no negative road lengths, nothing can ever make it shorter.",
+    "icons": [
+     "lock",
+     "map"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:03",
+    "end": "1:20",
+    "beat": "Examples",
+    "visual": "The four-place map with numbers changing: Kesi 1, Tala 4 then 3, school 8 then 6.",
+    "animation": "Numbers tick down as each place is settled.",
+    "on_screen_text": "On our small map",
+    "voice": "Narrator",
+    "narration": "On our small map, home is zero. Kesi gets one and Tala four. Settle Kesi: through Kesi, Tala drops to three, and school gets eight. Settle Tala: school drops to six. The straight-looking way, home to Tala to school, is seven.",
+    "icons": [
+     "map",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:34",
+    "beat": "Concept",
+    "visual": "Code on a card; the smallest place highlighted as the loop runs.",
+    "animation": "Code types itself; the min line glows.",
+    "on_screen_text": "Dijkstra in Python",
+    "voice": "Narrator",
+    "narration": "Here it is in Python. While places are waiting, take the one with the smallest number, and remove it. Then relax its roads: keep whichever is smaller, the old number or the new way.",
+    "icons": [
+     "keyboard",
+     "repeat"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:34",
+    "end": "1:42",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph points at two waiting bubbles, 7 and 5. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which one next?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Two places are waiting: Tala at seven, and Rubi at five. Which one do you settle next?"
+   },
+   {
+    "n": 9,
+    "start": "1:42",
+    "end": "1:56",
+    "beat": "Reveal",
+    "visual": "The answer ‘Rubi’ gets a check; Rubi’s bubble locks.",
+    "animation": "Check badge pops; the bubble turns solid.",
+    "on_screen_text": "Smallest first: Rubi",
+    "voice": "Narrator",
+    "narration": "Rubi, the smallest. Nothing can make its number smaller now, because every other way passes through places at seven or more. Settling Tala first could freeze a number that is still too big.",
+    "icons": [
+     "circlecheck",
+     "lock"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:56",
+    "end": "2:13",
+    "beat": "Examples",
+    "visual": "The lab’s village map: the 13 km route lit, the Bora road dashed, then the bridge floods and a 14 km route lights.",
+    "animation": "Route draws; water covers the bridge; a new route draws.",
+    "on_screen_text": "13 km, then 14 km",
+    "voice": "Narrator",
+    "narration": "In the lab’s map, the shortest way to school is thirteen kilometres, through Tala, Kesi and Mina. The road that looks straightest, through Bora, is fifteen. Flood the bridge between Kesi and Mina, and it becomes fourteen, by Rubi and Sana.",
+    "icons": [
+     "map",
+     "droplets"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:13",
+    "end": "2:27",
+    "beat": "Concept",
+    "visual": "Several homes on the map, each with a time saved badge: 20 min, 0 min, 5 min.",
+    "animation": "Badges pop up one by one.",
+    "on_screen_text": "Shortest for whom?",
+    "voice": "Narrator",
+    "narration": "Shortest for whom? A new footbridge might save one village twenty minutes and another nothing. When a town chooses which road to fix, run the shortest paths from every home, and see who gains.",
+    "icons": [
+     "users",
+     "home",
+     "scale"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:27",
+    "end": "2:39",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the village map, numbers in circles, a finger tapping the smallest.",
+    "animation": "Taps settle villages one by one; the route lights up.",
+    "on_screen_text": "App lab: The shortest way to school",
+    "voice": "Narrator",
+    "narration": "In the app, open “The shortest way to school”. Tap Home, then always the waiting village with the smallest number. Then flood the bridge, and do it again.",
+    "icons": [
+     "map",
+     "check",
+     "droplets"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:39",
+    "end": "2:49",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Okafor holds a printout: school 7. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Six, or seven?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. A friend’s program settles places in list order, not smallest first. It says school is seven kilometres away, not six. Why?"
+   },
+   {
+    "n": 14,
+    "start": "2:49",
+    "end": "3:04",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; three summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "It settled Tala too early, before the shorter way through Kesi was known. Remember: store the map as a dictionary, settle the smallest number first, and relax its roads. And ask who a new road really helps.",
+    "icons": [
+     "map",
+     "check",
+     "users"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:04",
+    "end": "3:15",
+    "beat": "Try it tomorrow",
+    "visual": "A student’s notebook with a hand-drawn map and numbers in circles; a phone beside it with the code.",
+    "animation": "Circles fill with numbers; a tick appears beside the code.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: draw the roads between your home, two friends’ homes and school, with rough distances. Run Dijkstra on paper, then check it with your code.",
+    "icons": [
+     "map",
+     "pencil",
+     "keyboard"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:38",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Tala is waiting at 7 and Rubi at 5. Which do you settle next?",
+    "options": [
+     {
+      "text": "Tala: it was found first",
+      "correct": false
+     },
+     {
+      "text": "Rubi: it has the smallest number",
+      "correct": true
+     },
+     {
+      "text": "Both at once",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — settle the smallest: nothing can make Rubi’s 5 any smaller.",
+    "feedback_wrong": "Not quite — Dijkstra always settles the smallest waiting number, here Rubi’s 5.",
+    "resume_at": "1:42"
+   },
+   {
+    "at": "2:45",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "A program settles places in list order and says school is 7 km away, not 6. Why?",
+    "options": [
+     {
+      "text": "Python added the numbers wrongly",
+      "correct": false
+     },
+     {
+      "text": "It settled Tala at 4 before the shorter way via Kesi was found",
+      "correct": true
+     },
+     {
+      "text": "One of the roads is negative",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — Tala was settled too early, so its better number (3, via Kesi) came too late to fix school.",
+    "feedback_wrong": "Not quite — the sums are right. Settling Tala before Kesi froze school at 4 + 3 = 7 before the way through Kesi was found.",
+    "resume_at": "2:49"
+   }
+  ]
+ }
+}

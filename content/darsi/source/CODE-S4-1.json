@@ -1,0 +1,295 @@
+{
+ "id": "CODE-S4-1",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Algorithms and software engineering"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "How work grows: big O",
+  "subtitle": "Counting steps as the input grows",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "How work grows: big O: Counting steps as the input grows",
+  "length": "3:27",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — the students’ algorithms lecturer (main character)",
+   "Mr Joseph — the students’ programming lecturer (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Fast in class, slow at scale"
+   },
+   {
+    "at": "0:18",
+    "label": "Counting steps"
+   },
+   {
+    "at": "1:13",
+    "label": "Classes of growth"
+   },
+   {
+    "at": "1:56",
+    "label": "Making it faster"
+   },
+   {
+    "at": "2:54",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "A student’s program checked our class of thirty for shared birthdays in a blink. Then he ran it on the whole university, a million students. It would have taken about fourteen hours.",
+    "icons": [
+     "users",
+     "clock",
+     "gauge"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How work grows: big O",
+    "voice": "Narrator",
+    "narration": "Today: how work grows as the input grows, and big O."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Count steps, not seconds",
+    "voice": "Narrator",
+    "narration": "Seconds depend on the phone, so count steps instead. To find the top mark, this loop looks at every mark once. Four marks, four looks; a thousand marks, a thousand looks. The work grows in step with n, the number of items: we write O of n.",
+    "icons": [
+     "gauge",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Halving: O(log n)",
+    "voice": "Narrator",
+    "narration": "Some work grows far more slowly. Binary search halves a sorted list at every look. A thousand names take about ten looks, and a million only about twenty. Doubling the list adds just one look: that’s O of log n.",
+    "icons": [
+     "scissors",
+     "search"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Every pair: O(n²)",
+    "voice": "Narrator",
+    "narration": "Now two loops, one inside the other. For each item, the inner loop compares it with every item after it. Three items make three pairs, but a thousand make about half a million. The work grows with the square of the size: O of n squared.",
+    "icons": [
+     "users",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:13",
+    "end": "1:30",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Classes of growth",
+    "voice": "Narrator",
+    "narration": "Big O names how the work grows, ignoring small details. O of one: the same work however big, like reading the first item. Log n: halving. N: one pass. N log n: a good sort, like merge sort. N squared: every pair.",
+    "icons": [
+     "gauge",
+     "list"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:30",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Twice the students",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A program compares every pair of students for a shared birthday. The class doubles in size. About how much more work does it do?"
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:56",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "About four times",
+    "voice": "Narrator",
+    "narration": "About four times: twice the students, each compared with twice as many others. On a phone that does ten million steps a second, a thousand students take a blink. A million take about fourteen hours.",
+    "icons": [
+     "circlecheck",
+     "gauge"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:56",
+    "end": "2:13",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "From n² to n: a set",
+    "voice": "Narrator",
+    "narration": "So fix the method, not the phone. Instead of comparing every pair, remember what you’ve seen in a set. Checking a set takes about the same time however big it grows. One pass is enough: O of n instead of n squared.",
+    "icons": [
+     "cog",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:13",
+    "end": "2:30",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Hidden loops",
+    "voice": "Narrator",
+    "narration": "Watch for hidden loops. Checking x in a list looks at the items one by one, so inside another loop it makes n squared. Sorting is n log n. A set or a dictionary finds a key in about one step.",
+    "icons": [
+     "search",
+     "list"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:30",
+    "end": "2:46",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: how work grows",
+    "voice": "Narrator",
+    "narration": "In the app, open How work grows. Pick a job, from finding a name to checking every pair, and grow the class. Watch the steps, then try a million and see which jobs a phone could still finish.",
+    "icons": [
+     "gauge",
+     "users",
+     "clock"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:46",
+    "end": "2:54",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which change helps most?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. A duplicate check compares every pair, and it’s too slow for a million records. Which change helps most?"
+   },
+   {
+    "n": 13,
+    "start": "2:54",
+    "end": "3:11",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Steps · classes · fix the method",
+    "voice": "Narrator",
+    "narration": "Remember what you’ve seen in a set. In short: count steps, not seconds. Big O says how work grows: one, log n, n, n log n, n squared. Doubling n quadruples n squared. And a better method beats a faster phone."
+   },
+   {
+    "n": 14,
+    "start": "3:11",
+    "end": "3:27",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it on your own code",
+    "voice": "Narrator",
+    "narration": "Try it on your own code: take a program you wrote this term. Find every loop, and every loop hiding inside a line. If two are nested over the same data, replace one with a set or a dictionary.",
+    "icons": [
+     "search",
+     "repeat",
+     "cog"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Every pair of students is compared. The class doubles. About how much more work?",
+    "options": [
+     {
+      "text": "About the same",
+      "correct": false
+     },
+     {
+      "text": "About twice",
+      "correct": false
+     },
+     {
+      "text": "About four times",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct — every-pair work is O(n²): twice the students, each compared with twice as many, makes four times the work.",
+    "feedback_wrong": "Not quite — with every pair, each of twice as many students meets twice as many others: about four times the work.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:52",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A duplicate check compares every pair and is too slow for a million records. What helps most?",
+    "options": [
+     {
+      "text": "Run it on a faster phone",
+      "correct": false
+     },
+     {
+      "text": "Remember seen values in a set",
+      "correct": true
+     },
+     {
+      "text": "Compare every pair twice",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a set makes it one pass, O(n): seconds instead of hours.",
+    "feedback_wrong": "Not quite — a faster phone saves a little; a set changes O(n²) to O(n), from hours to well under a second.",
+    "resume_at": "2:54"
+   }
+  ]
+ }
+}

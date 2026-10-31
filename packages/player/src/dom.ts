@@ -1,4 +1,5 @@
 /** Tiny DOM helpers. Package text only ever goes in through text nodes, never as HTML. */
+import { ltrRuns } from "./bidi.ts";
 
 type Kid = Node | string | null | undefined | false;
 type Attrs = Record<string, string | number | boolean | undefined> | null;
@@ -27,21 +28,21 @@ export function svg(tag: string, attrs?: Attrs, ...kids: Kid[]): SVGElement {
   return el;
 }
 
-// Latin words, links and codes inside right-to-left text, e.g. "Prompt injection", "salary-help.example/verify", "PIN".
-const LATIN_RUN = /[A-Za-z][A-Za-z0-9._\-/:@#'’]*(?:\s+[A-Za-z0-9][A-Za-z0-9._\-/:@#'’]*)*/g;
-
 /**
- * Text for the stage. In right-to-left text each Latin run is isolated in <bdi>, so mixed
- * Arabic and English ("حقن الأوامر (Prompt injection)") keeps its word order.
+ * Text for the stage. In right-to-left text each left-to-right run (Latin words, numbers, codes, small formulas:
+ * bidi.ts) is isolated in <bdi dir="ltr">, so mixed Arabic and English ("حقن الأوامر (Prompt injection)", "9Z",
+ * "96–98%", "x ≤ 10") keeps its order. Explicitly left to right: a run that starts with a digit has no strong letter.
  */
 export function rich(s: string, rtl: boolean): Node[] {
-  if (!rtl || !/[A-Za-z]/.test(s)) return [document.createTextNode(s)];
+  if (!rtl) return [document.createTextNode(s)];
+  const runs = ltrRuns(s);
+  if (!runs.length) return [document.createTextNode(s)];
   const out: Node[] = [];
   let last = 0;
-  for (const m of s.matchAll(LATIN_RUN)) {
-    if (m.index! > last) out.push(document.createTextNode(s.slice(last, m.index)));
-    out.push(h("bdi", null, m[0]));
-    last = m.index! + m[0].length;
+  for (const [a, b] of runs) {
+    if (a > last) out.push(document.createTextNode(s.slice(last, a)));
+    out.push(h("bdi", { dir: "ltr" }, s.slice(a, b)));
+    last = b;
   }
   if (last < s.length) out.push(document.createTextNode(s.slice(last)));
   return out;

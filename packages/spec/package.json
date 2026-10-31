@@ -5,9 +5,14 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./core": "./src/core.ts",
+    "./science": "./src/science/index.ts",
     "./schema/*": "./schema/*"
   },
-  "files": ["src", "schema"],
+  "files": [
+    "src",
+    "schema"
+  ],
   "scripts": {
     "build": "esbuild src/index.ts --bundle --format=esm --target=es2019 --outfile=dist/index.js"
   }

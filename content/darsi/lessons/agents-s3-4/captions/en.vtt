@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.610
+Darsi Tiny learned to ask
+
+2
+00:00:02.610 --> 00:00:04.190
+before it sends a message.
+
+3
+00:00:04.950 --> 00:00:07.270
+So, job done, the model is safe?
+
+4
+00:00:07.780 --> 00:00:10.100
+Then someone typed: yes, send
+
+5
+00:00:10.100 --> 00:00:12.180
+it, with nothing before it.
+
+6
+00:00:12.700 --> 00:00:14.720
+It made up a message, and
+
+7
+00:00:14.720 --> 00:00:15.720
+tried to send it!
+
+8
+00:00:16.910 --> 00:00:19.410
+Today: guardrails, the safety
+
+9
+00:00:19.410 --> 00:00:20.730
+rules you write in code.
+
+10
+00:00:21.970 --> 00:00:23.750
+A model’s good habits are learned,
+
+11
+00:00:24.130 --> 00:00:25.890
+and learned behaviour can fail.
+
+12
+00:00:26.520 --> 00:00:29.480
+Darsi Tiny refuses the harmful
+
+13
+00:00:29.480 --> 00:00:30.980
+requests it was trained on.
+
+14
+00:00:31.510 --> 00:00:33.190
+But reworded in new ways,
+
+15
+00:00:33.650 --> 00:00:34.930
+twenty-eight percent of the
+
+16
+00:00:34.930 --> 00:00:37.130
+English ones got a tool call instead.
+
+17
+00:00:37.900 --> 00:00:40.240
+So real safety goes in your code.
+
+18
+00:00:41.480 --> 00:00:44.040
+A guardrail is a rule in code that
+
+19
+00:00:44.040 --> 00:00:46.060
+checks an action before it runs.
+
+20
+00:00:46.840 --> 00:00:49.060
+It doesn’t guess, and it
+
+21
+00:00:49.060 --> 00:00:50.300
+can’t be talked round.
+
+22
+00:00:51.020 --> 00:00:54.100
+The model proposes; the guardrail decides:
+
+23
+00:00:55.000 --> 00:00:57.760
+run it, ask a person, or block it.
+
+24
+00:00:58.870 --> 00:01:01.090
+Rule one: an allow-list.
+
+25
+00:01:01.800 --> 00:01:04.300
+A weather helper needs the weather tool,
+
+26
+00:01:04.800 --> 00:01:06.700
+not attendance and not messages.
+
+27
+00:01:07.510 --> 00:01:09.370
+If the model asks for a tool
+
+28
+00:01:09.370 --> 00:01:10.950
+off the list, block it.
+
+29
+00:01:12.130 --> 00:01:15.330
+Rule two: actions wait for a person.
+
+30
+00:01:15.980 --> 00:01:17.480
+The app shows the exact
+
+31
+00:01:17.480 --> 00:01:19.980
+message and asks: yes or no?
+
+32
+00:01:20.570 --> 00:01:23.210
+It remembers exactly what was approved.
+
+33
+00:01:23.940 --> 00:01:26.200
+A yes to one message is
+
+34
+00:01:26.200 --> 00:01:27.620
+not a yes to another.
+
+35
+00:01:28.900 --> 00:01:31.280
+Rule three: check every
+
+36
+00:01:31.280 --> 00:01:32.920
+detail before a tool runs.
+
+37
+00:01:33.640 --> 00:01:35.760
+Is six B a class that exists?
+
+38
+00:01:36.600 --> 00:01:38.920
+Is twenty-five o’clock a real time?
+
+39
+00:01:39.600 --> 00:01:41.380
+Did every name come from the
+
+40
+00:01:41.380 --> 00:01:42.900
+request or a result?
+
+41
+00:01:43.650 --> 00:01:47.710
+Darsi Tiny once copied nine Z as nine C.
+
+42
+00:01:48.900 --> 00:01:49.360
+Quick check!
+
+43
+00:01:50.020 --> 00:01:52.500
+The person said yes to: the
+
+44
+00:01:52.500 --> 00:01:53.340
+trip is cancelled.
+
+45
+00:01:54.190 --> 00:01:56.610
+Now the model proposes a different
+
+46
+00:01:56.610 --> 00:01:59.030
+message: pay the fees today.
+
+47
+00:01:59.560 --> 00:02:01.000
+What should the guard return?
+
+48
+00:02:02.460 --> 00:02:03.040
+Ask again.
+
+49
+00:02:03.730 --> 00:02:05.130
+The yes was for a different
+
+50
+00:02:05.130 --> 00:02:06.530
+message, so it doesn’t count.
+
+51
+00:02:07.180 --> 00:02:09.840
+Compare the exact details, not just
+
+52
+00:02:09.840 --> 00:02:12.180
+the word yes, and the model can’t
+
+53
+00:02:12.180 --> 00:02:13.420
+send something nobody approved.
+
+54
+00:02:14.830 --> 00:02:17.210
+Rule four: log everything.
+
+55
+00:02:17.990 --> 00:02:20.430
+Every proposed action, what the guard
+
+56
+00:02:20.430 --> 00:02:22.690
+decided, and who approved it.
+
+57
+00:02:23.270 --> 00:02:25.010
+When something goes wrong, the
+
+58
+00:02:25.010 --> 00:02:26.270
+log shows what happened.
+
+59
+00:02:27.550 --> 00:02:31.030
+In the lab, choose what Darsi Tiny may do:
+
+60
+00:02:31.610 --> 00:02:34.350
+read only, ask first, or allowed.
+
+61
+00:02:35.110 --> 00:02:36.550
+Send a message to Mrs
+
+62
+00:02:36.550 --> 00:02:38.230
+Mensah, and approve it.
+
+63
+00:02:38.710 --> 00:02:41.790
+Then switch the code check off, send yes,
+
+64
+00:02:42.130 --> 00:02:45.490
+send it, alone, and see what gets through.
+
+65
+00:02:46.720 --> 00:02:47.480
+Your turn.
+
+66
+00:02:48.100 --> 00:02:51.680
+Darsi Tiny learned to ask before sending.
+
+67
+00:02:52.350 --> 00:02:54.970
+So where should the final check live?
+
+68
+00:02:56.220 --> 00:02:58.540
+In the app’s code, with a person’s yes.
+
+69
+00:02:59.310 --> 00:03:01.350
+Remember: allow only the
+
+70
+00:03:01.350 --> 00:03:02.630
+tools a task needs.
+
+71
+00:03:03.420 --> 00:03:06.200
+Run an action only after a yes
+
+72
+00:03:06.200 --> 00:03:08.000
+to that exact action.
+
+73
+00:03:08.650 --> 00:03:11.710
+Check every detail, and log everything.
+
+74
+00:03:13.040 --> 00:03:15.460
+Try it yourself: on paper, write the
+
+75
+00:03:15.460 --> 00:03:17.640
+guardrails for a homework-reminder agent.
+
+76
+00:03:18.330 --> 00:03:19.850
+Which tools does it need?
+
+77
+00:03:20.490 --> 00:03:23.250
+Which actions wait for a yes, and
+
+78
+00:03:23.250 --> 00:03:24.870
+which details must you check?
+
+79
+00:03:25.520 --> 00:03:27.620
+Then test them on a friend’s
+
+80
+00:03:27.620 --> 00:03:28.920
+sneakiest requests.

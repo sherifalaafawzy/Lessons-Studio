@@ -100,7 +100,7 @@ describe("operations", () => {
       [{ op: "set", scene: "intro", path: "/content/__proto__/x", value: 1 }, /not allowed/],
       [{ op: "addElement", scene: "signs", element: { id: "box", type: "icon", icon: "key", x: 0, y: 0 } }, /already has an element "box"/],
       [{ op: "updateElement", scene: "signs", element: "box", props: { type: "text" } }, /can't change/],
-      [{ op: "animate", scene: "signs", element: "box", preset: "type", at: 0 }, /works on text, code and charts/],
+      [{ op: "animate", scene: "signs", element: "box", preset: "type", at: 0 }, /works on text, code, charts and the science elements/],
       [{ op: "removeLanguage", code: "en" }, /default language/],
       [{ op: "addScene", scene: { ...canvasScene } }, /already a scene "signs"/],
     ];

@@ -1,0 +1,321 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A week with an eraser",
+            "ar-EG": "أسبوع بالأستيكة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "One change: it falls apart",
+            "ar-EG": "تغيير واحد: كله يبوظ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "tone": "accent",
+          "text": {
+            "en": "Tell a computer the rules",
+            "ar-EG": "قول القواعد للكمبيوتر"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Options: a period for each lesson",
+            "ar-EG": "الاختيارات: حصة لكل درس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "A class: one lesson at a time",
+            "ar-EG": "الفصل: درس واحد في المرة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "A teacher: one class at a time",
+            "ar-EG": "المدرس: فصل واحد في المرة"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "No goal yet: any that fits",
+            "ar-EG": "لسه مفيش هدف: أي جدول ينفع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "for c in classes:\n    m.add_all_different(\n        [p[c, s] for s in subjects])\nfor s in subjects:\n    m.add_all_different(\n        [p[c, s] for c in classes])",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "for c in classes:\n    m.add(p[c, \"science\"] <= 3)\nm.add(p[\"6A\", \"maths\"] == 1)",
+        "highlight": [
+          2,
+          3
+        ],
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "schedule": {
+        "kind": "timetable",
+        "rules": [
+          "huda",
+          "test"
+        ],
+        "s": 0,
+        "frames": [
+          1,
+          3
+        ]
+      }
+    },
+    "7": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Propagate and search",
+            "ar-EG": "انتشار وبحث"
+          },
+          {
+            "en": "Plain backtracking",
+            "ar-EG": "رجوع بسيط"
+          }
+        ],
+        "rows": [
+          [
+            "8",
+            "389"
+          ]
+        ],
+        "size": 40,
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "INFEASIBLE: no timetable fits",
+            "ar-EG": "مفيش ولا جدول ينفع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Proved, not given up",
+            "ar-EG": "اتثبت، مش استسلام"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "flask",
+          "text": {
+            "en": "Science: 3 lessons, 2 periods",
+            "ar-EG": "العلوم: 3 دروس و2 حصص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Ask which rule can bend",
+            "ar-EG": "اسأل: أنهي قاعدة تتساهل؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Hard subjects all after lunch?",
+            "ar-EG": "المواد الصعبة كلها بعد الغدا؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "A long gap for one teacher?",
+            "ar-EG": "فراغ طويل لمدرس واحد؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Who always gets the last period?",
+            "ar-EG": "مين دايمًا عنده آخر حصة؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "Check with the people",
+            "ar-EG": "راجع مع الناس"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Build the timetable",
+            "ar-EG": "اصنع الجدول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cross",
+          "text": {
+            "en": "One step: cross out",
+            "ar-EG": "خطوة واحدة: اشطب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Run: count the guesses",
+            "ar-EG": "شغّل: عدّ التخمينات"
+          },
+          "s": 2
+        },
+        {
+          "icon": "gauge",
+          "tone": "accent",
+          "text": {
+            "en": "Compare: 8 or 389",
+            "ar-EG": "قارن: 8 ولا 389"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Periods are variables",
+            "ar-EG": "الحصص متغيّرات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Each rule is one line",
+            "ar-EG": "كل قاعدة سطر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "INFEASIBLE: the rules clash",
+            "ar-EG": "مفيش حل: القواعد متعارضة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Fits still needs fair eyes",
+            "ar-EG": "الملتزم محتاج عين عادلة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Say the rules; let the solver search; you judge.",
+        "ar-EG": "قول القواعد، وخلّي السولفر يدوّر، وإنت احكم."
+      }
+    },
+    "14": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "A grid and sticky notes",
+            "ar-EG": "جدول وورق لزق"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils place the lessons",
+            "ar-EG": "التلاميذ يحطّوا الدروس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Call out every clash",
+            "ar-EG": "نادوا على أي تعارض"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "Add a rule: what moves?",
+            "ar-EG": "زوّد قاعدة: إيه اللي يتحرّك؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

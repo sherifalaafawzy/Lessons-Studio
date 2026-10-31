@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
@@ -19,9 +19,31 @@ import { renderFrame } from "./render.ts";
 const GUIDE = readFileSync(fileURLToPath(new URL("./guide.md", import.meta.url)), "utf8");
 const PREVIEW_URI = "ui://lessonstudio/preview.html";
 
+/**
+ * The element packs' pages, read once when the server starts: docs/packs.md (the contract), docs/science.md, and every
+ * docs/packs/<id>.md there is, so a pack's page is offered as soon as it exists.
+ */
+const DOCS: { name: string; uri: string; title: string; text: string }[] = (() => {
+  const dir = join(ROOT, "docs");
+  const out: { name: string; uri: string; title: string; text: string }[] = [];
+  const add = (file: string, name: string, uri: string, title: string): void => {
+    try { out.push({ name, uri, title, text: readFileSync(join(dir, file), "utf8") }); } catch { /* not written yet */ }
+  };
+  add("packs.md", "docs-packs", "lessonstudio://docs/packs", "Technology packs: the contract, the packs and their element types");
+  add("science.md", "docs-science", "lessonstudio://docs/science", "The science pack: equations, plots, networks, model diagrams, tables");
+  const packs = join(dir, "packs");
+  for (const f of existsSync(packs) ? readdirSync(packs).filter((x) => /^[a-z0-9-]+\.md$/.test(x)).sort() : []) {
+    const id = f.slice(0, -3);
+    add(`packs/${f}`, `docs-pack-${id}`, `lessonstudio://docs/packs/${id}`, `The ${id} pack: its elements, their fields and animation`);
+  }
+  return out;
+})();
+
 const INSTRUCTIONS =
   "Lesson Studio builds short animated explainer lessons (tech, AI, cyber security) that play on old phones. " +
-  "Read the resource lessonstudio://guide before building, and lessonstudio://examples/how-ai-learns for a complete example. " +
+  "Read the resource lessonstudio://guide before building, and lessonstudio://examples/how-ai-learns for a complete example " +
+  "(lessonstudio://examples/inside-a-neural-network for equations, plots, neural networks and model diagrams). " +
+  "Technology packs (code, data, IoT, networks, optimization) add more element types: lessonstudio://docs/packs. " +
   "Every lesson needs narration and text in each of its languages; animations can be tied to spoken words.";
 
 const ok = (data: unknown, extra: Partial<CallToolResult> = {}): CallToolResult => ({
@@ -286,11 +308,20 @@ export function buildServer({ store, config }: Deps, actor: Actor): McpServer {
   server.registerResource("ops-schema", "lessonstudio://ops-schema", { title: "Operation schema (JSON Schema)", mimeType: "application/json" }, async (uri) => ({
     contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify(OPS_SCHEMA) }],
   }));
-  server.registerResource("example", "lessonstudio://examples/how-ai-learns", { title: "Example: a canvas lesson in English and Arabic", mimeType: "application/json" }, async (uri) => {
-    const dir = join(ROOT, "examples", "how-ai-learns");
+  const example = (id: string) => async (uri: URL) => {
+    const dir = join(ROOT, "examples", id);
     const read = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf8"));
     return { contents: [{ uri: uri.href, mimeType: "application/json", text: JSON.stringify({ manifest: read("manifest.json"), scenes: read("scenes.json") }) }] };
-  });
+  };
+  server.registerResource("example", "lessonstudio://examples/how-ai-learns", { title: "Example: a canvas lesson in English and Arabic", mimeType: "application/json" }, example("how-ai-learns"));
+  server.registerResource("science-example", "lessonstudio://examples/inside-a-neural-network", {
+    title: "Example: equations, plots, a trained network and model diagrams, in English and Arabic", mimeType: "application/json",
+  }, example("inside-a-neural-network"));
+  for (const d of DOCS) {
+    server.registerResource(d.name, d.uri, { title: d.title, mimeType: "text/markdown" }, async (uri) => ({
+      contents: [{ uri: uri.href, mimeType: "text/markdown", text: d.text }],
+    }));
+  }
   server.registerResource("lesson", new ResourceTemplate("lessonstudio://lessons/{id}", {
     list: async () => ({ resources: (await store.list(actor.uid)).map((l) => ({ uri: `lessonstudio://lessons/${l.id}`, name: l.title, mimeType: "application/json" })) }),
   }), { title: "A lesson's JSON", mimeType: "application/json" }, async (uri, vars) => {

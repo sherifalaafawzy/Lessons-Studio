@@ -1,7 +1,7 @@
 // Bundles the functions into lib/index.js with esbuild: the shared packages, the MCP server from apps/server and
 // the studio's scene gallery all go in; only firebase-functions and firebase-admin stay as installed packages.
 // The browser scripts the MCP server builds on the fly on a PC (the player, the in-chat preview) are built here once
-// and baked in, and the guide and the example lesson it reads are copied beside the bundle.
+// and baked in, and the guide, the example lessons and the packs' pages it reads are copied beside the bundle.
 import { build } from "esbuild";
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { parseEnv } from "node:util";
@@ -60,7 +60,11 @@ for (const [pkg, file] of [["noto-sans", "noto-sans-latin-wght-normal.woff2"], [
   cpSync(`${root}node_modules/@fontsource-variable/${pkg}/files/${file}`, `${here}lib/fonts/${file}`);
 }
 mkdirSync(`${here}lib/examples`, { recursive: true });
-cpSync(`${root}examples/how-ai-learns`, `${here}lib/examples/how-ai-learns`, { recursive: true });
+for (const id of ["how-ai-learns", "inside-a-neural-network"]) cpSync(`${root}examples/${id}`, `${here}lib/examples/${id}`, { recursive: true });
+// The packs' pages the MCP server offers as resources (apps/server/src/mcp.ts DOCS): whatever exists when it's built.
+mkdirSync(`${here}lib/docs`, { recursive: true });
+for (const f of ["packs.md", "science.md"]) if (existsSync(`${root}docs/${f}`)) cpSync(`${root}docs/${f}`, `${here}lib/docs/${f}`);
+if (existsSync(`${root}docs/packs`)) cpSync(`${root}docs/packs`, `${here}lib/docs/packs`, { recursive: true });
 
 // The real project's settings, from the repository's .env.local (one place for them): functions/.env.<project>,
 // which Firebase loads into the functions' environment. All of it is public (the web config, the address);

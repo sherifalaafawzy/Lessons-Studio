@@ -73,11 +73,13 @@ about 400 × 410 on the stage), plus the Darsi mark, `@lib/v1/brand/darsi-mark.s
 | `code` | `code` (a string with \n), `highlight` (1-based lines), `size` |
 | `chart` | `kind` bar/line, `data` (numbers), `labels`, `max`, `w`, `h` |
 | `group` | `children` (elements positioned inside the group) |
+| `math`, `plot`, `net`, `arch`, `table` | the science elements (equations, plots, networks, model diagrams, tables): see below; they need `w` and `h` |
 
 Tones (brand colours, so brands re-theme everything): `fg`, `muted`, `accent`, `accent2`, `danger`, `ok`,
 `surface`, `bg`, `line` (the outline colour).
 
-A track animates one property: `{"prop": "x"|"y"|"scale"|"rotate"|"opacity"|"draw"|"reveal", "keys": [key, ...]}`.
+A track animates one property: `{"prop": "x"|"y"|"scale"|"rotate"|"opacity"|"draw"|"reveal"|"frame"|"focus"|"pass", "keys": [key, ...]}`
+(the last three are for the science elements, below).
 A key: `{"at": when, "value": number, "ease"?: "linear"|"in"|"out"|"in-out"|"back"|"step"}`; the ease shapes the
 move from the previous key. Before the first key and after the last, the value holds. `draw` (0 to 1) draws a
 stroke (lines, paths, shapes). `reveal` (0 to 1) shows text word by word, types code, grows a chart.
@@ -86,10 +88,108 @@ stroke (lines, paths, shapes). `reveal` (0 to 1) shows text word by word, types 
 animates on its own narration, so one animation stays in sync in every language. This is the main tool.
 
 Ready-made animations (`animate_element`, or the `animate` operation) expand into keyframes:
-fade-in, fade-out, pop, rise, slide-in, grow, pulse, draw, type, move-to (with `to: {x, y}`).
+fade-in, fade-out, pop, rise, slide-in, grow, pulse, draw, type, move-to (with `to: {x, y}`), and for the science
+elements train, forward and backward.
 
 Scene extras: `"transition": {"type": "cut"|"fade"|"slide"|"wipe"|"zoom", "dur"?: 0.4}` (how the scene comes
 in); `"camera": [tracks for "x", "y" (the stage point at the centre) and "scale"]` to pan and zoom.
+
+## Science elements: equations, plots, networks, model diagrams, tables
+For lessons about AI, maths and data. The phone draws them from data (no images), so they stay light. Each needs `w`
+and `h`. Networks and diagrams mirror in right-to-left languages (unless `fixed`); equations and plots read left to
+right; tables follow the language, with numbers and `ltr` columns left to right.
+
+**Equation** (`math`): `{"id": "eq", "type": "math", "x": 80, "y": 170, "w": 1120, "h": 140, "size": 64,
+"tex": "\\g{1}{y} = \\sigma\\left(\\g{2}{w_1 x_1 + w_2 x_2} \\g{3}{+ \\c{accent}{b}}\\right)"}` (in JSON, a TeX
+backslash is written `\\`). `tex` is one string, or one per language with the same `\g` parts. `align`
+start/center/end; `size` 12 to 200 (the equation shrinks to fit its box); `"notation": "arabic"` sets right-to-left
+languages right to left with Arabic-Indic digits (write that language's `tex` with Arabic letters).
+- The TeX subset: letters and numbers, `+ - = < > ( ) [ ] , ; : ! ' | /`, `^` and `_` (braces for more than one
+  character), `\frac{a}{b}`, `\sqrt{x}`, `\sqrt[n]{x}`, `\sum_{i=1}^{n}`, `\prod`, `\int`, `\max_x`, `\min`, `\lim`,
+  `\argmax`, Greek (`\alpha` to `\omega`, `\Sigma`), `\cdot \times \le \ge \ne \approx \to \in \partial \nabla \infty
+  \ldots`, `\hat \bar \vec \tilde \dot`, `\mathbf`, `\text{…}`, `\mathrm`, `\operatorname{softmax}`, `\log \ln \exp
+  \sin \cos \tanh`, `\left( … \right)`, `\begin{bmatrix} a & b \\ c & d \end{bmatrix}` (also matrix, pmatrix,
+  vmatrix, cases; up to 6 × 6), spaces `\, \; \quad`. At most 400 characters; anything else is an error that names
+  the place.
+- Lesson Studio's own: `\g{n}{…}` is part n (n from 1): `reveal` brings the parts in in order and `focus` lights one.
+  `\c{tone}{…}` colours a part (fg, muted, accent, accent2, danger, ok). `\w{key}` is a word from the element's
+  `words`, in the lesson's language: `"words": {"loss": {"en": "loss", "ar": "الخسارة"}}`.
+
+**Plot** (`plot`): axes with series. `{"id": "p", "type": "plot", "x": 200, "y": 150, "w": 880, "h": 500,
+"xr": [-4, 4], "yr": [-1.2, 1.2], "grid": true, "xLabel": {"en": "Input", "ar": "المدخل"}, "series": [{"kind": "fn",
+"fn": "sigmoid(x)", "tone": "accent", "label": {"en": "sigmoid", "ar": "السيجمويد"}}]}`. `xTicks`/`yTicks` list the
+axis numbers. Up to 8 series:
+- `fn`: y as an expression in `x` and the parameters `a b c d`: `+ - * / ^`, brackets, `sin cos tan tanh exp log ln
+  log2 log10 sqrt abs floor ceil round sign sigmoid relu step`, `max(p, q)`, `min`, `pow`, and `pi`, `e` (write
+  `2*pi`). `"params": [[a, b], [a, b], ...]` gives the parameters per frame (frames blend: a line turning as it fits).
+- `line`, `area`, `dots`: `"pts": [[x, y], ...]` (up to 400), or `"frames"` (one point list per frame). Dots take
+  colours from `"cls"` (0 accent, 1 ok, 2 danger, 3 accent2) or `"clsFrames"`.
+- `heat`: a grid over the plot, rows from the top (up to 32 × 32), class ids 0–3, or values 0–1 with `"scale": true`;
+  `"frames"` for a decision map changing as a model trains.
+- `hline`/`vline`: `"at": value` (a threshold). `marker`: `"pts"`, one position per frame, `"trail": true`.
+- `tone`, `dash` and a `label` per language on any series but `heat`. `frame` is the frame shown when no track moves it.
+
+**Network** (`net`): `{"id": "n", "type": "net", "x": 180, "y": 150, "w": 920, "h": 500, "layers": [2, 4, 1],
+"labels": {"in": ["x₁", "x₂"], "out": ["y"]}, "values": true}`. Up to 8 layers of 10, 40 neurons, 200 lines.
+`weights[frame][layer][from][to]` and `acts[frame][layer][neuron]` (−1 to 1) are optional; without them the lines show
+a sample pattern. `labels.layers` names each layer; `values` writes activations in the neurons.
+
+**Model diagram** (`arch`): blocks and arrows, laid out automatically. `{"id": "m", "type": "arch", "x": 40, "y": 150,
+"w": 1200, "h": 470, "blocks": [{"id": "in", "kind": "input", "label": {"en": "Tokens", "ar": "الرموز"}}, {"id": "att",
+"kind": "attn", "label": {"en": "Attention", "ar": "الانتباه"}, "note": "8 heads"}, {"id": "out", "kind": "softmax",
+"label": {"en": "Next token", "ar": "الرمز التالي"}}], "edges": [{"from": "in", "to": "att"}, {"from": "att", "to":
+"out"}, {"from": "in", "to": "out", "skip": true}], "groups": [{"id": "g", "label": {"en": "Block", "ar": "كتلة"},
+"repeat": 6, "blocks": ["att"]}], "flow": "right"}`.
+- Kinds: input, output, embed, dense, conv, pool, attn, norm, ffn, add, concat, softmax, act, rnn, store, tool, model,
+  box. Up to 24 blocks; every block needs a label.
+- `skip` arrows (residual connections, a tool's result going back) go around the blocks between; the other arrows must
+  not loop. A group gets a dashed frame and "× repeat". `flow`: right (default), down (better on portrait stages), up.
+
+**Table** (`table`): `{"id": "t", "type": "table", "x": 240, "y": 160, "w": 800, "h": 360, "size": 32,
+"cols": [{"en": "Model", "ar": "النموذج"}, {"en": "Accuracy", "ar": "الدقة"}], "rows": [[{"en": "Small",
+"ar": "صغيرة"}, "81%"], [{"en": "Bigger", "ar": "أكبر"}, "93%"]], "ltr": [1]}`. Up to 12 rows of 8 columns; a cell is a
+string, a number, or text per language.
+
+**Their animation** (keyframes like any other, anchored to spoken words):
+- `reveal` 0 → 1 brings them in: an equation's `\g` parts in order, a plot's lines drawn left to right and dots in
+  order, a network layer by layer, a diagram's blocks along the arrows, a table row by row.
+- `frame` (from 0; fractions blend) picks a snapshot of a plot or network that has frames (training rounds).
+- `focus` lights the n-th part (from 1; 0 lights none): an equation's `\g` part, a plot's series, a network's layer,
+  a diagram's block (in `blocks` order), a table's row. Use `"ease": "step"` so it switches at once.
+- `pass` on a network or diagram: 0 → 1 sends data forward, 1 → 2 sends the error back, −1 hides it (the default).
+- Presets: `type` (reveal), `train` (frame from the first to the last, on plots and networks), `forward` and
+  `backward` (a pass, on networks and diagrams).
+
+Example: light a diagram's third block when "attention" is said, then send data through on "repeats":
+`{"prop": "focus", "keys": [{"at": {"word": {"en": "attention", "ar": "الانتباه"}}, "value": 3, "ease": "step"}]}` and
+`animate_element` with preset `forward` at `{"en": "repeats", "ar": "وتتكرر"}`.
+
+The resource `lessonstudio://examples/inside-a-neural-network` is a complete lesson with all five: an equation built
+term by term, activation functions, a network trained for real (weights per frame), its decision map and loss curve,
+gradient descent, a CNN and a transformer, and a table, in English and Arabic.
+
+## Technology packs: programming, data, IoT, networks, optimization
+Five more packs of element types, one per technology, drawn by a file the phone downloads only for lessons that use
+them. The contract is `lessonstudio://docs/packs` (`docs/packs.md`); each pack's fields, animation, right-to-left rules
+and an example are in `lessonstudio://docs/packs/<id>` (`docs/packs/<id>.md`), listed with the resources once the pack
+has its page. The science elements above are a pack too (`lessonstudio://docs/science`).
+
+| pack | element types |
+|---|---|
+| `code` | `trace`, `flowchart`, `array`, `calltree`, `codediff` |
+| `data` | `erd`, `query`, `pipeline`, `sheet` |
+| `iot` | `circuit`, `pinout`, `signal`, `gates`, `bits` |
+| `network` | `topology`, `sequence`, `layers`, `packet` |
+| `opt` | `graph`, `schedule`, `knapsack`, `lp`, `searchtree` |
+
+- Add one like any free element: `addElement` with `{"id", "type": "<a type above>", "x", "y", "w", "h", ...its own
+  fields}`. Every pack element needs `w` and `h`; its texts are per language like everywhere else.
+- Read the pack's page before writing one: its fields are its own, and `validate_lesson` reports the pack's errors at
+  exact paths (for example `scenes[2].content.elements[1].rows[3]`). Fix them with `updateElement`.
+- Animate with keyframes (`setKeyframe` or `setTrack`) on `reveal`, `frame`, `focus` and `pass`; the pack's page says
+  what each does for its elements. The motion presets (fade-in, pop, rise…) work too.
+- Put computed content (an algorithm's steps, a query's rows, a circuit's currents) in the element as data: the
+  phone only draws.
 
 ## Operations (`edit_lesson`)
 A batch applies whole or not at all, and can be undone. The main ones:

@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.210
+My pupils trained a small model to sort
+
+2
+00:00:03.210 --> 00:00:06.430
+drawings into circles, crosses and lines.
+
+3
+00:00:07.120 --> 00:00:08.620
+It was sure: a circle.
+
+4
+00:00:09.330 --> 00:00:12.170
+Then, in the lab, we changed eight pixels
+
+5
+00:00:12.170 --> 00:00:14.870
+in just the right way, and it said cross,
+
+6
+00:00:15.310 --> 00:00:17.430
+though the picture looked the same to us.
+
+7
+00:00:18.670 --> 00:00:20.970
+Today: pictures that fool a
+
+8
+00:00:20.970 --> 00:00:23.610
+model, why they work, and how to
+
+9
+00:00:23.610 --> 00:00:24.910
+test a model against them.
+
+10
+00:00:26.060 --> 00:00:28.500
+An adversarial example is an input
+
+11
+00:00:28.500 --> 00:00:31.740
+changed on purpose, just a little, so
+
+12
+00:00:31.740 --> 00:00:33.180
+that a model gets it wrong.
+
+13
+00:00:33.850 --> 00:00:35.130
+People see no difference.
+
+14
+00:00:35.910 --> 00:00:38.610
+The model reads tiny values we barely
+
+15
+00:00:38.610 --> 00:00:41.470
+notice, and the attacker pushes exactly
+
+16
+00:00:41.470 --> 00:00:41.990
+those.
+
+17
+00:00:43.420 --> 00:00:44.820
+It's not only pictures.
+
+18
+00:00:45.710 --> 00:00:48.070
+In tests, stickers on a road
+
+19
+00:00:48.070 --> 00:00:49.830
+sign fooled sign readers.
+
+20
+00:00:50.630 --> 00:00:52.730
+A few changed letters can slip
+
+21
+00:00:52.730 --> 00:00:53.950
+a message past a filter.
+
+22
+00:00:54.630 --> 00:00:57.490
+And sounds we can hardly hear can
+
+23
+00:00:57.490 --> 00:00:58.970
+steer a voice assistant.
+
+24
+00:01:00.410 --> 00:01:02.870
+Think of a pupil who learned to spot a
+
+25
+00:01:02.870 --> 00:01:05.070
+cow by the green grass around it.
+
+26
+00:01:05.610 --> 00:01:06.830
+Show them a cow on a
+
+27
+00:01:06.830 --> 00:01:08.250
+beach, and they're lost.
+
+28
+00:01:09.000 --> 00:01:10.880
+Models learn shortcuts like that
+
+29
+00:01:10.880 --> 00:01:13.440
+too, and attackers aim at them.
+
+30
+00:01:14.600 --> 00:01:17.980
+One defence is adversarial training: make
+
+31
+00:01:17.980 --> 00:01:20.800
+tricky examples on purpose, label them
+
+32
+00:01:20.800 --> 00:01:22.700
+correctly, and train on them too.
+
+33
+00:01:23.330 --> 00:01:25.230
+The model gets harder to fool,
+
+34
+00:01:25.710 --> 00:01:26.890
+but never impossible.
+
+35
+00:01:28.310 --> 00:01:29.950
+You can test any model's
+
+36
+00:01:29.950 --> 00:01:31.130
+answer in a similar way.
+
+37
+00:01:31.710 --> 00:01:34.210
+Nudge the input a little, both ways,
+
+38
+00:01:34.710 --> 00:01:36.110
+and see if the label changes.
+
+39
+00:01:36.890 --> 00:01:39.070
+If it flips, that answer is
+
+40
+00:01:39.070 --> 00:01:41.250
+fragile: don't let it decide alone.
+
+41
+00:01:42.540 --> 00:01:43.020
+Quick check!
+
+42
+00:01:43.630 --> 00:01:44.950
+A model says it's
+
+43
+00:01:44.950 --> 00:01:46.670
+ninety-nine percent sure.
+
+44
+00:01:47.340 --> 00:01:49.940
+Does that mean an attacker can't fool it?
+
+45
+00:01:51.120 --> 00:01:51.360
+No.
+
+46
+00:01:51.930 --> 00:01:54.790
+A model can be sure and wrong at the
+
+47
+00:01:54.790 --> 00:01:57.770
+same time: in the lab, a confident
+
+48
+00:01:57.770 --> 00:02:00.130
+answer flips with six to eight pixels.
+
+49
+00:02:00.920 --> 00:02:02.920
+Confidence is a number the model
+
+50
+00:02:02.920 --> 00:02:05.160
+gives itself, not a guarantee.
+
+51
+00:02:06.520 --> 00:02:09.560
+So where a decision matters, like a
+
+52
+00:02:09.560 --> 00:02:12.620
+pupil's mark, a health photo or a gate
+
+53
+00:02:12.620 --> 00:02:15.500
+that opens, don't let one model decide.
+
+54
+00:02:16.310 --> 00:02:18.810
+Combine signals, test with small
+
+55
+00:02:18.810 --> 00:02:21.190
+changes, and keep a person in charge.
+
+56
+00:02:22.550 --> 00:02:24.870
+In the app, train the shapes model,
+
+57
+00:02:25.270 --> 00:02:27.730
+then raise the pixels allowed until
+
+58
+00:02:27.730 --> 00:02:29.030
+the right picture flips.
+
+59
+00:02:29.720 --> 00:02:32.160
+Press “Train it tough” and attack
+
+60
+00:02:32.160 --> 00:02:34.580
+again: fewer attacks get through.
+
+61
+00:02:35.780 --> 00:02:36.540
+Your turn.
+
+62
+00:02:37.160 --> 00:02:39.920
+A school plans to take attendance with a
+
+63
+00:02:39.920 --> 00:02:43.040
+face-recognition camera, and nothing else.
+
+64
+00:02:43.760 --> 00:02:45.080
+What's the safest plan?
+
+65
+00:02:46.300 --> 00:02:48.800
+Use it as a helper, with a person
+
+66
+00:02:48.800 --> 00:02:51.060
+checking and another way in.
+
+67
+00:02:51.670 --> 00:02:54.490
+Remember: tiny chosen changes
+
+68
+00:02:54.490 --> 00:02:56.450
+can fool a sure model.
+
+69
+00:02:57.080 --> 00:02:58.680
+Training it tough helps,
+
+70
+00:02:59.100 --> 00:03:00.160
+but isn't perfect.
+
+71
+00:03:00.900 --> 00:03:02.920
+Test with small nudges, and
+
+72
+00:03:02.920 --> 00:03:03.880
+keep a person deciding.
+
+73
+00:03:05.350 --> 00:03:07.630
+Try it in class tomorrow: one
+
+74
+00:03:07.630 --> 00:03:09.790
+pupil is the “model” and sorts
+
+75
+00:03:09.790 --> 00:03:11.730
+drawings by a secret rule.
+
+76
+00:03:12.360 --> 00:03:14.280
+The class hunts for the smallest
+
+77
+00:03:14.280 --> 00:03:16.380
+change that flips its answer.
+
+78
+00:03:17.000 --> 00:03:18.720
+Then ask: how could we make
+
+79
+00:03:18.720 --> 00:03:20.320
+the rule harder to fool?

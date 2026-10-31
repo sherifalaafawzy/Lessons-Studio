@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.430
+I taught Darsi Tiny a new
+
+2
+00:00:02.430 --> 00:00:03.650
+bus tool on my phone.
+
+3
+00:00:04.190 --> 00:00:06.810
+Seven bus questions out of eight: right!
+
+4
+00:00:07.590 --> 00:00:09.530
+Then I asked about the weather,
+
+5
+00:00:09.990 --> 00:00:11.790
+and it called no tool at all.
+
+6
+00:00:12.330 --> 00:00:14.130
+It learned something new, and
+
+7
+00:00:14.130 --> 00:00:15.250
+forgot what it knew.
+
+8
+00:00:16.440 --> 00:00:19.280
+Today: changing a model safely, and
+
+9
+00:00:19.280 --> 00:00:21.120
+guardrails that don’t depend on it.
+
+10
+00:00:22.200 --> 00:00:24.280
+Fine-tuning changes a model’s
+
+11
+00:00:24.280 --> 00:00:25.480
+numbers from examples.
+
+12
+00:00:26.310 --> 00:00:29.410
+On the phone, only Darsi Tiny’s top layer
+
+13
+00:00:29.410 --> 00:00:32.690
+learns: sixteen examples, fifteen steps.
+
+14
+00:00:33.400 --> 00:00:34.880
+That’s up to about eleven
+
+15
+00:00:34.880 --> 00:00:36.200
+minutes on an old phone.
+
+16
+00:00:37.520 --> 00:00:40.460
+With no old conversations mixed in, it
+
+17
+00:00:40.460 --> 00:00:42.800
+gets seven bus questions out of eight,
+
+18
+00:00:43.200 --> 00:00:45.540
+but only one old skill in eight.
+
+19
+00:00:46.130 --> 00:00:49.130
+Mix in sixteen, and it keeps five.
+
+20
+00:00:49.850 --> 00:00:52.470
+Mix in forty-eight, and it keeps all
+
+21
+00:00:52.470 --> 00:00:54.630
+eight, while the bus drops to five.
+
+22
+00:00:55.390 --> 00:00:57.270
+That mixing is called replay.
+
+23
+00:00:58.720 --> 00:00:59.300
+Quick check!
+
+24
+00:01:00.090 --> 00:01:03.050
+Which of these fine-tuned models would
+
+25
+00:01:03.050 --> 00:01:05.030
+you put in front of real users?
+
+26
+00:01:06.440 --> 00:01:07.980
+The one with forty-eight mixed
+
+27
+00:01:07.980 --> 00:01:10.540
+in, and only after it passes the
+
+28
+00:01:10.540 --> 00:01:11.700
+whole test set again.
+
+29
+00:01:12.370 --> 00:01:14.690
+A new tool is worth little if
+
+30
+00:01:14.690 --> 00:01:15.970
+the old skills are gone.
+
+31
+00:01:16.630 --> 00:01:18.490
+Every fine-tune is a new
+
+32
+00:01:18.490 --> 00:01:20.490
+model: evaluate it like one.
+
+33
+00:01:21.670 --> 00:01:24.870
+Darsi Tiny also learned to refuse harmful
+
+34
+00:01:24.870 --> 00:01:27.950
+requests, and to ask before sending.
+
+35
+00:01:28.630 --> 00:01:31.230
+But reworded refusals got a tool call
+
+36
+00:01:31.230 --> 00:01:33.070
+twenty-eight percent of the time in
+
+37
+00:01:33.070 --> 00:01:35.230
+English, and twelve in Arabic.
+
+38
+00:01:35.980 --> 00:01:38.300
+Yes, send it, on its own,
+
+39
+00:01:38.540 --> 00:01:40.100
+makes it invent a message.
+
+40
+00:01:40.830 --> 00:01:42.890
+And fine-tuning changes the very
+
+41
+00:01:42.890 --> 00:01:44.410
+numbers behind those habits.
+
+42
+00:01:45.780 --> 00:01:47.560
+So put the guardrails in
+
+43
+00:01:47.560 --> 00:01:49.140
+code, around the model.
+
+44
+00:01:49.750 --> 00:01:52.190
+Give each task the fewest tools.
+
+45
+00:01:52.890 --> 00:01:55.690
+Approve the exact action, check
+
+46
+00:01:55.690 --> 00:01:58.250
+every detail, and log everything.
+
+47
+00:01:58.960 --> 00:02:00.420
+Then re-run the evaluation
+
+48
+00:02:00.420 --> 00:02:01.840
+after every change.
+
+49
+00:02:03.180 --> 00:02:04.820
+Why the exact action?
+
+50
+00:02:05.510 --> 00:02:07.230
+If the app only remembers your
+
+51
+00:02:07.230 --> 00:02:09.330
+yes, the model could send a
+
+52
+00:02:09.330 --> 00:02:10.850
+different text to someone else.
+
+53
+00:02:11.570 --> 00:02:13.510
+So compare what will run with
+
+54
+00:02:13.510 --> 00:02:14.230
+what you were shown.
+
+55
+00:02:14.900 --> 00:02:17.040
+If anything differs, ask again.
+
+56
+00:02:18.220 --> 00:02:19.280
+In this lesson’s code,
+
+57
+00:02:19.700 --> 00:02:20.880
+you’ll write the gate.
+
+58
+00:02:21.620 --> 00:02:23.620
+It runs a call only if it is
+
+59
+00:02:23.620 --> 00:02:25.840
+exactly the approved one, and
+
+60
+00:02:25.840 --> 00:02:27.260
+logs the decision either way.
+
+61
+00:02:28.440 --> 00:02:30.000
+In the app, ask about a
+
+62
+00:02:30.000 --> 00:02:31.100
+bus before teaching.
+
+63
+00:02:31.740 --> 00:02:33.360
+Teach with forty-eight old
+
+64
+00:02:33.360 --> 00:02:35.860
+conversations mixed in, and test
+
+65
+00:02:35.860 --> 00:02:37.920
+the new tool and the old skills.
+
+66
+00:02:38.680 --> 00:02:40.700
+Then teach with none, and compare.
+
+67
+00:02:42.050 --> 00:02:42.570
+Your turn.
+
+68
+00:02:43.200 --> 00:02:45.420
+A model has learned to ask
+
+69
+00:02:45.420 --> 00:02:47.280
+before it sends a message.
+
+70
+00:02:47.990 --> 00:02:50.510
+Why still check the approval in code?
+
+71
+00:02:51.760 --> 00:02:54.000
+Because learned behaviour can fail.
+
+72
+00:02:54.720 --> 00:02:58.140
+Remember: fine-tuning teaches and forgets,
+
+73
+00:02:58.260 --> 00:03:01.240
+so mix old examples in and test both.
+
+74
+00:03:01.940 --> 00:03:04.280
+Learned safety is not a guarantee.
+
+75
+00:03:04.970 --> 00:03:08.970
+Guard actions in code: fewest tools, exact
+
+76
+00:03:08.970 --> 00:03:12.110
+approval, checks, logs and tests.
+
+77
+00:03:13.340 --> 00:03:16.160
+Try it yourself: write a guardrail plan
+
+78
+00:03:16.160 --> 00:03:17.880
+for an agent you’d like to build.
+
+79
+00:03:18.510 --> 00:03:20.930
+List its tools, the actions needing
+
+80
+00:03:20.930 --> 00:03:23.570
+approval, the checks in code, the
+
+81
+00:03:23.570 --> 00:03:25.830
+logs, and the tests you’ll re-run.

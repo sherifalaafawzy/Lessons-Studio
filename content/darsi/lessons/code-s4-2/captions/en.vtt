@@ -1,0 +1,333 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.270
+A student wrote a function to
+
+2
+00:00:02.270 --> 00:00:03.570
+count down from three.
+
+3
+00:00:04.120 --> 00:00:06.300
+It called itself, and called
+
+4
+00:00:06.300 --> 00:00:09.080
+itself, and never stopped, until
+
+5
+00:00:09.080 --> 00:00:10.880
+Python stopped it with an error.
+
+6
+00:00:11.480 --> 00:00:14.360
+One line was missing: the base case.
+
+7
+00:00:15.710 --> 00:00:17.830
+Today: recursion, functions
+
+8
+00:00:17.830 --> 00:00:19.190
+that call themselves.
+
+9
+00:00:20.470 --> 00:00:22.670
+A recursive function has two parts.
+
+10
+00:00:23.460 --> 00:00:25.800
+The base case answers at once,
+
+11
+00:00:26.080 --> 00:00:27.260
+without calling itself.
+
+12
+00:00:28.040 --> 00:00:30.280
+The recursive case calls the same
+
+13
+00:00:30.280 --> 00:00:32.000
+function on a smaller problem.
+
+14
+00:00:32.640 --> 00:00:36.940
+Factorial of n is n times factorial of n
+
+15
+00:00:36.940 --> 00:00:40.240
+minus one, and factorial of one is one.
+
+16
+00:00:41.440 --> 00:00:42.800
+Follow fact of four.
+
+17
+00:00:43.440 --> 00:00:46.120
+It waits for fact of three, which
+
+18
+00:00:46.120 --> 00:00:48.760
+waits for fact of two, down to
+
+19
+00:00:48.760 --> 00:00:50.660
+fact of one, the base case.
+
+20
+00:00:51.340 --> 00:00:53.700
+Then the answers come back up: one,
+
+21
+00:00:53.700 --> 00:00:56.380
+two, six, and twenty-four.
+
+22
+00:00:57.580 --> 00:00:59.940
+Every waiting call sits on the call
+
+23
+00:00:59.940 --> 00:01:02.260
+stack, and the stack has limits.
+
+24
+00:01:03.070 --> 00:01:05.730
+Without a base case, the calls pile
+
+25
+00:01:05.730 --> 00:01:07.350
+up until Python stops them.
+
+26
+00:01:07.890 --> 00:01:10.150
+On the phone that’s after about a
+
+27
+00:01:10.150 --> 00:01:11.510
+hundred and fifty calls.
+
+28
+00:01:12.230 --> 00:01:13.790
+Add the base case, and the
+
+29
+00:01:13.790 --> 00:01:15.030
+countdown stops at zero.
+
+30
+00:01:16.330 --> 00:01:18.730
+Recursion shines when a problem
+
+31
+00:01:18.730 --> 00:01:20.810
+holds smaller copies of itself.
+
+32
+00:01:21.550 --> 00:01:24.550
+To move a tower of three discs, move the
+
+33
+00:01:24.550 --> 00:01:26.990
+top two out of the way, move the biggest,
+
+34
+00:01:27.590 --> 00:01:29.110
+then move the two back on top.
+
+35
+00:01:29.770 --> 00:01:30.710
+That’s seven moves.
+
+36
+00:01:31.440 --> 00:01:34.520
+Four discs take fifteen: each extra
+
+37
+00:01:34.520 --> 00:01:36.680
+disc doubles the work, plus one.
+
+38
+00:01:37.910 --> 00:01:38.490
+Quick check!
+
+39
+00:01:39.280 --> 00:01:42.880
+A recursive function has no base case.
+
+40
+00:01:43.630 --> 00:01:45.210
+What happens when you run it?
+
+41
+00:01:46.440 --> 00:01:48.820
+It keeps calling itself until the
+
+42
+00:01:48.820 --> 00:01:51.020
+call stack runs out, and Python
+
+43
+00:01:51.020 --> 00:01:52.160
+stops it with an error.
+
+44
+00:01:52.780 --> 00:01:54.740
+So every recursive function
+
+45
+00:01:54.740 --> 00:01:56.020
+needs a base case.
+
+46
+00:01:56.830 --> 00:01:59.110
+And every call must move closer
+
+47
+00:01:59.110 --> 00:02:01.250
+to it, or it never arrives.
+
+48
+00:02:02.630 --> 00:02:04.770
+Recursion can also waste work.
+
+49
+00:02:05.460 --> 00:02:07.420
+Each Fibonacci number is the
+
+50
+00:02:07.420 --> 00:02:09.100
+sum of the two before it.
+
+51
+00:02:09.670 --> 00:02:12.730
+Written the obvious way, fib of four
+
+52
+00:02:12.730 --> 00:02:15.230
+works out fib of two twice.
+
+53
+00:02:15.950 --> 00:02:18.010
+Fib of forty makes hundreds
+
+54
+00:02:18.010 --> 00:02:19.590
+of millions of calls.
+
+55
+00:02:20.910 --> 00:02:22.770
+The fix is to remember answers.
+
+56
+00:02:23.560 --> 00:02:26.240
+Keep a dictionary of results, and look an
+
+57
+00:02:26.240 --> 00:02:28.220
+answer up before working it out.
+
+58
+00:02:28.820 --> 00:02:32.080
+Now fib of forty takes about eighty calls
+
+59
+00:02:32.080 --> 00:02:33.960
+instead of hundreds of millions.
+
+60
+00:02:34.760 --> 00:02:36.340
+That’s called memoisation.
+
+61
+00:02:37.580 --> 00:02:39.480
+In the app, open Recursion.
+
+62
+00:02:40.040 --> 00:02:43.000
+Step through factorial’s calls, and count
+
+63
+00:02:43.000 --> 00:02:45.100
+how much work Fibonacci repeats.
+
+64
+00:02:45.900 --> 00:02:48.320
+Then solve the Towers of Hanoi with
+
+65
+00:02:48.320 --> 00:02:50.420
+four discs in the fewest moves.
+
+66
+00:02:51.790 --> 00:02:52.550
+Your turn.
+
+67
+00:02:53.170 --> 00:02:56.010
+Fib of thirty is painfully slow,
+
+68
+00:02:56.290 --> 00:02:58.370
+because it works out the same
+
+69
+00:02:58.370 --> 00:03:00.210
+values again and again.
+
+70
+00:03:00.860 --> 00:03:02.200
+What fixes it best?
+
+71
+00:03:03.500 --> 00:03:05.640
+Remember the answers in a dictionary.
+
+72
+00:03:06.470 --> 00:03:09.570
+In short: a recursive function needs a
+
+73
+00:03:09.570 --> 00:03:12.310
+base case and a smaller recursive case.
+
+74
+00:03:13.010 --> 00:03:15.110
+Each waiting call sits on the
+
+75
+00:03:15.110 --> 00:03:17.230
+call stack, which has limits.
+
+76
+00:03:18.070 --> 00:03:20.730
+And when work repeats, memoise.
+
+77
+00:03:22.030 --> 00:03:23.810
+Try it yourself: write a
+
+78
+00:03:23.810 --> 00:03:25.310
+recursive sum of a list.
+
+79
+00:03:25.930 --> 00:03:28.830
+An empty list sums to zero; otherwise,
+
+80
+00:03:29.250 --> 00:03:31.530
+it’s the first item plus the sum of the
+
+81
+00:03:31.530 --> 00:03:31.830
+rest.
+
+82
+00:03:32.420 --> 00:03:34.620
+Trace it on paper with three items,
+
+83
+00:03:34.620 --> 00:03:36.880
+then test it on an empty list.

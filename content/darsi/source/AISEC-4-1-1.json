@@ -1,0 +1,276 @@
+{
+ "id": "AISEC-4-1-1",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "AI security policy and red teaming at school"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Map your school's AI risks",
+  "subtitle": "Tools, paths in, scores and owners",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Map your school's AI risks",
+  "length": "3:23",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Seven tools, not one"
+   },
+   {
+    "at": "0:27",
+    "label": "List every tool"
+   },
+   {
+    "at": "1:05",
+    "label": "Score and rank"
+   },
+   {
+    "at": "2:06",
+    "label": "Controls and owners"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:19",
+    "beat": "Hook",
+    "visual": "Cards: “Just one AI tool”; We counted: seven; List it to protect it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "Last month I asked a head teacher how many AI tools her school uses. She said one. We counted together and found seven, from a marking helper to a WhatsApp bot that answers parents. You can't protect what you haven't listed.",
+    "icons": [
+     "help",
+     "search",
+     "clipboard"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:19",
+    "end": "0:27",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Map your school's AI risks",
+    "voice": "Narrator",
+    "narration": "Today: a threat model for your school's AI, the risks it shows, and which to fix first."
+   },
+   {
+    "n": 3,
+    "start": "0:27",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "A list: What data it touches; What it can do; Who uses it; Who looks after it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Step one: the inventory",
+    "voice": "Narrator",
+    "narration": "A threat model starts with an inventory. For every AI tool, write four things: what data it touches, what it can do, who uses it, and who looks after it. A chatbot that only reads lesson notes is very different from one that can message parents.",
+    "icons": [
+     "database",
+     "wand",
+     "users",
+     "profile"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:48",
+    "end": "1:05",
+    "beat": "Concept",
+    "visual": "A arch diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Where untrusted text gets in",
+    "voice": "Narrator",
+    "narration": "Next, find the paths in. Anything the AI reads that you didn't write is untrusted: a web page, a pupil's essay, a parent's message, a tool's result. Each one can carry a hidden order, or simply a mistake."
+   },
+   {
+    "n": 5,
+    "start": "1:05",
+    "end": "1:23",
+    "beat": "Definition",
+    "visual": "Cards: Likelihood: 1 to 3; Impact: 1 to 3; Multiply them; 9: act now.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Risk = likelihood × impact",
+    "voice": "Narrator",
+    "narration": "Then score each risk. Likelihood from one to three: how likely is it to happen? Impact from one to three: how bad if it does? Multiply them: a nine needs action now, a two can wait and be watched.",
+    "icons": [
+     "gauge",
+     "warning",
+     "calculator",
+     "flag"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:23",
+    "end": "1:38",
+    "beat": "Examples",
+    "visual": "Code typed out on a card:\nfor tool, like, impact in risks:\n    score = like * impact\n    if score >= 6:\n        print(tool, \"needs an owner\")",
+    "animation": "The code types itself out; the highlighted line lights up.",
+    "on_screen_text": "A risk register in code",
+    "voice": "Mr Joseph",
+    "narration": "I keep our school's risk register as a short list in Python. For each tool, it multiplies likelihood by impact. Anything scoring six or more is printed, so it gets an owner."
+   },
+   {
+    "n": 7,
+    "start": "1:38",
+    "end": "1:48",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Which comes first?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The lesson-plan helper scores two. The parents' chatbot, which can send messages, scores nine. Which do we fix first?"
+   },
+   {
+    "n": 8,
+    "start": "1:48",
+    "end": "2:06",
+    "beat": "Reveal",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Highest score, first",
+    "voice": "Narrator",
+    "narration": "The parents' chatbot. It scores highest, and it can act: a hidden order in a parent's message could make it send something to every family. Start at the top of the list, and look hardest at tools that act."
+   },
+   {
+    "n": 9,
+    "start": "2:06",
+    "end": "2:23",
+    "beat": "Concept",
+    "visual": "A list: Messages are data, not orders; It drafts; a person sends; One named owner; Checked each term.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A control and an owner",
+    "voice": "Narrator",
+    "narration": "For each top risk, choose a control and name an owner. Keep parents' messages as data, not orders. Let the chatbot draft, and a person send. And give one named teacher the job of checking it each term.",
+    "icons": [
+     "file",
+     "hand",
+     "profile",
+     "calendar"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:23",
+    "end": "2:42",
+    "beat": "Lab preview",
+    "visual": "Cards joined by arrows: Hide an order; Record what happens; Switch on a defence; Which path closes?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: every path in",
+    "voice": "Narrator",
+    "narration": "In the app, hide an order in three places: a note, a book title and a village name. Run each one and record what happens: ignored, slipped through or sent. Then switch on each defence and see which path it closes.",
+    "icons": [
+     "file",
+     "clipboard",
+     "shield",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:42",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Who owns it?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Our marking helper scores six, and everyone says somebody should check it. Who owns the risk?"
+   },
+   {
+    "n": 12,
+    "start": "2:51",
+    "end": "3:04",
+    "beat": "Recap",
+    "visual": "The summary: List every tool; Find the paths in; Likelihood × impact; A control and an owner. Takeaway: You can't protect what you haven't listed.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Tools · Paths · Score · Owner",
+    "voice": "Narrator",
+    "narration": "One named person, with a date. Remember: list every tool, find the paths in, score likelihood times impact, and give the top risks a control and an owner."
+   },
+   {
+    "n": 13,
+    "start": "3:04",
+    "end": "3:23",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Colleagues or the AI club; List every AI tool; Owners for the top three; Share with the head.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it at school this week",
+    "voice": "Narrator",
+    "narration": "Try it at school this week: with two colleagues, or your pupils' AI club, list every AI tool you use. Score each risk on the board, and agree an owner for the top three. Then share the list with your head teacher.",
+    "icons": [
+     "users",
+     "clipboard",
+     "profile",
+     "school"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:45",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "The lesson-plan helper scores 2. The parents' chatbot, which can send messages, scores 9. Which do you fix first?",
+    "options": [
+     {
+      "text": "The lesson-plan helper: it's used most",
+      "correct": false
+     },
+     {
+      "text": "The parents' chatbot: highest score, and it can act",
+      "correct": true
+     },
+     {
+      "text": "Neither: AI risks can't be scored",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: the nine first, and anything that can act gets extra care.",
+    "feedback_wrong": "Not quite: start with the highest score, especially a tool that can act.",
+    "resume_at": "1:48"
+   },
+   {
+    "at": "2:48",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "The marking helper scores 6, and everyone agrees “somebody” should check it. Who owns the risk?",
+    "options": [
+     {
+      "text": "Everyone on the staff, together",
+      "correct": false
+     },
+     {
+      "text": "One named person, with a date to check it",
+      "correct": true
+     },
+     {
+      "text": "The company that made the tool",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: one name and a date. “Everyone” means no one checks.",
+    "feedback_wrong": "Not quite: a shared job is nobody's job. Name one person and a date.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

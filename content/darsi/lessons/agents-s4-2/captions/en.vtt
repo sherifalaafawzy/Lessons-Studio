@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.070
+Our agent set a reminder to
+
+2
+00:00:03.070 --> 00:00:04.750
+tisums the library.
+
+3
+00:00:05.540 --> 00:00:06.240
+Tisums!
+
+4
+00:00:07.000 --> 00:00:09.180
+Nothing stopped it, because
+
+5
+00:00:09.180 --> 00:00:10.380
+nothing was checking.
+
+6
+00:00:11.110 --> 00:00:13.090
+What if another part of the
+
+7
+00:00:13.090 --> 00:00:14.790
+agent checked its work?
+
+8
+00:00:16.130 --> 00:00:18.590
+Today: splitting an agent into
+
+9
+00:00:18.590 --> 00:00:20.250
+roles that check each other.
+
+10
+00:00:21.490 --> 00:00:23.210
+Big agent systems are
+
+11
+00:00:23.210 --> 00:00:24.510
+often split into roles.
+
+12
+00:00:25.310 --> 00:00:27.490
+A planner proposes each step.
+
+13
+00:00:28.100 --> 00:00:30.620
+A checker reviews it before anything runs.
+
+14
+00:00:31.400 --> 00:00:34.140
+Then a runner runs the tool, and a
+
+15
+00:00:34.140 --> 00:00:35.580
+person approves the actions.
+
+16
+00:00:36.950 --> 00:00:38.690
+In the team lab, the checker
+
+17
+00:00:38.690 --> 00:00:40.330
+is five rules in code.
+
+18
+00:00:40.980 --> 00:00:42.500
+The tool must be on.
+
+19
+00:00:43.120 --> 00:00:45.340
+Every detail needs the right shape.
+
+20
+00:00:46.010 --> 00:00:48.130
+Every name and number must come
+
+21
+00:00:48.130 --> 00:00:50.030
+from the request or a result.
+
+22
+00:00:50.680 --> 00:00:53.720
+No earlier step may have failed, and a
+
+23
+00:00:53.720 --> 00:00:56.120
+person must say yes to any action.
+
+24
+00:00:57.430 --> 00:01:00.850
+Nine Z copied as nine C: stopped,
+
+25
+00:01:01.290 --> 00:01:03.410
+because nobody said nine C.
+
+26
+00:01:04.050 --> 00:01:07.590
+Twenty-five o’clock: stopped, wrong shape.
+
+27
+00:01:08.280 --> 00:01:10.220
+The Saturday reminder: stopped,
+
+28
+00:01:10.480 --> 00:01:12.200
+because the step before it failed.
+
+29
+00:01:13.540 --> 00:01:15.360
+Why not make the checker a
+
+30
+00:01:15.360 --> 00:01:16.600
+second language model?
+
+31
+00:01:17.210 --> 00:01:18.930
+It could catch subtler slips,
+
+32
+00:01:19.390 --> 00:01:20.670
+like a rude message.
+
+33
+00:01:21.380 --> 00:01:23.420
+But it can be wrong too, and
+
+34
+00:01:23.420 --> 00:01:24.580
+fooled like the planner.
+
+35
+00:01:25.240 --> 00:01:28.620
+Rules never guess: start with them, and
+
+36
+00:01:28.620 --> 00:01:31.000
+add a model only where judgement is
+
+37
+00:01:31.000 --> 00:01:31.280
+needed.
+
+38
+00:01:32.470 --> 00:01:34.370
+More roles also cost more
+
+39
+00:01:34.370 --> 00:01:36.550
+tokens, time and money.
+
+40
+00:01:37.160 --> 00:01:38.620
+And errors multiply.
+
+41
+00:01:39.510 --> 00:01:42.030
+If each of two steps is right ninety
+
+42
+00:01:42.030 --> 00:01:44.770
+percent of the time, both are right only
+
+43
+00:01:44.770 --> 00:01:46.270
+eighty-one percent of the time.
+
+44
+00:01:47.500 --> 00:01:47.980
+Quick check!
+
+45
+00:01:48.590 --> 00:01:50.970
+The planner proposes the timetable for
+
+46
+00:01:50.970 --> 00:01:54.270
+nine C, but the request said nine Z.
+
+47
+00:01:55.030 --> 00:01:56.510
+What should the checker do?
+
+48
+00:01:57.750 --> 00:01:58.430
+Stop it.
+
+49
+00:01:59.020 --> 00:02:02.760
+Nine C appears nowhere in the request or
+
+50
+00:02:02.760 --> 00:02:05.560
+the results, so it was copied wrongly.
+
+51
+00:02:06.030 --> 00:02:07.790
+The checker doesn’t guess a fix:
+
+52
+00:02:08.290 --> 00:02:09.750
+it hands the request back.
+
+53
+00:02:10.410 --> 00:02:12.730
+Darsi Tiny never learned to take a
+
+54
+00:02:12.730 --> 00:02:15.470
+checker’s feedback, so a person asks
+
+55
+00:02:15.470 --> 00:02:15.850
+again.
+
+56
+00:02:17.130 --> 00:02:20.190
+Here’s one rule as code: every word
+
+57
+00:02:20.190 --> 00:02:22.770
+in a call’s details must appear in
+
+58
+00:02:22.770 --> 00:02:24.310
+the request or a result.
+
+59
+00:02:24.990 --> 00:02:27.150
+In this lesson’s code, you’ll write
+
+60
+00:02:27.150 --> 00:02:28.870
+a checker with three rules.
+
+61
+00:02:30.170 --> 00:02:32.290
+In the app, send the Kafi weather
+
+62
+00:02:32.290 --> 00:02:35.050
+request: the planner proposes, the
+
+63
+00:02:35.050 --> 00:02:37.610
+checker passes it, the runner runs it.
+
+64
+00:02:38.170 --> 00:02:41.230
+Then send the tidy reminder and nine Z.
+
+65
+00:02:41.870 --> 00:02:44.050
+Turn the checker off and send them
+
+66
+00:02:44.050 --> 00:02:45.630
+again: what gets through?
+
+67
+00:02:46.920 --> 00:02:47.680
+Your turn.
+
+68
+00:02:48.300 --> 00:02:51.140
+An agent runs three steps, each
+
+69
+00:02:51.140 --> 00:02:53.060
+right ninety percent of the time.
+
+70
+00:02:53.620 --> 00:02:55.560
+How often are all three right?
+
+71
+00:02:56.850 --> 00:02:58.350
+About seventy-three
+
+72
+00:02:58.350 --> 00:03:00.410
+percent: errors multiply.
+
+73
+00:03:01.210 --> 00:03:03.310
+Remember: split the agent into
+
+74
+00:03:03.310 --> 00:03:06.270
+planner, checker, runner and person.
+
+75
+00:03:06.890 --> 00:03:09.050
+Strict rules in code make a
+
+76
+00:03:09.050 --> 00:03:10.190
+good first checker.
+
+77
+00:03:10.750 --> 00:03:12.770
+And a person approves actions
+
+78
+00:03:12.770 --> 00:03:14.750
+and handles what’s stopped.
+
+79
+00:03:16.020 --> 00:03:18.040
+Try it yourself: take a task
+
+80
+00:03:18.040 --> 00:03:19.460
+like booking a study room.
+
+81
+00:03:19.940 --> 00:03:22.740
+Draw the agent’s roles, and write five
+
+82
+00:03:22.740 --> 00:03:25.480
+strict rules its checker could test in
+
+83
+00:03:25.480 --> 00:03:25.760
+code.
+
+84
+00:03:26.390 --> 00:03:29.670
+Then find one slip your rules would miss.

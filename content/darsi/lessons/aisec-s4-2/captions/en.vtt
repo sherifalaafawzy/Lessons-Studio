@@ -1,0 +1,353 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.950
+A library chatbot leaked its own password.
+
+2
+00:00:04.730 --> 00:00:06.890
+A student asked it to repeat its
+
+3
+00:00:06.890 --> 00:00:09.610
+instructions, and there, inside
+
+4
+00:00:09.610 --> 00:00:11.970
+them, was the database password.
+
+5
+00:00:12.750 --> 00:00:14.170
+The developer had put it
+
+6
+00:00:14.170 --> 00:00:15.050
+there to save time.
+
+7
+00:00:16.360 --> 00:00:19.420
+Today: ten risks in apps built on
+
+8
+00:00:19.420 --> 00:00:22.160
+language models, and a defence for each.
+
+9
+00:00:23.400 --> 00:00:26.400
+OWASP is a non-profit community that
+
+10
+00:00:26.400 --> 00:00:28.400
+publishes free security guidance.
+
+11
+00:00:29.120 --> 00:00:30.860
+Its 2025 list for
+
+12
+00:00:30.860 --> 00:00:33.240
+language-model apps has ten risks.
+
+13
+00:00:34.010 --> 00:00:35.670
+Let's take them in three groups:
+
+14
+00:00:36.230 --> 00:00:38.910
+what goes in, what comes out, and
+
+15
+00:00:38.910 --> 00:00:40.290
+the system around them.
+
+16
+00:00:41.470 --> 00:00:42.230
+What goes in.
+
+17
+00:00:42.880 --> 00:00:45.100
+Number one, prompt injection:
+
+18
+00:00:45.740 --> 00:00:48.280
+instructions hidden in input steer the
+
+19
+00:00:48.280 --> 00:00:48.560
+model.
+
+20
+00:00:49.170 --> 00:00:52.970
+Number four, data and model poisoning: bad
+
+21
+00:00:52.970 --> 00:00:54.990
+training data plants wrong behaviour.
+
+22
+00:00:55.660 --> 00:00:58.300
+Number eight, vector and embedding
+
+23
+00:00:58.300 --> 00:01:01.240
+weaknesses: a retrieval store that mixes
+
+24
+00:01:01.240 --> 00:01:04.260
+users' documents, or accepts poisoned
+
+25
+00:01:04.260 --> 00:01:04.560
+ones.
+
+26
+00:01:05.860 --> 00:01:06.860
+What comes out.
+
+27
+00:01:07.540 --> 00:01:09.640
+Number two, sensitive information
+
+28
+00:01:09.640 --> 00:01:13.120
+disclosure: it reveals personal data or
+
+29
+00:01:13.120 --> 00:01:13.420
+secrets.
+
+30
+00:01:14.210 --> 00:01:16.210
+Number seven, system prompt
+
+31
+00:01:16.210 --> 00:01:18.270
+leakage, like our library bot.
+
+32
+00:01:18.810 --> 00:01:21.670
+Number five, improper output handling:
+
+33
+00:01:22.230 --> 00:01:24.970
+its reply is pasted into a page, a
+
+34
+00:01:24.970 --> 00:01:27.150
+query or a command, and runs.
+
+35
+00:01:27.890 --> 00:01:29.710
+Number nine, misinformation:
+
+36
+00:01:30.470 --> 00:01:33.070
+confident, wrong answers people act on.
+
+37
+00:01:34.250 --> 00:01:36.370
+Finally, the system around them.
+
+38
+00:01:36.990 --> 00:01:39.970
+Number three, the supply chain: models,
+
+39
+00:01:40.270 --> 00:01:42.330
+data and plug-ins made by others.
+
+40
+00:01:43.080 --> 00:01:46.900
+Number six, excessive agency: more tools
+
+41
+00:01:46.900 --> 00:01:48.800
+and permissions than the job needs.
+
+42
+00:01:49.560 --> 00:01:52.080
+Number ten, unbounded consumption:
+
+43
+00:01:52.780 --> 00:01:55.060
+one user's flood of requests runs up
+
+44
+00:01:55.060 --> 00:01:57.020
+the bill, or takes it down.
+
+45
+00:01:58.260 --> 00:01:58.740
+Quick check!
+
+46
+00:01:59.380 --> 00:02:01.740
+A chatbot's reply is pasted straight
+
+47
+00:02:01.740 --> 00:02:04.220
+into the course web page, and one
+
+48
+00:02:04.220 --> 00:02:06.160
+reply contains a piece of script.
+
+49
+00:02:06.850 --> 00:02:08.090
+Which risk is that?
+
+50
+00:02:09.340 --> 00:02:10.940
+Improper output handling.
+
+51
+00:02:11.720 --> 00:02:13.760
+The model's reply is text from a
+
+52
+00:02:13.760 --> 00:02:15.020
+source you don't control.
+
+53
+00:02:15.690 --> 00:02:18.910
+So treat it like any user input: escape
+
+54
+00:02:18.910 --> 00:02:22.330
+it before HTML, use parameters for SQL,
+
+55
+00:02:22.890 --> 00:02:24.350
+never pass it to a shell.
+
+56
+00:02:25.580 --> 00:02:27.940
+Escaping turns special characters into
+
+57
+00:02:27.940 --> 00:02:30.460
+harmless codes, so the browser shows
+
+58
+00:02:30.460 --> 00:02:31.880
+them instead of running them.
+
+59
+00:02:32.470 --> 00:02:35.030
+Do it in the wrong order, and you escape
+
+60
+00:02:35.030 --> 00:02:38.230
+your own escapes: the page shows a mess.
+
+61
+00:02:39.000 --> 00:02:40.960
+The ampersand must go first.
+
+62
+00:02:42.300 --> 00:02:43.680
+And the library bot?
+
+63
+00:02:44.380 --> 00:02:46.200
+Never put secrets in a system
+
+64
+00:02:46.200 --> 00:02:48.780
+prompt: assume it will be read.
+
+65
+00:02:49.390 --> 00:02:51.710
+Keep keys in the app, give the model
+
+66
+00:02:51.710 --> 00:02:54.170
+only this user's data, and check
+
+67
+00:02:54.170 --> 00:02:55.830
+replies before they go out.
+
+68
+00:02:57.020 --> 00:03:00.240
+In the app, a tiny model has memorised a
+
+69
+00:03:00.240 --> 00:03:02.260
+private line from its training data.
+
+70
+00:03:02.920 --> 00:03:04.820
+Ask it the right way and it
+
+71
+00:03:04.820 --> 00:03:05.860
+repeats a card number.
+
+72
+00:03:06.510 --> 00:03:09.190
+Add privacy noise and watch the leak
+
+73
+00:03:09.190 --> 00:03:11.670
+close, and the usefulness drop.
+
+74
+00:03:12.960 --> 00:03:13.480
+Your turn.
+
+75
+00:03:14.110 --> 00:03:16.410
+A study assistant can delete files,
+
+76
+00:03:16.870 --> 00:03:18.950
+but its job is only to read them.
+
+77
+00:03:19.520 --> 00:03:20.520
+Which risk is that?
+
+78
+00:03:21.780 --> 00:03:24.060
+Excessive agency: take the
+
+79
+00:03:24.060 --> 00:03:24.860
+delete tool away.
+
+80
+00:03:25.470 --> 00:03:28.330
+Remember: ten risks in three groups,
+
+81
+00:03:28.870 --> 00:03:31.950
+model output is untrusted input, no
+
+82
+00:03:31.950 --> 00:03:34.330
+secrets in prompts, and the fewest
+
+83
+00:03:34.330 --> 00:03:35.450
+tools the job needs.
+
+84
+00:03:36.740 --> 00:03:39.640
+Try it tomorrow: go down the ten for an
+
+85
+00:03:39.640 --> 00:03:41.980
+LLM app you use or are building.
+
+86
+00:03:42.630 --> 00:03:45.470
+For each, write one line: could it
+
+87
+00:03:45.470 --> 00:03:47.950
+happen here, and what stops it?
+
+88
+00:03:48.550 --> 00:03:50.750
+Then fix the fastest three.

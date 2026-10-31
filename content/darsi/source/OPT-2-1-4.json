@@ -1,0 +1,318 @@
+{
+ "id": "OPT-2-1-4",
+ "track": "opt",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Models with numbers: variables, constraints, objective"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Your first model in Python",
+  "subtitle": "Google’s OR-Tools on your phone: describe it, and the solver searches",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Your first model in Python",
+  "length": "3:03",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Too big for paper"
+   },
+   {
+    "at": "0:16",
+    "label": "The model in Python"
+   },
+   {
+    "at": "1:19",
+    "label": "A missing rule"
+   },
+   {
+    "at": "1:54",
+    "label": "Fair rules and the lab"
+   },
+   {
+    "at": "2:26",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Mr Joseph holds the garden graph in one hand; behind him a wall-sized timetable grid full of sticky notes.",
+    "animation": "The graph shrinks; the timetable grid grows and multiplies.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Ms Salma solved the garden on graph paper: three lines and a corner. Two variables are fine on paper. Our timetable has hundreds. Today, a solver does the searching.",
+    "icons": [
+     "grid",
+     "calendar",
+     "cpu"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Your first model in Python",
+    "voice": "Narrator",
+    "narration": "Today: your first model in Python, with Google’s OR-Tools."
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:36",
+    "beat": "Concept",
+    "visual": "Three labelled boxes flow into a gear labelled solver, then out to an answer card; a phone and a laptop both show the same code.",
+    "animation": "Boxes slide into the gear; it turns; the answer pops out.",
+    "on_screen_text": "Describe it; the solver searches",
+    "voice": "Narrator",
+    "narration": "OR-Tools is Google’s free toolkit for optimization. You describe the problem: the variables, the constraints and the objective. The solver does the search. On a computer or in Colab it handles thousands of variables; in Darsi, small models run on your phone, and the same program runs on both.",
+    "icons": [
+     "layers",
+     "cog",
+     "phone"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:44",
+    "beat": "Examples",
+    "visual": "The code card types out four lines.",
+    "animation": "Lines type in; the variable lines glow.",
+    "on_screen_text": "1. A model and its variables",
+    "voice": "Mr Joseph",
+    "narration": "First, a model and the variables. Each bed count is a whole number from zero to ten, with a name.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:44",
+    "end": "0:52",
+    "beat": "Examples",
+    "visual": "The code card types out three constraints and the objective.",
+    "animation": "Lines type in one by one.",
+    "on_screen_text": "2. The constraints and the goal",
+    "voice": "Mr Joseph",
+    "narration": "Then each limit is one line, written just as on paper. And the objective: maximise thirty x plus forty y.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:52",
+    "end": "1:04",
+    "beat": "Examples",
+    "visual": "The code card types the solve lines; the printed output appears under it.",
+    "animation": "Lines type in; the output slides up.",
+    "on_screen_text": "3. Solve and read the answer",
+    "voice": "Mr Joseph",
+    "narration": "Finally, a solver solves the model, and you read the values back. It prints OPTIMAL, then three and five: two hundred and ninety, the same corner as the drawing.",
+    "icons": [
+     "keyboard",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:04",
+    "end": "1:19",
+    "beat": "Concept",
+    "visual": "Three status badges: green OPTIMAL, amber FEASIBLE, red INFEASIBLE.",
+    "animation": "Badges stamp in as each is named.",
+    "on_screen_text": "What the solver tells you",
+    "voice": "Narrator",
+    "narration": "The solver also says how sure it is. OPTIMAL means the best, proved. FEASIBLE means a plan that keeps the rules, maybe not the best. INFEASIBLE means no plan keeps every rule, and that’s proved too.",
+    "icons": [
+     "circlecheck",
+     "check",
+     "circlex"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:19",
+    "end": "1:25",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma points at the code with the hours line missing. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "A forgotten line",
+    "voice": "Ms Salma",
+    "narration": "Quick check! I forget the line for the pupils’ hours. What will the solver do?"
+   },
+   {
+    "n": 9,
+    "start": "1:25",
+    "end": "1:41",
+    "beat": "Reveal",
+    "visual": "The answer card with the check; the plan 0 tomatoes, 8 beans; a clock showing 24 hours crossed in red against 18.",
+    "animation": "The check pops; the clock overflows.",
+    "on_screen_text": "It obeys only what you write",
+    "voice": "Narrator",
+    "narration": "It gives the best plan for the model it has: eight bean beds, three hundred and twenty coins. That plan needs twenty-four hours of pupils’ work, not eighteen. The solver obeys the rules you write, and only those.",
+    "icons": [
+     "circlecheck",
+     "clock",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:41",
+    "end": "1:54",
+    "beat": "Concept",
+    "visual": "Three steps appear: a ruler against the limits, people around a table, a dial being turned.",
+    "animation": "Steps tick in one by one.",
+    "on_screen_text": "Check the answer three ways",
+    "voice": "Mr Joseph",
+    "narration": "So always check the answer. Put it back into every real limit. Ask the people who’ll live with it. And change one number to see if the answer moves sensibly.",
+    "icons": [
+     "ruler",
+     "users",
+     "settings"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:54",
+    "end": "2:08",
+    "beat": "Concept",
+    "visual": "A new line is typed into the model: every class gets a bed; class signs appear on the garden beds.",
+    "animation": "The line types in; signs pop up.",
+    "on_screen_text": "Fair rules must be written",
+    "voice": "Narrator",
+    "narration": "The same goes for fairness. If every class must get a bed, or no pupil may work more than two hours, write it as a constraint. A solver can’t keep a rule nobody wrote.",
+    "icons": [
+     "users",
+     "pencil",
+     "school"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:08",
+    "end": "2:20",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: a Python editor with the truck example, a Run button, the printed answer.",
+    "animation": "A finger edits 1000 to 1100 and taps Run; the answer changes.",
+    "on_screen_text": "App lab: Model it with CP-SAT",
+    "voice": "Narrator",
+    "narration": "In the app, open the modeller and run the truck load. Then change the capacity to eleven hundred and run it again. Which loads does it take now?",
+    "icons": [
+     "phone",
+     "keyboard",
+     "package"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:20",
+    "end": "2:26",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph’s laptop shows INFEASIBLE in red. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "INFEASIBLE?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The solver prints INFEASIBLE for my timetable. What does that tell me?"
+   },
+   {
+    "n": 14,
+    "start": "2:26",
+    "end": "2:44",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No timetable keeps all those rules: find the clash, and decide which rule gives way. Remember: variables, constraints, objective, then solve and read the values. The solver obeys only what you write. And the same Python runs on the real OR-Tools in Colab.",
+    "icons": [
+     "keyboard",
+     "cog",
+     "check"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "2:44",
+    "end": "3:03",
+    "beat": "Try it tomorrow",
+    "visual": "Joseph’s class: rules in words on the board, a phone connected to a projector showing the model running.",
+    "animation": "Words on the board turn into code lines; the answer appears.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: model a small class problem together, like sharing thirty textbooks between three classes. Write the variables and the rules on the board in plain words. Then type them into the modeller lab and run it in front of the class.",
+    "icons": [
+     "school",
+     "book",
+     "phone"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:21",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The model forgets the pupils’ hours limit. What will the solver do?",
+    "options": [
+     {
+      "text": "Stop with an error",
+      "correct": false
+     },
+     {
+      "text": "Give the best plan for the model it has, maybe one pupils can’t work",
+      "correct": true
+     },
+     {
+      "text": "Guess the missing rule",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — it solves the model it has: 8 bean beds, 320 coins, which needs 24 hours of pupils’ work.",
+    "feedback_wrong": "Not quite — the solver can’t know a rule that isn’t written. It returns the best plan for the model it has: 8 bean beds, needing 24 hours.",
+    "resume_at": "1:25"
+   },
+   {
+    "at": "2:22",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "The solver prints INFEASIBLE for a timetable. What does it tell you?",
+    "options": [
+     {
+      "text": "The solver is broken",
+      "correct": false
+     },
+     {
+      "text": "No timetable keeps all the rules: one must change",
+      "correct": true
+     },
+     {
+      "text": "Run it again until it works",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — INFEASIBLE is a proof: no plan keeps every rule. Find the clash and decide which rule gives way.",
+    "feedback_wrong": "Not quite — INFEASIBLE isn’t an error, and running again gives the same answer. It proves that no plan keeps every rule.",
+    "resume_at": "2:26"
+   }
+  ]
+ }
+}

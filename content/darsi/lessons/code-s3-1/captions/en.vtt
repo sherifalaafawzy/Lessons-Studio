@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.030
+I copied the same five lines into my
+
+2
+00:00:03.030 --> 00:00:06.370
+program four times, for four classes.
+
+3
+00:00:07.060 --> 00:00:09.520
+Then I found a bug in them, and
+
+4
+00:00:09.520 --> 00:00:11.540
+had to fix it four times.
+
+5
+00:00:12.210 --> 00:00:13.810
+A function would have fixed it once.
+
+6
+00:00:15.190 --> 00:00:18.330
+Today: functions, and how to test them.
+
+7
+00:00:19.500 --> 00:00:21.680
+A function is a named block of
+
+8
+00:00:21.680 --> 00:00:23.440
+code that does one job.
+
+9
+00:00:24.100 --> 00:00:27.180
+You define it once with def, its name,
+
+10
+00:00:27.460 --> 00:00:29.220
+and its inputs, called parameters.
+
+11
+00:00:30.110 --> 00:00:32.790
+Then you call it by name, as often as
+
+12
+00:00:32.790 --> 00:00:34.570
+you like, with different values.
+
+13
+00:00:35.900 --> 00:00:38.480
+Inside a function, return hands a
+
+14
+00:00:38.480 --> 00:00:40.100
+value back to whoever called it.
+
+15
+00:00:40.580 --> 00:00:42.360
+print only shows something on the
+
+16
+00:00:42.360 --> 00:00:44.300
+screen, and the value is lost.
+
+17
+00:00:45.060 --> 00:00:48.200
+If you want to use the answer, in a sum, a
+
+18
+00:00:48.200 --> 00:00:50.900
+test or another function, return it.
+
+19
+00:00:52.080 --> 00:00:54.960
+Variables made inside a function live
+
+20
+00:00:54.960 --> 00:00:57.060
+only inside it, while it runs.
+
+21
+00:00:57.750 --> 00:00:58.970
+That’s called scope.
+
+22
+00:00:59.720 --> 00:01:02.200
+It means a function can’t accidentally
+
+23
+00:01:02.200 --> 00:01:04.780
+change your program’s variables, and you
+
+24
+00:01:04.780 --> 00:01:06.200
+can understand it on its own.
+
+25
+00:01:07.400 --> 00:01:09.220
+Now the engineer’s habit:
+
+26
+00:01:09.780 --> 00:01:11.320
+test every function.
+
+27
+00:01:12.030 --> 00:01:14.210
+An assert line checks that something is
+
+28
+00:01:14.210 --> 00:01:17.070
+true, and stops with an error if it isn’t.
+
+29
+00:01:17.600 --> 00:01:19.460
+Write a few asserts with answers
+
+30
+00:01:19.460 --> 00:01:20.780
+you worked out by hand,
+
+31
+00:01:21.080 --> 00:01:22.720
+including the awkward cases.
+
+32
+00:01:24.140 --> 00:01:24.720
+Quick check!
+
+33
+00:01:25.510 --> 00:01:27.990
+A function prints its answer
+
+34
+00:01:27.990 --> 00:01:30.030
+instead of returning it.
+
+35
+00:01:30.660 --> 00:01:34.300
+You write total equals add
+
+36
+00:01:34.300 --> 00:01:36.220
+of three and four.
+
+37
+00:01:36.870 --> 00:01:38.610
+What is total?
+
+38
+00:01:39.880 --> 00:01:40.120
+None.
+
+39
+00:01:40.790 --> 00:01:42.510
+The seven appears on the screen,
+
+40
+00:01:43.090 --> 00:01:44.410
+but the function gives back
+
+41
+00:01:44.410 --> 00:01:46.810
+nothing, which Python calls None.
+
+42
+00:01:47.460 --> 00:01:49.200
+Use return when the
+
+43
+00:01:49.200 --> 00:01:50.500
+answer is needed later.
+
+44
+00:01:51.180 --> 00:01:53.780
+Use print only to show it to a person.
+
+45
+00:01:55.090 --> 00:01:57.110
+Good functions are small and
+
+46
+00:01:57.110 --> 00:01:58.070
+named for their job.
+
+47
+00:01:58.750 --> 00:02:00.750
+Is leap year, given a year.
+
+48
+00:02:01.390 --> 00:02:02.990
+Grade, given a mark.
+
+49
+00:02:03.670 --> 00:02:05.690
+Total cost, given a price
+
+50
+00:02:05.690 --> 00:02:07.370
+and a number of items.
+
+51
+00:02:08.140 --> 00:02:10.760
+Each one is easy to test on its own.
+
+52
+00:02:11.980 --> 00:02:15.220
+Testing only easy cases proves little.
+
+53
+00:02:15.850 --> 00:02:19.370
+Try the edges: an empty list, a single
+
+54
+00:02:19.370 --> 00:02:22.210
+item, zero, a negative number.
+
+55
+00:02:22.820 --> 00:02:24.200
+An average of an empty
+
+56
+00:02:24.200 --> 00:02:25.800
+list divides by zero.
+
+57
+00:02:26.470 --> 00:02:29.510
+A good test finds that before a user does.
+
+58
+00:02:30.850 --> 00:02:33.090
+In the app, open Step through a
+
+59
+00:02:33.090 --> 00:02:35.090
+program and choose A function.
+
+60
+00:02:35.930 --> 00:02:37.510
+Step through and watch the
+
+61
+00:02:37.510 --> 00:02:39.970
+program jump into area and back.
+
+62
+00:02:40.610 --> 00:02:42.690
+Notice that its own variables
+
+63
+00:02:42.690 --> 00:02:44.750
+exist only while it runs.
+
+64
+00:02:46.110 --> 00:02:46.870
+Your turn.
+
+65
+00:02:47.490 --> 00:02:49.430
+You’ve written average of marks.
+
+66
+00:02:50.240 --> 00:02:52.680
+Which extra test is most useful?
+
+67
+00:02:53.910 --> 00:02:55.070
+The empty list.
+
+68
+00:02:55.810 --> 00:02:58.770
+Remember: a function is a named job,
+
+69
+00:02:59.190 --> 00:03:01.990
+defined once with def and called many
+
+70
+00:03:01.990 --> 00:03:02.570
+times.
+
+71
+00:03:03.180 --> 00:03:05.460
+return hands back a value;
+
+72
+00:03:05.960 --> 00:03:07.500
+print only shows it.
+
+73
+00:03:08.050 --> 00:03:10.830
+Variables inside a function stay inside.
+
+74
+00:03:11.530 --> 00:03:14.490
+And test with assert, edges included.
+
+75
+00:03:15.800 --> 00:03:18.380
+Try it yourself: write a function for
+
+76
+00:03:18.380 --> 00:03:21.080
+something you do often, like working out
+
+77
+00:03:21.080 --> 00:03:23.100
+your average or the cost of a trip.
+
+78
+00:03:23.700 --> 00:03:26.380
+Then write three asserts, including one
+
+79
+00:03:26.380 --> 00:03:28.640
+awkward case, and make them all pass.

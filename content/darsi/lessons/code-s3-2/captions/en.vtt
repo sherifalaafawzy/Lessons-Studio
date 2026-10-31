@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.310
+Our school weather station logs a
+
+2
+00:00:02.310 --> 00:00:04.990
+temperature every hour: twenty-four
+
+3
+00:00:04.990 --> 00:00:05.810
+numbers a day.
+
+4
+00:00:06.390 --> 00:00:08.030
+What was the hottest hour?
+
+5
+00:00:08.620 --> 00:00:10.620
+How many hours were above thirty?
+
+6
+00:00:11.270 --> 00:00:13.270
+A list and a loop answer both.
+
+7
+00:00:14.550 --> 00:00:16.870
+Today: lists and loops together.
+
+8
+00:00:18.110 --> 00:00:20.290
+A list keeps values in order.
+
+9
+00:00:20.950 --> 00:00:23.590
+Positions count from zero, so temps
+
+10
+00:00:23.590 --> 00:00:25.650
+at zero is the first reading.
+
+11
+00:00:26.300 --> 00:00:28.700
+Negative positions count from the end:
+
+12
+00:00:29.080 --> 00:00:31.640
+temps at minus one is the last.
+
+13
+00:00:32.290 --> 00:00:34.850
+len tells you how many there are.
+
+14
+00:00:36.040 --> 00:00:38.520
+append adds a reading to the end.
+
+15
+00:00:39.170 --> 00:00:42.470
+A slice takes part of a list: temps from
+
+16
+00:00:42.470 --> 00:00:45.410
+one to three gives the items at one and
+
+17
+00:00:45.410 --> 00:00:48.310
+two, stopping before three, just like
+
+18
+00:00:48.310 --> 00:00:48.570
+range.
+
+19
+00:00:49.300 --> 00:00:51.280
+The list itself isn’t changed.
+
+20
+00:00:52.630 --> 00:00:54.910
+Python has max, but writing it
+
+21
+00:00:54.910 --> 00:00:56.290
+yourself teaches the pattern.
+
+22
+00:00:56.980 --> 00:00:58.500
+Start with the first item
+
+23
+00:00:58.500 --> 00:00:59.860
+as the best so far.
+
+24
+00:01:00.500 --> 00:01:03.100
+Loop over the rest, and whenever one
+
+25
+00:01:03.100 --> 00:01:04.680
+is bigger, keep it instead.
+
+26
+00:01:05.460 --> 00:01:07.860
+At the end, best is the largest.
+
+27
+00:01:09.270 --> 00:01:12.010
+The same loop can count and total.
+
+28
+00:01:12.610 --> 00:01:15.270
+Add one to a count whenever a
+
+29
+00:01:15.270 --> 00:01:16.690
+reading passes a test.
+
+30
+00:01:17.270 --> 00:01:19.230
+Add every reading to a total.
+
+31
+00:01:19.850 --> 00:01:21.510
+Then total divided by the
+
+32
+00:01:21.510 --> 00:01:22.750
+length is the average.
+
+33
+00:01:23.480 --> 00:01:25.440
+Three patterns, one loop.
+
+34
+00:01:26.710 --> 00:01:27.190
+Quick check!
+
+35
+00:01:27.830 --> 00:01:29.910
+The list is twenty-one,
+
+36
+00:01:30.430 --> 00:01:34.070
+twenty-five, thirty-one, twenty-eight.
+
+37
+00:01:34.710 --> 00:01:37.350
+What is temps at minus one?
+
+38
+00:01:38.580 --> 00:01:40.460
+Twenty-eight, the last reading.
+
+39
+00:01:41.140 --> 00:01:43.780
+And temps at four would stop the
+
+40
+00:01:43.780 --> 00:01:46.260
+program with an IndexError: four
+
+41
+00:01:46.260 --> 00:01:48.840
+items have positions zero to three.
+
+42
+00:01:49.420 --> 00:01:52.000
+Most list bugs are off by one.
+
+43
+00:01:53.240 --> 00:01:56.360
+A list can also act as a stack or a queue.
+
+44
+00:01:57.040 --> 00:01:58.780
+append adds to the end.
+
+45
+00:01:59.410 --> 00:02:03.230
+pop takes from the end, last in, first
+
+46
+00:02:03.230 --> 00:02:05.970
+out: that’s a stack, like undo.
+
+47
+00:02:06.670 --> 00:02:09.450
+pop of zero takes from the front, first
+
+48
+00:02:09.450 --> 00:02:12.070
+in, first out: that’s a queue.
+
+49
+00:02:13.280 --> 00:02:15.900
+Lists are everywhere in real programs.
+
+50
+00:02:16.740 --> 00:02:18.800
+A playlist is a list of songs.
+
+51
+00:02:19.550 --> 00:02:22.090
+A class register is a list of names.
+
+52
+00:02:22.800 --> 00:02:24.540
+A sensor log is a list of readings.
+
+53
+00:02:25.370 --> 00:02:27.010
+And your phone’s messages are
+
+54
+00:02:27.010 --> 00:02:28.870
+a list, newest last.
+
+55
+00:02:30.210 --> 00:02:33.250
+In the app, open Stacks and queues.
+
+56
+00:02:33.800 --> 00:02:36.160
+Type three words, make one bold,
+
+57
+00:02:36.160 --> 00:02:39.300
+then press Undo twice: a stack.
+
+58
+00:02:40.000 --> 00:02:42.100
+Then let four customers into the
+
+59
+00:02:42.100 --> 00:02:44.880
+queue and serve two: the first to
+
+60
+00:02:44.880 --> 00:02:46.220
+arrive are served first.
+
+61
+00:02:47.540 --> 00:02:48.040
+Your turn.
+
+62
+00:02:48.650 --> 00:02:51.470
+A loop adds one to hot whenever a
+
+63
+00:02:51.470 --> 00:02:52.990
+reading is above thirty.
+
+64
+00:02:53.570 --> 00:02:55.630
+For twenty-one, thirty-one,
+
+65
+00:02:55.930 --> 00:02:58.430
+thirty-five and thirty, what is hot?
+
+66
+00:02:59.750 --> 00:02:59.950
+Two.
+
+67
+00:03:00.640 --> 00:03:02.640
+Remember: positions count from
+
+68
+00:03:02.640 --> 00:03:05.060
+zero, and minus one is the last.
+
+69
+00:03:05.730 --> 00:03:07.630
+A loop can find the largest,
+
+70
+00:03:08.130 --> 00:03:10.350
+count and total in one pass.
+
+71
+00:03:11.110 --> 00:03:14.430
+append adds; pop takes.
+
+72
+00:03:15.070 --> 00:03:16.350
+And check the boundaries,
+
+73
+00:03:16.790 --> 00:03:18.310
+like exactly thirty.
+
+74
+00:03:19.570 --> 00:03:21.970
+Try it yourself: for one week,
+
+75
+00:03:22.310 --> 00:03:24.030
+write down how many minutes you
+
+76
+00:03:24.030 --> 00:03:25.690
+spend on your phone each day.
+
+77
+00:03:26.250 --> 00:03:28.430
+Put the seven numbers in a list, and
+
+78
+00:03:28.430 --> 00:03:30.550
+write a program for the total, the
+
+79
+00:03:30.550 --> 00:03:32.390
+average and the biggest day.

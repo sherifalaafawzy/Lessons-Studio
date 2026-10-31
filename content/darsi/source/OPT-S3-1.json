@@ -1,0 +1,318 @@
+{
+ "id": "OPT-S3-1",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Let the computer search: knapsack, routes, timetables"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Try them all, or think ahead",
+  "subtitle": "Brute force, greedy and dynamic programming",
+  "minutes": 16,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "Try them all, or think ahead",
+  "length": "3:18",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computer studies teacher (main character)",
+   "Ms Salma Haddad — your maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Six loads, one truck"
+   },
+   {
+    "at": "0:19",
+    "label": "Try them all"
+   },
+   {
+    "at": "1:17",
+    "label": "Greedy, and thinking ahead"
+   },
+   {
+    "at": "2:15",
+    "label": "Whose points? And the lab"
+   },
+   {
+    "at": "2:52",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Mr Joseph in the computer room beside a picture of a small truck and six crates.",
+    "animation": "Crates slide toward the truck and stop at a weight bar.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A truck for a village school can carry a thousand kilos, and there are six loads to choose from. Can you write a program that finds the best load, and knows it’s the best?",
+    "icons": [
+     "package",
+     "scale",
+     "keyboard"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Try them all, or think ahead",
+    "voice": "Narrator",
+    "narration": "Today: let the computer search, by trying everything, or by thinking ahead."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "Six crates labelled with weight and points; a scale shows the 1,000 kg limit.",
+    "animation": "Each crate lights up as it is named.",
+    "on_screen_text": "Weights and points",
+    "voice": "Narrator",
+    "narration": "Each load has a weight and points for how much the school needs it. Solar panels: six hundred kilos, forty-two points. Desks and books: five hundred kilos each. A water filter, footballs and chalk are lighter. The goal: the most points within a thousand kilos.",
+    "icons": [
+     "sun",
+     "package",
+     "target"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "A tree of in/out choices branches six times into 64 leaves.",
+    "animation": "Branches split level by level; a counter reaches 64.",
+    "on_screen_text": "Try every load",
+    "voice": "Narrator",
+    "narration": "The simplest search tries every possible load. Each item is in or out, six times over. That’s two to the six, sixty-four loads: a phone checks them in a blink.",
+    "icons": [
+     "grid",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:51",
+    "end": "1:05",
+    "beat": "Concept",
+    "visual": "Code typed on a card; beside it, the number 13 shown as bits 001101 lighting three crates.",
+    "animation": "Code types itself; bits flip as the mask counts.",
+    "on_screen_text": "Brute force in Python",
+    "voice": "Narrator",
+    "narration": "In Python, count from zero to sixty-three, and read each number in binary: bit i says whether item i is in. Add up the weight and points, and keep the best that fits.",
+    "icons": [
+     "keyboard",
+     "grid"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:17",
+    "beat": "Examples",
+    "visual": "Three stacks of paper growing: 64, then a tower, then off the top of the screen.",
+    "animation": "Stacks grow; the last one shoots past the frame.",
+    "on_screen_text": "Every item doubles the work",
+    "voice": "Narrator",
+    "narration": "But every extra item doubles the work. Thirty items: over a billion loads. Sixty items: more than a billion billion. Brute force is sure, but it doesn’t scale.",
+    "icons": [
+     "layers",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:17",
+    "end": "1:33",
+    "beat": "Concept",
+    "visual": "Two trucks side by side: greedy (solar, filter, chalk: 60) and best (desks, books: 65).",
+    "animation": "Crates load into each truck; the totals count up.",
+    "on_screen_text": "Greedy: fast, not always right",
+    "voice": "Narrator",
+    "narration": "A greedy rule is fast: take the most points per kilo first. Solar panels go in, then whatever still fits: sixty points. But desks and books give sixty-five. The panels took space that two other loads fill better.",
+    "icons": [
+     "sun",
+     "package"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma holds up two answers, 60 and 65. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Which one is sure?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Greedy says sixty points, and brute force says sixty-five. Which one is guaranteed to be the best?"
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "1:59",
+    "beat": "Reveal",
+    "visual": "The answer ‘Brute force’ gets a check; then small trucks of 100, 200, 300 kg fill up one after another.",
+    "animation": "Check badge pops; small trucks fill in order.",
+    "on_screen_text": "Sure, without trying everything",
+    "voice": "Narrator",
+    "narration": "Brute force: it checked every load. But you can be sure without checking everything. Dynamic programming solves smaller trucks first: for each amount of room, either skip this item, or take it and fill the rest with an answer you already know.",
+    "icons": [
+     "circlecheck",
+     "layers",
+     "repeat"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:59",
+    "end": "2:15",
+    "beat": "Concept",
+    "visual": "Code on a card above a grid that fills cell by cell.",
+    "animation": "Cells fill left to right, row by row.",
+    "on_screen_text": "A table of smaller answers",
+    "voice": "Narrator",
+    "narration": "Fill a table: one row per item, one column per hundred kilos of room. Each cell needs just two lookups in the row above. A hundred items is about a thousand cells, where brute force would never finish.",
+    "icons": [
+     "grid",
+     "keyboard"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:15",
+    "end": "2:32",
+    "beat": "Concept",
+    "visual": "Two schools at the end of one road; all the crates pile up at one gate.",
+    "animation": "Crates roll toward one school; a question mark appears over the other.",
+    "on_screen_text": "Whose points?",
+    "voice": "Narrator",
+    "narration": "The points are someone’s opinion of what the school needs. Who decided solar panels are worth forty-two? If the truck served two schools, the best total might send everything to one. Ask who chose the points, and who is left out.",
+    "icons": [
+     "pencil",
+     "school",
+     "users"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:32",
+    "end": "2:44",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the truck, the six loads, and the dynamic programming table with outlined cells.",
+    "animation": "A finger taps each button; the outlined path lights up backwards.",
+    "on_screen_text": "App lab: Pack the truck",
+    "voice": "Narrator",
+    "narration": "In the app, open “Pack the truck”. Pack greedily, then show the best load. Open the table under the results, and follow the outlined cells back from the corner.",
+    "icons": [
+     "package",
+     "grid",
+     "award"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:44",
+    "end": "2:52",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph adds a seventh crate. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "A seventh load",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A friend adds a seventh load to the list. How many loads must brute force check now?"
+   },
+   {
+    "n": 14,
+    "start": "2:52",
+    "end": "3:07",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; three summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "A hundred and twenty-eight: every extra item doubles it. Remember: brute force is sure, but it explodes. Greedy is fast, but it can miss. And dynamic programming is sure and fast, because it reuses smaller answers.",
+    "icons": [
+     "grid",
+     "sun",
+     "layers"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:07",
+    "end": "3:18",
+    "beat": "Try it tomorrow",
+    "visual": "A student at home with a bag, a few objects on a kitchen scale, and a small table in a notebook.",
+    "animation": "Objects go in and out of the bag; the table fills.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: pack your bag for a school trip. Give each thing a weight and points, set a limit, and find the best load three ways.",
+    "icons": [
+     "package",
+     "scale",
+     "grid"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:37",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Greedy says 60 points; brute force says 65. Which is guaranteed to be the best?",
+    "options": [
+     {
+      "text": "Greedy: it takes the best value first",
+      "correct": false
+     },
+     {
+      "text": "Brute force: it checked every load",
+      "correct": true
+     },
+     {
+      "text": "Neither can be sure",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — brute force compared all 64 loads, so 65 is the best. Greedy only looked at value per kilo.",
+    "feedback_wrong": "Not quite — only a method that rules out every other load can be sure. Brute force checked all 64.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:48",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "A seventh load is added. How many loads must brute force check now?",
+    "options": [
+     {
+      "text": "65",
+      "correct": false
+     },
+     {
+      "text": "128",
+      "correct": true
+     },
+     {
+      "text": "70",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — each new item is in or out, so the count doubles: 2⁷ = 128.",
+    "feedback_wrong": "Not quite — one more item doubles the count, because every old load can now be with or without it: 2⁷ = 128.",
+    "resume_at": "2:52"
+   }
+  ]
+ }
+}

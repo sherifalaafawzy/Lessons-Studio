@@ -1,0 +1,257 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.030
+The river sensor by our school
+
+2
+00:00:02.030 --> 00:00:03.890
+sends a reading every minute.
+
+3
+00:00:04.560 --> 00:00:06.700
+If we processed it in a nightly batch,
+
+4
+00:00:07.080 --> 00:00:08.820
+we'd learn about a flood the morning
+
+5
+00:00:08.820 --> 00:00:09.200
+after.
+
+6
+00:00:10.470 --> 00:00:13.130
+Today: batch and stream processing,
+
+7
+00:00:13.570 --> 00:00:15.370
+and how to choose between them.
+
+8
+00:00:16.570 --> 00:00:19.190
+Batch processing collects data and
+
+9
+00:00:19.190 --> 00:00:21.110
+handles it together, on a schedule:
+
+10
+00:00:21.670 --> 00:00:23.870
+every hour, or every night.
+
+11
+00:00:24.490 --> 00:00:27.710
+It's simple, cheap and easy to rerun.
+
+12
+00:00:28.290 --> 00:00:29.530
+But it's late by design.
+
+13
+00:00:30.960 --> 00:00:33.460
+Stream processing handles each event
+
+14
+00:00:33.460 --> 00:00:35.520
+as it arrives, within seconds.
+
+15
+00:00:36.310 --> 00:00:38.310
+It's fast, but it runs all the
+
+16
+00:00:38.310 --> 00:00:40.410
+time, and it must cope with late,
+
+17
+00:00:40.810 --> 00:00:42.690
+missing and duplicated events.
+
+18
+00:00:44.020 --> 00:00:45.820
+Streams are noisy: a
+
+19
+00:00:45.820 --> 00:00:47.420
+splash, a boat's wake.
+
+20
+00:00:48.120 --> 00:00:50.760
+So you average over a window, such
+
+21
+00:00:50.760 --> 00:00:52.100
+as the last five readings.
+
+22
+00:00:52.880 --> 00:00:54.800
+A bigger window hides more
+
+23
+00:00:54.800 --> 00:00:56.760
+noise, but reacts later.
+
+24
+00:00:58.020 --> 00:01:00.880
+On our river, one reading in the average
+
+25
+00:01:00.880 --> 00:01:03.620
+gives three false alarms from splashes.
+
+26
+00:01:04.370 --> 00:01:06.750
+Five gives one, from a boat's wake.
+
+27
+00:01:07.420 --> 00:01:10.140
+With ten there are none, but the real
+
+28
+00:01:10.140 --> 00:01:12.600
+alert is five minutes late; with
+
+29
+00:01:12.600 --> 00:01:14.640
+thirty, fifteen minutes late.
+
+30
+00:01:15.850 --> 00:01:16.330
+Quick check!
+
+31
+00:01:16.970 --> 00:01:20.170
+A flood alert, or a monthly attendance
+
+32
+00:01:20.170 --> 00:01:22.310
+report: which one needs a stream?
+
+33
+00:01:23.500 --> 00:01:25.860
+The flood alert: minutes matter.
+
+34
+00:01:26.540 --> 00:01:28.900
+The monthly report is fine as a nightly
+
+35
+00:01:28.900 --> 00:01:31.740
+batch: cheaper, simpler, and easy to
+
+36
+00:01:31.740 --> 00:01:32.120
+rerun.
+
+37
+00:01:33.320 --> 00:01:34.900
+Real streams are messy.
+
+38
+00:01:35.620 --> 00:01:38.300
+Events arrive late or out of order,
+
+39
+00:01:38.780 --> 00:01:41.340
+so use the time they happened, not
+
+40
+00:01:41.340 --> 00:01:42.160
+the time they arrived.
+
+41
+00:01:42.900 --> 00:01:45.160
+And events can arrive twice, so
+
+42
+00:01:45.160 --> 00:01:47.220
+make processing idempotent too.
+
+43
+00:01:48.430 --> 00:01:49.810
+Many systems do both.
+
+44
+00:01:50.560 --> 00:01:53.340
+A stream drives the alert now, and a
+
+45
+00:01:53.340 --> 00:01:56.040
+nightly batch recomputes the day's numbers
+
+46
+00:01:56.040 --> 00:01:58.460
+carefully, from everything that arrived.
+
+47
+00:01:59.710 --> 00:02:01.490
+In the app, handle the river
+
+48
+00:02:01.490 --> 00:02:04.230
+readings as a stream or in batches.
+
+49
+00:02:04.780 --> 00:02:07.220
+Change the window and the batch size, and
+
+50
+00:02:07.220 --> 00:02:09.700
+watch false alarms and delays trade off.
+
+51
+00:02:10.950 --> 00:02:11.450
+Your turn.
+
+52
+00:02:12.060 --> 00:02:14.580
+I make the averaging window bigger.
+
+53
+00:02:15.320 --> 00:02:15.900
+What happens?
+
+54
+00:02:17.280 --> 00:02:20.280
+Fewer false alarms, but later alerts:
+
+55
+00:02:20.700 --> 00:02:22.820
+choose by what each one costs.
+
+56
+00:02:23.510 --> 00:02:26.430
+Remember: batches are simple and late;
+
+57
+00:02:26.890 --> 00:02:29.510
+streams are fast and always on.
+
+58
+00:02:30.120 --> 00:02:32.880
+Windows tame noise and add delay.
+
+59
+00:02:33.580 --> 00:02:35.080
+And many systems run both.
+
+60
+00:02:36.330 --> 00:02:38.970
+Try it tomorrow: list five systems
+
+61
+00:02:38.970 --> 00:02:41.710
+you use, like bus times, exam
+
+62
+00:02:41.710 --> 00:02:43.310
+results and a bank alert.
+
+63
+00:02:43.980 --> 00:02:46.000
+For each one, decide: batch
+
+64
+00:02:46.000 --> 00:02:47.520
+or stream, and why?

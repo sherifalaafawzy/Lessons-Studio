@@ -10,3 +10,9 @@ export {
   CAST, MOODS, DEFAULT_LIBRARY, LIBRARY_ICONS, LIBRARY_ICONS_PATH, MARK_PATH, castPath, isIcon, isLibPath, needsLibraryIcon,
   type CastMember, type Mood, type LibraryIcon,
 } from "./library.ts";
+export { SCIENCE_TYPES } from "./validate.ts";
+export { parseTex, TexError, TEX_TONES, type MNode, type ParsedTex } from "./science/tex.ts";
+export { compileExpr, ExprError, type Fn } from "./science/expr.ts";
+export { ARCH_KINDS, SCIENCE_LIMITS } from "./science/check.ts";
+export { PACKS, PACK_IDS, PACK_TYPES, packOf, packsUsed, type PackId } from "./elements.ts";
+export type { PackCheck, PackCheckCtx } from "./packs/types.ts";

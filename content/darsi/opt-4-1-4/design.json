@@ -1,0 +1,423 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "12 pupils, 12 desks",
+            "ar-EG": "12 تلميذ، و12 ديسك"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "479 million plans",
+            "ar-EG": "479 مليون خطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "Class of 40: 48 digits",
+            "ar-EG": "فصل 40: رقم من 48 خانة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "steps": [
+        {
+          "text": {
+            "en": "Start with any plan",
+            "ar-EG": "ابدأ بأي خطة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "text": {
+            "en": "Swap two pupils",
+            "ar-EG": "بدّل تلميذين"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Keep it if it’s better",
+            "ar-EG": "خلّيه لو أحسن"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Repeat until nothing helps",
+            "ar-EG": "كرّر لحد ما مفيش فايدة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "1",
+            "ar-EG": "1"
+          },
+          {
+            "en": "2",
+            "ar-EG": "2"
+          },
+          {
+            "en": "3",
+            "ar-EG": "3"
+          },
+          {
+            "en": "4",
+            "ar-EG": "4"
+          },
+          {
+            "en": "5",
+            "ar-EG": "5"
+          },
+          {
+            "en": "6",
+            "ar-EG": "6"
+          },
+          {
+            "en": "7",
+            "ar-EG": "7"
+          },
+          {
+            "en": "8",
+            "ar-EG": "8"
+          }
+        ],
+        "rows": [
+          [
+            "41",
+            "37",
+            "44",
+            "39",
+            "47",
+            "37",
+            "42",
+            "40"
+          ]
+        ],
+        "size": 40,
+        "s": 2
+      }
+    },
+    "5": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Hill climbing",
+            "ar-EG": "تسلّق التل"
+          },
+          {
+            "en": "Annealing",
+            "ar-EG": "التلدين"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Only better swaps",
+              "ar-EG": "تبديلات أحسن بس"
+            },
+            {
+              "en": "Some worse swaps while hot",
+              "ar-EG": "تبديلات أوحش وهو سخن"
+            }
+          ],
+          [
+            {
+              "en": "Finds 37: 1 run in 4",
+              "ar-EG": "بيوصل 37: مرة من 4"
+            },
+            {
+              "en": "Finds 37: 2 runs in 3",
+              "ar-EG": "بيوصل 37: مرتين من 3"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 0
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "d = new_cost - cost\nif d <= 0 or random() < exp(-d / T):\n    plan = new_plan\nT = T * 0.999",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "A time limit",
+            "ar-EG": "حد للوقت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "A gap to a bound",
+            "ar-EG": "فجوة لحد أدنى"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "37 against 35: about 5%",
+            "ar-EG": "37 قصاد 35: حوالي 5%"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "41: the best nearby",
+            "ar-EG": "41: الأحسن في اللي حواليها"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Run again from other starts",
+            "ar-EG": "شغّله من بدايات تانية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Compare the results",
+            "ar-EG": "قارن النتايج"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "10": {
+      "steps": [
+        {
+          "text": {
+            "en": "Problem and people first",
+            "ar-EG": "المشكلة والناس الأول"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Agree goal and fairness rules",
+            "ar-EG": "اتفقوا على الهدف وقواعد العدل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Data, model, test on last year",
+            "ar-EG": "بيانات ونموذج واختبار على اللي فات"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Pilot, explain, decide together",
+            "ar-EG": "جرّب، واشرح، وقرّروا سوا"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "A person makes the final call",
+            "ar-EG": "شخص بياخد القرار الأخير"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "A way to appeal",
+            "ar-EG": "طريقة للتظلّم"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Rules the data didn’t know",
+            "ar-EG": "قواعد البيانات مكانتش عارفاها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "megaphone",
+          "tone": "ok",
+          "text": {
+            "en": "Publish how it was made",
+            "ar-EG": "انشر اتعملت إزاي"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Seat 12 pupils",
+            "ar-EG": "قعّد 12 تلميذ"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Hill climbing, a few runs",
+            "ar-EG": "تسلّق التل، كام مرة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "thermometer",
+          "text": {
+            "en": "Then annealing",
+            "ar-EG": "وبعدين التلدين"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "settings",
+          "tone": "accent",
+          "text": {
+            "en": "Change the temperature",
+            "ar-EG": "غيّر الحرارة"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Improve step by step",
+            "ar-EG": "حسّن خطوة بخطوة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Annealing escapes valleys",
+            "ar-EG": "التلدين بيهرب من الوديان"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Decide good enough first",
+            "ar-EG": "قرّر «كويس كفاية» الأول"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "People stay in charge",
+            "ar-EG": "الناس هي اللي بتقرّر"
+          },
+          "s": 3,
+          "o": 2.5
+        }
+      ],
+      "takeaway": {
+        "en": "Good enough, measured and explained, beats perfect too late.",
+        "ar-EG": "«كويس كفاية» بالقياس والشرح أحسن من «مثالي» متأخر."
+      }
+    },
+    "15": {
+      "who": "farah",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Seating plan on the board",
+            "ar-EG": "خطة القعدة على السبورة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Swap two name cards",
+            "ar-EG": "بدّلوا كارتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Keep it only if better",
+            "ar-EG": "خلّوه بس لو أحسن"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "thermometer",
+          "tone": "ok",
+          "text": {
+            "en": "Stuck? One worse swap",
+            "ar-EG": "وقفتوا؟ تبديل واحد أوحش"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

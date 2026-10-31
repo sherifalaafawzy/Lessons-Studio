@@ -1,0 +1,302 @@
+{
+ "id": "OPT-S3-4",
+ "track": "opt",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Let the computer search: knapsack, routes, timetables"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Timetables with CP-SAT",
+  "subtitle": "Rules as lines, a solver that searches, and who gets the bad slot",
+  "minutes": 16,
+  "format": "Video + lab + code + practice"
+ },
+ "video": {
+  "title": "Timetables with CP-SAT",
+  "length": "2:45",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computer studies teacher (main character)",
+   "Mr Okafor Eze — your science teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Four clubs, three afternoons"
+   },
+   {
+    "at": "0:16",
+    "label": "The model"
+   },
+   {
+    "at": "0:38",
+    "label": "How the solver searches"
+   },
+   {
+    "at": "1:30",
+    "label": "Who gets the bad slot?"
+   },
+   {
+    "at": "2:14",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Mr Joseph at a noticeboard with four club posters (chess, football, drama, coding) and a three-day grid.",
+    "animation": "Posters shuffle between days; a laptop slides in.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Four clubs, three afternoons, and one student who’s in three of them. Every term we argue about which club meets when. This term, let’s let a solver search.",
+    "icons": [
+     "calendar",
+     "users",
+     "cpu"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Timetables with CP-SAT",
+    "voice": "Narrator",
+    "narration": "Today: timetables with CP-SAT, from Google’s OR-Tools."
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Four club cards with a small dial (1 to 3) each; student faces linked to their clubs; a football field with a ‘busy’ tag on day 3.",
+    "animation": "Dials spin; links draw; the tag drops.",
+    "on_screen_text": "The whole model",
+    "voice": "Narrator",
+    "narration": "Each club gets a variable: its day, from one to three. Each student’s clubs must all be on different days. And the football field is busy on day three. That’s the whole model.",
+    "icons": [
+     "grid",
+     "users",
+     "flag"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "Code typed on a card, each part lighting up as it is named.",
+    "animation": "Code types itself line by line.",
+    "on_screen_text": "The model in Python",
+    "voice": "Narrator",
+    "narration": "In Python, that’s a dictionary of day variables, one all-different rule per student, and one line for the field.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:38",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "A grid of clubs by days: crosses stamp into impossible cells; one guess is placed and lifted.",
+    "animation": "Crosses stamp; a guess wobbles and returns.",
+    "on_screen_text": "Cross out, then guess",
+    "voice": "Narrator",
+    "narration": "The solver doesn’t try all eighty-one plans. It crosses out days that can’t work, guesses only when it’s stuck, and undoes any guess that hits a dead end. That’s propagation and search.",
+    "icons": [
+     "cross",
+     "puzzle",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:51",
+    "end": "1:02",
+    "beat": "Examples",
+    "visual": "Three bars: 8, 389 and 2 guesses.",
+    "animation": "Bars grow; the tall one keeps climbing.",
+    "on_screen_text": "8 guesses, not 389",
+    "voice": "Narrator",
+    "narration": "In the lab’s school timetable, propagation and search need eight guesses. Plain backtracking needs three hundred and eighty-nine. Add one rule, and the search needs only two.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:02",
+    "end": "1:22",
+    "beat": "Concept",
+    "visual": "Sara’s three clubs try to fit into two remaining days; a stamp ‘No timetable’ lands.",
+    "animation": "Cards jostle for two slots; the stamp drops.",
+    "on_screen_text": "INFEASIBLE is a proof",
+    "voice": "Narrator",
+    "narration": "Sometimes the answer is INFEASIBLE, and that’s a proof, not a failure. Sara is in chess, drama and coding, so she needs three different days. Add a rule that no club meets on day three, and only two days are left. The solver proves no timetable exists.",
+    "icons": [
+     "user",
+     "calendar",
+     "circlex"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:22",
+    "end": "1:30",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Okafor with a printout saying OPTIMAL. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "OPTIMAL, with no goal?",
+    "voice": "Mr Okafor",
+    "narration": "Quick check! Our club model has no goal, and the solver says OPTIMAL. What does OPTIMAL mean here?"
+   },
+   {
+    "n": 9,
+    "start": "1:30",
+    "end": "1:41",
+    "beat": "Reveal",
+    "visual": "The answer ‘keeps every rule’ gets a check; a thought bubble of students’ wishes floats outside the model.",
+    "animation": "Check badge pops; the bubble drifts off.",
+    "on_screen_text": "Keeps every rule, nothing more",
+    "voice": "Narrator",
+    "narration": "With no goal, OPTIMAL just means a timetable that keeps every rule. Not the fairest, and not the one students would pick. Only what you wrote down.",
+    "icons": [
+     "circlecheck",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:41",
+    "end": "1:56",
+    "beat": "Concept",
+    "visual": "A calendar where drama sits on the day before every holiday; then the days rotate across terms.",
+    "animation": "Drama’s card slides to a new day each term.",
+    "on_screen_text": "Who gets the bad slot?",
+    "voice": "Narrator",
+    "narration": "So look at who carries the cost. If drama always gets the last afternoon before the holiday, the same students always miss it. Write fairness down, as a rule like rotating days each term, and solve again.",
+    "icons": [
+     "calendar",
+     "users",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:56",
+    "end": "2:09",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: the lessons-by-periods grid, rule checkboxes, a guess counter.",
+    "animation": "A finger ticks rules; the counter drops.",
+    "on_screen_text": "App lab: Build the timetable",
+    "voice": "Narrator",
+    "narration": "In the app, open “Build the timetable”. Press One step to watch propagation, then Run. Tick the extra rules one at a time, and watch the guesses fall, then the proof.",
+    "icons": [
+     "grid",
+     "check",
+     "gauge"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:09",
+    "end": "2:14",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph points at a laptop showing INFEASIBLE. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "No timetable: now what?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Your club model says INFEASIBLE. What should you do first?"
+   },
+   {
+    "n": 13,
+    "start": "2:14",
+    "end": "2:32",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Find the rules that clash, and ask the people involved which one can bend. Remember: a variable for each choice, a line for each rule, and the solver crosses out and searches. INFEASIBLE is a proof. And OPTIMAL only keeps the rules you wrote.",
+    "icons": [
+     "grid",
+     "check",
+     "users"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:32",
+    "end": "2:45",
+    "beat": "Try it tomorrow",
+    "visual": "A student with a phone and a weekly planner; chores and subjects as cards on a grid.",
+    "animation": "Cards settle into days; one rotates.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: model your study week, or your family’s chores, with the same few lines. Who gets the worst slot? Add a rule to share it, and solve again.",
+    "icons": [
+     "calendar",
+     "keyboard",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:26",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The club model has no goal, and the solver says OPTIMAL. What does that mean?",
+    "options": [
+     {
+      "text": "It found the best timetable for everyone",
+      "correct": false
+     },
+     {
+      "text": "It found a timetable that keeps every rule",
+      "correct": true
+     },
+     {
+      "text": "It tried all 81 plans",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — with no goal, OPTIMAL means every rule you wrote is kept. Nothing more.",
+    "feedback_wrong": "Not quite — with no goal there is no ‘best’: OPTIMAL means a timetable that keeps every rule you wrote.",
+    "resume_at": "1:30"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your club model says INFEASIBLE. What should you do first?",
+    "options": [
+     {
+      "text": "Run it again: it might work next time",
+      "correct": false
+     },
+     {
+      "text": "Find which rules clash, and decide with people which can bend",
+      "correct": true
+     },
+     {
+      "text": "Delete rules until it works",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — INFEASIBLE proves the rules clash. Find the clash and agree which rule bends.",
+    "feedback_wrong": "Not quite — INFEASIBLE is a proof, so running again changes nothing, and deleting rules at random may drop one that matters. Find the clash and decide together.",
+    "resume_at": "2:14"
+   }
+  ]
+ }
+}

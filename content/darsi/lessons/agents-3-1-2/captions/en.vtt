@@ -1,0 +1,309 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:01.950
+I asked an agent to
+
+2
+00:00:01.950 --> 00:00:04.210
+explain the term malware.
+
+3
+00:00:05.300 --> 00:00:06.900
+It looked up “the term
+
+4
+00:00:06.900 --> 00:00:10.580
+malware”, not “malware”!
+
+5
+00:00:11.060 --> 00:00:14.240
+So how does a model choose a
+
+6
+00:00:14.240 --> 00:00:16.660
+tool, and why does it slip?
+
+7
+00:00:17.970 --> 00:00:20.650
+Today: how an agent picks a tool,
+
+8
+00:00:21.150 --> 00:00:22.250
+and fills in the details.
+
+9
+00:00:23.690 --> 00:00:25.630
+Before your request, the app
+
+10
+00:00:25.630 --> 00:00:27.930
+writes a tools line: the names
+
+11
+00:00:27.930 --> 00:00:29.070
+of the tools that are on.
+
+12
+00:00:29.650 --> 00:00:31.710
+The model reads that line and
+
+13
+00:00:31.710 --> 00:00:33.790
+your words, and nothing else.
+
+14
+00:00:34.490 --> 00:00:37.850
+From them, it picks one tool, or none.
+
+15
+00:00:39.180 --> 00:00:40.680
+Each tool needs details,
+
+16
+00:00:41.160 --> 00:00:42.800
+like a place and a day.
+
+17
+00:00:43.350 --> 00:00:45.910
+The model copies them from your words
+
+18
+00:00:45.910 --> 00:00:48.630
+into the call, so Kafi stays Kafi.
+
+19
+00:00:49.190 --> 00:00:51.390
+Days and times go in a fixed
+
+20
+00:00:51.390 --> 00:00:52.950
+form that the tool can read.
+
+21
+00:00:54.190 --> 00:00:55.750
+The details in a call are
+
+22
+00:00:55.750 --> 00:00:56.830
+called its arguments.
+
+23
+00:00:57.680 --> 00:00:59.960
+Each tool has its own: the weather
+
+24
+00:00:59.960 --> 00:01:02.440
+needs a place and a day, a reminder
+
+25
+00:01:02.440 --> 00:01:04.160
+needs its text and a time.
+
+26
+00:01:04.840 --> 00:01:07.620
+When one is missing, a good agent asks.
+
+27
+00:01:08.960 --> 00:01:11.000
+How good is Darsi Tiny?
+
+28
+00:01:11.700 --> 00:01:13.900
+With wordings it was trained on, it gets
+
+29
+00:01:13.900 --> 00:01:15.980
+the tool and every argument right
+
+30
+00:01:15.980 --> 00:01:18.360
+ninety-six to ninety-eight times in a
+
+31
+00:01:18.360 --> 00:01:18.560
+hundred.
+
+32
+00:01:19.180 --> 00:01:20.820
+With new wordings, about
+
+33
+00:01:20.820 --> 00:01:22.200
+seventy-eight to eighty.
+
+34
+00:01:22.870 --> 00:01:25.350
+That’s roughly one slip in five.
+
+35
+00:01:26.690 --> 00:01:27.170
+Quick check!
+
+36
+00:01:27.810 --> 00:01:30.290
+Why does a new way of asking make
+
+37
+00:01:30.290 --> 00:01:32.370
+Darsi Tiny slip more often?
+
+38
+00:01:33.520 --> 00:01:35.260
+It learned patterns of wording.
+
+39
+00:01:36.010 --> 00:01:38.350
+A small model has seen each kind of
+
+40
+00:01:38.350 --> 00:01:41.230
+request in a few dozen forms, and a
+
+41
+00:01:41.230 --> 00:01:43.090
+new form fits them less well.
+
+42
+00:01:43.700 --> 00:01:46.680
+Big models have seen far more, so they
+
+43
+00:01:46.680 --> 00:01:49.200
+slip less, but they still slip.
+
+44
+00:01:50.420 --> 00:01:52.420
+Here are real slips from the lab.
+
+45
+00:01:53.040 --> 00:01:55.960
+Asked about class 9Z, which doesn’t
+
+46
+00:01:55.960 --> 00:01:59.280
+exist, it wrote 9C, a class it knows.
+
+47
+00:02:00.030 --> 00:02:02.350
+And the capital of France, asked
+
+48
+00:02:02.350 --> 00:02:04.650
+one way, sent it to the glossary
+
+49
+00:02:04.650 --> 00:02:06.410
+instead of saying it can’t.
+
+50
+00:02:07.490 --> 00:02:09.490
+So the app checks every
+
+51
+00:02:09.490 --> 00:02:10.630
+call before it runs.
+
+52
+00:02:11.350 --> 00:02:12.290
+Is the tool on?
+
+53
+00:02:12.950 --> 00:02:14.950
+Did each name come from your words?
+
+54
+00:02:15.730 --> 00:02:17.830
+Is the time a real time?
+
+55
+00:02:18.530 --> 00:02:20.690
+A few lines of code catch these slips.
+
+56
+00:02:22.030 --> 00:02:23.710
+In the app, switch the weather
+
+57
+00:02:23.710 --> 00:02:25.670
+tool off and ask about it.
+
+58
+00:02:26.140 --> 00:02:29.220
+Ask what 9Z has tomorrow, and read
+
+59
+00:02:29.220 --> 00:02:30.260
+the check under the call.
+
+60
+00:02:30.830 --> 00:02:33.670
+Then ask about France, in two ways.
+
+61
+00:02:35.000 --> 00:02:35.540
+Your turn.
+
+62
+00:02:36.150 --> 00:02:38.550
+I asked for a reminder at eight,
+
+63
+00:02:39.170 --> 00:02:40.450
+and the call says nine.
+
+64
+00:02:41.210 --> 00:02:42.330
+What should the app do?
+
+65
+00:02:43.610 --> 00:02:45.450
+Stop it, and ask me again:
+
+66
+00:02:46.110 --> 00:02:47.670
+nine isn’t what I said.
+
+67
+00:02:48.300 --> 00:02:50.380
+Remember: the model reads the
+
+68
+00:02:50.380 --> 00:02:52.420
+tools line and your words.
+
+69
+00:02:53.170 --> 00:02:55.150
+It copies details into arguments,
+
+70
+00:02:55.650 --> 00:02:57.570
+and new wordings slip more.
+
+71
+00:02:58.210 --> 00:03:00.190
+So the app checks every call.
+
+72
+00:03:01.380 --> 00:03:03.320
+Try it in class tomorrow: one
+
+73
+00:03:03.320 --> 00:03:05.340
+pupil plays the agent, with a
+
+74
+00:03:05.340 --> 00:03:06.560
+card of request patterns.
+
+75
+00:03:07.270 --> 00:03:08.890
+Classmates ask for the same
+
+76
+00:03:08.890 --> 00:03:10.330
+thing in five ways.
+
+77
+00:03:11.020 --> 00:03:13.440
+Which wordings make the agent slip?

@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.250
+Our rainfall report went to the
+
+2
+00:00:02.250 --> 00:00:04.090
+district with Riverside at over
+
+3
+00:00:04.090 --> 00:00:05.710
+two hundred millimetres.
+
+4
+00:00:06.390 --> 00:00:08.730
+One gauge had sent nine nine
+
+5
+00:00:08.730 --> 00:00:10.170
+nine, its error code.
+
+6
+00:00:10.800 --> 00:00:13.040
+Nothing in our pipeline stopped it.
+
+7
+00:00:14.270 --> 00:00:16.730
+Today: checks that catch problems
+
+8
+00:00:16.730 --> 00:00:18.250
+before your report does.
+
+9
+00:00:19.510 --> 00:00:22.230
+A check is a rule the data must pass.
+
+10
+00:00:22.960 --> 00:00:25.620
+In range: rain from zero to
+
+11
+00:00:25.620 --> 00:00:27.220
+three hundred millimetres.
+
+12
+00:00:27.860 --> 00:00:28.540
+Not empty.
+
+13
+00:00:29.240 --> 00:00:32.820
+Unique: one reading per station per day.
+
+14
+00:00:33.360 --> 00:00:36.040
+Allowed values: only the stations we know.
+
+15
+00:00:37.190 --> 00:00:38.370
+Some checks compare.
+
+16
+00:00:39.270 --> 00:00:40.790
+Do the class counts add up
+
+17
+00:00:40.790 --> 00:00:41.670
+to the school's roll?
+
+18
+00:00:42.280 --> 00:00:44.140
+Did today's batch arrive at all?
+
+19
+00:00:44.680 --> 00:00:47.360
+Is the date this week, and not last year?
+
+20
+00:00:48.590 --> 00:00:50.930
+In SQL, write each check as a
+
+21
+00:00:50.930 --> 00:00:52.890
+query that finds the bad rows.
+
+22
+00:00:53.640 --> 00:00:56.200
+If it returns nothing, the check passes.
+
+23
+00:00:57.000 --> 00:00:59.600
+If it returns rows, those are your
+
+24
+00:00:59.600 --> 00:01:01.080
+problems, with their details.
+
+25
+00:01:02.520 --> 00:01:05.200
+Then decide what a failure does.
+
+26
+00:01:05.910 --> 00:01:07.750
+Stop the batch, and lose
+
+27
+00:01:07.750 --> 00:01:09.050
+good data with the bad.
+
+28
+00:01:09.710 --> 00:01:11.810
+Set the bad rows aside, and
+
+29
+00:01:11.810 --> 00:01:12.610
+let the rest through.
+
+30
+00:01:13.260 --> 00:01:15.740
+Or warn, and let it all through.
+
+31
+00:01:16.410 --> 00:01:18.650
+Choose by what a wrong report costs.
+
+32
+00:01:20.120 --> 00:01:22.080
+And fix problems at their source.
+
+33
+00:01:22.900 --> 00:01:24.780
+Send the reading back to the club that
+
+34
+00:01:24.780 --> 00:01:27.100
+took it, so tomorrow's batch is right.
+
+35
+00:01:27.740 --> 00:01:29.740
+Cleaning the same mistake every
+
+36
+00:01:29.740 --> 00:01:31.880
+week means nobody fixed it.
+
+37
+00:01:33.050 --> 00:01:33.630
+Quick check!
+
+38
+00:01:34.420 --> 00:01:36.000
+Which check would have
+
+39
+00:01:36.000 --> 00:01:38.500
+caught the nine nine nine?
+
+40
+00:01:39.860 --> 00:01:40.300
+In range.
+
+41
+00:01:41.090 --> 00:01:43.130
+Nine nine nine is far above
+
+42
+00:01:43.130 --> 00:01:45.050
+three hundred millimetres, so
+
+43
+00:01:45.050 --> 00:01:46.410
+the range check returns it.
+
+44
+00:01:46.980 --> 00:01:49.680
+Not empty and unique would
+
+45
+00:01:49.680 --> 00:01:50.660
+both have let it through.
+
+46
+00:01:51.900 --> 00:01:54.380
+But checks only catch what you thought of.
+
+47
+00:01:55.010 --> 00:01:57.170
+A reading of twelve, when it really
+
+48
+00:01:57.170 --> 00:01:59.810
+rained twenty, passes every check.
+
+49
+00:02:00.440 --> 00:02:02.040
+So also compare with
+
+50
+00:02:02.040 --> 00:02:04.040
+neighbours, and look at the chart.
+
+51
+00:02:05.310 --> 00:02:07.870
+In the app, turn the checks on and off,
+
+52
+00:02:08.110 --> 00:02:09.890
+and choose what a failure does.
+
+53
+00:02:10.650 --> 00:02:12.790
+With “Stop the batch”, only the
+
+54
+00:02:12.790 --> 00:02:13.890
+first day gets through.
+
+55
+00:02:14.490 --> 00:02:15.790
+Without the repeats check,
+
+56
+00:02:16.110 --> 00:02:17.610
+Hilltop's average creeps up.
+
+57
+00:02:18.830 --> 00:02:19.330
+Your turn.
+
+58
+00:02:19.940 --> 00:02:21.920
+Every check passes on today's batch.
+
+59
+00:02:22.620 --> 00:02:24.360
+What can I say about the data?
+
+60
+00:02:25.650 --> 00:02:28.250
+No known problem was found; that's all.
+
+61
+00:02:28.810 --> 00:02:31.170
+Remember: write checks for range,
+
+62
+00:02:31.530 --> 00:02:34.150
+gaps, repeats and allowed values.
+
+63
+00:02:34.910 --> 00:02:37.570
+Decide what each failure does, and
+
+64
+00:02:37.570 --> 00:02:38.970
+fix problems at their source.
+
+65
+00:02:39.720 --> 00:02:41.900
+And a passing check is not
+
+66
+00:02:41.900 --> 00:02:43.320
+proof the data is right.
+
+67
+00:02:44.580 --> 00:02:46.880
+Try it in class tomorrow: ask your pupils
+
+68
+00:02:46.880 --> 00:02:49.080
+to write checks for their own class data.
+
+69
+00:02:49.730 --> 00:02:52.330
+A mark must be from zero to twenty.
+
+70
+00:02:52.930 --> 00:02:54.730
+Every pupil appears once.
+
+71
+00:02:55.490 --> 00:02:57.610
+Then test the checks on a made-up
+
+72
+00:02:57.610 --> 00:02:58.930
+sheet with planted mistakes.

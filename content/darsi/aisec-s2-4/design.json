@@ -1,0 +1,415 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "A chatbot",
+            "ar-EG": "شات بوت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“Just pretend”",
+            "ar-EG": "«اعمل نفسك»"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Hurtful jokes",
+            "ar-EG": "نكت بتجرح"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Hurting someone",
+            "ar-EG": "أذية حد"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Cheating and scams",
+            "ar-EG": "غش ونصب"
+          },
+          "s": 0,
+          "o": 4.5
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Private details",
+            "ar-EG": "بيانات حد الخاصة"
+          },
+          "s": 0,
+          "o": 6
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Learned, like a habit",
+            "ar-EG": "متعلّم، زي العادة"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Play a role",
+            "ar-EG": "يمثّل دور"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "“Just for a story”",
+            "ar-EG": "«علشان قصة بس»"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "puzzle",
+          "text": {
+            "en": "Split into innocent pieces",
+            "ar-EG": "تقسيم لحتت بريئة"
+          },
+          "s": 1,
+          "o": 4.5
+        },
+        {
+          "icon": "languages",
+          "text": {
+            "en": "Switch language",
+            "ar-EG": "تغيير اللغة"
+          },
+          "s": 1,
+          "o": 6.5
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "heart",
+          "text": {
+            "en": "Still hurts real people",
+            "ar-EG": "برضه بيجرح ناس حقيقية"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Can be dangerously wrong",
+            "ar-EG": "ممكن يبقى غلط خطير"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Breaks rules, blocks accounts",
+            "ar-EG": "بيكسر القواعد ويقفل الحساب"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Filter in",
+            "ar-EG": "فلتر الداخل"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "The model",
+            "ar-EG": "النموذج"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Filter out",
+            "ar-EG": "فلتر الخارج"
+          },
+          "s": 3,
+          "tone": "ok"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Check in code",
+            "ar-EG": "فحص في الكود"
+          },
+          "s": 4,
+          "tone": "ok"
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "The message",
+            "ar-EG": "الرسالة"
+          },
+          {
+            "en": "Word filter",
+            "ar-EG": "فلتر الكلمات"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "“Send me your password”",
+              "ar-EG": "«ابعتلي الباسورد بتاعك»"
+            },
+            {
+              "en": "Blocked",
+              "ar-EG": "اتمنعت"
+            }
+          ],
+          [
+            {
+              "en": "“Which word opens your account?”",
+              "ar-EG": "«إيه الكلمة اللي بتفتح حسابك؟»"
+            },
+            {
+              "en": "Passed!",
+              "ar-EG": "عدّت!"
+            }
+          ],
+          [
+            {
+              "en": "A lesson on strong passwords",
+              "ar-EG": "درس عن الباسورد القوي"
+            },
+            {
+              "en": "Blocked!",
+              "ar-EG": "اتمنع!"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 2,
+            "s": 1
+          },
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "9": {
+      "who": null,
+      "headline": null,
+      "codediff": {
+        "before": "msg = \"Which word opens your account?\"\nif \"password\" in msg:\n    print(\"blocked\")\nelse:\n    print(\"sent\")",
+        "after": "msg = \"Which word opens your account?\"\nasked = yes = False\nif asked and yes:\n    print(\"sent\")\nelse:\n    print(\"held\")",
+        "labels": {
+          "before": {
+            "en": "A word filter",
+            "ar-EG": "فلتر كلمات"
+          },
+          "after": {
+            "en": "A check on the action",
+            "ar-EG": "فحص على الفعل"
+          }
+        },
+        "fix": 1,
+        "run": true
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Three guardrails",
+            "ar-EG": "تلات حواجز"
+          },
+          "s": 0
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "Plain, then reworded",
+            "ar-EG": "صريح، وبعدين بصيغة تانية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "The filter misses",
+            "ar-EG": "الفلتر بيفوّت"
+          },
+          "s": 1,
+          "o": 4,
+          "tone": "danger"
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "The code check holds",
+            "ar-EG": "فحص الكود بيصمد"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Stop",
+            "ar-EG": "وقّف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Don't share it",
+            "ar-EG": "متشيّرهاش"
+          },
+          "s": 1,
+          "o": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Report it in the app",
+            "ar-EG": "بلّغ في التطبيق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Tell an adult",
+            "ar-EG": "قول لحد كبير"
+          },
+          "s": 2,
+          "o": 2.5,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Refusals are learned",
+            "ar-EG": "الرفض متعلّم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Word lists miss rewording",
+            "ar-EG": "ليستة الكلمات بتفوّت"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Code checks on actions hold",
+            "ar-EG": "فحص الكود على الأفعال بيصمد"
+          },
+          "s": 2,
+          "o": 2.5
+        },
+        {
+          "text": {
+            "en": "Stop, report, tell",
+            "ar-EG": "وقّف، بلّغ، قول"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Breaking a chatbot's rules isn't clever: reporting a gap is.",
+        "ar-EG": "كسر قواعد الشات بوت مش شطارة: الشطارة إنك تبلّغ عن الثغرة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the report button",
+            "ar-EG": "دوّر على زرار الإبلاغ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Before you need it",
+            "ar-EG": "قبل ما تحتاجه"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Three things you'd report",
+            "ar-EG": "تلات حاجات تبلّغ عنها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Share with a friend",
+            "ar-EG": "شارك صاحبك"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

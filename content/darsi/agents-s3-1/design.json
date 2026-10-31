@@ -1,0 +1,264 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "The model writes only text",
+            "ar-EG": "النموذج بيكتب كلام بس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Your code reads it",
+            "ar-EG": "الكود بتاعك بيقراه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "zap",
+          "tone": "accent",
+          "text": {
+            "en": "Then things happen",
+            "ar-EG": "وبعدين الحاجات تحصل"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "3": {
+      "aside": "bot",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "A plan: what it will do",
+            "ar-EG": "خطة: هيعمل إيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "A call: a tool and its details",
+            "ar-EG": "طلب: أداة وتفاصيلها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "An answer for the person",
+            "ar-EG": "جواب للشخص"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "weather{\"place\":\"Kafi\",\n        \"day\":\"tomorrow\"}",
+        "highlight": [
+          1
+        ],
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "trace": {
+        "code": "import json\nt = '{\"place\":\"Kafi\"}'\nargs = json.loads(t)\nprint(args[\"place\"])",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "i = text.find(\"{\")\nname = text[:i]\nargs = json.loads(text[i:])",
+        "s": 1
+      }
+    },
+    "7": {
+      "who": null,
+      "trace": {
+        "code": "t = \"Sunny in Kafi.\"\ni = t.find(\"{\")\nif i == -1:\n    print(\"An answer\")",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "9": {
+      "aside": "data",
+      "list": [
+        {
+          "icon": "data",
+          "text": {
+            "en": "Keys: place, day",
+            "ar-EG": "المفاتيح: place وday"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "It runs nothing",
+            "ar-EG": "مش بتشغّل حاجة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "It checks nothing",
+            "ar-EG": "مش بتراجع حاجة"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Your code checks next",
+            "ar-EG": "الكود بتاعك يراجع بعدها"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "headline": null,
+      "codediff": {
+        "before": "import json\nt = 'glossary{\"term\":\"AI\"'\ni = t.find(\"{\")\nargs = json.loads(t[i:])\nprint(args)",
+        "after": "import json\nt = 'glossary{\"term\":\"AI\"'\ni = t.find(\"{\")\ntry:\n    args = json.loads(t[i:])\nexcept ValueError:\n    args = None\nprint(args)",
+        "run": true,
+        "fix": 2,
+        "labels": {
+          "before": {
+            "en": "It crashes",
+            "ar-EG": "بيقع"
+          },
+          "after": {
+            "en": "Caught",
+            "ar-EG": "اتمسك"
+          }
+        }
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Darsi Tiny, on your phone",
+            "ar-EG": "«درسي الصغير» على موبايلك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "One step: the plan, then the call",
+            "ar-EG": "خطوة واحدة: الخطة، وبعدين الطلب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "What it sees: plain text",
+            "ar-EG": "اللي بيشوفه: كلام عادي"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Plan, call or answer",
+            "ar-EG": "خطة، أو طلب، أو جواب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Split at the first {",
+            "ar-EG": "قسّم عند أول قوس معقوف"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "json.loads gives a dictionary",
+            "ar-EG": "json.loads بتدي ديكشنري"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Catch broken calls",
+            "ar-EG": "امسك الطلبات البايظة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The model writes text; your code decides what it means.",
+        "ar-EG": "النموذج بيكتب كلام، والكود بتاعك يقرر معناه."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write five model lines",
+            "ar-EG": "اكتب خمس سطور"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Swap with a friend",
+            "ar-EG": "بدّل مع صاحبك"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Call, answer or broken?",
+            "ar-EG": "طلب ولا جواب ولا بايظ؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "cog",
+          "tone": "ok",
+          "text": {
+            "en": "Name each tool",
+            "ar-EG": "اكتب اسم الأداة"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.610
+Every Friday, our deputy head
+
+2
+00:00:02.610 --> 00:00:04.670
+copies attendance from twelve
+
+3
+00:00:04.670 --> 00:00:06.490
+registers into one report.
+
+4
+00:00:07.140 --> 00:00:08.560
+It takes her three hours.
+
+5
+00:00:09.390 --> 00:00:11.310
+And last month, she
+
+6
+00:00:11.310 --> 00:00:13.230
+counted one class twice.
+
+7
+00:00:14.470 --> 00:00:17.450
+Today: automating the weekly report, with
+
+8
+00:00:17.450 --> 00:00:19.250
+a pipeline that's safe to run again.
+
+9
+00:00:20.530 --> 00:00:23.070
+A data pipeline is a set of steps that
+
+10
+00:00:23.070 --> 00:00:25.630
+runs on its own, again and again.
+
+11
+00:00:26.200 --> 00:00:27.420
+Extract: read the data where it
+
+12
+00:00:27.420 --> 00:00:29.140
+lives, like the registers.
+
+13
+00:00:29.880 --> 00:00:32.800
+Transform: clean it and count it.
+
+14
+00:00:33.380 --> 00:00:35.680
+Load: write the result where
+
+15
+00:00:35.680 --> 00:00:36.760
+the report reads it.
+
+16
+00:00:37.930 --> 00:00:39.290
+Then put it on a schedule:
+
+17
+00:00:39.830 --> 00:00:41.630
+every evening at six, say.
+
+18
+00:00:42.230 --> 00:00:45.250
+Nobody copies anything by hand, and
+
+19
+00:00:45.250 --> 00:00:47.210
+the report is ready each morning.
+
+20
+00:00:48.440 --> 00:00:49.520
+But steps fail.
+
+21
+00:00:50.160 --> 00:00:51.620
+The connection drops halfway.
+
+22
+00:00:52.420 --> 00:00:53.540
+The database is busy.
+
+23
+00:00:54.270 --> 00:00:56.050
+A register says question
+
+24
+00:00:56.050 --> 00:00:58.250
+mark instead of P or A.
+
+25
+00:00:58.850 --> 00:01:00.630
+A good pipeline expects this.
+
+26
+00:01:01.900 --> 00:01:04.860
+So every run must be safe to repeat.
+
+27
+00:01:05.550 --> 00:01:08.830
+That's called idempotent: run it once or
+
+28
+00:01:08.830 --> 00:01:11.190
+five times, and the answer is the same.
+
+29
+00:01:11.870 --> 00:01:13.890
+The trick: replace the day's
+
+30
+00:01:13.890 --> 00:01:15.410
+rows, don't just add more.
+
+31
+00:01:16.610 --> 00:01:18.230
+And tell faults apart.
+
+32
+00:01:19.030 --> 00:01:22.150
+A dropped connection passes: just retry.
+
+33
+00:01:22.780 --> 00:01:25.620
+Bad data won't fix itself: set the
+
+34
+00:01:25.620 --> 00:01:27.320
+row aside and ask a person.
+
+35
+00:01:28.530 --> 00:01:30.530
+Here's the transform step in Python.
+
+36
+00:01:31.360 --> 00:01:34.220
+Read the register, and for every P,
+
+37
+00:01:34.700 --> 00:01:36.380
+add one to that class's count.
+
+38
+00:01:37.040 --> 00:01:39.880
+Five lines replace an hour of counting.
+
+39
+00:01:41.170 --> 00:01:41.650
+Quick check!
+
+40
+00:01:42.290 --> 00:01:44.770
+The load step failed halfway, and
+
+41
+00:01:44.770 --> 00:01:45.990
+the pipeline runs again.
+
+42
+00:01:46.550 --> 00:01:48.190
+Which way of loading is safe?
+
+43
+00:01:49.450 --> 00:01:52.370
+Replace the day's rows: the rerun first
+
+44
+00:01:52.370 --> 00:01:54.930
+clears Monday, then writes it again.
+
+45
+00:01:55.580 --> 00:01:58.720
+Adding would count two classes twice, and
+
+46
+00:01:58.720 --> 00:02:00.420
+the report would say a hundred and
+
+47
+00:02:00.420 --> 00:02:02.780
+fifty-two pupils came, out of ninety.
+
+48
+00:02:04.080 --> 00:02:05.560
+In the app, make a step
+
+49
+00:02:05.560 --> 00:02:07.320
+fail and press Retry.
+
+50
+00:02:08.030 --> 00:02:10.310
+With “Add the rows”, watch the report
+
+51
+00:02:10.310 --> 00:02:12.090
+climb to a hundred and fifty-two.
+
+52
+00:02:12.670 --> 00:02:15.170
+Switch to replace, and it stays at
+
+53
+00:02:15.170 --> 00:02:16.870
+ninety however often it runs.
+
+54
+00:02:18.190 --> 00:02:18.730
+Your turn.
+
+55
+00:02:19.340 --> 00:02:22.080
+One register says question mark for a
+
+56
+00:02:22.080 --> 00:02:24.560
+pupil, and the transform step stops.
+
+57
+00:02:25.410 --> 00:02:27.870
+Will pressing Retry fix it?
+
+58
+00:02:29.090 --> 00:02:31.710
+No: retrying fixes passing
+
+59
+00:02:31.710 --> 00:02:33.770
+faults, not bad data.
+
+60
+00:02:34.450 --> 00:02:37.270
+Remember: a pipeline extracts,
+
+61
+00:02:37.310 --> 00:02:39.790
+transforms and loads, on a schedule.
+
+62
+00:02:40.520 --> 00:02:42.680
+Make every run safe to repeat.
+
+63
+00:02:43.400 --> 00:02:45.860
+And log every run, so you
+
+64
+00:02:45.860 --> 00:02:46.500
+know what happened.
+
+65
+00:02:47.740 --> 00:02:49.000
+Try it in class tomorrow:
+
+66
+00:02:49.260 --> 00:02:51.300
+run a “Human pipeline”.
+
+67
+00:02:51.780 --> 00:02:53.720
+One group reads the registers
+
+68
+00:02:53.720 --> 00:02:56.940
+aloud, one counts, and one writes
+
+69
+00:02:56.940 --> 00:02:58.040
+the counts on the board.
+
+70
+00:02:58.660 --> 00:03:01.960
+Then stop it halfway and run it again:
+
+71
+00:03:02.720 --> 00:03:04.660
+did anyone count a class twice?

@@ -1,0 +1,301 @@
+{
+ "id": "DATA-4-1-2",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Pipelines, quality and governance"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Checks that catch problems",
+  "subtitle": "Kinds of checks, checks as queries, and what a failure does",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Checks that catch problems",
+  "length": "3:07",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — science teacher, Nigeria, runs the weather club (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "999 reached the district"
+   },
+   {
+    "at": "0:18",
+    "label": "Kinds of checks"
+   },
+   {
+    "at": "0:46",
+    "label": "A check as a query"
+   },
+   {
+    "at": "1:00",
+    "label": "When a check fails"
+   },
+   {
+    "at": "1:53",
+    "label": "Checks have limits"
+   },
+   {
+    "at": "2:07",
+    "label": "The lab"
+   },
+   {
+    "at": "2:32",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Icon cards: To the district; 999: an error code; Nothing stopped it. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our rainfall report went to the district with Riverside at over two hundred millimetres. One gauge had sent nine nine nine, its error code. Nothing in our pipeline stopped it.",
+    "icons": [
+     "presentation",
+     "warning",
+     "shield"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Checks that catch problems",
+    "voice": "Narrator",
+    "narration": "Today: checks that catch problems before your report does."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:34",
+    "beat": "Concept",
+    "visual": "Numbered steps: In range: 0 to 300 mm; Not empty; Unique: one per station a day; Allowed: known stations only.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rules the data must pass",
+    "voice": "Narrator",
+    "narration": "A check is a rule the data must pass. In range: rain from zero to three hundred millimetres. Not empty. Unique: one reading per station per day. Allowed values: only the stations we know."
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:46",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Do the totals add up?; Did the batch arrive?; Is the date right?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Checks that compare",
+    "voice": "Narrator",
+    "narration": "Some checks compare. Do the class counts add up to the school's roll? Did today's batch arrive at all? Is the date this week, and not last year?",
+    "icons": [
+     "calculator",
+     "clock",
+     "calendar",
+     "scale"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "1:00",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: SELECT station, day, mm … Caption: No rows back: the check passes",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A check: a query for bad rows",
+    "voice": "Narrator",
+    "narration": "In SQL, write each check as a query that finds the bad rows. If it returns nothing, the check passes. If it returns rows, those are your problems, with their details."
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:18",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Stop the batch; Set bad rows aside; Warn, let it through; Choose by the cost.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What does a failure do?",
+    "voice": "Narrator",
+    "narration": "Then decide what a failure does. Stop the batch, and lose good data with the bad. Set the bad rows aside, and let the rest through. Or warn, and let it all through. Choose by what a wrong report costs.",
+    "icons": [
+     "hand",
+     "filter",
+     "warning",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:18",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "Icon cards joined by arrows: A bad reading; Back to the club; Right tomorrow.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Fix it at the source",
+    "voice": "Narrator",
+    "narration": "And fix problems at their source. Send the reading back to the club that took it, so tomorrow's batch is right. Cleaning the same mistake every week means nobody fixed it.",
+    "icons": [
+     "warning",
+     "share",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which check catches 999?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Which check would have caught the nine nine nine?"
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "1:53",
+    "beat": "Reveal",
+    "visual": "One big value: 999, Out of range: 0 to 300 mm.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "In range",
+    "voice": "Narrator",
+    "narration": "In range. Nine nine nine is far above three hundred millimetres, so the range check returns it. Not empty and unique would both have let it through.",
+    "icons": [
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:53",
+    "end": "2:07",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: They catch what you thought of; 12 instead of 20: passes; Compare, and look at the chart.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Checks have limits",
+    "voice": "Narrator",
+    "narration": "But checks only catch what you thought of. A reading of twelve, when it really rained twenty, passes every check. So also compare with neighbours, and look at the chart.",
+    "icons": [
+     "check",
+     "cross",
+     "eye"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:07",
+    "end": "2:22",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Checks on and off; Stop: 1 day through; No repeats check: creeps up.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: data checks",
+    "voice": "Narrator",
+    "narration": "In the app, turn the checks on and off, and choose what a failure does. With “Stop the batch”, only the first day gets through. Without the repeats check, Hilltop's average creeps up.",
+    "icons": [
+     "shield",
+     "hand",
+     "repeat"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:22",
+    "end": "2:32",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "All checks pass. So?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. Every check passes on today's batch. What can I say about the data?"
+   },
+   {
+    "n": 13,
+    "start": "2:32",
+    "end": "2:49",
+    "beat": "Recap",
+    "visual": "Summary card: Range, empty, unique, allowed; A check: a query for bad rows; Stop, set aside or warn; Passing isn't proof. Takeaway bar: Checks catch the faults you imagined; keep imagining.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No known problem was found; that's all. Remember: write checks for range, gaps, repeats and allowed values. Decide what each failure does, and fix problems at their source. And a passing check is not proof the data is right."
+   },
+   {
+    "n": 14,
+    "start": "2:49",
+    "end": "3:07",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: Pupils write the checks; A mark: 0 to 20; Every pupil once; Test on planted mistakes. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Okafor",
+    "narration": "Try it in class tomorrow: ask your pupils to write checks for their own class data. A mark must be from zero to twenty. Every pupil appears once. Then test the checks on a made-up sheet with planted mistakes.",
+    "icons": [
+     "pencil",
+     "ruler",
+     "users",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:38",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A rain gauge sent 999, its error code. Which check would have caught it?",
+    "options": [
+     {
+      "text": "Not empty",
+      "correct": false
+     },
+     {
+      "text": "In range: 0 to 300 mm",
+      "correct": true
+     },
+     {
+      "text": "Unique station and day",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 999 is far outside 0 to 300 mm, so the range check finds it.",
+    "feedback_wrong": "Not quite — 999 isn't empty and isn't a repeat. Only the range check, 0 to 300 mm, catches it.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:29",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Every check passes on today's batch. What can you say about the data?",
+    "options": [
+     {
+      "text": "It's correct",
+      "correct": false
+     },
+     {
+      "text": "No known problem was found",
+      "correct": true
+     },
+     {
+      "text": "The checks are broken",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — checks find only the problems you thought of. A wrong but plausible reading passes them all.",
+    "feedback_wrong": "Not quite — passing means none of your rules found a problem; a wrong but plausible value can still be there.",
+    "resume_at": "2:32"
+   }
+  ]
+ }
+}

@@ -1,0 +1,268 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "A million names",
+            "ar-EG": "مليون اسم"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Page by page?",
+            "ar-EG": "صفحة صفحة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "tone": "ok",
+          "text": {
+            "en": "From the middle?",
+            "ar-EG": "من النص؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "big": {
+        "value": "500,000",
+        "label": {
+          "en": "Looks, row by row, in a million rows",
+          "ar-EG": "نظرة، صف صف، في مليون صف"
+        },
+        "icon": "repeat",
+        "s": 1
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Look at the middle",
+            "ar-EG": "بص على اللي في النص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Too big? Drop the top half",
+            "ar-EG": "أكبر؟ ارمي النص اللي فوق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Too small? Drop the bottom",
+            "ar-EG": "أصغر؟ ارمي النص اللي تحت"
+          },
+          "s": 4
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Each look halves what's left",
+            "ar-EG": "كل نظرة بتنصّ الباقي"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "5": {
+      "table": {
+        "cols": [
+          {
+            "en": "Row by row",
+            "ar-EG": "صف صف"
+          },
+          {
+            "en": "With an index",
+            "ar-EG": "بفهرس"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "500,000 looks",
+              "ar-EG": "500,000 نظرة"
+            },
+            {
+              "en": "About 20 looks",
+              "ar-EG": "حوالي 20 نظرة"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "lo, hi = 0, len(ids) - 1\nwhile lo <= hi:\n    mid = (lo + hi) // 2\n    if ids[mid] == key: break\n    if ids[mid] < key: lo = mid + 1\n    else: hi = mid - 1",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "8": {
+      "big": {
+        "value": "20",
+        "label": {
+          "en": "Looks to find one in a million",
+          "ar-EG": "نظرة علشان تلاقي واحد من مليون"
+        },
+        "icon": "target",
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "boxes",
+          "tone": "danger",
+          "text": {
+            "en": "Each takes space",
+            "ar-EG": "كل واحد بياخد مساحة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "Every new row: slower",
+            "ar-EG": "كل صف جديد: أبطأ"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Index what you search by",
+            "ar-EG": "فهرس اللي بتدوّر بيه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "CREATE INDEX by_name\nON pupils (name);\n\nSELECT * FROM pupils\nWHERE name = 'Grace';",
+        "highlight": [
+          1,
+          2
+        ],
+        "s": 0
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Watch one lookup",
+            "ar-EG": "اتفرّج على بحث"
+          },
+          "s": 0
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Grow to 1M rows",
+            "ar-EG": "كبّر لمليون صف"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "zap",
+          "tone": "ok",
+          "text": {
+            "en": "500,000 vs 20",
+            "ar-EG": "500,000 مقابل 20"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Row by row: half the table",
+            "ar-EG": "صف صف: نص الجدول"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "An index halves the search",
+            "ar-EG": "الفهرس بينصّ البحث"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "About 20 looks for a million",
+            "ar-EG": "حوالي 20 نظرة لمليون"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Space traded for speed",
+            "ar-EG": "مساحة مقابل سرعة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Sorted data can be searched by halves.",
+        "ar-EG": "البيانات المترتّبة بندوّر فيها بالتنصيف."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Guess my number: 1 to 100",
+            "ar-EG": "خمّن رقمي: من 1 لـ100"
+          },
+          "s": 0
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Always guess the middle",
+            "ar-EG": "خمّن اللي في النص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Seven guesses: why?",
+            "ar-EG": "سبع تخمينات: ليه؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

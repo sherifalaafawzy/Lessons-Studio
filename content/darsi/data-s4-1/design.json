@@ -1,0 +1,317 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "20,000 schools",
+            "ar-EG": "20,000 مدرسة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "signal",
+          "tone": "danger",
+          "text": {
+            "en": "Many on 2G",
+            "ar-EG": "كتير على 2G"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Hours a day",
+            "ar-EG": "ساعات كل يوم"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "cols": [
+          {
+            "en": "For apps",
+            "ar-EG": "للتطبيقات"
+          },
+          {
+            "en": "For reports",
+            "ar-EG": "للتقارير"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Normalised",
+              "ar-EG": "مطبّع"
+            },
+            {
+              "en": "A star schema",
+              "ar-EG": "مخطط نجمي"
+            }
+          ],
+          [
+            {
+              "en": "Each fact once",
+              "ar-EG": "كل معلومة مرة"
+            },
+            {
+              "en": "Fast to summarise",
+              "ar-EG": "سريع في التلخيص"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "headline": null,
+      "erd": {
+        "types": false,
+        "tables": [
+          {
+            "name": "attendance",
+            "label": {
+              "en": "Facts",
+              "ar-EG": "حقائق"
+            },
+            "cols": "school_id fk, day_id fk, present"
+          },
+          {
+            "name": "schools",
+            "label": {
+              "en": "Schools",
+              "ar-EG": "المدارس"
+            },
+            "cols": "id pk, name"
+          },
+          {
+            "name": "days",
+            "label": {
+              "en": "Days",
+              "ar-EG": "الأيام"
+            },
+            "cols": "id pk, day"
+          }
+        ],
+        "rels": [
+          {
+            "from": "schools",
+            "to": "attendance",
+            "kind": "1-n",
+            "via": "school_id"
+          },
+          {
+            "from": "days",
+            "to": "attendance",
+            "kind": "1-n",
+            "via": "day_id"
+          }
+        ],
+        "in": [
+          0,
+          1,
+          1
+        ],
+        "focus": [
+          {
+            "table": "attendance",
+            "s": 0
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "CSV: names once, then rows",
+            "ar-EG": "⁦CSV⁩: الأسامي مرة، وبعدين الصفوف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "JSON: names in every record",
+            "ar-EG": "⁦JSON⁩: الأسامي في كل سجل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "layers",
+          "tone": "ok",
+          "text": {
+            "en": "Columns: repeats squeezed",
+            "ar-EG": "الأعمدة: التكرار بيتعصر"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "25,200 records",
+            "ar-EG": "25,200 سجل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "JSON on 2G: about 5 min",
+            "ar-EG": "⁦JSON⁩ على 2G: حوالي 5 دقايق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Compressed: about 13 s",
+            "ar-EG": "مضغوط: حوالي 13 ثانية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "zap",
+          "tone": "ok",
+          "text": {
+            "en": "Columns, compressed: ~6 KB",
+            "ar-EG": "أعمدة ومضغوط: حوالي 6 كيلوبايت"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "{\"date\":\"2026-03-02\",\"class\":\"1A\",\n \"pupil\":\"P0001\",\"status\":\"present\"}\n\ndate,class,pupil,status\n2026-03-02,1A,P0001,present",
+        "highlight": [
+          1,
+          2
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "bad = 0\nfor row in csv.DictReader(f):\n    try:\n        n = int(row[\"present\"])\n    except ValueError:\n        bad += 1",
+        "highlight": [
+          5,
+          6
+        ],
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "How much data",
+            "ar-EG": "كمية البيانات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Format, compressed?",
+            "ar-EG": "الصيغة، مضغوطة؟"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "signal",
+          "tone": "ok",
+          "text": {
+            "en": "Cheapest on 2G",
+            "ar-EG": "الأرخص على 2G"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Normalised for apps",
+            "ar-EG": "مطبّع للتطبيقات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A star for reports",
+            "ar-EG": "نجمة للتقارير"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Columns squeeze repeats",
+            "ar-EG": "الأعمدة بتعصر التكرار"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check rows on arrival",
+            "ar-EG": "افحص الصفوف وهي داخلة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The same facts can cost a hundred times less.",
+        "ar-EG": "نفس الحقائق ممكن تتكلّف أقل بمية مرة."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "One table, CSV and JSON",
+            "ar-EG": "جدول واحد، ⁦CSV⁩ و⁦JSON⁩"
+          },
+          "s": 0
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Compress both",
+            "ar-EG": "اضغط الاتنين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Which wins, and why?",
+            "ar-EG": "مين كسب، وليه؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

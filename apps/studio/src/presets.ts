@@ -2,8 +2,9 @@
 // Each is designed, animated and narrated in English and Arabic; other languages start from the English.
 // Every animation is anchored to a word in that scene's narration, so it stays in sync in each language.
 // tests/presets.test.ts checks that each one validates with no warnings in every stage shape.
-import type { Element, Lang, Orient, Scene, TemplateId, Text, When } from "@lessonstudio/spec";
-import { presetKeys, type Preset } from "@lessonstudio/ops";
+import type { AnimProp, Ease, Element, Lang, Orient, Scene, TemplateId, Text, Track, When } from "@lessonstudio/spec";
+import { presetKeys, shift, type ArchPreset, type Preset } from "@lessonstudio/ops";
+import { archElement, area, descentElement, equationElement, functionPlot, networkElement, trainingPair, type Room } from "./science.ts";
 
 export interface Ctx { id: string; langs: Lang[]; stage: Orient }
 
@@ -11,6 +12,8 @@ export interface ScenePreset {
   id: string;
   name: { en: string; ar: string };
   template: TemplateId;
+  /** "science": equations, plots, networks and model diagrams, shown in their own part of the gallery. */
+  group?: "science";
   make: (c: Ctx) => Scene;
 }
 
@@ -390,7 +393,232 @@ const callout: ScenePreset = {
   },
 };
 
-export const GALLERY: ScenePreset[] = [title, steps, pipeline, chain, sms, email, quiz, summary, bigNumber, compare, process, chart, code, callout];
+/* ---------- science and AI: equations, plots, networks and model diagrams ---------- */
+
+type K = [When, number, Ease?];
+const track = (prop: AnimProp, ...keys: K[]): Track => ({ prop, keys: keys.map(([at, value, ease]) => ({ at, value, ...(ease ? { ease } : {}) })) });
+const tracks = <E extends Element>(el: E, ...t: Track[]): E => ({ ...el, anim: t });
+const room = (c: Ctx): Room => { const [w, h] = SIZES[c.stage]; return { w, h, langs: c.langs }; };
+const heading = (c: Ctx, en: string, ar: string): Element => {
+  const [w] = SIZES[c.stage];
+  return { id: "title", type: "text", x: 60, y: 50, w: w - 120, size: w < 800 ? 44 : 48, weight: 800, text: tx(c, en, ar) };
+};
+/** Comes in part by part (blocks along the arrows, an equation's parts, a curve drawn) between two spoken words. */
+const revealOn = (from: When, to: When): Track => track("reveal", [from, 0], [to, 1, "linear"]);
+/** Lights one part at each word: a block, a series, a layer, an equation's \g part (0 lights none). */
+const lightOn = (...steps: [When, number][]): Track => track("focus", ...steps.map(([w, n]): K => [w, n, "step"]));
+/** A packet runs through a diagram from its input on a word; hidden before and after. */
+const runOn = (at: When, dur = 2): Track => track("pass", [0, -1], [at, 0, "step"], [shift(at, dur), 1, "linear"], [shift(at, dur + 0.05), -1, "step"]);
+
+const equation: ScenePreset = {
+  id: "equation", group: "science", name: { en: "An equation, part by part", ar: "معادلة جزءًا بعد جزء" }, template: "canvas",
+  make: (c) => {
+    const r = room(c);
+    const a = area(r);
+    const tall = r.h > r.w;
+    const eq = { ...equationElement("eq", r), y: a.y, h: 150 };
+    const net = tall ? { x: a.x, y: a.y + 230, w: a.w, h: Math.min(560, a.h - 260) } : { x: a.x + Math.round(a.w * 0.2), y: a.y + 200, w: Math.round(a.w * 0.6), h: a.h - 210 };
+    const passes = on(c, "passes", "تمرّر");
+    return {
+      id: c.id, template: "canvas",
+      narration: say(c, "One neuron is simple maths. It multiplies each input by a weight, adds a bias, and passes the total through an activation to give its output.",
+        "الخلية العصبية الواحدة رياضيات بسيطة. فهي تضرب كل مدخل في وزن، وتضيف انحيازًا، ثم تمرّر المجموع عبر دالة تنشيط لتعطي مخرجها."),
+      content: {
+        elements: [
+          heading(c, "One neuron, in maths", "خلية عصبية بلغة الرياضيات"),
+          tracks(eq,
+            track("reveal",
+              [on(c, "multiplies", "تضرب"), 0], [on(c, "weight", "وزن"), 0.25, "out"],
+              [on(c, "bias", "انحيازًا", -0.35), 0.25], [on(c, "bias", "انحيازًا"), 0.5, "out"],
+              [on(c, "activation", "تنشيط", -0.35), 0.5], [on(c, "activation", "تنشيط"), 0.75, "out"],
+              [on(c, "output", "مخرجها", -0.35), 0.75], [on(c, "output", "مخرجها"), 1, "out"]),
+            lightOn([on(c, "weight", "وزن"), 1], [on(c, "bias", "انحيازًا"), 2], [on(c, "activation", "تنشيط"), 3], [on(c, "output", "مخرجها"), 4])),
+          tracks({ id: "neuron", type: "net", ...net, layers: [2, 1], weights: [[[[0.9], [-0.6]]]], acts: [[[0.8, 0.3], [0.7]]], values: true, labels: { in: ["x₁", "x₂"], out: ["y"] } },
+            track("opacity", [on(c, "neuron", "الخلية"), 0], [on(c, "neuron", "الخلية", 0.5), 1, "out"]),
+            track("pass", [passes, 0], [shift(passes, 1.4), 1, "linear"], [shift(passes, 1.45), -1, "step"])),
+        ],
+      },
+    };
+  },
+};
+
+const activations: ScenePreset = {
+  id: "activations", group: "science", name: { en: "Activation functions", ar: "دوال التنشيط" }, template: "canvas",
+  make: (c) => ({
+    id: c.id, template: "canvas",
+    narration: say(c, "An activation shapes a neuron's answer. The sigmoid squeezes it between zero and one, tanh between minus one and one, and ReLU cuts off everything below zero.",
+      "تشكّل دالة التنشيط جواب الخلية. فالسيجمويد تحصره بين الصفر والواحد، والظل الزائدي بين سالب واحد وواحد، أما ReLU فتقطع كل ما دون الصفر."),
+    content: {
+      elements: [
+        heading(c, "Activation functions", "دوال التنشيط"),
+        tracks(functionPlot("curves", room(c)),
+          revealOn(on(c, "shapes", "تشكّل"), on(c, "sigmoid", "السيجمويد")),
+          lightOn([on(c, "sigmoid", "السيجمويد"), 1], [on(c, "tanh", "الزائدي"), 2], [on(c, "ReLU", "ReLU"), 3])),
+      ],
+    },
+  }),
+};
+
+const training: ScenePreset = {
+  id: "training", group: "science", name: { en: "Training: decision map and loss", ar: "التدريب: خريطة القرار والخسارة" }, template: "canvas",
+  make: (c) => {
+    const [map, loss] = trainingPair(["map", "loss"], room(c));
+    const from = on(c, "Watch", "راقب");
+    const to = on(c, "falls", "تنخفض", 1.2);
+    return {
+      id: c.id, template: "canvas",
+      narration: say(c, "Training repeats one small step many times. Watch the coloured map bend around the inner circle while the loss falls.",
+        "يكرر التدريب خطوة صغيرة مرات كثيرة. راقب الخريطة الملوّنة تنحني حول الدائرة الداخلية بينما تنخفض الخسارة."),
+      content: {
+        elements: [
+          heading(c, "Training, round by round", "التدريب جولة بعد جولة"),
+          tracks(map, track("frame", [from, 0], [to, map.frame ?? 11, "linear"])),
+          tracks(loss, revealOn(from, to)),
+        ],
+      },
+    };
+  },
+};
+
+const network: ScenePreset = {
+  id: "network", group: "science", name: { en: "A neural network", ar: "شبكة عصبية" }, template: "canvas",
+  make: (c) => {
+    const fwd = on(c, "forward", "الأمام");
+    const back = on(c, "back", "الخلف");
+    return {
+      id: c.id, template: "canvas",
+      narration: say(c, "Neurons join in layers to make a network. Data flows forward from the inputs to the answer. Then the error flows back to correct every weight.",
+        "ترتبط الخلايا العصبية في طبقات لتكوّن شبكة. تتدفق البيانات إلى الأمام من المدخلات حتى الجواب. ثم يعود الخطأ إلى الخلف ليصحّح كل وزن."),
+      content: {
+        elements: [
+          heading(c, "A network, layer by layer", "شبكة طبقة بعد طبقة"),
+          tracks(networkElement("net", room(c)),
+            revealOn(on(c, "Neurons", "الخلايا"), on(c, "network", "شبكة")),
+            track("pass", [fwd, 0], [shift(fwd, 1.6), 1, "linear"], [back, 1], [shift(back, 1.6), 2, "linear"], [shift(back, 1.7), -1, "step"])),
+        ],
+      },
+    };
+  },
+};
+
+const descent: ScenePreset = {
+  id: "descent", group: "science", name: { en: "Gradient descent", ar: "الانحدار التدرجي" }, template: "canvas",
+  make: (c) => ({
+    id: c.id, template: "canvas",
+    narration: say(c, "Learning is a walk downhill. Each step follows the slope of the error, like a ball rolling to the bottom of a valley.",
+      "التعلّم نزول على منحدر. كل خطوة تتبع ميل الخطأ، مثل كرة تتدحرج إلى قاع الوادي."),
+    content: {
+      elements: [
+        heading(c, "Gradient descent", "الانحدار التدرجي"),
+        tracks(descentElement("gd", room(c)), track("frame", [on(c, "step", "خطوة"), 0], [on(c, "valley", "الوادي", 0.8), 11, "out"])),
+      ],
+    },
+  }),
+};
+
+/** A model's architecture, narrated: blocks come in, light up as they are named, and data runs through. */
+function archScene(model: ArchPreset, name: { en: string; ar: string }, title: [string, string], narration: [string, string], anim: (c: Ctx) => Track[]): ScenePreset {
+  return {
+    id: `arch-${model}`, group: "science", name, template: "canvas",
+    make: (c) => ({
+      id: c.id, template: "canvas",
+      narration: say(c, narration[0], narration[1]),
+      content: { elements: [heading(c, title[0], title[1]), tracks(archElement(model, "model", room(c)), ...anim(c))] },
+    }),
+  };
+}
+
+const ARCH: ScenePreset[] = [
+  archScene("mlp", { en: "Multilayer perceptron (MLP)", ar: "الشبكة متعددة الطبقات (MLP)" }, ["A multilayer perceptron", "شبكة متعددة الطبقات"],
+    ["The simplest deep network passes its input through hidden layers, one after another. Then the output layer turns the result into a choice.",
+      "أبسط شبكة عميقة تمرّر مدخلاتها عبر طبقات مخفية، واحدة بعد أخرى. ثم تحوّل طبقة المخرجات النتيجة إلى اختيار."],
+    (c) => [
+      revealOn(on(c, "input", "مدخلاتها"), on(c, "another", "أخرى")),
+      lightOn([on(c, "hidden", "مخفية"), 2], [on(c, "output", "المخرجات"), 4]),
+      runOn(on(c, "result", "النتيجة")),
+    ]),
+  archScene("cnn", { en: "Convolutional network (CNN)", ar: "الشبكة الالتفافية (CNN)" }, ["A convolutional network", "شبكة التفافية"],
+    ["For pictures, convolution layers scan for edges and shapes. Pooling layers shrink the picture, and a dense layer makes the final guess.",
+      "مع الصور، تبحث طبقات الالتفاف عن الحواف والأشكال. ثم تصغّر طبقات التجميع الصورة، وتخرج طبقة كاملة الاتصال بالتخمين الأخير."],
+    (c) => [
+      revealOn(on(c, "pictures", "الصور"), on(c, "guess", "بالتخمين")),
+      lightOn([on(c, "convolution", "الالتفاف"), 2], [on(c, "Pooling", "التجميع"), 3], [on(c, "dense", "كاملة"), 6], [on(c, "guess", "بالتخمين"), 7]),
+    ]),
+  archScene("rnn", { en: "Recurrent network (RNN)", ar: "الشبكة المتكررة (RNN)" }, ["A recurrent network", "شبكة متكررة"],
+    ["A recurrent network reads a sentence one word at a time. Its cell keeps a memory of the words so far, and predicts the next word.",
+      "تقرأ الشبكة المتكررة الجملة كلمة بعد كلمة. وتحتفظ خليتها بذاكرة للكلمات السابقة، ثم تتنبأ بالكلمة التالية."],
+    (c) => [
+      revealOn(on(c, "reads", "تقرأ"), on(c, "time", "بعد")),
+      lightOn([on(c, "word", "كلمة"), 1], [on(c, "memory", "بذاكرة"), 2], [on(c, "next", "التالية"), 3]),
+      runOn(on(c, "predicts", "تتنبأ"), 1.8),
+    ]),
+  archScene("transformer", { en: "Transformer", ar: "المحوّل (Transformer)" }, ["A transformer block", "كتلة المحوّل"],
+    ["A transformer turns words into tokens and embeddings. Attention lets every token look at all the others, a feed forward layer works on each one, and the block repeats six times.",
+      "يحوّل المحوّل الكلمات إلى رموز وتضمينات. يتيح الانتباه لكل رمز أن ينظر إلى الرموز الأخرى كلها، وتعالج الشبكة الأمامية كل رمز وحده، وتتكرر الكتلة ست مرات."],
+    (c) => [
+      revealOn(on(c, "turns", "يحوّل"), on(c, "Attention", "الانتباه")),
+      lightOn([on(c, "tokens", "رموز"), 1], [on(c, "embeddings", "وتضمينات"), 2], [on(c, "Attention", "الانتباه"), 3], [on(c, "feed", "الأمامية"), 5], [on(c, "repeats", "وتتكرر"), 0]),
+      runOn(on(c, "repeats", "وتتكرر")),
+    ]),
+  archScene("gpt", { en: "GPT (decoder only)", ar: "GPT (فكّ الترميز فقط)" }, ["How GPT writes", "كيف يكتب GPT"],
+    ["GPT reads the tokens so far. Masked attention looks only at earlier tokens, the block repeats twelve times, and the model picks the next token, again and again.",
+      "يقرأ GPT الرموز حتى الآن. ينظر الانتباه المقنّع إلى الرموز السابقة فقط، وتتكرر الكتلة اثنتي عشرة مرة، ثم يختار النموذج الرمز التالي، مرة بعد مرة."],
+    (c) => [
+      revealOn(on(c, "reads", "يقرأ"), on(c, "Masked", "المقنّع")),
+      lightOn([on(c, "tokens", "الرموز"), 1], [on(c, "Masked", "المقنّع"), 3], [on(c, "repeats", "وتتكرر"), 0], [on(c, "next", "التالي"), 7]),
+      runOn(on(c, "picks", "يختار")),
+    ]),
+  archScene("seq2seq", { en: "Encoder and decoder", ar: "المُرمِّز وفكّ الترميز" }, ["Encoder and decoder", "المُرمِّز وفكّ الترميز"],
+    ["To translate, the encoder reads the whole sentence and squeezes its meaning into numbers. Then the decoder turns that meaning into words, one at a time, in the new language.",
+      "للترجمة، يقرأ المُرمِّز الجملة كلها ويضغط معناها في أرقام. ثم يحوّل فكّ الترميز هذا المعنى إلى كلمات، واحدة بعد أخرى، باللغة الجديدة."],
+    (c) => [
+      revealOn(on(c, "translate", "للترجمة"), on(c, "meaning", "معناها")),
+      lightOn([on(c, "encoder", "المُرمِّز"), 2], [on(c, "decoder", "الترميز"), 4], [on(c, "language", "باللغة"), 5]),
+      runOn(on(c, "turns", "يحوّل")),
+    ]),
+  archScene("resnet", { en: "Residual block (ResNet)", ar: "الكتلة المتبقية (ResNet)" }, ["A residual block", "الكتلة المتبقية"],
+    ["Very deep networks are hard to train. A residual block adds a shortcut: the input skips the layers and joins their result, so learning flows easily.",
+      "يصعب تدريب الشبكات العميقة جدًا. لذلك تضيف الكتلة المتبقية اختصارًا: يتخطى المدخل الطبقات وينضم إلى نتيجتها، فيسهل التعلّم."],
+    (c) => [
+      revealOn(on(c, "deep", "العميقة"), on(c, "shortcut", "اختصارًا")),
+      lightOn([on(c, "input", "المدخل"), 1], [on(c, "joins", "وينضم"), 7]),
+      runOn(on(c, "learning", "التعلّم")),
+    ]),
+  archScene("autoencoder", { en: "Autoencoder", ar: "المُرمِّز التلقائي" }, ["An autoencoder", "المُرمِّز التلقائي"],
+    ["An autoencoder squeezes a picture into a short code of eight numbers, then rebuilds it. If the copy looks right, the code kept what matters.",
+      "يضغط المُرمِّز التلقائي الصورة في رمز قصير من ثمانية أرقام، ثم يعيد بناءها. فإذا بدت النسخة صحيحة، فقد حفظ الرمز ما يهم."],
+    (c) => [
+      revealOn(on(c, "autoencoder", "المُرمِّز"), on(c, "rebuilds", "يعيد")),
+      lightOn([on(c, "squeezes", "يضغط"), 2], [on(c, "short", "قصير"), 3], [on(c, "rebuilds", "يعيد"), 4], [on(c, "copy", "النسخة"), 5]),
+    ]),
+  archScene("gan", { en: "GAN: generator and discriminator", ar: "GAN: المولِّد والمميِّز" }, ["Two networks that compete", "شبكتان تتنافسان"],
+    ["A GAN trains two networks against each other. The generator turns noise into fake images, and the discriminator tries to tell real from fake. Each one makes the other better.",
+      "تدرّب الشبكة التوليدية التنافسية شبكتين إحداهما ضد الأخرى. يحوّل المولِّد الضوضاء إلى صور مزيّفة، ويحاول المميِّز أن يفرّق بين الحقيقي والمزيّف. وكل منهما يجعل الآخر أفضل."],
+    (c) => [
+      revealOn(on(c, "trains", "تدرّب"), on(c, "discriminator", "المميِّز")),
+      lightOn([on(c, "generator", "المولِّد"), 2], [on(c, "fake", "مزيّفة"), 3], [on(c, "discriminator", "المميِّز"), 5], [on(c, "better", "أفضل"), 0]),
+      runOn(on(c, "tell", "يفرّق")),
+    ]),
+  archScene("agent", { en: "AI agent with tools", ar: "وكيل ذكاء اصطناعي بأدوات" }, ["An AI agent with tools", "وكيل ذكاء اصطناعي بأدوات"],
+    ["An agent is a language model that plans. It reads the request and its memory, calls a tool such as a calculator, reads the result, and only then answers.",
+      "الوكيل نموذج لغوي يخطّط. يقرأ الطلب وذاكرته، ويستدعي أداة مثل الحاسبة، ثم يقرأ النتيجة، وبعدها فقط يجيب."],
+    (c) => [
+      revealOn(on(c, "agent", "الوكيل"), on(c, "plans", "يخطّط")),
+      lightOn([on(c, "plans", "يخطّط"), 2], [on(c, "request", "الطلب"), 1], [on(c, "memory", "وذاكرته"), 3], [on(c, "tool", "أداة"), 4], [on(c, "answers", "يجيب"), 5]),
+      runOn(on(c, "calls", "ويستدعي")),
+    ]),
+  archScene("rag", { en: "Retrieval (RAG)", ar: "الاسترجاع (RAG)" }, ["Answers from your own documents", "إجابات من مستنداتك"],
+    ["Retrieval helps a model answer from real documents. The question goes to a search, the best documents go to the model with it, and the answer can name its sources.",
+      "يساعد الاسترجاع النموذج على الإجابة من مستندات حقيقية. يذهب السؤال إلى البحث، وتصل أفضل المستندات إلى النموذج معه، فيذكر الجواب مصادره."],
+    (c) => [
+      revealOn(on(c, "Retrieval", "الاسترجاع"), on(c, "search", "البحث")),
+      lightOn([on(c, "question", "السؤال"), 1], [on(c, "search", "البحث"), 2], [on(c, "best", "أفضل"), 3], [on(c, "sources", "مصادره"), 5]),
+      runOn(on(c, "goes", "يذهب")),
+    ]),
+];
+
+export const GALLERY: ScenePreset[] = [title, steps, pipeline, chain, sms, email, quiz, summary, bigNumber, compare, process, chart, code, callout,
+  equation, activations, training, network, descent, ...ARCH];
 
 /**
  * The first scenes of a new lesson: its title, the idea in three steps, and a summary. The wording is a

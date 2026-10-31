@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.450
+Sixty-four people for the field trip.
+
+2
+00:00:03.080 --> 00:00:05.460
+A minibus seats fourteen for three
+
+3
+00:00:05.460 --> 00:00:08.420
+hundred coins; a bus seats thirty
+
+4
+00:00:08.420 --> 00:00:09.960
+for five hundred and fifty.
+
+5
+00:00:10.640 --> 00:00:12.880
+The linear program says: hire
+
+6
+00:00:12.880 --> 00:00:14.600
+two point one three buses.
+
+7
+00:00:15.410 --> 00:00:16.870
+Try telling that to the bus company.
+
+8
+00:00:18.130 --> 00:00:21.790
+Today: integer programs, and how branch
+
+9
+00:00:21.790 --> 00:00:24.190
+and bound finds whole-number answers.
+
+10
+00:00:25.550 --> 00:00:27.670
+Drop the whole-number rule and you get
+
+11
+00:00:27.670 --> 00:00:30.790
+the LP relaxation: one thousand one
+
+12
+00:00:30.790 --> 00:00:32.430
+hundred and seventy-three coins.
+
+13
+00:00:33.120 --> 00:00:35.060
+No whole-number plan can be
+
+14
+00:00:35.060 --> 00:00:37.060
+cheaper, because the relaxation
+
+15
+00:00:37.060 --> 00:00:39.740
+allows more plans, so it’s a bound.
+
+16
+00:00:40.370 --> 00:00:42.790
+But its answer can’t be used as it is.
+
+17
+00:00:44.110 --> 00:00:46.770
+Round down to two buses, and
+
+18
+00:00:46.770 --> 00:00:48.130
+four people stay behind.
+
+19
+00:00:48.830 --> 00:00:51.570
+Round up to three buses, and it
+
+20
+00:00:51.570 --> 00:00:53.330
+costs sixteen hundred and fifty.
+
+21
+00:00:54.030 --> 00:00:57.510
+The best whole-number plan is neither: two
+
+22
+00:00:57.510 --> 00:01:00.230
+buses and a minibus, fourteen hundred.
+
+23
+00:01:01.460 --> 00:01:04.060
+Branch and bound searches cleverly.
+
+24
+00:01:04.570 --> 00:01:07.270
+Pick a variable with a fraction, like two
+
+25
+00:01:07.270 --> 00:01:10.750
+point one three buses, and split: at most
+
+26
+00:01:10.750 --> 00:01:12.990
+two buses, or at least three.
+
+27
+00:01:13.600 --> 00:01:16.040
+Each branch is a linear program again.
+
+28
+00:01:17.260 --> 00:01:20.140
+Bound: once you hold a whole-number plan,
+
+29
+00:01:20.720 --> 00:01:23.140
+any branch whose relaxation already costs
+
+30
+00:01:23.140 --> 00:01:25.360
+more is cut off unexplored.
+
+31
+00:01:25.940 --> 00:01:28.600
+The three-bus branch costs at least
+
+32
+00:01:28.600 --> 00:01:31.380
+sixteen fifty, more than the fourteen
+
+33
+00:01:31.380 --> 00:01:34.140
+hundred we have, so it’s pruned.
+
+34
+00:01:34.690 --> 00:01:37.170
+Solvers prove the best this way, often
+
+35
+00:01:37.170 --> 00:01:38.870
+without visiting most of the tree.
+
+36
+00:01:40.020 --> 00:01:41.960
+While it runs, a solver reports
+
+37
+00:01:41.960 --> 00:01:44.640
+two numbers: the best plan so
+
+38
+00:01:44.640 --> 00:01:46.600
+far, and the best bound.
+
+39
+00:01:47.280 --> 00:01:49.220
+The gap between them says how
+
+40
+00:01:49.220 --> 00:01:50.840
+far from proven you are.
+
+41
+00:01:51.460 --> 00:01:54.100
+Here it starts at about sixteen percent,
+
+42
+00:01:54.740 --> 00:01:57.180
+and at zero, the plan is optimal.
+
+43
+00:01:58.480 --> 00:01:59.060
+Quick check!
+
+44
+00:01:59.850 --> 00:02:03.670
+A cost-minimising model’s relaxation costs
+
+45
+00:02:03.670 --> 00:02:06.990
+one thousand, and the best whole-number
+
+46
+00:02:06.990 --> 00:02:10.750
+plan found so far costs twelve hundred.
+
+47
+00:02:11.390 --> 00:02:14.650
+What do you know about the true best?
+
+48
+00:02:16.090 --> 00:02:17.890
+It lies somewhere between the two.
+
+49
+00:02:18.500 --> 00:02:20.840
+In general, integer programming is
+
+50
+00:02:20.840 --> 00:02:23.600
+NP-hard: nobody knows a method that
+
+51
+00:02:23.600 --> 00:02:25.380
+is fast on every problem.
+
+52
+00:02:26.010 --> 00:02:30.230
+Yet solvers like SCIP, HiGHS, Gurobi and
+
+53
+00:02:30.230 --> 00:02:33.590
+CP-SAT solve real problems with huge
+
+54
+00:02:33.590 --> 00:02:35.870
+numbers of variables, thanks to good
+
+55
+00:02:35.870 --> 00:02:38.430
+bounds, cutting planes and heuristics.
+
+56
+00:02:39.810 --> 00:02:42.390
+Yes-or-no variables model logic.
+
+57
+00:02:43.040 --> 00:02:45.540
+To charge a booking fee only if you
+
+58
+00:02:45.540 --> 00:02:48.260
+hire any minibus, add a yes-or-no
+
+59
+00:02:48.260 --> 00:02:50.500
+variable, book, and the limit:
+
+60
+00:02:50.980 --> 00:02:53.400
+minibuses at most ten times book.
+
+61
+00:02:54.000 --> 00:02:56.460
+If book is zero, no minibus;
+
+62
+00:02:56.920 --> 00:02:58.460
+if it’s one, up to ten.
+
+63
+00:02:59.680 --> 00:03:02.100
+In the app, open the truck load model.
+
+64
+00:03:02.730 --> 00:03:05.050
+Change the capacity, add a rule
+
+65
+00:03:05.050 --> 00:03:06.830
+of your own, and watch how the
+
+66
+00:03:06.830 --> 00:03:08.230
+solver’s answer changes.
+
+67
+00:03:09.620 --> 00:03:10.380
+Your turn.
+
+68
+00:03:11.000 --> 00:03:13.380
+The minibus company adds a
+
+69
+00:03:13.380 --> 00:03:15.180
+three-hundred-coin booking fee.
+
+70
+00:03:15.730 --> 00:03:18.050
+Are two buses and a minibus
+
+71
+00:03:18.050 --> 00:03:18.810
+still the cheapest?
+
+72
+00:03:20.120 --> 00:03:22.600
+No: with the fee it costs seventeen
+
+73
+00:03:22.600 --> 00:03:26.120
+hundred, so three buses at sixteen fifty
+
+74
+00:03:26.120 --> 00:03:26.440
+win.
+
+75
+00:03:27.160 --> 00:03:29.880
+Remember: the relaxation gives a
+
+76
+00:03:29.880 --> 00:03:32.320
+bound, and rounding can fail.
+
+77
+00:03:32.930 --> 00:03:34.690
+Branch and bound splits on
+
+78
+00:03:34.690 --> 00:03:37.090
+fractions and prunes what can’t win.
+
+79
+00:03:37.740 --> 00:03:39.140
+And the gap tells you how
+
+80
+00:03:39.140 --> 00:03:40.400
+close to proven you are.
+
+81
+00:03:41.580 --> 00:03:44.140
+Try it yourself: model the trip in
+
+82
+00:03:44.140 --> 00:03:45.600
+SCIP, with the booking fee.
+
+83
+00:03:46.180 --> 00:03:48.640
+Then change the fee, and find the
+
+84
+00:03:48.640 --> 00:03:50.360
+fee at which the answer flips.

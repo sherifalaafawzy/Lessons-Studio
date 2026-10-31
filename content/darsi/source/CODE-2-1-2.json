@@ -1,0 +1,296 @@
+{
+ "id": "CODE-2-1-2",
+ "track": "code",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Python for teachers"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Decisions",
+  "subtitle": "if, elif and else",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Decisions: if, elif and else",
+  "length": "3:09",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Grades by hand"
+   },
+   {
+    "at": "0:21",
+    "label": "Comparing values"
+   },
+   {
+    "at": "0:56",
+    "label": "More choices with elif"
+   },
+   {
+    "at": "1:45",
+    "label": "A marking tool"
+   },
+   {
+    "at": "2:37",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:17",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Every test, I turn marks into grades by hand: seventy and above is an A, fifty to sixty-nine a B, and so on. Last term I gave a pupil with exactly fifty the wrong grade. A program never forgets the rule.",
+    "icons": [
+     "pencil",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:17",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Decisions",
+    "voice": "Narrator",
+    "narration": "Today: decisions in Python, with if, elif and else."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:39",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Comparing values",
+    "voice": "Narrator",
+    "narration": "A decision starts with a comparison. Is the mark at least fifty? In Python that’s mark, greater than or equal, fifty. Two equals signs ask: are these the same? One equals sign stores a value, so mixing them up is the most common bug.",
+    "icons": [
+     "scale",
+     "check",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:39",
+    "end": "0:56",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "if and else",
+    "voice": "Narrator",
+    "narration": "An if line ends with a colon, and the lines under it are indented by four spaces. They run only when the condition is true. Else catches every other case. The indent tells Python which lines belong to which choice.",
+    "icons": [
+     "list",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:56",
+    "end": "1:11",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "More choices: elif",
+    "voice": "Narrator",
+    "narration": "For more than two choices, use elif, short for else if. Python checks from the top and stops at the first condition that’s true. So put the highest band first: seventy, then fifty, then everything else.",
+    "icons": [
+     "list",
+     "filter"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:11",
+    "end": "1:26",
+    "beat": "Analogy",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Like sorting exam papers",
+    "voice": "Narrator",
+    "narration": "It’s like sorting exam papers into piles. Is it seventy or more? First pile. If not, is it fifty or more? Second pile. Everything else goes on the last pile. Each paper lands on exactly one pile.",
+    "icons": [
+     "file",
+     "list"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:26",
+    "end": "1:32",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which grade for 50?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! With that program, a pupil scores exactly fifty. Which grade does she get?"
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:45",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "B: test the boundaries",
+    "voice": "Narrator",
+    "narration": "Grade B. Greater than or equal includes fifty itself. Fifty is where the grade changes, so it’s exactly the mark to test. Always test the boundaries: forty-nine, fifty, sixty-nine and seventy.",
+    "icons": [
+     "circlecheck",
+     "ruler"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "1:60",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A tool for your marking",
+    "voice": "Narrator",
+    "narration": "Put it together with input, and you have a small tool. It asks for a mark, turns it into a number, and prints the grade. Type forty marks, and every grade follows the same rule.",
+    "icons": [
+     "keyboard",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:60",
+    "end": "2:15",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Three bugs to expect",
+    "voice": "Narrator",
+    "narration": "Expect three bugs when pupils start. A missing colon at the end of the if line. One equals sign where two are needed. And a line that isn’t indented, so Python doesn’t know it belongs to the if.",
+    "icons": [
+     "warning",
+     "search"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:15",
+    "end": "2:30",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: bug hunt",
+    "voice": "Narrator",
+    "narration": "In the app, open Bug hunt. Bug one is a missing colon and bug two is a single equals sign. Run each one, read the error and its line, fix it and run it again.",
+    "icons": [
+     "next",
+     "eye",
+     "pencil"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:30",
+    "end": "2:37",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Spot the bug",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. A pupil writes: if mark equals fifty, with a single equals sign. What happens?"
+   },
+   {
+    "n": 13,
+    "start": "2:37",
+    "end": "2:52",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "== compares · colon and indent · elif · boundaries",
+    "voice": "Narrator",
+    "narration": "A syntax error. Remember: two equals signs compare; one stores. An if line ends with a colon, and its lines are indented. elif checks the next band, and the first true condition wins. Test the boundaries."
+   },
+   {
+    "n": 14,
+    "start": "2:52",
+    "end": "3:09",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: Human if. Write a grading rule on the board. Pupils hold up made-up marks, and the class decides each grade by following the rule line by line, starting at the top. Try forty-nine, fifty and seventy.",
+    "icons": [
+     "pencil",
+     "users",
+     "list"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:30",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A pupil scores exactly 50. Rule: 70 or more is A, 50 or more is B, else C. Which grade?",
+    "options": [
+     {
+      "text": "A",
+      "correct": false
+     },
+     {
+      "text": "B",
+      "correct": true
+     },
+     {
+      "text": "C",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 50 is not 70 or more, but it is 50 or more: B.",
+    "feedback_wrong": "Not quite — “greater than or equal” includes 50 itself, so the second condition is true: B.",
+    "resume_at": "1:32"
+   },
+   {
+    "at": "2:35",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A pupil writes if mark = 50: with one equals sign. What happens?",
+    "options": [
+     {
+      "text": "It works the same",
+      "correct": false
+     },
+     {
+      "text": "Python stops with a SyntaxError",
+      "correct": true
+     },
+     {
+      "text": "It sets mark to 50",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — inside an if, a single = is a syntax error. Comparing needs ==.",
+    "feedback_wrong": "Not quite — Python refuses it with a SyntaxError: to compare, use ==.",
+    "resume_at": "2:37"
+   }
+  ]
+ }
+}

@@ -1,0 +1,399 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "“Tisums the library”?!",
+            "ar-EG": "«يتيسمز المكتبة»؟!"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Nobody checked",
+            "ar-EG": "محدش راجع"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "tone": "accent",
+          "text": {
+            "en": "Add a checker?",
+            "ar-EG": "نزوّد مدقّق؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "plan",
+            "glyph": "bot",
+            "label": {
+              "en": "Planner",
+              "ar-EG": "المخطِّط"
+            }
+          },
+          {
+            "id": "check",
+            "glyph": "shield",
+            "label": {
+              "en": "Checker",
+              "ar-EG": "المدقّق"
+            }
+          },
+          {
+            "id": "run",
+            "glyph": "tool",
+            "label": {
+              "en": "Runner",
+              "ar-EG": "المنفّذ"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "Person",
+              "ar-EG": "الإنسان"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "plan",
+            "to": "check",
+            "text": {
+              "en": "Proposed call",
+              "ar-EG": "طلب مقترح"
+            }
+          },
+          {
+            "from": "check",
+            "to": "check",
+            "text": {
+              "en": "Five rules",
+              "ar-EG": "خمس قواعد"
+            }
+          },
+          {
+            "from": "check",
+            "to": "you",
+            "text": {
+              "en": "Approve?",
+              "ar-EG": "توافق؟"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "check",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "check",
+            "to": "run",
+            "text": {
+              "en": "Run it",
+              "ar-EG": "شغّله"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          3,
+          3
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The tool is on",
+            "ar-EG": "الأداة شغالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Right shape: 25:00 isn’t a time",
+            "ar-EG": "الشكل صح: 25:00 مش وقت"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Every name was said",
+            "ar-EG": "كل اسم اتقال"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "No earlier step failed",
+            "ar-EG": "مفيش خطوة قبلها فشلت"
+          },
+          "s": 4
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "A person said yes",
+            "ar-EG": "إنسان قال «أيوه»"
+          },
+          "s": 4,
+          "o": 2
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "9C: never said",
+            "ar-EG": "«تسعة سي»: محدش قالها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "tone": "danger",
+          "text": {
+            "en": "25:00: wrong shape",
+            "ar-EG": "25:00: شكل غلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "tone": "danger",
+          "text": {
+            "en": "Saturday: the step before failed",
+            "ar-EG": "السبت: الخطوة اللي قبله فشلت"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "shield"
+    },
+    "6": {
+      "table": {
+        "s": 0,
+        "size": 36,
+        "cols": [
+          {
+            "en": "A checker model",
+            "ar-EG": "نموذج مدقّق"
+          },
+          {
+            "en": "Rules in code",
+            "ar-EG": "قواعد في الكود"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Catches subtler slips",
+              "ar-EG": "بيمسك أخطاء أدق"
+            },
+            {
+              "en": "Never guess",
+              "ar-EG": "عمرها ما بتخمّن"
+            }
+          ],
+          [
+            {
+              "en": "Can be wrong or fooled",
+              "ar-EG": "ممكن يغلط أو يتضحك عليه"
+            },
+            {
+              "en": "Cheap and fast",
+              "ar-EG": "رخيصة وسريعة"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "7": {
+      "big": {
+        "value": "81%",
+        "label": {
+          "en": "Two steps, each right 90% of the time",
+          "ar-EG": "خطوتين، كل واحدة صح 90% من المرات"
+        },
+        "icon": "gauge",
+        "s": 2
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "hand",
+          "tone": "danger",
+          "text": {
+            "en": "Stop: 9C was never said",
+            "ar-EG": "وقّف: «تسعة سي» محدش قالها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "No guessed fixes",
+            "ar-EG": "من غير تصليح بالتخمين"
+          },
+          "s": 2
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "Back to a person",
+            "ar-EG": "يرجع لإنسان"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "shield"
+    },
+    "10": {
+      "who": null,
+      "trace": {
+        "code": "def said(vals, text):\n    for v in vals:\n        if v not in text:\n            return False\n    return True\nreq = \"9Z?\"\nprint(said([\"9C\"], req))",
+        "play": [
+          0,
+          1
+        ],
+        "focus": [
+          {
+            "s": 0,
+            "line": 3
+          }
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Kafi weather: passed, then run",
+            "ar-EG": "طقس كافي: عدّى واتشغّل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "tone": "danger",
+          "text": {
+            "en": "Tidy reminder and 9Z: stopped",
+            "ar-EG": "تذكير المكتبة و9Z: اتوقفوا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "Checker off: what gets through?",
+            "ar-EG": "المدقّق مقفول: إيه اللي يعدّي؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Planner, checker, runner, person",
+            "ar-EG": "مخطِّط، مدقّق، منفّذ، إنسان"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Strict rules check first",
+            "ar-EG": "القواعد الصارمة تراجع الأول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "People approve and decide",
+            "ar-EG": "الإنسان يوافق ويقرّر"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "One part proposes; another checks before anything runs.",
+        "ar-EG": "جزء بيقترح، وجزء تاني بيراجع قبل ما حاجة تشتغل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Draw the roles",
+            "ar-EG": "ارسم الأدوار"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Write five strict rules",
+            "ar-EG": "اكتب خمس قواعد صارمة"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "Find a slip they miss",
+            "ar-EG": "دوّر على غلطة بتفوتها"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

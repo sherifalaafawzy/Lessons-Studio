@@ -1,0 +1,274 @@
+{
+ "id": "DS-3-1-2",
+ "track": "data-science",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Models and predictions"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Training and testing",
+  "subtitle": "Hold some data back",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Training and testing: Hold some data back",
+  "length": "2:34",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Amina Bello - primary teacher, Nigeria (main character)",
+   "Ms Salma - geography teacher, Egypt (cameo)",
+   "Narrator - the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A perfect score"
+   },
+   {
+    "at": "0:18",
+    "label": "Train and test"
+   },
+   {
+    "at": "0:60",
+    "label": "Overfitting"
+   },
+   {
+    "at": "1:59",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Amina",
+    "narration": "Last year I built a model to predict which pupils would pass. On last year's pupils it was right every time. This year it was wrong for one pupil in three.",
+    "icons": [
+     "star",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Training and testing",
+    "voice": "Narrator",
+    "narration": "Today: why we test a model on data it has never seen."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:33",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Training data and test data",
+    "voice": "Narrator",
+    "narration": "The fix is simple. Split your data before you start: about eighty percent to train the model, and twenty percent locked away to test it. The test set plays the part of next year's pupils.",
+    "icons": [
+     "database",
+     "lock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why it works",
+    "voice": "Narrator",
+    "narration": "A model can remember its training pupils without learning anything useful. The test pupils are new to it, so its score on them is an honest guess of how it will do next year.",
+    "icons": [
+     "eye",
+     "check"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:47",
+    "end": "0:60",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Errors as the model gets more complex",
+    "voice": "Narrator",
+    "narration": "Here is the test error as we make the model more and more complex. It falls at first, then rises again. The middle model is the best one for new pupils.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:60",
+    "end": "1:15",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Overfitting",
+    "voice": "Narrator",
+    "narration": "A model that bends to fit every training pupil is overfitting. It learns the noise, like one pupil's lucky day, as if it were a rule. It looks perfect in training and fails on new data.",
+    "icons": [
+     "puzzle",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:15",
+    "end": "1:27",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Keep the test set locked",
+    "voice": "Ms Salma",
+    "narration": "One rule matters most. Never peek at the test set while you build the model. If you tune the model to the test pupils, the test stops being fair.",
+    "icons": [
+     "lock",
+     "scale"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:27",
+    "end": "1:39",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which score tells the truth?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A model scores one hundred percent on its training pupils and sixty percent on the test pupils. Which score tells you how it will do next year?"
+   },
+   {
+    "n": 9,
+    "start": "1:39",
+    "end": "1:49",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The test score",
+    "voice": "Narrator",
+    "narration": "The test score, sixty percent. The perfect training score only shows the model remembered its pupils. The big gap is a sign of overfitting.",
+    "icons": [
+     "check",
+     "eye"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:49",
+    "end": "1:59",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: overfitting",
+    "voice": "Narrator",
+    "narration": "In the app, open the overfitting lab. Raise the complexity slider and watch the training error fall while the test error turns back up.",
+    "icons": [
+     "puzzle",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why hold data back?",
+    "voice": "Amina",
+    "narration": "Your turn. Why do we keep twenty percent of the data away from the model while we build it?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:20",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Train, test, be honest",
+    "voice": "Narrator",
+    "narration": "To check it on pupils it has never seen. Remember: train on most of the data, test once on the rest, and a big gap between the two scores means overfitting."
+   },
+   {
+    "n": 13,
+    "start": "2:20",
+    "end": "2:34",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: let groups invent a rule for guessing marks from ten cards, then test their rule on five hidden cards. Ask: did your rule work as well on the hidden cards?",
+    "icons": [
+     "clipboard",
+     "lock",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:37",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A model scores 100% on training pupils and 60% on test pupils. Which score tells you how it will do next year?",
+    "options": [
+     {
+      "text": "100%, the training score",
+      "correct": false
+     },
+     {
+      "text": "60%, the test score",
+      "correct": true
+     },
+     {
+      "text": "The average, 80%",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: only the test score uses pupils the model has never seen.",
+    "feedback_wrong": "Not quite: the training score only shows what the model remembered.",
+    "resume_at": "1:39"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Why do we keep 20% of the data away from the model while we build it?",
+    "options": [
+     {
+      "text": "To check it on pupils it has never seen",
+      "correct": true
+     },
+     {
+      "text": "To make it faster",
+      "correct": false
+     },
+     {
+      "text": "Because that data is wrong",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the hidden data gives an honest score.",
+    "feedback_wrong": "Not quite: the held-back data is there to test the model fairly.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

@@ -1,0 +1,340 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Six A",
+            "ar-EG": "ستة أ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Maths under 10",
+            "ar-EG": "رياضيات أقل من 10"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "400 pupils",
+            "ar-EG": "400 تلميذ"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT name, class FROM students",
+        "data": [
+          "students"
+        ],
+        "words": "names",
+        "at": {
+          "select": 1
+        }
+      }
+    },
+    "4": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT name, mark FROM maths WHERE class = '6A' AND mark < 10",
+        "tables": {
+          "maths": {
+            "cols": [
+              "name",
+              "class",
+              "mark"
+            ],
+            "rows": [
+              [
+                "Amina",
+                "6A",
+                14
+              ],
+              [
+                "Joseph",
+                "6A",
+                8
+              ],
+              [
+                "Salma",
+                "6B",
+                17
+              ],
+              [
+                "Musa",
+                "6A",
+                9
+              ],
+              [
+                "Laila",
+                "6B",
+                6
+              ],
+              [
+                "Omar",
+                "6A",
+                12
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "where": 1,
+          "select": 3
+        }
+      }
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT name, mark FROM maths ORDER BY mark DESC LIMIT 3",
+        "tables": {
+          "maths": {
+            "cols": [
+              "name",
+              "class",
+              "mark"
+            ],
+            "rows": [
+              [
+                "Amina",
+                "6A",
+                14
+              ],
+              [
+                "Joseph",
+                "6A",
+                8
+              ],
+              [
+                "Salma",
+                "6B",
+                17
+              ],
+              [
+                "Musa",
+                "6A",
+                9
+              ],
+              [
+                "Laila",
+                "6B",
+                6
+              ],
+              [
+                "Omar",
+                "6A",
+                12
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "select": 0,
+          "order": 1,
+          "limit": 2
+        }
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Describe the rows",
+            "ar-EG": "اوصف الصفوف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "The database finds them",
+            "ar-EG": "قاعدة البيانات تلاقيها"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "layers",
+          "tone": "ok",
+          "text": {
+            "en": "12 rows or 12 million",
+            "ar-EG": "12 صف أو 12 مليون"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "SELECT",
+            "ar-EG": "⁦SELECT⁩"
+          },
+          {
+            "en": "WHERE",
+            "ar-EG": "⁦WHERE⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Picks the columns",
+              "ar-EG": "بتختار الأعمدة"
+            },
+            {
+              "en": "Picks the rows",
+              "ar-EG": "بتختار الصفوف"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Nobody? '6A' isn't '6a'",
+            "ar-EG": "ولا حد؟ ⁦'6A'⁩ مش ⁦'6a'⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Half the school? A missing condition",
+            "ar-EG": "نص المدرسة؟ شرط ناقص"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Compare with what you know",
+            "ar-EG": "قارن باللي إنت عارفه"
+          },
+          "s": 0
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Pick a question",
+            "ar-EG": "اختار سؤال"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Change it",
+            "ar-EG": "غيّره"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Run it",
+            "ar-EG": "شغّله"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "SELECT columns, FROM a table",
+            "ar-EG": "⁦SELECT⁩ أعمدة، ⁦FROM⁩ جدول"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "WHERE picks the rows",
+            "ar-EG": "⁦WHERE⁩ بتختار الصفوف"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "ORDER BY, then LIMIT",
+            "ar-EG": "⁦ORDER BY⁩، وبعدين ⁦LIMIT⁩"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Check against what you know",
+            "ar-EG": "راجع على اللي تعرفه"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Describe the rows you want; the database finds them.",
+        "ar-EG": "اوصف الصفوف اللي عايزها، وقاعدة البيانات تلاقيها."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "A card per pupil: the rows",
+            "ar-EG": "كارت لكل تلميذ: الصفوف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Read out a query",
+            "ar-EG": "اقرا استعلام"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Matches step forward, in order",
+            "ar-EG": "المطابقين يتقدموا بالترتيب"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

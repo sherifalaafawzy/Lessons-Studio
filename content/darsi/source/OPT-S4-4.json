@@ -1,0 +1,319 @@
+{
+ "id": "OPT-S4-4",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Operations research: LP, MIP, CP, OR-Tools modelling, heuristics"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Heuristics and trade-offs",
+  "subtitle": "Build, improve, escape, measure, and decide in the open",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Heuristics and trade-offs",
+  "length": "3:27",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — your lecturer (main character)",
+   "Mr Joseph Mwangi — your computing lecturer (cameo)",
+   "Ms Salma Haddad — your maths lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Two thousand vans tonight"
+   },
+   {
+    "at": "0:19",
+    "label": "Build, then improve"
+   },
+   {
+    "at": "1:20",
+    "label": "Escaping and measuring"
+   },
+   {
+    "at": "2:03",
+    "label": "Trade-offs in the open"
+   },
+   {
+    "at": "2:57",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Dr Farah in front of a night map full of van routes.",
+    "animation": "Hundreds of route lines draw across a city map.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "A delivery company plans routes for two thousand vans every night. Nobody proves those routes are the best, and nobody needs to. They’re good, fast and checked. Today: how, and what a modeller owes the people affected.",
+    "icons": [
+     "map",
+     "package",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Heuristics and trade-offs",
+    "voice": "Narrator",
+    "narration": "Today: heuristics, local search, and the trade-offs a modeller makes."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:36",
+    "beat": "Concept",
+    "visual": "A counter of possible round trips exploding as villages are added.",
+    "animation": "Villages pop onto a map; the counter jumps by digits.",
+    "on_screen_text": "NP-hard: trade a proof for time",
+    "voice": "Narrator",
+    "narration": "Routing is NP-hard: as the stops grow, every known exact method can take exponentially long. Twenty villages already give more than a billion billion round trips. So for big instances, we trade a proof for a good answer in time.",
+    "icons": [
+     "map",
+     "warning",
+     "clock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "A route drawn greedily stop by stop, then small swaps shortening it.",
+    "animation": "The route draws itself; two edges flip; the length counter drops.",
+    "on_screen_text": "Build, then improve",
+    "voice": "Narrator",
+    "narration": "Heuristics work in two stages. First build a plan fast, for example nearest neighbour: always drive to the closest stop not yet visited. Then improve it with local search: change it a little, and keep the changes that help.",
+    "icons": [
+     "map",
+     "repeat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:10",
+    "beat": "Concept",
+    "visual": "A crossing in a route uncrosses when one stretch is reversed; a length counter falls from 34.6 to 28.6.",
+    "animation": "The crossing untangles; the counter drops.",
+    "on_screen_text": "2-opt",
+    "voice": "Narrator",
+    "narration": "For routes, the classic small change is 2-opt: remove two roads, and reconnect by reversing the stretch between them. It removes every crossing. In the lab’s bus map, it takes nearest neighbour’s thirty-four point six kilometres down to twenty-eight point six, the best route.",
+    "icons": [
+     "shuffle",
+     "map"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:10",
+    "end": "1:20",
+    "beat": "Concept",
+    "visual": "Code typed on a card.",
+    "animation": "Lines type; the slice line highlights.",
+    "on_screen_text": "2-opt in Python",
+    "voice": "Mr Joseph",
+    "narration": "The heart of 2-opt is one line: reverse a slice. Keep the new route if the trip is shorter, and repeat until no swap helps.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:41",
+    "beat": "Concept",
+    "visual": "A landscape of valleys: one ball stuck, another bouncing out to a deeper valley.",
+    "animation": "Balls roll; the annealing ball hops out and settles deeper.",
+    "on_screen_text": "Local optima and metaheuristics",
+    "voice": "Narrator",
+    "narration": "Local search stops at a local optimum, where no small change helps. Metaheuristics escape: annealing accepts some worse moves while hot, tabu search forbids undoing recent moves, and genetic algorithms mix good plans. In the seating lab, annealing finds the best plan two runs in three; hill climbing, one in four.",
+    "icons": [
+     "thermometer",
+     "lock",
+     "sync"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:54",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma at the board: 105 km found, bound 100 km. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "What’s the gap?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Your heuristic found a route of one hundred and five kilometres, and an LP bound says no route can be shorter than one hundred. What’s the optimality gap?"
+   },
+   {
+    "n": 9,
+    "start": "1:54",
+    "end": "2:03",
+    "beat": "Reveal",
+    "visual": "A ruler between 100 and 105 with ‘≤ 5 km to gain’.",
+    "animation": "The ruler measures; the label pops.",
+    "on_screen_text": "A measured promise",
+    "voice": "Narrator",
+    "narration": "About five percent: at most five kilometres could still be saved, and maybe none. A bound turns good into a measured promise.",
+    "icons": [
+     "ruler",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:03",
+    "end": "2:21",
+    "beat": "Concept",
+    "visual": "A dashboard of four goals; one village’s ride time highlighted in red.",
+    "animation": "Bars rise; the 90-minute bar flashes.",
+    "on_screen_text": "Goals people can see",
+    "voice": "Dr Farah",
+    "narration": "Real plans weigh several goals: total distance, the longest ride for any child, drivers’ hours. The shortest total can leave one village’s children on the bus for ninety minutes. Put the goals and the fairness limits in the model, and show the trade-off.",
+    "icons": [
+     "scale",
+     "clock",
+     "users"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:21",
+    "end": "2:37",
+    "beat": "Examples",
+    "visual": "A pipeline: first route, guided local search with a stopwatch, a person reviewing.",
+    "animation": "Stages light up left to right.",
+    "on_screen_text": "In practice",
+    "voice": "Narrator",
+    "narration": "In practice, OR-Tools’ routing library builds a first route, then improves it with guided local search within a time limit. Engineers test on past days, and keep a person able to override. Plans nobody can question don’t get trusted.",
+    "icons": [
+     "cpu",
+     "clock",
+     "user"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:37",
+    "end": "2:46",
+    "beat": "Lab preview",
+    "visual": "A phone with the anneal lab: desks, lines between pupils, a cost chart.",
+    "animation": "A finger presses Run; the cost line jumps then settles.",
+    "on_screen_text": "App lab: Getting unstuck",
+    "voice": "Narrator",
+    "narration": "In the app, seat twelve pupils with hill climbing and with annealing. Run each several times, and change the starting temperature.",
+    "icons": [
+     "users",
+     "thermometer",
+     "gauge"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "2:57",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah holds two route maps, A and B, with their numbers. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Which plan?",
+    "voice": "Dr Farah",
+    "narration": "Your turn. Plan A is two kilometres shorter in total. Plan B is longer, but no child rides more than forty minutes. Which should the model pick?"
+   },
+   {
+    "n": 14,
+    "start": "2:57",
+    "end": "3:14",
+    "beat": "Recap",
+    "visual": "Four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "It depends on goals people agree, so show both, with their numbers. Remember: for hard problems, build, then improve. Escape local optima with metaheuristics, and measure the gap against a bound. And put fairness in the model, in the open.",
+    "icons": [
+     "repeat",
+     "ruler",
+     "scale"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:14",
+    "end": "3:27",
+    "beat": "Try it tomorrow",
+    "visual": "A student comparing their 2-opt route with a brute-force list of all routes.",
+    "animation": "The two lengths match; a check appears.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write 2-opt for a five-stop route in Python, and check it against every possible route. Then add a limit on the longest ride, and see what it costs.",
+    "icons": [
+     "keyboard",
+     "check",
+     "clock"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:50",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A heuristic finds a 105 km route; an LP bound says no route is shorter than 100 km. What’s the optimality gap?",
+    "options": [
+     {
+      "text": "About 5%",
+      "correct": true
+     },
+     {
+      "text": "Exactly 5 km of error",
+      "correct": false
+     },
+     {
+      "text": "0%: the route is optimal",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — (105 − 100) ÷ 105 ≈ 4.8%: at most 5 km could still be saved, maybe none.",
+    "feedback_wrong": "Not quite — the gap is (found − bound) ÷ found ≈ 4.8%. The true best lies between 100 and 105.",
+    "resume_at": "1:54"
+   },
+   {
+    "at": "2:53",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "Plan A is 2 km shorter in total; in plan B no child rides more than 40 minutes. Which should the model pick?",
+    "options": [
+     {
+      "text": "A: the shortest is the goal",
+      "correct": false
+     },
+     {
+      "text": "It depends on the agreed goals: show both and decide with those affected",
+      "correct": true
+     },
+     {
+      "text": "B, always",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — both are on the front of distance against longest ride. Which wins is a value judgement for the people affected.",
+    "feedback_wrong": "Not quite — neither beats the other on both goals. Show the trade-off with its numbers and decide with the people affected.",
+    "resume_at": "2:57"
+   }
+  ]
+ }
+}

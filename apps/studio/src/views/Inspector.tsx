@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import type { Scene, Tone } from "@lessonstudio/spec";
 import { TONES, splitWords } from "@lessonstudio/spec";
 import { currentElement, currentScene, edit, elementId, lesson, rightTab, sceneTiming, type RightTab } from "../editor.ts";
@@ -16,20 +16,35 @@ function Narration({ scene }: { scene: Scene }) {
   const st = sceneTiming.value;
   return (
     <div class="narr">
-      {langs.map((l) => {
-        const text = scene.narration[l.code] ?? "";
-        const words = splitWords(text).length;
-        return (
-          <label class="f-lang" key={l.code}>
-            <span class="f-code" dir="ltr">{l.code.toUpperCase()}</span>
-            <textarea rows={4} dir={l.dir} lang={l.code} value={text}
-              onBlur={(e) => { const v = (e.target as HTMLTextAreaElement).value.trim(); if (v !== text) edit([{ op: "setNarration", scene: scene.id, lang: l.code, text: v }]); }} />
-            <span class={words > 70 ? "f-hint warn" : "f-hint"} dir="ltr">{words} {t("words")}{words > 70 ? `${t("sep")}${t("tooLong")}` : ""}</span>
-          </label>
-        );
-      })}
+      {langs.map((l) => <NarrationField key={`${scene.id}-${l.code}`} scene={scene} code={l.code} dir={l.dir} />)}
       {st ? <p class="f-hint">{t("estimated")}: <span dir="ltr">{(st.end - st.start).toFixed(1)} s</span></p> : null}
     </div>
+  );
+}
+
+/**
+ * One language's narration. It keeps what is being typed until the field loses focus: an edit arriving meanwhile (the
+ * other language's save, someone else's change) re-renders the inspector, and must not wipe the typing.
+ */
+function NarrationField({ scene, code, dir }: { scene: Scene; code: string; dir: "ltr" | "rtl" }) {
+  const text = scene.narration[code] ?? "";
+  const [draft, setDraft] = useState(text);
+  const focused = useRef(false);
+  useEffect(() => { if (!focused.current) setDraft(text); }, [text]);
+  const words = splitWords(draft).length;
+  return (
+    <label class="f-lang">
+      <span class="f-code" dir="ltr">{code.toUpperCase()}</span>
+      <textarea rows={4} dir={dir} lang={code} value={draft}
+        onFocus={() => { focused.current = true; }}
+        onInput={(e) => setDraft((e.target as HTMLTextAreaElement).value)}
+        onBlur={(e) => {
+          focused.current = false;
+          const v = (e.target as HTMLTextAreaElement).value.trim();
+          if (v !== text) edit([{ op: "setNarration", scene: scene.id, lang: code, text: v }]);
+        }} />
+      <span class={words > 70 ? "f-hint warn" : "f-hint"} dir="ltr">{words} {t("words")}{words > 70 ? `${t("sep")}${t("tooLong")}` : ""}</span>
+    </label>
   );
 }
 

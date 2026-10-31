@@ -1,0 +1,301 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.550
+A colleague asked me: where does
+
+2
+00:00:02.550 --> 00:00:05.010
+an agent keep its plan, its tool
+
+3
+00:00:05.010 --> 00:00:06.550
+calls and its memory?
+
+4
+00:00:07.200 --> 00:00:09.020
+The answer surprises people.
+
+5
+00:00:09.670 --> 00:00:11.710
+It’s all one long text.
+
+6
+00:00:12.370 --> 00:00:13.570
+Let’s open it up.
+
+7
+00:00:14.740 --> 00:00:16.600
+Today: inside the loop,
+
+8
+00:00:17.000 --> 00:00:18.280
+one text at a time.
+
+9
+00:00:19.510 --> 00:00:22.590
+Darsi Tiny reads one text, top to bottom.
+
+10
+00:00:23.200 --> 00:00:25.980
+Small markers split it into parts: the
+
+11
+00:00:25.980 --> 00:00:28.940
+tools that are on, your request, its
+
+12
+00:00:28.940 --> 00:00:31.500
+plan, its call, the result.
+
+13
+00:00:32.190 --> 00:00:34.930
+Each marker is a single token, and
+
+14
+00:00:34.930 --> 00:00:37.030
+nobody can fake one by typing it.
+
+15
+00:00:38.200 --> 00:00:40.280
+The model writes three kinds of part:
+
+16
+00:00:40.960 --> 00:00:43.500
+the plan, the call and the answer.
+
+17
+00:00:44.160 --> 00:00:47.160
+The app writes everything else: the tools
+
+18
+00:00:47.160 --> 00:00:50.020
+line, your request and every result.
+
+19
+00:00:50.690 --> 00:00:53.590
+After a call, the model stops and waits.
+
+20
+00:00:55.000 --> 00:00:56.880
+So the loop is the app,
+
+21
+00:00:57.340 --> 00:00:58.620
+adding to one text.
+
+22
+00:00:59.300 --> 00:01:01.560
+It sends the text so far, and
+
+23
+00:01:01.560 --> 00:01:02.600
+the model writes a call.
+
+24
+00:01:03.220 --> 00:01:05.920
+The app runs the tool and adds the result.
+
+25
+00:01:06.690 --> 00:01:08.330
+Then it sends the text again,
+
+26
+00:01:08.750 --> 00:01:10.030
+until the model answers.
+
+27
+00:01:11.390 --> 00:01:13.910
+Ask for the trip from Kafi to
+
+28
+00:01:13.910 --> 00:01:16.510
+Dala, and the text grows twice.
+
+29
+00:01:17.140 --> 00:01:19.540
+First a route call, and its
+
+30
+00:01:19.540 --> 00:01:21.680
+result: seventy kilometres.
+
+31
+00:01:22.700 --> 00:01:24.380
+Then a weather call for
+
+32
+00:01:24.380 --> 00:01:26.080
+Dala, and its result.
+
+33
+00:01:26.780 --> 00:01:28.920
+Only then does Darsi Tiny
+
+34
+00:01:28.920 --> 00:01:29.860
+write the answer.
+
+35
+00:01:31.120 --> 00:01:31.700
+Quick check!
+
+36
+00:01:32.490 --> 00:01:35.930
+After Darsi Tiny writes a weather call,
+
+37
+00:01:36.510 --> 00:01:38.570
+who writes the result into the text?
+
+38
+00:01:39.870 --> 00:01:41.570
+The app, from the tool.
+
+39
+00:01:42.170 --> 00:01:44.410
+Darsi Tiny was trained to stop
+
+40
+00:01:44.410 --> 00:01:46.170
+after a call and wait.
+
+41
+00:01:46.810 --> 00:01:48.650
+A model that wrote its own result
+
+42
+00:01:48.650 --> 00:01:51.250
+would be inventing data, so a
+
+43
+00:01:51.250 --> 00:01:52.890
+good app never allows it.
+
+44
+00:01:53.970 --> 00:01:56.770
+As code, the loop is only a few lines.
+
+45
+00:01:57.550 --> 00:02:01.210
+Here the model is scripted: a stand-in
+
+46
+00:02:01.210 --> 00:02:03.210
+that returns what a model would write.
+
+47
+00:02:03.820 --> 00:02:05.840
+The code asks for the next part,
+
+48
+00:02:06.260 --> 00:02:07.620
+and stops at an answer.
+
+49
+00:02:08.850 --> 00:02:10.950
+But what if the model never answers?
+
+50
+00:02:11.780 --> 00:02:14.460
+It could call the same tool again and
+
+51
+00:02:14.460 --> 00:02:16.100
+again, and the loop would run
+
+52
+00:02:16.100 --> 00:02:18.380
+forever, using battery and data.
+
+53
+00:02:19.060 --> 00:02:21.540
+So real agents have a step limit,
+
+54
+00:02:21.540 --> 00:02:23.480
+then stop and tell the person.
+
+55
+00:02:24.690 --> 00:02:27.410
+In the app, open What Darsi Tiny
+
+56
+00:02:27.410 --> 00:02:29.850
+sees, then press One step.
+
+57
+00:02:30.490 --> 00:02:32.770
+Watch the text grow: plan,
+
+58
+00:02:33.370 --> 00:02:35.910
+call, result, answer.
+
+59
+00:02:36.590 --> 00:02:38.650
+Then run the trip from Kafi to
+
+60
+00:02:38.650 --> 00:02:40.650
+Dala, and count the calls.
+
+61
+00:02:41.970 --> 00:02:42.470
+Your turn.
+
+62
+00:02:43.080 --> 00:02:44.700
+My agent keeps calling the
+
+63
+00:02:44.700 --> 00:02:46.360
+weather tool, and never answers.
+
+64
+00:02:47.090 --> 00:02:48.290
+What should the app have?
+
+65
+00:02:49.470 --> 00:02:51.070
+A step limit, so the loop
+
+66
+00:02:51.070 --> 00:02:52.690
+stops and tells a person.
+
+67
+00:02:53.300 --> 00:02:56.340
+Remember: it’s all one text, with markers.
+
+68
+00:02:57.150 --> 00:02:59.510
+The model writes plans, calls and
+
+69
+00:02:59.510 --> 00:03:01.910
+answers, and the app adds the results.
+
+70
+00:03:02.650 --> 00:03:04.490
+And every loop needs a stop.
+
+71
+00:03:05.800 --> 00:03:08.880
+Try it in class tomorrow: write one agent
+
+72
+00:03:08.880 --> 00:03:11.160
+conversation on a long paper strip.
+
+73
+00:03:11.790 --> 00:03:14.930
+Model parts in blue, app parts in green.
+
+74
+00:03:15.640 --> 00:03:18.100
+Then ask: which colour can make
+
+75
+00:03:18.100 --> 00:03:20.620
+mistakes, and where would the app check?

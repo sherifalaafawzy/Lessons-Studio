@@ -1,0 +1,299 @@
+{
+ "id": "OPT-S2-4",
+ "track": "opt",
+ "level": 2,
+ "unit": {
+  "number": 1,
+  "title": "Goals and limits: a model, linear programming in 2D"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Tell the computer",
+  "subtitle": "Your first model in Python, and a solver that searches",
+  "minutes": 15,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Tell the computer",
+  "length": "2:28",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — your computer studies teacher (main character)",
+   "Ms Salma — your maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Too big to draw"
+   },
+   {
+    "at": "0:16",
+    "label": "The model in Python"
+   },
+   {
+    "at": "1:13",
+    "label": "The solver answers"
+   },
+   {
+    "at": "1:32",
+    "label": "Only your rules"
+   },
+   {
+    "at": "2:01",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Mr Joseph holds the garden graph; behind him a giant timetable grid full of sticky notes.",
+    "animation": "The graph shrinks; the timetable grid grows.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "You drew the garden on graph paper: two variables, three lines. Our school timetable has hundreds of choices. Nobody can draw that. So today, you’ll tell a computer instead.",
+    "icons": [
+     "grid",
+     "calendar",
+     "cpu"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Tell the computer",
+    "voice": "Narrator",
+    "narration": "Today: tell the computer, with your first model in Python."
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:35",
+    "beat": "Concept",
+    "visual": "A phone and a laptop side by side showing the same code; arrows into a gear labelled solver.",
+    "animation": "Code appears on both screens; the gear turns.",
+    "on_screen_text": "You describe; the solver searches",
+    "voice": "Narrator",
+    "narration": "Google’s free toolkit, OR-Tools, has a solver that searches for you. You write the model: the variables, the limits and the goal. The solver finds the best plan. It runs small models right here on your phone, and the same program runs on big computers.",
+    "icons": [
+     "pencil",
+     "cog",
+     "phone"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:43",
+    "beat": "Examples",
+    "visual": "The code card types out four lines.",
+    "animation": "Lines type in; the variable lines glow.",
+    "on_screen_text": "1. The variables",
+    "voice": "Mr Joseph",
+    "narration": "First, make a model and its variables. Each one is a whole number of beds, from zero to ten.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:43",
+    "end": "0:52",
+    "beat": "Examples",
+    "visual": "The code card types out three limits and the goal.",
+    "animation": "Lines type in one by one.",
+    "on_screen_text": "2. The limits and the goal",
+    "voice": "Mr Joseph",
+    "narration": "Each limit is one line, just like on paper. Then the goal: make thirty x plus forty y as big as possible.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:52",
+    "end": "1:00",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma points at the line model.add(x + y <= 8). Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "What does this line say?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! What does this line say: model dot add, x plus y, less than or equal to eight?"
+   },
+   {
+    "n": 7,
+    "start": "1:00",
+    "end": "1:13",
+    "beat": "Reveal",
+    "visual": "The answer card gets a check; the two signs appear with their words.",
+    "animation": "Check pops; the signs slide in.",
+    "on_screen_text": "<= means at most",
+    "voice": "Narrator",
+    "narration": "x plus y is at most eight: no more than eight beds in all. Read less than or equal as at most. And read greater than or equal as at least.",
+    "icons": [
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:13",
+    "end": "1:22",
+    "beat": "Examples",
+    "visual": "The code card types the solve lines; the output appears under it.",
+    "animation": "Lines type in; the output slides up.",
+    "on_screen_text": "3. Solve and print",
+    "voice": "Mr Joseph",
+    "narration": "Then the solver solves the model, and you print the answer. It prints three and five: the same corner you drew.",
+    "icons": [
+     "keyboard",
+     "check"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:22",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "Two status badges: green OPTIMAL, red INFEASIBLE.",
+    "animation": "Badges stamp in as each is named.",
+    "on_screen_text": "What the solver tells you",
+    "voice": "Narrator",
+    "narration": "The solver also tells you what it found. OPTIMAL means the best plan. INFEASIBLE means no plan keeps every rule: you asked for the impossible.",
+    "icons": [
+     "circlecheck",
+     "circlex"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:32",
+    "end": "1:44",
+    "beat": "Concept",
+    "visual": "A class list beside the garden; one class has no bed; a new rule line is typed into the model.",
+    "animation": "The empty class blinks; the new line types in.",
+    "on_screen_text": "Only your rules",
+    "voice": "Mr Joseph",
+    "narration": "The solver obeys only the rules you write. If every class should get a bed, write it as a rule. If you forget, the solver won’t remind you.",
+    "icons": [
+     "users",
+     "pencil",
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:44",
+    "end": "1:57",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: a Python editor with the timetable example, a Run button and the printed timetable.",
+    "animation": "A finger taps Run; a new line is typed; the timetable changes.",
+    "on_screen_text": "App lab: Model it with CP-SAT",
+    "voice": "Narrator",
+    "narration": "In the app, open the timetable example and press Run. Then add one rule: class five A has art in period four. Run it again, and watch the timetable rearrange itself.",
+    "icons": [
+     "phone",
+     "keyboard",
+     "calendar"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "1:57",
+    "end": "2:01",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph’s phone shows INFEASIBLE in red. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "INFEASIBLE?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The solver prints INFEASIBLE. What does that mean?"
+   },
+   {
+    "n": 13,
+    "start": "2:01",
+    "end": "2:16",
+    "beat": "Recap",
+    "visual": "The answer card gets the check; four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "No plan keeps all the rules: one rule has to change. Remember: variables, limits and a goal, then solve. Less than or equal means at most. And the solver only knows what you tell it.",
+    "icons": [
+     "keyboard",
+     "cog",
+     "check"
+    ]
+   },
+   {
+    "n": 14,
+    "start": "2:16",
+    "end": "2:28",
+    "beat": "Try it tomorrow",
+    "visual": "A pupil at home with a phone: the truck example, the number changed, a guess written on paper.",
+    "animation": "The number changes; Run; a tick appears next to the guess.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Mr Joseph",
+    "narration": "Try it yourself: in the modeller lab, open the truck example. Change the capacity to eleven hundred, and guess what changes before you run it. Were you right?",
+    "icons": [
+     "phone",
+     "package",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "0:56",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "What does model.add(x + y <= 8) say?",
+    "options": [
+     {
+      "text": "x + y is at most 8",
+      "correct": true
+     },
+     {
+      "text": "x + y must be exactly 8",
+      "correct": false
+     },
+     {
+      "text": "x is 8 and y is 8",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — <= means less than or equal to: no more than 8 beds in all.",
+    "feedback_wrong": "Not quite — <= means less than or equal to, so x + y can be 8 or less: at most 8 beds.",
+    "resume_at": "1:00"
+   },
+   {
+    "at": "1:57",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The solver prints INFEASIBLE. What does that mean?",
+    "options": [
+     {
+      "text": "The program has a typo",
+      "correct": false
+     },
+     {
+      "text": "No plan keeps all the rules",
+      "correct": true
+     },
+     {
+      "text": "The phone is too slow",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — INFEASIBLE means the rules can’t all be kept at once, and the solver has proved it.",
+    "feedback_wrong": "Not quite — INFEASIBLE isn’t a typo or a slow phone. It means no plan keeps every rule, so one rule has to change.",
+    "resume_at": "2:01"
+   }
+  ]
+ }
+}

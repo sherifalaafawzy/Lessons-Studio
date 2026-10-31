@@ -1,0 +1,285 @@
+{
+ "id": "AGENTS-S3-1",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Build an agent in Python"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Read a tool call",
+  "subtitle": "Split what the model writes into a tool and its details",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Read a tool call",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A secret about agents"
+   },
+   {
+    "at": "0:20",
+    "label": "What a model writes"
+   },
+   {
+    "at": "1:08",
+    "label": "Splitting a call in Python"
+   },
+   {
+    "at": "2:04",
+    "label": "Broken calls, and the lab"
+   },
+   {
+    "at": "2:46",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:16",
+    "beat": "Hook",
+    "visual": "A list: The model writes only text; Your code reads it; Then things happen.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Here’s a secret about AI agents. The model never touches a tool. It writes a line of text, and your code decides what that text makes happen. Today, you write the code that reads it.",
+    "icons": [
+     "bot",
+     "keyboard",
+     "zap"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:16",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Read a tool call",
+    "voice": "Narrator",
+    "narration": "Today: reading a tool call, in Python."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "A list: A plan: what it will do; A call: a tool and its details; An answer for the person.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Three kinds of text",
+    "voice": "Narrator",
+    "narration": "When an agent’s model takes a turn, it writes one of three things. A plan: one short sentence about what it will do. A tool call: a tool’s name, then its details. Or an answer for the person.",
+    "icons": [
+     "list",
+     "cog",
+     "chat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: weather{\"place\":\"Kafi\", …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A call, up close",
+    "voice": "Narrator",
+    "narration": "Here’s a call that Darsi Tiny really wrote. First comes the tool’s name, weather. Straight after it, the details sit in curly brackets. That part is JSON, a way to write data as text.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:08",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "JSON",
+    "voice": "Narrator",
+    "narration": "JSON writes data as names and values inside curly brackets. Python reads it with json dot loads, which turns the text into a dictionary. Then args, place, gives you Kafi."
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:20",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: i = text.find(\"{\") …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Split at the first {",
+    "voice": "Narrator",
+    "narration": "So how do you split a call? Find the first curly bracket. Everything before it is the tool’s name. Everything from it onwards is the JSON.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:37",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Not every text is a call",
+    "voice": "Mr Joseph",
+    "narration": "But not every text is a call. An answer like Tomorrow in Kafi, sunny, has no curly bracket at all. Then find gives minus one, and your function should return None: there’s no tool to run."
+   },
+   {
+    "n": 8,
+    "start": "1:37",
+    "end": "1:45",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What do you get back?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! You run json dot loads on the details of a call. What do you get back?"
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "2:04",
+    "beat": "Reveal",
+    "visual": "A list: Keys: place, day; It runs nothing; It checks nothing; Your code checks next.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A dictionary of details",
+    "voice": "Narrator",
+    "narration": "A dictionary. json dot loads only turns text into data: the keys are the details’ names, like place and day. It doesn’t run anything, and it doesn’t check anything. Is Kafi a real village? That’s for your code to check next.",
+    "icons": [
+     "data",
+     "circlex",
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:04",
+    "end": "2:21",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Broken calls happen",
+    "voice": "Narrator",
+    "narration": "Models make mistakes, so some calls are broken: a missing bracket, a quote in the wrong place. Then json dot loads raises a ValueError, and your agent crashes. Unless you catch it, with try and except."
+   },
+   {
+    "n": 11,
+    "start": "2:21",
+    "end": "2:39",
+    "beat": "Lab preview",
+    "visual": "A list: Darsi Tiny, on your phone; One step: the plan, then the call; What it sees: plain text.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: inside an agent’s loop",
+    "voice": "Narrator",
+    "narration": "In the lab, Darsi Tiny runs for real, on your phone. Press One step, and watch it write the plan, then the call. Open What Darsi Tiny sees: the call is plain text, exactly what your function will split.",
+    "icons": [
+     "phone",
+     "next",
+     "eye"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:39",
+    "end": "2:46",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A call or an answer?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The model wrote: Tomorrow in Kafi, sunny, high thirty-five. What should your function return?"
+   },
+   {
+    "n": 13,
+    "start": "2:46",
+    "end": "3:06",
+    "beat": "Recap",
+    "visual": "Summary points: Plan, call or answer; Split at the first {; json.loads gives a dictionary; Catch broken calls.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Plan, call or answer · Split at the first { · json.loads gives a dictionary · Catch broken calls",
+    "voice": "Narrator",
+    "narration": "None: there’s no curly bracket, so it’s an answer. Remember: the model writes a plan, a call or an answer. Split a call at its first curly bracket, and read the details with json dot loads. Catch broken calls instead of crashing."
+   },
+   {
+    "n": 14,
+    "start": "3:06",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Write five model lines; Swap with a friend; Call, answer or broken?; Name each tool.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: on paper, write five lines an agent might produce: some calls, some answers, one broken. Swap with a friend. They mark each line as a call, an answer or broken, and name the tool in every call.",
+    "icons": [
+     "pencil",
+     "users",
+     "check",
+     "cog"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "You run json.loads on the details of a call. What do you get back?",
+    "options": [
+     {
+      "text": "The same text, unchanged",
+      "correct": false
+     },
+     {
+      "text": "A Python dictionary of the details",
+      "correct": true
+     },
+     {
+      "text": "The tool’s result",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — json.loads turns JSON text into a dictionary: keys like place and day, with their values. It runs nothing.",
+    "feedback_wrong": "Not quite — json.loads only turns text into data, a dictionary of the details. The tool hasn’t run yet.",
+    "resume_at": "1:45"
+   },
+   {
+    "at": "2:43",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The model wrote “Tomorrow in Kafi: sunny, high 35°C.” What should parse_call return?",
+    "options": [
+     {
+      "text": "None: it’s an answer, not a call",
+      "correct": true
+     },
+     {
+      "text": "A tool named “Tomorrow”",
+      "correct": false
+     },
+     {
+      "text": "A ValueError that stops the agent",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — there’s no curly bracket, so find gives -1: it’s an answer to show the person, not a tool to run.",
+    "feedback_wrong": "Not quite — no curly bracket means it’s an answer. Return None, and show it to the person.",
+    "resume_at": "2:46"
+   }
+  ]
+ }
+}

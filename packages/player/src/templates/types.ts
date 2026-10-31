@@ -1,4 +1,4 @@
-import type { Dir, Lang, Scene, Text } from "@lessonstudio/spec";
+import type { Dir, Element, Lang, Scene, Text } from "@lessonstudio/spec";
 import type { Writer } from "../dom.ts";
 import type { Labels } from "../labels.ts";
 import type { Orient } from "../layout.ts";
@@ -32,7 +32,19 @@ export interface Ctx {
   scale: number;
   /** A package path resolved to a URL. */
   url: (path: string) => string;
+  /** The science kit, once loaded (only lessons with math, plot, net, arch or table elements load it). */
+  kit?: Kit;
 }
+
+/** What a science element draws at a moment: the element's animated values (see AnimProp). */
+export interface KitState {
+  reveal: number; draw: number; frame: number; focus: number; pass: number;
+  /** Seconds into the scene, for motion paced by the clock (current flowing in a wire). Still a pure function of time. */
+  t: number;
+}
+/** Draws one science element into its positioned box and returns how to paint a moment. */
+export type KitRenderer = (el: Element, box: HTMLElement, ctx: Ctx) => (s: KitState) => void;
+export interface Kit { draw: Record<string, KitRenderer>; css: string }
 
 /**
  * A mounted scene. `update` must set every animated property from `lt` and `cs` alone,

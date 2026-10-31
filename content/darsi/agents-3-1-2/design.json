@@ -1,0 +1,349 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "My request",
+            "ar-EG": "طلبي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A wrong copy",
+            "ar-EG": "نسخ غلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How it chooses",
+            "ar-EG": "بيختار إزاي"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "app",
+            "glyph": "phone",
+            "label": {
+              "en": "The app",
+              "ar-EG": "التطبيق"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "app",
+            "to": "model",
+            "text": {
+              "en": "The tools line",
+              "ar-EG": "سطر الأدوات"
+            }
+          },
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Your words",
+              "ar-EG": "كلامك"
+            }
+          },
+          {
+            "from": "model",
+            "to": "model",
+            "text": {
+              "en": "One tool, or none",
+              "ar-EG": "أداة واحدة، أو ولا أداة"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "reminder{\"text\":\"collect the homework\",\n         \"when\":\"tomorrow 08:00\"}",
+        "s": 1
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "weather: a place and a day",
+            "ar-EG": "الطقس: مكان ويوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "reminder: its text and a time",
+            "ar-EG": "التذكير: النص والميعاد"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "One missing? It should ask",
+            "ar-EG": "ناقصة واحدة؟ لازم يسأل"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "cog"
+    },
+    "6": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Wordings",
+            "ar-EG": "الصيغ"
+          },
+          {
+            "en": "Tool and details right",
+            "ar-EG": "الأداة والتفاصيل صح"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Trained on",
+              "ar-EG": "اتدرب عليها"
+            },
+            "96–98%"
+          ],
+          [
+            {
+              "en": "New",
+              "ar-EG": "جديدة"
+            },
+            "78–80%"
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Learned patterns of wording",
+            "ar-EG": "اتعلم أنماط في الكلام"
+          },
+          "s": 0
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "A new form fits less well",
+            "ar-EG": "الشكل الجديد بيطابق أقل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cloud",
+          "text": {
+            "en": "Big models: fewer slips, not none",
+            "ar-EG": "النماذج الكبيرة: غلط أقل، مش صفر"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "“the term malware”",
+            "ar-EG": "«مصطلح البرمجيات الخبيثة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "9Z copied as 9C",
+            "ar-EG": "⁦9Z⁩ اتنقلت ⁦9C⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "France: the glossary, not “I can’t”",
+            "ar-EG": "فرنسا: القاموس، مش «مقدرش»"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "search"
+    },
+    "10": {
+      "headline": null,
+      "trace": {
+        "code": "on = [\"timetable\"]\nreq = \"9Z tomorrow?\"\ntool = \"timetable\"\ncls = \"9C\"\nif tool not in on:\n    print(\"stop: tool off\")\nif cls not in req:\n    print(\"stop: not said\")",
+        "play": [
+          1,
+          4
+        ],
+        "focus": [
+          {
+            "s": 1,
+            "line": 5
+          },
+          {
+            "s": 2,
+            "line": 7
+          }
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather off: what now?",
+            "ar-EG": "الطقس مقفول: وبعدين؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "filecheck",
+          "text": {
+            "en": "9Z: read the check",
+            "ar-EG": "⁦9Z⁩: اقرا المراجعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "France, asked two ways",
+            "ar-EG": "فرنسا، بطريقتين"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "The tools line and your words",
+            "ar-EG": "سطر الأدوات وكلامك"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Copied details; new wordings slip",
+            "ar-EG": "تفاصيل منقولة، والجديد بيغلط"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The app checks every call",
+            "ar-EG": "التطبيق بيراجع كل طلب"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The model picks; the app checks before anything runs.",
+        "ar-EG": "النموذج بيختار، والتطبيق بيراجع قبل أي تنفيذ."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "One pupil plays the agent",
+            "ar-EG": "تلميذ يمثّل الوكيل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "A card of request patterns",
+            "ar-EG": "كارت فيه أنماط الطلبات"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Same request, five wordings",
+            "ar-EG": "نفس الطلب، بخمس صيغ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Which wordings slip?",
+            "ar-EG": "أنهي صيغ بتغلط؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

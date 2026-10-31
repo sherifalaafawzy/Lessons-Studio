@@ -1,0 +1,258 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "smile",
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "2 variables: draw it",
+            "ar-EG": "متغيّرين: ارسمها"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Hundreds: too many",
+            "ar-EG": "مئات: كتير أوي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "tone": "accent",
+          "text": {
+            "en": "Tell a computer",
+            "ar-EG": "قول للكمبيوتر"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "You: the model",
+            "ar-EG": "إنت: النموذج"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The solver searches",
+            "ar-EG": "السولفر يدوّر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "phone",
+          "tone": "accent",
+          "text": {
+            "en": "Phone or big computer",
+            "ar-EG": "موبايل أو كمبيوتر كبير"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "phone"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "from ortools.sat.python import cp_model\nmodel = cp_model.CpModel()\nx = model.new_int_var(0, 10, \"tomato\")\ny = model.new_int_var(0, 10, \"beans\")",
+        "highlight": [
+          3,
+          4
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "model.add(x + y <= 8)\nmodel.add(2 * x + y <= 14)\nmodel.add(x + 3 * y <= 18)\nmodel.maximize(30 * x + 40 * y)",
+        "highlight": [
+          4
+        ],
+        "s": 0
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "x + y <= 8    # at most 8 beds\nn >= 2        # at least 2",
+        "s": 0
+      }
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "solver = cp_model.CpSolver()\nsolver.solve(model)\nprint(solver.value(x), solver.value(y))",
+        "highlight": [
+          3
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "OPTIMAL: the best plan",
+            "ar-EG": "OPTIMAL: أحسن خطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "INFEASIBLE: no plan keeps every rule",
+            "ar-EG": "INFEASIBLE: مفيش خطة تنفع"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": "joseph",
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "It obeys only what you write",
+            "ar-EG": "بيطيع اللي اتكتب بس"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Every class gets a bed?",
+            "ar-EG": "كل فصل ياخد حوض؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "tone": "ok",
+          "text": {
+            "en": "Write it as a rule",
+            "ar-EG": "اكتبها قاعدة"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Open the timetable",
+            "ar-EG": "افتح الجدول"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Add: 5A art in period 4",
+            "ar-EG": "زوّد: رسم 5A في الحصة 4"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "accent",
+          "text": {
+            "en": "Run it again",
+            "ar-EG": "شغّله تاني"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "INFEASIBLE: change a rule",
+            "ar-EG": "INFEASIBLE: غيّر قاعدة"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Variables, limits, goal, solve",
+            "ar-EG": "متغيّرات، قيود، هدف، حلّ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "<= means at most",
+            "ar-EG": "أصغر من أو يساوي: على الأكتر"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "It knows only your rules",
+            "ar-EG": "يعرف قواعدك بس"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "You describe the problem; the solver searches.",
+        "ar-EG": "إنت توصف المسألة، والسولفر يدوّر."
+      }
+    },
+    "14": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Open the truck example",
+            "ar-EG": "افتح مثال الشاحنة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "capacity = 1100",
+            "ar-EG": "⁦capacity = 1100⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Guess, then run",
+            "ar-EG": "خمّن، وبعدين شغّل"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

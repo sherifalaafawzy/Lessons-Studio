@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.210
+Our head teacher wants an agent
+
+2
+00:00:02.210 --> 00:00:03.110
+for the school office.
+
+3
+00:00:03.870 --> 00:00:05.770
+It should answer parents, check
+
+4
+00:00:05.770 --> 00:00:07.750
+attendance and send the weekly news.
+
+5
+00:00:08.540 --> 00:00:10.900
+Someone said: give it every
+
+6
+00:00:10.900 --> 00:00:13.100
+tool, so it never gets stuck.
+
+7
+00:00:13.740 --> 00:00:14.500
+Good design?
+
+8
+00:00:15.900 --> 00:00:18.220
+Today: designing an agent for a school
+
+9
+00:00:18.220 --> 00:00:20.980
+job, with the fewest tools and clear
+
+10
+00:00:20.980 --> 00:00:21.340
+roles.
+
+11
+00:00:22.680 --> 00:00:24.620
+Good design starts from the
+
+12
+00:00:24.620 --> 00:00:26.120
+job, not the tools.
+
+13
+00:00:26.820 --> 00:00:29.960
+Who will use it, and what should it do?
+
+14
+00:00:30.590 --> 00:00:33.530
+And what would a mistake cost: a wrong
+
+15
+00:00:33.530 --> 00:00:36.850
+reminder, or a wrong message to a parent?
+
+16
+00:00:38.130 --> 00:00:39.430
+Then give it only the
+
+17
+00:00:39.430 --> 00:00:40.650
+tools that job needs.
+
+18
+00:00:41.420 --> 00:00:43.700
+An agent acts only through its
+
+19
+00:00:43.700 --> 00:00:46.820
+tools, so every extra tool is
+
+20
+00:00:46.820 --> 00:00:48.080
+another way to go wrong.
+
+21
+00:00:48.770 --> 00:00:50.890
+A homework helper needs the timetable
+
+22
+00:00:50.890 --> 00:00:53.030
+and the library, nothing more.
+
+23
+00:00:54.230 --> 00:00:57.370
+This is called least privilege: the fewest
+
+24
+00:00:57.370 --> 00:00:59.650
+tools and the least data the job needs.
+
+25
+00:01:00.380 --> 00:01:02.060
+If the agent misreads a
+
+26
+00:01:02.060 --> 00:01:04.060
+request, it can’t do much harm.
+
+27
+00:01:04.710 --> 00:01:06.170
+It’s the rule we already use
+
+28
+00:01:06.170 --> 00:01:07.070
+for staff accounts.
+
+29
+00:01:08.420 --> 00:01:10.800
+Next, split the work into roles.
+
+30
+00:01:11.600 --> 00:01:13.160
+The planner, the model,
+
+31
+00:01:13.500 --> 00:01:15.280
+proposes each tool call.
+
+32
+00:01:15.890 --> 00:01:18.270
+A checker, a few strict rules in
+
+33
+00:01:18.270 --> 00:01:20.450
+code, reviews it before it runs.
+
+34
+00:01:21.160 --> 00:01:23.460
+The app runs it, and a person
+
+35
+00:01:23.460 --> 00:01:24.940
+approves any action.
+
+36
+00:01:26.200 --> 00:01:28.680
+The team lab’s checker has five rules.
+
+37
+00:01:29.420 --> 00:01:30.700
+The tool is on.
+
+38
+00:01:31.420 --> 00:01:33.300
+Each detail has the right shape.
+
+39
+00:01:33.970 --> 00:01:36.390
+Every name and number came from
+
+40
+00:01:36.390 --> 00:01:38.350
+your words or a result.
+
+41
+00:01:39.000 --> 00:01:40.640
+No earlier step failed.
+
+42
+00:01:41.330 --> 00:01:43.970
+And a person said yes to any action.
+
+43
+00:01:45.250 --> 00:01:45.830
+Quick check!
+
+44
+00:01:46.620 --> 00:01:49.520
+An office agent only answers
+
+45
+00:01:49.520 --> 00:01:51.460
+parents’ questions about homework.
+
+46
+00:01:52.320 --> 00:01:54.460
+Which tools should it get?
+
+47
+00:01:55.790 --> 00:01:57.510
+The timetable and the library.
+
+48
+00:01:58.350 --> 00:02:00.050
+Nothing in that job sends
+
+49
+00:02:00.050 --> 00:02:01.970
+messages or reads attendance.
+
+50
+00:02:02.840 --> 00:02:04.800
+If parents later want replies by
+
+51
+00:02:04.800 --> 00:02:07.520
+message, add that tool then, with a
+
+52
+00:02:07.520 --> 00:02:09.020
+person approving each one.
+
+53
+00:02:10.190 --> 00:02:11.890
+Write the permissions down as a
+
+54
+00:02:11.890 --> 00:02:13.890
+table, one line per tool.
+
+55
+00:02:14.400 --> 00:02:16.300
+Here, the weather and the
+
+56
+00:02:16.300 --> 00:02:18.680
+timetable run freely, while
+
+57
+00:02:18.680 --> 00:02:21.360
+reminders and messages wait for a yes.
+
+58
+00:02:22.060 --> 00:02:24.960
+Any tool that isn’t in the table is off.
+
+59
+00:02:26.260 --> 00:02:27.920
+In the app, send the weather
+
+60
+00:02:27.920 --> 00:02:29.980
+request: the checker passes it.
+
+61
+00:02:30.530 --> 00:02:32.810
+Then ask what nine Z has
+
+62
+00:02:32.810 --> 00:02:35.570
+tomorrow: Darsi Tiny writes nine
+
+63
+00:02:35.570 --> 00:02:37.430
+C, and the checker stops it.
+
+64
+00:02:38.000 --> 00:02:40.200
+Turn the checker off and try again.
+
+65
+00:02:41.400 --> 00:02:41.920
+Your turn.
+
+66
+00:02:42.550 --> 00:02:45.310
+Who should approve the weekly news
+
+67
+00:02:45.310 --> 00:02:47.830
+before the agent sends it to parents?
+
+68
+00:02:49.210 --> 00:02:51.510
+A named person at school, every time.
+
+69
+00:02:52.110 --> 00:02:54.130
+Remember: start from the job
+
+70
+00:02:54.130 --> 00:02:55.690
+and what a mistake costs.
+
+71
+00:02:56.570 --> 00:02:58.630
+Give the fewest tools, in a
+
+72
+00:02:58.630 --> 00:02:59.570
+permissions table.
+
+73
+00:03:00.210 --> 00:03:02.730
+Split the work into roles, and a
+
+74
+00:03:02.730 --> 00:03:04.070
+person approves actions.
+
+75
+00:03:05.490 --> 00:03:06.710
+Try it in class tomorrow:
+
+76
+00:03:07.090 --> 00:03:08.510
+run a design sprint.
+
+77
+00:03:09.240 --> 00:03:11.440
+Groups pick a school job and write a
+
+78
+00:03:11.440 --> 00:03:15.280
+one-page design: the job, the tools, who
+
+79
+00:03:15.280 --> 00:03:17.620
+approves, and how we’ll know it works.
+
+80
+00:03:18.360 --> 00:03:21.120
+Then they swap and hunt for an extra tool.

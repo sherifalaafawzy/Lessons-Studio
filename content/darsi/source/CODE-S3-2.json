@@ -1,0 +1,296 @@
+{
+ "id": "CODE-S3-2",
+ "track": "code",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Functions, lists and algorithms"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Lists and loops",
+  "subtitle": "Store data, then work through it",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Lists and loops: Store data, then work through it",
+  "length": "3:06",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — the students’ science teacher (main character)",
+   "Mr Joseph — the students’ computer studies teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Twenty-four readings"
+   },
+   {
+    "at": "0:17",
+    "label": "Positions and slices"
+   },
+   {
+    "at": "0:48",
+    "label": "Loops over lists"
+   },
+   {
+    "at": "1:38",
+    "label": "Stacks and queues"
+   },
+   {
+    "at": "2:36",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our school weather station logs a temperature every hour: twenty-four numbers a day. What was the hottest hour? How many hours were above thirty? A list and a loop answer both.",
+    "icons": [
+     "thermometer",
+     "help",
+     "list"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Lists and loops",
+    "voice": "Narrator",
+    "narration": "Today: lists and loops together."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:33",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Positions: from 0, or from the end",
+    "voice": "Narrator",
+    "narration": "A list keeps values in order. Positions count from zero, so temps at zero is the first reading. Negative positions count from the end: temps at minus one is the last. len tells you how many there are.",
+    "icons": [
+     "list",
+     "grid"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Add and slice",
+    "voice": "Narrator",
+    "narration": "append adds a reading to the end. A slice takes part of a list: temps from one to three gives the items at one and two, stopping before three, just like range. The list itself isn’t changed.",
+    "icons": [
+     "pencil",
+     "scissors"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:04",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The largest, by hand",
+    "voice": "Narrator",
+    "narration": "Python has max, but writing it yourself teaches the pattern. Start with the first item as the best so far. Loop over the rest, and whenever one is bigger, keep it instead. At the end, best is the largest.",
+    "icons": [
+     "search",
+     "star"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:04",
+    "end": "1:19",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Count, total, average",
+    "voice": "Narrator",
+    "narration": "The same loop can count and total. Add one to a count whenever a reading passes a test. Add every reading to a total. Then total divided by the length is the average. Three patterns, one loop.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:26",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which item?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! The list is twenty-one, twenty-five, thirty-one, twenty-eight. What is temps at minus one?"
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:38",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "28: the last item",
+    "voice": "Narrator",
+    "narration": "Twenty-eight, the last reading. And temps at four would stop the program with an IndexError: four items have positions zero to three. Most list bugs are off by one.",
+    "icons": [
+     "circlecheck",
+     "list"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:38",
+    "end": "1:56",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A stack or a queue",
+    "voice": "Narrator",
+    "narration": "A list can also act as a stack or a queue. append adds to the end. pop takes from the end, last in, first out: that’s a stack, like undo. pop of zero takes from the front, first in, first out: that’s a queue.",
+    "icons": [
+     "layers",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:56",
+    "end": "2:12",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Lists everywhere",
+    "voice": "Narrator",
+    "narration": "Lists are everywhere in real programs. A playlist is a list of songs. A class register is a list of names. A sensor log is a list of readings. And your phone’s messages are a list, newest last.",
+    "icons": [
+     "audio",
+     "clipboard",
+     "thermometer"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:12",
+    "end": "2:27",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: stacks and queues",
+    "voice": "Narrator",
+    "narration": "In the app, open Stacks and queues. Type three words, make one bold, then press Undo twice: a stack. Then let four customers into the queue and serve two: the first to arrive are served first.",
+    "icons": [
+     "layers",
+     "users",
+     "check"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:27",
+    "end": "2:36",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "What does it count?",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. A loop adds one to hot whenever a reading is above thirty. For twenty-one, thirty-one, thirty-five and thirty, what is hot?"
+   },
+   {
+    "n": 13,
+    "start": "2:36",
+    "end": "2:51",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "From 0 · one loop · append and pop · boundaries",
+    "voice": "Narrator",
+    "narration": "Two. Remember: positions count from zero, and minus one is the last. A loop can find the largest, count and total in one pass. append adds; pop takes. And check the boundaries, like exactly thirty."
+   },
+   {
+    "n": 14,
+    "start": "2:51",
+    "end": "3:06",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: for one week, write down how many minutes you spend on your phone each day. Put the seven numbers in a list, and write a program for the total, the average and the biggest day.",
+    "icons": [
+     "clock",
+     "list",
+     "calculator"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:24",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "temps = [21, 25, 31, 28]. What is temps[-1]?",
+    "options": [
+     {
+      "text": "21",
+      "correct": false
+     },
+     {
+      "text": "28",
+      "correct": true
+     },
+     {
+      "text": "An error",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — −1 counts from the end: the last item, 28.",
+    "feedback_wrong": "Not quite — negative positions count from the end, so −1 is the last item, 28.",
+    "resume_at": "1:26"
+   },
+   {
+    "at": "2:34",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "hot counts readings above 30. For [21, 31, 35, 30], what is hot?",
+    "options": [
+     {
+      "text": "2",
+      "correct": true
+     },
+     {
+      "text": "3",
+      "correct": false
+     },
+     {
+      "text": "4",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 31 and 35 are above 30; 30 itself is not above 30.",
+    "feedback_wrong": "Not quite — above 30 means more than 30: only 31 and 35.",
+    "resume_at": "2:36"
+   }
+  ]
+ }
+}

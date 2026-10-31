@@ -1,0 +1,301 @@
+{
+ "id": "DATA-3-1-4",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Databases and SQL for school records"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Joining tables for reports",
+  "subtitle": "JOIN and LEFT JOIN, who's missing, and reports with only what's needed",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Joining tables for reports",
+  "length": "3:01",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — computer studies teacher, Kenya (main character)",
+   "Dr Farah — education lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Two pupils vanished"
+   },
+   {
+    "at": "0:17",
+    "label": "JOIN and ON"
+   },
+   {
+    "at": "0:30",
+    "label": "Inner and left"
+   },
+   {
+    "at": "0:48",
+    "label": "Who's missing?"
+   },
+   {
+    "at": "1:36",
+    "label": "Reports for readers"
+   },
+   {
+    "at": "2:02",
+    "label": "The lab"
+   },
+   {
+    "at": "2:26",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: Pupils + marks; Two vanished; A whole term. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "I joined our pupils table to the marks, and sent the report to the head. Two pupils had vanished from it. Nobody noticed for a whole term.",
+    "icons": [
+     "layers",
+     "users",
+     "clock"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Joining tables for reports",
+    "voice": "Narrator",
+    "narration": "Today: joining tables, and reports that show only what's needed."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT p.name, m.mark … Caption: ON: how the rows match, by key",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A join puts rows side by side",
+    "voice": "Narrator",
+    "narration": "A join puts rows from two tables side by side. JOIN names the second table, and ON says how rows match: the mark's pupil number equals the pupil's id."
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "Two columns: “JOIN” (Only matches; No mark? Gone) and “LEFT JOIN” (Every pupil; No mark? NULL).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Inner keeps matches; left keeps all",
+    "voice": "Narrator",
+    "narration": "A plain JOIN is an inner join: it keeps only rows that match. A pupil with no mark simply vanishes, without a word. LEFT JOIN keeps every row of the first table, and fills the gaps with NULL.",
+    "icons": [
+     "filter",
+     "users",
+     "cross",
+     "square"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:01",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SELECT p.name … Caption: Kept by the left join, with no mark",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Who has no mark?",
+    "voice": "Narrator",
+    "narration": "So, to find the pupils with no mark, use a left join and keep the rows where the mark is NULL. That's the list of who missed the test."
+   },
+   {
+    "n": 6,
+    "start": "1:01",
+    "end": "1:14",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: Two marks: two rows; Inner join: rows can vanish; Count before and after.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Missing, or counted twice?",
+    "voice": "Narrator",
+    "narration": "Joins can multiply rows too. A pupil who sat the test and a resit appears twice, once per mark. So count before and after: are rows missing, or counted twice?",
+    "icons": [
+     "repeat",
+     "cross",
+     "calculator"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:27",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "No mark, after a join?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! I do an inner join of pupils and marks. What happens to a pupil who has no mark?"
+   },
+   {
+    "n": 8,
+    "start": "1:27",
+    "end": "1:36",
+    "beat": "Reveal",
+    "visual": "Icon cards: Left out, silently; My two pupils; Use LEFT JOIN.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Left out, silently",
+    "voice": "Narrator",
+    "narration": "They're left out, silently. That's how my two pupils vanished. When every pupil must appear, use a left join.",
+    "icons": [
+     "users",
+     "help",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:36",
+    "end": "1:50",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: A parent: their child only; The head: class averages; Never: phones, health notes. Dr Farah beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Who reads the report?",
+    "voice": "Dr Farah",
+    "narration": "Now think about who reads the report. A parent needs their own child's marks. The head needs averages per class. Nobody needs phone numbers and health notes in a marks report.",
+    "icons": [
+     "user",
+     "school",
+     "lock"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:50",
+    "end": "2:02",
+    "beat": "Definition",
+    "visual": "Icon cards: Only needed columns; Only their rows; The rest stays in.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Only what the reader needs",
+    "voice": "Narrator",
+    "narration": "So select only the columns each reader needs, and only their rows. A join can bring in everything; a good report query leaves most of it out.",
+    "icons": [
+     "filter",
+     "user",
+     "shield"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:02",
+    "end": "2:15",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Inner, then left; Who disappears?; Who appears twice?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: joining tables",
+    "voice": "Narrator",
+    "narration": "In the app, try each join of pupils and marks. Watch who disappears, who appears twice, and how the count of rows and the count of marks drift apart.",
+    "icons": [
+     "layers",
+     "eye",
+     "repeat"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:15",
+    "end": "2:26",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "What does a parent need?",
+    "voice": "Dr Farah",
+    "narration": "Your turn. A report for parents' evening goes to each family. Which columns should it show?"
+   },
+   {
+    "n": 13,
+    "start": "2:26",
+    "end": "2:44",
+    "beat": "Recap",
+    "visual": "Summary card: JOIN on a key; Inner drops, left keeps; Missing, or twice?; Only what the reader needs. Takeaway bar: Join to answer; then leave out what isn't needed.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Just the child's name and their own marks, for that family only. Remember: a join matches rows on a key. Inner joins drop what doesn't match; left joins keep it as NULL. And a report shows only what its reader needs."
+   },
+   {
+    "n": 14,
+    "start": "2:44",
+    "end": "3:01",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: Parent, nurse, head; Sort the column cards; Which does nobody need?. Dr Farah beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Dr Farah",
+    "narration": "Try it in class tomorrow: ask your pupils what a parent, the school nurse and the head teacher each need from the school records. They sort column cards into three piles. Which columns does nobody need at all?",
+    "icons": [
+     "users",
+     "tag",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:24",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "An inner join of pupils and marks: what happens to a pupil with no mark?",
+    "options": [
+     {
+      "text": "They appear with a zero",
+      "correct": false
+     },
+     {
+      "text": "They're left out of the result",
+      "correct": true
+     },
+     {
+      "text": "The query stops with an error",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — an inner join keeps only matching pairs, so a pupil with no mark is silently left out.",
+    "feedback_wrong": "Not quite — there's no error and no zero: an inner join simply leaves the pupil out. A left join keeps them, with NULL.",
+    "resume_at": "1:27"
+   },
+   {
+    "at": "2:23",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A report for parents' evening goes to each family. What should it show?",
+    "options": [
+     {
+      "text": "Name, class, every mark, phone and health notes",
+      "correct": false
+     },
+     {
+      "text": "Their child's name and their child's marks",
+      "correct": true
+     },
+     {
+      "text": "Every pupil's name and marks",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — each family needs its own child's name and marks, and nothing about other children.",
+    "feedback_wrong": "Not quite — phones and health notes don't belong in a marks report, and other children's marks aren't a parent's business.",
+    "resume_at": "2:26"
+   }
+  ]
+ }
+}

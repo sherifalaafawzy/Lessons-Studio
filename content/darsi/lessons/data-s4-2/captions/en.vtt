@@ -1,0 +1,253 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.510
+The district dashboard said a
+
+2
+00:00:02.510 --> 00:00:04.850
+hundred and fifty-two pupils came to
+
+3
+00:00:04.850 --> 00:00:06.310
+our partner school on Monday.
+
+4
+00:00:06.940 --> 00:00:08.960
+The school has ninety.
+
+5
+00:00:09.790 --> 00:00:12.630
+The pipeline had failed, retried,
+
+6
+00:00:13.190 --> 00:00:15.130
+and loaded two classes twice.
+
+7
+00:00:16.320 --> 00:00:19.580
+Today: building extract, transform and
+
+8
+00:00:19.580 --> 00:00:22.780
+load in Python and SQL, safe to run again.
+
+9
+00:00:23.990 --> 00:00:26.370
+Extract reads raw data from its
+
+10
+00:00:26.370 --> 00:00:29.590
+sources: files, forms, other databases.
+
+11
+00:00:30.490 --> 00:00:33.990
+Transform cleans, types and reshapes it.
+
+12
+00:00:34.460 --> 00:00:36.120
+Load writes it into the
+
+13
+00:00:36.120 --> 00:00:37.260
+tables people query.
+
+14
+00:00:37.930 --> 00:00:41.090
+Some teams load first and transform
+
+15
+00:00:41.090 --> 00:00:44.010
+inside the database: that's ELT.
+
+16
+00:00:45.210 --> 00:00:46.890
+Here's a transform in Python.
+
+17
+00:00:47.730 --> 00:00:50.510
+Read the raw register, count the present
+
+18
+00:00:50.510 --> 00:00:53.910
+pupils per class, and print one clean line
+
+19
+00:00:53.910 --> 00:00:56.130
+for each class, in a fixed order.
+
+20
+00:00:57.340 --> 00:01:00.580
+Loads must be idempotent: running them
+
+21
+00:01:00.580 --> 00:01:03.080
+twice gives the same result as once.
+
+22
+00:01:03.770 --> 00:01:06.050
+Delete the day's rows, then
+
+23
+00:01:06.050 --> 00:01:06.930
+insert them again.
+
+24
+00:01:07.530 --> 00:01:10.290
+Or use an upsert, which inserts new rows
+
+25
+00:01:10.290 --> 00:01:12.230
+and updates the ones already there.
+
+26
+00:01:13.400 --> 00:01:13.880
+Quick check!
+
+27
+00:01:14.520 --> 00:01:16.840
+A load appends rows, fails
+
+28
+00:01:16.840 --> 00:01:18.400
+halfway, and is run again.
+
+29
+00:01:18.980 --> 00:01:19.640
+What happens?
+
+30
+00:01:21.020 --> 00:01:22.620
+The rows loaded before the
+
+31
+00:01:22.620 --> 00:01:24.160
+failure go in twice.
+
+32
+00:01:24.820 --> 00:01:27.060
+That's exactly how ninety pupils
+
+33
+00:01:27.060 --> 00:01:29.060
+became a hundred and fifty-two.
+
+34
+00:01:30.240 --> 00:01:33.020
+Big sources aren't reloaded every night.
+
+35
+00:01:33.720 --> 00:01:36.540
+An incremental load takes only what's new
+
+36
+00:01:36.540 --> 00:01:39.400
+since the last run, using a watermark:
+
+37
+00:01:39.900 --> 00:01:41.720
+the latest time already loaded.
+
+38
+00:01:42.970 --> 00:01:45.990
+Runs fail, so retry passing faults
+
+39
+00:01:45.990 --> 00:01:48.550
+automatically, and stop on bad data.
+
+40
+00:01:49.190 --> 00:01:53.210
+Log every run: when, how many rows in
+
+41
+00:01:53.210 --> 00:01:54.990
+and out, and what was set aside.
+
+42
+00:01:55.800 --> 00:01:57.620
+The log is how you find out
+
+43
+00:01:57.620 --> 00:01:59.360
+before the dashboard does.
+
+44
+00:02:00.620 --> 00:02:03.740
+In the app, make a step fail and retry.
+
+45
+00:02:04.380 --> 00:02:06.240
+Appending double-counts;
+
+46
+00:02:06.240 --> 00:02:08.680
+replacing the day's rows stays at
+
+47
+00:02:08.680 --> 00:02:10.620
+ninety however often it runs.
+
+48
+00:02:11.870 --> 00:02:12.390
+Your turn.
+
+49
+00:02:13.020 --> 00:02:15.900
+Which of these loads is idempotent?
+
+50
+00:02:17.080 --> 00:02:19.360
+Delete, then insert: the
+
+51
+00:02:19.360 --> 00:02:21.080
+same answer every time.
+
+52
+00:02:21.760 --> 00:02:23.080
+Remember: extract,
+
+53
+00:02:23.080 --> 00:02:26.560
+transform, load, or ELT.
+
+54
+00:02:27.130 --> 00:02:29.390
+Make loads idempotent, with
+
+55
+00:02:29.390 --> 00:02:30.770
+replace or upsert.
+
+56
+00:02:31.360 --> 00:02:33.100
+Load incrementally with a
+
+57
+00:02:33.100 --> 00:02:35.680
+watermark, and log every run.
+
+58
+00:02:36.900 --> 00:02:39.360
+Try it tomorrow: think of a job you
+
+59
+00:02:39.360 --> 00:02:41.940
+repeat, like backing up your phone's
+
+60
+00:02:41.940 --> 00:02:42.220
+photos.
+
+61
+00:02:42.970 --> 00:02:44.770
+What happens if it runs
+
+62
+00:02:44.770 --> 00:02:47.230
+twice, or stops halfway?
+
+63
+00:02:48.010 --> 00:02:52.050
+Redesign it so a rerun is always safe.

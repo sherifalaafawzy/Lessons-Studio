@@ -19,6 +19,8 @@ export function TextField(p: { label: string; value: Text | undefined; onCommit:
     v === undefined ? {} : typeof v === "string" ? Object.fromEntries(langs.map((l) => [l.code, v])) : { ...v };
   const [draft, setDraft] = useState(asObj(p.value));
   const focused = useRef(false);
+  // Lists repeat labels ("Label" on every block), so ids come from a counter, not from the label.
+  const base = useRef(nextId()).current;
   useEffect(() => { if (!focused.current) setDraft(asObj(p.value)); }, [JSON.stringify(p.value), langs.length]);
   const commit = () => {
     focused.current = false;
@@ -30,7 +32,7 @@ export function TextField(p: { label: string; value: Text | undefined; onCommit:
     <fieldset class="f-text" data-path={p.path}>
       <legend>{p.label}{p.optional ? <span class="f-opt"> {t("optional")}</span> : null}</legend>
       {langs.map((l) => {
-        const id = `${p.label}-${l.code}`;
+        const id = `${base}-${l.code}`;
         const common = {
           id, value: draft[l.code] ?? "", dir: l.dir, lang: l.code,
           onFocus: () => { focused.current = true; },
@@ -66,6 +68,51 @@ export function StringField(p: { label: string; value: string | undefined; onCom
   );
 }
 
+/**
+ * Source text (an equation, an expression, numbers or points) checked as it is typed: what is wrong shows at once,
+ * with the place marked. Text that passes the check commits when the field loses focus; text that doesn't stays in
+ * the field, unsaved, until it is fixed.
+ */
+export function SourceField(p: {
+  label: string; value: string; onCommit: (v: string) => void; check: (v: string) => { message: string; at?: number } | null;
+  multiline?: boolean; rows?: number; hint?: string; lang?: string; placeholder?: string;
+}) {
+  const [v, setV] = useState(p.value);
+  const focused = useRef(false);
+  useEffect(() => { if (!focused.current) setV(p.value); }, [p.value]);
+  const id = useRef(nextId()).current;
+  const problem = p.check(v);
+  const commit = () => { focused.current = false; if (!problem && v !== p.value) p.onCommit(v); };
+  const common = {
+    id, class: "mono", dir: "ltr" as const, lang: p.lang, value: v, placeholder: p.placeholder, spellcheck: false,
+    "aria-invalid": problem ? true : undefined, "aria-describedby": problem ? `${id}-p` : undefined,
+    onFocus: () => { focused.current = true; },
+    onInput: (e: Event) => setV((e.target as HTMLInputElement).value),
+    onBlur: commit,
+  };
+  const at = problem?.at;
+  return (
+    <div class="f-src">
+      <label class="f-row" for={id}>
+        <span>{p.label}</span>
+        {p.multiline
+          ? <textarea {...common} rows={p.rows ?? 2} />
+          : <input {...common} onKeyDown={(e) => { if (e.key === "Enter") (e.target as HTMLInputElement).blur(); }} />}
+      </label>
+      {problem ? (
+        <div class="f-problem" id={`${id}-p`} role="status">
+          <p class="f-hint warn">
+            {at !== undefined ? `${t("problemAt").replace("{n}", String(at + 1))} ` : ""}<bdi dir="ltr">{problem.message}</bdi>{t("sep")}{t("notSavedYet")}
+          </p>
+          {at !== undefined && v ? (
+            <code class="f-where" dir="ltr" aria-hidden="true">{v.slice(Math.max(0, at - 30), at)}<mark>{v.slice(at, at + 1) || " "}</mark>{v.slice(at + 1, at + 30)}</code>
+          ) : null}
+        </div>
+      ) : p.hint ? <p class="f-hint">{p.hint}</p> : null}
+    </div>
+  );
+}
+
 export function NumField(p: { label: string; value: number | undefined; onCommit: (v: number | undefined) => void; min?: number; max?: number; step?: number; placeholder?: string }) {
   const [v, setV] = useState(p.value === undefined ? "" : String(p.value));
   useEffect(() => setV(p.value === undefined ? "" : String(p.value)), [p.value]);
@@ -95,6 +142,8 @@ export function Select<T extends string | number>(p: { label: string; value: T |
           const raw = (e.target as HTMLSelectElement).value;
           const hit = p.options.find(([v]) => String(v) === raw);
           if (hit) p.onChange(hit[0]);
+          // The empty choice ("Automatic", "None") reaches the caller as "", which clears the value.
+          else if (raw === "" && p.empty) p.onChange("" as T);
         }}>
         {p.value === undefined || p.empty ? <option value="">{p.empty ?? "—"}</option> : null}
         {p.options.map(([v, l]) => <option key={String(v)} value={String(v)}>{l}</option>)}

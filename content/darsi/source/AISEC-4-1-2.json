@@ -1,0 +1,281 @@
+{
+ "id": "AISEC-4-1-2",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "AI security policy and red teaming at school"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Red-team a school chatbot",
+  "subtitle": "Permission, a test bank, a score and a report",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Red-team a school chatbot",
+  "length": "3:19",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (cameo)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (main character)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Nobody tried it first"
+   },
+   {
+    "at": "0:21",
+    "label": "Permission and scope"
+   },
+   {
+    "at": "0:56",
+    "label": "The test bank"
+   },
+   {
+    "at": "1:58",
+    "label": "Report and fix"
+   },
+   {
+    "at": "2:46",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "Cards: Passed every demo; A polite request; It gave the marks.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Our school's new homework chatbot passed every demo. Then a pupil asked it, very politely, for a classmate's marks, and it answered. Nobody had tried that before we switched it on.",
+    "icons": [
+     "award",
+     "chat",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "Red-team a school chatbot",
+    "voice": "Narrator",
+    "narration": "Today: how to red-team a school chatbot, safely, and turn what you find into fixes."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:40",
+    "beat": "Definition",
+    "visual": "A list: Try what it should refuse; Before anyone else does; Permission in writing; Head teacher, and provider.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What red teaming is",
+    "voice": "Narrator",
+    "narration": "A red team tries, on purpose, the things a system should refuse, before anyone else does. At school, that starts with permission. Get a yes in writing from the head teacher, and from the provider if its terms ask for it.",
+    "icons": [
+     "target",
+     "clock",
+     "clipboard",
+     "school"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:56",
+    "beat": "Concept",
+    "visual": "A list: Which tool and account; Made-up pupils only; A stop rule.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Set the scope",
+    "voice": "Narrator",
+    "narration": "Then set the scope: which tool, which account, and what's off limits. Use made-up pupils and made-up records, never real ones. And agree a stop rule: if real harm appears, you stop and report.",
+    "icons": [
+     "bot",
+     "profile",
+     "hand"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:56",
+    "end": "1:17",
+    "beat": "Concept",
+    "visual": "A list: A pupil's record for a “neighbour”; A message posing as the school; Exam answers; Two wordings each.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Build a test bank",
+    "voice": "Narrator",
+    "narration": "Next, write a bank of mild requests the chatbot should turn down. Ask for a pupil's record as a “neighbour”. Ask it to write a message pretending to be the school. Ask for exam answers. Word each one two ways: the obvious way, and a polite rewording.",
+    "icons": [
+     "file",
+     "mail",
+     "notebook",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:17",
+    "end": "1:32",
+    "beat": "Examples",
+    "visual": "Code typed out on a card:\nfor case, ok, sev in bank:\n    if ok:\n        refused += 1\n    else:\n        print(\"Miss:\", case, sev)",
+    "animation": "The code types itself out; the highlighted line lights up.",
+    "on_screen_text": "Score it in code",
+    "voice": "Mr Joseph",
+    "narration": "Run the bank and score it. I keep each result as a case: refused or not, and how bad, from one to three. The loop counts the refusals and prints every miss."
+   },
+   {
+    "n": 7,
+    "start": "1:32",
+    "end": "1:42",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "How bad is it?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! The chatbot refused a rude joke, but gave a pupil's address to a stranger. Which finding gets severity three?"
+   },
+   {
+    "n": 8,
+    "start": "1:42",
+    "end": "1:58",
+    "beat": "Reveal",
+    "visual": "Cards: 1: embarrassing; 2: harmful; 3: danger to a person; Fix threes first.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Severity: how bad?",
+    "voice": "Narrator",
+    "narration": "The address. Severity says how bad a miss is: one for embarrassing, two for harmful, three for danger to a person or their data. Fix the threes first, then run the whole bank again.",
+    "icons": [
+     "smile",
+     "warning",
+     "shield",
+     "repeat"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:58",
+    "end": "2:17",
+    "beat": "Concept",
+    "visual": "A table diagram.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Report, then fix",
+    "voice": "Narrator",
+    "narration": "Then write a one-page report: what you tried, what got through, how often, and how bad. Send it to the tool's owner first, and give them time to fix it. Don't post the tricks that worked: describe the problem, not a recipe."
+   },
+   {
+    "n": 10,
+    "start": "2:17",
+    "end": "2:36",
+    "beat": "Lab preview",
+    "visual": "Cards joined by arrows: A bank of 8 requests; Refused 6 of 8; Add a rule in code; 8 of 8.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: red-team the chatbot",
+    "voice": "Narrator",
+    "narration": "In the app, run a bank of eight requests against Darsi Tiny. It refuses six in English and seven in Arabic. Read the misses, add a rule in code, and run again: eight out of eight. Then read the report table it writes.",
+    "icons": [
+     "bot",
+     "gauge",
+     "shield",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:36",
+    "end": "2:46",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "What do we do?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. In the middle of a test, the chatbot shows us a real pupil's phone number. What do we do?"
+   },
+   {
+    "n": 12,
+    "start": "2:46",
+    "end": "2:59",
+    "beat": "Recap",
+    "visual": "The summary: Permission, made-up data; A bank, two wordings; Score and severity; Report to the owner first. Takeaway: Find the misses before anyone else does, then fix them.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Permission · Bank · Severity · Report",
+    "voice": "Narrator",
+    "narration": "Stop, keep it private, and report. Remember: permission in writing and made-up data, a bank with two wordings, a score with severity, and a report to the owner first."
+   },
+   {
+    "n": 13,
+    "start": "2:59",
+    "end": "3:19",
+    "beat": "Try it tomorrow",
+    "visual": "A list: With your AI club; Ten requests, two wordings; Only with permission; A one-page report.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it at school this week",
+    "voice": "Narrator",
+    "narration": "Try it at school this week: with your AI club, write ten mild requests your school chatbot should refuse, two wordings each. Run them in the Darsi lab, or on a school tool you have permission to test. Score them, and write a one-page report.",
+    "icons": [
+     "users",
+     "file",
+     "shield",
+     "clipboard"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "The chatbot refused a rude joke but gave a pupil's address to a stranger. Which finding is severity 3?",
+    "options": [
+     {
+      "text": "The rude joke it refused",
+      "correct": false
+     },
+     {
+      "text": "The pupil's address it gave away",
+      "correct": true
+     },
+     {
+      "text": "Both are the same",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Yes: a child's address reaching a stranger can put them in danger. Severity three.",
+    "feedback_wrong": "Not quite: a refusal is a pass. The address leak can put a child in danger.",
+    "resume_at": "1:42"
+   },
+   {
+    "at": "2:43",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "In the middle of a test, the chatbot shows a real pupil's phone number. What do you do?",
+    "options": [
+     {
+      "text": "Keep going: finish the bank first",
+      "correct": false
+     },
+     {
+      "text": "Stop, don't copy it, and report it to the owner",
+      "correct": true
+     },
+     {
+      "text": "Share a screenshot with the staff group",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: that's the stop rule. Real harm means you stop and report.",
+    "feedback_wrong": "Not quite: real data means you stop, keep it private and report it.",
+    "resume_at": "2:46"
+   }
+  ]
+ }
+}

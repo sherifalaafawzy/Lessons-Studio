@@ -1,0 +1,379 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A map app, in a blink",
+            "ar-EG": "تطبيق خرايط، في لمح البصر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Far too many routes",
+            "ar-EG": "طرق كتير قوي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How does it know?",
+            "ar-EG": "بيعرف إزاي؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "roads = {\"home\": {\"tala\": 4, \"kesi\": 1},\n         \"kesi\": {\"tala\": 2, \"school\": 7},\n         \"tala\": {\"school\": 3},\n         \"school\": {}}",
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "graph": {
+        "map": "shortest",
+        "algo": "dijkstra",
+        "s": 0,
+        "frames": [
+          2,
+          3
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "lock",
+          "text": {
+            "en": "The smallest can’t shrink",
+            "ar-EG": "الأصغر مش هيصغر تاني"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Other ways pass further places",
+            "ar-EG": "أي طريق تاني بيعدّي على أماكن أبعد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "No negative road lengths",
+            "ar-EG": "مفيش أطوال بالسالب"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "graph": {
+        "map": {
+          "nodes": [
+            {
+              "id": "home",
+              "x": 1,
+              "y": 3,
+              "text": {
+                "en": "Home",
+                "ar-EG": "البيت"
+              },
+              "at": "b"
+            },
+            {
+              "id": "kesi",
+              "x": 3.5,
+              "y": 1,
+              "text": {
+                "en": "Kesi",
+                "ar-EG": "كيسي"
+              },
+              "at": "b"
+            },
+            {
+              "id": "tala",
+              "x": 3.5,
+              "y": 5,
+              "text": {
+                "en": "Tala",
+                "ar-EG": "تالا"
+              },
+              "at": "t"
+            },
+            {
+              "id": "school",
+              "x": 6.5,
+              "y": 3,
+              "text": {
+                "en": "School",
+                "ar-EG": "المدرسة"
+              },
+              "at": "b",
+              "square": true
+            }
+          ],
+          "edges": [
+            [
+              "home",
+              "tala",
+              4
+            ],
+            [
+              "home",
+              "kesi",
+              1
+            ],
+            [
+              "kesi",
+              "tala",
+              2
+            ],
+            [
+              "kesi",
+              "school",
+              7
+            ],
+            [
+              "tala",
+              "school",
+              3
+            ]
+          ]
+        },
+        "algo": "dijkstra",
+        "from": "home",
+        "to": "school",
+        "s": 0,
+        "frames": [
+          1,
+          3
+        ],
+        "unit": {
+          "en": "km",
+          "ar-EG": "كيلو"
+        }
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "while todo:\n    p = min(todo, key=lambda q: dist[q])\n    todo.remove(p)\n    for q, km in roads[p].items():\n        dist[q] = min(dist[q],\n                      dist[p] + km)",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Rubi, at 5: the smallest",
+            "ar-EG": "روبي، بـ5: الأصغر"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Nothing can make it smaller",
+            "ar-EG": "مفيش حاجة تصغّره"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Tala first: maybe frozen too big",
+            "ar-EG": "تالا الأول: ممكن يتجمّد كبير"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Shortest",
+            "ar-EG": "الأقصر"
+          },
+          {
+            "en": "Via Bora",
+            "ar-EG": "عن طريق بورا"
+          },
+          {
+            "en": "Bridge flooded",
+            "ar-EG": "الكوبري غرقان"
+          }
+        ],
+        "rows": [
+          [
+            "13",
+            "15",
+            "14"
+          ]
+        ],
+        "size": 40,
+        "s": 0
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "A new footbridge",
+            "ar-EG": "كوبري مشاة جديد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "One village saves 20 minutes",
+            "ar-EG": "قرية توفّر 20 دقيقة"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "home",
+          "text": {
+            "en": "Another saves nothing",
+            "ar-EG": "وقرية تانية ولا حاجة"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Run it from every home",
+            "ar-EG": "شغّله من كل بيت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "home",
+          "text": {
+            "en": "Tap Home",
+            "ar-EG": "المس البيت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Then the smallest number",
+            "ar-EG": "وبعدين أصغر رقم"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "droplets",
+          "tone": "accent",
+          "text": {
+            "en": "Flood the bridge",
+            "ar-EG": "غرّق الكوبري"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Settling too early freezes it",
+            "ar-EG": "التثبيت بدري بيجمّد الرقم"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "The map: a dictionary",
+            "ar-EG": "الخريطة: قاموس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Smallest first, then relax",
+            "ar-EG": "الأصغر الأول، وبعدين راجع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Who does a road help?",
+            "ar-EG": "الطريق بيفيد مين؟"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Smallest first is always safe.",
+        "ar-EG": "الأصغر الأول دايمًا مضمون."
+      }
+    },
+    "15": {
+      "who": "okafor",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Draw your own roads",
+            "ar-EG": "ارسم طرقك إنت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Dijkstra on paper",
+            "ar-EG": "ديكسترا على الورق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "keyboard",
+          "tone": "ok",
+          "text": {
+            "en": "Check with your code",
+            "ar-EG": "اتأكد بالكود"
+          },
+          "s": 1,
+          "o": 2
+        }
+      ]
+    }
+  }
+}

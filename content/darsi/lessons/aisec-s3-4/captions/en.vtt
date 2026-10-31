@@ -1,0 +1,309 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.630
+A fake AI app went round our school group.
+
+2
+00:00:04.260 --> 00:00:07.740
+It was called “SuperTutor AI free”, and it
+
+3
+00:00:07.740 --> 00:00:10.060
+promised a better chatbot, offline.
+
+4
+00:00:10.860 --> 00:00:12.200
+It stole the passwords
+
+5
+00:00:12.200 --> 00:00:13.740
+saved on three phones.
+
+6
+00:00:15.150 --> 00:00:18.670
+Today: how AI models and apps reach you,
+
+7
+00:00:19.130 --> 00:00:21.490
+and how to check one before you trust it.
+
+8
+00:00:22.570 --> 00:00:24.810
+Every AI tool is built from parts
+
+9
+00:00:24.810 --> 00:00:27.350
+made by others: training data, a
+
+10
+00:00:27.350 --> 00:00:29.750
+model file, code and an app.
+
+11
+00:00:30.350 --> 00:00:32.930
+That chain of parts is the supply chain.
+
+12
+00:00:33.570 --> 00:00:35.430
+Any link can be faked, or
+
+13
+00:00:35.430 --> 00:00:36.730
+changed on the way to you.
+
+14
+00:00:37.890 --> 00:00:39.290
+Three things go wrong.
+
+15
+00:00:39.970 --> 00:00:43.050
+A fake copy pretends to be the real model.
+
+16
+00:00:43.690 --> 00:00:46.030
+A real file is changed on the way,
+
+17
+00:00:46.490 --> 00:00:48.550
+by one byte or a million.
+
+18
+00:00:49.280 --> 00:00:51.380
+And some model files can run hidden
+
+19
+00:00:51.380 --> 00:00:53.160
+code the moment you load them.
+
+20
+00:00:54.340 --> 00:00:55.800
+The first check is a fingerprint.
+
+21
+00:00:56.660 --> 00:00:59.840
+SHA-256 turns any file into
+
+22
+00:00:59.840 --> 00:01:01.600
+sixty-four hex characters.
+
+23
+00:01:02.310 --> 00:01:04.110
+Change one byte, and about
+
+24
+00:01:04.110 --> 00:01:05.310
+half of them change.
+
+25
+00:01:06.060 --> 00:01:08.000
+If yours matches the one the real
+
+26
+00:01:08.000 --> 00:01:10.720
+publisher posted, the bytes are the same.
+
+27
+00:01:11.990 --> 00:01:14.310
+In Python it takes three lines.
+
+28
+00:01:15.110 --> 00:01:17.090
+Hash the file's bytes, turn the
+
+29
+00:01:17.090 --> 00:01:19.270
+result into hex, and compare it
+
+30
+00:01:19.270 --> 00:01:20.230
+with the published fingerprint.
+
+31
+00:01:21.070 --> 00:01:22.530
+Equal means unchanged.
+
+32
+00:01:24.040 --> 00:01:24.620
+Quick check!
+
+33
+00:01:25.410 --> 00:01:29.330
+You change one letter inside a model file.
+
+34
+00:01:30.000 --> 00:01:31.980
+What happens to its fingerprint?
+
+35
+00:01:33.630 --> 00:01:36.330
+About half changes, so even a
+
+36
+00:01:36.330 --> 00:01:37.670
+tiny edit can't hide.
+
+37
+00:01:38.340 --> 00:01:40.260
+But a fingerprint only proves
+
+38
+00:01:40.260 --> 00:01:41.760
+the bytes didn't change.
+
+39
+00:01:42.570 --> 00:01:44.490
+It can't tell you who made them.
+
+40
+00:01:45.090 --> 00:01:46.650
+For that, you need a signature.
+
+41
+00:01:48.050 --> 00:01:50.510
+The publisher signs the file with a
+
+42
+00:01:50.510 --> 00:01:52.850
+secret key, and anyone can check it
+
+43
+00:01:52.850 --> 00:01:53.750
+with their public key.
+
+44
+00:01:54.310 --> 00:01:56.870
+An impostor can post a fake with its
+
+45
+00:01:56.870 --> 00:01:59.450
+own fingerprint, but they can't sign
+
+46
+00:01:59.450 --> 00:02:00.450
+as the real publisher.
+
+47
+00:02:01.840 --> 00:02:03.460
+So build three habits.
+
+48
+00:02:04.270 --> 00:02:06.590
+Download only from the official source.
+
+49
+00:02:07.300 --> 00:02:09.000
+Check the fingerprint and the
+
+50
+00:02:09.000 --> 00:02:11.040
+signature before you run anything.
+
+51
+00:02:11.820 --> 00:02:14.060
+And keep a list of the models you use:
+
+52
+00:02:14.480 --> 00:02:18.140
+name, version, where from, fingerprint.
+
+53
+00:02:19.630 --> 00:02:21.250
+In the app, leave the file
+
+54
+00:02:21.250 --> 00:02:23.130
+genuine: both checks are green.
+
+55
+00:02:23.720 --> 00:02:25.980
+Change one byte: about half
+
+56
+00:02:25.980 --> 00:02:27.020
+the fingerprint flips.
+
+57
+00:02:27.830 --> 00:02:30.650
+Then try the impostor: the bytes look
+
+58
+00:02:30.650 --> 00:02:32.490
+fine, but the signature fails.
+
+59
+00:02:33.910 --> 00:02:34.670
+Your turn.
+
+60
+00:02:35.290 --> 00:02:37.530
+A model's fingerprint matches the
+
+61
+00:02:37.530 --> 00:02:39.950
+one posted right next to it, on a
+
+62
+00:02:39.950 --> 00:02:40.730
+site you don't know.
+
+63
+00:02:41.240 --> 00:02:42.680
+Can you trust it?
+
+64
+00:02:43.890 --> 00:02:46.250
+Not yet: whoever posted the file
+
+65
+00:02:46.250 --> 00:02:47.890
+posted that fingerprint too.
+
+66
+00:02:48.490 --> 00:02:50.230
+Remember: any link in the
+
+67
+00:02:50.230 --> 00:02:51.410
+chain can be faked.
+
+68
+00:02:51.990 --> 00:02:54.830
+A fingerprint proves the same bytes, and
+
+69
+00:02:54.830 --> 00:02:56.610
+a signature proves who made them.
+
+70
+00:02:57.180 --> 00:02:59.420
+Use official sources, check
+
+71
+00:02:59.420 --> 00:03:01.580
+both, and keep a list.
+
+72
+00:03:02.800 --> 00:03:05.320
+Try it tomorrow: with the owner, look
+
+73
+00:03:05.320 --> 00:03:07.380
+at the AI apps on a family phone.
+
+74
+00:03:08.040 --> 00:03:10.260
+Write where each came from: the
+
+75
+00:03:10.260 --> 00:03:12.800
+store, a shared file or a website.
+
+76
+00:03:13.450 --> 00:03:14.970
+Remove what you can't check,
+
+77
+00:03:15.330 --> 00:03:16.750
+and start your model list.

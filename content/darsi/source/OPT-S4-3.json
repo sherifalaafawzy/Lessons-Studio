@@ -1,0 +1,317 @@
+{
+ "id": "OPT-S4-3",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Operations research: LP, MIP, CP, OR-Tools modelling, heuristics"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Constraint programming: propagation and search",
+  "subtitle": "Domains, fail-first search, global constraints and proofs",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Constraint programming: propagation and search",
+  "length": "3:15",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — your computing lecturer (main character)",
+   "Ms Salma Haddad — your maths lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "13,528 guesses, or 4"
+   },
+   {
+    "at": "0:15",
+    "label": "Domains and propagation"
+   },
+   {
+    "at": "0:48",
+    "label": "Search and global constraints"
+   },
+   {
+    "at": "1:39",
+    "label": "Infeasible is a proof"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "Mr Joseph holding a sudoku; two counters side by side, one racing to 13,528, the other stopping at 4.",
+    "animation": "The left counter spins up; the right one ticks to 4 and stops.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A hard sudoku. Plain backtracking needs thirteen thousand five hundred and twenty-eight guesses. A constraint solver needs four. Same puzzle, same rules: so what’s the difference?",
+    "icons": [
+     "puzzle",
+     "grid",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:15",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Constraint programming",
+    "voice": "Narrator",
+    "narration": "Today: constraint programming, with domains, propagation and search."
+   },
+   {
+    "n": 3,
+    "start": "0:15",
+    "end": "0:30",
+    "beat": "Definition",
+    "visual": "A sudoku cell with small candidate digits 1–9; an exam card with slot chips; some get crossed out.",
+    "animation": "Candidates and chips appear, then a few are crossed out.",
+    "on_screen_text": "Domains",
+    "voice": "Narrator",
+    "narration": "In constraint programming, every variable has a domain: the values still possible. A sudoku cell starts with one to nine; an exam starts with every slot. Constraints remove values that can’t be part of any solution.",
+    "icons": [
+     "grid",
+     "calendar",
+     "filter"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "A 9 × 9 grid: placing a 5 removes 5s from its row, column and box; single candidates turn into placed digits.",
+    "animation": "Crossings ripple outwards from the placed digit.",
+    "on_screen_text": "Propagation",
+    "voice": "Narrator",
+    "narration": "That removal is propagation. Place a five, and five vanishes from its row, its column and its box. A cell left with one value takes it, and the change spreads. In the lab’s hard sudoku, propagation alone fills fifty-one cells without a single guess.",
+    "icons": [
+     "grid",
+     "zap"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:05",
+    "beat": "Concept",
+    "visual": "A search tree: a guess at the cell with two candidates, propagation, a dead end, an undo.",
+    "animation": "Branches grow; one turns red and is undone.",
+    "on_screen_text": "Search, fail-first",
+    "voice": "Narrator",
+    "narration": "When propagation stops, search guesses, but cleverly. Fail first: choose the variable with the fewest values left, because that’s where a wrong guess shows up soonest. After each guess, propagate again; at a dead end, undo and try the next value.",
+    "icons": [
+     "network",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "Two columns: 36 pairwise ≠ lines on one side, a single all-different box on the other.",
+    "animation": "Thirty-six lines fade; one box appears and catches a pigeonhole conflict.",
+    "on_screen_text": "Global constraints",
+    "voice": "Narrator",
+    "narration": "Global constraints carry a whole pattern at once. All-different over nine cells knows more than thirty-six separate not-equal rules: if three cells share only two values, it fails straight away. CP-SAT has others for routes, schedules and tables.",
+    "icons": [
+     "layers",
+     "shield"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:21",
+    "end": "1:30",
+    "beat": "Concept",
+    "visual": "Code typed on a card.",
+    "animation": "Lines type; the two all-different lines highlight.",
+    "on_screen_text": "A sudoku in CP-SAT",
+    "voice": "Mr Joseph",
+    "narration": "In CP-SAT, a four-by-four sudoku takes a few lines. Every row and every column is all-different, and so is every box.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:30",
+    "end": "1:39",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma with three exam cards and two slot boxes. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Two slots, three clashing exams",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Only two exam slots are left, and three exams all clash with each other. What does an all-different constraint do?"
+   },
+   {
+    "n": 9,
+    "start": "1:39",
+    "end": "1:59",
+    "beat": "Reveal",
+    "visual": "The three exam cards bounce off two slot boxes; a stamp ‘INFEASIBLE: proved’.",
+    "animation": "The stamp lands; Omar’s three exams highlight.",
+    "on_screen_text": "Infeasible is a proof",
+    "voice": "Narrator",
+    "narration": "It fails at once: three exams can’t fit in two slots. And when every branch fails, the solver has proved there is no solution, so INFEASIBLE is a proof, not a shrug. In the exam lab, three slots are the fewest, because Omar’s three exams all clash.",
+    "icons": [
+     "circlex",
+     "shield",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:59",
+    "end": "2:15",
+    "beat": "Concept",
+    "visual": "Two identical plans with slots swapped; a rule card ‘slot 1 before slot 2’ removes the copy.",
+    "animation": "The duplicate plan fades out.",
+    "on_screen_text": "Break the symmetry",
+    "voice": "Narrator",
+    "narration": "Many problems have symmetry: swap two exam slots, or two identical buses, and you get the same plan again. Breaking it, for example by saying slot one is used before slot two, can cut the search many times over.",
+    "icons": [
+     "shuffle",
+     "ruleset"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:15",
+    "end": "2:32",
+    "beat": "Concept",
+    "visual": "Three boxes feeding one solver: propagation, learning, linear relaxation; a trophy beside it.",
+    "animation": "Arrows flow into the solver; the trophy pops.",
+    "on_screen_text": "Inside CP-SAT",
+    "voice": "Narrator",
+    "narration": "Google’s CP-SAT mixes three ideas: propagation from constraint programming, clause learning from SAT solvers, which remember why a branch failed, and linear relaxations. It has won the MiniZinc Challenge again and again, and it’s what most OR-Tools users reach for first.",
+    "icons": [
+     "cpu",
+     "brain",
+     "award"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:32",
+    "end": "2:41",
+    "beat": "Lab preview",
+    "visual": "A phone with the sudoku lab: candidates in small digits, a method switch and a guess counter.",
+    "animation": "A finger switches methods; the counters differ.",
+    "on_screen_text": "App lab: Sudoku by the rules",
+    "voice": "Narrator",
+    "narration": "In the app, solve sudokus three ways: propagate then guess, propagate only, and plain backtracking. Count the guesses each one needs.",
+    "icons": [
+     "puzzle",
+     "grid",
+     "calculator"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:41",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph points at three empty cells with 2, 3 and 3 candidates. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Where do you guess?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Propagation stops with three empty cells: one has two candidates, the other two have three. Which cell does fail-first search guess in?"
+   },
+   {
+    "n": 14,
+    "start": "2:51",
+    "end": "3:05",
+    "beat": "Recap",
+    "visual": "Four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "The one with two: fewest values, so a wrong guess fails fastest. Remember: domains shrink by propagation, and search guesses fail-first and undoes dead ends. Global constraints prune more. And INFEASIBLE is a proof.",
+    "icons": [
+     "filter",
+     "network",
+     "shield"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:05",
+    "end": "3:15",
+    "beat": "Try it tomorrow",
+    "visual": "A student with a phone: the grid, then a printed count of solutions.",
+    "animation": "The count ticks up as solutions are found.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write the four-by-four sudoku in CP-SAT, boxes and all. Then remove one given, and count the solutions with a solution callback.",
+    "icons": [
+     "keyboard",
+     "grid",
+     "calculator"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Two exam slots are left, and three exams all clash with each other. What does an all-different constraint do?",
+    "options": [
+     {
+      "text": "Picks two of the three",
+      "correct": false
+     },
+     {
+      "text": "Fails at once: three exams can’t fit in two slots",
+      "correct": true
+     },
+     {
+      "text": "Waits until search reaches them",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — three variables with only two values between them can’t all differ, so the constraint fails immediately.",
+    "feedback_wrong": "Not quite — all-different sees the whole group: three exams, two slots, no way. It fails at once, before any search.",
+    "resume_at": "1:39"
+   },
+   {
+    "at": "2:47",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "Three empty cells: one has two candidates, two have three. Where does fail-first search guess?",
+    "options": [
+     {
+      "text": "In the cell with two candidates",
+      "correct": true
+     },
+     {
+      "text": "In the first cell in reading order",
+      "correct": false
+     },
+     {
+      "text": "In one of the cells with three",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — fewest values first: a wrong guess there is found soonest, and a right one has the best odds.",
+    "feedback_wrong": "Not quite — fail-first picks the variable with the fewest values left: the cell with two candidates.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

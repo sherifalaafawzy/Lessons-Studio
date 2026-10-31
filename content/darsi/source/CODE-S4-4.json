@@ -1,0 +1,295 @@
+{
+ "id": "CODE-S4-4",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Algorithms and software engineering"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Testing like an engineer",
+  "subtitle": "Edges, boundaries and test-first",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Testing like an engineer: Edges, boundaries and test-first",
+  "length": "3:10",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — the students’ algorithms lecturer (main character)",
+   "Mr Joseph — the students’ programming lecturer (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Most programs had bugs"
+   },
+   {
+    "at": "0:17",
+    "label": "Unit tests and edge cases"
+   },
+   {
+    "at": "0:50",
+    "label": "A boundary bug"
+   },
+   {
+    "at": "1:48",
+    "label": "Test-first and review"
+   },
+   {
+    "at": "2:40",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Jon Bentley once asked professional programmers to write binary search, about a dozen lines of code. Around ninety percent of their programs had bugs. Most of them broke at the edges.",
+    "icons": [
+     "users",
+     "search",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Testing like an engineer",
+    "voice": "Narrator",
+    "narration": "Today: testing like an engineer."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:35",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Unit tests with assert",
+    "voice": "Narrator",
+    "narration": "A unit test runs one small piece of code and checks the answer. In Python, assert stops the program if its check is false. This function passes the first test. But the second fails: best starts at zero, which is bigger than every negative number.",
+    "icons": [
+     "check",
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test the edges",
+    "voice": "Narrator",
+    "narration": "Ordinary data rarely breaks code; the edges do. Test an empty list and a list of one. Test the first and the last position. Test values that repeat, negatives, and something that isn’t there at all.",
+    "icons": [
+     "search",
+     "list"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A boundary bug",
+    "voice": "Narrator",
+    "narration": "Here’s the outline of a binary search that passes a test in the middle of a long list. But search a one-item list for its only item, and it says minus one: not found. The loop must run while lo is less than or equal to hi, or it skips the last place to look.",
+    "icons": [
+     "search",
+     "warning"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:13",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Four tests at the edges",
+    "voice": "Narrator",
+    "narration": "Four short tests catch it. An empty list, one item, the last item, and a value that isn’t there. Run them after every change, and a boundary bug can’t sneak back in.",
+    "icons": [
+     "check",
+     "list"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:26",
+    "end": "1:35",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which test catches it?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A function finds the largest mark in a list. Which test is most likely to catch a bug?"
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:48",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The edge case",
+    "voice": "Narrator",
+    "narration": "The list of only negative numbers: an edge case. Five ordinary marks would pass even the buggy version. Write the tests that try to break your code, not the ones that flatter it.",
+    "icons": [
+     "circlecheck",
+     "search"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:48",
+    "end": "2:05",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test-first",
+    "voice": "Narrator",
+    "narration": "Engineers often write the test first. Red: write a test, and watch it fail. Green: write the simplest code that passes. Refactor: tidy the code while the tests still pass. Then the tests are a safety net for every later change.",
+    "icons": [
+     "sync",
+     "circlex",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:05",
+    "end": "2:19",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Review with others",
+    "voice": "Narrator",
+    "narration": "Tests can’t catch everything. A second pair of eyes spots unclear names and missing cases. Keep each change small, say why you made it, and review kindly: comment on the code, not the coder.",
+    "icons": [
+     "users",
+     "chat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:19",
+    "end": "2:33",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: guess the number",
+    "voice": "Narrator",
+    "narration": "In the app, open Guess the number. Find a hidden number from one to a thousand by halving, and count your guesses. Then test the edges: can halving find one, and a thousand?",
+    "icons": [
+     "search",
+     "flag"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:33",
+    "end": "2:40",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "What comes first?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. You’re working test-first on a new function. What do you write before the code?"
+   },
+   {
+    "n": 13,
+    "start": "2:40",
+    "end": "2:54",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "assert · edges · test-first · review",
+    "voice": "Narrator",
+    "narration": "A test that fails. In short: unit tests check small pieces with assert. Test the edges: empty, one item, first and last, not there. Work test-first: red, green, refactor. And review code with others."
+   },
+   {
+    "n": 14,
+    "start": "2:54",
+    "end": "3:10",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it on your own code",
+    "voice": "Narrator",
+    "narration": "Try it on your own code: take a function you wrote this term, and write five asserts for it, at least three at the edges. Run them. If one fails, you’ve found a bug before anyone else did.",
+    "icons": [
+     "file",
+     "check",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:33",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A function finds the largest mark. Which test is most likely to catch a bug?",
+    "options": [
+     {
+      "text": "Five ordinary marks",
+      "correct": false
+     },
+     {
+      "text": "A list of only negative numbers",
+      "correct": true
+     },
+     {
+      "text": "The same test run twice",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — edge cases like all-negative values break code that ordinary data never tests.",
+    "feedback_wrong": "Not quite — ordinary data passes even buggy code. Test the edges: here, a list of only negatives.",
+    "resume_at": "1:35"
+   },
+   {
+    "at": "2:38",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Working test-first on a new function, what do you write before the code?",
+    "options": [
+     {
+      "text": "The documentation",
+      "correct": false
+     },
+     {
+      "text": "A test that fails",
+      "correct": true
+     },
+     {
+      "text": "A test that already passes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — red first: a failing test says exactly what the code must do.",
+    "feedback_wrong": "Not quite — test-first starts red: write a test that fails, then the simplest code that passes it.",
+    "resume_at": "2:40"
+   }
+  ]
+ }
+}

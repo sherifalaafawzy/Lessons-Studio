@@ -1,0 +1,369 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Every class",
+            "ar-EG": "كل فصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "tone": "danger",
+          "text": {
+            "en": "A whole Saturday",
+            "ar-EG": "يوم سبت كامل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "tone": "ok",
+          "text": {
+            "en": "One query",
+            "ar-EG": "استعلام واحد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "calculator",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "COUNT: how many rows",
+            "ar-EG": "⁦COUNT⁩: كام صف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "AVG: the average",
+            "ar-EG": "⁦AVG⁩: المتوسط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "MIN, MAX: lowest, highest",
+            "ar-EG": "⁦MIN⁩ و⁦MAX⁩: الأقل والأعلى"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "ROUND: fewer decimals",
+            "ar-EG": "⁦ROUND⁩: كسور أقل"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT class, COUNT(*) AS n, AVG(mark) AS avg FROM marks GROUP BY class",
+        "tables": {
+          "marks": {
+            "cols": [
+              "name",
+              "class",
+              "mark"
+            ],
+            "rows": [
+              [
+                "Amina",
+                "5A",
+                14
+              ],
+              [
+                "Salma",
+                "5A",
+                18
+              ],
+              [
+                "Farah",
+                "5A",
+                16
+              ],
+              [
+                "Joseph",
+                "5B",
+                9
+              ],
+              [
+                "Musa",
+                "5B",
+                13
+              ],
+              [
+                "Omar",
+                "5B",
+                11
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "group": 1,
+          "select": 2
+        }
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "All the rows",
+            "ar-EG": "كل الصفوف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Grouped by class",
+            "ar-EG": "متجمّعة بالفصل"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "One row per class",
+            "ar-EG": "صف لكل فصل"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "6": {
+      "table": {
+        "cols": [
+          {
+            "en": "WHERE",
+            "ar-EG": "⁦WHERE⁩"
+          },
+          {
+            "en": "HAVING",
+            "ar-EG": "⁦HAVING⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Before grouping",
+              "ar-EG": "قبل التجميع"
+            },
+            {
+              "en": "After grouping",
+              "ar-EG": "بعد التجميع"
+            }
+          ],
+          [
+            {
+              "en": "Filters rows",
+              "ar-EG": "بتفلتر الصفوف"
+            },
+            {
+              "en": "COUNT(*) > 30",
+              "ar-EG": "⁦COUNT(*) > 30⁩"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "8": {
+      "table": {
+        "cols": [
+          {
+            "en": "COUNT(*)",
+            "ar-EG": "⁦COUNT(*)⁩"
+          },
+          {
+            "en": "COUNT(mark)",
+            "ar-EG": "⁦COUNT(mark)⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Every row: 12",
+              "ar-EG": "كل الصفوف: 12"
+            },
+            {
+              "en": "Skips NULL: 11",
+              "ar-EG": "بيسيب ⁦NULL: 11⁩"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT class, MIN(mark), MAX(mark) FROM science GROUP BY class",
+        "tables": {
+          "science": {
+            "cols": [
+              "name",
+              "class",
+              "mark"
+            ],
+            "rows": [
+              [
+                "Amina",
+                "5A",
+                14
+              ],
+              [
+                "Salma",
+                "5A",
+                17
+              ],
+              [
+                "Farah",
+                "5A",
+                99
+              ],
+              [
+                "Joseph",
+                "5B",
+                12
+              ],
+              [
+                "Musa",
+                "5B",
+                9
+              ],
+              [
+                "Omar",
+                "5B",
+                16
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "group": 1,
+          "select": 2
+        }
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "sprout",
+          "text": {
+            "en": "Hourly readings",
+            "ar-EG": "قراءة كل ساعة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "An average per day",
+            "ar-EG": "متوسط لكل يوم"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "filter",
+          "tone": "ok",
+          "text": {
+            "en": "Glitches out",
+            "ar-EG": "الأخطاء برّه"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "COUNT, AVG, MIN, MAX",
+            "ar-EG": "⁦COUNT⁩ و⁦AVG⁩ و⁦MIN⁩ و⁦MAX⁩"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "GROUP BY: one row per group",
+            "ar-EG": "⁦GROUP BY⁩: صف لكل مجموعة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "HAVING filters groups",
+            "ar-EG": "⁦HAVING⁩ بتفلتر المجموعات"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "NULLs are skipped",
+            "ar-EG": "⁦NULL⁩ بتتساب"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "One query, one row per group, every term.",
+        "ar-EG": "استعلام واحد، صف لكل مجموعة، كل ترم."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Group by birth month",
+            "ar-EG": "اتجمّعوا بشهر الميلاد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Each group counts itself",
+            "ar-EG": "كل مجموعة تعدّ نفسها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "One row per month",
+            "ar-EG": "صف لكل شهر"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

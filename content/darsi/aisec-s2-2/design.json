@@ -1,0 +1,495 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "mic",
+          "text": {
+            "en": "Mum's voice?",
+            "ar-EG": "صوت مامته؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "“Send airtime, quickly!”",
+            "ar-EG": "«ابعت رصيد بسرعة!»"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A copied voice",
+            "ar-EG": "صوت متقلّد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "cols": [
+          {
+            "en": "Still works",
+            "ar-EG": "لسه شغّالة"
+          },
+          {
+            "en": "Fails now",
+            "ar-EG": "مبقتش تنفع"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "A rush or a threat",
+              "ar-EG": "استعجال أو تهديد"
+            },
+            {
+              "en": "Bad spelling",
+              "ar-EG": "إملاء غلط"
+            }
+          ],
+          [
+            {
+              "en": "Asks for a code",
+              "ar-EG": "بيطلب كود"
+            },
+            {
+              "en": "A strange voice",
+              "ar-EG": "صوت غريب"
+            }
+          ],
+          [
+            {
+              "en": "A strange link",
+              "ar-EG": "لينك غريب"
+            },
+            ""
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 3
+          },
+          {
+            "row": 3,
+            "s": 0
+          }
+        ]
+      },
+      "who": null
+    },
+    "4": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "What you shared",
+            "ar-EG": "اللي إنت شاركته"
+          },
+          {
+            "en": "What the scam says",
+            "ar-EG": "رسالة النصب بتقول"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Your school",
+              "ar-EG": "مدرستك"
+            },
+            {
+              "en": "“Coach Ali from Kafi School”",
+              "ar-EG": "«الكابتن علي من مدرسة كافي»"
+            }
+          ],
+          [
+            {
+              "en": "Your team photo",
+              "ar-EG": "صورة فريقك"
+            },
+            {
+              "en": "“I'll add you to the team”",
+              "ar-EG": "«هضيفك للفريق»"
+            }
+          ],
+          [
+            {
+              "en": "Nothing",
+              "ar-EG": "ولا حاجة"
+            },
+            {
+              "en": "“Send me the code you got”",
+              "ar-EG": "«ابعتلي الكود اللي جالك»"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "install",
+          "text": {
+            "en": "“Free premium” copies",
+            "ar-EG": "نسخ «بريميوم ببلاش»"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Steal logins, read messages",
+            "ar-EG": "بتسرق الحسابات وتقرا الرسايل"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Official store only",
+            "ar-EG": "المتجر الرسمي بس"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Check the maker and access",
+            "ar-EG": "شوف مين عامله وعايز إيه"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "fake",
+            "glyph": "bot",
+            "label": {
+              "en": "A copied voice",
+              "ar-EG": "صوت متقلّد"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "phone",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "real",
+            "glyph": "user",
+            "label": {
+              "en": "The real person",
+              "ar-EG": "الشخص الحقيقي"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "fake",
+            "to": "you",
+            "text": {
+              "en": "Send airtime, quickly!",
+              "ar-EG": "ابعت رصيد بسرعة!"
+            },
+            "tone": "danger"
+          },
+          {
+            "from": "you",
+            "to": "real",
+            "text": {
+              "en": "Call the saved number",
+              "ar-EG": "اتصل على الرقم المتسجّل"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "real",
+            "to": "you",
+            "text": {
+              "en": "That wasn't me!",
+              "ar-EG": "ده مكانش أنا!"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "notes": [
+          {
+            "after": 3,
+            "over": [
+              "you",
+              "real"
+            ],
+            "text": {
+              "en": "Or ask what only they'd know",
+              "ar-EG": "أو اسأل حاجة هو بس يعرفها"
+            }
+          }
+        ],
+        "rows": [
+          0,
+          2,
+          2,
+          3
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Nobody should ask for it",
+            "ar-EG": "محدش المفروض يطلبه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Friends' accounts get taken over",
+            "ar-EG": "حسابات الصحاب بتتسرق"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "Check another way",
+            "ar-EG": "اتأكد بطريقة تانية"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Agree a word",
+            "ar-EG": "اتفقوا على كلمة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Never posted online",
+            "ar-EG": "عمرها ما تتنشر"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "mic",
+          "text": {
+            "en": "A call asks for money?",
+            "ar-EG": "مكالمة عايزة فلوس؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Ask for the word",
+            "ar-EG": "اسأل عن الكلمة"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A stranger calls",
+            "ar-EG": "واحد غريب بيتصل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Authority, hurry, fear",
+            "ar-EG": "سلطة، استعجال، تخويف"
+          },
+          "s": 2,
+          "tone": "danger"
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Refuse",
+            "ar-EG": "ارفض"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Safe",
+            "ar-EG": "في أمان"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Tell an adult",
+            "ar-EG": "قول لحد كبير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Change your password",
+            "ar-EG": "غيّر الباسورد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "banknote",
+          "text": {
+            "en": "Call the bank or agent",
+            "ar-EG": "كلّم البنك أو الوكيل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Act fast",
+            "ar-EG": "اتحرك بسرعة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Voices can be copied",
+            "ar-EG": "الأصوات بتتقلّد"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Never share codes",
+            "ar-EG": "متشاركش الكود أبدًا"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Official stores only",
+            "ar-EG": "المتجر الرسمي بس"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Verify on a second channel",
+            "ar-EG": "اتأكد من قناة تانية"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A real person can always wait while you check.",
+        "ar-EG": "الشخص الحقيقي دايمًا يقدر يستنى لحد ما تتأكد."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Agree a family code word",
+            "ar-EG": "اتفقوا على كلمة سر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Never post it",
+            "ar-EG": "متنزّلهاش أبدًا"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "install",
+          "text": {
+            "en": "Check your apps",
+            "ar-EG": "بُص على التطبيقات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Delete the strange ones",
+            "ar-EG": "امسح الغريب منها"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,229 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.430
+The librarian asked: which class
+
+2
+00:00:03.430 --> 00:00:05.910
+borrowed the most books this term?
+
+3
+00:00:06.540 --> 00:00:10.420
+She has eleven thousand loan records.
+
+4
+00:00:11.270 --> 00:00:13.310
+You'll answer it in five lines.
+
+5
+00:00:14.660 --> 00:00:16.880
+Today: asking real questions in
+
+6
+00:00:16.880 --> 00:00:19.040
+SQL, from WHERE to GROUP BY.
+
+7
+00:00:20.210 --> 00:00:22.430
+WHERE keeps the rows you want,
+
+8
+00:00:22.710 --> 00:00:24.850
+like class equals five B.
+
+9
+00:00:25.420 --> 00:00:29.460
+ORDER BY sorts them, DESC for the biggest
+
+10
+00:00:29.460 --> 00:00:32.100
+first, and LIMIT keeps the top few.
+
+11
+00:00:33.310 --> 00:00:36.070
+To count per class, GROUP BY makes one
+
+12
+00:00:36.070 --> 00:00:38.910
+row for each class, and COUNT star
+
+13
+00:00:38.910 --> 00:00:40.630
+counts the rows in each group.
+
+14
+00:00:41.250 --> 00:00:43.970
+Sort by that count, keep one row,
+
+15
+00:00:44.510 --> 00:00:45.530
+and there's your answer.
+
+16
+00:00:46.780 --> 00:00:51.100
+COUNT, SUM, AVG, MIN and MAX are
+
+17
+00:00:51.100 --> 00:00:54.360
+aggregates: they turn many rows into one
+
+18
+00:00:54.360 --> 00:00:54.740
+value.
+
+19
+00:00:55.410 --> 00:00:58.530
+They skip NULL, the empty value, except
+
+20
+00:00:58.530 --> 00:01:00.930
+COUNT star, which counts every row.
+
+21
+00:01:02.110 --> 00:01:02.590
+Quick check!
+
+22
+00:01:03.230 --> 00:01:05.710
+COUNT star says twelve, but
+
+23
+00:01:05.710 --> 00:01:07.810
+COUNT of mark says eleven.
+
+24
+00:01:08.520 --> 00:01:08.740
+Why?
+
+25
+00:01:10.000 --> 00:01:12.840
+One mark is NULL: someone missed the test.
+
+26
+00:01:13.420 --> 00:01:16.420
+COUNT star counts the row; COUNT of
+
+27
+00:01:16.420 --> 00:01:18.240
+mark skips the empty value.
+
+28
+00:01:19.440 --> 00:01:22.100
+What does GROUP BY do inside?
+
+29
+00:01:22.920 --> 00:01:25.240
+Think of a dictionary: one key per
+
+30
+00:01:25.240 --> 00:01:27.420
+class, and a running count for each.
+
+31
+00:01:28.070 --> 00:01:31.190
+Here it is in Python, reading a CSV file.
+
+32
+00:01:32.360 --> 00:01:33.840
+Always judge the answer.
+
+33
+00:01:34.530 --> 00:01:36.070
+Do the class counts add up
+
+34
+00:01:36.070 --> 00:01:37.030
+to the school's total?
+
+35
+00:01:37.630 --> 00:01:39.990
+Is any group impossibly big?
+
+36
+00:01:40.640 --> 00:01:42.620
+Test your query on a few rows
+
+37
+00:01:42.620 --> 00:01:43.800
+you can count by hand.
+
+38
+00:01:45.040 --> 00:01:47.020
+In the app, real SQLite
+
+39
+00:01:47.020 --> 00:01:48.040
+runs on your phone.
+
+40
+00:01:48.670 --> 00:01:50.570
+Run the examples, then change
+
+41
+00:01:50.570 --> 00:01:54.630
+them: switch AVG to MAX, or ask
+
+42
+00:01:54.630 --> 00:01:56.210
+which pupils live in Hilltop.
+
+43
+00:01:57.470 --> 00:01:58.210
+Your turn.
+
+44
+00:01:58.850 --> 00:02:01.470
+Which line keeps only the
+
+45
+00:02:01.470 --> 00:02:03.970
+rows for class five B?
+
+46
+00:02:05.270 --> 00:02:07.870
+WHERE class equals five B,
+
+47
+00:02:08.390 --> 00:02:09.030
+in single quotes.
+
+48
+00:02:09.770 --> 00:02:13.870
+Remember: WHERE picks rows, ORDER BY
+
+49
+00:02:13.870 --> 00:02:16.650
+sorts, and LIMIT keeps a few.
+
+50
+00:02:17.290 --> 00:02:19.790
+GROUP BY makes one row per group,
+
+51
+00:02:20.090 --> 00:02:22.070
+and aggregates skip NULL.
+
+52
+00:02:22.600 --> 00:02:24.880
+And test every query on rows
+
+53
+00:02:24.880 --> 00:02:26.120
+you can check by hand.
+
+54
+00:02:27.310 --> 00:02:30.250
+Try it tomorrow: write three questions
+
+55
+00:02:30.250 --> 00:02:32.630
+you'd ask your school library's database.
+
+56
+00:02:33.620 --> 00:02:37.700
+Then write each one in SQL: SELECT,
+
+57
+00:02:38.040 --> 00:02:42.000
+FROM, WHERE, and maybe GROUP BY.

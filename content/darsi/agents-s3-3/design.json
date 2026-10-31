@@ -1,0 +1,375 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "It never stopped",
+            "ar-EG": "عمره ما وقف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Call, result, call…",
+            "ar-EG": "طلب، نتيجة، طلب…"
+          },
+          "s": 1
+        },
+        {
+          "icon": "battery",
+          "tone": "danger",
+          "text": {
+            "en": "Until the battery died",
+            "ar-EG": "لحد ما البطارية خلصت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "flowchart": {
+        "nodes": [
+          {
+            "id": "req",
+            "kind": "start",
+            "text": {
+              "en": "A request",
+              "ar-EG": "طلب"
+            }
+          },
+          {
+            "id": "ask",
+            "kind": "process",
+            "text": {
+              "en": "Ask the model",
+              "ar-EG": "اسأل النموذج"
+            }
+          },
+          {
+            "id": "test",
+            "kind": "decision",
+            "text": {
+              "en": "An answer?",
+              "ar-EG": "جواب؟"
+            }
+          },
+          {
+            "id": "done",
+            "kind": "end",
+            "text": {
+              "en": "Return it",
+              "ar-EG": "رجّعه"
+            }
+          },
+          {
+            "id": "run",
+            "kind": "process",
+            "text": {
+              "en": "Run the tool, add both",
+              "ar-EG": "شغّل الأداة، وضيف الاتنين"
+            }
+          }
+        ],
+        "edges": [
+          [
+            "req",
+            "ask"
+          ],
+          [
+            "ask",
+            "test"
+          ],
+          [
+            "test",
+            "done",
+            "yes"
+          ],
+          [
+            "test",
+            "run",
+            "no"
+          ],
+          [
+            "run",
+            "ask"
+          ]
+        ],
+        "path": [
+          "req",
+          "ask",
+          "test",
+          "run",
+          "ask",
+          "test",
+          "done"
+        ],
+        "at": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "SCRIPT = ['weather{\"place\":\"Kafi\"}',\n          \"Sunny in Kafi.\"]\n\ndef model(history):  # scripted\n    return SCRIPT[len(history) // 2]",
+        "highlight": [
+          4
+        ],
+        "s": 1
+      }
+    },
+    "5": {
+      "aside": "notebook",
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "The request",
+            "ar-EG": "الطلب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Each call",
+            "ar-EG": "كل طلب أداة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "data",
+          "text": {
+            "en": "Each result",
+            "ar-EG": "كل نتيجة"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "tone": "accent",
+          "text": {
+            "en": "All read again, every turn",
+            "ar-EG": "بيتقري كله كل دور"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "for step in range(limit):\n    out = model(history)\n    if \"{\" not in out:\n        return out\n    history += [out, tool(out)]\nreturn \"Stopped\"",
+        "s": 1
+      }
+    },
+    "7": {
+      "who": null,
+      "codediff": {
+        "before": "def agent(history):\n    while True:\n        out = model(history)\n        history += [out, tool(out)]",
+        "after": "def agent(history):\n    for step in range(4):\n        out = model(history)\n        history += [out, tool(out)]\n    return \"Stopped\"",
+        "output": {
+          "before": "call, call, call…",
+          "after": "Stopped"
+        },
+        "fix": 2,
+        "focus": [
+          {
+            "s": 0,
+            "line": 2
+          }
+        ]
+      }
+    },
+    "9": {
+      "aside": "shield",
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Four steps, then stop",
+            "ar-EG": "أربع خطوات، وبعدين وقوف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Tell the person",
+            "ar-EG": "قول للشخص"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "Never hide a stop",
+            "ar-EG": "متخبّيش الوقوف"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "route: Kafi to Dala",
+            "ar-EG": "الطريق: من كافي لدالا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Then weather in Dala",
+            "ar-EG": "وبعدين الطقس في دالا"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Saturday: “no school”",
+            "ar-EG": "السبت: «مفيش مدرسة»"
+          },
+          "s": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A reminder set anyway",
+            "ar-EG": "التذكير اتظبط برضه"
+          },
+          "s": 3,
+          "o": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Guess the tools, watch the plan",
+            "ar-EG": "خمّن الأدوات، واتفرج على الخطة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Run the Saturday goal",
+            "ar-EG": "شغّل هدف يوم السبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "accent",
+          "text": {
+            "en": "Your loop: stop on an error",
+            "ar-EG": "الحلقة بتاعتك: تقف عند الخطأ"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Ask, run, add, repeat",
+            "ar-EG": "اسأل، شغّل، ضيف، كرّر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A step limit stops it",
+            "ar-EG": "حد الخطوات بيوقّفها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A script tests your code",
+            "ar-EG": "السكريبت بيختبر كودك"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Your loop decides when the agent stops, not the model.",
+        "ar-EG": "الحلقة بتاعتك هي اللي بتقرر الوكيل يقف إمتى، مش النموذج."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "A model, a tool and a loop",
+            "ar-EG": "نموذج وأداة وحلقة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "The model reads a script card",
+            "ar-EG": "النموذج يقرا كارت سكريبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Count, and stop at four",
+            "ar-EG": "عِد واقف عند أربعة"
+          },
+          "s": 3
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "A script that never answers",
+            "ar-EG": "سكريبت مبيجاوبش"
+          },
+          "s": 4
+        }
+      ]
+    }
+  }
+}

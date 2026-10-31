@@ -1,0 +1,291 @@
+{
+ "id": "AGENTS-S4-4",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Agent engineering: planning, multi-agent, evals and guardrails"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Fine-tuning and guardrails",
+  "subtitle": "Teach a new tool, keep the old skills, and guard actions in code",
+  "minutes": 22,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Fine-tuning and guardrails",
+  "length": "3:27",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Dr Farah Rahman — university lecturer in education, Bangladesh (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Learned one thing, forgot another"
+   },
+   {
+    "at": "0:24",
+    "label": "Fine-tuning and forgetting"
+   },
+   {
+    "at": "1:25",
+    "label": "Learned safety, and defence in depth"
+   },
+   {
+    "at": "2:20",
+    "label": "The gate in code, and the lab"
+   },
+   {
+    "at": "2:56",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:19",
+    "beat": "Hook",
+    "visual": "A list: A new bus tool; Bus: 7 out of 8!; Weather? Forgotten.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "I taught Darsi Tiny a new bus tool on my phone. Seven bus questions out of eight: right! Then I asked about the weather, and it called no tool at all. It learned something new, and forgot what it knew.",
+    "icons": [
+     "wand",
+     "circlecheck",
+     "circlex"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:19",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Fine-tuning and guardrails",
+    "voice": "Narrator",
+    "narration": "Today: changing a model safely, and guardrails that don’t depend on it."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:38",
+    "beat": "Definition",
+    "visual": "A list: Only the top layer learns; 16 examples, 15 steps; Up to ~11 min on an old phone.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Fine-tuning",
+    "voice": "Narrator",
+    "narration": "Fine-tuning changes a model’s numbers from examples. On the phone, only Darsi Tiny’s top layer learns: sixteen examples, fifteen steps. That’s up to about eleven minutes on an old phone.",
+    "icons": [
+     "layers",
+     "book",
+     "clock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "1:00",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Catastrophic forgetting",
+    "voice": "Narrator",
+    "narration": "With no old conversations mixed in, it gets seven bus questions out of eight, but only one old skill in eight. Mix in sixteen, and it keeps five. Mix in forty-eight, and it keeps all eight, while the bus drops to five. That mixing is called replay."
+   },
+   {
+    "n": 5,
+    "start": "1:00",
+    "end": "1:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Which one would you ship?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! Which of these fine-tuned models would you put in front of real users?"
+   },
+   {
+    "n": 6,
+    "start": "1:07",
+    "end": "1:25",
+    "beat": "Reveal",
+    "visual": "A list: 48 mixed in: old skills kept; Re-run the whole test set; Every fine-tune is a new model.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Test it like a new model",
+    "voice": "Narrator",
+    "narration": "The one with forty-eight mixed in, and only after it passes the whole test set again. A new tool is worth little if the old skills are gone. Every fine-tune is a new model: evaluate it like one.",
+    "icons": [
+     "circlecheck",
+     "repeat",
+     "chip"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:25",
+    "end": "1:48",
+    "beat": "Concept",
+    "visual": "A list: Reworded refusals: 28% en, 12% ar; “Yes, send it” alone: an invented message; Fine-tuning can wear habits away.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Learned safety can fail",
+    "voice": "Narrator",
+    "narration": "Darsi Tiny also learned to refuse harmful requests, and to ask before sending. But reworded refusals got a tool call twenty-eight percent of the time in English, and twelve in Arabic. Yes, send it, on its own, makes it invent a message. And fine-tuning changes the very numbers behind those habits.",
+    "icons": [
+     "hand",
+     "chat",
+     "zap"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:48",
+    "end": "2:03",
+    "beat": "Concept",
+    "visual": "A list: Fewest tools for the task; Approve the exact action; Check every detail; Log everything; Re-run the evaluation.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Defence in depth",
+    "voice": "Narrator",
+    "narration": "So put the guardrails in code, around the model. Give each task the fewest tools. Approve the exact action, check every detail, and log everything. Then re-run the evaluation after every change.",
+    "icons": [
+     "key",
+     "checksquare",
+     "ruler",
+     "clipboard"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:03",
+    "end": "2:20",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Yes to this exact action",
+    "voice": "Narrator",
+    "narration": "Why the exact action? If the app only remembers your yes, the model could send a different text to someone else. So compare what will run with what you were shown. If anything differs, ask again."
+   },
+   {
+    "n": 10,
+    "start": "2:20",
+    "end": "2:32",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The gate in code",
+    "voice": "Narrator",
+    "narration": "In this lesson’s code, you’ll write the gate. It runs a call only if it is exactly the approved one, and logs the decision either way."
+   },
+   {
+    "n": 11,
+    "start": "2:32",
+    "end": "2:47",
+    "beat": "Lab preview",
+    "visual": "A list: Ask about a bus first; Teach with 48 old mixed in; Test the new and the old; Then none mixed in: compare.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: teach the agent a new tool",
+    "voice": "Narrator",
+    "narration": "In the app, ask about a bus before teaching. Teach with forty-eight old conversations mixed in, and test the new tool and the old skills. Then teach with none, and compare.",
+    "icons": [
+     "help",
+     "wand",
+     "scale",
+     "repeat"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:47",
+    "end": "2:56",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Why check in code?",
+    "voice": "Dr Farah",
+    "narration": "Your turn. A model has learned to ask before it sends a message. Why still check the approval in code?"
+   },
+   {
+    "n": 13,
+    "start": "2:56",
+    "end": "3:13",
+    "beat": "Recap",
+    "visual": "Summary points: Mix old in; test old and new; Learned safety isn’t a guarantee; Guardrails go in code.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Mix old in; test old and new · Learned safety isn’t a guarantee · Guardrails go in code",
+    "voice": "Narrator",
+    "narration": "Because learned behaviour can fail. Remember: fine-tuning teaches and forgets, so mix old examples in and test both. Learned safety is not a guarantee. Guard actions in code: fewest tools, exact approval, checks, logs and tests."
+   },
+   {
+    "n": 14,
+    "start": "3:13",
+    "end": "3:27",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Its fewest tools; Actions that need approval; Checks and logs; Tests to re-run.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write a guardrail plan for an agent you’d like to build. List its tools, the actions needing approval, the checks in code, the logs, and the tests you’ll re-run.",
+    "icons": [
+     "key",
+     "checksquare",
+     "clipboard",
+     "repeat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:04",
+    "after_scene": 5,
+    "type": "choice",
+    "prompt": "Which of these fine-tuned models would you put in front of real users?",
+    "options": [
+     {
+      "text": "Nothing mixed in: it learned the bus tool best",
+      "correct": false
+     },
+     {
+      "text": "48 mixed in, once it passes the whole test set again",
+      "correct": true
+     },
+     {
+      "text": "Whichever one trained fastest",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — with 48 old conversations mixed in it keeps all 8 old skills (and 5 of 8 bus requests). And every fine-tune is a new model, so it must pass the full test set again.",
+    "feedback_wrong": "Not quite — with nothing mixed in it forgets 7 of its 8 old skills. Mix old examples in, and test the whole set again.",
+    "resume_at": "1:07"
+   },
+   {
+    "at": "2:53",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A model has learned to ask before it sends a message. Why still check the approval in code?",
+    "options": [
+     {
+      "text": "Code runs faster than the model",
+      "correct": false
+     },
+     {
+      "text": "Learned behaviour can fail on new wordings or after fine-tuning",
+      "correct": true
+     },
+     {
+      "text": "The model can’t send messages anyway",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — asking first is a learned habit, and habits fail: “Yes, send it” on its own makes Darsi Tiny invent a message, and fine-tuning can wear the habit away. A check in code holds every time.",
+    "feedback_wrong": "Not quite — speed isn’t the point, and the app really runs the send tool. A learned habit can fail; a check in code doesn’t.",
+    "resume_at": "2:56"
+   }
+  ]
+ }
+}

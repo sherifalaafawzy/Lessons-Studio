@@ -1,0 +1,425 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "“No school”",
+            "ar-EG": "مفيش مدرسة!"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "It carried on",
+            "ar-EG": "كمّل عادي"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Wording",
+            "ar-EG": "الصيغة"
+          },
+          {
+            "en": "Right tool and details",
+            "ar-EG": "الأداة والتفاصيل صح"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Learned",
+              "ar-EG": "اتعلمها"
+            },
+            {
+              "en": "about 97%",
+              "ar-EG": "حوالي 97%"
+            }
+          ],
+          [
+            {
+              "en": "New",
+              "ar-EG": "جديدة"
+            },
+            {
+              "en": "about 4 in 5",
+              "ar-EG": "حوالي 4 من 5"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Copies a name wrongly",
+            "ar-EG": "بينقل اسم غلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "language",
+          "text": {
+            "en": "Misreads a new wording",
+            "ar-EG": "بيفهم الصيغة الجديدة غلط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Carries on after a failure",
+            "ar-EG": "بيكمّل بعد الفشل"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Which tool did it call?",
+            "ar-EG": "طلب أنهي أداة؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "With which details?",
+            "ar-EG": "بأنهي تفاصيل؟"
+          },
+          "s": 2,
+          "o": 1.5
+        },
+        {
+          "icon": "data",
+          "text": {
+            "en": "What came back?",
+            "ar-EG": "إيه اللي رجع؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Does the answer match it?",
+            "ar-EG": "الجواب متطابق معاه؟"
+          },
+          "s": 3,
+          "o": 1.5
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "agent",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tt",
+            "glyph": "tool",
+            "label": {
+              "en": "Timetable",
+              "ar-EG": "الجدول"
+            }
+          },
+          {
+            "id": "rem",
+            "glyph": "tool",
+            "label": {
+              "en": "Reminder",
+              "ar-EG": "التذكير"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "agent",
+            "to": "tt",
+            "text": {
+              "en": "6B, Saturday?",
+              "ar-EG": "6B، يوم السبت؟"
+            }
+          },
+          {
+            "from": "tt",
+            "to": "agent",
+            "text": {
+              "en": "error: no school",
+              "ar-EG": "خطأ: مفيش مدرسة"
+            },
+            "reply": true,
+            "tone": "danger"
+          },
+          {
+            "from": "agent",
+            "to": "rem",
+            "text": {
+              "en": "“6B: 6B”, Saturday 07:30",
+              "ar-EG": "«6B: 6B»، السبت 07:30"
+            },
+            "tone": "danger"
+          }
+        ],
+        "notes": [
+          {
+            "after": 2,
+            "over": [
+              "agent"
+            ],
+            "text": {
+              "en": "It never checked this",
+              "ar-EG": "عمره ما راجع ده"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "book",
+          "tone": "ok",
+          "text": {
+            "en": "Fetch books: fine",
+            "ar-EG": "يجيب الكتب: تمام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "The register: check it",
+            "ar-EG": "كشف الغياب: راجعه"
+          },
+          "s": 2
+        },
+        {
+          "icon": "mail",
+          "tone": "danger",
+          "text": {
+            "en": "Letters home: read first",
+            "ar-EG": "جوابات البيت: اقراها الأول"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "9": {
+      "who": null,
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Proves nothing",
+            "ar-EG": "مش دليل"
+          },
+          {
+            "en": "Shows what happened",
+            "ar-EG": "بيوري اللي حصل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Sounds sure",
+              "ar-EG": "شكله واثق"
+            },
+            {
+              "en": "The tool call",
+              "ar-EG": "طلب الأداة"
+            }
+          ],
+          [
+            {
+              "en": "Answers fast",
+              "ar-EG": "بيرد بسرعة"
+            },
+            {
+              "en": "The result",
+              "ar-EG": "النتيجة"
+            }
+          ],
+          [
+            {
+              "en": "A long answer",
+              "ar-EG": "إجابة طويلة"
+            },
+            {
+              "en": "Answer matches result?",
+              "ar-EG": "الجواب زي النتيجة؟"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "sun",
+          "tone": "ok",
+          "text": {
+            "en": "Looking up: a quick check",
+            "ar-EG": "البحث: مراجعة سريعة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "accent",
+          "text": {
+            "en": "Actions: you approve first",
+            "ar-EG": "الأفعال: توافق الأول"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "About a child: a person decides",
+            "ar-EG": "تخص طفل: الإنسان يقرر"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Four claims about the Nile",
+            "ar-EG": "أربع معلومات عن النيل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Correct, wrong, or a source?",
+            "ar-EG": "صح، غلط، ولا مصدر؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "One is invented",
+            "ar-EG": "واحدة متألّفة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Sure is not proof",
+            "ar-EG": "الثقة مش دليل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Check the call and the result",
+            "ar-EG": "راجع الطلب والنتيجة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Trust to match the stakes",
+            "ar-EG": "الثقة على قد الخطورة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Trust what you checked, not how it sounds.",
+        "ar-EG": "صدّق اللي راجعته، مش شكل الكلام."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Three agent conversations",
+            "ar-EG": "تلات محادثات لوكيل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the hidden slip",
+            "ar-EG": "لاقي الغلطة المستخبية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "flag",
+          "tone": "ok",
+          "text": {
+            "en": "Green, amber or red?",
+            "ar-EG": "أخضر، برتقاني، ولا أحمر؟"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

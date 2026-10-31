@@ -1,0 +1,285 @@
+{
+ "id": "DATA-S2-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Spreadsheets and clean data"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Cells, rows and formulas",
+  "subtitle": "Cell addresses, ranges, formulas, and a Python list",
+  "minutes": 15,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Cells, rows and formulas",
+  "length": "2:32",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the computer studies teacher (main character)",
+   "Ms Salma — the maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, friendly)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Three different answers"
+   },
+   {
+    "at": "0:14",
+    "label": "Cell addresses"
+   },
+   {
+    "at": "0:28",
+    "label": "Formulas"
+   },
+   {
+    "at": "1:12",
+    "label": "Python lists"
+   },
+   {
+    "at": "1:27",
+    "label": "Why tidy matters"
+   },
+   {
+    "at": "1:41",
+    "label": "The lab"
+   },
+   {
+    "at": "2:02",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:10",
+    "beat": "Hook",
+    "visual": "Icon cards: 40 numbers; 3 answers; A better way. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Zainab added up her class's marks with a calculator. Forty numbers, three times, and three different answers! There's a better way.",
+    "icons": [
+     "calculator",
+     "repeat",
+     "sparkle"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:10",
+    "end": "0:14",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Cells, rows and formulas",
+    "voice": "Narrator",
+    "narration": "Today: spreadsheets, formulas, and your first lines of Python."
+   },
+   {
+    "n": 3,
+    "start": "0:14",
+    "end": "0:28",
+    "beat": "Concept",
+    "visual": "One big value: B2, Column B, row 2.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Every cell has an address",
+    "voice": "Narrator",
+    "narration": "A spreadsheet is a big table. Columns have letters: A, B, C. Rows have numbers: one, two, three. So every cell has an address, like B2: column B, row two.",
+    "icons": [
+     "grid"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:28",
+    "end": "0:41",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: =SUM(B2:B9): adds a range; =AVERAGE(B2:B9): the mean; =COUNTIF(C2:C9,\"P\"): matches.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Formulas start with =",
+    "voice": "Narrator",
+    "narration": "A formula starts with an equals sign. SUM of B2 to B9 adds up eight cells: a range. AVERAGE finds the mean, and COUNTIF counts the cells that match.",
+    "icons": [
+     "calculator",
+     "scale",
+     "filter"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:41",
+    "end": "0:56",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Updates by itself; No new mistakes; Needs a tidy table.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "It updates by itself",
+    "voice": "Narrator",
+    "narration": "And when a mark changes, the formula updates by itself. No adding up again, and no new mistakes. But it only works if the table is tidy: one value in each cell.",
+    "icons": [
+     "sync",
+     "check",
+     "grid"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:56",
+    "end": "1:04",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "What does it add?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! What does SUM of B2 to B5 add up?"
+   },
+   {
+    "n": 7,
+    "start": "1:04",
+    "end": "1:12",
+    "beat": "Reveal",
+    "visual": "Icon cards: B2; B3; B4; B5.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A range: from, to",
+    "voice": "Narrator",
+    "narration": "B2, B3, B4 and B5: the colon means everything from B2 to B5. That's called a range.",
+    "icons": [
+     "grid"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:12",
+    "end": "1:27",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: marks = [12, 15, 9, 18] … Caption: Prints 54, then 13.5",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The same in Python",
+    "voice": "Narrator",
+    "narration": "Programs can do this too. In Python, a list holds the marks in square brackets. sum adds them up, and len counts them. Divide one by the other, and you have the average."
+   },
+   {
+    "n": 9,
+    "start": "1:27",
+    "end": "1:41",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: “14 / 17”: text, can't add; A Total row: a fake pupil; Tidy: one value per cell.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Formulas need tidy data",
+    "voice": "Narrator",
+    "narration": "Formulas and programs both need tidy data. A mark typed as fourteen slash seventeen is text, and text can't be added. A Total row inside the data gets counted as a pupil.",
+    "icons": [
+     "type",
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:41",
+    "end": "1:53",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: 3 wrong answers; One tap at a time; All right.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: tidy tables",
+    "voice": "Narrator",
+    "narration": "In the app, Mr Bello's marks sheet gets three questions wrong. Fix the table one tap at a time, and watch the computer's answers turn right.",
+    "icons": [
+     "grid",
+     "pencil",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:53",
+    "end": "2:02",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Why a formula?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Why is a formula better than typing the total yourself?"
+   },
+   {
+    "n": 12,
+    "start": "2:02",
+    "end": "2:18",
+    "beat": "Recap",
+    "visual": "Summary card: Every cell has an address; Formulas: = and a range; They update by themselves; Python: sum and len. Takeaway bar: Let the formula do the adding.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "It updates by itself when a mark changes. Remember: every cell has an address, like B2. Formulas start with equals, and work on ranges. And in Python, sum and len do the same job."
+   },
+   {
+    "n": 13,
+    "start": "2:18",
+    "end": "2:32",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A week of something; Total and average; Change one, watch. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it tomorrow: make a table of something you track for a week, like hours of sleep. Add a total and an average with formulas. Then change one number, and watch them update.",
+    "icons": [
+     "clock",
+     "calculator",
+     "sync"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:01",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "What does =SUM(B2:B5) add up?",
+    "options": [
+     {
+      "text": "B2 and B5 only",
+      "correct": false
+     },
+     {
+      "text": "B2, B3, B4 and B5",
+      "correct": true
+     },
+     {
+      "text": "Every cell in row 2",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — B2:B5 is a range: every cell from B2 to B5.",
+    "feedback_wrong": "Not quite — the colon means “from … to”, so B2:B5 is B2, B3, B4 and B5.",
+    "resume_at": "1:04"
+   },
+   {
+    "at": "1:59",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Why is a formula better than typing the total yourself?",
+    "options": [
+     {
+      "text": "It updates when a mark changes",
+      "correct": true
+     },
+     {
+      "text": "It makes the numbers bigger",
+      "correct": false
+     },
+     {
+      "text": "It hides the marks",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — change a mark, and the total and average update with no new mistakes.",
+    "feedback_wrong": "Not quite — a formula recalculates by itself when the data changes, so the total is always right.",
+    "resume_at": "2:02"
+   }
+  ]
+ }
+}

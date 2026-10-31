@@ -1,0 +1,291 @@
+{
+ "id": "AGENTS-S3-2",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Build an agent in Python"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Tools are functions",
+  "subtitle": "Write tools in Python, and send each call to the right one",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Tools are functions",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Mr Okafor — science teacher, Nigeria (cameo)",
+   "Ms Amina Bello — primary teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A tool nobody planned for"
+   },
+   {
+    "at": "0:20",
+    "label": "Tools as functions"
+   },
+   {
+    "at": "0:55",
+    "label": "Sending a call to its tool"
+   },
+   {
+    "at": "2:08",
+    "label": "Back to text, and the lab"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "A list: A weather agent; The model asked for bus; No bus tool: crash!.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "Our science club built a weather agent, and it crashed on day one. The model asked for a tool called bus. There was no bus tool, and nobody had planned for that!",
+    "icons": [
+     "sun",
+     "help",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Tools are functions",
+    "voice": "Narrator",
+    "narration": "Today: tools as Python functions, and how to call the right one."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:36",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SKY = {\"Kafi\": \"sunny\", \"Dala\": \"rain\"} …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A tool is a function",
+    "voice": "Narrator",
+    "narration": "In your agent, every tool is just a Python function. It takes the call’s details as a dictionary. It looks something up, or does something. And it returns a result, as a dictionary too.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "A list: Kafi and Dala, with weather; Class 6B’s timetable; Darsi Tiny: a bigger made-up school; Nothing real, nothing sent.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A tiny made-up world",
+    "voice": "Narrator",
+    "narration": "Our tools work over a tiny made-up world: two villages and their weather, one class and its timetable. Darsi Tiny’s ten tools work the same way, over a bigger made-up school. Nothing real is looked up, and nothing is sent.",
+    "icons": [
+     "map",
+     "calendar",
+     "school",
+     "shield"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:11",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: TOOLS = {\"weather\": weather, …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Dispatch",
+    "voice": "Narrator",
+    "narration": "Dispatch means sending a call to the right function. Keep a dictionary from each tool’s name to its function. Then TOOLS, at the name, is the function, and you call it with the details.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:11",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "A list: Unknown tool: bus; Missing detail: no place; Unknown place: Moonvale; An error, not a crash.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Plan for mistakes",
+    "voice": "Mr Joseph",
+    "narration": "Models make mistakes, so tools get strange calls. A tool that isn’t there, like bus. A missing detail, like no place. A place that doesn’t exist, like Moonvale. Each one should come back as an error, not a crash.",
+    "icons": [
+     "circlex",
+     "help",
+     "map",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:44",
+    "beat": "Examples",
+    "visual": "Code typed out on a card: def run(name, args): …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check first, then call",
+    "voice": "Narrator",
+    "narration": "So your run function checks first. If the name isn’t in TOOLS, it returns an error dictionary. The model reads that error like any other result, and tells the person it can’t help.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:44",
+    "end": "1:53",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What should run do?",
+    "voice": "Ms Amina",
+    "narration": "Quick check! The model calls the attendance tool, but your TOOLS has only weather and timetable. What should run do?"
+   },
+   {
+    "n": 9,
+    "start": "1:53",
+    "end": "2:08",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "An error the model can read",
+    "voice": "Narrator",
+    "narration": "Return an error result. A crash stops the whole agent. Guessing another tool is worse: it does something nobody asked for. An error lets the model say: sorry, I can’t check attendance."
+   },
+   {
+    "n": 10,
+    "start": "2:08",
+    "end": "2:24",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Back to text",
+    "voice": "Narrator",
+    "narration": "Last step: the result goes back to the model. But the model reads only text. So json dot dumps turns the dictionary back into JSON text, and the loop adds it to the history."
+   },
+   {
+    "n": 11,
+    "start": "2:24",
+    "end": "2:42",
+    "beat": "Lab preview",
+    "visual": "A list: Ten tools, as switches; Weather off: it says so; No tool for it: “I can’t”; Class 9Z: read the check.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: how an agent picks a tool",
+    "voice": "Narrator",
+    "narration": "In the lab, Darsi Tiny’s ten tools are switches. Turn the weather tool off, and ask for the weather. Ask for something no tool can do. Then ask about class nine Z, and read the check under the call.",
+    "icons": [
+     "settings",
+     "sun",
+     "circlex",
+     "search"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:42",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A missing detail",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The model calls the weather tool, but leaves out the place. What should the weather tool return?"
+   },
+   {
+    "n": 13,
+    "start": "2:51",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "Summary points: A tool is a function; TOOLS sends each call; Errors, not crashes.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A tool is a function · TOOLS sends each call · Errors, not crashes",
+    "voice": "Narrator",
+    "narration": "An error that says the place is missing. Remember: each tool is a function, from details to a result. A dictionary of tools sends each call to the right one. And every mistake comes back as an error, not a crash."
+   },
+   {
+    "n": 14,
+    "start": "3:10",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Invent a third tool; Its details and its result; Two errors it returns; Add it to TOOLS, and test.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: invent a third tool, maybe a library search. On paper, write its details, its result, and two errors it should return. Then add it to TOOLS, and test it.",
+    "icons": [
+     "bulb",
+     "pencil",
+     "warning",
+     "keyboard"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:50",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The model calls attendance, but TOOLS has only weather and timetable. What should run do?",
+    "options": [
+     {
+      "text": "Crash with a KeyError",
+      "correct": false
+     },
+     {
+      "text": "Return an error result",
+      "correct": true
+     },
+     {
+      "text": "Run weather instead",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — an error result keeps the agent running, and the model can tell the person it can’t check attendance.",
+    "feedback_wrong": "Not quite — a crash stops the whole agent, and running another tool does something nobody asked for. Return an error.",
+    "resume_at": "1:53"
+   },
+   {
+    "at": "2:48",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "The model calls weather but leaves out the place. What should the weather tool return?",
+    "options": [
+     {
+      "text": "Kafi’s weather, as a good guess",
+      "correct": false
+     },
+     {
+      "text": "An error: the place is missing",
+      "correct": true
+     },
+     {
+      "text": "An empty result",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a tool shouldn’t guess a detail nobody gave. An error says what’s missing, so the model can ask the person: which village?",
+    "feedback_wrong": "Not quite — guessing gives the wrong village’s weather, and an empty result explains nothing. Say what’s missing.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

@@ -1,0 +1,366 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Book a ticket",
+            "ar-EG": "احجز تذكرة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "“I can’t”",
+            "ar-EG": "مقدرش"
+          },
+          "s": 1
+        },
+        {
+          "icon": "boxes",
+          "tone": "accent",
+          "text": {
+            "en": "No such tool",
+            "ar-EG": "مفيش أداة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather",
+            "ar-EG": "الطقس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Calculator",
+            "ar-EG": "آلة حاسبة"
+          },
+          "s": 1,
+          "o": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Timetable",
+            "ar-EG": "الجدول"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Route",
+            "ar-EG": "الطريق"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ],
+      "aside": "boxes"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "How far to Dala? The route tool",
+            "ar-EG": "المسافة لدالا؟ أداة الطريق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "17 × 23? The calculator",
+            "ar-EG": "17 × 23؟ الآلة الحاسبة"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "boxes"
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "boxes",
+          "text": {
+            "en": "No tool fits the job",
+            "ar-EG": "مفيش أداة تنفع"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“I can’t do that”",
+            "ar-EG": "«مقدرش أعمل كده»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Honest is good",
+            "ar-EG": "الصدق حلو"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "6": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "helper",
+            "glyph": "bot",
+            "label": {
+              "en": "The helper",
+              "ar-EG": "المساعد"
+            }
+          },
+          {
+            "id": "weather",
+            "glyph": "tool",
+            "label": {
+              "en": "Weather tool",
+              "ar-EG": "أداة الطقس"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "helper",
+            "text": {
+              "en": "Weather tomorrow?",
+              "ar-EG": "الجو بكرة؟"
+            }
+          },
+          {
+            "from": "helper",
+            "to": "you",
+            "text": {
+              "en": "Which village?",
+              "ar-EG": "أنهي قرية؟"
+            },
+            "reply": true,
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "helper",
+            "text": {
+              "en": "Dala",
+              "ar-EG": "دالا"
+            }
+          },
+          {
+            "from": "helper",
+            "to": "weather",
+            "text": {
+              "en": "Dala, tomorrow",
+              "ar-EG": "دالا، بكرة"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          3
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Tool: weather",
+            "ar-EG": "الأداة: الطقس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Place: Sabo",
+            "ar-EG": "المكان: سابو"
+          },
+          "s": 0,
+          "o": 1.2
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Day: tomorrow",
+            "ar-EG": "اليوم: بكرة"
+          },
+          "s": 0,
+          "o": 2.2
+        },
+        {
+          "icon": "pencil",
+          "tone": "ok",
+          "text": {
+            "en": "The right details, like a form",
+            "ar-EG": "التفاصيل الصح، زي استمارة"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "You asked: class 9Z",
+            "ar-EG": "إنت سألت: فصل تسعة زد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "It wrote: class 9C!",
+            "ar-EG": "هو كتب: فصل تسعة سي!"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Check what it filled in",
+            "ar-EG": "راجع هو كتب إيه"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "help"
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Ask for the weather",
+            "ar-EG": "اسأل عن الجو"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Switch the tool off",
+            "ar-EG": "اطفي الأداة"
+          },
+          "s": 1,
+          "o": 1.8
+        },
+        {
+          "icon": "chat",
+          "tone": "accent",
+          "text": {
+            "en": "What does it say?",
+            "ar-EG": "هيقول إيه؟"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "boxes"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "It picks the tool that fits",
+            "ar-EG": "بيختار الأداة المناسبة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "No tool? “I can’t”",
+            "ar-EG": "مفيش أداة؟ «مقدرش»"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Something missing? It asks",
+            "ar-EG": "حاجة ناقصة؟ بيسأل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Check what the helper filled in.",
+        "ar-EG": "راجع المساعد كتب إيه."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "boxes",
+          "text": {
+            "en": "A toolbox of cards",
+            "ar-EG": "صندوق أدوات من كروت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "One tool on each card",
+            "ar-EG": "أداة على كل كارت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Your friend asks",
+            "ar-EG": "صاحبك يسأل"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Pick, ask, or say “I can’t”",
+            "ar-EG": "اختار، أو اسأل، أو قول «مقدرش»"
+          },
+          "s": 2,
+          "o": 2
+        }
+      ]
+    }
+  }
+}

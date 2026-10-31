@@ -1,0 +1,400 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "presentation",
+          "text": {
+            "en": "To the district",
+            "ar-EG": "للإدارة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "999: an error code",
+            "ar-EG": "999: كود خطأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Nothing stopped it",
+            "ar-EG": "محدش وقّفه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "In range: 0 to 300 mm",
+            "ar-EG": "في المدى: من 0 لـ300 مم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Not empty",
+            "ar-EG": "مش فاضي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Unique: one per station a day",
+            "ar-EG": "من غير تكرار: واحدة لكل محطة في اليوم"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Allowed: known stations only",
+            "ar-EG": "مسموح: المحطات المعروفة بس"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "4": {
+      "aside": "scale",
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Do the totals add up?",
+            "ar-EG": "المجاميع مظبوطة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Did the batch arrive?",
+            "ar-EG": "الدفعة وصلت؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Is the date right?",
+            "ar-EG": "التاريخ صح؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT station, day, mm FROM rain WHERE mm < 0 OR mm > 300 OR mm IS NULL",
+        "tables": {
+          "rain": {
+            "cols": [
+              "station",
+              "day",
+              "mm"
+            ],
+            "rows": [
+              [
+                "Hilltop",
+                1,
+                12
+              ],
+              [
+                "Riverside",
+                1,
+                999
+              ],
+              [
+                "Market",
+                1,
+                9
+              ],
+              [
+                "Lakeside",
+                1,
+                null
+              ],
+              [
+                "Hilltop",
+                2,
+                0
+              ],
+              [
+                "Riverside",
+                2,
+                -3
+              ]
+            ]
+          }
+        },
+        "words": {
+          "Hilltop": {
+            "en": "Hilltop",
+            "ar-EG": "التل"
+          },
+          "Riverside": {
+            "en": "Riverside",
+            "ar-EG": "ضفة النهر"
+          },
+          "Market": {
+            "en": "Market",
+            "ar-EG": "السوق"
+          },
+          "Lakeside": {
+            "en": "Lakeside",
+            "ar-EG": "البحيرة"
+          }
+        },
+        "at": {
+          "where": 1,
+          "select": 2
+        }
+      }
+    },
+    "6": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "batch",
+            "label": {
+              "en": "Batch",
+              "ar-EG": "الدفعة"
+            },
+            "icon": "page",
+            "kind": "source"
+          },
+          {
+            "id": "check",
+            "label": {
+              "en": "Checks",
+              "ar-EG": "الفحوص"
+            },
+            "icon": "shield",
+            "kind": "check"
+          },
+          {
+            "id": "report",
+            "label": {
+              "en": "Report",
+              "ar-EG": "التقرير"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "records": 8,
+        "mode": "stream",
+        "bad": [
+          2,
+          5
+        ],
+        "fix": "aside",
+        "aside": {
+          "en": "Set aside",
+          "ar-EG": "على جنب"
+        },
+        "frames": [
+          1,
+          3
+        ],
+        "focus": [
+          {
+            "stage": "check",
+            "s": 1
+          }
+        ]
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A bad reading",
+            "ar-EG": "قراءة غلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "share",
+          "text": {
+            "en": "Back to the club",
+            "ar-EG": "ترجع للنادي"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Right tomorrow",
+            "ar-EG": "صح بكرة"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ]
+    },
+    "9": {
+      "big": {
+        "value": "999",
+        "label": {
+          "en": "Out of range: 0 to 300 mm",
+          "ar-EG": "برّه المدى: من 0 لـ300 مم"
+        },
+        "icon": "warning",
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "They catch what you thought of",
+            "ar-EG": "بتمسك اللي فكّرت فيه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "12 instead of 20: passes",
+            "ar-EG": "12 بدل 20: بتعدّي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "ok",
+          "text": {
+            "en": "Compare, and look at the chart",
+            "ar-EG": "قارن، وبص على الرسم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Checks on and off",
+            "ar-EG": "شغّل واقفل الفحوص"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "tone": "danger",
+          "text": {
+            "en": "Stop: 1 day through",
+            "ar-EG": "وقّف: يوم واحد يعدّي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "No repeats check: creeps up",
+            "ar-EG": "من غير فحص تكرار: بيزيد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Range, empty, unique, allowed",
+            "ar-EG": "المدى، والفراغ، والتكرار، والمسموح"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A check: a query for bad rows",
+            "ar-EG": "الفحص: استعلام للغلط"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Stop, set aside or warn",
+            "ar-EG": "وقّف، أو حط على جنب، أو حذّر"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Passing isn't proof",
+            "ar-EG": "العبور مش دليل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Checks catch the faults you imagined; keep imagining.",
+        "ar-EG": "الفحوص بتمسك الأخطاء اللي اتخيّلتها، فكمّل تخيّل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Pupils write the checks",
+            "ar-EG": "التلاميذ يكتبوا الفحوص"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "A mark: 0 to 20",
+            "ar-EG": "الدرجة: من 0 لـ20"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Every pupil once",
+            "ar-EG": "كل تلميذ مرة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Test on planted mistakes",
+            "ar-EG": "جرّبوها على أخطاء متخبّية"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

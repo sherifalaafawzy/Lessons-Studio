@@ -1,0 +1,371 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "An online vote",
+            "ar-EG": "تصويت أونلاين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "3 places?",
+            "ar-EG": "3 أماكن؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "The same zoo!",
+            "ar-EG": "نفس الحديقة!"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "type",
+      "list": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "A space at the end",
+            "ar-EG": "مسافة في الآخر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "A capital letter",
+            "ar-EG": "حرف بشكل تاني: ة / ه"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "One different letter",
+            "ar-EG": "حرف مختلف"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "eye",
+          "tone": "danger",
+          "text": {
+            "en": "People: one. Computer: three",
+            "ar-EG": "الناس: واحدة. الكمبيوتر: تلاتة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "sheet": {
+        "rows": [
+          [
+            {
+              "en": "Name",
+              "ar-EG": "الاسم"
+            },
+            {
+              "en": "Trip vote",
+              "ar-EG": "صوت الرحلة"
+            }
+          ],
+          [
+            "Amina",
+            "Zoo"
+          ],
+          [
+            "Joseph",
+            "zoo"
+          ],
+          [
+            "Laila",
+            "Museum"
+          ],
+          [
+            "Omar",
+            "Zooo"
+          ],
+          [
+            "Musa",
+            "Farm"
+          ],
+          [
+            "Salma",
+            "Musem"
+          ]
+        ],
+        "clean": {
+          "known": {
+            "B": [
+              "Zoo",
+              "Museum",
+              "Farm"
+            ]
+          },
+          "labels": true,
+          "frames": [
+            1,
+            3
+          ]
+        },
+        "words": {
+          "Amina": {
+            "en": "Amina",
+            "ar-EG": "أمينة"
+          },
+          "Joseph": {
+            "en": "Joseph",
+            "ar-EG": "جوزيف"
+          },
+          "Laila": {
+            "en": "Laila",
+            "ar-EG": "ليلى"
+          },
+          "Omar": {
+            "en": "Omar",
+            "ar-EG": "عمر"
+          },
+          "Musa": {
+            "en": "Musa",
+            "ar-EG": "موسى"
+          },
+          "Salma": {
+            "en": "Salma",
+            "ar-EG": "سلمى"
+          },
+          "Zoo": {
+            "en": "Zoo",
+            "ar-EG": "حديقة"
+          },
+          "zoo": {
+            "en": "zoo",
+            "ar-EG": "حديقه"
+          },
+          "Zooo": {
+            "en": "Zooo",
+            "ar-EG": "حديقةة"
+          },
+          "Museum": {
+            "en": "Museum",
+            "ar-EG": "متحف"
+          },
+          "Musem": {
+            "en": "Musem",
+            "ar-EG": "متحفف"
+          },
+          "Farm": {
+            "en": "Farm",
+            "ar-EG": "مزرعة"
+          }
+        }
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "A list to choose from",
+            "ar-EG": "قائمة يختاروا منها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "keyboard",
+          "tone": "danger",
+          "text": {
+            "en": "Not a box to type in",
+            "ar-EG": "مش خانة يكتبوا فيها"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Nothing to clean",
+            "ar-EG": "مفيش حاجة تتنضف"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "type",
+          "tone": "danger",
+          "text": {
+            "en": "“zoo␣” ≠ “zoo”",
+            "ar-EG": "«حديقة␣» ≠ «حديقة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scissors",
+          "tone": "ok",
+          "text": {
+            "en": "First: trim the spaces",
+            "ar-EG": "الأول: شيل المسافات"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "votes = [\" Zoo\", \"zoo\", \"ZOO \"]\nclean = []\nfor v in votes:\n    clean.append(v.strip().lower())\nprint(clean)",
+        "highlight": [
+          4
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Before: 3 places",
+            "ar-EG": "قبل: 3 أماكن"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Clean",
+            "ar-EG": "نضّف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "After: 1 place, 9 votes",
+            "ar-EG": "بعد: مكان واحد، 9 أصوات"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "20 names",
+            "ar-EG": "20 اسم"
+          },
+          "s": 2
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Tidied: 13",
+            "ar-EG": "بعد الترتيب: 15"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Matched: 8",
+            "ar-EG": "بعد المطابقة: 8"
+          },
+          "s": 2,
+          "o": 3.5
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Compared exactly",
+            "ar-EG": "المقارنة بالظبط"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Spaces, letters, then a list",
+            "ar-EG": "مسافات، وحروف، وقائمة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A drop-down prevents it",
+            "ar-EG": "القائمة المنسدلة بتمنعها"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "strip() and lower()",
+            "ar-EG": "⁦strip()⁩ و⁦lower()⁩"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Clean text, then count: the right answer.",
+        "ar-EG": "نضّف الكلام، وبعدين عِدّ: الإجابة الصح."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "A sign-up sheet or poll",
+            "ar-EG": "كشف تسجيل أو تصويت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "How many ways?",
+            "ar-EG": "بكام طريقة؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "tone": "ok",
+          "text": {
+            "en": "Write the clean list",
+            "ar-EG": "اكتب القائمة النضيفة"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

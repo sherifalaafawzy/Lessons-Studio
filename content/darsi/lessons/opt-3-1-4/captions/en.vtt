@@ -1,0 +1,317 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.290
+At the start of term, five teachers choose
+
+2
+00:00:03.290 --> 00:00:05.910
+their classes in order of seniority.
+
+3
+00:00:06.390 --> 00:00:07.510
+It feels fair.
+
+4
+00:00:08.200 --> 00:00:11.880
+Then Karim, who teaches maths well and
+
+5
+00:00:11.880 --> 00:00:15.020
+little else, ends up with a science class.
+
+6
+00:00:16.360 --> 00:00:19.700
+Today: matching teachers and classes, for
+
+7
+00:00:19.700 --> 00:00:22.140
+the best total and for the worst-off.
+
+8
+00:00:23.390 --> 00:00:26.170
+This is the assignment problem: each
+
+9
+00:00:26.170 --> 00:00:29.330
+class gets exactly one teacher, and each
+
+10
+00:00:29.330 --> 00:00:31.330
+teacher takes exactly one class.
+
+11
+00:00:32.070 --> 00:00:34.810
+A table scores how well each teacher
+
+12
+00:00:34.810 --> 00:00:37.490
+suits each class, from zero to nine.
+
+13
+00:00:38.090 --> 00:00:40.570
+The goal is the best total score.
+
+14
+00:00:41.880 --> 00:00:44.680
+First come, first served: Amina chooses
+
+15
+00:00:44.680 --> 00:00:47.460
+first and takes maths, her favourite.
+
+16
+00:00:48.150 --> 00:00:51.170
+Karim, good only at maths, gets
+
+17
+00:00:51.170 --> 00:00:53.330
+science, with a score of two.
+
+18
+00:00:53.960 --> 00:00:55.240
+The total is twenty-nine.
+
+19
+00:00:56.460 --> 00:00:58.220
+The best total is thirty-nine.
+
+20
+00:00:58.880 --> 00:01:02.860
+Karim takes maths, Leila science, Yusuf
+
+21
+00:01:02.860 --> 00:01:06.600
+English, Zainab art, and Amina history.
+
+22
+00:01:07.330 --> 00:01:09.370
+The Hungarian method, from nineteen
+
+23
+00:01:09.370 --> 00:01:12.250
+fifty-five, finds it step by step,
+
+24
+00:01:12.430 --> 00:01:14.270
+and a solver finds it too.
+
+25
+00:01:15.440 --> 00:01:18.300
+In CP-SAT, each teacher and class
+
+26
+00:01:18.300 --> 00:01:20.640
+pair gets a yes-or-no variable.
+
+27
+00:01:21.310 --> 00:01:24.610
+Exactly one yes in each row, and
+
+28
+00:01:24.610 --> 00:01:26.590
+exactly one in each column.
+
+29
+00:01:27.240 --> 00:01:29.300
+Then maximise the scores of
+
+30
+00:01:29.300 --> 00:01:30.040
+the pairs you choose.
+
+31
+00:01:31.330 --> 00:01:33.750
+But the total is only one way to judge.
+
+32
+00:01:34.610 --> 00:01:36.890
+You can also ask: how good
+
+33
+00:01:36.890 --> 00:01:38.610
+is the worst match?
+
+34
+00:01:39.400 --> 00:01:42.100
+A plan with a high total can still give
+
+35
+00:01:42.100 --> 00:01:44.680
+one teacher a class they can hardly teach.
+
+36
+00:01:45.820 --> 00:01:46.300
+Quick check!
+
+37
+00:01:46.940 --> 00:01:49.200
+I want no teacher stuck with a
+
+38
+00:01:49.200 --> 00:01:50.860
+class they can hardly teach.
+
+39
+00:01:51.400 --> 00:01:52.960
+What should the model make
+
+40
+00:01:52.960 --> 00:01:54.520
+as large as possible?
+
+41
+00:01:55.780 --> 00:01:56.840
+The lowest score.
+
+42
+00:01:57.610 --> 00:01:59.170
+Add a variable for the worst
+
+43
+00:01:59.170 --> 00:02:02.070
+match, keep every chosen pair at
+
+44
+00:02:02.070 --> 00:02:04.410
+or above it, and maximise it.
+
+45
+00:02:04.890 --> 00:02:07.650
+Here the best-total plan already does
+
+46
+00:02:07.650 --> 00:02:09.990
+well: its worst match is six.
+
+47
+00:02:10.730 --> 00:02:13.510
+On other tables, raising the worst
+
+48
+00:02:13.510 --> 00:02:15.530
+costs a little of the total.
+
+49
+00:02:16.750 --> 00:02:20.050
+Scores are opinions written as numbers.
+
+50
+00:02:20.830 --> 00:02:23.430
+Who wrote them, and did the
+
+51
+00:02:23.430 --> 00:02:24.290
+teachers see them?
+
+52
+00:02:24.870 --> 00:02:28.530
+Show both plans, the best total and the
+
+53
+00:02:28.530 --> 00:02:31.690
+kindest worst match, and decide together.
+
+54
+00:02:32.310 --> 00:02:34.690
+Explain the rule you used before
+
+55
+00:02:34.690 --> 00:02:35.930
+anyone sees their class.
+
+56
+00:02:37.270 --> 00:02:40.210
+In the app, open “Teachers to classes”.
+
+57
+00:02:40.690 --> 00:02:43.630
+Press “Let them choose in turn”, then
+
+58
+00:02:43.630 --> 00:02:46.190
+Run to watch the Hungarian method.
+
+59
+00:02:46.820 --> 00:02:49.200
+Then change Karim’s maths score from
+
+60
+00:02:49.200 --> 00:02:51.820
+nine to five, and run both again.
+
+61
+00:02:53.020 --> 00:02:53.540
+Your turn.
+
+62
+00:02:54.170 --> 00:02:57.730
+The best-total plan gives Zainab, a new
+
+63
+00:02:57.730 --> 00:03:00.430
+teacher, the class nobody wanted.
+
+64
+00:03:01.140 --> 00:03:03.080
+Nobody asked her about her scores.
+
+65
+00:03:03.960 --> 00:03:06.180
+What is the fair next step?
+
+66
+00:03:07.260 --> 00:03:09.140
+Check the scores with the people
+
+67
+00:03:09.140 --> 00:03:11.360
+they describe, then solve again.
+
+68
+00:03:11.980 --> 00:03:15.520
+Remember: one yes-or-no variable per pair,
+
+69
+00:03:15.860 --> 00:03:19.100
+and exactly one per row and per column.
+
+70
+00:03:19.760 --> 00:03:21.660
+First come can lose a lot.
+
+71
+00:03:22.360 --> 00:03:24.240
+And judge two ways: the
+
+72
+00:03:24.240 --> 00:03:26.200
+total, and the worst match.
+
+73
+00:03:27.530 --> 00:03:28.870
+Try it in class tomorrow:
+
+74
+00:03:29.270 --> 00:03:31.510
+share out five class jobs.
+
+75
+00:03:32.200 --> 00:03:35.080
+Pupils score each job from one to five,
+
+76
+00:03:35.500 --> 00:03:37.360
+and first they choose in turn.
+
+77
+00:03:38.000 --> 00:03:39.940
+Then the class looks for the best
+
+78
+00:03:39.940 --> 00:03:41.920
+total, and for the plan where
+
+79
+00:03:41.920 --> 00:03:43.540
+nobody gets a job they hate.

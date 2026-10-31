@@ -1,0 +1,284 @@
+{
+ "id": "AGENTS-3-1-1",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How agents work: the loop, tools and memory"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Inside the loop",
+  "subtitle": "The one text an agent reads and writes, and why its loop needs a stop",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Inside the loop",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Mr Okafor — science teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "One long text"
+   },
+   {
+    "at": "0:18",
+    "label": "Markers, and who writes what"
+   },
+   {
+    "at": "0:53",
+    "label": "The loop, step by step"
+   },
+   {
+    "at": "1:54",
+    "label": "The loop in code, and its stop"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "A list: Where’s its plan?; One long text; Let’s open it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A colleague asked me: where does an agent keep its plan, its tool calls and its memory? The answer surprises people. It’s all one long text. Let’s open it up.",
+    "icons": [
+     "help",
+     "file",
+     "eye"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Inside the loop",
+    "voice": "Narrator",
+    "narration": "Today: inside the loop, one text at a time."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:37",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: <|tools|>weather route reminder …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "One text, with markers",
+    "voice": "Narrator",
+    "narration": "Darsi Tiny reads one text, top to bottom. Small markers split it into parts: the tools that are on, your request, its plan, its call, the result. Each marker is a single token, and nobody can fake one by typing it.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:53",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Who writes what",
+    "voice": "Narrator",
+    "narration": "The model writes three kinds of part: the plan, the call and the answer. The app writes everything else: the tools line, your request and every result. After a call, the model stops and waits."
+   },
+   {
+    "n": 5,
+    "start": "0:53",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The loop: the app adds text",
+    "voice": "Narrator",
+    "narration": "So the loop is the app, adding to one text. It sends the text so far, and the model writes a call. The app runs the tool and adds the result. Then it sends the text again, until the model answers."
+   },
+   {
+    "n": 6,
+    "start": "1:13",
+    "end": "1:31",
+    "beat": "Examples",
+    "visual": "A list: Call: route, Kafi to Dala; Result: 70 km; Call: weather in Dala; Only then: the answer.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The trip, in one text",
+    "voice": "Mr Joseph",
+    "narration": "Ask for the trip from Kafi to Dala, and the text grows twice. First a route call, and its result: seventy kilometres. Then a weather call for Dala, and its result. Only then does Darsi Tiny write the answer.",
+    "icons": [
+     "map",
+     "data",
+     "sun",
+     "chat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:38",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Who writes the result?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! After Darsi Tiny writes a weather call, who writes the result into the text?"
+   },
+   {
+    "n": 8,
+    "start": "1:38",
+    "end": "1:54",
+    "beat": "Reveal",
+    "visual": "A list: The app writes every result; The model stops after a call; Its own result = invented data.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The app, from the tool",
+    "voice": "Narrator",
+    "narration": "The app, from the tool. Darsi Tiny was trained to stop after a call and wait. A model that wrote its own result would be inventing data, so a good app never allows it.",
+    "icons": [
+     "phone",
+     "hand",
+     "warning"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:54",
+    "end": "2:10",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The loop, in code",
+    "voice": "Narrator",
+    "narration": "As code, the loop is only a few lines. Here the model is scripted: a stand-in that returns what a model would write. The code asks for the next part, and stops at an answer."
+   },
+   {
+    "n": 10,
+    "start": "2:10",
+    "end": "2:28",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Every loop needs a stop",
+    "voice": "Narrator",
+    "narration": "But what if the model never answers? It could call the same tool again and again, and the loop would run forever, using battery and data. So real agents have a step limit, then stop and tell the person."
+   },
+   {
+    "n": 11,
+    "start": "2:28",
+    "end": "2:43",
+    "beat": "Lab preview",
+    "visual": "A list: Open “What it sees”; Press One step; Watch the text grow; Kafi to Dala: count calls.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: inside an agent’s loop",
+    "voice": "Narrator",
+    "narration": "In the app, open What Darsi Tiny sees, then press One step. Watch the text grow: plan, call, result, answer. Then run the trip from Kafi to Dala, and count the calls.",
+    "icons": [
+     "eye",
+     "next",
+     "file",
+     "map"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:43",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "It never answers",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. My agent keeps calling the weather tool, and never answers. What should the app have?"
+   },
+   {
+    "n": 13,
+    "start": "2:51",
+    "end": "3:08",
+    "beat": "Recap",
+    "visual": "Summary points: One text, with markers; The model writes; the app adds results; Every loop needs a stop.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "One text, with markers · The model writes; the app adds results · Every loop needs a stop",
+    "voice": "Narrator",
+    "narration": "A step limit, so the loop stops and tells a person. Remember: it’s all one text, with markers. The model writes plans, calls and answers, and the app adds the results. And every loop needs a stop."
+   },
+   {
+    "n": 14,
+    "start": "3:08",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "A list: One conversation on a paper strip; Model parts in blue; App parts in green; Where would the app check?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: write one agent conversation on a long paper strip. Model parts in blue, app parts in green. Then ask: which colour can make mistakes, and where would the app check?",
+    "icons": [
+     "pencil",
+     "bot",
+     "phone",
+     "shield"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "After Darsi Tiny writes a weather call, who writes the result into the text?",
+    "options": [
+     {
+      "text": "Darsi Tiny, from what it learned",
+      "correct": false
+     },
+     {
+      "text": "The app, from the weather tool",
+      "correct": true
+     },
+     {
+      "text": "Nobody: the answer comes next",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the app runs the tool and adds its result. The model stops after a call and waits, so it never invents a result.",
+    "feedback_wrong": "Not quite — the model never writes a result. The app runs the tool and adds what it returned.",
+    "resume_at": "1:38"
+   },
+   {
+    "at": "2:48",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "An agent keeps calling the weather tool and never answers. What should the app have?",
+    "options": [
+     {
+      "text": "A bigger model",
+      "correct": false
+     },
+     {
+      "text": "A step limit that stops the loop and tells a person",
+      "correct": true
+     },
+     {
+      "text": "A faster phone",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a step limit stops a loop that would run forever, and hands the problem to a person.",
+    "feedback_wrong": "Not quite — a bigger model or a faster phone can still loop forever. The app needs a limit that stops it.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

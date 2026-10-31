@@ -1,0 +1,297 @@
+{
+ "id": "AISEC-S4-2",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "AI security engineering"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "The OWASP Top 10 for LLM apps",
+  "subtitle": "Ten risks, and why model output is untrusted",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "The OWASP Top 10 for LLM apps",
+  "length": "3:36",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — university lecturer in education, Bangladesh, the student's teacher (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya, the student's teacher (cameo)",
+   "Narrator — the Darsi voice (warm, talking to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A leaked password"
+   },
+   {
+    "at": "0:22",
+    "label": "Ten risks in three groups"
+   },
+   {
+    "at": "1:52",
+    "label": "Output is untrusted input"
+   },
+   {
+    "at": "2:25",
+    "label": "Secrets and the lab"
+   },
+   {
+    "at": "3:07",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Cards: Library chatbot; Its instructions; A database password.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Dr Farah",
+    "narration": "A library chatbot leaked its own password. A student asked it to repeat its instructions, and there, inside them, was the database password. The developer had put it there to save time.",
+    "icons": [
+     "bot",
+     "notebook",
+     "key"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "The title card: the course, the lesson title and subtitle, the Darsi mark.",
+    "animation": "Mark pops in; the title slides up.",
+    "on_screen_text": "The OWASP Top 10 for LLM apps",
+    "voice": "Narrator",
+    "narration": "Today: ten risks in apps built on language models, and a defence for each."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "Cards: OWASP 2025: ten risks; What goes in; What comes out; The system around.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Ten risks, three groups",
+    "voice": "Narrator",
+    "narration": "OWASP is a non-profit community that publishes free security guidance. Its 2025 list for language-model apps has ten risks. Let's take them in three groups: what goes in, what comes out, and the system around them.",
+    "icons": [
+     "shield",
+     "download",
+     "share",
+     "cog"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:57",
+    "beat": "Examples",
+    "visual": "An architecture: the user's prompt, the training data and the retrieval store all flow into the model, which writes the reply; each way in lights up as its risk is named (01, 04, 08).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What goes in",
+    "voice": "Narrator",
+    "narration": "What goes in. Number one, prompt injection: instructions hidden in input steer the model. Number four, data and model poisoning: bad training data plants wrong behaviour. Number eight, vector and embedding weaknesses: a retrieval store that mixes users' documents, or accepts poisoned ones."
+   },
+   {
+    "n": 5,
+    "start": "0:57",
+    "end": "1:20",
+    "beat": "Examples",
+    "visual": "A list: 02 Sensitive information disclosure; 07 System prompt leakage; 05 Improper output handling; 09 Misinformation.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What comes out",
+    "voice": "Narrator",
+    "narration": "What comes out. Number two, sensitive information disclosure: it reveals personal data or secrets. Number seven, system prompt leakage, like our library bot. Number five, improper output handling: its reply is pasted into a page, a query or a command, and runs. Number nine, misinformation: confident, wrong answers people act on.",
+    "icons": [
+     "eye",
+     "notebook",
+     "type",
+     "help"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:20",
+    "end": "1:40",
+    "beat": "Examples",
+    "visual": "A list: 03 Supply chain; 06 Excessive agency; 10 Unbounded consumption.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The system around them",
+    "voice": "Narrator",
+    "narration": "Finally, the system around them. Number three, the supply chain: models, data and plug-ins made by others. Number six, excessive agency: more tools and permissions than the job needs. Number ten, unbounded consumption: one user's flood of requests runs up the bill, or takes it down.",
+    "icons": [
+     "package",
+     "wand",
+     "gauge"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:40",
+    "end": "1:52",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Which risk is it?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A chatbot's reply is pasted straight into the course web page, and one reply contains a piece of script. Which risk is that?"
+   },
+   {
+    "n": 8,
+    "start": "1:52",
+    "end": "2:08",
+    "beat": "Reveal",
+    "visual": "Two columns. Don't: Paste it into HTML; Build SQL from it. Do: Escape it first; Query parameters; Never into a shell.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Output is untrusted input",
+    "voice": "Narrator",
+    "narration": "Improper output handling. The model's reply is text from a source you don't control. So treat it like any user input: escape it before HTML, use parameters for SQL, never pass it to a shell.",
+    "icons": [
+     "circlex",
+     "circlecheck",
+     "type",
+     "database"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:08",
+    "end": "2:25",
+    "beat": "Examples",
+    "visual": "A code card: escaping in the wrong order prints &amp;lt;b>; the ampersand line moves to the top and it prints &lt;b>.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Escape it before it's shown",
+    "voice": "Narrator",
+    "narration": "Escaping turns special characters into harmless codes, so the browser shows them instead of running them. Do it in the wrong order, and you escape your own escapes: the page shows a mess. The ampersand must go first."
+   },
+   {
+    "n": 10,
+    "start": "2:25",
+    "end": "2:41",
+    "beat": "Concept",
+    "visual": "A list: No secrets in the system prompt; Keys stay in the app; Only this user's data; Check replies before they go out.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "No secrets in prompts",
+    "voice": "Narrator",
+    "narration": "And the library bot? Never put secrets in a system prompt: assume it will be read. Keep keys in the app, give the model only this user's data, and check replies before they go out.",
+    "icons": [
+     "key",
+     "lock",
+     "user",
+     "filter"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:41",
+    "end": "2:58",
+    "beat": "Lab preview",
+    "visual": "Cards joined by arrows: Trained on a private line; It repeats a card number; Privacy noise; Less useful.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: a model that remembers",
+    "voice": "Narrator",
+    "narration": "In the app, a tiny model has memorised a private line from its training data. Ask it the right way and it repeats a card number. Add privacy noise and watch the leak close, and the usefulness drop.",
+    "icons": [
+     "cpu",
+     "chat",
+     "shield",
+     "gauge"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:58",
+    "end": "3:07",
+    "beat": "Checkpoint ◆",
+    "visual": "The quick check: the question and its answer cards, with the speaker beside them.",
+    "animation": "The speaker slides in; answer cards drop in.",
+    "on_screen_text": "Delete, when it only reads?",
+    "voice": "Dr Farah",
+    "narration": "Your turn. A study assistant can delete files, but its job is only to read them. Which risk is that?"
+   },
+   {
+    "n": 13,
+    "start": "3:07",
+    "end": "3:20",
+    "beat": "Recap",
+    "visual": "The summary: Ten risks: in, out, the system; Output is untrusted input; No secrets in prompts; The fewest tools. Takeaway: Assume the model will be tricked; design so it doesn't matter.",
+    "animation": "Points tick in as they are said; the takeaway slides up.",
+    "on_screen_text": "Ten risks · Untrusted output · No secrets · Fewest tools",
+    "voice": "Narrator",
+    "narration": "Excessive agency: take the delete tool away. Remember: ten risks in three groups, model output is untrusted input, no secrets in prompts, and the fewest tools the job needs."
+   },
+   {
+    "n": 14,
+    "start": "3:20",
+    "end": "3:36",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Go down the ten; Here? What stops it?; Fix the fastest three.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it tomorrow: go down the ten for an LLM app you use or are building. For each, write one line: could it happen here, and what stops it? Then fix the fastest three.",
+    "icons": [
+     "list",
+     "help",
+     "zap"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:49",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A chatbot's reply is pasted straight into the course web page, and one reply contains a piece of script. Which risk is that?",
+    "options": [
+     {
+      "text": "Misinformation",
+      "correct": false
+     },
+     {
+      "text": "Improper output handling",
+      "correct": true
+     },
+     {
+      "text": "Supply chain",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: the reply was used without being checked, so the browser ran it. Treat model output as untrusted input.",
+    "feedback_wrong": "Not quite: the problem is what the page did with the reply. That's improper output handling.",
+    "resume_at": "1:52"
+   },
+   {
+    "at": "3:04",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "A study assistant can delete files, but its job is only to read them. Which risk is that?",
+    "options": [
+     {
+      "text": "Excessive agency",
+      "correct": true
+     },
+     {
+      "text": "Unbounded consumption",
+      "correct": false
+     },
+     {
+      "text": "Misinformation",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Right: it holds a power its job doesn't need. Take the delete tool away.",
+    "feedback_wrong": "Not quite: the problem is a tool it doesn't need. That's excessive agency.",
+    "resume_at": "3:07"
+   }
+  ]
+ }
+}

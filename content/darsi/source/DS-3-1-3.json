@@ -1,0 +1,274 @@
+{
+ "id": "DS-3-1-3",
+ "track": "data-science",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Models and predictions"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Nearest neighbours",
+  "subtitle": "Classify by the closest examples",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Nearest neighbours: Classify by the closest examples",
+  "length": "2:32",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Amina Bello - primary teacher, Nigeria (main character)",
+   "Mr Joseph - maths teacher, Kenya (cameo)",
+   "Narrator - the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A new pupil"
+   },
+   {
+    "at": "0:17",
+    "label": "Nearest neighbours"
+   },
+   {
+    "at": "0:54",
+    "label": "Choosing k"
+   },
+   {
+    "at": "1:59",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Amina",
+    "narration": "A new pupil joined my class in March. I had her reading speed and her accuracy from a short test. Which reading group should she join?",
+    "icons": [
+     "users",
+     "book",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:17",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Nearest neighbours",
+    "voice": "Narrator",
+    "narration": "Today: how a model can sort new cases by looking at the closest old ones."
+   },
+   {
+    "n": 3,
+    "start": "0:17",
+    "end": "0:30",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Classification: choosing a label",
+    "voice": "Narrator",
+    "narration": "Regression predicts a number, like a mark. Classification predicts a label, like a reading group or a type of fruit. The model learns from examples that already have labels.",
+    "icons": [
+     "tag",
+     "filter"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:44",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Look at the neighbours",
+    "voice": "Narrator",
+    "narration": "Put every pupil on a scatter plot, speed across and accuracy up, coloured by group. Put the new pupil on it too. The nearest neighbour method gives her the group of the closest pupils.",
+    "icons": [
+     "mapPin",
+     "users"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:44",
+    "end": "0:54",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Her five nearest neighbours",
+    "voice": "Narrator",
+    "narration": "Here are her five nearest classmates by group. Three are in the blue group, and one each in red and green. The vote says blue.",
+    "icons": [
+     "users"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:54",
+    "end": "1:09",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Distance",
+    "voice": "Narrator",
+    "narration": "Closest means the shortest distance on the chart. We find it with Pythagoras: the square root of the gap in speed squared plus the gap in accuracy squared. Make the two measures use similar scales first.",
+    "icons": [
+     "ruler",
+     "calculator"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:09",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Choosing k",
+    "voice": "Mr Joseph",
+    "narration": "The number of neighbours we ask is called k. With k equal to one, a single odd pupil can decide. A small odd number such as three or five is a good start, and the test set tells you which is best.",
+    "icons": [
+     "scale",
+     "warning"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:37",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Who wins the vote?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! With k equal to three, two neighbours are in group A and one is in group B. Which group does the model choose?"
+   },
+   {
+    "n": 9,
+    "start": "1:37",
+    "end": "1:49",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Group A",
+    "voice": "Narrator",
+    "narration": "Group A, by two votes to one. The model simply copies the most common label among the nearest examples. That is why it is easy to explain to pupils.",
+    "icons": [
+     "check",
+     "users"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:49",
+    "end": "1:59",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: nearest neighbours",
+    "voice": "Narrator",
+    "narration": "In the app, open the nearest neighbours lab. Drop a new point, change k, and watch the regions of each colour grow and shrink.",
+    "icons": [
+     "mapPin",
+     "eye"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Number or label?",
+    "voice": "Amina",
+    "narration": "Your turn. A model chooses a reading group for a new pupil. Does it predict a number or a label?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:18",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Neighbours vote",
+    "voice": "Narrator",
+    "narration": "A label, so it is classification. Remember: place the new case, find the k nearest examples by distance, and take the most common label."
+   },
+   {
+    "n": 13,
+    "start": "2:18",
+    "end": "2:32",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: weigh some fruit and score their colour from one to five, then plot them on the board. Bring a mystery fruit and let pupils find its three nearest neighbours.",
+    "icons": [
+     "apple",
+     "scale",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "With k = 3, two neighbours are in group A and one in group B. Which group does the model choose?",
+    "options": [
+     {
+      "text": "Group A",
+      "correct": true
+     },
+     {
+      "text": "Group B",
+      "correct": false
+     },
+     {
+      "text": "It cannot choose",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the most common label among the neighbours wins, two to one.",
+    "feedback_wrong": "Not quite: the neighbours vote and the majority wins.",
+    "resume_at": "1:37"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A model chooses a reading group for a new pupil. Does it predict a number or a label?",
+    "options": [
+     {
+      "text": "A number",
+      "correct": false
+     },
+     {
+      "text": "A label",
+      "correct": true
+     },
+     {
+      "text": "Neither",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: a reading group is a label, so this is classification.",
+    "feedback_wrong": "Not quite: groups are labels; a number would be regression.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

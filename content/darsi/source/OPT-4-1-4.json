@@ -1,0 +1,318 @@
+{
+ "id": "OPT-4-1-4",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching decisions: trade-offs and fairness"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Big problems, good answers",
+  "subtitle": "Local search, knowing when to stop, and leading a project",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Big problems, good answers",
+  "length": "3:29",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Farah Rahman — education lecturer (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Too many plans"
+   },
+   {
+    "at": "0:19",
+    "label": "Improve in small steps"
+   },
+   {
+    "at": "1:23",
+    "label": "Good enough, measured"
+   },
+   {
+    "at": "1:58",
+    "label": "Leading a project"
+   },
+   {
+    "at": "2:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "Mr Joseph in front of an empty classroom; desk cards spread on a table; a counter spinning up huge numbers.",
+    "animation": "The counter spins past millions; Joseph scratches his head.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Twelve pupils, twelve desks. That’s four hundred and seventy-nine million different seating plans. For a class of forty, the number has forty-eight digits. So how does anyone find a good plan?",
+    "icons": [
+     "users",
+     "grid",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Big problems, good answers",
+    "voice": "Narrator",
+    "narration": "Today: big problems, good answers, and how to lead a project that uses them."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:36",
+    "beat": "Concept",
+    "visual": "A seating plan; two pupil cards swap places; a cost counter drops.",
+    "animation": "Cards swap; the counter ticks down after each kept swap.",
+    "on_screen_text": "Improve in small steps",
+    "voice": "Narrator",
+    "narration": "When there are too many plans to check, start with any plan and improve it in small steps. Swap two pupils; if the plan gets better, keep the swap. Repeat until no swap helps. That’s local search, or hill climbing.",
+    "icons": [
+     "shuffle",
+     "check",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "A bar chart of where eight hill-climbing runs stopped.",
+    "animation": "Bars rise one by one; the two runs at 37 turn green.",
+    "on_screen_text": "Stuck in a valley",
+    "voice": "Narrator",
+    "narration": "The catch: it can get stuck. A plan no single swap improves is only the best nearby, like a valley that isn’t the lowest. In the seating lab, hill climbing stops anywhere from thirty-seven to forty-seven, and finds thirty-seven about one run in four.",
+    "icons": [
+     "gauge",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "Two columns: hill climbing (only better swaps) and annealing (some worse swaps while hot).",
+    "animation": "A ball rolls into a valley and stops; a second ball bounces out and settles deeper.",
+    "on_screen_text": "Simulated annealing",
+    "voice": "Narrator",
+    "narration": "Simulated annealing accepts some worse swaps on purpose: often while it’s hot, rarely as it cools. Early on, that lets it climb out of a valley and find a deeper one. In the lab, it reaches thirty-seven about two runs in three.",
+    "icons": [
+     "thermometer",
+     "sync"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:23",
+    "beat": "Concept",
+    "visual": "Code typed on a card.",
+    "animation": "Lines type; the line with exp highlights.",
+    "on_screen_text": "The rule in code",
+    "voice": "Mr Joseph",
+    "narration": "Its rule fits in a few lines. A worse swap is kept with a chance that shrinks the worse it is, and as the temperature falls.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:23",
+    "end": "1:41",
+    "beat": "Concept",
+    "visual": "A stopwatch and a ruler between ‘best found 37’ and ‘bound 35’.",
+    "animation": "The ruler measures the gap; ‘about 5%’ appears.",
+    "on_screen_text": "Good enough, measured",
+    "voice": "Narrator",
+    "narration": "Big problems rarely come with a proof of the best. So decide what good enough means before you start: a time limit, and a gap. If you know no plan can cost less than thirty-five and you’ve found thirty-seven, you’re within about five percent.",
+    "icons": [
+     "clock",
+     "ruler",
+     "check"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:49",
+    "beat": "Checkpoint ◆",
+    "visual": "Dr Farah points to a seating plan with ‘41’ on it. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Is 41 the best?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! Hill climbing stopped at forty-one, and no single swap improves it. Is forty-one the best plan?"
+   },
+   {
+    "n": 9,
+    "start": "1:49",
+    "end": "1:58",
+    "beat": "Reveal",
+    "visual": "Several runs from different starting plans, each ending at a different cost.",
+    "animation": "Run lines draw and settle at different heights.",
+    "on_screen_text": "Only the best nearby",
+    "voice": "Narrator",
+    "narration": "Not necessarily: it’s only the best nearby. Run it again from other starts, or let annealing escape, and compare the results.",
+    "icons": [
+     "repeat",
+     "search"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:58",
+    "end": "2:18",
+    "beat": "Concept",
+    "visual": "A project board with four columns, cards moving from left to right.",
+    "animation": "Each step’s card slides into place as it is said.",
+    "on_screen_text": "Leading a project",
+    "voice": "Dr Farah",
+    "narration": "Now the part no solver does: leading the project. Start from the problem and the people it affects, and agree the goal and the fairness rules with them. Collect the data, build a small model, and test it on last year’s plan. Pilot it, explain it, and decide together.",
+    "icons": [
+     "users",
+     "list",
+     "check"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:18",
+    "end": "2:33",
+    "beat": "Examples",
+    "visual": "A teacher reviewing the plan with a pen; a small ‘appeal’ box on the noticeboard.",
+    "animation": "The pen adds a change; a note drops into the appeal box.",
+    "on_screen_text": "People stay in charge",
+    "voice": "Narrator",
+    "narration": "Keep a person in charge of the final call, with a way to appeal. A teacher who can’t come on Fridays is a rule the data never knew. And publish how the plan was made.",
+    "icons": [
+     "user",
+     "chat",
+     "megaphone"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:33",
+    "end": "2:41",
+    "beat": "Lab preview",
+    "visual": "A phone with the lab: twelve desks, lines between pupils, a cost chart going down.",
+    "animation": "A finger presses Run; the cost line jumps, then settles.",
+    "on_screen_text": "App lab: Getting unstuck",
+    "voice": "Narrator",
+    "narration": "In the app, seat twelve pupils. Run hill climbing a few times, then annealing, and change the starting temperature.",
+    "icons": [
+     "users",
+     "thermometer",
+     "gauge"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "2:41",
+    "end": "2:53",
+    "beat": "Checkpoint ◆",
+    "visual": "Mr Joseph beside a laptop showing ‘gap 2%’ and a calendar showing tomorrow. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Keep it running?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. The exam rota solver has run for an hour. It’s within two percent of the bound, and the deadline is tomorrow. Do you keep it running?"
+   },
+   {
+    "n": 14,
+    "start": "2:53",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "Four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Two percent is good enough for a rota due tomorrow: stop, check, explain. Remember: local search improves step by step, and can get stuck. Annealing accepts some worse moves to escape. Decide good enough in advance, and keep people in charge.",
+    "icons": [
+     "shuffle",
+     "thermometer",
+     "users"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:10",
+    "end": "3:29",
+    "beat": "Try it tomorrow",
+    "visual": "Pupils at the board moving name cards between desk boxes; a cost tally beside it.",
+    "animation": "Cards swap; the tally changes.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: draw the seating plan on the board, with names on cards. Pupils swap two cards at a time, keeping a swap only if the plan gets better. When they’re stuck, allow one worse swap, and see if they do better.",
+    "icons": [
+     "users",
+     "shuffle",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:45",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Hill climbing stopped at 41, and no single swap improves it. Is 41 the best plan?",
+    "options": [
+     {
+      "text": "Yes: nothing improves it",
+      "correct": false
+     },
+     {
+      "text": "Not necessarily: it may be stuck in a valley",
+      "correct": true
+     },
+     {
+      "text": "No: hill climbing is always wrong",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — no single swap helps, so it’s the best nearby. Other starts, or annealing, may find a deeper valley.",
+    "feedback_wrong": "Not quite — “no swap helps” means best nearby, not best overall. In the lab, 37 is possible.",
+    "resume_at": "1:49"
+   },
+   {
+    "at": "2:49",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "The exam rota solver is within 2% of the bound, and the rota is due tomorrow. Keep it running?",
+    "options": [
+     {
+      "text": "Yes: run until it proves the best",
+      "correct": false
+     },
+     {
+      "text": "No: 2% is good enough here; check it with people",
+      "correct": true
+     },
+     {
+      "text": "Start again from scratch",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 2% from the bound is very close. The time is better spent checking the rota with the people who will use it.",
+    "feedback_wrong": "Not quite — at most 2% could still be gained, maybe nothing. Stop, check the rota with people and explain it.",
+    "resume_at": "2:53"
+   }
+  ]
+ }
+}

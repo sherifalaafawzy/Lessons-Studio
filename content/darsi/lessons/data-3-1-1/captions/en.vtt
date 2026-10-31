@@ -1,0 +1,301 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.170
+Our school keeps the class teachers' phone
+
+2
+00:00:03.170 --> 00:00:05.170
+numbers in eight different sheets.
+
+3
+00:00:05.910 --> 00:00:08.410
+One teacher got a new number last month.
+
+4
+00:00:09.060 --> 00:00:10.360
+Guess how many sheets
+
+5
+00:00:10.360 --> 00:00:11.880
+still have the old one?
+
+6
+00:00:13.020 --> 00:00:15.880
+Today: from scattered sheets to a
+
+7
+00:00:15.880 --> 00:00:19.400
+database, where every fact lives in one
+
+8
+00:00:19.400 --> 00:00:19.740
+place.
+
+9
+00:00:21.050 --> 00:00:23.870
+A database is a set of tables kept by
+
+10
+00:00:23.870 --> 00:00:26.050
+one program, a database system.
+
+11
+00:00:26.660 --> 00:00:28.740
+Everyone works on the same copy.
+
+12
+00:00:29.360 --> 00:00:31.520
+Each column has a type, like
+
+13
+00:00:31.520 --> 00:00:33.300
+whole numbers or text.
+
+14
+00:00:33.950 --> 00:00:36.250
+And rules stop bad data getting in.
+
+15
+00:00:37.430 --> 00:00:40.470
+The big idea: store each fact once.
+
+16
+00:00:41.260 --> 00:00:43.020
+The teacher's phone belongs with the
+
+17
+00:00:43.020 --> 00:00:45.440
+class, not in every pupil's row.
+
+18
+00:00:46.090 --> 00:00:48.030
+Then a change happens in one
+
+19
+00:00:48.030 --> 00:00:50.590
+place, and every report sees it.
+
+20
+00:00:51.750 --> 00:00:54.430
+Each table has a primary key: a
+
+21
+00:00:54.430 --> 00:00:56.190
+column that picks out one row,
+
+22
+00:00:56.450 --> 00:00:57.470
+like the pupil's number.
+
+23
+00:00:58.080 --> 00:01:00.000
+Another table points to it with
+
+24
+00:01:00.000 --> 00:01:02.240
+a foreign key: each mark row
+
+25
+00:01:02.240 --> 00:01:03.620
+holds the pupil's number.
+
+26
+00:01:04.270 --> 00:01:06.450
+Keys are how tables link up.
+
+27
+00:01:07.730 --> 00:01:09.810
+You talk to a database in SQL.
+
+28
+00:01:10.500 --> 00:01:13.080
+CREATE TABLE describes a table: its
+
+29
+00:01:13.080 --> 00:01:15.780
+columns, their types and its key.
+
+30
+00:01:16.340 --> 00:01:18.920
+Then SELECT asks for rows back.
+
+31
+00:01:20.250 --> 00:01:22.390
+Think of a school office with one
+
+32
+00:01:22.390 --> 00:01:24.770
+filing cabinet, instead of every
+
+33
+00:01:24.770 --> 00:01:26.010
+teacher keeping a copy.
+
+34
+00:01:26.640 --> 00:01:28.860
+One drawer for pupils, one for
+
+35
+00:01:28.860 --> 00:01:30.560
+classes, one for marks.
+
+36
+00:01:31.340 --> 00:01:33.380
+Each file has a number, and
+
+37
+00:01:33.380 --> 00:01:34.780
+other files refer to it.
+
+38
+00:01:35.850 --> 00:01:36.430
+Quick check!
+
+39
+00:01:37.220 --> 00:01:39.060
+In a well-designed school
+
+40
+00:01:39.060 --> 00:01:41.660
+database, where should a class
+
+41
+00:01:41.660 --> 00:01:43.640
+teacher's phone number be stored?
+
+42
+00:01:44.950 --> 00:01:46.530
+Once, in the classes table.
+
+43
+00:01:47.190 --> 00:01:49.490
+Each pupil's row just says which
+
+44
+00:01:49.490 --> 00:01:51.690
+class they're in, and the class row
+
+45
+00:01:51.690 --> 00:01:53.530
+holds the teacher and the phone.
+
+46
+00:01:54.160 --> 00:01:55.980
+Change it once, and every
+
+47
+00:01:55.980 --> 00:01:57.500
+pupil's report is right.
+
+48
+00:01:58.800 --> 00:02:00.480
+What goes wrong without it?
+
+49
+00:02:01.030 --> 00:02:03.310
+Update the phone in one row, miss the
+
+50
+00:02:03.310 --> 00:02:05.290
+others, and the data gives two numbers.
+
+51
+00:02:06.050 --> 00:02:08.890
+Delete the last pupils of a class, and the
+
+52
+00:02:08.890 --> 00:02:10.730
+teacher's phone disappears with them.
+
+53
+00:02:11.900 --> 00:02:14.640
+In the app, split one wide school
+
+54
+00:02:14.640 --> 00:02:17.360
+table into two tables, then three.
+
+55
+00:02:17.950 --> 00:02:20.510
+Watch the repeated facts fall from
+
+56
+00:02:20.510 --> 00:02:24.410
+thirty-two to eight to zero, and try a
+
+57
+00:02:24.410 --> 00:02:26.230
+hurried change on each design.
+
+58
+00:02:27.550 --> 00:02:28.310
+Your turn.
+
+59
+00:02:28.930 --> 00:02:32.090
+Each mark row stores the pupil's number,
+
+60
+00:02:32.630 --> 00:02:35.150
+which points to a row in the pupils table.
+
+61
+00:02:35.780 --> 00:02:37.480
+What is that column called?
+
+62
+00:02:38.750 --> 00:02:41.090
+A foreign key: it points to a
+
+63
+00:02:41.090 --> 00:02:42.210
+row in another table.
+
+64
+00:02:42.830 --> 00:02:45.370
+Remember: a database keeps one
+
+65
+00:02:45.370 --> 00:02:48.450
+shared copy, with types and rules.
+
+66
+00:02:49.230 --> 00:02:52.730
+Store each fact once, in its own table.
+
+67
+00:02:53.330 --> 00:02:56.110
+And keys, primary and foreign,
+
+68
+00:02:56.590 --> 00:02:57.830
+link the tables together.
+
+69
+00:02:59.090 --> 00:03:02.270
+Try it in class tomorrow: draw one wide
+
+70
+00:03:02.270 --> 00:03:05.410
+table on the board, with pupils, their
+
+71
+00:03:05.410 --> 00:03:08.090
+class, the class teacher and her phone.
+
+72
+00:03:08.570 --> 00:03:10.350
+Pupils split it into two
+
+73
+00:03:10.350 --> 00:03:11.630
+tables, with a key.
+
+74
+00:03:12.220 --> 00:03:14.600
+Then change the phone number: how
+
+75
+00:03:14.600 --> 00:03:16.420
+many places did each design need?

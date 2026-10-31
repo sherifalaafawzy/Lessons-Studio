@@ -1,0 +1,344 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Nine villages, one bus",
+            "ar-EG": "تسع قرى، وأتوبيس واحد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "The shortest route?",
+            "ar-EG": "أقصر طريق؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "tone": "accent",
+          "text": {
+            "en": "Why always first on?",
+            "ar-EG": "ليه دايمًا أول واحد؟"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Every stop once, then back",
+            "ar-EG": "كل محطة مرة، وبعدين رجوع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "9 villages: 181,440 routes",
+            "ar-EG": "9 قرى: 181,440 طريق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "10 villages: 1,814,400",
+            "ar-EG": "10 قرى: 1,814,400"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "20: over a billion billion",
+            "ar-EG": "20: أكتر من مليار مليار"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Start at school",
+            "ar-EG": "ابدأ من المدرسة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Closest unvisited next",
+            "ar-EG": "أقرب قرية ما اتزارتش"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Long legs home",
+            "ar-EG": "رجوع طويل"
+          },
+          "s": 1
+        }
+      ],
+      "aside": "warning"
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "route = [0]\nwhile len(route) < n:\n    last = d[route[-1]]\n    left = [v for v in range(n)\n            if v not in route]\n    near = min(left, key=lambda v: last[v])\n    route.append(near)",
+        "highlight": [
+          6
+        ],
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "graph": {
+        "map": "bus",
+        "algo": "route",
+        "s": 0,
+        "frames": [
+          1,
+          2
+        ]
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "mid = list(reversed(route[i:j + 1]))\nnew = route[:i] + mid + route[j + 1:]\nif length(new) < length(route):\n    route = new",
+        "highlight": [
+          1
+        ],
+        "s": 0,
+        "o": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "No single swap helps",
+            "ar-EG": "مفيش تبديل واحد يفيد"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "A local best",
+            "ar-EG": "أحسن حاجة محليًا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "Lab: 34.6 km to 28.6 km",
+            "ar-EG": "المعمل: من 34.6 لـ 28.6 كيلو"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Some maps: stops short",
+            "ar-EG": "خرايط تانية: بتقف قبل الأحسن"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Nearest neighbour",
+            "ar-EG": "أقرب جار"
+          },
+          {
+            "en": "Best route",
+            "ar-EG": "أحسن طريق"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "19 km",
+              "ar-EG": "19 كيلو"
+            },
+            {
+              "en": "16 km",
+              "ar-EG": "16 كيلو"
+            }
+          ]
+        ],
+        "size": 40,
+        "s": 0
+      }
+    },
+    "11": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "One way",
+            "ar-EG": "اتجاه"
+          },
+          {
+            "en": "The other way",
+            "ar-EG": "الاتجاه التاني"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "16 km in all",
+              "ar-EG": "16 كيلو كلها"
+            },
+            {
+              "en": "16 km in all",
+              "ar-EG": "16 كيلو كلها"
+            }
+          ],
+          [
+            {
+              "en": "Longest ride: 15 km",
+              "ar-EG": "أطول مشوار: 15 كيلو"
+            },
+            {
+              "en": "Longest ride: 14 km",
+              "ar-EG": "أطول مشوار: 14 كيلو"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 1
+      }
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "The school bus route",
+            "ar-EG": "طريق الحافلة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Run: both steps",
+            "ar-EG": "شغّل: الخطوتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shuffle",
+          "tone": "accent",
+          "text": {
+            "en": "New map: stops short?",
+            "ar-EG": "خريطة جديدة: بتقف قبل؟"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Same cost, fairer ride",
+            "ar-EG": "نفس التكلفة، ومشوار أعدل"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Nearest neighbour: fast",
+            "ar-EG": "أقرب جار: سريع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "2-opt: a local best",
+            "ar-EG": "«تو أوبت»: أحسن محليًا"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Length and longest ride",
+            "ar-EG": "الطول وأطول مشوار"
+          },
+          "s": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Shortest for the bus, fair for the riders.",
+        "ar-EG": "الأقصر للأتوبيس، والأعدل للراكبين."
+      }
+    },
+    "15": {
+      "who": "salma",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Five places in your week",
+            "ar-EG": "خمس أماكن في أسبوعك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Nearest neighbour first",
+            "ar-EG": "أقرب جار الأول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scissors",
+          "tone": "ok",
+          "text": {
+            "en": "Find a crossing, swap it",
+            "ar-EG": "دوّر على تقاطع وبدّله"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Loans: numbers",
+            "ar-EG": "الاستلاف: أرقام"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Members: names",
+            "ar-EG": "الأعضاء: أسامي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "Who's overdue?",
+            "ar-EG": "مين متأخر؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT m.name, l.title FROM loans l JOIN members m ON m.id = l.member_id WHERE l.returned IS NULL",
+        "tables": {
+          "members": {
+            "cols": [
+              "id",
+              "name"
+            ],
+            "rows": [
+              [
+                1,
+                "Amina"
+              ],
+              [
+                2,
+                "Joseph"
+              ],
+              [
+                3,
+                "Salma"
+              ],
+              [
+                4,
+                "Musa"
+              ]
+            ]
+          },
+          "loans": {
+            "cols": [
+              "member_id",
+              "title",
+              "returned"
+            ],
+            "rows": [
+              [
+                1,
+                "Atlas",
+                "yes"
+              ],
+              [
+                2,
+                "Poems",
+                null
+              ],
+              [
+                1,
+                "Stories",
+                null
+              ],
+              [
+                4,
+                "Maths",
+                "yes"
+              ]
+            ]
+          }
+        },
+        "words": {
+          "yes": {
+            "en": "yes",
+            "ar-EG": "أيوه"
+          }
+        },
+        "at": {
+          "join": 1
+        }
+      }
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "JOIN",
+            "ar-EG": "⁦JOIN⁩"
+          },
+          {
+            "en": "LEFT JOIN",
+            "ar-EG": "⁦LEFT JOIN⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "No loans? Gone",
+              "ar-EG": "ما استلفش؟ اختفى"
+            },
+            {
+              "en": "Everyone kept",
+              "ar-EG": "الكل موجود"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "No match? NULL",
+              "ar-EG": "مفيش تطابق؟ ⁦NULL⁩"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT m.name FROM members m LEFT JOIN loans l ON l.member_id = m.id WHERE l.member_id IS NULL",
+        "tables": {
+          "members": {
+            "cols": [
+              "id",
+              "name"
+            ],
+            "rows": [
+              [
+                1,
+                "Amina"
+              ],
+              [
+                2,
+                "Joseph"
+              ],
+              [
+                3,
+                "Salma"
+              ],
+              [
+                4,
+                "Musa"
+              ]
+            ]
+          },
+          "loans": {
+            "cols": [
+              "member_id",
+              "title",
+              "returned"
+            ],
+            "rows": [
+              [
+                1,
+                "Atlas",
+                "yes"
+              ],
+              [
+                2,
+                "Poems",
+                null
+              ],
+              [
+                1,
+                "Stories",
+                null
+              ],
+              [
+                4,
+                "Maths",
+                "yes"
+              ]
+            ]
+          }
+        },
+        "words": {
+          "yes": {
+            "en": "yes",
+            "ar-EG": "أيوه"
+          }
+        },
+        "at": {
+          "join": 0,
+          "where": 1
+        }
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Left out",
+            "ar-EG": "اتشال"
+          },
+          "s": 0
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Need everyone? LEFT JOIN",
+            "ar-EG": "عايز الكل؟ ⁦LEFT JOIN⁩"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "One member, three loans",
+            "ar-EG": "عضو واحد، تلات استلافات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "accent",
+          "text": {
+            "en": "Three rows after the join",
+            "ar-EG": "تلات صفوف بعد الربط"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Counting members? Careful",
+            "ar-EG": "بتعدّ الأعضاء؟ خلّي بالك"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Count before and after",
+            "ar-EG": "عِدّ قبل وبعد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Did rows vanish?",
+            "ar-EG": "صفوف اختفت؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Did rows double?",
+            "ar-EG": "صفوف اتضاعفت؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Check a few by hand",
+            "ar-EG": "راجع كام واحد بإيدك"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils + marks",
+            "ar-EG": "تلاميذ + درجات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Inner, then left",
+            "ar-EG": "داخلي، وبعدين يساري"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "Who vanishes or doubles?",
+            "ar-EG": "مين بيختفي أو يتكرر؟"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "JOIN, ON a key",
+            "ar-EG": "الربط على مفتاح"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Inner drops, left keeps",
+            "ar-EG": "الداخلي بيشيل، واليساري بيسيب"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "One row per match",
+            "ar-EG": "صف لكل تطابق"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Missing, or doubled?",
+            "ar-EG": "ناقص، ولا متضاعف؟"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Every join answers a question; check it's yours.",
+        "ar-EG": "كل ربط بيجاوب سؤال، فاتأكد إنه سؤالك."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Names with numbers",
+            "ar-EG": "أسامي بأرقام"
+          },
+          "s": 0
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Books with numbers",
+            "ar-EG": "كتب بأرقام"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "No book? Two books?",
+            "ar-EG": "من غير كتاب؟ معاه اتنين؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

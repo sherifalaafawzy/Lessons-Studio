@@ -1,0 +1,361 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "8 sheets",
+            "ar-EG": "8 شيتات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A new number",
+            "ar-EG": "رقم جديد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "danger",
+          "text": {
+            "en": "Still old?",
+            "ar-EG": "لسه قديم؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "database",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "One shared copy",
+            "ar-EG": "نسخة واحدة للكل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "A type for every column",
+            "ar-EG": "نوع لكل عمود"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Rules at the door",
+            "ar-EG": "قواعد على الباب"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "One wide table",
+            "ar-EG": "جدول عريض واحد"
+          },
+          {
+            "en": "Separate tables",
+            "ar-EG": "جداول منفصلة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Phone in every pupil's row",
+              "ar-EG": "التليفون في صف كل تلميذ"
+            },
+            {
+              "en": "Phone stored once",
+              "ar-EG": "التليفون متخزّن مرة"
+            }
+          ],
+          [
+            {
+              "en": "Copies disagree",
+              "ar-EG": "النسخ بتختلف"
+            },
+            {
+              "en": "Change it once",
+              "ar-EG": "تغيّره مرة"
+            }
+          ]
+        ],
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "erd": {
+        "types": false,
+        "tables": [
+          {
+            "name": "pupils",
+            "label": {
+              "en": "Pupils",
+              "ar-EG": "التلاميذ"
+            },
+            "cols": "id INT pk, name TEXT, class TEXT fk"
+          },
+          {
+            "name": "marks",
+            "label": {
+              "en": "Marks",
+              "ar-EG": "الدرجات"
+            },
+            "cols": "pupil_id INT fk, subject TEXT, mark INT"
+          },
+          {
+            "name": "classes",
+            "label": {
+              "en": "Classes",
+              "ar-EG": "الفصول"
+            },
+            "cols": "class TEXT pk, teacher TEXT, phone TEXT"
+          }
+        ],
+        "rels": [
+          {
+            "from": "pupils",
+            "to": "marks",
+            "kind": "1-n",
+            "via": "pupil_id",
+            "label": {
+              "en": "has",
+              "ar-EG": "ليه"
+            }
+          },
+          {
+            "from": "classes",
+            "to": "pupils",
+            "kind": "1-n",
+            "via": "class",
+            "label": {
+              "en": "has",
+              "ar-EG": "فيه"
+            }
+          }
+        ],
+        "in": [
+          0,
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "table": "pupils",
+            "s": 0
+          },
+          {
+            "rel": "pupils>marks",
+            "s": 1
+          }
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "CREATE TABLE pupils (\n  id INTEGER PRIMARY KEY,\n  name TEXT NOT NULL,\n  class TEXT\n);\nSELECT name, class FROM pupils;",
+        "highlight": [
+          2
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "aside": "boxes",
+      "list": [
+        {
+          "icon": "boxes",
+          "text": {
+            "en": "One cabinet for everyone",
+            "ar-EG": "دولاب واحد للكل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "A drawer per table",
+            "ar-EG": "درج لكل جدول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "tone": "ok",
+          "text": {
+            "en": "Files refer by number",
+            "ar-EG": "الملفات بتشاور بالرقم"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Pupil: class 6B",
+            "ar-EG": "التلميذ: فصل 6ب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "6B: teacher, phone",
+            "ar-EG": "6ب: المدرّس، التليفون"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "circlecheck",
+          "tone": "ok",
+          "text": {
+            "en": "Change once",
+            "ar-EG": "غيّر مرة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "phone",
+          "tone": "danger",
+          "text": {
+            "en": "One update, two numbers",
+            "ar-EG": "تحديث واحد، ورقمين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Delete pupils, lose the phone",
+            "ar-EG": "تمسح التلاميذ، يضيع التليفون"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "grid",
+          "tone": "danger",
+          "text": {
+            "en": "One table: 32",
+            "ar-EG": "جدول واحد: 32"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Two: 8",
+            "ar-EG": "اتنين: 8"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "database",
+          "tone": "ok",
+          "text": {
+            "en": "Three: 0",
+            "ar-EG": "تلاتة: 0"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "One copy, with types and rules",
+            "ar-EG": "نسخة واحدة، بأنواع وقواعد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Each fact in one place",
+            "ar-EG": "كل معلومة في مكان واحد"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Primary key: picks out a row",
+            "ar-EG": "المفتاح الأساسي: بيحدد صف"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Foreign key: points to one",
+            "ar-EG": "المفتاح الأجنبي: بيشاور عليه"
+          },
+          "s": 3,
+          "o": 2
+        }
+      ],
+      "takeaway": {
+        "en": "Store it once, link it everywhere.",
+        "ar-EG": "خزّنه مرة، واربطه في كل حتة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "One wide table on the board",
+            "ar-EG": "جدول عريض على السبورة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scissors",
+          "text": {
+            "en": "Split it in two, with a key",
+            "ar-EG": "قسّموه اتنين، بمفتاح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "phone",
+          "tone": "ok",
+          "text": {
+            "en": "Change the phone: count",
+            "ar-EG": "غيّروا التليفون: عدّوا"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

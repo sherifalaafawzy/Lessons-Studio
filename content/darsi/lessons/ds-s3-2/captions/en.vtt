@@ -1,0 +1,241 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.390
+Last year I built a model to
+
+2
+00:00:02.390 --> 00:00:04.030
+predict which pupils would pass.
+
+3
+00:00:04.730 --> 00:00:06.450
+On last year's pupils it
+
+4
+00:00:06.450 --> 00:00:08.030
+was right every time.
+
+5
+00:00:08.760 --> 00:00:10.620
+This year it was wrong for
+
+6
+00:00:10.620 --> 00:00:11.840
+one pupil in three.
+
+7
+00:00:13.050 --> 00:00:15.530
+Today: why we test a model on
+
+8
+00:00:15.530 --> 00:00:17.110
+data it has never seen.
+
+9
+00:00:18.340 --> 00:00:19.360
+The fix is simple.
+
+10
+00:00:20.020 --> 00:00:22.660
+Split your data before you start: about
+
+11
+00:00:22.660 --> 00:00:25.280
+eighty percent to train the model, and
+
+12
+00:00:25.280 --> 00:00:27.540
+twenty percent locked away to test it.
+
+13
+00:00:28.090 --> 00:00:29.870
+The test set plays the part
+
+14
+00:00:29.870 --> 00:00:31.130
+of next year's pupils.
+
+15
+00:00:32.500 --> 00:00:35.020
+A model can remember its training pupils
+
+16
+00:00:35.020 --> 00:00:37.000
+without learning anything useful.
+
+17
+00:00:37.710 --> 00:00:40.350
+The test pupils are new to it, so its
+
+18
+00:00:40.350 --> 00:00:42.870
+score on them is an honest guess of
+
+19
+00:00:42.870 --> 00:00:44.090
+how it will do next year.
+
+20
+00:00:45.290 --> 00:00:47.670
+Here is the test error as we make the
+
+21
+00:00:47.670 --> 00:00:49.270
+model more and more complex.
+
+22
+00:00:50.110 --> 00:00:53.270
+It falls at first, then rises again.
+
+23
+00:00:53.900 --> 00:00:55.500
+The middle model is the best
+
+24
+00:00:55.500 --> 00:00:56.480
+one for new pupils.
+
+25
+00:00:57.860 --> 00:01:00.200
+A model that bends to fit every
+
+26
+00:01:00.200 --> 00:01:02.600
+training pupil is overfitting.
+
+27
+00:01:03.240 --> 00:01:06.100
+It learns the noise, like one pupil's
+
+28
+00:01:06.100 --> 00:01:08.280
+lucky day, as if it were a rule.
+
+29
+00:01:08.990 --> 00:01:10.730
+It looks perfect in training
+
+30
+00:01:10.730 --> 00:01:12.790
+and fails on new data.
+
+31
+00:01:14.070 --> 00:01:16.590
+One rule matters most.
+
+32
+00:01:17.440 --> 00:01:19.340
+Never peek at the test set
+
+33
+00:01:19.340 --> 00:01:20.800
+while you build the model.
+
+34
+00:01:21.390 --> 00:01:24.290
+If you tune the model to the test
+
+35
+00:01:24.290 --> 00:01:27.190
+pupils, the test stops being fair.
+
+36
+00:01:28.490 --> 00:01:29.070
+Quick check!
+
+37
+00:01:29.860 --> 00:01:32.460
+A model scores one hundred percent
+
+38
+00:01:32.460 --> 00:01:35.540
+on its training pupils and sixty
+
+39
+00:01:35.540 --> 00:01:37.460
+percent on the test pupils.
+
+40
+00:01:38.260 --> 00:01:41.160
+Which score tells you how
+
+41
+00:01:41.160 --> 00:01:42.560
+it will do next year?
+
+42
+00:01:43.850 --> 00:01:46.250
+The test score, sixty percent.
+
+43
+00:01:46.940 --> 00:01:49.320
+The perfect training score only shows
+
+44
+00:01:49.320 --> 00:01:51.140
+the model remembered its pupils.
+
+45
+00:01:51.980 --> 00:01:54.440
+The big gap is a sign of overfitting.
+
+46
+00:01:55.650 --> 00:01:58.150
+In the app, open the overfitting lab.
+
+47
+00:01:58.770 --> 00:02:01.110
+Raise the complexity slider and
+
+48
+00:02:01.110 --> 00:02:03.510
+watch the training error fall while
+
+49
+00:02:03.510 --> 00:02:05.350
+the test error turns back up.
+
+50
+00:02:06.550 --> 00:02:07.090
+Your turn.
+
+51
+00:02:07.700 --> 00:02:10.560
+Why do we keep twenty percent of the data
+
+52
+00:02:10.560 --> 00:02:12.660
+away from the model while we build it?
+
+53
+00:02:13.880 --> 00:02:16.300
+To check it on pupils it has never seen.
+
+54
+00:02:16.960 --> 00:02:19.980
+Remember: train on most of the data, test
+
+55
+00:02:19.980 --> 00:02:22.960
+once on the rest, and a big gap between
+
+56
+00:02:22.960 --> 00:02:25.040
+the two scores means overfitting.
+
+57
+00:02:26.270 --> 00:02:28.770
+Try it yourself: make a rule from ten
+
+58
+00:02:28.770 --> 00:02:31.730
+cards, then test it on five hidden cards.
+
+59
+00:02:32.420 --> 00:02:34.120
+Did your rule still work on the
+
+60
+00:02:34.120 --> 00:02:35.400
+cards it had never seen?

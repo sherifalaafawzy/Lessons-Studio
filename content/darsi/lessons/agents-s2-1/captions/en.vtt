@@ -1,0 +1,305 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.610
+Here’s a puzzle from our computer club.
+
+2
+00:00:03.230 --> 00:00:05.650
+A chatbot gave Zainab a bus time
+
+3
+00:00:05.650 --> 00:00:07.210
+that was totally wrong.
+
+4
+00:00:07.850 --> 00:00:09.630
+Her phone’s assistant set
+
+5
+00:00:09.630 --> 00:00:10.770
+her alarm perfectly.
+
+6
+00:00:11.750 --> 00:00:12.730
+What’s the difference?
+
+7
+00:00:14.160 --> 00:00:17.100
+Today: what’s inside an AI agent,
+
+8
+00:00:17.620 --> 00:00:19.060
+and how to read what it does.
+
+9
+00:00:20.350 --> 00:00:22.210
+A chatbot is a language model
+
+10
+00:00:22.210 --> 00:00:24.230
+that only writes text back.
+
+11
+00:00:24.910 --> 00:00:28.050
+It guesses likely words, so it can
+
+12
+00:00:28.050 --> 00:00:30.270
+sound sure and still be wrong.
+
+13
+00:00:30.950 --> 00:00:33.050
+An agent can also use tools:
+
+14
+00:00:33.510 --> 00:00:35.850
+small programs like a timetable,
+
+15
+00:00:36.270 --> 00:00:37.650
+the weather or an alarm.
+
+16
+00:00:38.950 --> 00:00:40.910
+An agent works in a loop.
+
+17
+00:00:41.620 --> 00:00:44.060
+You make a request, and the model writes
+
+18
+00:00:44.060 --> 00:00:46.900
+a short plan, then a tool call.
+
+19
+00:00:47.540 --> 00:00:50.240
+The app runs the tool and adds the result.
+
+20
+00:00:51.010 --> 00:00:53.030
+Then the model answers, or
+
+21
+00:00:53.030 --> 00:00:53.970
+calls another tool.
+
+22
+00:00:55.050 --> 00:00:57.830
+Here’s a real call from Darsi Tiny,
+
+23
+00:00:58.510 --> 00:01:00.030
+a small model on your phone.
+
+24
+00:01:00.590 --> 00:01:02.170
+I asked about the weather
+
+25
+00:01:02.170 --> 00:01:03.510
+in Kafi tomorrow.
+
+26
+00:01:04.060 --> 00:01:06.120
+It wrote the tool’s name, weather,
+
+27
+00:01:06.700 --> 00:01:08.720
+then the details in curly brackets:
+
+28
+00:01:09.220 --> 00:01:10.400
+the place and the day.
+
+29
+00:01:11.520 --> 00:01:13.300
+The model can’t run the tool:
+
+30
+00:01:13.680 --> 00:01:14.940
+it only writes text.
+
+31
+00:01:15.610 --> 00:01:17.750
+The app runs it and adds the
+
+32
+00:01:17.750 --> 00:01:20.330
+result: sunny, thirty-five degrees,
+
+33
+00:01:20.950 --> 00:01:22.490
+a ten percent chance of rain.
+
+34
+00:01:23.120 --> 00:01:25.640
+Then the model answers from that result.
+
+35
+00:01:27.050 --> 00:01:27.630
+Quick check!
+
+36
+00:01:28.420 --> 00:01:31.180
+Who writes the tool call, and
+
+37
+00:01:31.180 --> 00:01:34.120
+who actually runs the tool?
+
+38
+00:01:35.300 --> 00:01:36.620
+The model writes the call,
+
+39
+00:01:36.980 --> 00:01:37.980
+and the app runs it.
+
+40
+00:01:38.530 --> 00:01:40.690
+So the app sees every call
+
+41
+00:01:40.690 --> 00:01:42.450
+before anything happens.
+
+42
+00:01:43.180 --> 00:01:45.200
+That’s where checks can go, and
+
+43
+00:01:45.200 --> 00:01:46.460
+you’ll write some in this course.
+
+44
+00:01:47.830 --> 00:01:49.890
+Some jobs need two tools.
+
+45
+00:01:50.530 --> 00:01:52.270
+Ask about a trip from Kafi
+
+46
+00:01:52.270 --> 00:01:53.310
+to Dala tomorrow.
+
+47
+00:01:53.900 --> 00:01:56.000
+Darsi Tiny calls the route tool
+
+48
+00:01:56.000 --> 00:01:57.860
+first: seventy kilometres.
+
+49
+00:01:58.750 --> 00:02:01.070
+Then it calls the weather tool for Dala,
+
+50
+00:02:01.330 --> 00:02:03.310
+and gives one answer with both.
+
+51
+00:02:04.600 --> 00:02:07.100
+In Python, an app’s loop can be short.
+
+52
+00:02:07.750 --> 00:02:09.850
+Here a list stands in for the
+
+53
+00:02:09.850 --> 00:02:11.910
+model’s replies, because there’s
+
+54
+00:02:11.910 --> 00:02:13.390
+no model inside our code.
+
+55
+00:02:14.020 --> 00:02:15.980
+The loop runs a tool for each
+
+56
+00:02:15.980 --> 00:02:18.060
+call, and stops at the answer.
+
+57
+00:02:19.280 --> 00:02:21.940
+In the app, choose a request and
+
+58
+00:02:21.940 --> 00:02:24.360
+press One step until it answers.
+
+59
+00:02:25.120 --> 00:02:27.700
+Try the trip to Dala and count the tools.
+
+60
+00:02:28.420 --> 00:02:31.320
+Then open What Darsi Tiny sees: the
+
+61
+00:02:31.320 --> 00:02:33.640
+whole conversation is one text.
+
+62
+00:02:35.010 --> 00:02:35.550
+Your turn.
+
+63
+00:02:36.160 --> 00:02:38.880
+On the trip to Dala, how many tools does
+
+64
+00:02:38.880 --> 00:02:40.980
+Darsi Tiny call before it answers?
+
+65
+00:02:42.360 --> 00:02:44.740
+Two: route, then weather.
+
+66
+00:02:45.400 --> 00:02:47.840
+Remember: an agent is a model
+
+67
+00:02:47.840 --> 00:02:49.660
+in a loop with tools.
+
+68
+00:02:50.400 --> 00:02:53.520
+A call is a tool’s name and its details.
+
+69
+00:02:54.360 --> 00:02:55.900
+The model writes, and the
+
+70
+00:02:55.900 --> 00:02:57.260
+app runs the tools.
+
+71
+00:02:58.520 --> 00:03:01.260
+Try it yourself: list three things you
+
+72
+00:03:01.260 --> 00:03:03.660
+asked a phone or an app to do this week.
+
+73
+00:03:04.270 --> 00:03:06.410
+For each one, was it only
+
+74
+00:03:06.410 --> 00:03:08.750
+talk, or did it use a tool?
+
+75
+00:03:09.420 --> 00:03:11.060
+Then write the call it might have
+
+76
+00:03:11.060 --> 00:03:13.200
+made, with a name and details.

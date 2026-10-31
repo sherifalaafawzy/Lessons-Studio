@@ -1,0 +1,290 @@
+{
+ "id": "DATA-S4-3",
+ "track": "data",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Data engineering"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Data quality and contracts",
+  "subtitle": "Quality as tests in code, data contracts, and what a failure does",
+  "minutes": 20,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Data quality and contracts",
+  "length": "2:56",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Okafor — the science lecturer, runs the weather network (main character)",
+   "Dr Farah — education lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Minus thirty millimetres"
+   },
+   {
+    "at": "0:18",
+    "label": "Sides of quality"
+   },
+   {
+    "at": "0:30",
+    "label": "Tests as code"
+   },
+   {
+    "at": "0:42",
+    "label": "Data contracts"
+   },
+   {
+    "at": "1:22",
+    "label": "When a test fails"
+   },
+   {
+    "at": "1:41",
+    "label": "Validating in Python"
+   },
+   {
+    "at": "1:55",
+    "label": "The lab"
+   },
+   {
+    "at": "2:22",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: −30 mm of rain; A typed minus; Three more apps. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Okafor",
+    "narration": "A weather app showed minus thirty millimetres of rain at our school. Someone had typed a minus sign. It reached three other apps before anyone noticed.",
+    "icons": [
+     "cloudrain",
+     "pencil",
+     "share"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Data quality and contracts",
+    "voice": "Narrator",
+    "narration": "Today: data quality tests, contracts, and what to do when a test fails."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Valid: type and range; Complete: nothing missing; Unique: no duplicates; Consistent: tables agree; Timely: arrived on time.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Quality has several sides",
+    "voice": "Narrator",
+    "narration": "Quality has several sides. Valid: the right type and range. Complete: nothing missing. Unique: no duplicates. Consistent: the tables agree. Timely: it arrived on time.",
+    "icons": [
+     "check",
+     "circlecheck",
+     "repeat",
+     "layers"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:42",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: SELECT m.* … Caption: Orphans: marks for pupils who don't exist",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A test: a query for bad rows",
+    "voice": "Narrator",
+    "narration": "Write each test as code that runs on every batch. In SQL, a test is a query that should return no rows: orphans, duplicates, values out of range."
+   },
+   {
+    "n": 5,
+    "start": "0:42",
+    "end": "0:60",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Columns and types; Allowed values; How fresh; An owner to call.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A data contract",
+    "voice": "Narrator",
+    "narration": "A data contract is an agreement between the team that produces data and the teams that use it. It names the columns, types and allowed values, how fresh the data must be, and who to call when it breaks.",
+    "icons": [
+     "list",
+     "ruleset",
+     "clock",
+     "user"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:60",
+    "end": "1:11",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Which test catches it?",
+    "voice": "Dr Farah",
+    "narration": "Quick check! Which test catches a mark for pupil seven, when there is no pupil seven?"
+   },
+   {
+    "n": 7,
+    "start": "1:11",
+    "end": "1:22",
+    "beat": "Reveal",
+    "visual": "Icon cards: Foreign key: pupil 7; No such pupil; LEFT JOIN finds it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Referential integrity",
+    "voice": "Narrator",
+    "narration": "Referential integrity: every foreign key must point to a row that exists. A left join that finds NULL on the other side finds the orphans.",
+    "icons": [
+     "key",
+     "cross",
+     "search"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:22",
+    "end": "1:41",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: Block: serious problems; Quarantine: a few bad rows; Alert: when late costs more.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Block, quarantine or alert",
+    "voice": "Narrator",
+    "narration": "Then decide what a failure does. Block the whole load when the problem is serious. Quarantine the bad rows when most of the batch is fine. Or alert and let it through, when a late report costs more than a slightly wrong one.",
+    "icons": [
+     "hand",
+     "filter",
+     "warning"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "1:55",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: for row in rows: … Caption: Each failure, with its reason",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Check rows against the contract",
+    "voice": "Narrator",
+    "narration": "In Python, check each row against the contract: is the mark a number, and in range? Collect the failures with their reasons, so the producer can fix them at the source."
+   },
+   {
+    "n": 10,
+    "start": "1:55",
+    "end": "2:09",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Planted faults; Checks and actions; What slips through?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: data checks",
+    "voice": "Narrator",
+    "narration": "In the app, four weather clubs send daily batches with planted faults. Choose the checks and the action, and watch the rainfall report. Notice which faults no check catches.",
+    "icons": [
+     "cloudrain",
+     "shield",
+     "eye"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:09",
+    "end": "2:22",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Three bad rows",
+    "voice": "Mr Okafor",
+    "narration": "Your turn. A test fails on three rows out of ten thousand. Which response keeps the pipeline moving and the data honest?"
+   },
+   {
+    "n": 12,
+    "start": "2:22",
+    "end": "2:41",
+    "beat": "Recap",
+    "visual": "Summary card: Quality tests, as code; A contract with the producer; Block, quarantine or alert; Fix it at the source. Takeaway bar: Trust is built batch by batch, test by test.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Quarantine them and alert the owner, so good data flows and the bad gets fixed. Remember: test quality as code, on every batch. Agree a contract with whoever produces the data. And choose block, quarantine or alert by what each failure costs."
+   },
+   {
+    "n": 13,
+    "start": "2:41",
+    "end": "2:56",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A dataset you use; Columns, types, allowed values; Who fixes it. Mr Okafor beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it tomorrow",
+    "voice": "Mr Okafor",
+    "narration": "Try it tomorrow: write a data contract for a dataset you use, like your class timetable or a club's results. List the columns, types and allowed values, and who fixes it when it's wrong.",
+    "icons": [
+     "calendar",
+     "list",
+     "user"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:08",
+    "after_scene": 6,
+    "type": "choice",
+    "prompt": "Which test catches a mark for pupil 7, when there is no pupil 7?",
+    "options": [
+     {
+      "text": "A range test",
+      "correct": false
+     },
+     {
+      "text": "A referential integrity test",
+      "correct": true
+     },
+     {
+      "text": "A freshness test",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — every foreign key must point to an existing row; the orphan mark fails that test.",
+    "feedback_wrong": "Not quite — the mark may be in range and on time. What's wrong is that its pupil id points nowhere: referential integrity.",
+    "resume_at": "1:11"
+   },
+   {
+    "at": "2:19",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A test fails on 3 rows out of 10,000. Which response keeps the pipeline moving and the data honest?",
+    "options": [
+     {
+      "text": "Quarantine the 3 rows and alert the producer",
+      "correct": true
+     },
+     {
+      "text": "Block the whole load until next week",
+      "correct": false
+     },
+     {
+      "text": "Let them through and say nothing",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — 9,997 good rows flow on, and the 3 bad ones wait, flagged, for the producer to fix.",
+    "feedback_wrong": "Not quite — blocking loses 9,997 good rows, and silence hides the problem. Quarantine and alert.",
+    "resume_at": "2:22"
+   }
+  ]
+ }
+}

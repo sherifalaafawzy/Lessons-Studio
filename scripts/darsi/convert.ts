@@ -10,9 +10,13 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { CastMember, Check, Cue, Element, FlowNode, IconName, Lang, Mood, Scene, Text, TimingFile, Tone, When } from "../../packages/spec/src/index.ts";
+import type { ArchElement, ArchKind, CastMember, Check, Cue, Element, FlowNode, IconName, Lang, Mood, PlotSeries, Scene, Text, TimingFile, Tone, When } from "../../packages/spec/src/index.ts";
 import { MARK_PATH, castPath, estimateTiming, findWord, isIcon, normalizeWord, splitSentences, splitWords } from "../../packages/spec/src/index.ts";
-import { check, newLesson, presetKeys, toPackage, type Lesson, type Preset } from "../../packages/ops/src/index.ts";
+import {
+  archPreset, check, descentPlot, framesOf, lossPlot, newLesson, presetKeys, toPackage, trainingNet, trainingPlot, trainNet,
+  type ArchPreset, type Dataset, type Lesson, type Preset,
+} from "../../packages/ops/src/index.ts";
+import { PACK_BODIES } from "./packs/index.ts";
 import { DEFAULT_MODEL } from "../../packages/narrate/src/index.ts";
 
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
@@ -26,7 +30,7 @@ export const ORDER = ["AI-1-1-1", "AI-1-1-2", "AI-1-1-3", "AI-1-1-4", "CY-1-1-1"
 
 export interface Story {
   id: string;
-  track: "ai" | "cyber" | "iot";
+  track: "ai" | "cyber" | "iot" | "code" | "data" | "agents" | "opt" | "aisec" | "data-science";
   level: number;
   unit: { number: number; title: string };
   lesson: { number: number; title: string; subtitle?: string };
@@ -79,6 +83,33 @@ export interface Design {
   compare?: { left: Column; right: Column };
   big?: { value: AText; label?: AText; icon?: string; s?: number };
   chart?: { kind: "bar" | "line"; data: number[]; labels?: AText[]; max?: number; unit?: AText; s?: number };
+  /** Code typed out as it's spoken (Python, SQL…): the same in every language, always left to right; `highlight`
+   *  marks lines (from 1); `caption` is a line under it. */
+  code?: { text: string; highlight?: number[]; caption?: AText; s?: number };
+  /* Science bodies (the player's science kit). Sentence numbers are counted from 0, as sentences.ts prints them. */
+  /** An equation in the TeX subset; \g{n}{…} parts come in on the sentences in `parts` (in order), else all on `s`. */
+  equation?: { tex: string | AText; words?: Record<string, AText>; size?: number; parts?: number[]; s?: number };
+  /** A plot of functions or points (series as the player's PlotSeries, labels in both languages); `frames` plays its
+   *  frames from the start of sentence a to the end of sentence b. */
+  plot?: { xr: [number, number]; yr: [number, number]; xLabel?: AText; yLabel?: AText; grid?: boolean; series: (Omit<PlotSeries, "label"> & { label?: AText })[]; s?: number; frames?: [number, number] };
+  /** A small network trained for real: its decision map, its loss curve, both side by side, or the network itself,
+   *  training from sentence a to b. */
+  training?: { data: Dataset; layers?: number[]; epochs?: number; lr?: number; show?: "map" | "loss" | "both" | "net"; s?: number; frames?: [number, number] };
+  /** A ball rolling down y = fn(x) by gradient descent, step by step from sentence a to b. */
+  descent?: { fn: string; x0: number; lr: number; steps: number; xr: [number, number]; yr: [number, number]; s?: number; frames?: [number, number] };
+  /** A network neuron by neuron; data flows forward on sentence `forward` and the error back on `backward`. */
+  network?: { layers: number[]; in?: AText[]; out?: AText[]; names?: AText[]; s?: number; forward?: number; backward?: number };
+  /** An architecture: a preset (mlp, cnn, rnn, transformer, gpt, seq2seq, resnet, autoencoder, gan, agent, rag) or blocks
+   *  of your own; `focus` lights a block on a sentence; `pass` sends a packet through on a sentence. */
+  arch?: {
+    preset?: ArchPreset; flow?: "right" | "down" | "up"; s?: number; focus?: { block: string; s: number }[]; pass?: number;
+    blocks?: { id: string; kind: ArchKind; label: AText; note?: AText }[]; edges?: { from: string; to: string; label?: AText; skip?: boolean }[];
+    groups?: { id: string; label?: AText; repeat?: number; blocks: string[] }[];
+  };
+  /** A table that fills row by row; `focus` lights a row (from 1) on a sentence. */
+  table?: { cols: AText[]; rows: (string | number | AText)[][]; ltr?: number[]; size?: number; s?: number; focus?: { row: number; s: number }[] };
+  /** A technology pack's body (scripts/darsi/packs/<pack>.ts), by its name: { "trace": {…} }. */
+  [body: string]: unknown;
   /** Recap: the points (default: the on-screen text split on "·") and a closing line. */
   points?: Item[];
   takeaway?: AText;
@@ -91,6 +122,12 @@ const TRACK: Record<Story["track"], { name: Record<string, string>; icon: IconNa
   ai: { name: { en: "AI basics", [AR]: "أساسيات الذكاء الاصطناعي" }, icon: "bot" },
   cyber: { name: { en: "Cyber safety", [AR]: "الأمان الرقمي" }, icon: "shield" },
   iot: { name: { en: "Sensors and IoT", [AR]: "الحساسات وإنترنت الأشياء" }, icon: "chip" },
+  code: { name: { en: "Programming", [AR]: "البرمجة" }, icon: "keyboard" },
+  data: { name: { en: "Data engineering", [AR]: "هندسة البيانات" }, icon: "database" },
+  agents: { name: { en: "AI agents", [AR]: "وكلاء الذكاء الاصطناعي" }, icon: "wand" },
+  opt: { name: { en: "Optimization", [AR]: "الحلول المثلى" }, icon: "target" },
+  aisec: { name: { en: "AI security", [AR]: "أمن الذكاء الاصطناعي" }, icon: "lock" },
+  "data-science": { name: { en: "Data science", [AR]: "علم البيانات" }, icon: "gauge" },
 };
 const CAST_KEYS: CastMember[] = ["amina", "okafor", "salma", "joseph", "farah"];
 
@@ -361,7 +398,9 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
     } else {
       // A canvas scene: a headline (or the speaker's words in a bubble), a body, and maybe a cast member.
       const tryIt = s.beat.startsWith("Try it");
-      const who: CastMember | null = d.who !== undefined ? d.who : layout === "hook" || tryIt ? (speaker ?? mainCast) : speaker;
+      const packBody = Object.keys(d).find((k) => k in PACK_BODIES);
+      const sci = !!(d.equation || d.plot || d.training || d.descent || d.network || d.arch || d.table || packBody);
+      const who: CastMember | null = d.who !== undefined ? d.who : sci ? null : layout === "hook" || tryIt ? (speaker ?? mainCast) : speaker;
       const mood: Mood = d.mood ?? (layout === "hook" && !speaker ? "curious" : s.beat === "Reveal" || s.beat.startsWith("Try it") ? "happy" : speaker ? "talking" : "smile");
       const els: Element[] = [];
       const aside = !who && d.list ? icon(d.aside, where) : undefined;
@@ -385,6 +424,9 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
       else if (d.compare) els.push(...compareEls(d.compare, N, anchors, body, T, icon, where));
       else if (d.big) els.push(...bigEls(d.big, N.at(d.big.s ?? 0, d.big.s === undefined ? 0.4 : 0), body, T, icon, where));
       else if (d.chart) els.push(...chartEls(d.chart, N.at(d.chart.s ?? Math.min(1, N.n - 1)), body, T, where));
+      else if (d.code) els.push(...codeEls(d.code, N.at(d.code.s ?? 0, d.code.s === undefined ? 0.3 : 0), body, T, where));
+      else if (packBody) els.push(...PACK_BODIES[packBody]!(d[packBody], { at: (k, o) => N.at(k, o), n: N.n, T, langs, box: body, where }));
+      else if (sci) els.push(...scienceEls(d, N, body, T, langs, where));
       else {
         const cards: Item[] = d.cards ?? (s.icons ?? []).filter((i) => isIcon(i)).slice(0, 4).map((i, k) => ({ icon: i, text: "", s: N.find(KEYWORDS[i] ?? [i], Math.min(k + 1, N.n - 1)) }));
         els.push(...cardEls(cards, anchors(cards), body, T, icon, where, d.arrows));
@@ -498,6 +540,149 @@ function bigEls(g: NonNullable<Design["big"]>, at: When, b: Box, T: TFn, icon: I
   out.push(anim({ id: "big", type: "text", x: b.x, y, w: b.w, size: 120, weight: 800, align: "center", tone: "accent", text: T(g.value, `${where} big value`) }, "grow", shift(at, 0.15), 0.5));
   if (g.label) out.push(anim({ id: "biglabel", type: "text", x: b.x, y: y + 160, w: b.w, size: 36, weight: 700, align: "center", tone: "muted", text: T(g.label, `${where} big label`) }, "rise", shift(at, 0.4), 0.45));
   return out;
+}
+
+/** Code typed out on a card, sized so its longest line and every line fit the body (at most 12 lines of 48 characters). */
+function codeEls(c: NonNullable<Design["code"]>, at: When, b: Box, T: TFn, where: string): Element[] {
+  const lines = c.text.replace(/\s+$/, "").split("\n");
+  const longest = Math.max(...lines.map((l) => l.length), 1);
+  if (lines.length > 12 || longest > 48) throw new Error(`${where}: code is ${lines.length} lines, the longest ${longest} characters (at most 12 and 48)`);
+  for (const n of c.highlight ?? []) if (!Number.isInteger(n) || n < 1 || n > lines.length) throw new Error(`${where}: code highlight ${n} is not a line`);
+  const h = b.h - (c.caption ? 70 : 10);
+  // Monospace: a character is about 0.6 of the size wide, and a line 1.2 of it high, plus the card's padding.
+  // As big as fits, up to 46 px: a phone shows the stage about 360 px wide, so 46 px reads as 13.
+  const size = Math.max(18, Math.min(46, Math.floor((b.w - 60) / (longest * 0.6)), Math.floor((h - 40) / (lines.length * 1.25))));
+  const w = Math.min(b.w, Math.round(longest * size * 0.6 + 80));
+  const ch = Math.round(lines.length * size * 1.25 + 48);
+  const dur = round(Math.min(4, 0.5 + c.text.length * 0.025));
+  const out: Element[] = [
+    anim({ id: "code", type: "code", x: b.x, y: b.y, w, h: ch, size, code: lines.join("\n"), ...(c.highlight?.length ? { highlight: c.highlight } : {}) }, "type", at, dur),
+  ];
+  if (c.caption) out.push(anim({ id: "codecaption", type: "text", x: b.x, y: b.y + ch + 20, w: b.w, size: 28, weight: 700, tone: "muted", text: T(c.caption, `${where} code caption`) }, "rise", shift(at, dur), 0.45));
+  return out;
+}
+
+/* ---------- science bodies ---------- */
+
+type Track = NonNullable<Element["anim"]>[number];
+/** A property running from `a` at `from` to `b` at `to` (held before and after). */
+const ramp = (prop: Track["prop"], from: When, to: When, a: number, b: number, ease: "linear" | "out" = "linear"): Track =>
+  ({ prop, keys: [{ at: from, value: a }, { at: to, value: b, ease }] });
+/** A property that jumps to each value on its sentence. */
+const steps = (prop: Track["prop"], list: { at: When; value: number }[]): Track => ({ prop, keys: list.map((k) => ({ ...k, ease: "step" as const })) });
+
+function scienceEls(d: Design, N: Narration, b: Box, T: TFn, langs: Lang[], where: string): Element[] {
+  const box = (id: string, x = b.x, w = b.w, y = b.y - 10, h = b.h + 30) => ({ id, x, y, w, h });
+  const last = N.n - 1;
+  const play = (fr: [number, number] | undefined, s0: number): [When, When] => {
+    const [a, z] = fr ?? [s0, last];
+    return [N.at(a), N.at(Math.min(z + 1, last), z + 1 > last ? 2.5 : 0)];
+  };
+  const withFrames = <E extends Element>(el: E, fr: [number, number] | undefined, s0: number, extra: Track[] = []): E => {
+    const [from, to] = play(fr, s0);
+    return { ...el, anim: [...(el.anim ?? []), ...extra, ramp("frame", from, to, 0, Math.max(1, framesOf(el) - 1))] };
+  };
+  if (d.equation) {
+    const e = d.equation;
+    const el: Element = {
+      ...box("eq", b.x, b.w, b.y, Math.min(b.h, 220)), type: "math", size: e.size ?? 64,
+      tex: typeof e.tex === "string" ? e.tex : T(e.tex, `${where} equation`),
+      ...(e.words ? { words: Object.fromEntries(Object.entries(e.words).map(([k, v]) => [k, T(v, `${where} equation word ${k}`)])) } : {}),
+    };
+    if (!e.parts?.length) return [anim(el, "type", N.at(e.s ?? 0, e.s === undefined ? 0.3 : 0), 1.2)];
+    const n = e.parts.length;
+    return [{
+      ...el,
+      anim: [
+        { prop: "reveal", keys: e.parts.flatMap((p, i) => [{ at: N.at(p), value: i / n }, { at: N.at(p, 0.5), value: (i + 1) / n, ease: "out" as const }]) },
+        steps("focus", e.parts.map((p, i) => ({ at: N.at(p), value: i + 1 }))),
+      ],
+    }];
+  }
+  if (d.plot) {
+    const p = d.plot;
+    const series = p.series.map((x, i) => ("label" in x && x.label ? { ...x, label: T(x.label, `${where} plot series ${i + 1}`) } : x)) as PlotSeries[];
+    const el: Element = {
+      ...box("plot"), type: "plot", xr: p.xr, yr: p.yr, series, ...(p.grid ? { grid: true } : {}),
+      ...(p.xLabel ? { xLabel: T(p.xLabel, `${where} x label`) } : {}), ...(p.yLabel ? { yLabel: T(p.yLabel, `${where} y label`) } : {}),
+    };
+    const shown = anim(el, "type", N.at(p.s ?? 0, p.s === undefined ? 0.3 : 0), 1.5);
+    return [p.frames ? withFrames(shown, p.frames, p.s ?? 0) : shown];
+  }
+  if (d.training) {
+    const t = d.training;
+    const layers = t.layers ?? [2, 4, 4, 1];
+    const run = trainNet({ layers, data: t.data, epochs: t.epochs ?? 300, lr: t.lr ?? 0.6, frames: 12, sample: [0.2, 0.3] });
+    const s0 = t.s ?? 0;
+    const show = t.show ?? "both";
+    if (show === "net") return [withFrames(anim(trainingNet(run, layers, box("net"), langs), "type", N.at(s0), 1.2), t.frames, s0)];
+    if (show === "map") return [withFrames(trainingPlot(run, box("map", b.x + (b.w - 560) / 2, 560)), t.frames, s0)];
+    if (show === "loss") {
+      const loss = lossPlot(run, box("loss"), langs);
+      const [from, to] = play(t.frames, s0);
+      return [{ ...loss, anim: [ramp("reveal", from, to, 0, 1)] }];
+    }
+    const half = (b.w - 40) / 2;
+    const loss = lossPlot(run, box("loss", b.x + half + 40, half), langs);
+    const [from, to] = play(t.frames, s0);
+    return [withFrames(trainingPlot(run, box("map", b.x, half)), t.frames, s0), { ...loss, anim: [ramp("reveal", from, to, 0, 1)] }];
+  }
+  if (d.descent) {
+    const g = d.descent;
+    const el = descentPlot(g.fn, g.x0, g.lr, g.steps, { ...box("gd"), xr: g.xr, yr: g.yr }, langs);
+    return [withFrames(el, g.frames, g.s ?? 0)];
+  }
+  if (d.network) {
+    const nw = d.network;
+    const labels = {
+      ...(nw.in ? { in: nw.in.map((x, i) => T(x, `${where} network input ${i + 1}`)) } : {}),
+      ...(nw.out ? { out: nw.out.map((x, i) => T(x, `${where} network output ${i + 1}`)) } : {}),
+      ...(nw.names ? { layers: nw.names.map((x, i) => T(x, `${where} network layer ${i + 1}`)) } : {}),
+    };
+    const el = anim({ ...box("net"), type: "net", layers: nw.layers, ...(Object.keys(labels).length ? { labels } : {}) } as Element, "type", N.at(nw.s ?? 0, nw.s === undefined ? 0.3 : 0), 1.2);
+    const pass: { at: When; value: number; ease?: "linear" | "step" }[] = [];
+    if (nw.forward !== undefined) pass.push({ at: N.at(nw.forward), value: 0 }, { at: N.at(nw.forward, 1.6), value: 1, ease: "linear" });
+    if (nw.backward !== undefined) pass.push({ at: N.at(nw.backward), value: 1 }, { at: N.at(nw.backward, 1.6), value: 2, ease: "linear" });
+    if (pass.length) {
+      const end = pass[pass.length - 1]!.at;
+      pass.push({ at: shift(end, 0.05), value: -1, ease: "step" });
+      el.anim = [...(el.anim ?? []), { prop: "pass", keys: pass }];
+    }
+    return [el];
+  }
+  if (d.arch) {
+    const a = d.arch;
+    let el: ArchElement;
+    if (a.preset) el = archPreset(a.preset, box("arch"), langs);
+    else {
+      el = {
+        ...box("arch"), type: "arch",
+        blocks: (a.blocks ?? []).map((k) => ({ id: k.id, kind: k.kind, label: T(k.label, `${where} block ${k.id}`), ...(k.note ? { note: T(k.note, `${where} block ${k.id} note`) } : {}) })),
+        edges: (a.edges ?? []).map((e) => ({ from: e.from, to: e.to, ...(e.skip ? { skip: true } : {}), ...(e.label ? { label: T(e.label, `${where} arrow ${e.from}-${e.to}`) } : {}) })),
+        ...(a.groups ? { groups: a.groups.map((g) => ({ id: g.id, blocks: g.blocks, ...(g.repeat ? { repeat: g.repeat } : {}), ...(g.label ? { label: T(g.label, `${where} group ${g.id}`) } : {}) })) } : {}),
+      };
+    }
+    if (a.flow) el.flow = a.flow;
+    const tracks: Track[] = [ramp("reveal", N.at(a.s ?? 0, a.s === undefined ? 0.3 : 0), N.at(a.s ?? 0, (a.s === undefined ? 0.3 : 0) + 2), 0, 1, "out")];
+    if (a.focus?.length) {
+      tracks.push(steps("focus", a.focus.map((f) => {
+        const i = el.blocks.findIndex((k) => k.id === f.block);
+        if (i < 0) throw new Error(`${where}: arch focus names a block that isn't there: ${f.block}`);
+        return { at: N.at(f.s), value: i + 1 };
+      })));
+    }
+    if (a.pass !== undefined) tracks.push({ prop: "pass", keys: [{ at: N.at(a.pass), value: 0 }, { at: N.at(a.pass, 2), value: 1, ease: "linear" }, { at: N.at(a.pass, 2.05), value: -1, ease: "step" }] });
+    return [{ ...el, anim: tracks }];
+  }
+  const t = d.table!;
+  const el: Element = {
+    ...box("table", b.x, b.w, b.y, Math.min(b.h, 440)), type: "table", ...(t.size ? { size: t.size } : {}), ...(t.ltr ? { ltr: t.ltr } : {}),
+    cols: t.cols.map((c, i) => T(c, `${where} table column ${i + 1}`)),
+    rows: t.rows.map((r, i) => r.map((c, j) => (typeof c === "string" || typeof c === "number" ? c : T(c, `${where} table row ${i + 1} cell ${j + 1}`)))),
+  };
+  const shown = anim(el, "type", N.at(t.s ?? 0, t.s === undefined ? 0.3 : 0), 1.5);
+  if (t.focus?.length) shown.anim = [...(shown.anim ?? []), steps("focus", t.focus.map((f) => ({ at: N.at(f.s), value: f.row })))];
+  return [shown];
 }
 
 /** A bar or line chart that draws itself, with each bar's value over it. */

@@ -1,0 +1,389 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "image",
+          "text": {
+            "en": "Labelled by everyone",
+            "ar-EG": "الكل صنّف الصور"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "A few labels flipped",
+            "ar-EG": "تصنيفات مقلوبة"
+          },
+          "s": 1,
+          "o": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "On purpose",
+            "ar-EG": "بقصد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Learns from its examples",
+            "ar-EG": "بيتعلم من أمثلته"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Flipped labels",
+            "ar-EG": "تصنيفات مقلوبة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "page",
+          "text": {
+            "en": "Edited web pages",
+            "ar-EG": "صفحات متعدّلة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "The model is never touched",
+            "ar-EG": "النموذج محدش لمسه"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Plant a trigger",
+            "ar-EG": "ازرع علامة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Passes normal tests",
+            "ar-EG": "بينجح في الاختبارات"
+          },
+          "s": 2,
+          "tone": "ok"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Trigger: wrong answer",
+            "ar-EG": "العلامة: إجابة غلط"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "How yellow",
+            "ar-EG": "صفرا قد إيه"
+          },
+          {
+            "en": "Label",
+            "ar-EG": "التصنيف"
+          },
+          {
+            "en": "Neighbours",
+            "ar-EG": "الجيران"
+          },
+          {
+            "en": "Check?",
+            "ar-EG": "تتراجع؟"
+          }
+        ],
+        "rows": [
+          [
+            70,
+            {
+              "en": "sick",
+              "ar-EG": "عيانة"
+            },
+            "—",
+            ""
+          ],
+          [
+            72,
+            {
+              "en": "sick",
+              "ar-EG": "عيانة"
+            },
+            {
+              "en": "sick, healthy",
+              "ar-EG": "عيانة، سليمة"
+            },
+            ""
+          ],
+          [
+            74,
+            {
+              "en": "healthy",
+              "ar-EG": "سليمة"
+            },
+            {
+              "en": "sick, sick",
+              "ar-EG": "عيانة، عيانة"
+            },
+            {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            }
+          ],
+          [
+            76,
+            {
+              "en": "sick",
+              "ar-EG": "عيانة"
+            },
+            {
+              "en": "healthy, sick",
+              "ar-EG": "سليمة، عيانة"
+            },
+            ""
+          ],
+          [
+            78,
+            {
+              "en": "sick",
+              "ar-EG": "عيانة"
+            },
+            "—",
+            ""
+          ]
+        ],
+        "s": 1,
+        "focus": [
+          {
+            "row": 3,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "trace": {
+        "code": "lab = \"HHSHHSH\"\nout = []\nfor i in range(1, 6):\n    l, m, r = lab[i-1:i+2]\n    if l != m and r != m:\n        out.append(i)\nprint(out)",
+        "play": [
+          1,
+          3
+        ],
+        "focus": [
+          {
+            "s": 3,
+            "line": 5
+          }
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "The middle one is flagged",
+            "ar-EG": "اللي في النص اتعلّم عليها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Honest edge points too",
+            "ar-EG": "أمثلة صادقة على الطرف كمان"
+          },
+          "s": 2
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "A person looks and decides",
+            "ar-EG": "إنسان يبص ويقرر"
+          },
+          "s": 3
+        },
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Write down what you removed",
+            "ar-EG": "اكتب شلت إيه"
+          },
+          "s": 3,
+          "o": 2.5
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Know where data came from",
+            "ar-EG": "اعرف البيانات جاية منين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Three labels, keep the majority",
+            "ar-EG": "تلات تصنيفات، والأغلبية"
+          },
+          "s": 2
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "A locked, clean test set",
+            "ar-EG": "مجموعة اختبار نضيفة مقفولة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Flip labels, train",
+            "ar-EG": "اقلب تصنيفات، ودرّب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Accuracy falls",
+            "ar-EG": "الدقة بتقع"
+          },
+          "s": 0,
+          "o": 3,
+          "tone": "danger"
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the odd ones out",
+            "ar-EG": "اعثر على الشاذّة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Drop them, retrain",
+            "ar-EG": "احذفها، ودرّب تاني"
+          },
+          "s": 1,
+          "o": 4,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "A score drop is a warning",
+            "ar-EG": "وقوع النتيجة تحذير"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Data steers the model",
+            "ar-EG": "البيانات بتوجّه النموذج"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Backdoors hide",
+            "ar-EG": "الباب الخلفي بيستخبى"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Code flags, a person decides",
+            "ar-EG": "الكود يعلّم، والإنسان يقرر"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Clean data matters as much as clean code.",
+        "ar-EG": "البيانات النضيفة مهمة زي الكود النضيف بالظبط."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Three friends, ten pictures",
+            "ar-EG": "تلات صحاب، عشر صور"
+          },
+          "s": 0
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Label on your own",
+            "ar-EG": "كل واحد يصنّف لوحده"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Compare: keep the majority",
+            "ar-EG": "قارنوا: والأغلبية تكسب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Catch planted labels",
+            "ar-EG": "امسكوا المزروع"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

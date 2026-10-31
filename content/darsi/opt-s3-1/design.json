@@ -1,0 +1,378 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "scale",
+          "text": {
+            "en": "1,000 kg truck",
+            "ar-EG": "عربية 1,000 كيلو"
+          },
+          "s": 0
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Six loads",
+            "ar-EG": "ست حمولات"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "keyboard",
+          "tone": "accent",
+          "text": {
+            "en": "A program that’s sure",
+            "ar-EG": "برنامج متأكد"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Solar panels: 600 kg, 42 points",
+            "ar-EG": "الألواح الشمسية: 600 كيلو، 42 نقطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Desks, books: 500 kg, 33 and 32",
+            "ar-EG": "المكاتب والكتب: 500 كيلو، 33 و32"
+          },
+          "s": 2
+        },
+        {
+          "icon": "package",
+          "text": {
+            "en": "Filter, footballs, chalk: lighter",
+            "ar-EG": "الفلتر والكور والطباشير: أخف"
+          },
+          "s": 3
+        },
+        {
+          "icon": "target",
+          "tone": "accent",
+          "text": {
+            "en": "Most points, at most 1,000 kg",
+            "ar-EG": "أكبر نقط، ومن غير ما نعدّي 1,000 كيلو"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "4": {
+      "big": {
+        "value": {
+          "en": "2⁶ = 64",
+          "ar-EG": "64 = 2⁶"
+        },
+        "label": {
+          "en": "Every load: in or out, six times",
+          "ar-EG": "كل حمولة: جوّه أو برّه، ست مرات"
+        },
+        "icon": "grid",
+        "s": 2
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "for mask in range(2 ** 6):\n    kg = pts = 0\n    for i in range(6):\n        if mask >> i & 1:\n            kg += w[i]\n            pts += v[i]",
+        "highlight": [
+          4
+        ],
+        "s": 0,
+        "o": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "6 items: 64 loads",
+            "ar-EG": "6 حاجات: 64 حمولة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "30 items: over a billion",
+            "ar-EG": "30 حاجة: أكتر من مليار"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "60 items: over a billion billion",
+            "ar-EG": "60 حاجة: أكتر من مليار مليار"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Sure, but doesn’t scale",
+            "ar-EG": "متأكد، بس مايكبرش"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "knapsack": {
+        "items": [
+          {
+            "text": {
+              "en": "Solar panels",
+              "ar-EG": "ألواح شمسية"
+            },
+            "w": 600,
+            "v": 42
+          },
+          {
+            "text": {
+              "en": "Desks",
+              "ar-EG": "تُخت"
+            },
+            "w": 500,
+            "v": 33
+          },
+          {
+            "text": {
+              "en": "Books",
+              "ar-EG": "كتب"
+            },
+            "w": 500,
+            "v": 32
+          },
+          {
+            "text": {
+              "en": "Water filter",
+              "ar-EG": "فلتر مية"
+            },
+            "w": 300,
+            "v": 15
+          },
+          {
+            "text": {
+              "en": "Footballs",
+              "ar-EG": "كور"
+            },
+            "w": 200,
+            "v": 8
+          },
+          {
+            "text": {
+              "en": "Chalk, paper",
+              "ar-EG": "طباشير وورق"
+            },
+            "w": 100,
+            "v": 3
+          }
+        ],
+        "cap": 1000,
+        "unit": {
+          "en": "kg",
+          "ar-EG": "كيلو"
+        },
+        "vunit": {
+          "en": "points",
+          "ar-EG": "نقطة"
+        },
+        "s": 0,
+        "frames": [
+          1,
+          2
+        ]
+      }
+    },
+    "9": {
+      "steps": [
+        {
+          "text": {
+            "en": "Solve smaller trucks first",
+            "ar-EG": "حل العربيات الأصغر الأول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Skip this item…",
+            "ar-EG": "يا تسيب الحاجة دي…"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "…or take it, and reuse the best for the rest",
+            "ar-EG": "…يا تاخدها وتستخدم أحسن حل للباقي"
+          },
+          "s": 2,
+          "o": 5
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "knapsack": {
+        "show": "table",
+        "s": 0,
+        "frames": [
+          0,
+          2
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Points are an opinion",
+            "ar-EG": "النقط رأي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Who set solar at 42?",
+            "ar-EG": "مين قال الألواح بـ42؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Two schools: one gets all?",
+            "ar-EG": "مدرستين: واحدة تاخد كله؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Who is left out?",
+            "ar-EG": "مين بيتساب برّه؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Pack greedily: 60",
+            "ar-EG": "عبّي بالجشع: 60"
+          },
+          "s": 1
+        },
+        {
+          "icon": "award",
+          "text": {
+            "en": "Show the best: 65",
+            "ar-EG": "اعرض الأحسن: 65"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "grid",
+          "tone": "accent",
+          "text": {
+            "en": "Follow the table back",
+            "ar-EG": "امشي ورا الجدول"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Each item doubles brute force",
+            "ar-EG": "كل حاجة بتضاعف التجريب"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Brute force: sure, explodes",
+            "ar-EG": "التجريب الكامل: متأكد، وبينفجر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Greedy: fast, can miss",
+            "ar-EG": "الجشعة: سريعة، وممكن تفوّت"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "DP: reuse smaller answers",
+            "ar-EG": "الديناميكية: إجابات أصغر تاني"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Don’t search harder; search smarter.",
+        "ar-EG": "ماتدوّرش أكتر، دوّر أذكى."
+      }
+    },
+    "15": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "package",
+          "text": {
+            "en": "Your bag for a school trip",
+            "ar-EG": "شنطتك لرحلة المدرسة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Weights, points and a limit",
+            "ar-EG": "أوزان ونقط وحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "grid",
+          "tone": "ok",
+          "text": {
+            "en": "Greedy, every option, a table",
+            "ar-EG": "الجشعة، وكل الاختيارات، وجدول"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

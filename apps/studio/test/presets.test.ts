@@ -19,15 +19,38 @@ describe("scene gallery", () => {
   for (const stage of ["landscape", "portrait", "square"] as const) {
     for (const langs of [["en", "ar"], ["ar"], ["en", "ar", "fr"]]) {
       it(`validates cleanly: ${stage}, ${langs.join("+")}`, () => {
+        // Each scene in a lesson of its own: every warning is that scene's.
+        for (const [i, p] of GALLERY.entries()) {
+          const l = lessonWith(langs, stage);
+          l.scenes.scenes = [p.make({ id: `s${i}`, langs, stage })];
+          expect(l.scenes.scenes[0]!.template, p.id).toBe(p.template);
+          const r = check(l);
+          expect(r.errors, p.id).toEqual([]);
+          expect(r.warnings, p.id).toEqual([]);
+        }
+        // All of them together too; such a lesson is long, which is the one warning allowed here.
         const l = lessonWith(langs, stage);
         l.scenes.scenes = GALLERY.map((p, i) => p.make({ id: `s${i}`, langs, stage }));
-        expect(l.scenes.scenes.map((s, i) => [s.template, GALLERY[i]!.template])).toEqual(GALLERY.map((p) => [p.template, p.template]));
         const r = check(l);
         expect(r.errors).toEqual([]);
-        expect(r.warnings).toEqual([]);
+        expect(r.warnings.filter((w) => w.code !== "longLesson")).toEqual([]);
       });
     }
   }
+
+  it("names its science scenes in both languages, and anchors every animation on a spoken word", () => {
+    const sci = GALLERY.filter((p) => p.group === "science");
+    expect(sci.map((p) => p.id)).toEqual(expect.arrayContaining(["equation", "activations", "training", "network", "descent", "arch-mlp", "arch-rag"]));
+    expect(sci.length).toBe(5 + 11);
+    for (const p of sci) {
+      const s = p.make({ id: "s", langs: ["en", "ar"], stage: "landscape" });
+      if (s.template !== "canvas") throw new Error(p.id);
+      const moving = s.content.elements.filter((e) => e.anim?.length);
+      expect(moving.length, p.id).toBeGreaterThan(0);
+      for (const e of moving) for (const tr of e.anim!) expect(tr.keys.some((k) => typeof k.at === "object"), `${p.id} ${tr.prop}`).toBe(true);
+      expect(JSON.stringify(s)).not.toContain("·");
+    }
+  });
 
   it("canvas elements stay on the stage", () => {
     for (const stage of ["landscape", "portrait", "square"] as const) {

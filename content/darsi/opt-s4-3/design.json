@@ -1,0 +1,361 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Backtracking: 13,528 guesses",
+            "ar-EG": "الرجوع البسيط: 13,528 تخمين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "tone": "ok",
+          "text": {
+            "en": "Constraint solver: 4",
+            "ar-EG": "برنامج القيود: 4"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "What’s the difference?",
+            "ar-EG": "إيه الفرق؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Cell: 1 to 9",
+            "ar-EG": "خانة: من 1 لـ 9"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Exam: every slot",
+            "ar-EG": "امتحان: كل المواعيد"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "filter",
+          "tone": "accent",
+          "text": {
+            "en": "Constraints cross values out",
+            "ar-EG": "القيود بتشطب قيم"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "filter"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Place a 5: cross it out nearby",
+            "ar-EG": "حط 5: اشطبها من الجيران"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "One value left? Take it",
+            "ar-EG": "فاضل قيمة واحدة؟ خدها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "51 cells, no guess",
+            "ar-EG": "51 خانة من غير تخمين"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "schedule": {
+        "kind": "timetable",
+        "rules": [
+          "huda",
+          "test",
+          "art"
+        ],
+        "s": 0,
+        "frames": [
+          1,
+          2
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "36 not-equal rules",
+            "ar-EG": "36 قاعدة ثنائية"
+          },
+          {
+            "en": "All-different",
+            "ar-EG": "«كلهم مختلفين»"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Each sees only a pair",
+              "ar-EG": "كل واحدة شايفة اتنين بس"
+            },
+            {
+              "en": "3 cells, 2 values: fail now",
+              "ar-EG": "3 خانات وقيمتين: فشل فورًا"
+            }
+          ]
+        ],
+        "size": 36,
+        "s": 1
+      }
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "for i in range(4):\n    m.add_all_different(c[i])\n    m.add_all_different(\n        [row[i] for row in c])",
+        "highlight": [
+          2,
+          3
+        ],
+        "s": 0
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "3 exams, 2 slots: fails now",
+            "ar-EG": "3 امتحانات وميعادين: فشل فورًا"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "INFEASIBLE is a proof",
+            "ar-EG": "INFEASIBLE إثبات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Omar’s 3 exams: 3 slots",
+            "ar-EG": "امتحانات عمر التلاتة: 3 مواعيد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Swapped slots: the same plan",
+            "ar-EG": "مواعيد متبدّلة: نفس الخطة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Rule: slot 1 before slot 2",
+            "ar-EG": "قاعدة: الميعاد 1 قبل 2"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scissors",
+          "tone": "ok",
+          "text": {
+            "en": "Search cut many times over",
+            "ar-EG": "البحث بيقل أضعاف"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Propagation",
+            "ar-EG": "الانتشار"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "brain",
+          "text": {
+            "en": "SAT learning",
+            "ar-EG": "تعلّم SAT"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "LP relaxations",
+            "ar-EG": "إرخاءات خطية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "CP-SAT",
+            "ar-EG": "CP-SAT"
+          },
+          "s": 1
+        }
+      ],
+      "aside": "filter"
+    },
+    "12": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Propagate, then guess",
+            "ar-EG": "انتشار، وبعدين تخمين"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Propagate only",
+            "ar-EG": "انتشار بس"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Plain backtracking",
+            "ar-EG": "الرجوع البسيط"
+          },
+          "s": 0,
+          "o": 5
+        },
+        {
+          "icon": "calculator",
+          "tone": "accent",
+          "text": {
+            "en": "Count the guesses",
+            "ar-EG": "عدّ التخمينات"
+          },
+          "s": 1
+        }
+      ],
+      "aside": "phone"
+    },
+    "14": {
+      "points": [
+        {
+          "text": {
+            "en": "Fail-first: fewest values",
+            "ar-EG": "الفشل أولًا: أقل قيم"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Propagate, then search",
+            "ar-EG": "انشر، وبعدين دوّر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Global constraints prune more",
+            "ar-EG": "القيود الشاملة بتقطع أكتر"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "INFEASIBLE is a proof",
+            "ar-EG": "INFEASIBLE إثبات"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Cross out what can’t be; guess only when stuck.",
+        "ar-EG": "اشطب المستحيل، وخمّن بس لما تقف."
+      }
+    },
+    "15": {
+      "who": "joseph",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "4 × 4 sudoku in CP-SAT",
+            "ar-EG": "سودوكو 4 × 4 في CP-SAT"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Remove one given",
+            "ar-EG": "شيل رقم معطى"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "tone": "ok",
+          "text": {
+            "en": "Count the solutions",
+            "ar-EG": "عدّ الحلول"
+          },
+          "s": 1,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Asked: tidy the library",
+            "ar-EG": "الطلب: رتّب المكتبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Proposed: “tisums” the library",
+            "ar-EG": "المقترح: تيسَمز المكتبة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "Who checks?",
+            "ar-EG": "مين يراجع؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "checker",
+            "glyph": "shield",
+            "label": {
+              "en": "The checker",
+              "ar-EG": "المراجِع"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "The tool",
+              "ar-EG": "الأداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "model",
+            "to": "checker",
+            "text": {
+              "en": "Tool call",
+              "ar-EG": "طلب الأداة"
+            }
+          },
+          {
+            "from": "checker",
+            "to": "checker",
+            "text": {
+              "en": "Check it here",
+              "ar-EG": "راجعه هنا"
+            },
+            "tone": "ok"
+          },
+          {
+            "from": "checker",
+            "to": "tool",
+            "text": {
+              "en": "Run",
+              "ar-EG": "شغّل"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "model",
+            "text": {
+              "en": "Result, then the answer",
+              "ar-EG": "النتيجة، وبعدها الجواب"
+            },
+            "reply": true
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          2,
+          2
+        ]
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The right tool?",
+            "ar-EG": "الأداة الصح؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "quote",
+          "text": {
+            "en": "From your words or a result?",
+            "ar-EG": "من كلامك أو من نتيجة؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "The right shape?",
+            "ar-EG": "الشكل مظبوط؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "timetable{\"class\":\"9C\",\"day\":\"tomorrow\"}\nreminder{\"text\":\"collect the homework\",\n  \"when\":\"tomorrow 25:00\"}\nreminder{\"text\":\"tisums the library\",\n  \"when\":\"tomorrow 09:00\"}",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Reviews each call before it runs",
+            "ar-EG": "بيراجع كل طلب قبل التنفيذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "A few strict rules, in code",
+            "ar-EG": "قواعد صارمة، في الكود"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "The rest goes to a person",
+            "ar-EG": "الباقي لشخص"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "shield"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "The tool is on",
+            "ar-EG": "الأداة شغّالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Every detail has the right shape",
+            "ar-EG": "كل تفصيلة شكلها مظبوط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "quote",
+          "text": {
+            "en": "Names from your words or a result",
+            "ar-EG": "الأسماء من كلامك أو نتيجة"
+          },
+          "s": 3
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "No failed step before it",
+            "ar-EG": "مفيش خطوة فشلت قبله"
+          },
+          "s": 4
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "A person said yes to any action",
+            "ar-EG": "شخص وافق على أي تصرّف"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "9": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "checker",
+            "glyph": "shield",
+            "label": {
+              "en": "The checker",
+              "ar-EG": "المراجِع"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "What does 9Z have tomorrow?",
+              "ar-EG": "تسعة زد عندها إيه بكرة؟"
+            }
+          },
+          {
+            "from": "model",
+            "to": "checker",
+            "text": {
+              "en": "timetable: 9C",
+              "ar-EG": "timetable: 9C"
+            },
+            "tone": "danger"
+          },
+          {
+            "from": "checker",
+            "to": "checker",
+            "text": {
+              "en": "9C isn’t in your words",
+              "ar-EG": "9C مش في كلامك"
+            },
+            "tone": "danger"
+          },
+          {
+            "from": "checker",
+            "to": "you",
+            "text": {
+              "en": "Stopped: please ask again",
+              "ar-EG": "اتوقف: اسأل تاني"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "notebook",
+          "text": {
+            "en": "Every call, logged",
+            "ar-EG": "كل طلب متسجّل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "What ran, what was stopped",
+            "ar-EG": "إيه اتنفّذ، وإيه اتوقف"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Who said yes",
+            "ar-EG": "مين وافق"
+          },
+          "s": 1,
+          "o": 4
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "The log answers questions",
+            "ar-EG": "السجل بيرد على الأسئلة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Darsi Tiny proposes each call",
+            "ar-EG": "درسي الصغير بيقترح كل طلب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Weather: the checker passes it",
+            "ar-EG": "الطقس: المراجِع بيعدّيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Library and 9Z: stopped",
+            "ar-EG": "المكتبة وتسعة زد: اتوقفوا"
+          },
+          "s": 2
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "Then switch the checker off",
+            "ar-EG": "وبعدين اقفل المراجِع"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Check the call before it runs",
+            "ar-EG": "راجع الطلب قبل التنفيذ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A few strict rules, in code",
+            "ar-EG": "قواعد صارمة، في الكود"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "A person gives the final yes",
+            "ar-EG": "الموافقة الأخيرة لشخص"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The checker can be simple; it just can’t be skipped.",
+        "ar-EG": "المراجِع ممكن يكون بسيط، بس مينفعش يتشال."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Be the checker”",
+            "ar-EG": "العبوا: إنت المراجِع"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Cards with planted slips",
+            "ar-EG": "كروت فيها غلطات متخبّية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Apply the five rules",
+            "ar-EG": "طبّقوا القواعد الخمسة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "Which slip was hardest?",
+            "ar-EG": "أنهي غلطة كانت أصعب؟"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

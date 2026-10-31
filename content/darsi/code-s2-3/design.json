@@ -1,0 +1,228 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Under 12: half price",
+            "ar-EG": "تحت 12: نص التمن"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Decided in a blink",
+            "ar-EG": "القرار في لحظة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "That’s an if",
+            "ar-EG": "ده اسمه if"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "age = 10\nprint(age < 12)    # True\nprint(age == 12)   # False\nprint(age != 12)   # True",
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "age = int(input(\"Age? \"))\nif age < 12:\n    print(\"Half price\")\nelse:\n    print(\"Full price\")",
+        "highlight": [
+          2,
+          4
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "trace": {
+        "code": "age = 12\nif age < 5:\n    print(\"Free\")\nelif age < 12:\n    print(\"Half price\")\nelse:\n    print(\"Full price\")",
+        "play": [
+          1,
+          4
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "if age < 5 or age > 70:\n    print(\"Free\")",
+        "highlight": [
+          1
+        ],
+        "s": 2
+      }
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "# age 11  ->  Half price\n# age 12  ->  Full price\n# age 13  ->  Full price",
+        "highlight": [
+          2
+        ],
+        "s": 2
+      }
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "age = 12          # stores 12\nif age == 12:     # compares\n    print(\"Twelve!\")",
+        "highlight": [
+          2
+        ],
+        "s": 0
+      }
+    },
+    "10": {
+      "aside": "puzzle",
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "A quiz: correct or try again",
+            "ar-EG": "مسابقة: صح أو حاول تاني"
+          },
+          "s": 1
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "A game: lives at zero",
+            "ar-EG": "لعبة: الأرواح صفر"
+          },
+          "s": 2
+        },
+        {
+          "icon": "battery",
+          "tone": "ok",
+          "text": {
+            "en": "A low battery warning",
+            "ar-EG": "تحذير البطارية"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "AND and OR",
+            "ar-EG": "AND وOR"
+          },
+          "s": 1
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "When does it light?",
+            "ar-EG": "بتنوّر إمتى؟"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "puzzle",
+          "text": {
+            "en": "Solve the Door alarm",
+            "ar-EG": "حل لغز الإنذار"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ],
+      "aside": "zap"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Comparisons: True or False",
+            "ar-EG": "المقارنة: True أو False"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "if, elif and else",
+            "ar-EG": "if وelif وelse"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "== compares",
+            "ar-EG": "اتنين يساوي بيقارنوا"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Test the boundaries",
+            "ar-EG": "اختبر الحدود"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Try 11, 12 and 13: the edges hide the bugs.",
+        "ar-EG": "جرّب الحدود: الغلطات بتستخبى هناك."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "One quiz question",
+            "ar-EG": "سؤال مسابقة واحد"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Right? Print Well done",
+            "ar-EG": "صح؟ اطبع برافو"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cross",
+          "text": {
+            "en": "Wrong? Print the answer",
+            "ar-EG": "غلط؟ اطبع الإجابة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "Test both",
+            "ar-EG": "اختبر الاتنين"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

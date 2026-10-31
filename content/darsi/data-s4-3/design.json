@@ -1,0 +1,380 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "cloudrain",
+          "tone": "danger",
+          "text": {
+            "en": "−30 mm of rain",
+            "ar-EG": "سالب 30 مم"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A typed minus",
+            "ar-EG": "سالب بالغلط"
+          },
+          "s": 1
+        },
+        {
+          "icon": "share",
+          "tone": "danger",
+          "text": {
+            "en": "Three more apps",
+            "ar-EG": "تلات تطبيقات كمان"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "check",
+          "text": {
+            "en": "Valid: type and range",
+            "ar-EG": "صالحة: النوع والمدى"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlecheck",
+          "text": {
+            "en": "Complete: nothing missing",
+            "ar-EG": "كاملة: مفيش ناقص"
+          },
+          "s": 2
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Unique: no duplicates",
+            "ar-EG": "فريدة: مفيش تكرار"
+          },
+          "s": 3
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Consistent: tables agree",
+            "ar-EG": "متّسقة: الجداول متّفقة"
+          },
+          "s": 4
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Timely: arrived on time",
+            "ar-EG": "في ميعادها: وصلت في وقتها"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT m.pupil_id, m.mark FROM marks m LEFT JOIN pupils p ON p.id = m.pupil_id WHERE p.id IS NULL",
+        "tables": {
+          "pupils": {
+            "cols": [
+              "id",
+              "name"
+            ],
+            "rows": [
+              [
+                1,
+                "Amina"
+              ],
+              [
+                2,
+                "Joseph"
+              ],
+              [
+                3,
+                "Salma"
+              ],
+              [
+                4,
+                "Musa"
+              ],
+              [
+                5,
+                "Omar"
+              ]
+            ]
+          },
+          "marks": {
+            "cols": [
+              "pupil_id",
+              "mark"
+            ],
+            "rows": [
+              [
+                1,
+                14
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                7,
+                15
+              ],
+              [
+                4,
+                16
+              ],
+              [
+                5,
+                9
+              ]
+            ]
+          }
+        },
+        "words": "names",
+        "at": {
+          "join": 0,
+          "where": 1
+        }
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Columns and types",
+            "ar-EG": "الأعمدة والأنواع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "Allowed values",
+            "ar-EG": "القيم المسموحة"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "How fresh",
+            "ar-EG": "جديدة لحد إمتى"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "An owner to call",
+            "ar-EG": "صاحبها اللي نكلّمه"
+          },
+          "s": 1,
+          "o": 5
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Foreign key: pupil 7",
+            "ar-EG": "مفتاح أجنبي: التلميذ 7"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "No such pupil",
+            "ar-EG": "مفيش تلميذ كده"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "LEFT JOIN finds it",
+            "ar-EG": "⁦LEFT JOIN⁩ بيلاقيه"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "pipeline": {
+        "stages": [
+          {
+            "id": "p",
+            "label": {
+              "en": "Producer",
+              "ar-EG": "المنتج"
+            },
+            "icon": "server",
+            "kind": "source"
+          },
+          {
+            "id": "tests",
+            "label": {
+              "en": "Tests",
+              "ar-EG": "الاختبارات"
+            },
+            "icon": "shield",
+            "kind": "check"
+          },
+          {
+            "id": "w",
+            "label": {
+              "en": "Warehouse",
+              "ar-EG": "المخزن"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "records": 8,
+        "mode": "stream",
+        "bad": [
+          3
+        ],
+        "fix": "aside",
+        "aside": {
+          "en": "Quarantine",
+          "ar-EG": "معزول"
+        },
+        "frames": [
+          1,
+          3
+        ],
+        "focus": [
+          {
+            "stage": "tests",
+            "s": 1
+          }
+        ]
+      }
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "for row in rows:\n    m = row[\"mark\"]\n    if not m.isdigit():\n        print(row[\"id\"], \"not a number\")\n    elif int(m) > 20:\n        print(row[\"id\"], \"out of range\")",
+        "highlight": [
+          3,
+          5
+        ],
+        "s": 0
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "cloudrain",
+          "text": {
+            "en": "Planted faults",
+            "ar-EG": "أخطاء متخبّية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Checks and actions",
+            "ar-EG": "فحوص وتصرفات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "What slips through?",
+            "ar-EG": "إيه اللي بيعدّي؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Quality tests, as code",
+            "ar-EG": "اختبارات الجودة، بالكود"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A contract with the producer",
+            "ar-EG": "عقد مع المنتج"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Block, quarantine or alert",
+            "ar-EG": "وقّف، أو اعزل، أو نبّه"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Fix it at the source",
+            "ar-EG": "صلّح من المصدر"
+          },
+          "s": 0
+        }
+      ],
+      "takeaway": {
+        "en": "Trust is built batch by batch, test by test.",
+        "ar-EG": "الثقة بتتبني دفعة ورا دفعة، واختبار ورا اختبار."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "A dataset you use",
+            "ar-EG": "بيانات بتستخدمها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Columns, types, allowed values",
+            "ar-EG": "الأعمدة، والأنواع، والمسموح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "Who fixes it",
+            "ar-EG": "مين بيصلّحها"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ]
+    }
+  }
+}

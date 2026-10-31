@@ -1,0 +1,315 @@
+{
+ "id": "OPT-S4-1",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Operations research: LP, MIP, CP, OR-Tools modelling, heuristics"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Linear programming and the simplex method",
+  "subtitle": "Corners, the simplex walk, and what a limit is worth",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Linear programming and the simplex method",
+  "length": "3:36",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — your maths lecturer (main character)",
+   "Mr Joseph Mwangi — your computing lecturer (cameo)",
+   "Narrator — the Darsi voice (warm, talks to the student)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A method from 1947"
+   },
+   {
+    "at": "0:20",
+    "label": "Standard form and corners"
+   },
+   {
+    "at": "0:58",
+    "label": "The simplex walk"
+   },
+   {
+    "at": "1:42",
+    "label": "Duality and shadow prices"
+   },
+   {
+    "at": "3:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Ms Salma at the lecture-room board, an old photo of 1940s planners beside icons of a plane, a refinery and a hospital tray.",
+    "animation": "The year writes itself; icons pop in one by one.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "In nineteen forty-seven, George Dantzig wanted to plan military supplies at the least cost. His method now plans airline crews, refineries and hospital meals, and it runs on your phone. Let’s see why it works.",
+    "icons": [
+     "calendar",
+     "network",
+     "phone"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "Title card with the Darsi mark and the Optimization track chip.",
+    "animation": "Mark pops in; title slides up.",
+    "on_screen_text": "Linear programming and the simplex method",
+    "voice": "Narrator",
+    "narration": "Today: linear programming, and how the simplex method finds the best corner."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:40",
+    "beat": "Definition",
+    "visual": "The garden model written as a small LP on a card.",
+    "animation": "Lines type themselves; each limit gets its label.",
+    "on_screen_text": "Standard form",
+    "voice": "Narrator",
+    "narration": "A linear program has continuous variables, linear limits and a linear goal. In standard form: maximise c times x, subject to A x at most b, and x at least zero. The school garden is one: thirty x plus forty y, under limits on land, water and hours.",
+    "icons": [
+     "calculator"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "The shaded garden polygon; a dashed profit line slides up and stops on a corner.",
+    "animation": "The region shades; the line slides; the touching corner glows.",
+    "on_screen_text": "The best is at a corner",
+    "voice": "Narrator",
+    "narration": "Each limit cuts the plane in half, and the plans that keep them all form a convex polygon. A linear goal is a family of parallel lines. Slide it as far as you can, and the last point it touches is a corner.",
+    "icons": [
+     "grid",
+     "arrow",
+     "target"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:58",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "The polygon with a path of arrows between corners and the profit at each.",
+    "animation": "An arrow hops corner to corner; the profit counts up.",
+    "on_screen_text": "Corner to corner",
+    "voice": "Narrator",
+    "narration": "Simplex walks from corner to neighbouring corner, improving the goal each time, and stops when no neighbour is better. Because the polygon is convex, that corner is the best of all. In the garden: from the origin to six bean beds, then to three tomato and five bean beds, a profit of two hundred and ninety.",
+    "icons": [
+     "arrow",
+     "target"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:21",
+    "end": "1:34",
+    "beat": "Concept",
+    "visual": "Two paths across the polygon: one hopping along the edges, one cutting through the middle.",
+    "animation": "Both paths draw at once and reach the same corner.",
+    "on_screen_text": "Fast in practice",
+    "voice": "Narrator",
+    "narration": "In the worst case, simplex visits exponentially many corners, but in practice it’s fast. Interior-point methods cut through the middle, in polynomial time. GLOP, in Google’s OR-Tools, is a simplex solver.",
+    "icons": [
+     "gauge",
+     "cpu"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:34",
+    "end": "1:42",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma points at a polygon edge where the profit line lies flat along it. Three answer cards drop in.",
+    "animation": "Cards bounce in one by one.",
+    "on_screen_text": "Two optimal corners?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! A linear program’s best value is reached at two neighbouring corners. What does that tell you?"
+   },
+   {
+    "n": 8,
+    "start": "1:42",
+    "end": "2:02",
+    "beat": "Reveal",
+    "visual": "The garden LP with a mirror image: each limit gets a price tag.",
+    "animation": "Price tags drop onto the three limits.",
+    "on_screen_text": "Duality and shadow prices",
+    "voice": "Narrator",
+    "narration": "Every point on the edge between them is optimal too. Now the second big idea: every linear program has a twin, its dual, whose variables are prices for the limits. A limit’s shadow price is how much the best goal improves if that limit grows by one.",
+    "icons": [
+     "scale",
+     "tag"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "2:02",
+    "end": "2:24",
+    "beat": "Examples",
+    "visual": "A bar chart of the three shadow prices.",
+    "animation": "Bars grow; the water bar stays at zero with a ‘spare’ tag.",
+    "on_screen_text": "The garden’s shadow prices",
+    "voice": "Narrator",
+    "narration": "In the garden, one more pupil-hour is worth five, one more bed of land twenty-five, and water nothing, because three cans are spare. That’s complementary slackness: a limit with room to spare has a price of zero. Solvers report these dual values: in OR-Tools, ask each constraint for its dual value. Solving again with the limit one larger gives the same five.",
+    "icons": [
+     "leaf",
+     "clock",
+     "droplets"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:24",
+    "end": "2:37",
+    "beat": "Examples",
+    "visual": "A plate with rice, groundnuts and greens; three gauges for energy, protein and iron.",
+    "animation": "Energy and iron gauges stop exactly at the line; protein overshoots.",
+    "on_screen_text": "The diet problem",
+    "voice": "Narrator",
+    "narration": "The diet problem was one of the first linear programs. The cheapest school lunch costs forty-one coins, with energy and iron met exactly. Protein comes free, so its shadow price is zero.",
+    "icons": [
+     "apple",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:37",
+    "end": "2:50",
+    "beat": "Concept",
+    "visual": "Code typed on a card.",
+    "animation": "Lines type; the Solve line highlights.",
+    "on_screen_text": "The model in OR-Tools",
+    "voice": "Mr Joseph",
+    "narration": "In OR-Tools, the whole model is a few lines. Make a solver, add the variables and the limits, set the goal, and GLOP solves it. The same program runs unchanged in Colab.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:50",
+    "end": "3:00",
+    "beat": "Lab preview",
+    "visual": "A phone with the diet lab: food buttons, nutrient bars, the list of corners visited.",
+    "animation": "A finger presses ‘Find the cheapest’; the corner list fills.",
+    "on_screen_text": "App lab: School lunch for less",
+    "voice": "Narrator",
+    "narration": "In the app, build a school lunch, then press find the cheapest. Read the corners the simplex method visited, and which needs are met exactly.",
+    "icons": [
+     "apple",
+     "list",
+     "gauge"
+    ]
+   },
+   {
+    "n": 13,
+    "start": "3:00",
+    "end": "3:09",
+    "beat": "Checkpoint ◆",
+    "visual": "Ms Salma beside the protein gauge at 23 with a line at 20. Three answer cards appear.",
+    "animation": "Cards bounce in.",
+    "on_screen_text": "Protein’s shadow price?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. In the cheapest lunch, protein comes to twenty-three grams against a need of twenty. What is protein’s shadow price?"
+   },
+   {
+    "n": 14,
+    "start": "3:09",
+    "end": "3:25",
+    "beat": "Recap",
+    "visual": "Four summary lines and a takeaway bar.",
+    "animation": "Lines tick in; the takeaway slides up.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Zero: a limit with room to spare costs nothing. Remember: the feasible set is convex, and the best is at a corner. Simplex walks from corner to corner. And shadow prices tell you what each limit is worth.",
+    "icons": [
+     "grid",
+     "arrow",
+     "tag"
+    ]
+   },
+   {
+    "n": 15,
+    "start": "3:25",
+    "end": "3:36",
+    "beat": "Try it tomorrow",
+    "visual": "A student at a desk with a phone and a notebook: the model, then ‘295 − 290 = 5’.",
+    "animation": "The two profits appear; the difference circles itself.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write the garden as a linear program in GLOP. Then add one hour, solve again, and check that the profit rises by five.",
+    "icons": [
+     "keyboard",
+     "clock",
+     "check"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:38",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A linear program’s best value is reached at two neighbouring corners. What does that tell you?",
+    "options": [
+     {
+      "text": "There’s a mistake in the model",
+      "correct": false
+     },
+     {
+      "text": "Every point on the edge between them is optimal too",
+      "correct": true
+     },
+     {
+      "text": "Only those two corners are optimal",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the goal line lies along that edge, so every point on it gives the same best value.",
+    "feedback_wrong": "Not quite — when two neighbouring corners tie, the goal line lies along the edge between them, so every point on it is optimal.",
+    "resume_at": "1:42"
+   },
+   {
+    "at": "3:05",
+    "after_scene": 13,
+    "type": "choice",
+    "prompt": "In the cheapest lunch, protein comes to 23 g against a need of 20 g. What is protein’s shadow price?",
+    "options": [
+     {
+      "text": "Zero: the limit has room to spare",
+      "correct": true
+     },
+     {
+      "text": "3: the spare grams",
+      "correct": false
+     },
+     {
+      "text": "41: the cost of lunch",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — protein has 3 g to spare, so one more gram of need costs nothing: its shadow price is zero.",
+    "feedback_wrong": "Not quite — a limit with room to spare doesn’t shape the answer. Raising protein’s need by 1 g changes nothing, so its price is zero.",
+    "resume_at": "3:09"
+   }
+  ]
+ }
+}

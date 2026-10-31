@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:01.890
+Ms Salma's mark sheet
+
+2
+00:00:01.890 --> 00:00:03.290
+looks perfect on paper.
+
+3
+00:00:03.950 --> 00:00:06.090
+But when I asked the computer for the
+
+4
+00:00:06.090 --> 00:00:08.190
+average, it gave me an error.
+
+5
+00:00:08.830 --> 00:00:11.810
+Merged cells, a Total row, and
+
+6
+00:00:11.810 --> 00:00:13.590
+two marks in one cell!
+
+7
+00:00:14.800 --> 00:00:18.080
+Today: sheets a computer can use, and a
+
+8
+00:00:18.080 --> 00:00:19.940
+first look at Python reading them.
+
+9
+00:00:21.140 --> 00:00:24.280
+A computer reads a sheet very literally.
+
+10
+00:00:25.070 --> 00:00:26.970
+It needs one header row,
+
+11
+00:00:26.970 --> 00:00:29.090
+then one row per pupil.
+
+12
+00:00:29.780 --> 00:00:33.160
+One fact per column, one value per cell.
+
+13
+00:00:33.790 --> 00:00:36.250
+No merged cells, no blank rows,
+
+14
+00:00:36.630 --> 00:00:38.290
+and no totals in between.
+
+15
+00:00:39.580 --> 00:00:40.520
+Keep two sheets.
+
+16
+00:00:41.370 --> 00:00:43.730
+The raw data, exactly as collected,
+
+17
+00:00:44.190 --> 00:00:45.570
+which you never type over.
+
+18
+00:00:46.130 --> 00:00:48.970
+And a summary sheet, where formulas like
+
+19
+00:00:48.970 --> 00:00:52.850
+AVERAGE and COUNTIF work on the tidy data.
+
+20
+00:00:54.090 --> 00:00:56.090
+Filters and sorting work too,
+
+21
+00:00:56.390 --> 00:00:57.530
+once the sheet is tidy.
+
+22
+00:00:58.120 --> 00:00:59.880
+Show only Six B.
+
+23
+00:01:00.600 --> 00:01:02.820
+Sort by maths mark, highest first.
+
+24
+00:01:03.540 --> 00:01:05.880
+And because every row is complete,
+
+25
+00:01:06.460 --> 00:01:07.720
+nothing gets left behind.
+
+26
+00:01:09.020 --> 00:01:11.940
+Save the tidy sheet as CSV, and a
+
+27
+00:01:11.940 --> 00:01:13.120
+program can read it too.
+
+28
+00:01:13.700 --> 00:01:16.740
+In Python, import csv, open the
+
+29
+00:01:16.740 --> 00:01:18.720
+file, and read it row by row.
+
+30
+00:01:19.300 --> 00:01:22.460
+Each row arrives as a dictionary: you
+
+31
+00:01:22.460 --> 00:01:24.020
+ask for a column by its name.
+
+32
+00:01:25.210 --> 00:01:27.250
+To add the marks, turn the text
+
+33
+00:01:27.250 --> 00:01:28.970
+into numbers with int.
+
+34
+00:01:29.650 --> 00:01:31.310
+Keep a running total, and
+
+35
+00:01:31.310 --> 00:01:32.950
+count the rows as you go.
+
+36
+00:01:33.500 --> 00:01:35.540
+Then divide: that's the average.
+
+37
+00:01:36.890 --> 00:01:37.470
+Quick check!
+
+38
+00:01:38.260 --> 00:01:40.740
+My sheet had a Total row
+
+39
+00:01:40.740 --> 00:01:41.920
+right under the pupils.
+
+40
+00:01:42.720 --> 00:01:44.940
+Why did the computer's average
+
+41
+00:01:44.940 --> 00:01:47.040
+come out far too high?
+
+42
+00:01:48.250 --> 00:01:50.730
+The Total row counted as one more
+
+43
+00:01:50.730 --> 00:01:52.870
+pupil, with a huge mark.
+
+44
+00:01:53.540 --> 00:01:54.980
+Keep totals on the summary
+
+45
+00:01:54.980 --> 00:01:57.160
+sheet, never inside the data.
+
+46
+00:01:57.800 --> 00:02:00.400
+Then the average is honest, whether a
+
+47
+00:02:00.400 --> 00:02:02.440
+person or a program works it out.
+
+48
+00:02:03.660 --> 00:02:05.480
+In the app, Mr Bello's sheet
+
+49
+00:02:05.480 --> 00:02:07.360
+answers three questions wrong.
+
+50
+00:02:08.010 --> 00:02:10.730
+Make one fix at a time, and read the
+
+51
+00:02:10.730 --> 00:02:12.530
+reason under each wrong answer.
+
+52
+00:02:13.180 --> 00:02:14.800
+Notice when the marks column
+
+53
+00:02:14.800 --> 00:02:16.880
+turns from text into numbers.
+
+54
+00:02:18.220 --> 00:02:18.980
+Your turn.
+
+55
+00:02:19.600 --> 00:02:21.960
+Python reads every value in
+
+56
+00:02:21.960 --> 00:02:23.520
+a CSV file as text.
+
+57
+00:02:24.120 --> 00:02:26.940
+What must I do before I add up the marks?
+
+58
+00:02:28.220 --> 00:02:29.660
+Turn each value into a
+
+59
+00:02:29.660 --> 00:02:32.160
+number with int, then add.
+
+60
+00:02:32.790 --> 00:02:36.170
+Remember: one row per thing, one value
+
+61
+00:02:36.170 --> 00:02:38.810
+per cell, and no totals inside.
+
+62
+00:02:39.580 --> 00:02:41.600
+Keep the raw data, and
+
+63
+00:02:41.600 --> 00:02:43.320
+summarise on another sheet.
+
+64
+00:02:43.940 --> 00:02:46.440
+And a tidy CSV can be read by
+
+65
+00:02:46.440 --> 00:02:48.160
+people and programs alike.
+
+66
+00:02:49.500 --> 00:02:51.940
+Try it in class tomorrow: give groups a
+
+67
+00:02:51.940 --> 00:02:54.200
+messy paper mark sheet you made up, with
+
+68
+00:02:54.200 --> 00:02:57.520
+merged cells, totals and two marks in a
+
+69
+00:02:57.520 --> 00:02:57.700
+cell.
+
+70
+00:02:58.250 --> 00:03:00.510
+They redraw it as a tidy table.
+
+71
+00:03:01.100 --> 00:03:03.760
+Then compare: whose table gives
+
+72
+00:03:03.760 --> 00:03:05.180
+the right class average?

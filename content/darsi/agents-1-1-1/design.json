@@ -1,0 +1,406 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Confident, but made up",
+            "ar-EG": "واثق، بس متألّف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "accent",
+          "text": {
+            "en": "How could it check?",
+            "ar-EG": "يراجع إزاي؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Writes text back to you",
+            "ar-EG": "بيرد بكلام مكتوب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Predicts likely words",
+            "ar-EG": "بيتوقع كلام محتمل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Can’t look up or act alone",
+            "ar-EG": "لوحده مش بيدوّر ولا بيعمل"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "chat"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Timetable",
+            "ar-EG": "جدول الحصص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather",
+            "ar-EG": "الطقس"
+          },
+          "s": 1,
+          "o": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Calculator",
+            "ar-EG": "آلة حاسبة"
+          },
+          "s": 1,
+          "o": 1.8
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Reminder",
+            "ar-EG": "تذكير"
+          },
+          "s": 1,
+          "o": 2.6
+        }
+      ],
+      "aside": "wand"
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "A tool",
+              "ar-EG": "أداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "model",
+            "text": {
+              "en": "Request",
+              "ar-EG": "الطلب"
+            }
+          },
+          {
+            "from": "model",
+            "to": "model",
+            "text": {
+              "en": "Plan",
+              "ar-EG": "الخطة"
+            }
+          },
+          {
+            "from": "model",
+            "to": "tool",
+            "text": {
+              "en": "Tool call",
+              "ar-EG": "طلب الأداة"
+            }
+          },
+          {
+            "from": "tool",
+            "to": "model",
+            "text": {
+              "en": "Result",
+              "ar-EG": "النتيجة"
+            },
+            "reply": true
+          },
+          {
+            "from": "model",
+            "to": "you",
+            "text": {
+              "en": "Answer",
+              "ar-EG": "الجواب"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "weather{\"place\":\"Kafi\",\n        \"day\":\"tomorrow\"}",
+        "s": 2
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The app runs the tool",
+            "ar-EG": "التطبيق بيشغّل الأداة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Result: sunny, 35°C, 10% rain",
+            "ar-EG": "النتيجة: مشمس، 35°، مطر 10%"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "The model writes the answer",
+            "ar-EG": "النموذج بيكتب الجواب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "tone": "ok",
+          "text": {
+            "en": "That’s the loop",
+            "ar-EG": "دي الحلقة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "The model writes",
+            "ar-EG": "النموذج بيكتب"
+          },
+          {
+            "en": "The app does",
+            "ar-EG": "التطبيق بيعمل"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "A plan",
+              "ar-EG": "خطة"
+            },
+            {
+              "en": "Runs the tool",
+              "ar-EG": "يشغّل الأداة"
+            }
+          ],
+          [
+            {
+              "en": "A tool call",
+              "ar-EG": "طلب أداة"
+            },
+            {
+              "en": "Adds the result",
+              "ar-EG": "يضيف النتيجة"
+            }
+          ],
+          [
+            {
+              "en": "An answer",
+              "ar-EG": "جواب"
+            },
+            {
+              "en": "Can check first",
+              "ar-EG": "يقدر يراجع الأول"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "A phone assistant sets an alarm",
+            "ar-EG": "مساعد الموبايل بيظبط المنبه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "A map: the route, then traffic",
+            "ar-EG": "الخريطة: الطريق، وبعدين الزحمة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "school",
+          "tone": "ok",
+          "text": {
+            "en": "At school: timetable, reminders, books",
+            "ar-EG": "في المدرسة: جدول، تذكيرات، كتب"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "next",
+          "text": {
+            "en": "Pick a request, press One step",
+            "ar-EG": "اختار طلب، ودوس خطوة واحدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Kafi to Dala: two tools",
+            "ar-EG": "من كافي لدالا: أداتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "accent",
+          "text": {
+            "en": "What it sees: one text",
+            "ar-EG": "اللي بيشوفه: نص واحد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A chatbot talks; an agent acts",
+            "ar-EG": "الشات بوت بيتكلم، والوكيل بيعمل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Request, plan, call, result, answer",
+            "ar-EG": "طلب، خطة، استدعاء، نتيجة، جواب"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "The model writes; the app runs",
+            "ar-EG": "النموذج بيكتب، والتطبيق بيشغّل"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "An agent is a language model in a loop with tools.",
+        "ar-EG": "الوكيل نموذج لغوي في حلقة ومعاه أدوات."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Human agent”",
+            "ar-EG": "العبوا «الوكيل البشري»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "The model writes a plan and a call",
+            "ar-EG": "النموذج يكتب خطة وطلب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "The tool answers from the board",
+            "ar-EG": "الأداة تجاوب من السبورة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Did the answer come from the result?",
+            "ar-EG": "الجواب جه من النتيجة؟"
+          },
+          "s": 3
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,295 @@
+{
+ "id": "CODE-S3-4",
+ "track": "code",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Functions, lists and algorithms"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Sorting",
+  "subtitle": "And how to judge an algorithm",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Sorting: And how to judge an algorithm",
+  "length": "3:00",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — the students’ maths teacher (main character)",
+   "Mr Joseph — the students’ computer studies teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A heap of results"
+   },
+   {
+    "at": "0:18",
+    "label": "Bubble and insertion"
+   },
+   {
+    "at": "0:49",
+    "label": "Merge, and counting work"
+   },
+   {
+    "at": "1:42",
+    "label": "Correct first"
+   },
+   {
+    "at": "2:35",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "Sports day results came in a heap of a hundred times, in no order. Two students sorted them in two different ways. Both got it right, but one did ten times the work.",
+    "icons": [
+     "list",
+     "users",
+     "gauge"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sorting",
+    "voice": "Narrator",
+    "narration": "Today: sorting, and how to judge an algorithm."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:33",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bubble sort",
+    "voice": "Narrator",
+    "narration": "Bubble sort is the simplest. Compare each pair of neighbours, and swap them if they’re in the wrong order. After one pass, the biggest value has bubbled to the end. Repeat until a pass makes no swaps.",
+    "icons": [
+     "layers",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:49",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Insertion sort",
+    "voice": "Narrator",
+    "narration": "Insertion sort works like sorting cards in your hand. Take the next card, and slide it left past every bigger one until it fits. On a list that’s nearly sorted, almost nothing has to move, so it’s very fast.",
+    "icons": [
+     "layers",
+     "hand"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:49",
+    "end": "1:05",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Merge sort: split and merge",
+    "voice": "Narrator",
+    "narration": "Merge sort is cleverer. Split the list in half, sort each half, then merge the two sorted halves by taking the smaller front item each time. For big lists it does far less work than bubble or insertion sort.",
+    "icons": [
+     "scissors",
+     "layers"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:23",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Count the work",
+    "voice": "Narrator",
+    "narration": "To compare algorithms fairly, count their steps, not the seconds on one phone. Bubble sort on n items does about n times n comparisons. Merge sort does about n times log n. For a thousand items, that’s a million against about ten thousand.",
+    "icons": [
+     "gauge",
+     "calculator"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:23",
+    "end": "1:31",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which is fastest here?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! A list of marks is already sorted, except two neighbours swapped. Which sort finishes with the fewest steps?"
+   },
+   {
+    "n": 8,
+    "start": "1:31",
+    "end": "1:42",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Insertion: nearly sorted is fast",
+    "voice": "Narrator",
+    "narration": "Insertion sort. Merge sort is best in general, but the best choice depends on the data. On a nearly sorted list, insertion sort barely moves anything.",
+    "icons": [
+     "circlecheck",
+     "layers"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:42",
+    "end": "1:58",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Correct first, then fast",
+    "voice": "Narrator",
+    "narration": "But speed means nothing if the answer is wrong. Judge an algorithm by correctness first. Test it on the edge cases: an empty list, one item, a list already sorted, a list in reverse, and repeated values.",
+    "icons": [
+     "check",
+     "search"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:58",
+    "end": "2:15",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Check it with is_sorted",
+    "voice": "Narrator",
+    "narration": "You can even let the computer check. A function, is sorted, walks through the list and compares each item with the next. If any pair is in the wrong order, the list isn’t sorted. Run it after every sort you write.",
+    "icons": [
+     "check",
+     "keyboard"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:15",
+    "end": "2:28",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: sorting race",
+    "voice": "Narrator",
+    "narration": "In the app, open Sorting race. Race eight bars, then thirty-two: bubble sort needs about sixteen times the comparisons, merge sort only about six. Then choose nearly sorted and watch insertion sort win.",
+    "icons": [
+     "layers",
+     "gauge",
+     "star"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:28",
+    "end": "2:35",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which test is missing?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. Your sort passes on five random lists. Which test should you add first?"
+   },
+   {
+    "n": 13,
+    "start": "2:35",
+    "end": "2:48",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bubble · insertion · merge · correct first",
+    "voice": "Narrator",
+    "narration": "The edge cases. Remember: bubble sort swaps neighbours; insertion slides each item into place; merge splits and merges. Judge correctness first, then count the work. And the best choice depends on the data."
+   },
+   {
+    "n": 14,
+    "start": "2:48",
+    "end": "3:00",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write ten numbers on cards and sort them twice, once by bubble sort and once by insertion sort. Count every comparison. Which needed fewer, and why?",
+    "icons": [
+     "pencil",
+     "repeat",
+     "calculator"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:29",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "A list is sorted except two swapped neighbours. Which sort finishes with the fewest steps?",
+    "options": [
+     {
+      "text": "Insertion sort",
+      "correct": true
+     },
+     {
+      "text": "Merge sort",
+      "correct": false
+     },
+     {
+      "text": "Selection sort",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — insertion sort only moves what is out of place, so a nearly sorted list takes about n steps.",
+    "feedback_wrong": "Not quite — merge and selection sort do their full work anyway; insertion sort barely moves anything here.",
+    "resume_at": "1:31"
+   },
+   {
+    "at": "2:33",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your sort passes on five random lists. Which test should you add first?",
+    "options": [
+     {
+      "text": "A sixth random list",
+      "correct": false
+     },
+     {
+      "text": "An empty list, and one with repeats",
+      "correct": true
+     },
+     {
+      "text": "A list of ten thousand items",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — edge cases are where sorts break: nothing to sort, or equal values.",
+    "feedback_wrong": "Not quite — more of the same proves little. Test the edges: empty, one item, repeats.",
+    "resume_at": "2:35"
+   }
+  ]
+ }
+}

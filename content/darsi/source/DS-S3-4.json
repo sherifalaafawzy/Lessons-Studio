@@ -1,0 +1,274 @@
+{
+ "id": "DS-S3-4",
+ "track": "data-science",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Predict with data"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "How good is my model?",
+  "subtitle": "Accuracy, mistakes and thresholds",
+  "minutes": 16,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "How good is my model?: Accuracy, mistakes and thresholds",
+  "length": "2:31",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Amina Bello - the students' teacher (main character)",
+   "Ms Farah - the students' head teacher (cameo)",
+   "Narrator - the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Ninety percent right"
+   },
+   {
+    "at": "0:19",
+    "label": "Two kinds of mistake"
+   },
+   {
+    "at": "1:00",
+    "label": "The threshold"
+   },
+   {
+    "at": "2:02",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Ms Farah",
+    "narration": "Our school tried a model to warn us early about pupils who might need extra help. It was ninety percent accurate. Then we noticed it had not warned us about a single pupil.",
+    "icons": [
+     "shield",
+     "users",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How good is my model?",
+    "voice": "Narrator",
+    "narration": "Today: how to judge a model by the mistakes it makes."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:34",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Accuracy: the share it gets right",
+    "voice": "Narrator",
+    "narration": "Accuracy is the share of cases the model gets right. But if only one pupil in ten needs help, a model that always says no help is already ninety percent accurate. Accuracy alone can hide a useless model.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Two kinds of mistake",
+    "voice": "Narrator",
+    "narration": "A model can make two kinds of mistake. A false alarm warns about a pupil who is fine. A miss stays quiet about a pupil who really needs help, and at school a miss usually costs more.",
+    "icons": [
+     "megaphone",
+     "eye"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:00",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A confusion matrix",
+    "voice": "Narrator",
+    "narration": "We count all four results for one hundred pupils. Eight were caught, two were missed, six were false alarms and eighty four were rightly left alone.",
+    "icons": [
+     "grid"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:16",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The threshold",
+    "voice": "Narrator",
+    "narration": "Many models give each pupil a score from zero to one. We choose a threshold, and pupils above it get a warning. Lower the threshold and you catch more pupils, but you also raise more false alarms.",
+    "icons": [
+     "gauge",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:16",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "People decide the trade-off",
+    "voice": "Ms Farah",
+    "narration": "Choosing the threshold is not a maths question. A false alarm costs a student a short chat, while a miss can cost a student a year. So the school chose a low threshold, and a person always checks each warning.",
+    "icons": [
+     "users",
+     "heart"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:43",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Is ninety percent good?",
+    "voice": "Ms Farah",
+    "narration": "Quick check! One pupil in ten needs help, and a model always says no help. It is ninety percent accurate. Is it a good model?"
+   },
+   {
+    "n": 9,
+    "start": "1:43",
+    "end": "1:52",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "No: it misses everyone",
+    "voice": "Narrator",
+    "narration": "No. It misses every single pupil who needs help. Always look at the misses and the false alarms, not only the accuracy.",
+    "icons": [
+     "circlex",
+     "eye"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:52",
+    "end": "2:02",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: move the threshold",
+    "voice": "Narrator",
+    "narration": "In the app, open the threshold lab. Slide the threshold down and up, and watch the four boxes of the confusion matrix change.",
+    "icons": [
+     "gauge",
+     "grid"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:02",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Lower the threshold",
+    "voice": "Amina",
+    "narration": "Your turn. What happens when we lower the threshold for a warning?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:18",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Look at the mistakes",
+    "voice": "Narrator",
+    "narration": "We catch more pupils, and we get more false alarms. Remember: accuracy can hide misses, count both kinds of mistake, and let people choose the threshold."
+   },
+   {
+    "n": 13,
+    "start": "2:18",
+    "end": "2:31",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: keep a rain forecast for a week, and note whether it rained each day. Fill a two by two table and decide which mistake was worse for you.",
+    "icons": [
+     "calendar",
+     "grid",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "1 pupil in 10 needs help, and a model always says no help. It is 90% accurate. Is it a good model?",
+    "options": [
+     {
+      "text": "Yes, 90% is high",
+      "correct": false
+     },
+     {
+      "text": "No, it misses every pupil who needs help",
+      "correct": true
+     },
+     {
+      "text": "Only if we add more pupils",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: high accuracy can hide a model that misses everyone.",
+    "feedback_wrong": "Not quite: it never warns, so it misses all the pupils it was built for.",
+    "resume_at": "1:43"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "What happens when we lower the threshold for a warning?",
+    "options": [
+     {
+      "text": "Fewer pupils are caught",
+      "correct": false
+     },
+     {
+      "text": "More are caught, with more false alarms",
+      "correct": true
+     },
+     {
+      "text": "Nothing changes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: a lower bar warns more pupils, right and wrong.",
+    "feedback_wrong": "Not quite: lowering the threshold warns more pupils, so both catches and false alarms rise.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

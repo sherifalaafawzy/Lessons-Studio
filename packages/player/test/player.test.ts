@@ -252,9 +252,9 @@ describe("player", () => {
     expect(wrap.getAttribute("dir")).toBe("rtl");
     expect(wrap.getAttribute("lang")).toBe("ar");
     expect(root.querySelector(".ls-cap")!.getAttribute("dir")).toBe("rtl");
-    // The Arabic title keeps "Prompt injection" together in an isolate.
+    // The Arabic title keeps "(Prompt injection)" together, brackets and all, in a left-to-right isolate.
     p.renderAt(1);
-    expect([...root.querySelectorAll(".ls-th-title bdi")].map((b) => b.textContent)).toEqual(["Prompt injection"]);
+    expect([...root.querySelectorAll(".ls-th-title bdi")].map((b) => b.textContent)).toEqual(["(Prompt injection)"]);
     // Player labels in Arabic, and no middle dot anywhere.
     expect(root.querySelector(".ls-play")!.getAttribute("aria-label")).toBe("تشغيل");
     expect(root.querySelector(".ls-player")!.textContent).not.toContain("·");

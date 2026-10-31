@@ -1,0 +1,261 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.370
+You drew the garden on graph paper:
+
+2
+00:00:02.870 --> 00:00:04.930
+two variables, three lines.
+
+3
+00:00:05.690 --> 00:00:07.250
+Our school timetable has
+
+4
+00:00:07.250 --> 00:00:08.410
+hundreds of choices.
+
+5
+00:00:09.180 --> 00:00:10.580
+Nobody can draw that.
+
+6
+00:00:11.210 --> 00:00:14.270
+So today, you’ll tell a computer instead.
+
+7
+00:00:15.840 --> 00:00:18.080
+Today: tell the computer, with
+
+8
+00:00:18.080 --> 00:00:19.500
+your first model in Python.
+
+9
+00:00:20.920 --> 00:00:24.480
+Google’s free toolkit, OR-Tools, has a
+
+10
+00:00:24.480 --> 00:00:26.180
+solver that searches for you.
+
+11
+00:00:26.730 --> 00:00:28.890
+You write the model: the
+
+12
+00:00:28.890 --> 00:00:31.970
+variables, the limits and the goal.
+
+13
+00:00:32.550 --> 00:00:34.850
+The solver finds the best plan.
+
+14
+00:00:35.520 --> 00:00:37.600
+It runs small models right here on
+
+15
+00:00:37.600 --> 00:00:39.540
+your phone, and the same program
+
+16
+00:00:39.540 --> 00:00:40.920
+runs on big computers.
+
+17
+00:00:42.320 --> 00:00:44.940
+First, make a model and its variables.
+
+18
+00:00:45.690 --> 00:00:47.650
+Each one is a whole number of
+
+19
+00:00:47.650 --> 00:00:49.350
+beds, from zero to ten.
+
+20
+00:00:50.530 --> 00:00:52.270
+Each limit is one line,
+
+21
+00:00:52.650 --> 00:00:53.450
+just like on paper.
+
+22
+00:00:54.080 --> 00:00:56.800
+Then the goal: make thirty x plus
+
+23
+00:00:56.800 --> 00:00:59.260
+forty y as big as possible.
+
+24
+00:01:00.450 --> 00:01:01.030
+Quick check!
+
+25
+00:01:01.820 --> 00:01:06.400
+What does this line say: model dot add, x
+
+26
+00:01:06.400 --> 00:01:10.200
+plus y, less than or equal to eight?
+
+27
+00:01:11.610 --> 00:01:15.890
+x plus y is at most eight: no
+
+28
+00:01:15.890 --> 00:01:17.330
+more than eight beds in all.
+
+29
+00:01:17.810 --> 00:01:21.290
+Read less than or equal as at most.
+
+30
+00:01:22.070 --> 00:01:23.870
+And read greater than or
+
+31
+00:01:23.870 --> 00:01:25.610
+equal as at least.
+
+32
+00:01:26.980 --> 00:01:29.180
+Then the solver solves the model,
+
+33
+00:01:29.640 --> 00:01:30.540
+and you print the answer.
+
+34
+00:01:31.150 --> 00:01:34.010
+It prints three and five: the
+
+35
+00:01:34.010 --> 00:01:35.050
+same corner you drew.
+
+36
+00:01:36.230 --> 00:01:38.450
+The solver also tells you what it found.
+
+37
+00:01:39.130 --> 00:01:41.530
+OPTIMAL means the best plan.
+
+38
+00:01:42.200 --> 00:01:45.020
+INFEASIBLE means no plan keeps every
+
+39
+00:01:45.020 --> 00:01:47.300
+rule: you asked for the impossible.
+
+40
+00:01:48.690 --> 00:01:51.690
+The solver obeys only the rules you write.
+
+41
+00:01:52.450 --> 00:01:54.130
+If every class should get a
+
+42
+00:01:54.130 --> 00:01:56.030
+bed, write it as a rule.
+
+43
+00:01:56.600 --> 00:01:58.620
+If you forget, the solver
+
+44
+00:01:58.620 --> 00:01:59.680
+won’t remind you.
+
+45
+00:02:00.800 --> 00:02:02.700
+In the app, open the timetable
+
+46
+00:02:02.700 --> 00:02:04.560
+example and press Run.
+
+47
+00:02:05.250 --> 00:02:08.510
+Then add one rule: class five A
+
+48
+00:02:08.510 --> 00:02:10.270
+has art in period four.
+
+49
+00:02:10.880 --> 00:02:12.780
+Run it again, and watch the
+
+50
+00:02:12.780 --> 00:02:14.540
+timetable rearrange itself.
+
+51
+00:02:15.880 --> 00:02:16.640
+Your turn.
+
+52
+00:02:17.260 --> 00:02:19.800
+The solver prints INFEASIBLE.
+
+53
+00:02:20.380 --> 00:02:21.300
+What does that mean?
+
+54
+00:02:22.540 --> 00:02:24.540
+No plan keeps all the rules:
+
+55
+00:02:25.220 --> 00:02:26.580
+one rule has to change.
+
+56
+00:02:27.420 --> 00:02:29.960
+Remember: variables, limits
+
+57
+00:02:29.960 --> 00:02:32.500
+and a goal, then solve.
+
+58
+00:02:33.190 --> 00:02:36.110
+Less than or equal means at most.
+
+59
+00:02:36.940 --> 00:02:38.500
+And the solver only knows
+
+60
+00:02:38.500 --> 00:02:39.480
+what you tell it.
+
+61
+00:02:40.560 --> 00:02:42.800
+Try it yourself: in the modeller
+
+62
+00:02:42.800 --> 00:02:45.000
+lab, open the truck example.
+
+63
+00:02:45.730 --> 00:02:49.530
+Change the capacity to eleven hundred, and
+
+64
+00:02:49.530 --> 00:02:51.590
+guess what changes before you run it.
+
+65
+00:02:52.180 --> 00:02:52.760
+Were you right?

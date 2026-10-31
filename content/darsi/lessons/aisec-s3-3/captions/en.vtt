@@ -1,0 +1,305 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.770
+Our leaf spotter kept getting it wrong.
+
+2
+00:00:03.450 --> 00:00:05.650
+The whole school had labelled its
+
+3
+00:00:05.650 --> 00:00:08.230
+photos, and a few labels were flipped.
+
+4
+00:00:09.010 --> 00:00:10.770
+One student had done it on
+
+5
+00:00:10.770 --> 00:00:11.930
+purpose, as a joke.
+
+6
+00:00:13.190 --> 00:00:15.930
+Today: how poisoned data breaks a
+
+7
+00:00:15.930 --> 00:00:17.790
+model, and how to find it with a
+
+8
+00:00:17.790 --> 00:00:18.670
+few lines of Python.
+
+9
+00:00:20.020 --> 00:00:22.440
+A model learns from its examples, so
+
+10
+00:00:22.440 --> 00:00:24.660
+whoever touches the data can steer it.
+
+11
+00:00:25.210 --> 00:00:28.410
+Poisoning means slipping in wrong or
+
+12
+00:00:28.410 --> 00:00:31.910
+planted examples: flipped labels, fake
+
+13
+00:00:31.910 --> 00:00:34.170
+reviews, edited web pages.
+
+14
+00:00:34.920 --> 00:00:36.840
+Nobody has to touch the model itself.
+
+15
+00:00:38.390 --> 00:00:40.610
+A sneakier kind is a backdoor.
+
+16
+00:00:41.290 --> 00:00:44.230
+The attacker plants a trigger, like a
+
+17
+00:00:44.230 --> 00:00:47.470
+small sticker or a rare word, and
+
+18
+00:00:47.470 --> 00:00:49.510
+labels those examples their way.
+
+19
+00:00:50.060 --> 00:00:52.860
+The model passes every normal test, and
+
+20
+00:00:52.860 --> 00:00:55.400
+misbehaves only when the trigger appears.
+
+21
+00:00:56.770 --> 00:00:59.090
+So how do you find poison?
+
+22
+00:00:59.850 --> 00:01:01.370
+Look at each example's neighbours.
+
+23
+00:01:02.170 --> 00:01:04.670
+A leaf labelled sick, with healthy
+
+24
+00:01:04.670 --> 00:01:07.450
+leaves on both sides, is suspicious.
+
+25
+00:01:08.500 --> 00:01:11.020
+The lab does the same: points whose
+
+26
+00:01:11.020 --> 00:01:13.160
+neighbours disagree get flagged.
+
+27
+00:01:14.230 --> 00:01:15.270
+Here it is in Python.
+
+28
+00:01:16.110 --> 00:01:17.550
+The labels are in order of
+
+29
+00:01:17.550 --> 00:01:19.170
+how yellow each leaf is.
+
+30
+00:01:19.820 --> 00:01:22.320
+For each one, compare it with the leaf
+
+31
+00:01:22.320 --> 00:01:24.480
+on its left and on its right.
+
+32
+00:01:25.120 --> 00:01:27.100
+If both disagree, flag it
+
+33
+00:01:27.100 --> 00:01:28.040
+for a person to check.
+
+34
+00:01:29.280 --> 00:01:29.860
+Quick check!
+
+35
+00:01:30.650 --> 00:01:33.830
+In order, the labels read: healthy,
+
+36
+00:01:34.470 --> 00:01:38.030
+healthy, sick, healthy, healthy.
+
+37
+00:01:38.810 --> 00:01:40.290
+Which one gets flagged?
+
+38
+00:01:41.420 --> 00:01:42.800
+The sick one in the middle:
+
+39
+00:01:43.400 --> 00:01:44.580
+both neighbours disagree.
+
+40
+00:01:45.410 --> 00:01:45.970
+But careful.
+
+41
+00:01:46.840 --> 00:01:48.820
+Honest examples at the edge of a
+
+42
+00:01:48.820 --> 00:01:50.540
+group get flagged sometimes too.
+
+43
+00:01:51.150 --> 00:01:54.310
+So code only flags; a person looks,
+
+44
+00:01:54.730 --> 00:01:57.210
+decides, and writes down what was removed.
+
+45
+00:01:58.500 --> 00:02:00.680
+Other defences stop poison getting in.
+
+46
+00:02:01.250 --> 00:02:02.870
+Know where your data came from.
+
+47
+00:02:03.540 --> 00:02:05.460
+Let three people label each
+
+48
+00:02:05.460 --> 00:02:07.400
+example, and keep the majority.
+
+49
+00:02:08.120 --> 00:02:10.640
+And keep a clean test set nobody
+
+50
+00:02:10.640 --> 00:02:12.500
+else can touch: if its score
+
+51
+00:02:12.500 --> 00:02:14.720
+suddenly drops, something got in.
+
+52
+00:02:15.880 --> 00:02:18.460
+In the app, flip some labels and train:
+
+53
+00:02:18.740 --> 00:02:21.460
+the line moves and accuracy falls.
+
+54
+00:02:22.280 --> 00:02:25.480
+Press “Find the odd ones out”, see how
+
+55
+00:02:25.480 --> 00:02:27.240
+many flagged points were really
+
+56
+00:02:27.240 --> 00:02:29.920
+poisoned, then drop them and retrain.
+
+57
+00:02:31.120 --> 00:02:31.880
+Your turn.
+
+58
+00:02:32.500 --> 00:02:35.380
+New data was added last night, and this
+
+59
+00:02:35.380 --> 00:02:38.020
+morning the score on your locked test set
+
+60
+00:02:38.020 --> 00:02:40.520
+fell from ninety-six to eighty.
+
+61
+00:02:41.210 --> 00:02:42.470
+What do you do first?
+
+62
+00:02:43.830 --> 00:02:45.970
+Roll back and check the new data:
+
+63
+00:02:46.450 --> 00:02:47.990
+the drop is your warning.
+
+64
+00:02:48.580 --> 00:02:50.580
+Remember: whoever touches the
+
+65
+00:02:50.580 --> 00:02:52.380
+data can steer the model.
+
+66
+00:02:52.980 --> 00:02:54.800
+Backdoors hide until
+
+67
+00:02:54.800 --> 00:02:55.820
+their trigger appears.
+
+68
+00:02:56.750 --> 00:02:58.510
+Code flags odd examples,
+
+69
+00:02:58.890 --> 00:02:59.990
+and a person decides.
+
+70
+00:03:01.450 --> 00:03:03.490
+Try it tomorrow: with three
+
+71
+00:03:03.490 --> 00:03:05.650
+friends, label the same ten
+
+72
+00:03:05.650 --> 00:03:07.990
+pictures on your own, then compare.
+
+73
+00:03:08.790 --> 00:03:10.830
+Where you disagree, talk it
+
+74
+00:03:10.830 --> 00:03:12.510
+through and keep the majority.
+
+75
+00:03:13.180 --> 00:03:14.980
+That's how real datasets catch
+
+76
+00:03:14.980 --> 00:03:16.820
+careless and planted labels.

@@ -1,0 +1,287 @@
+{
+ "id": "AGENTS-3-1-2",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "How agents work: the loop, tools and memory"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "How it picks a tool",
+  "subtitle": "The tools line, the arguments, and the slips a model makes",
+  "minutes": 17,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "How it picks a tool",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — secondary maths teacher (main character)",
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (cameo)",
+   "Ms Amina Bello — primary teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Copying the wrong words"
+   },
+   {
+    "at": "0:20",
+    "label": "Picking and copying"
+   },
+   {
+    "at": "1:11",
+    "label": "How often it slips"
+   },
+   {
+    "at": "2:13",
+    "label": "Checks, and the lab"
+   },
+   {
+    "at": "2:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "A list: My request; A wrong copy; How it chooses.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "I asked an agent to explain the term malware. It looked up “the term malware”, not “malware”! So how does a model choose a tool, and why does it slip?",
+    "icons": [
+     "chat",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "How it picks a tool",
+    "voice": "Narrator",
+    "narration": "Today: how an agent picks a tool, and fills in the details."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:36",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "It reads two things",
+    "voice": "Narrator",
+    "narration": "Before your request, the app writes a tools line: the names of the tools that are on. The model reads that line and your words, and nothing else. From them, it picks one tool, or none."
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:53",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: reminder{\"text\":\"collect the homework\", …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Then it copies the details",
+    "voice": "Narrator",
+    "narration": "Each tool needs details, like a place and a day. The model copies them from your words into the call, so Kafi stays Kafi. Days and times go in a fixed form that the tool can read.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:53",
+    "end": "1:11",
+    "beat": "Definition",
+    "visual": "A list: weather: a place and a day; reminder: its text and a time; One missing? It should ask.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Arguments",
+    "voice": "Narrator",
+    "narration": "The details in a call are called its arguments. Each tool has its own: the weather needs a place and a day, a reminder needs its text and a time. When one is missing, a good agent asks.",
+    "icons": [
+     "sun",
+     "clock",
+     "help"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:11",
+    "end": "1:29",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "How often is it right?",
+    "voice": "Narrator",
+    "narration": "How good is Darsi Tiny? With wordings it was trained on, it gets the tool and every argument right ninety-six to ninety-eight times in a hundred. With new wordings, about seventy-eight to eighty. That’s roughly one slip in five."
+   },
+   {
+    "n": 7,
+    "start": "1:29",
+    "end": "1:36",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Why do new wordings slip?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Why does a new way of asking make Darsi Tiny slip more often?"
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:55",
+    "beat": "Reveal",
+    "visual": "A list: Learned patterns of wording; A new form fits less well; Big models: fewer slips, not none.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "It learned patterns of wording",
+    "voice": "Narrator",
+    "narration": "It learned patterns of wording. A small model has seen each kind of request in a few dozen forms, and a new form fits them less well. Big models have seen far more, so they slip less, but they still slip.",
+    "icons": [
+     "sparkle",
+     "type",
+     "cloud"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:55",
+    "end": "2:13",
+    "beat": "Examples",
+    "visual": "A list: “the term malware”; 9Z copied as 9C; France: the glossary, not “I can’t”.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Real slips from the lab",
+    "voice": "Narrator",
+    "narration": "Here are real slips from the lab. Asked about class 9Z, which doesn’t exist, it wrote 9C, a class it knows. And the capital of France, asked one way, sent it to the glossary instead of saying it can’t.",
+    "icons": [
+     "type",
+     "warning",
+     "book"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:13",
+    "end": "2:29",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "So the app checks every call",
+    "voice": "Narrator",
+    "narration": "So the app checks every call before it runs. Is the tool on? Did each name come from your words? Is the time a real time? A few lines of code catch these slips."
+   },
+   {
+    "n": 11,
+    "start": "2:29",
+    "end": "2:44",
+    "beat": "Lab preview",
+    "visual": "A list: Weather off: what now?; 9Z: read the check; France, asked two ways.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: how an agent picks a tool",
+    "voice": "Narrator",
+    "narration": "In the app, switch the weather tool off and ask about it. Ask what 9Z has tomorrow, and read the check under the call. Then ask about France, in two ways.",
+    "icons": [
+     "sun",
+     "filecheck",
+     "search"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:44",
+    "end": "2:53",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A reminder at nine?",
+    "voice": "Ms Amina",
+    "narration": "Your turn. I asked for a reminder at eight, and the call says nine. What should the app do?"
+   },
+   {
+    "n": 13,
+    "start": "2:53",
+    "end": "3:10",
+    "beat": "Recap",
+    "visual": "Summary points: The tools line and your words; Copied details; new wordings slip; The app checks every call.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The tools line and your words · Copied details; new wordings slip · The app checks every call",
+    "voice": "Narrator",
+    "narration": "Stop it, and ask me again: nine isn’t what I said. Remember: the model reads the tools line and your words. It copies details into arguments, and new wordings slip more. So the app checks every call."
+   },
+   {
+    "n": 14,
+    "start": "3:10",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "A list: One pupil plays the agent; A card of request patterns; Same request, five wordings; Which wordings slip?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Narrator",
+    "narration": "Try it in class tomorrow: one pupil plays the agent, with a card of request patterns. Classmates ask for the same thing in five ways. Which wordings make the agent slip?",
+    "icons": [
+     "users",
+     "list",
+     "chat",
+     "warning"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:33",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "Why does a new way of asking make Darsi Tiny slip more often?",
+    "options": [
+     {
+      "text": "It learned patterns of wording, and a new wording fits them less well",
+      "correct": true
+     },
+     {
+      "text": "It needs more time to think about new wordings",
+      "correct": false
+     },
+     {
+      "text": "Its tools change when the wording changes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — it learned patterns from the wordings in its training, so a new wording fits them less well: 96–98% right falls to about 78–80%.",
+    "feedback_wrong": "Not quite — its tools and its speed don’t change. It learned patterns of wording, and new ones fit them less well.",
+    "resume_at": "1:36"
+   },
+   {
+    "at": "2:50",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "You asked for a reminder at eight, and the call says nine. What should the app do?",
+    "options": [
+     {
+      "text": "Run it: nine is close enough",
+      "correct": false
+     },
+     {
+      "text": "Stop it, and ask you again",
+      "correct": true
+     },
+     {
+      "text": "Run it, and fix it later if needed",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — nine never appeared in your words, so the call is a slip. The app should stop it before it runs, and ask you again.",
+    "feedback_wrong": "Not quite — a wrong time means a wrong reminder. Stop the call before it runs, and ask again.",
+    "resume_at": "2:53"
+   }
+  ]
+ }
+}

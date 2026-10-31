@@ -1,0 +1,272 @@
+{
+ "id": "DATA-2-1-1",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Cleaning and organising data"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Tidy sheets a computer can use",
+  "subtitle": "The tidy rules, raw and summary sheets, and Python reading a CSV",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Tidy sheets a computer can use",
+  "length": "3:11",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Error!"
+   },
+   {
+    "at": "0:22",
+    "label": "The tidy rules"
+   },
+   {
+    "at": "1:05",
+    "label": "Python reads a CSV"
+   },
+   {
+    "at": "2:04",
+    "label": "The lab"
+   },
+   {
+    "at": "2:33",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "Icon cards: Perfect on paper; Error!; Why?. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Ms Salma's mark sheet looks perfect on paper. But when I asked the computer for the average, it gave me an error. Merged cells, a Total row, and two marks in one cell!",
+    "icons": [
+     "grid",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "Tidy sheets a computer can use",
+    "voice": "Narrator",
+    "narration": "Today: sheets a computer can use, and a first look at Python reading them."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:38",
+    "beat": "Concept",
+    "visual": "Numbered steps: One header row; One row per pupil; One value per cell; No merged cells, blanks or totals.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What a computer needs",
+    "voice": "Narrator",
+    "narration": "A computer reads a sheet very literally. It needs one header row, then one row per pupil. One fact per column, one value per cell. No merged cells, no blank rows, and no totals in between."
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "Two columns: “Raw data” (As collected; Never typed over) and “Summary” (=AVERAGE(C2:C31); =COUNTIF(D2:D31,\"P\")).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Raw data, then summaries",
+    "voice": "Narrator",
+    "narration": "Keep two sheets. The raw data, exactly as collected, which you never type over. And a summary sheet, where formulas like AVERAGE and COUNTIF work on the tidy data.",
+    "icons": [
+     "database",
+     "calculator",
+     "check",
+     "lock"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:51",
+    "end": "1:05",
+    "beat": "Examples",
+    "visual": "Rows of icon and text: Filter: only 6B; Sort: highest mark first; Every row comes along.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Filters and sorting just work",
+    "voice": "Narrator",
+    "narration": "Filters and sorting work too, once the sheet is tidy. Show only Six B. Sort by maths mark, highest first. And because every row is complete, nothing gets left behind.",
+    "icons": [
+     "filter",
+     "list",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:23",
+    "beat": "Definition",
+    "visual": "Code typed out on a card: import csv … Caption: Each row: a dictionary of column names and values",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Python reads the CSV",
+    "voice": "Narrator",
+    "narration": "Save the tidy sheet as CSV, and a program can read it too. In Python, import csv, open the file, and read it row by row. Each row arrives as a dictionary: you ask for a column by its name."
+   },
+   {
+    "n": 7,
+    "start": "1:23",
+    "end": "1:35",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: total = 0 … Caption: int() turns the text “14” into the number 14",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "From text to numbers",
+    "voice": "Narrator",
+    "narration": "To add the marks, turn the text into numbers with int. Keep a running total, and count the rows as you go. Then divide: that's the average."
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:48",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Why so high?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! My sheet had a Total row right under the pupils. Why did the computer's average come out far too high?"
+   },
+   {
+    "n": 9,
+    "start": "1:48",
+    "end": "2:04",
+    "beat": "Reveal",
+    "visual": "Rows of icon and text: Total row inside: a fake pupil; Totals on the summary sheet; An honest average.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Totals belong on the summary",
+    "voice": "Narrator",
+    "narration": "The Total row counted as one more pupil, with a huge mark. Keep totals on the summary sheet, never inside the data. Then the average is honest, whether a person or a program works it out.",
+    "icons": [
+     "cross",
+     "check",
+     "circlecheck"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:04",
+    "end": "2:20",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: A sheet that looks fine; One fix at a time; Text becomes numbers.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: tidy tables",
+    "voice": "Narrator",
+    "narration": "In the app, Mr Bello's sheet answers three questions wrong. Make one fix at a time, and read the reason under each wrong answer. Notice when the marks column turns from text into numbers.",
+    "icons": [
+     "grid",
+     "pencil",
+     "type"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:20",
+    "end": "2:33",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Before adding up?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Python reads every value in a CSV file as text. What must I do before I add up the marks?"
+   },
+   {
+    "n": 12,
+    "start": "2:33",
+    "end": "2:53",
+    "beat": "Recap",
+    "visual": "Summary card: One row per thing, one value per cell; Raw data stays untouched; Summaries on another sheet; Python reads a tidy CSV. Takeaway bar: Tidy it once, and every tool can use it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "Turn each value into a number with int, then add. Remember: one row per thing, one value per cell, and no totals inside. Keep the raw data, and summarise on another sheet. And a tidy CSV can be read by people and programs alike."
+   },
+   {
+    "n": 13,
+    "start": "2:53",
+    "end": "3:11",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: A made-up messy sheet; Groups redraw it tidy; Check the class average. Mr Joseph beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Mr Joseph",
+    "narration": "Try it in class tomorrow: give groups a messy paper mark sheet you made up, with merged cells, totals and two marks in a cell. They redraw it as a tidy table. Then compare: whose table gives the right class average?",
+    "icons": [
+     "file",
+     "pencil",
+     "calculator"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:45",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A Total row sat right under the pupils. Why did the computer's average come out far too high?",
+    "options": [
+     {
+      "text": "The Total row counted as a pupil with a huge mark",
+      "correct": true
+     },
+     {
+      "text": "Computers can't work out averages",
+      "correct": false
+     },
+     {
+      "text": "The marks were out of 20, not 100",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — to a computer, the Total row is one more pupil with a huge mark. Keep totals on the summary sheet.",
+    "feedback_wrong": "Not quite — the computer averages every row, so the Total row counts as a pupil with a huge mark.",
+    "resume_at": "1:48"
+   },
+   {
+    "at": "2:30",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Python reads every value in a CSV file as text. What must you do before adding up the marks?",
+    "options": [
+     {
+      "text": "Turn each one into a number with int()",
+      "correct": true
+     },
+     {
+      "text": "Sort the rows first",
+      "correct": false
+     },
+     {
+      "text": "Delete the header row",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — int() turns the text “14” into the number 14, and numbers can be added.",
+    "feedback_wrong": "Not quite — the values are text, and text can't be added like numbers. int() turns each one into a number.",
+    "resume_at": "2:33"
+   }
+  ]
+ }
+}

@@ -1,0 +1,301 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.570
+Sports day results came in a heap of
+
+2
+00:00:03.570 --> 00:00:06.070
+a hundred times, in no order.
+
+3
+00:00:06.710 --> 00:00:08.610
+Two students sorted them in
+
+4
+00:00:08.610 --> 00:00:09.750
+two different ways.
+
+5
+00:00:10.500 --> 00:00:12.880
+Both got it right, but one
+
+6
+00:00:12.880 --> 00:00:14.580
+did ten times the work.
+
+7
+00:00:15.900 --> 00:00:18.040
+Today: sorting, and how to
+
+8
+00:00:18.040 --> 00:00:18.980
+judge an algorithm.
+
+9
+00:00:20.380 --> 00:00:21.760
+Bubble sort is the simplest.
+
+10
+00:00:22.610 --> 00:00:25.250
+Compare each pair of neighbours, and swap
+
+11
+00:00:25.250 --> 00:00:26.690
+them if they’re in the wrong order.
+
+12
+00:00:27.300 --> 00:00:29.080
+After one pass, the biggest
+
+13
+00:00:29.080 --> 00:00:30.740
+value has bubbled to the end.
+
+14
+00:00:31.310 --> 00:00:34.050
+Repeat until a pass makes no swaps.
+
+15
+00:00:35.270 --> 00:00:37.010
+Insertion sort works like
+
+16
+00:00:37.010 --> 00:00:38.590
+sorting cards in your hand.
+
+17
+00:00:39.230 --> 00:00:41.870
+Take the next card, and slide it left
+
+18
+00:00:41.870 --> 00:00:44.530
+past every bigger one until it fits.
+
+19
+00:00:45.230 --> 00:00:47.310
+On a list that’s nearly sorted, almost
+
+20
+00:00:47.310 --> 00:00:50.150
+nothing has to move, so it’s very fast.
+
+21
+00:00:51.530 --> 00:00:53.270
+Merge sort is cleverer.
+
+22
+00:00:53.830 --> 00:00:56.550
+Split the list in half, sort each half,
+
+23
+00:00:56.890 --> 00:00:59.690
+then merge the two sorted halves by taking
+
+24
+00:00:59.690 --> 00:01:01.530
+the smaller front item each time.
+
+25
+00:01:02.100 --> 00:01:04.780
+For big lists it does far less work
+
+26
+00:01:04.780 --> 00:01:06.660
+than bubble or insertion sort.
+
+27
+00:01:07.930 --> 00:01:10.670
+To compare algorithms fairly, count their
+
+28
+00:01:10.670 --> 00:01:12.950
+steps, not the seconds on one phone.
+
+29
+00:01:13.610 --> 00:01:15.810
+Bubble sort on n items does
+
+30
+00:01:15.810 --> 00:01:18.150
+about n times n comparisons.
+
+31
+00:01:19.280 --> 00:01:22.280
+Merge sort does about n times log n.
+
+32
+00:01:22.880 --> 00:01:25.360
+For a thousand items, that’s a
+
+33
+00:01:25.360 --> 00:01:28.180
+million against about ten thousand.
+
+34
+00:01:29.330 --> 00:01:29.810
+Quick check!
+
+35
+00:01:30.450 --> 00:01:32.770
+A list of marks is already sorted,
+
+36
+00:01:33.210 --> 00:01:34.930
+except two neighbours swapped.
+
+37
+00:01:35.640 --> 00:01:38.900
+Which sort finishes with the fewest steps?
+
+38
+00:01:40.270 --> 00:01:41.210
+Insertion sort.
+
+39
+00:01:41.880 --> 00:01:44.920
+Merge sort is best in general, but the
+
+40
+00:01:44.920 --> 00:01:46.460
+best choice depends on the data.
+
+41
+00:01:47.140 --> 00:01:49.980
+On a nearly sorted list, insertion
+
+42
+00:01:49.980 --> 00:01:51.500
+sort barely moves anything.
+
+43
+00:01:52.820 --> 00:01:55.040
+But speed means nothing if
+
+44
+00:01:55.040 --> 00:01:56.060
+the answer is wrong.
+
+45
+00:01:56.750 --> 00:01:59.550
+Judge an algorithm by correctness first.
+
+46
+00:02:00.310 --> 00:02:03.590
+Test it on the edge cases: an empty list,
+
+47
+00:02:04.070 --> 00:02:07.810
+one item, a list already sorted, a list in
+
+48
+00:02:07.810 --> 00:02:09.890
+reverse, and repeated values.
+
+49
+00:02:11.270 --> 00:02:13.150
+You can even let the computer check.
+
+50
+00:02:13.820 --> 00:02:16.640
+A function, is sorted, walks through the
+
+51
+00:02:16.640 --> 00:02:19.340
+list and compares each item with the next.
+
+52
+00:02:20.020 --> 00:02:21.620
+If any pair is in the wrong
+
+53
+00:02:21.620 --> 00:02:23.720
+order, the list isn’t sorted.
+
+54
+00:02:24.380 --> 00:02:26.240
+Run it after every sort you write.
+
+55
+00:02:27.490 --> 00:02:29.770
+In the app, open Sorting race.
+
+56
+00:02:30.530 --> 00:02:33.690
+Race eight bars, then thirty-two: bubble
+
+57
+00:02:33.690 --> 00:02:36.190
+sort needs about sixteen times the
+
+58
+00:02:36.190 --> 00:02:39.030
+comparisons, merge sort only about six.
+
+59
+00:02:39.740 --> 00:02:42.220
+Then choose nearly sorted and
+
+60
+00:02:42.220 --> 00:02:43.740
+watch insertion sort win.
+
+61
+00:02:44.980 --> 00:02:45.720
+Your turn.
+
+62
+00:02:46.360 --> 00:02:49.940
+Your sort passes on five random lists.
+
+63
+00:02:50.680 --> 00:02:52.440
+Which test should you add first?
+
+64
+00:02:53.860 --> 00:02:54.640
+The edge cases.
+
+65
+00:02:55.560 --> 00:02:57.900
+Remember: bubble sort swaps
+
+66
+00:02:57.900 --> 00:03:01.120
+neighbours; insertion slides each item
+
+67
+00:03:01.120 --> 00:03:04.480
+into place; merge splits and merges.
+
+68
+00:03:05.170 --> 00:03:06.710
+Judge correctness first,
+
+69
+00:03:06.710 --> 00:03:08.390
+then count the work.
+
+70
+00:03:09.030 --> 00:03:11.230
+And the best choice depends on the data.
+
+71
+00:03:12.500 --> 00:03:15.240
+Try it yourself: write ten numbers on
+
+72
+00:03:15.240 --> 00:03:18.500
+cards and sort them twice, once by bubble
+
+73
+00:03:18.500 --> 00:03:21.100
+sort and once by insertion sort.
+
+74
+00:03:21.730 --> 00:03:23.210
+Count every comparison.
+
+75
+00:03:24.040 --> 00:03:26.080
+Which needed fewer, and why?

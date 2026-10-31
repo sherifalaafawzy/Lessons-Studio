@@ -1,0 +1,324 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "The library",
+            "ar-EG": "المكتبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "11,000 loans",
+            "ar-EG": "11,000 سجل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "tone": "ok",
+          "text": {
+            "en": "Five lines",
+            "ar-EG": "خمس سطور"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT title, day FROM loans WHERE class = '5B' ORDER BY day DESC LIMIT 3",
+        "tables": {
+          "loans": {
+            "cols": [
+              "title",
+              "class",
+              "day"
+            ],
+            "rows": [
+              [
+                "Maths",
+                "5B",
+                2
+              ],
+              [
+                "Atlas",
+                "5A",
+                4
+              ],
+              [
+                "Poems",
+                "5B",
+                5
+              ],
+              [
+                "Maps",
+                "5B",
+                9
+              ],
+              [
+                "Stories",
+                "6A",
+                10
+              ],
+              [
+                "Atlas",
+                "5B",
+                12
+              ]
+            ]
+          }
+        },
+        "at": {
+          "where": 0,
+          "order": 1
+        }
+      }
+    },
+    "4": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT class, COUNT(*) AS n FROM loans GROUP BY class ORDER BY n DESC LIMIT 1",
+        "tables": {
+          "loans": {
+            "cols": [
+              "title",
+              "class",
+              "day"
+            ],
+            "rows": [
+              [
+                "Maths",
+                "5B",
+                2
+              ],
+              [
+                "Atlas",
+                "5A",
+                4
+              ],
+              [
+                "Poems",
+                "5B",
+                5
+              ],
+              [
+                "Maps",
+                "5B",
+                9
+              ],
+              [
+                "Stories",
+                "6A",
+                10
+              ],
+              [
+                "Atlas",
+                "5B",
+                12
+              ]
+            ]
+          }
+        },
+        "at": {
+          "group": 0,
+          "order": 1
+        }
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Many rows → one value",
+            "ar-EG": "صفوف كتير ← قيمة واحدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "They skip NULL",
+            "ar-EG": "بتسيب ⁦NULL⁩"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "tone": "accent",
+          "text": {
+            "en": "Except COUNT(*)",
+            "ar-EG": "ما عدا ⁦COUNT(*)⁩"
+          },
+          "s": 1,
+          "o": 3
+        }
+      ]
+    },
+    "7": {
+      "table": {
+        "cols": [
+          {
+            "en": "COUNT(*)",
+            "ar-EG": "⁦COUNT(*)⁩"
+          },
+          {
+            "en": "COUNT(mark)",
+            "ar-EG": "⁦COUNT(mark)⁩"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Every row: 12",
+              "ar-EG": "كل الصفوف: 12"
+            },
+            {
+              "en": "Skips NULL: 11",
+              "ar-EG": "بتسيب ⁦NULL: 11⁩"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "8": {
+      "who": null,
+      "code": {
+        "text": "n = {}\nfor row in csv.DictReader(f):\n    c = row[\"class\"]\n    n[c] = n.get(c, 0) + 1\nfor c in sorted(n):\n    print(c, n[c])",
+        "highlight": [
+          4
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Do the counts add up?",
+            "ar-EG": "الأعداد مجموعها مظبوط؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A group impossibly big?",
+            "ar-EG": "مجموعة كبيرة بشكل مستحيل؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Test on rows you can count",
+            "ar-EG": "جرّب على صفوف تعدّها"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Run an example",
+            "ar-EG": "شغّل مثال"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "AVG → MAX",
+            "ar-EG": "بدّل ⁦AVG⁩ بـ⁦MAX⁩"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Ask your own",
+            "ar-EG": "اسأل سؤالك"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "WHERE, ORDER BY, LIMIT",
+            "ar-EG": "⁦WHERE⁩ و⁦ORDER BY⁩ و⁦LIMIT⁩"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "GROUP BY: a row per group",
+            "ar-EG": "⁦GROUP BY⁩: صف لكل مجموعة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Aggregates skip NULL",
+            "ar-EG": "التجميع بيسيب ⁦NULL⁩"
+          },
+          "s": 2,
+          "o": 3
+        },
+        {
+          "text": {
+            "en": "Test on rows you know",
+            "ar-EG": "جرّب على صفوف تعرفها"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A query is a question; check its answer.",
+        "ar-EG": "الاستعلام سؤال، فراجع إجابته."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Three library questions",
+            "ar-EG": "تلات أسئلة للمكتبة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "keyboard",
+          "tone": "ok",
+          "text": {
+            "en": "Each one in SQL",
+            "ar-EG": "كل واحد بـ⁦SQL⁩"
+          },
+          "s": 1
+        }
+      ]
+    }
+  }
+}

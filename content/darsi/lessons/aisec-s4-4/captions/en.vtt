@@ -1,0 +1,337 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.870
+One of my students found a flaw in
+
+2
+00:00:02.870 --> 00:00:04.590
+the university's AI tutor.
+
+3
+00:00:05.220 --> 00:00:07.520
+Asked in Swahili, it showed
+
+4
+00:00:07.520 --> 00:00:08.780
+other students' grades.
+
+5
+00:00:09.540 --> 00:00:11.080
+She didn't post it.
+
+6
+00:00:11.660 --> 00:00:13.940
+She wrote to the IT office with the
+
+7
+00:00:13.940 --> 00:00:16.840
+evidence, and three weeks later it was
+
+8
+00:00:16.840 --> 00:00:17.100
+fixed.
+
+9
+00:00:18.460 --> 00:00:21.260
+Today: how to red-team an AI system
+
+10
+00:00:21.260 --> 00:00:24.400
+properly, and how to report what you find.
+
+11
+00:00:25.640 --> 00:00:28.460
+Red teaming means attacking your own side,
+
+12
+00:00:28.760 --> 00:00:31.280
+on purpose, to find failures first.
+
+13
+00:00:32.040 --> 00:00:34.220
+It starts with paper, not prompts:
+
+14
+00:00:34.820 --> 00:00:37.540
+written permission, a scope naming the
+
+15
+00:00:37.540 --> 00:00:40.420
+system and accounts, made-up data only,
+
+16
+00:00:40.880 --> 00:00:42.620
+and a rule for when to stop.
+
+17
+00:00:43.860 --> 00:00:45.100
+Then build a test bank.
+
+18
+00:00:45.730 --> 00:00:48.310
+Group the cases by risk: injection,
+
+19
+00:00:48.870 --> 00:00:50.910
+privacy, harmful requests,
+
+20
+00:00:51.410 --> 00:00:53.810
+misinformation, actions without approval.
+
+21
+00:00:54.530 --> 00:00:57.070
+Write each case in several wordings and
+
+22
+00:00:57.070 --> 00:00:59.870
+languages, because refusals are learned,
+
+23
+00:01:00.250 --> 00:01:01.810
+and new wordings slip through.
+
+24
+00:01:02.960 --> 00:01:05.440
+Running the bank by hand doesn't scale.
+
+25
+00:01:06.120 --> 00:01:08.880
+An evaluation harness runs every case,
+
+26
+00:01:09.340 --> 00:01:12.120
+decides pass or fail, and reports a
+
+27
+00:01:12.120 --> 00:01:13.460
+pass rate for each category.
+
+28
+00:01:14.270 --> 00:01:16.570
+One overall number can hide a
+
+29
+00:01:16.570 --> 00:01:18.730
+category that fails every time.
+
+30
+00:01:19.980 --> 00:01:21.500
+Here's the heart of a harness.
+
+31
+00:01:22.290 --> 00:01:24.310
+Count every case under its
+
+32
+00:01:24.310 --> 00:01:26.630
+category, and count it as passed
+
+33
+00:01:26.630 --> 00:01:28.830
+only if it really passed.
+
+34
+00:01:29.540 --> 00:01:32.180
+A harness that counts every case as a pass
+
+35
+00:01:32.180 --> 00:01:34.880
+is the most dangerous bug of all.
+
+36
+00:01:36.060 --> 00:01:36.540
+Quick check!
+
+37
+00:01:37.180 --> 00:01:39.360
+Our harness says ninety percent
+
+38
+00:01:39.360 --> 00:01:41.880
+overall, but privacy cases pass
+
+39
+00:01:41.880 --> 00:01:43.480
+only one time in four.
+
+40
+00:01:44.070 --> 00:01:44.930
+Do we ship?
+
+41
+00:01:46.090 --> 00:01:46.330
+No.
+
+42
+00:01:46.900 --> 00:01:49.400
+One weak category is the one
+
+43
+00:01:49.400 --> 00:01:50.600
+attackers will find.
+
+44
+00:01:51.270 --> 00:01:54.030
+Fix it, then re-run the whole bank,
+
+45
+00:01:54.330 --> 00:01:56.670
+because fixes break other things.
+
+46
+00:01:57.140 --> 00:01:59.680
+And keep every case you found as
+
+47
+00:01:59.680 --> 00:02:01.820
+a regression test, so the flaw
+
+48
+00:02:01.820 --> 00:02:03.220
+can't quietly come back.
+
+49
+00:02:04.470 --> 00:02:06.050
+Rate each finding for
+
+50
+00:02:06.050 --> 00:02:07.850
+severity, one to three.
+
+51
+00:02:08.430 --> 00:02:10.950
+Then report what you tried, what
+
+52
+00:02:10.950 --> 00:02:13.510
+got through, how often, and how
+
+53
+00:02:13.510 --> 00:02:14.430
+to reproduce it safely.
+
+54
+00:02:15.180 --> 00:02:16.960
+Keep the evidence, but strip
+
+55
+00:02:16.960 --> 00:02:18.540
+out anyone's real data.
+
+56
+00:02:19.810 --> 00:02:21.930
+Found a flaw in someone else's system?
+
+57
+00:02:22.560 --> 00:02:24.840
+Stop, and don't use it again.
+
+58
+00:02:25.470 --> 00:02:27.570
+Report it privately to the owner.
+
+59
+00:02:28.250 --> 00:02:29.650
+Give them time to fix it,
+
+60
+00:02:29.990 --> 00:02:31.470
+often around ninety days.
+
+61
+00:02:32.210 --> 00:02:33.690
+Then share the lesson,
+
+62
+00:02:34.210 --> 00:02:35.630
+never a working exploit.
+
+63
+00:02:36.950 --> 00:02:39.530
+In the app, run a bank of requests a
+
+64
+00:02:39.530 --> 00:02:41.030
+school chatbot should refuse.
+
+65
+00:02:41.870 --> 00:02:44.570
+It refuses six of eight in English.
+
+66
+00:02:45.370 --> 00:02:48.530
+Add a rule in code, run it again, and read
+
+67
+00:02:48.530 --> 00:02:51.830
+the report: what, how often, how bad.
+
+68
+00:02:53.070 --> 00:02:53.590
+Your turn.
+
+69
+00:02:54.220 --> 00:02:57.040
+While doing your coursework, you find
+
+70
+00:02:57.040 --> 00:03:00.020
+a flaw in a live university system
+
+71
+00:03:00.020 --> 00:03:01.760
+you weren't asked to test.
+
+72
+00:03:02.410 --> 00:03:03.630
+What do you do first?
+
+73
+00:03:05.100 --> 00:03:08.720
+Stop and report it privately: posting puts
+
+74
+00:03:08.720 --> 00:03:10.960
+people at risk, and testing further
+
+75
+00:03:10.960 --> 00:03:12.960
+without permission can break the law.
+
+76
+00:03:13.560 --> 00:03:16.660
+Remember: permission and scope first, a
+
+77
+00:03:16.660 --> 00:03:19.860
+pass rate for each category, severity in
+
+78
+00:03:19.860 --> 00:03:22.820
+every finding, and the owner hears first.
+
+79
+00:03:24.150 --> 00:03:26.710
+Try it tomorrow: write ten test
+
+80
+00:03:26.710 --> 00:03:29.310
+cases for a chatbot you own, or the
+
+81
+00:03:29.310 --> 00:03:31.790
+lab's, each in two wordings.
+
+82
+00:03:32.470 --> 00:03:35.450
+Run them, score each category, and
+
+83
+00:03:35.450 --> 00:03:37.770
+write a one-page finding as if you
+
+84
+00:03:37.770 --> 00:03:38.910
+were sending it to the owner.

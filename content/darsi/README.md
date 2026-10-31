@@ -36,6 +36,32 @@ node scripts/darsi/sheet.ts cy-1-1-2 --at 0.5     # mid-scene instead
 The converter must report **0 errors and 0 warnings** for every lesson. The lessons are 2.5 to 3 minutes, so the
 validator's `longLesson` note (over 150 s) is expected and not counted.
 
+## Layout check
+
+Run it on every lesson, in both languages, **before narration**: a word changed after voicing means voicing again.
+
+```bash
+npm run layout-check -- cy-1-1-2                 # every language; Darsi ids, example ids, folders, or "ai-1-1-*"
+npm run layout-check -- cy-1-1-2 --lang ar-EG --shots out/layout-check/shots   # pictures of the errors, outlined
+npm run layout-check -- cy-1-1-2 --json          # for tools; --skip font leaves a kind out
+```
+
+It plays each scene in the real player (headless Chromium, with Noto Sans and Noto Sans Arabic as on Android) at its
+middle and as it ends, and names the element (`data-el`) or template part of each problem:
+
+- **offstage**: something drawn past the stage's edge. A shape bleeding off, anything after a camera move, or a text
+  box that reaches off the stage while its text still fits, only warns.
+- **overflow**: text wider or taller than its box (text with a `w`, template parts, diagram blocks, table cells, a
+  table taller than its element), or an equation shrunk below 0.6 to fit.
+- **overlap**: two texts sharing more than 15% of the smaller one (their letters, not their boxes).
+- **font**: text under 9 px (error) or 11 px (warning) on a 360 px phone, where a landscape stage shows at 360/1280:
+  under 32 px on the stage is an error, under 39 px a warning (portrait: 18 and 22 px). The smallest three per scene.
+- **bidi** (right to left): every Latin or number run ("2-opt", "96–98%", "x ≤ 10", "[14, 74]", "check()") must read
+  left to right on the screen, judged from where each letter was drawn; a left arrow ("19 ← 18" for "19 → 18") must
+  read right to left. A lone number whose %, ° or sign moved only warns.
+
+It exits with 1 when there are errors. Fix them in `design.json` or `<id>/ar-EG.json` and convert again.
+
 ## How the converter builds a scene
 
 | Beat | Scene |
@@ -124,6 +150,14 @@ item comes in on the English sentence that names it, else in order.
 | `big` | One big number or word, with a label. | "10 mm", "24 hours" | Value ≤ 8 characters |
 | `chart` | A bar or line chart that draws itself, with values on the bars. | Readings, rainfall, results | ≤ 8 values |
 | `flow` | Nodes and arrows (the flow template). | Pipelines | 3–5 nodes |
+| `code` | Code typed out on a card (Python, SQL…), the same in every language and always left to right; `highlight` marks lines (from 1); an optional `caption` under it. Set `"who": null` so it gets the full width. | A program, a query, a model | ≤ 12 lines of ≤ 48 characters; keep to ~6 lines of ~36 so it's big enough to read on a phone |
+| `equation` | An equation in the TeX subset (`docs/science.md`), built part by part: `\g{n}{…}` parts come in on the sentences in `parts`. | A formula: a neuron, a loss, softmax | ≤ 400 characters |
+| `plot` | Axes with series (`fn`, `line`, `dots`, `heat`, `marker`…; labels in both languages); `frames: [a, b]` plays its frames from sentence a to b. | Functions, curves, points by class | ≤ 8 series |
+| `training` | A small network trained for real on `xor`, `circle`, `moons`, `line` or `spiral`: `show` `both` (decision map and loss curve), `map`, `loss` or `net`. | How a model learns | — |
+| `descent` | A ball rolling down `fn` by gradient descent (`x0`, `lr`, `steps`, `xr`, `yr`). | Gradient descent | — |
+| `network` | A network neuron by neuron (`layers`, `in`/`out`/`names` labels); data flows forward on sentence `forward` and the error back on `backward`. | Neurons, layers, backpropagation | 8 layers of 10 |
+| `arch` | A model's architecture: a `preset` (`mlp`, `cnn`, `rnn`, `transformer`, `gpt`, `seq2seq`, `resnet`, `autoencoder`, `gan`, `agent`, `rag`) or your own `blocks`, `edges` and `groups`; `focus` lights a block on a sentence, `pass` sends data through. | CNNs, transformers, agents | 24 blocks |
+| `table` | A table that fills row by row; `focus` lights a row (from 1) on a sentence; `ltr` columns stay left to right. | Results, predictions, data | 12 rows of 8 |
 
 ```jsonc
 // cards
@@ -142,9 +176,30 @@ item comes in on the English sentence that names it, else in order.
 { "big": { "value": "10 mm", "label": {…}, "icon": "ruler", "s": 1 } }
 // chart
 { "chart": { "kind": "bar", "data": [3, 0, 12, 7, 5], "labels": [ {"en": "Mon", "ar-EG": "الاتنين"}, … ], "unit": {…}, "s": 1 } }
+// science bodies take the full width (nobody beside them); sentences are counted from 0
+{ "equation": { "tex": "\\g{1}{y} = \\g{2}{w x} \\g{3}{+ b}", "parts": [0, 1, 2] } }
+{ "training": { "data": "circle", "show": "both", "frames": [1, 3] } }
+{ "arch": { "preset": "transformer", "focus": [{ "block": "att", "s": 2 }], "pass": 3 } }
+{ "network": { "layers": [2, 3, 1], "in": [{"en": "rain", "ar-EG": "مطر"}, {"en": "wind", "ar-EG": "ريح"}], "forward": 1, "backward": 2 } }
+// code: "\n" between lines, 4 spaces per indent
+{ "code": { "text": "total = 0\nfor m in marks:\n    total = total + m", "highlight": [2], "caption": {…}, "s": 1 }, "who": null }
 // flow: tone is "neutral", "trusted", "system" or "danger"
 { "flow": { "nodes": [ { "id": "data", "icon": "database", "text": {…}, "s": 0 } ], "edges": [ ["data", "model"] ] } }
 ```
+
+**Technology pack bodies.** Each pack (`docs/packs.md`) adds bodies named after its element types. Each page
+documents their fields with examples, and a wrong spec stops the converter with the scene named.
+
+| Pack | Bodies | Good for | Docs |
+|---|---|---|---|
+| Programming | `trace` (a program run line by line, recorded in MicroPython at conversion: variables, calls, output), `flowchart`, `array` (sorting and searching), `calltree` (recursion), `codediff` (a bug and its fix) | Code lessons | `docs/packs/code.md` |
+| Data | `erd`, `query` (a SQL query run clause by clause in SQLite at conversion), `pipeline` (records flowing, bad ones caught), `sheet` (formulas filling, data being cleaned) | Data lessons | `docs/packs/data.md` |
+| IoT | `circuit` (current flowing, solved at conversion), `pinout` (Pico, ESP32, micro:bit), `signal` (sampling, ADC, thresholds), `gates`, `bits` | Electronics and sensors | `docs/packs/iot.md` |
+| Networks | `topology` (devices, links, packets travelling), `sequence` (DNS, HTTPS, MQTT, an agent calling a tool), `layers` (encapsulation), `packet` (what HTTPS hides) | Cyber, IoT, agents | `docs/packs/network.md` |
+| Optimization | `graph` (Dijkstra, routes and 2-opt, Kruskal, exam slots), `schedule` (timetables, Gantt), `knapsack`, `lp`, `searchtree` (branch and bound) | Optimization lessons | `docs/packs/opt.md` |
+
+Like the science bodies, pack bodies take the full width: nobody beside them. Use `"headline": null` when a body needs
+the height (a join, a tall flowchart). Text stays at 32 px or more; `npm run layout-check -- <id>` checks it.
 
 **Also, per scene:**
 

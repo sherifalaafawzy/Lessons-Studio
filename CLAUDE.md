@@ -45,10 +45,20 @@ A creator studio and an on-device player for short explainer lessons (tech, AI, 
   - No blur, filters, backdrop effects or blurred shadows; shadows are hard offsets.
   - No `aspect-ratio`: use padding boxes.
   - Redraw only while playing; the Lite, Frames and Text tiers redraw less often (`MIN_FRAME_MS`).
-  - `npm run size` keeps the player under 30 KB gzipped (14.6 KB on 27 Oct 2026).
+  - `npm run size` keeps the player under 30 KB gzipped (24.4 KB on 28 Oct 2026) and its science kit under 20 KB (13.8 KB).
+- **Technology packs** (`docs/packs.md`): science, code, data, iot, network, opt. Each is one lazy file, loaded only by lessons that use it; `packages/spec/src/packs/registry.ts` fixes the types; `npm run size` budgets each at 15 KB. A pack's parts live in its own folders (spec types and check, player kit, `packages/ops/src/packs/<id>.ts` with `presets(langs, stage)` and `element()`, `scripts/darsi/packs/<id>.ts` bodies, `docs/packs/<id>.md`, `examples/pack-<id>`). The studio and MCP pick packs up generically.
+- **Layout check:** `npm run layout-check -- <lesson | example | folder>` (`scripts/video/layout-check.ts`). It reports overflow, overlap, off-stage, text too small for a 360 px phone (under 32 px on the 1280 stage) and bidi order, in each language. Run it before narration.
+- **Science elements** (`math`, `plot`, `net`, `arch`, `table`; `docs/science.md`).
+  - They're drawn by the science kit, `packages/player/src/science/`: a chunk the player imports only for lessons that use them (`PlayerOptions.science`, awaited by `Player.ready`). It injects its own CSS.
+  - The core player imports the spec only from `@lessonstudio/spec/core`, and the kit takes the parsers from `@lessonstudio/spec/science`. Importing the main entry from either puts the validator and the TeX parser in the shared chunk, and the core grows by about 4 KB.
+  - Content is computed when the lesson is made, never on the phone: training runs, gradient descent, k-means and the architecture presets are in `packages/ops/src/science.ts`, seeded.
+  - New props `frame`, `focus` and `pass`; new presets `train`, `forward` and `backward`.
+  - No SVG ids: plots clip with a nested viewport, since a scene can be drawn twice, during a transition or in the scrub preview.
+  - Darsi vendors the player with the kit as its own file (`scripts/darsi/vendor-player.mjs`: `lessonstudio-player.js`, `lessonstudio-science.js`, `lessonstudio-chunk.js`).
 - **Right to left.**
   - Direction comes from the manifest's language track.
-  - Latin runs inside right-to-left text go through `rich()` / `units()` (`<bdi>`), so "حقن الأوامر (Prompt injection)" keeps its order.
+  - Left-to-right runs inside right-to-left text go through `rich()` / `units()` (`<bdi dir="ltr">`, runs found by `bidi.ts`): Latin words, and runs starting with a digit or bracket ("9Z", "96–98%", "2-opt", "x ≤ 10", "[14, 74]", "check()"). So "حقن الأوامر (Prompt injection)" keeps its order. No regex lookbehind (older Safari).
+  - Networks and architecture diagrams mirror; plots, equations and code stay left to right; tables follow the language.
   - Flow diagrams mirror their x positions.
   - Time and the seek bar stay left to right.
 - **Arabic.** Never use "·" as a separator (it reads as Arabic zero); use "،". The validator rejects it. Write Modern Standard Arabic, friendly, except the Darsi videos, which are Egyptian Arabic (`ar-EG`, rules in `content/darsi/README.md`). Example languages are marked `"quality": "machine"` until a native speaker reviews them.

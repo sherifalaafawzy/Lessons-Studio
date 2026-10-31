@@ -1,9 +1,9 @@
 import type { AnimProp, Ease, Element, SceneTiming, Tone, Track } from "@lessonstudio/spec";
-import { resolveWhen } from "@lessonstudio/spec";
+import { resolveWhen } from "@lessonstudio/spec/core";
 import { h, svg, units } from "./dom.ts";
 import { icon } from "./icons.ts";
 import { clamp01, fix, pulseScale, type CueState } from "./motion.ts";
-import type { Ctx } from "./templates/types.ts";
+import type { Ctx, KitState } from "./templates/types.ts";
 
 /* ---------- keyframes ---------- */
 
@@ -73,6 +73,8 @@ interface Drawn {
   tracks: Compiled[];
   /** Sets what this element draws at a moment (stroke drawn, text revealed); `reveal` and `draw` are 0–1. */
   paint(reveal: number, draw: number): void;
+  /** A science element's painter (frame, focus and pass too), from the science kit. */
+  kp?: (s: KitState) => void;
   kids: Drawn[];
 }
 
@@ -103,6 +105,7 @@ export function mountLayer(elements: Element[], ctx: Ctx): Layer {
         (bw !== undefined ? `;width:${fix(bw, 1)}px` : "") + (bh !== undefined ? `;height:${fix(bh, 1)}px` : "");
     };
     let paint: Drawn["paint"] = () => {};
+    let kp: Drawn["kp"];
     const kids: Drawn[] = [];
     box.style.color = toneVar(el.tone, el.type === "icon" ? "var(--ls-accent)" : "var(--ls-fg)");
 
@@ -289,8 +292,14 @@ export function mountLayer(elements: Element[], ctx: Ctx): Layer {
         }
         break;
       }
+      default: {
+        // Science elements: drawn by the kit; until it arrives (Player.ready), an empty box.
+        pos(el.x, el.y, w, hgt);
+        const r = ctx.kit?.draw[el.type];
+        if (r) kp = r(el, box, ctx);
+      }
     }
-    return { id: el.id, el, box, tracks: compileTracks(el.anim, timing, ctx.lang), paint, kids };
+    return { id: el.id, el, box, tracks: compileTracks(el.anim, timing, ctx.lang), paint, kp, kids };
   }
 
   const drawn = elements.map(draw);
@@ -328,7 +337,11 @@ export function mountLayer(elements: Element[], ctx: Ctx): Layer {
     ctx.wr.style(d.box, "transform", parts.length ? parts.join(" ") : "none");
     ctx.wr.style(d.box, "opacity", fix(clamp01(op)));
     ctx.wr.cls(d.box, "is-hi", cs.hi.has(el.id));
-    d.paint(clamp01(get("reveal", 1)), clamp01(get("draw", 1)));
+    if (d.kp) {
+      // A science element: `frame` from its own default, no focus, no packet unless tracks say so.
+      const base = (el as { frame?: number }).frame ?? 0;
+      d.kp({ reveal: clamp01(get("reveal", 1)), draw: clamp01(get("draw", 1)), frame: Math.max(0, get("frame", base)), focus: get("focus", 0), pass: get("pass", -1), t: lt });
+    } else d.paint(clamp01(get("reveal", 1)), clamp01(get("draw", 1)));
     for (const c of d.kids) apply(c, lt, cs);
   }
 

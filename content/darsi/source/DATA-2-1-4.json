@@ -1,0 +1,286 @@
+{
+ "id": "DATA-2-1-4",
+ "track": "data",
+ "level": 1,
+ "unit": {
+  "number": 1,
+  "title": "Cleaning and organising data"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "One ID per pupil: joining sheets",
+  "subtitle": "Keys, lookups, and what a missing match tells you",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "One ID per pupil: joining sheets",
+  "length": "3:02",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Ms Salma Haddad — secondary maths teacher (main character)",
+   "Mr Joseph — computer studies teacher, Kenya (cameo)",
+   "Narrator — the Darsi voice (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Matching by name"
+   },
+   {
+    "at": "0:18",
+    "label": "Keys"
+   },
+   {
+    "at": "0:44",
+    "label": "Lookups"
+   },
+   {
+    "at": "1:19",
+    "label": "Python dictionaries"
+   },
+   {
+    "at": "1:58",
+    "label": "The lab"
+   },
+   {
+    "at": "2:24",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "Icon cards: Class list; Test marks; 4 mistakes. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "I matched the test marks to my class list by name. Two Fatimas, one Fatimah, and a boy who left last term. Four mistakes in thirty rows!",
+    "icons": [
+     "list",
+     "pencil",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:18",
+    "beat": "Title",
+    "visual": "Paper-grey title card: the Darsi mark, the course name and the lesson title with the Data engineering track chip.",
+    "animation": "Mark scales in with a small overshoot; the title slides up.",
+    "on_screen_text": "One ID per pupil: joining sheets",
+    "voice": "Narrator",
+    "narration": "Today: one ID for every pupil, and joining sheets by it."
+   },
+   {
+    "n": 3,
+    "start": "0:18",
+    "end": "0:30",
+    "beat": "Concept",
+    "visual": "Two columns: “Name” (Two Fatimas; Spellings change) and “Pupil ID” (Given once; One pupil, only one).",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Names make poor keys",
+    "voice": "Narrator",
+    "narration": "Names make poor keys. Two pupils share a name, spellings change, and families move. A pupil number, given once and never reused, means one pupil and only one.",
+    "icons": [
+     "user",
+     "key",
+     "users",
+     "pencil"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:30",
+    "end": "0:44",
+    "beat": "Definition",
+    "visual": "One big value: P0137, One key, one pupil.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A key picks out one row",
+    "voice": "Narrator",
+    "narration": "That number is a key: a column whose value picks out exactly one row. Put the key in every sheet about pupils, and you can match any two of them.",
+    "icons": [
+     "key"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:44",
+    "end": "1:02",
+    "beat": "Concept",
+    "visual": "A flow: Marks → Class list → Match by ID → With names.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A lookup joins two sheets",
+    "voice": "Narrator",
+    "narration": "In a spreadsheet, a lookup joins two sheets. For each mark, XLOOKUP or VLOOKUP finds the pupil with the same ID in the class list, and brings back the name. When there's no match, it shows an error instead.",
+    "icons": [
+     "pencil",
+     "list",
+     "key",
+     "grid"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:02",
+    "end": "1:19",
+    "beat": "Concept",
+    "visual": "Rows of icon and text: A mark, no pupil: a wrong ID?; A pupil, no mark: absent?; Never just delete them.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "No match? Find out why",
+    "voice": "Narrator",
+    "narration": "Those errors are useful. A mark with no pupil means an ID was typed wrong, or the list is missing someone. A pupil with no mark was absent, or the mark got lost. Check them; never just delete them.",
+    "icons": [
+     "help",
+     "user",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:33",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: name = {\"1\": \"Amina\", \"2\": \"Tunde\"} … Caption: get() gives “?” when the ID isn't there",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A dictionary does the lookup",
+    "voice": "Narrator",
+    "narration": "In Python, a dictionary does the lookup. Store each pupil's name under their ID. Then, for each mark, get the name for its ID, or a question mark when there's none."
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:45",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "Why the ID?",
+    "voice": "Mr Joseph",
+    "narration": "Quick check! Why should we match the marks to the class list by pupil ID, and not by name?"
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "1:58",
+    "beat": "Reveal",
+    "visual": "Icon cards: Names repeat; An ID is unique; Same ID, every sheet.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "An ID belongs to one pupil",
+    "voice": "Narrator",
+    "narration": "Names repeat and change spelling; an ID belongs to one pupil only. That's what makes it a key. Give the number once, and use it on every sheet.",
+    "icons": [
+     "users",
+     "key",
+     "grid"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:58",
+    "end": "2:13",
+    "beat": "Lab preview",
+    "visual": "Icon cards joined by arrows: Pupils; Marks; Joined by number.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: joining tables",
+    "voice": "Narrator",
+    "narration": "In the app, pupils are on one side and yesterday's maths marks on the other, matched by number. Try each join. Who disappears, who appears twice, and where do the empty cells come from?",
+    "icons": [
+     "users",
+     "pencil",
+     "key"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:13",
+    "end": "2:24",
+    "beat": "Checkpoint ◆",
+    "visual": "Quiz card: the question with its answer options.",
+    "animation": "Answer cards drop in one by one.",
+    "on_screen_text": "A mark with no pupil?",
+    "voice": "Ms Salma",
+    "narration": "Your turn. After the lookup, one mark has no matching pupil. What does that tell me?"
+   },
+   {
+    "n": 12,
+    "start": "2:24",
+    "end": "2:43",
+    "beat": "Recap",
+    "visual": "Summary card: One ID per pupil; Join by ID, not by name; No match? Find out why; In Python: a dictionary. Takeaway bar: The ID is the thread that ties your sheets together.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Narrator",
+    "narration": "An ID was typed wrong, or the list is missing someone: check it. Remember: names make poor keys, so give every pupil one ID. Join sheets with a lookup by that ID. And treat every missing match as a question, not as rubbish."
+   },
+   {
+    "n": 13,
+    "start": "2:43",
+    "end": "3:02",
+    "beat": "Try it tomorrow",
+    "visual": "Rows of icon and text: Cards: number and name; Cards: number and mark; Find your partner by number; Who's left, and why?. Ms Salma beside it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it in class tomorrow",
+    "voice": "Ms Salma",
+    "narration": "Try it in class tomorrow: play “Human join”. Half the class holds class-list cards, with a number and a name; the other half holds mark cards, with a number. Pupils find their partner by number. Who's left without a partner, and why?",
+    "icons": [
+     "list",
+     "pencil",
+     "users",
+     "help"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Why match marks to the class list by pupil ID, not by name?",
+    "options": [
+     {
+      "text": "IDs are shorter to type",
+      "correct": false
+     },
+     {
+      "text": "Names repeat and get spelled differently; an ID is unique",
+      "correct": true
+     },
+     {
+      "text": "Computers can't read names",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — two pupils can share a name, and spellings vary. An ID, given once, picks out one pupil only.",
+    "feedback_wrong": "Not quite — the problem is that names repeat and change spelling. An ID belongs to one pupil only.",
+    "resume_at": "1:45"
+   },
+   {
+    "at": "2:21",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "After a lookup, one mark has no matching pupil. What does that tell you?",
+    "options": [
+     {
+      "text": "Delete it: it's rubbish",
+      "correct": false
+     },
+     {
+      "text": "An ID was typed wrong, or a pupil is missing from the list",
+      "correct": true
+     },
+     {
+      "text": "The lookup formula is broken",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a mark with no pupil points to a typing mistake or a gap in the list. Check it with whoever typed it.",
+    "feedback_wrong": "Not quite — the lookup did its job. A mark with no pupil means a wrong ID or a missing pupil: check, don't delete.",
+    "resume_at": "2:24"
+   }
+  ]
+ }
+}

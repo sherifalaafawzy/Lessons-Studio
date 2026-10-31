@@ -1,0 +1,251 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "book",
+          "text": {
+            "en": "Loans and days kept",
+            "ar-EG": "الإعارات وأيام الاحتفاظ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "No labels",
+            "ar-EG": "من غير تصنيفات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Hidden groups?",
+            "ar-EG": "مجموعات مستخبية؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Classification: labels given",
+            "ar-EG": "التصنيف: التصنيفات موجودة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Clustering: no labels",
+            "ar-EG": "التجميع: من غير تصنيفات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Find close groups",
+            "ar-EG": "لاقي مجموعات قريبة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "grid"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Drop k centres",
+            "ar-EG": "حط k مراكز"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Join the nearest centre",
+            "ar-EG": "انضم لأقرب مركز"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Move centres, repeat",
+            "ar-EG": "حرّك المراكز، وكرر"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "mapPin"
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          30,
+          40,
+          20
+        ],
+        "labels": [
+          {
+            "en": "Often",
+            "ar-EG": "كتير"
+          },
+          {
+            "en": "Now and then",
+            "ar-EG": "ساعات"
+          },
+          {
+            "en": "Almost never",
+            "ar-EG": "تقريبًا أبدًا"
+          }
+        ],
+        "unit": {
+          "en": "Pupils in each group",
+          "ar-EG": "التلاميذ في كل مجموعة"
+        },
+        "s": 1,
+        "max": 45
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "cx = np.mean(loans[group == 0])\ncy = np.mean(days[group == 0])",
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Similar numbers only",
+            "ar-EG": "أرقام متشابهة بس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Names are our story",
+            "ar-EG": "الأسامي حكايتنا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "heart",
+          "text": {
+            "en": "Labels follow children",
+            "ar-EG": "التصنيفات بتمشي ورا الأطفال"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Press step",
+            "ar-EG": "دوس خطوة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Watch centres move",
+            "ar-EG": "راقب المراكز بتتحرك"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Try another k",
+            "ar-EG": "جرّب k تانية"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "mapPin"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "No labels needed",
+            "ar-EG": "مش محتاج تصنيفات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Nearest centre, then mean",
+            "ar-EG": "أقرب مركز، وبعدين المتوسط"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Name groups with care",
+            "ar-EG": "سمّي المجموعات بحرص"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "A group is a pattern, not a verdict on a child.",
+        "ar-EG": "المجموعة نمط، مش حكم على طفل."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Plot sleep and screens",
+            "ar-EG": "ارسم النوم والشاشة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Look for groups",
+            "ar-EG": "دوّر على مجموعات"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "heart",
+          "text": {
+            "en": "Kind, neutral names",
+            "ar-EG": "أسامي لطيفة ومحايدة"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

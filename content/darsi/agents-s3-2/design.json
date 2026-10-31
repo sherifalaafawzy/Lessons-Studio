@@ -1,0 +1,295 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "sun",
+          "text": {
+            "en": "A weather agent",
+            "ar-EG": "وكيل للطقس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "The model asked for bus",
+            "ar-EG": "النموذج طلب أداة باص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "No bus tool: crash!",
+            "ar-EG": "مفيش أداة باص: وقع!"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "SKY = {\"Kafi\": \"sunny\", \"Dala\": \"rain\"}\n\ndef weather(args):\n    return {\"sky\": SKY[args[\"place\"]]}",
+        "s": 1
+      }
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Kafi and Dala, with weather",
+            "ar-EG": "كافي ودالا، والطقس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Class 6B’s timetable",
+            "ar-EG": "جدول فصل سادسة ب"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Darsi Tiny: a bigger made-up school",
+            "ar-EG": "«درسي الصغير»: مدرسة متألّفة أكبر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Nothing real, nothing sent",
+            "ar-EG": "مفيش حاجة حقيقية ولا بتتبعت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "TOOLS = {\"weather\": weather,\n         \"timetable\": timetable}\n\nresult = TOOLS[name](args)",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Unknown tool: bus",
+            "ar-EG": "أداة مش موجودة: bus"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Missing detail: no place",
+            "ar-EG": "تفصيلة ناقصة: مفيش مكان"
+          },
+          "s": 2
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "Unknown place: Moonvale",
+            "ar-EG": "مكان مش موجود: وادي القمر"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "An error, not a crash",
+            "ar-EG": "خطأ، مش وقعة"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "7": {
+      "who": null,
+      "code": {
+        "text": "def run(name, args):\n    if name not in TOOLS:\n        return {\"error\": \"unknown tool\"}\n    return TOOLS[name](args)",
+        "highlight": [
+          2,
+          3
+        ],
+        "s": 1
+      }
+    },
+    "9": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "Crash or guess",
+            "ar-EG": "وقعة أو تخمين"
+          },
+          {
+            "en": "An error result",
+            "ar-EG": "نتيجة فيها خطأ"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The agent stops",
+              "ar-EG": "الوكيل يقف"
+            },
+            {
+              "en": "The agent carries on",
+              "ar-EG": "الوكيل يكمّل"
+            }
+          ],
+          [
+            {
+              "en": "The wrong tool runs",
+              "ar-EG": "أداة غلط تشتغل"
+            },
+            {
+              "en": "It says it can’t",
+              "ar-EG": "يقول إنه مش هيقدر"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "trace": {
+        "code": "import json\nr = {\"sky\": \"rain\"}\ntext = json.dumps(r)\nhistory = []\nhistory.append(text)",
+        "play": [
+          1,
+          2
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "settings",
+          "text": {
+            "en": "Ten tools, as switches",
+            "ar-EG": "عشر أدوات، كأنها مفاتيح"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather off: it says so",
+            "ar-EG": "الطقس مقفول: بيقول كده"
+          },
+          "s": 1
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "No tool for it: “I can’t”",
+            "ar-EG": "مفيش أداة: «مقدرش»"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "tone": "accent",
+          "text": {
+            "en": "Class 9Z: read the check",
+            "ar-EG": "فصل 9Z: اقرا المراجعة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A tool is a function",
+            "ar-EG": "الأداة دالة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "TOOLS sends each call",
+            "ar-EG": "TOOLS بتوجّه كل طلب"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Errors, not crashes",
+            "ar-EG": "أخطاء، مش وقعات"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Plan for every strange call before the model writes one.",
+        "ar-EG": "اعمل حساب كل طلب غريب قبل ما النموذج يكتبه."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "Invent a third tool",
+            "ar-EG": "اخترع أداة تالتة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Its details and its result",
+            "ar-EG": "تفاصيلها ونتيجتها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Two errors it returns",
+            "ar-EG": "خطأين بترجّعهم"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "keyboard",
+          "tone": "ok",
+          "text": {
+            "en": "Add it to TOOLS, and test",
+            "ar-EG": "ضيفها لـ TOOLS وجرّبها"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

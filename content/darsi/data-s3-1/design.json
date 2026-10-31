@@ -1,0 +1,343 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "heart",
+          "text": {
+            "en": "A like",
+            "ar-EG": "لايك"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Millions a second",
+            "ar-EG": "ملايين في الثانية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "database",
+          "tone": "ok",
+          "text": {
+            "en": "A database",
+            "ar-EG": "قاعدة بيانات"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "aside": "database",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Many users at once",
+            "ar-EG": "مستخدمين كتير مع بعض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "A type for each column",
+            "ar-EG": "نوع لكل عمود"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Rules at the door",
+            "ar-EG": "قواعد على الباب"
+          },
+          "s": 2,
+          "o": 2.5
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Each fact stored once",
+            "ar-EG": "كل معلومة مرة واحدة"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "Bad keys",
+            "ar-EG": "مفاتيح وحشة"
+          },
+          {
+            "en": "A good key",
+            "ar-EG": "مفتاح كويس"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Names",
+              "ar-EG": "الأسامي"
+            },
+            {
+              "en": "An id given once",
+              "ar-EG": "رقم بيتدّي مرة"
+            }
+          ],
+          [
+            {
+              "en": "Birthdays",
+              "ar-EG": "تواريخ الميلاد"
+            },
+            ""
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "who": null,
+      "headline": null,
+      "erd": {
+        "types": false,
+        "tables": [
+          {
+            "name": "likes",
+            "label": {
+              "en": "Likes",
+              "ar-EG": "اللايكات"
+            },
+            "cols": "user_id INT fk, photo_id INT fk, at TEXT"
+          },
+          {
+            "name": "users",
+            "label": {
+              "en": "Users",
+              "ar-EG": "المستخدمين"
+            },
+            "cols": "id INT pk, name TEXT"
+          },
+          {
+            "name": "photos",
+            "label": {
+              "en": "Photos",
+              "ar-EG": "الصور"
+            },
+            "cols": "id INT pk, caption TEXT"
+          }
+        ],
+        "rels": [
+          {
+            "from": "users",
+            "to": "likes",
+            "kind": "1-n",
+            "via": "user_id"
+          },
+          {
+            "from": "photos",
+            "to": "likes",
+            "kind": "1-n",
+            "via": "photo_id"
+          }
+        ],
+        "in": [
+          0,
+          1,
+          1
+        ],
+        "focus": [
+          {
+            "table": "likes",
+            "s": 1
+          },
+          {
+            "rel": "users>likes",
+            "s": 2
+          }
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "CREATE TABLE likes (\n  user_id INTEGER,\n  photo_id INTEGER,\n  at TEXT,\n  PRIMARY KEY (user_id, photo_id)\n);",
+        "highlight": [
+          5
+        ],
+        "s": 0
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "key",
+          "tone": "ok",
+          "text": {
+            "en": "Pupil number",
+            "ar-EG": "رقم التلميذ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "tone": "danger",
+          "text": {
+            "en": "Names repeat",
+            "ar-EG": "الأسامي بتتكرر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calendar",
+          "tone": "danger",
+          "text": {
+            "en": "So do birthdays",
+            "ar-EG": "وتواريخ الميلاد كمان"
+          },
+          "s": 1,
+          "o": 1.5
+        }
+      ]
+    },
+    "9": {
+      "who": null,
+      "code": {
+        "text": "SELECT name, class\nFROM pupils\nWHERE age >= 16;",
+        "highlight": [
+          3
+        ],
+        "s": 1
+      }
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "repeat",
+          "tone": "danger",
+          "text": {
+            "en": "Stored twice: copies drift",
+            "ar-EG": "متخزّنة مرتين: النسخ بتختلف"
+          },
+          "s": 0
+        },
+        {
+          "icon": "phone",
+          "tone": "danger",
+          "text": {
+            "en": "One row changed, five missed",
+            "ar-EG": "صف اتغير، وخمسة لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Stored once: one story",
+            "ar-EG": "مرة واحدة: حكاية واحدة"
+          },
+          "s": 1,
+          "o": 4
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "grid",
+          "tone": "danger",
+          "text": {
+            "en": "One table: 32",
+            "ar-EG": "جدول واحد: 32"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Two: 8",
+            "ar-EG": "اتنين: 8"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "database",
+          "tone": "ok",
+          "text": {
+            "en": "Three: 0",
+            "ar-EG": "تلاتة: 0"
+          },
+          "s": 1,
+          "o": 3.5
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Primary key: one row",
+            "ar-EG": "المفتاح الأساسي: صف واحد"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Foreign keys link tables",
+            "ar-EG": "الأجنبية بتربط الجداول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Each fact stored once",
+            "ar-EG": "كل معلومة مرة واحدة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Design the tables first; the questions come easily.",
+        "ar-EG": "صمّم الجداول الأول، والأسئلة بتيجي بسهولة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "phone",
+          "text": {
+            "en": "An app you use",
+            "ar-EG": "تطبيق بتستخدمه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Sketch its tables and keys",
+            "ar-EG": "ارسم جداوله ومفاتيحه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "tone": "ok",
+          "text": {
+            "en": "Which tables link?",
+            "ar-EG": "أنهي جداول بتترابط؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

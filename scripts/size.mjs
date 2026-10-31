@@ -6,20 +6,50 @@ import { join } from "node:path";
 import { exampleIds, loadExample } from "./lib/examples.mjs";
 
 const BUDGET_KB = 30; // our target; PLAN.md §9.1 allows up to 150 KB
+const SCIENCE_KB = 20;
 const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
 const gz = (buf) => gzipSync(buf, { level: 9 }).length;
 
+// Split as hosts load it: the core (entry plus the chunks it imports) and each technology pack, a chunk loaded on demand.
 const out = await build({
   entryPoints: ["packages/player/src/index.ts"],
   bundle: true,
   minify: true,
   format: "esm",
   target: "es2019",
+  splitting: true,
+  outdir: "out/size",
   write: false,
 });
-const code = out.outputFiles[0].contents;
-const playerGz = gz(code);
-console.log(`player: ${kb(code.length)} minified, ${kb(playerGz)} gzipped (budget ${BUDGET_KB} KB)`);
+const files = new Map(out.outputFiles.map((f) => [f.path.replace(/\\/g, "/").split("/").pop(), f.contents]));
+const entry = [...files.keys()].find((n) => n.startsWith("index"));
+const core = new Set();
+const walk = (n) => {
+  if (core.has(n)) return;
+  core.add(n);
+  const text = new TextDecoder().decode(files.get(n));
+  // Static imports only (import{…}from"./chunk.js"); the kit's import("./science.js") is left out.
+  for (const m of text.matchAll(/(?:^|[;}\s])import\s*(?:[^"'()]*?from\s*)?"\.\/([^"]+\.js)"/g)) walk(m[1]);
+};
+walk(entry);
+const sum = (names) => names.reduce((a, n) => [a[0] + files.get(n).length, a[1] + gz(files.get(n))], [0, 0]);
+const [coreRaw, playerGz] = sum([...core]);
+console.log(`player: ${kb(coreRaw)} minified, ${kb(playerGz)} gzipped (budget ${BUDGET_KB} KB)`);
+// Each pack: its own chunk (named after its folder) and what it imports that the core doesn't have.
+let sciGz = 0;
+for (const name of [...files.keys()].filter((n) => !core.has(n) && !n.startsWith("chunk-")).sort()) {
+  const mine = new Set();
+  const visit = (n) => {
+    if (mine.has(n) || core.has(n)) return;
+    mine.add(n);
+    const text = new TextDecoder().decode(files.get(n));
+    for (const m of text.matchAll(/(?:^|[;}\s])import\s*(?:[^"'()]*?from\s*)?"\.\/([^"]+\.js)"/g)) visit(m[1]);
+  };
+  visit(name);
+  const [raw, z] = sum([...mine]);
+  sciGz = Math.max(sciGz, z);
+  console.log(`  pack ${name.replace(/-[\w]+\.js$/, "").replace(/\.js$/, "")}: ${kb(raw)} minified, ${kb(z)} gzipped (budget ${SCIENCE_KB} KB; only for lessons that use it)`);
+}
 
 console.log("\nlesson packages (what one language downloads; gzipped as a server would send it):");
 for (const id of exampleIds()) {

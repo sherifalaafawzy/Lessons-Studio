@@ -1,0 +1,291 @@
+{
+ "id": "AGENTS-S3-3",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Build an agent in Python"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "The agent loop",
+  "subtitle": "Ask, run, add, repeat, and know when to stop",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "The agent loop",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Salma Haddad — secondary maths teacher (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "An agent that never stopped"
+   },
+   {
+    "at": "0:16",
+    "label": "The loop and a scripted model"
+   },
+   {
+    "at": "1:11",
+    "label": "The loop in Python"
+   },
+   {
+    "at": "2:04",
+    "label": "When a step fails, and the lab"
+   },
+   {
+    "at": "2:47",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "A list: It never stopped; Call, result, call…; Until the battery died.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Ms Salma",
+    "narration": "I tested an agent that a student wrote, and it never stopped! Call, result, call, result. No answer, ever, until the battery died.",
+    "icons": [
+     "repeat",
+     "cog",
+     "battery"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:16",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "The agent loop",
+    "voice": "Narrator",
+    "narration": "Today: the agent loop in Python, and how to make it stop."
+   },
+   {
+    "n": 3,
+    "start": "0:16",
+    "end": "0:33",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Ask, run, add, repeat",
+    "voice": "Narrator",
+    "narration": "An agent is a loop around a model. Ask the model for its next output. If it’s an answer, you’re done. If it’s a call, run the tool, add both to the history, and ask again."
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:53",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: SCRIPT = ['weather{\"place\":\"Kafi\"}', …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "A scripted model",
+    "voice": "Narrator",
+    "narration": "But the Python sandbox has no language model inside. So in your code, a scripted model stands in: a function that returns what a model would write, from a list. It’s not intelligent, and we say so. It lets you test your loop.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:53",
+    "end": "1:11",
+    "beat": "Definition",
+    "visual": "A list: The request; Each call; Each result; All read again, every turn.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The history",
+    "voice": "Narrator",
+    "narration": "The history is everything so far: the request, then each call and its result, in order. A real model reads it all on every turn: that’s its only memory. Your loop builds it, one turn at a time.",
+    "icons": [
+     "user",
+     "cog",
+     "data",
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:11",
+    "end": "1:24",
+    "beat": "Examples",
+    "visual": "Code typed out on a card: for step in range(limit): …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "The loop in Python",
+    "voice": "Mr Joseph",
+    "narration": "Here’s the loop. For each step, ask the model. No curly bracket means an answer, so return it. Otherwise, run the tool, and add both to the history.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:24",
+    "end": "1:41",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Why a step limit?",
+    "voice": "Narrator",
+    "narration": "Why for step in range, and not while true? Because a model can get stuck, calling tool after tool without answering. A step limit is a promise: after four steps, the loop stops, whatever the model writes."
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:51",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What happens here?",
+    "voice": "Ms Salma",
+    "narration": "Quick check! The script only ever returns calls, never an answer, and the limit is four. What does the agent return?"
+   },
+   {
+    "n": 9,
+    "start": "1:51",
+    "end": "2:04",
+    "beat": "Reveal",
+    "visual": "A list: Four steps, then stop; Tell the person; Never hide a stop.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "“Stopped”, after four steps",
+    "voice": "Narrator",
+    "narration": "Stopped, after four steps. That’s the step limit doing its job. In a real app, you’d also tell the person: I couldn’t finish this. Never hide a stop.",
+    "icons": [
+     "hand",
+     "chat",
+     "warning"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:04",
+    "end": "2:23",
+    "beat": "Concept",
+    "visual": "A list: route: Kafi to Dala; Then weather in Dala; Saturday: “no school”; A reminder set anyway.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "When a step fails",
+    "voice": "Narrator",
+    "narration": "Some goals need two tools. The trip from Kafi to Dala calls route, then weather, using the first result. But a step can fail. Asked for six B’s first lesson on Saturday, Darsi Tiny got no school, and still set a reminder.",
+    "icons": [
+     "map",
+     "sun",
+     "circlex",
+     "warning"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:23",
+    "end": "2:40",
+    "beat": "Lab preview",
+    "visual": "A list: Guess the tools, watch the plan; Run the Saturday goal; Your loop: stop on an error.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: plan in steps",
+    "voice": "Narrator",
+    "narration": "In the lab, guess which tools a goal needs, then watch Darsi Tiny plan and call them. Run the Saturday goal, and see the failed step. Your loop could stop there, with a check in code.",
+    "icons": [
+     "help",
+     "calendar",
+     "hand"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:40",
+    "end": "2:47",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "What did your tests show?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Your loop passes every test with the scripted model. What have you shown?"
+   },
+   {
+    "n": 13,
+    "start": "2:47",
+    "end": "3:05",
+    "beat": "Recap",
+    "visual": "Summary points: Ask, run, add, repeat; A step limit stops it; A script tests your code.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Ask, run, add, repeat · A step limit stops it · A script tests your code",
+    "voice": "Narrator",
+    "narration": "That your loop works, for the outputs you tested. Remember: the loop asks the model, runs its calls and builds the history. A step limit stops a stuck model. And a scripted model tests your code, not the model."
+   },
+   {
+    "n": 14,
+    "start": "3:05",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "A list: A model, a tool and a loop; The model reads a script card; Count, and stop at four; A script that never answers.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: play the loop with two friends. One is the model, reading from a script card. One is the tool. You are the loop: count the steps, and stop at four. Then try a script that never answers.",
+    "icons": [
+     "users",
+     "notebook",
+     "hand",
+     "repeat"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:48",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The script only ever returns calls, and the limit is 4. What does agent() return?",
+    "options": [
+     {
+      "text": "Nothing: it runs for ever",
+      "correct": false
+     },
+     {
+      "text": "“Stopped”, after four steps",
+      "correct": true
+     },
+     {
+      "text": "The last call it made",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the for loop runs four steps at most, then reaches return “Stopped”. The model can’t keep it going.",
+    "feedback_wrong": "Not quite — the step limit ends the loop after four steps, and the agent returns “Stopped”.",
+    "resume_at": "1:51"
+   },
+   {
+    "at": "2:44",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Your loop passes every test with a scripted model. What have you shown?",
+    "options": [
+     {
+      "text": "That the real model will behave the same",
+      "correct": false
+     },
+     {
+      "text": "That your loop works for the outputs you tested",
+      "correct": true
+     },
+     {
+      "text": "That every tool gives the right result",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a script tests your code. A real model writes new things, wrong calls and stuck loops included, so your code must handle those too.",
+    "feedback_wrong": "Not quite — a script only tests your code for the outputs in it. The real model can write things your script never did.",
+    "resume_at": "2:47"
+   }
+  ]
+ }
+}

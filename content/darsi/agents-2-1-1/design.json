@@ -1,0 +1,450 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "The road",
+            "ar-EG": "الطريق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "The weather",
+            "ar-EG": "الجو"
+          },
+          "s": 1,
+          "o": 1.2
+        },
+        {
+          "icon": "clock",
+          "tone": "accent",
+          "text": {
+            "en": "A reminder",
+            "ar-EG": "تذكير"
+          },
+          "s": 1,
+          "o": 2.6
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "First, find something",
+            "ar-EG": "الأول، دوّر على حاجة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Then act on it",
+            "ar-EG": "وبعدين اتصرّف"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "list",
+          "tone": "accent",
+          "text": {
+            "en": "Plan, then tool after tool",
+            "ar-EG": "خطّط، وأداة ورا أداة"
+          },
+          "s": 1
+        }
+      ],
+      "aside": "list"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Steps, in order",
+            "ar-EG": "خطوات بالترتيب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "A tool for each step",
+            "ar-EG": "أداة لكل خطوة"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "link",
+          "text": {
+            "en": "Which result feeds which step",
+            "ar-EG": "أنهي نتيجة لأنهي خطوة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "tone": "ok",
+          "text": {
+            "en": "Darsi Tiny: one line",
+            "ar-EG": "درسي الصغير: سطر واحد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "5": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tt",
+            "glyph": "tool",
+            "label": {
+              "en": "Timetable",
+              "ar-EG": "الجدول"
+            }
+          },
+          {
+            "id": "rem",
+            "glyph": "tool",
+            "label": {
+              "en": "Reminder",
+              "ar-EG": "التذكير"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "model",
+            "to": "tt",
+            "text": {
+              "en": "6B, tomorrow, lesson 1",
+              "ar-EG": "سادسة ب، بكرة، أول حصة"
+            }
+          },
+          {
+            "from": "tt",
+            "to": "model",
+            "text": {
+              "en": "PE",
+              "ar-EG": "ألعاب"
+            },
+            "reply": true
+          },
+          {
+            "from": "model",
+            "to": "rem",
+            "text": {
+              "en": "“6B: PE” at 07:30",
+              "ar-EG": "تذكير: سادسة ب، ألعاب، 7:30"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "rem",
+            "to": "model",
+            "text": {
+              "en": "Set",
+              "ar-EG": "اتظبط"
+            },
+            "reply": true,
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Route: Kafi to Dala, 70 km",
+            "ar-EG": "الطريق: من كافي لدالا، 70 كم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sun",
+          "text": {
+            "en": "Weather in Dala: partly cloudy, 32°C",
+            "ar-EG": "الجو في دالا: غايم جزئيًا، 32°"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "One answer from both results",
+            "ar-EG": "جواب واحد من النتيجتين"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "8": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "tt",
+            "glyph": "tool",
+            "label": {
+              "en": "Timetable",
+              "ar-EG": "الجدول"
+            }
+          },
+          {
+            "id": "rem",
+            "glyph": "tool",
+            "label": {
+              "en": "Reminder",
+              "ar-EG": "التذكير"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "model",
+            "to": "tt",
+            "text": {
+              "en": "6B, Saturday, lesson 1",
+              "ar-EG": "سادسة ب، السبت، أول حصة"
+            }
+          },
+          {
+            "from": "tt",
+            "to": "model",
+            "text": {
+              "en": "Error: no school",
+              "ar-EG": "خطأ: مفيش مدرسة"
+            },
+            "reply": true,
+            "tone": "danger"
+          },
+          {
+            "from": "model",
+            "to": "rem",
+            "text": {
+              "en": "“6B: 6B” on Saturday",
+              "ar-EG": "تذكير: سادسة ب، سادسة ب"
+            },
+            "tone": "danger"
+          }
+        ],
+        "notes": [
+          {
+            "after": 3,
+            "over": [
+              "model"
+            ],
+            "text": {
+              "en": "It never checked the result",
+              "ar-EG": "عمره ما راجع النتيجة"
+            }
+          }
+        ],
+        "rows": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Plan the steps and their tools",
+            "ar-EG": "خطّط الخطوات وأدواتها"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Check each result before the next",
+            "ar-EG": "راجع كل نتيجة قبل اللي بعدها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "Stop for a yes before any action",
+            "ar-EG": "استنى موافقة قبل أي تصرّف"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Absences, then a draft note",
+            "ar-EG": "الغياب، وبعدين مسودة رسالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "A word, then library books",
+            "ar-EG": "كلمة، وبعدين كتب المكتبة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "First lesson, then a reminder",
+            "ar-EG": "أول حصة، وبعدين تذكير"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "list"
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "Pick a goal, guess its tools",
+            "ar-EG": "اختار هدف، وخمّن أدواته"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Compare with Darsi Tiny’s plan",
+            "ar-EG": "قارن بخطة درسي الصغير"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Chips: where each word came from",
+            "ar-EG": "العلامات: كل كلمة جت منين"
+          },
+          "s": 2
+        },
+        {
+          "icon": "calendar",
+          "tone": "accent",
+          "text": {
+            "en": "Try Saturday",
+            "ar-EG": "جرّب السبت"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A chain of steps, each with a tool",
+            "ar-EG": "سلسلة خطوات، لكل خطوة أداة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "One result feeds the next step",
+            "ar-EG": "النتيجة بتغذّي الخطوة اللي بعدها"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check after each step",
+            "ar-EG": "راجع بعد كل خطوة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Plan the steps, and plan the checks.",
+        "ar-EG": "خطّط للخطوات، وخطّط للمراجعة."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Plan a trip as tool steps",
+            "ar-EG": "خطّطوا رحلة بخطوات وأدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "A card per step: tool, needs, gives",
+            "ar-EG": "كارت لكل خطوة: أداة، محتاجة، بترجّع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Mark where a person checks",
+            "ar-EG": "علّموا فين الشخص بيراجع"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "tone": "accent",
+          "text": {
+            "en": "What if a step fails?",
+            "ar-EG": "لو خطوة فشلت؟"
+          },
+          "s": 2,
+          "o": 2
+        }
+      ]
+    }
+  }
+}

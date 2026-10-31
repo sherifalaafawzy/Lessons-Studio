@@ -1,0 +1,322 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Two exams, one slot",
+            "ar-EG": "امتحانين في ميعاد واحد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "One sat at lunchtime",
+            "ar-EG": "واحد اتحل وقت الغدا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "tone": "accent",
+          "text": {
+            "en": "No clashes, fewest slots",
+            "ar-EG": "من غير تعارض، وأقل مواعيد"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "graph": {
+        "map": "exams",
+        "algo": "greedy",
+        "s": 0,
+        "frames": [
+          2,
+          2
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "graph": {
+        "map": "exams",
+        "algo": "dsatur",
+        "s": 0,
+        "frames": [
+          2,
+          2
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Two slots? No",
+            "ar-EG": "ميعادين؟ لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Omar: maths, Arabic, French",
+            "ar-EG": "عمر: رياضيات وعربي وفرنساوي"
+          },
+          "s": 2
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "All three clash: a clique",
+            "ar-EG": "التلاتة متعارضين: زُمرة"
+          },
+          "s": 3
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "So at least 3 slots",
+            "ar-EG": "يبقى على الأقل 3 مواعيد"
+          },
+          "s": 3,
+          "o": 3
+        }
+      ]
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "for p in pupils:\n    m.add_all_different(\n        [slot[e] for e in p])\nfor e in exams:\n    m.add(slot[e] <= last)\nm.minimize(last)",
+        "highlight": [
+          6
+        ],
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Slots used: 3",
+            "ar-EG": "المواعيد: 3"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "OPTIMAL: proved best",
+            "ar-EG": "الأحسن، ومتثبت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Quick rule: “this works”",
+            "ar-EG": "القاعدة السريعة: «بينفع»"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "list"
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "award",
+          "tone": "ok",
+          "text": {
+            "en": "OPTIMAL: 3 is proved",
+            "ar-EG": "أوبتيمال: التلاتة متثبتة"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Omar: three exams back to back",
+            "ar-EG": "عمر: تلات امتحانات ورا بعض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruleset",
+          "text": {
+            "en": "No two in a row: 5 slots",
+            "ar-EG": "مفيش اتنين ورا بعض: 5 مواعيد"
+          },
+          "s": 2
+        },
+        {
+          "icon": "scale",
+          "tone": "accent",
+          "text": {
+            "en": "Fewer slots, or rested pupils?",
+            "ar-EG": "مواعيد أقل، ولا تلاميذ مرتاحين؟"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Who decides?",
+            "ar-EG": "مين يقرّر؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pupils and teachers",
+            "ar-EG": "التلاميذ والمدرسين"
+          },
+          "s": 2
+        },
+        {
+          "icon": "keyboard",
+          "tone": "ok",
+          "text": {
+            "en": "Agreed rule into the model",
+            "ar-EG": "القاعدة المتفق عليها في النموذج"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Greedy: 4 slots",
+            "ar-EG": "الجشعة: 4 مواعيد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "star",
+          "text": {
+            "en": "DSatur: 3 slots",
+            "ar-EG": "دي ساتور: 3 مواعيد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "How few slots?",
+            "ar-EG": "أقل عدد كام؟"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "users",
+          "tone": "accent",
+          "text": {
+            "en": "Untick Omar, colour it",
+            "ar-EG": "شيل عمر ولوّن"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "phone"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Fairness rules have a cost",
+            "ar-EG": "قواعد العدل ليها تمن"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Exams are dots, clashes are lines",
+            "ar-EG": "الامتحانات نقط، والتعارض خطوط"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "A clique proves the fewest",
+            "ar-EG": "الزُمرة بتثبت الأقل"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Best for the goal you wrote",
+            "ar-EG": "الأحسن للهدف اللي كتبته"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Count the cost of fairness, then decide it together.",
+        "ar-EG": "احسب تمن العدل، وبعدين قرّروه مع بعض."
+      }
+    },
+    "14": {
+      "who": "salma",
+      "mood": "happy",
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "List next term’s exams",
+            "ar-EG": "اكتب امتحانات الترم الجاي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Draw the clash map",
+            "ar-EG": "ارسموا خريطة التعارض"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Colour: fewest slots",
+            "ar-EG": "لوّنوا: أقل مواعيد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Two in a row: fair?",
+            "ar-EG": "اتنين ورا بعض: عدل؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

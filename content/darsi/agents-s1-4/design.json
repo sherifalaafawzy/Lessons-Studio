@@ -1,0 +1,423 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "mail",
+          "text": {
+            "en": "Sent too soon",
+            "ar-EG": "اتبعتت بدري"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A mistake!",
+            "ar-EG": "فيها غلطة!"
+          },
+          "s": 1
+        },
+        {
+          "icon": "hand",
+          "tone": "accent",
+          "text": {
+            "en": "Today’s rule",
+            "ar-EG": "قاعدة النهارده"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Look things up: fine",
+            "ar-EG": "يدوّر: عادي"
+          },
+          {
+            "en": "Do things: ask first",
+            "ar-EG": "يعمل حاجة: يستأذن"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The weather",
+              "ar-EG": "الجو"
+            },
+            {
+              "en": "Send a message",
+              "ar-EG": "يبعت رسالة"
+            }
+          ],
+          [
+            {
+              "en": "The timetable",
+              "ar-EG": "الجدول"
+            },
+            {
+              "en": "Buy something",
+              "ar-EG": "يشتري حاجة"
+            }
+          ],
+          [
+            {
+              "en": "A library book",
+              "ar-EG": "كتاب في المكتبة"
+            },
+            {
+              "en": "Delete a photo",
+              "ar-EG": "يمسح صورة"
+            }
+          ]
+        ]
+      }
+    },
+    "4": {
+      "who": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "tiny",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "send",
+            "glyph": "tool",
+            "label": {
+              "en": "Message tool",
+              "ar-EG": "أداة الرسائل"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "tiny",
+            "text": {
+              "en": "Send: the trip is cancelled",
+              "ar-EG": "ابعت: الرحلة اتلغت"
+            }
+          },
+          {
+            "from": "tiny",
+            "to": "you",
+            "text": {
+              "en": "Send it? Yes or no?",
+              "ar-EG": "أبعتها؟ آه ولا لأ؟"
+            },
+            "reply": true,
+            "tone": "accent"
+          }
+        ],
+        "notes": [
+          {
+            "after": 1,
+            "over": [
+              "tiny"
+            ],
+            "text": {
+              "en": "Not sent yet",
+              "ar-EG": "لسه ما اتبعتتش"
+            }
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read the message",
+            "ar-EG": "اقرا الرسالة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "The right person?",
+            "ar-EG": "الشخص الصح؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "The right words?",
+            "ar-EG": "الكلام صح؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Then say yes or no",
+            "ar-EG": "وبعدين قول آه أو لأ"
+          },
+          "s": 3
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Wrong group: say no",
+            "ar-EG": "جروب غلط: قول لأ"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "No is always allowed",
+            "ar-EG": "«لأ» مسموحة دايمًا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Fix it, then it asks again",
+            "ar-EG": "صلّحها، ويستأذن تاني"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Only “Yes, send it”",
+            "ar-EG": "«آه، ابعتها» وبس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "mail",
+          "tone": "danger",
+          "text": {
+            "en": "A made-up message!",
+            "ar-EG": "رسالة متألّفة!"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "The app blocks it",
+            "ar-EG": "التطبيق بيمنعها"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "key",
+          "tone": "danger",
+          "text": {
+            "en": "Never your password",
+            "ar-EG": "الباسورد: أبدًا"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "No private things",
+            "ar-EG": "مفيش حاجات خاصة"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "users",
+          "tone": "ok",
+          "text": {
+            "en": "Strange? Tell a grown-up",
+            "ar-EG": "حاجة غريبة؟ قول لحد كبير"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "10": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "You",
+              "ar-EG": "إنت"
+            }
+          },
+          {
+            "id": "tiny",
+            "glyph": "bot",
+            "label": {
+              "en": "Darsi Tiny",
+              "ar-EG": "درسي الصغير"
+            }
+          },
+          {
+            "id": "send",
+            "glyph": "tool",
+            "label": {
+              "en": "Message tool",
+              "ar-EG": "أداة الرسائل"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "you",
+            "to": "tiny",
+            "text": {
+              "en": "Send the message",
+              "ar-EG": "ابعت الرسالة"
+            }
+          },
+          {
+            "from": "tiny",
+            "to": "you",
+            "text": {
+              "en": "Shall I send it?",
+              "ar-EG": "أبعتها؟"
+            },
+            "reply": true,
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "tiny",
+            "text": {
+              "en": "No",
+              "ar-EG": "لأ"
+            },
+            "tone": "danger"
+          },
+          {
+            "from": "you",
+            "to": "tiny",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "آه"
+            },
+            "tone": "ok"
+          },
+          {
+            "from": "tiny",
+            "to": "send",
+            "text": {
+              "en": "Sent: practice only",
+              "ar-EG": "اتبعتت: تمرين بس"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ]
+      }
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Doing things needs a yes",
+            "ar-EG": "عمل الحاجات محتاج «آه»"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Read first; no is OK",
+            "ar-EG": "اقرا الأول، و«لأ» مسموحة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Passwords stay secret",
+            "ar-EG": "الباسورد يفضل سر"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "A good helper asks first, and you decide.",
+        "ar-EG": "المساعد الكويس بيستأذن، وإنت اللي بتقرر."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Play “Yes or No”",
+            "ar-EG": "العب «آه ولا لأ»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "The helper asks first",
+            "ar-EG": "المساعد بيستأذن الأول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "You say yes or no, and why",
+            "ar-EG": "إنت تقول آه أو لأ، وليه"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

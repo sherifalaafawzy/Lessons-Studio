@@ -1,0 +1,363 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "presentation",
+          "text": {
+            "en": "A district report",
+            "ar-EG": "تقرير الإدارة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "One pupil in 6B",
+            "ar-EG": "تلميذ واحد في 6ب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "tone": "danger",
+          "text": {
+            "en": "Everyone knew",
+            "ar-EG": "الكل عرف"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "Class teacher: her class",
+            "ar-EG": "مدرّسة الفصل: فصلها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "school",
+          "text": {
+            "en": "Head: the whole school",
+            "ar-EG": "المدير: المدرسة كلها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Parents: their own child",
+            "ar-EG": "الأهل: ابنهم بس"
+          },
+          "s": 3
+        },
+        {
+          "icon": "presentation",
+          "tone": "ok",
+          "text": {
+            "en": "District: summaries",
+            "ar-EG": "الإدارة: ملخّصات"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "cols": [
+          {
+            "en": "Rows",
+            "ar-EG": "صفوف"
+          },
+          {
+            "en": "Summaries",
+            "ar-EG": "ملخّصات"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "A child on every line",
+              "ar-EG": "طفل في كل سطر"
+            },
+            {
+              "en": "Averages per class",
+              "ar-EG": "متوسط لكل فصل"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "No names",
+              "ar-EG": "من غير أسامي"
+            }
+          ]
+        ],
+        "s": 0
+      }
+    },
+    "5": {
+      "big": {
+        "value": "5",
+        "label": {
+          "en": "Fewer than five pupils? Hide the group",
+          "ar-EG": "أقل من خمس تلاميذ؟ خبّي المجموعة"
+        },
+        "icon": "eye",
+        "s": 0
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "tag",
+          "text": {
+            "en": "Names become numbers",
+            "ar-EG": "الأسامي بقت أرقام"
+          },
+          "s": 0
+        },
+        {
+          "icon": "key",
+          "tone": "danger",
+          "text": {
+            "en": "The list brings names back",
+            "ar-EG": "القائمة بترجّع الأسامي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "tone": "danger",
+          "text": {
+            "en": "So can a few facts",
+            "ar-EG": "وكام معلومة كمان"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "Birth date",
+            "ar-EG": "تاريخ الميلاد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Sex",
+            "ar-EG": "النوع"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Postcode",
+            "ar-EG": "الرمز البريدي"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "eye",
+          "tone": "danger",
+          "text": {
+            "en": "87 in 100 identified",
+            "ar-EG": "87 من كل 100"
+          },
+          "s": 0,
+          "o": 4
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "presentation",
+          "tone": "ok",
+          "text": {
+            "en": "Class averages",
+            "ar-EG": "متوسطات الفصول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Groups under 5 hidden",
+            "ar-EG": "الأقل من 5 متخبّي"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "cross",
+          "tone": "danger",
+          "text": {
+            "en": "Not row by row",
+            "ar-EG": "مش صف صف"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "headline": null,
+      "query": {
+        "sql": "SELECT class, AVG(mark) FROM marks GROUP BY class HAVING COUNT(*) >= 5",
+        "tables": {
+          "marks": {
+            "cols": [
+              "class",
+              "mark"
+            ],
+            "rows": [
+              [
+                "6A",
+                14
+              ],
+              [
+                "6A",
+                11
+              ],
+              [
+                "6A",
+                16
+              ],
+              [
+                "6A",
+                9
+              ],
+              [
+                "6A",
+                15
+              ],
+              [
+                "6C",
+                7
+              ],
+              [
+                "6C",
+                18
+              ]
+            ]
+          }
+        },
+        "at": {
+          "group": 0,
+          "having": 1
+        }
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "Six harmless posts",
+            "ar-EG": "ست بوستات عادية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "tone": "danger",
+          "text": {
+            "en": "Together: a child found",
+            "ar-EG": "مع بعض: طفلة اتعرفت"
+          },
+          "s": 0,
+          "o": 4
+        },
+        {
+          "icon": "lock",
+          "tone": "ok",
+          "text": {
+            "en": "Choose who sees each",
+            "ar-EG": "اختار مين يشوف"
+          },
+          "s": 1
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Each role: only what it needs",
+            "ar-EG": "كل دور: اللي محتاجه بس"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Summaries, not rows",
+            "ar-EG": "ملخّصات، مش صفوف"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Hide groups under five",
+            "ar-EG": "خبّي الأقل من خمسة"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "text": {
+            "en": "Numbers aren't anonymous",
+            "ar-EG": "الأرقام مش مجهولة"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Share what the reader needs, never who the child is.",
+        "ar-EG": "شارك اللي القارئ محتاجه، وعمرك ما تكشف الطفل مين."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "user",
+          "text": {
+            "en": "A made-up pupil",
+            "ar-EG": "تلميذة متألّفة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "One fact at a time",
+            "ar-EG": "معلومة في المرة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "How many until we know?",
+            "ar-EG": "كام لحد ما نعرفها؟"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

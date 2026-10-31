@@ -1,0 +1,321 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.910
+Every test, I turn marks into grades by
+
+2
+00:00:03.910 --> 00:00:07.850
+hand: seventy and above is an A, fifty
+
+3
+00:00:07.850 --> 00:00:10.850
+to sixty-nine a B, and so on.
+
+4
+00:00:11.320 --> 00:00:13.300
+Last term I gave a pupil with
+
+5
+00:00:13.300 --> 00:00:15.500
+exactly fifty the wrong grade.
+
+6
+00:00:16.140 --> 00:00:18.340
+A program never forgets the rule.
+
+7
+00:00:19.470 --> 00:00:21.830
+Today: decisions in Python,
+
+8
+00:00:22.190 --> 00:00:24.370
+with if, elif and else.
+
+9
+00:00:25.710 --> 00:00:27.870
+A decision starts with a comparison.
+
+10
+00:00:28.680 --> 00:00:30.020
+Is the mark at least fifty?
+
+11
+00:00:30.700 --> 00:00:33.400
+In Python that’s mark, greater
+
+12
+00:00:33.400 --> 00:00:35.140
+than or equal, fifty.
+
+13
+00:00:35.870 --> 00:00:38.950
+Two equals signs ask: are these the same?
+
+14
+00:00:39.530 --> 00:00:42.790
+One equals sign stores a value, so
+
+15
+00:00:42.790 --> 00:00:45.290
+mixing them up is the most common bug.
+
+16
+00:00:46.550 --> 00:00:49.410
+An if line ends with a colon, and the
+
+17
+00:00:49.410 --> 00:00:51.610
+lines under it are indented by four
+
+18
+00:00:51.610 --> 00:00:51.970
+spaces.
+
+19
+00:00:52.780 --> 00:00:55.600
+They run only when the condition is true.
+
+20
+00:00:56.070 --> 00:00:58.070
+Else catches every other case.
+
+21
+00:00:58.780 --> 00:01:00.860
+The indent tells Python which
+
+22
+00:01:00.860 --> 00:01:02.760
+lines belong to which choice.
+
+23
+00:01:04.140 --> 00:01:06.500
+For more than two choices, use
+
+24
+00:01:06.500 --> 00:01:08.800
+elif, short for else if.
+
+25
+00:01:09.460 --> 00:01:12.220
+Python checks from the top and stops at
+
+26
+00:01:12.220 --> 00:01:13.920
+the first condition that’s true.
+
+27
+00:01:14.480 --> 00:01:17.460
+So put the highest band first: seventy,
+
+28
+00:01:18.020 --> 00:01:20.440
+then fifty, then everything else.
+
+29
+00:01:21.730 --> 00:01:24.350
+It’s like sorting exam papers into piles.
+
+30
+00:01:25.120 --> 00:01:26.720
+Is it seventy or more?
+
+31
+00:01:27.500 --> 00:01:28.060
+First pile.
+
+32
+00:01:28.720 --> 00:01:31.040
+If not, is it fifty or more?
+
+33
+00:01:31.700 --> 00:01:32.360
+Second pile.
+
+34
+00:01:33.000 --> 00:01:35.660
+Everything else goes on the last pile.
+
+35
+00:01:36.240 --> 00:01:39.080
+Each paper lands on exactly one pile.
+
+36
+00:01:40.330 --> 00:01:40.910
+Quick check!
+
+37
+00:01:41.700 --> 00:01:44.340
+With that program, a pupil
+
+38
+00:01:44.340 --> 00:01:46.420
+scores exactly fifty.
+
+39
+00:01:47.370 --> 00:01:49.350
+Which grade does she get?
+
+40
+00:01:50.640 --> 00:01:51.440
+Grade B.
+
+41
+00:01:52.090 --> 00:01:53.810
+Greater than or equal
+
+42
+00:01:53.810 --> 00:01:55.490
+includes fifty itself.
+
+43
+00:01:56.270 --> 00:01:59.070
+Fifty is where the grade changes, so
+
+44
+00:01:59.070 --> 00:02:00.770
+it’s exactly the mark to test.
+
+45
+00:02:01.440 --> 00:02:04.020
+Always test the boundaries: forty-nine,
+
+46
+00:02:04.500 --> 00:02:06.940
+fifty, sixty-nine and seventy.
+
+47
+00:02:08.260 --> 00:02:10.560
+Put it together with input, and
+
+48
+00:02:10.560 --> 00:02:12.240
+you have a small tool.
+
+49
+00:02:12.880 --> 00:02:15.440
+It asks for a mark, turns it into a
+
+50
+00:02:15.440 --> 00:02:17.100
+number, and prints the grade.
+
+51
+00:02:17.780 --> 00:02:20.300
+Type forty marks, and every
+
+52
+00:02:20.300 --> 00:02:21.960
+grade follows the same rule.
+
+53
+00:02:23.180 --> 00:02:26.000
+Expect three bugs when pupils start.
+
+54
+00:02:26.670 --> 00:02:29.070
+A missing colon at the end of the if line.
+
+55
+00:02:29.690 --> 00:02:32.350
+One equals sign where two are needed.
+
+56
+00:02:33.060 --> 00:02:35.920
+And a line that isn’t indented, so Python
+
+57
+00:02:35.920 --> 00:02:37.860
+doesn’t know it belongs to the if.
+
+58
+00:02:39.140 --> 00:02:41.240
+In the app, open Bug hunt.
+
+59
+00:02:41.920 --> 00:02:44.960
+Bug one is a missing colon and bug
+
+60
+00:02:44.960 --> 00:02:47.180
+two is a single equals sign.
+
+61
+00:02:47.820 --> 00:02:51.080
+Run each one, read the error and its
+
+62
+00:02:51.080 --> 00:02:53.800
+line, fix it and run it again.
+
+63
+00:02:55.000 --> 00:02:55.760
+Your turn.
+
+64
+00:02:56.380 --> 00:02:59.180
+A pupil writes: if mark equals
+
+65
+00:02:59.180 --> 00:03:02.160
+fifty, with a single equals sign.
+
+66
+00:03:02.770 --> 00:03:03.430
+What happens?
+
+67
+00:03:04.810 --> 00:03:05.890
+A syntax error.
+
+68
+00:03:06.540 --> 00:03:08.560
+Remember: two equals signs
+
+69
+00:03:08.560 --> 00:03:11.040
+compare; one stores.
+
+70
+00:03:11.920 --> 00:03:13.840
+An if line ends with a colon,
+
+71
+00:03:14.280 --> 00:03:15.920
+and its lines are indented.
+
+72
+00:03:16.570 --> 00:03:18.990
+elif checks the next band, and the
+
+73
+00:03:18.990 --> 00:03:20.470
+first true condition wins.
+
+74
+00:03:21.250 --> 00:03:22.310
+Test the boundaries.
+
+75
+00:03:23.850 --> 00:03:26.750
+Try it in class tomorrow: Human if.
+
+76
+00:03:27.500 --> 00:03:29.440
+Write a grading rule on the board.
+
+77
+00:03:30.090 --> 00:03:32.750
+Pupils hold up made-up marks, and the
+
+78
+00:03:32.750 --> 00:03:35.730
+class decides each grade by following the
+
+79
+00:03:35.730 --> 00:03:38.510
+rule line by line, starting at the top.
+
+80
+00:03:39.130 --> 00:03:42.130
+Try forty-nine, fifty and seventy.

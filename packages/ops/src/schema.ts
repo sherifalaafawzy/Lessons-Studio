@@ -19,13 +19,19 @@ const when = {
     },
   ],
 };
-const prop = { enum: ["x", "y", "scale", "rotate", "opacity", "draw", "reveal"] };
+const prop = {
+  description: "x, y (stage px), scale, rotate (degrees), opacity, draw and reveal (0 to 1); on the science elements also frame (a training snapshot, from 0), focus (light up the n-th part, 0 none) and pass (data through a network or diagram: 0 to 1 forward, 1 to 2 the error back, -1 hidden).",
+  enum: ["x", "y", "scale", "rotate", "opacity", "draw", "reveal", "frame", "focus", "pass"],
+};
 const key = {
   type: "object", required: ["at", "value"], additionalProperties: false,
   properties: { at: when, value: { type: "number" }, ease: { enum: ["linear", "in", "out", "in-out", "back", "step"] } },
 };
 const scene = { type: "object", description: "A whole scene: {id, template, narration, content, cues?, check?, overlays?, transition?, camera?}. See the format guide." };
-const element = { type: "object", description: "A free element: {id, type, x, y, w?, h?, ...}. Types: text, shape, line, path, icon, image, code, chart, group. See the format guide." };
+const element = {
+  type: "object",
+  description: "A free element: {id, type, x, y, w?, h?, ...}. Types: text, shape, line, path, icon, image, code, chart, group, and the science elements math (an equation in TeX), plot (axes and series), net (a neural network), arch (a model's architecture) and table, which need w and h. See the format guide.",
+};
 const sceneId = { type: "string", description: "The scene's id" };
 
 const op = (name: string, description: string, props: Record<string, unknown>, required: string[]) => ({

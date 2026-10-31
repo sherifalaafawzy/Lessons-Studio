@@ -1,0 +1,326 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Homework bot",
+            "ar-EG": "بوت الواجبات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Asked for a PIN",
+            "ar-EG": "طلب رقم سري"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "Filter missed it",
+            "ar-EG": "الفلتر فوّتها"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Model and instructions",
+            "ar-EG": "نموذج وتعليمات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Tools that act",
+            "ar-EG": "أدوات بتعمل حاجات"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Text it reads",
+            "ar-EG": "نص بيقراه"
+          },
+          "s": 1,
+          "o": 3.5
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Jailbreaks and injections",
+            "ar-EG": "كسر القيود والحقن"
+          },
+          "s": 2,
+          "tone": "danger"
+        }
+      ]
+    },
+    "4": {
+      "who": null,
+      "trace": {
+        "code": "msg = \"Your PIN?\"\nhit = False\nfor w in [\"password\", \"pin\"]:\n    if w in msg.lower():\n        hit = True\nprint(hit)",
+        "play": [
+          1,
+          2
+        ],
+        "focus": [
+          {
+            "s": 1,
+            "line": 4
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "circlex",
+          "text": {
+            "en": "“The secret word you log in with”",
+            "ar-EG": "«الكلمة السرية اللي بتدخل بيها»"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Passes: no banned word",
+            "ar-EG": "بتعدّي: مفيش كلمة ممنوعة"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "“Strong passwords” lesson: blocked",
+            "ar-EG": "درس «باسوردات قوية»: اتوقف"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "type",
+          "text": {
+            "en": "Same request",
+            "ar-EG": "نفس الطلب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "languages",
+          "text": {
+            "en": "New words, any language",
+            "ar-EG": "كلام جديد، أي لغة"
+          },
+          "s": 2
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Never finished",
+            "ar-EG": "عمرها ما بتخلص"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "danger"
+        }
+      ]
+    },
+    "8": {
+      "who": null,
+      "headline": null,
+      "codediff": {
+        "before": "BANNED = [\"password\", \"pin\"]\ndef can_send(msg, asked, yes):\n    for w in BANNED:\n        if w in msg.lower():\n            return False\n    return True\nmsg = \"Which 4 numbers?\"\nprint(can_send(msg, False, False))",
+        "after": "def can_send(msg, asked, yes):\n    return asked and yes\nmsg = \"Which 4 numbers?\"\nprint(can_send(msg, False, False))",
+        "fix": 1,
+        "run": true,
+        "focus": [
+          {
+            "s": 2,
+            "line": 2
+          }
+        ],
+        "labels": {
+          "before": {
+            "en": "Word filter",
+            "ar-EG": "فلتر الكلمات"
+          },
+          "after": {
+            "en": "Check the action",
+            "ar-EG": "افحص الفعل"
+          }
+        }
+      }
+    },
+    "9": {
+      "table": {
+        "cols": [
+          {
+            "en": "The model",
+            "ar-EG": "النموذج"
+          },
+          {
+            "en": "The code check",
+            "ar-EG": "فحص الكود"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Reads words as orders",
+              "ar-EG": "بيقرا الكلام كأوامر"
+            },
+            {
+              "en": "Asks: approved?",
+              "ar-EG": "بيسأل: وافقت؟"
+            }
+          ],
+          [
+            "",
+            {
+              "en": "Scam stays unsent",
+              "ar-EG": "النصب ميتبعتش"
+            }
+          ]
+        ],
+        "s": 0,
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      },
+      "who": null
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Plain words: caught",
+            "ar-EG": "كلام صريح: اتمسكت"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Reworded: slips past",
+            "ar-EG": "صياغة تانية: عدّت"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Check in code: stopped",
+            "ar-EG": "فحص في الكود: اتوقفت"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Attacks hit the whole app",
+            "ar-EG": "الهجمات على التطبيق كله"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Filters miss rewording",
+            "ar-EG": "الفلاتر بتفوّت الصياغة الجديدة"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "They block innocent text too",
+            "ar-EG": "وبتوقف كلام بريء كمان"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Check the action in code",
+            "ar-EG": "افحص الفعل في الكود"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Ask “did you approve this?”, not “which words are in it?”",
+        "ar-EG": "اسأل «وافقت على ده؟»، مش «فيه كلمات إيه؟»"
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Five banned words on paper",
+            "ar-EG": "خمس كلمات ممنوعة على ورقة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "A friend rewords a request",
+            "ar-EG": "صاحبك يغيّر الصياغة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Count what slips through",
+            "ar-EG": "عدّ اللي عدّى"
+          },
+          "s": 2
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "Write the code check's question",
+            "ar-EG": "اكتب سؤال فحص الكود"
+          },
+          "s": 2,
+          "o": 3,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

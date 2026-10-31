@@ -1,0 +1,430 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Answer parents",
+            "ar-EG": "رد على الأهالي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "Check attendance",
+            "ar-EG": "راجع الحضور"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Every tool?",
+            "ar-EG": "كل الأدوات؟"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "The job, in one sentence",
+            "ar-EG": "المهمة في جملة واحدة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Who uses it",
+            "ar-EG": "مين هيستخدمه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "What a mistake costs",
+            "ar-EG": "الغلطة تكلّف إيه"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "4": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "A homework helper needs",
+            "ar-EG": "مساعد الواجبات محتاج"
+          },
+          {
+            "en": "It doesn’t need",
+            "ar-EG": "مش محتاج"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "The timetable",
+              "ar-EG": "الجدول"
+            },
+            {
+              "en": "Send message",
+              "ar-EG": "إرسال رسايل"
+            }
+          ],
+          [
+            {
+              "en": "The library",
+              "ar-EG": "المكتبة"
+            },
+            {
+              "en": "Attendance records",
+              "ar-EG": "سجلات الحضور"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The fewest tools",
+            "ar-EG": "أقل أدوات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "data",
+          "text": {
+            "en": "The least data",
+            "ar-EG": "أقل بيانات"
+          },
+          "s": 0,
+          "o": 2
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "A misread does less harm",
+            "ar-EG": "الغلطة ضررها أقل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Like staff accounts",
+            "ar-EG": "زي حسابات الموظفين"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "6": {
+      "sequence": {
+        "participants": [
+          {
+            "id": "plan",
+            "glyph": "bot",
+            "label": {
+              "en": "Planner",
+              "ar-EG": "المخطِّط"
+            }
+          },
+          {
+            "id": "check",
+            "glyph": "shield",
+            "label": {
+              "en": "Checker",
+              "ar-EG": "المدقِّق"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "A person",
+              "ar-EG": "إنسان"
+            }
+          },
+          {
+            "id": "run",
+            "glyph": "phone",
+            "label": {
+              "en": "Runner",
+              "ar-EG": "المنفِّذ"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "plan",
+            "to": "check",
+            "text": {
+              "en": "Proposed call",
+              "ar-EG": "طلب مقترح"
+            }
+          },
+          {
+            "from": "check",
+            "to": "you",
+            "text": {
+              "en": "An action: OK?",
+              "ar-EG": "تصرّف: موافق؟"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "check",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "check",
+            "to": "run",
+            "text": {
+              "en": "Run it",
+              "ar-EG": "شغّله"
+            },
+            "tone": "ok"
+          }
+        ],
+        "rows": [
+          1,
+          2,
+          3,
+          3
+        ]
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The tool is on",
+            "ar-EG": "الأداة شغّالة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "ruler",
+          "text": {
+            "en": "Each detail has the right shape",
+            "ar-EG": "كل تفصيلة شكلها صح"
+          },
+          "s": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Names and numbers from your words",
+            "ar-EG": "الأسامي والأرقام من كلامك"
+          },
+          "s": 3
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "No earlier step failed",
+            "ar-EG": "مفيش خطوة قبلها فشلت"
+          },
+          "s": 4
+        },
+        {
+          "icon": "user",
+          "tone": "ok",
+          "text": {
+            "en": "A person said yes",
+            "ar-EG": "إنسان وافق"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "9": {
+      "list": [
+        {
+          "icon": "calendar",
+          "tone": "ok",
+          "text": {
+            "en": "Timetable: yes",
+            "ar-EG": "الجدول: أيوه"
+          },
+          "s": 0
+        },
+        {
+          "icon": "book",
+          "tone": "ok",
+          "text": {
+            "en": "Library: yes",
+            "ar-EG": "المكتبة: أيوه"
+          },
+          "s": 0,
+          "o": 1
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Messages, attendance: no",
+            "ar-EG": "الرسايل والحضور: لأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "A new tool later? With approval",
+            "ar-EG": "أداة جديدة بعدين؟ بموافقة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "who": null,
+      "code": {
+        "text": "PERMS = {\n    \"weather\": \"allowed\",\n    \"timetable\": \"allowed\",\n    \"reminder\": \"ask\",\n    \"send_message\": \"ask\",\n}",
+        "s": 1
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "sun",
+          "tone": "ok",
+          "text": {
+            "en": "Weather: it passes",
+            "ar-EG": "الطقس: بيعدّي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "9Z written as 9C",
+            "ar-EG": "9Z اتكتبت 9C"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "The checker stops it",
+            "ar-EG": "المدقِّق بيوقفه"
+          },
+          "s": 1,
+          "o": 2.5
+        },
+        {
+          "icon": "circlex",
+          "tone": "danger",
+          "text": {
+            "en": "Checker off: try again",
+            "ar-EG": "اقفل المدقِّق وجرّب"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Start from the job",
+            "ar-EG": "ابدأ من المهمة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Fewest tools, in a table",
+            "ar-EG": "أقل أدوات، في جدول"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Roles; a person approves",
+            "ar-EG": "أدوار، وإنسان يوافق"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "Design the job first; choose the tools last.",
+        "ar-EG": "صمّم المهمة الأول، واختار الأدوات في الآخر."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "A design sprint in groups",
+            "ar-EG": "سباق تصميم في مجموعات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "One page: job, tools, approvals",
+            "ar-EG": "صفحة: المهمة، الأدوات، الموافقات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "How will we know it works?",
+            "ar-EG": "هنعرف إزاي إنه شغّال؟"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Swap: hunt for an extra tool",
+            "ar-EG": "بدّلوا: دوّروا على أداة زيادة"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

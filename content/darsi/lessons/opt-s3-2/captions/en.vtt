@@ -1,0 +1,329 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.090
+A map app finds the fastest way
+
+2
+00:00:03.090 --> 00:00:05.570
+across a whole country in a blink.
+
+3
+00:00:06.310 --> 00:00:08.150
+It doesn’t try every route:
+
+4
+00:00:08.630 --> 00:00:09.630
+there are far too many.
+
+5
+00:00:10.260 --> 00:00:12.620
+So how does it know it found the shortest?
+
+6
+00:00:14.100 --> 00:00:16.760
+Today: shortest paths, the way
+
+7
+00:00:16.760 --> 00:00:18.460
+Dijkstra found them, in Python.
+
+8
+00:00:19.880 --> 00:00:23.100
+Draw places as dots and roads as
+
+9
+00:00:23.100 --> 00:00:25.120
+lines, each with its length.
+
+10
+00:00:25.770 --> 00:00:28.470
+In Python, a dictionary holds the
+
+11
+00:00:28.470 --> 00:00:30.510
+map: each place points to its
+
+12
+00:00:30.510 --> 00:00:32.590
+neighbours and how far away they are.
+
+13
+00:00:33.740 --> 00:00:35.500
+Dijkstra’s idea, from nineteen
+
+14
+00:00:35.500 --> 00:00:38.300
+fifty-six: give every place a number,
+
+15
+00:00:38.300 --> 00:00:40.160
+the shortest way found so far.
+
+16
+00:00:40.760 --> 00:00:44.020
+Home is zero; the others start very large.
+
+17
+00:00:44.770 --> 00:00:46.710
+Each turn, settle the waiting
+
+18
+00:00:46.710 --> 00:00:48.550
+place with the smallest number.
+
+19
+00:00:49.210 --> 00:00:51.870
+Then check its roads: can they make
+
+20
+00:00:51.870 --> 00:00:53.190
+a neighbour’s number smaller?
+
+21
+00:00:54.510 --> 00:00:56.110
+Why can you settle the smallest?
+
+22
+00:00:57.070 --> 00:00:59.350
+Every other way to it would pass through a
+
+23
+00:00:59.350 --> 00:01:01.330
+place that is already further away.
+
+24
+00:01:02.020 --> 00:01:03.640
+With no negative road lengths,
+
+25
+00:01:04.000 --> 00:01:05.500
+nothing can ever make it shorter.
+
+26
+00:01:06.780 --> 00:01:09.340
+On our small map, home is zero.
+
+27
+00:01:10.030 --> 00:01:12.610
+Kesi gets one and Tala four.
+
+28
+00:01:13.260 --> 00:01:16.180
+Settle Kesi: through Kesi, Tala drops
+
+29
+00:01:16.180 --> 00:01:18.280
+to three, and school gets eight.
+
+30
+00:01:18.910 --> 00:01:21.870
+Settle Tala: school drops to six.
+
+31
+00:01:22.650 --> 00:01:25.410
+The straight-looking way, home to
+
+32
+00:01:25.410 --> 00:01:27.710
+Tala to school, is seven.
+
+33
+00:01:28.940 --> 00:01:29.980
+Here it is in Python.
+
+34
+00:01:30.820 --> 00:01:33.180
+While places are waiting, take the one
+
+35
+00:01:33.180 --> 00:01:35.520
+with the smallest number, and remove it.
+
+36
+00:01:36.090 --> 00:01:38.930
+Then relax its roads: keep whichever is
+
+37
+00:01:38.930 --> 00:01:41.350
+smaller, the old number or the new way.
+
+38
+00:01:42.490 --> 00:01:42.970
+Quick check!
+
+39
+00:01:43.610 --> 00:01:46.190
+Two places are waiting: Tala at
+
+40
+00:01:46.190 --> 00:01:48.110
+seven, and Rubi at five.
+
+41
+00:01:48.820 --> 00:01:50.440
+Which one do you settle next?
+
+42
+00:01:51.760 --> 00:01:53.240
+Rubi, the smallest.
+
+43
+00:01:54.240 --> 00:01:56.340
+Nothing can make its number smaller
+
+44
+00:01:56.340 --> 00:01:58.920
+now, because every other way passes
+
+45
+00:01:58.920 --> 00:02:01.120
+through places at seven or more.
+
+46
+00:02:01.730 --> 00:02:04.190
+Settling Tala first could freeze a
+
+47
+00:02:04.190 --> 00:02:05.710
+number that is still too big.
+
+48
+00:02:06.970 --> 00:02:09.250
+In the lab’s map, the shortest way
+
+49
+00:02:09.250 --> 00:02:11.070
+to school is thirteen kilometres,
+
+50
+00:02:11.590 --> 00:02:13.810
+through Tala, Kesi and Mina.
+
+51
+00:02:14.470 --> 00:02:15.990
+The road that looks straightest,
+
+52
+00:02:15.990 --> 00:02:17.870
+through Bora, is fifteen.
+
+53
+00:02:18.620 --> 00:02:21.060
+Flood the bridge between Kesi and Mina,
+
+54
+00:02:21.460 --> 00:02:24.240
+and it becomes fourteen, by Rubi and Sana.
+
+55
+00:02:25.520 --> 00:02:26.560
+Shortest for whom?
+
+56
+00:02:27.220 --> 00:02:29.520
+A new footbridge might save one village
+
+57
+00:02:29.520 --> 00:02:32.380
+twenty minutes and another nothing.
+
+58
+00:02:33.150 --> 00:02:35.110
+When a town chooses which road to
+
+59
+00:02:35.110 --> 00:02:37.670
+fix, run the shortest paths from
+
+60
+00:02:37.670 --> 00:02:39.650
+every home, and see who gains.
+
+61
+00:02:41.020 --> 00:02:42.660
+In the app, open “The
+
+62
+00:02:42.660 --> 00:02:44.060
+shortest way to school”.
+
+63
+00:02:44.530 --> 00:02:47.270
+Tap Home, then always the waiting
+
+64
+00:02:47.270 --> 00:02:49.030
+village with the smallest number.
+
+65
+00:02:49.680 --> 00:02:52.520
+Then flood the bridge, and do it again.
+
+66
+00:02:53.720 --> 00:02:54.220
+Your turn.
+
+67
+00:02:54.830 --> 00:02:57.070
+A friend’s program settles places in
+
+68
+00:02:57.070 --> 00:02:59.150
+list order, not smallest first.
+
+69
+00:02:59.830 --> 00:03:01.370
+It says school is seven
+
+70
+00:03:01.370 --> 00:03:03.130
+kilometres away, not six.
+
+71
+00:03:03.940 --> 00:03:04.400
+Why?
+
+72
+00:03:05.670 --> 00:03:08.570
+It settled Tala too early, before the
+
+73
+00:03:08.570 --> 00:03:10.210
+shorter way through Kesi was known.
+
+74
+00:03:10.830 --> 00:03:13.070
+Remember: store the map as a
+
+75
+00:03:13.070 --> 00:03:15.150
+dictionary, settle the smallest
+
+76
+00:03:15.150 --> 00:03:17.970
+number first, and relax its roads.
+
+77
+00:03:18.700 --> 00:03:21.560
+And ask who a new road really helps.
+
+78
+00:03:22.910 --> 00:03:25.410
+Try it yourself: draw the roads
+
+79
+00:03:25.410 --> 00:03:27.910
+between your home, two friends’ homes
+
+80
+00:03:27.910 --> 00:03:30.210
+and school, with rough distances.
+
+81
+00:03:31.020 --> 00:03:33.200
+Run Dijkstra on paper, then
+
+82
+00:03:33.200 --> 00:03:34.200
+check it with your code.

@@ -1,0 +1,321 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“Sir, it doesn’t work!”",
+            "ar-EG": "«يا أستاذ، مش شغّال!»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "20 times a lesson",
+            "ar-EG": "20 مرة في الحصة"
+          },
+          "s": 1,
+          "tone": "danger"
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Pupils fix their own",
+            "ar-EG": "التلاميذ يصلّحوا بنفسهم"
+          },
+          "s": 3,
+          "tone": "ok"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "Traceback (most recent call last):\n  File \"<stdin>\", line 3\nNameError: name 'scor' isn't defined",
+        "highlight": [
+          3
+        ],
+        "s": 2
+      }
+    },
+    "4": {
+      "aside": "search",
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "SyntaxError: can’t read the line",
+            "ar-EG": "SyntaxError: السطر مش مفهوم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "tag",
+          "text": {
+            "en": "NameError: a name spelt wrong",
+            "ar-EG": "NameError: اسم مكتوب غلط"
+          },
+          "s": 2
+        },
+        {
+          "icon": "type",
+          "text": {
+            "en": "TypeError: text and a number",
+            "ar-EG": "TypeError: نص ورقم"
+          },
+          "s": 3
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "IndexError: past the end",
+            "ar-EG": "IndexError: بعد الآخر"
+          },
+          "s": 4
+        }
+      ]
+    },
+    "5": {
+      "list": [
+        {
+          "text": {
+            "en": "Read the error, find the line",
+            "ar-EG": "اقرا الخطأ، ولاقي السطر"
+          },
+          "s": 1,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "Expected? What happened?",
+            "ar-EG": "كنت متوقّع إيه؟ وحصل إيه؟"
+          },
+          "s": 2,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "Change one thing only",
+            "ar-EG": "غيّر حاجة واحدة بس"
+          },
+          "s": 3,
+          "icon": "next"
+        },
+        {
+          "text": {
+            "en": "Run it again",
+            "ar-EG": "شغّله تاني"
+          },
+          "s": 4,
+          "icon": "next"
+        }
+      ],
+      "aside": "eye"
+    },
+    "6": {
+      "who": null,
+      "codediff": {
+        "before": "total = 0\nfor m in [3, 4, 5]:\n    total = m\nprint(total)",
+        "after": "total = 0\nfor m in [3, 4, 5]:\n    total = total + m\nprint(total)",
+        "fix": 3,
+        "run": true,
+        "focus": [
+          {
+            "s": 2,
+            "line": 3
+          }
+        ]
+      }
+    },
+    "8": {
+      "who": null,
+      "codediff": {
+        "before": "score = 7\nbonus = 3\nprint(scor + bonus)",
+        "after": "score = 7\nbonus = 3\nprint(score + bonus)",
+        "fix": 2,
+        "output": {
+          "before": "NameError: name 'scor' isn't defined",
+          "after": "10"
+        }
+      }
+    },
+    "9": {
+      "aside": "chat",
+      "list": [
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Don’t take the keyboard",
+            "ar-EG": "ماتاخدش الكيبورد"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What did you expect?",
+            "ar-EG": "كنت متوقّع إيه؟"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "What does the error say?",
+            "ar-EG": "الخطأ بيقول إيه؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "What is x after line 2?",
+            "ar-EG": "x بعد السطر 2 كام؟"
+          },
+          "s": 4
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "They find it themselves",
+            "ar-EG": "يلاقيها بنفسه"
+          },
+          "s": 5
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Explain it out loud",
+            "ar-EG": "اشرحه بصوت عالي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Line by line",
+            "ar-EG": "سطر سطر"
+          },
+          "s": 1,
+          "o": 2
+        },
+        {
+          "icon": "bulb",
+          "text": {
+            "en": "Hear your own mistake",
+            "ar-EG": "اسمع غلطتك بنفسك"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ],
+      "aside": "chat"
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "next",
+          "text": {
+            "en": "Run it first",
+            "ar-EG": "شغّله الأول"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Read the error aloud",
+            "ar-EG": "اقرا الخطأ بصوت عالي"
+          },
+          "s": 2,
+          "o": 2.5
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Bug 3: no error at all",
+            "ar-EG": "الغلطة 3: من غير رسالة"
+          },
+          "s": 2,
+          "o": 5,
+          "tone": "danger"
+        }
+      ],
+      "aside": "next"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "The error is a clue",
+            "ar-EG": "رسالة الخطأ دليل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Read, expect, change one, run",
+            "ar-EG": "اقرا، اتوقّع، غيّر، شغّل"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Ask, don’t fix",
+            "ar-EG": "اسأل، ماتصلّحش"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "No error? Trace it",
+            "ar-EG": "مفيش رسالة؟ اتتبّع"
+          },
+          "s": 4
+        }
+      ],
+      "takeaway": {
+        "en": "Teach pupils to find bugs, and hear “it doesn’t work” less.",
+        "ar-EG": "علّمهم يلاقوا الغلطات، وهتسمع «مش شغّال» أقل."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "presentation",
+          "text": {
+            "en": "A bug on the board, each lesson",
+            "ar-EG": "غلطة على السبورة كل حصة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pairs find it",
+            "ar-EG": "أزواج يلاقوها"
+          },
+          "s": 2
+        },
+        {
+          "icon": "chat",
+          "tone": "ok",
+          "text": {
+            "en": "Say how you found it",
+            "ar-EG": "قول لقيتها إزاي"
+          },
+          "s": 2,
+          "o": 2.5
+        }
+      ]
+    }
+  }
+}

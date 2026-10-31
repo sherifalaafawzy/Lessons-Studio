@@ -1,0 +1,356 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "talking",
+      "quote": {
+        "en": "One line changed, and it became instant.",
+        "ar-EG": "سطر واحد اتغيّر، وبقى في لحظة."
+      },
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "20,000 students",
+            "ar-EG": "20000 طالب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "tone": "danger",
+          "text": {
+            "en": "Every check walked the list",
+            "ar-EG": "كل تشييك لفّ على الليست"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "tone": "ok",
+          "text": {
+            "en": "A set: instant",
+            "ar-EG": "مجموعة: في لحظة"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "list",
+          "text": {
+            "en": "List: in order, by position",
+            "ar-EG": "ليست: بالترتيب، بالمكان"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Stack: from the top",
+            "ar-EG": "مكدّس: من فوق"
+          },
+          "s": 2
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Queue: from the front",
+            "ar-EG": "طابور: من قدّام"
+          },
+          "s": 2,
+          "o": 2
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Set: is it there?",
+            "ar-EG": "مجموعة: موجود؟"
+          },
+          "s": 3
+        },
+        {
+          "icon": "key",
+          "tone": "ok",
+          "text": {
+            "en": "Dictionary: by key",
+            "ar-EG": "قاموس: بالمفتاح"
+          },
+          "s": 4
+        }
+      ],
+      "aside": "list"
+    },
+    "4": {
+      "who": null,
+      "trace": {
+        "code": "st = []\nst.append(\"A\")\nst.append(\"B\")\nst.append(\"C\")\ntop = st.pop()\nprint(top, st)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "5": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "The canteen line, the printer",
+            "ar-EG": "طابور الكانتين، والطابعة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "next",
+          "text": {
+            "en": "Join at the back, leave from the front",
+            "ar-EG": "ادخل من ورا، واخرج من قدّام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "pop(0) on a big list: slow",
+            "ar-EG": "الأخد من أول ليست كبيرة: بطيء"
+          },
+          "s": 2
+        },
+        {
+          "icon": "check",
+          "tone": "ok",
+          "text": {
+            "en": "Big queues: a deque",
+            "ar-EG": "الطوابير الكبيرة: deque"
+          },
+          "s": 3
+        }
+      ],
+      "aside": "users"
+    },
+    "6": {
+      "who": null,
+      "trace": {
+        "code": "stack = []\nfor c in \"([])\":\n    if c in \"([\":\n        stack.append(c)\n    else:\n        top = stack.pop()\n        print(top, c)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "8": {
+      "list": [
+        {
+          "icon": "layers",
+          "tone": "ok",
+          "text": {
+            "en": "Last in, first out",
+            "ar-EG": "آخر داخل أول خارج"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "back",
+          "text": {
+            "en": "Undo pops the newest",
+            "ar-EG": "التراجع بياخد الأحدث"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A queue: the oldest first",
+            "ar-EG": "الطابور: الأقدم الأول"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "circlecheck"
+    },
+    "9": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Structure",
+            "ar-EG": "الهيكل"
+          },
+          {
+            "en": "Is it there?",
+            "ar-EG": "هو موجود؟"
+          },
+          {
+            "en": "Repeats",
+            "ar-EG": "التكرار"
+          }
+        ],
+        "ltr": [
+          0
+        ],
+        "rows": [
+          [
+            "list",
+            {
+              "en": "one by one",
+              "ar-EG": "واحد واحد"
+            },
+            {
+              "en": "allowed",
+              "ar-EG": "مسموح"
+            }
+          ],
+          [
+            "set",
+            {
+              "en": "about 1 step",
+              "ar-EG": "خطوة تقريبًا"
+            },
+            {
+              "en": "none",
+              "ar-EG": "مفيش"
+            }
+          ],
+          [
+            "dict",
+            {
+              "en": "by key: 1 step",
+              "ar-EG": "بالمفتاح: خطوة"
+            },
+            {
+              "en": "unique keys",
+              "ar-EG": "مفاتيح مش متكررة"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          },
+          {
+            "row": 2,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 3
+          }
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "trace": {
+        "code": "n = {}\nfor v in \"ABBA\":\n    n[v] = n.get(v, 0) + 1\nprint(n)",
+        "play": [
+          1,
+          3
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "An undo stack",
+            "ar-EG": "مكدّس التراجع"
+          },
+          "s": 1
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "A queue at the bank",
+            "ar-EG": "طابور في البنك"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "help",
+          "tone": "ok",
+          "text": {
+            "en": "Predict what comes out",
+            "ar-EG": "توقّع إيه اللي هيطلع"
+          },
+          "s": 2
+        }
+      ],
+      "aside": "layers"
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "Choose by the operations",
+            "ar-EG": "اختار على حسب العمليات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Stack: LIFO; queue: FIFO",
+            "ar-EG": "مكدّس: آخر داخل أول خارج؛ طابور: أول داخل أول خارج"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Set: is it there?",
+            "ar-EG": "مجموعة: موجود؟"
+          },
+          "s": 3
+        },
+        {
+          "text": {
+            "en": "Dictionary: by key",
+            "ar-EG": "قاموس: بالمفتاح"
+          },
+          "s": 3,
+          "o": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The right structure makes slow code fast.",
+        "ar-EG": "الهيكل الصح بيخلّي الكود البطيء سريع."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Push each opening bracket",
+            "ar-EG": "push لكل قوس فاتح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Pop and match each closing one",
+            "ar-EG": "pop وطابق كل قوس قافل"
+          },
+          "s": 1,
+          "o": 3
+        },
+        {
+          "icon": "search",
+          "tone": "ok",
+          "text": {
+            "en": "Test the edge cases",
+            "ar-EG": "اختبر الحالات الطرفية"
+          },
+          "s": 2
+        }
+      ]
+    }
+  }
+}

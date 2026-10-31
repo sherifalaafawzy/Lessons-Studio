@@ -1,0 +1,432 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Nobody asked",
+            "ar-EG": "محدش سأل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "A made-up message, sent",
+            "ar-EG": "رسالة متألّفة، واتبعتت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "3": {
+      "table": {
+        "s": 0,
+        "cols": [
+          {
+            "en": "Level",
+            "ar-EG": "المستوى"
+          },
+          {
+            "en": "For example",
+            "ar-EG": "مثلًا"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Read only",
+              "ar-EG": "قراية بس"
+            },
+            {
+              "en": "The weather",
+              "ar-EG": "الطقس"
+            }
+          ],
+          [
+            {
+              "en": "Ask first",
+              "ar-EG": "يسأل الأول"
+            },
+            {
+              "en": "A message to parents",
+              "ar-EG": "رسالة لأولياء الأمور"
+            }
+          ],
+          [
+            {
+              "en": "Allowed",
+              "ar-EG": "مسموح"
+            },
+            {
+              "en": "Low-risk jobs only",
+              "ar-EG": "مهام خطرها قليل بس"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 1
+          },
+          {
+            "row": 2,
+            "s": 2
+          },
+          {
+            "row": 3,
+            "s": 3
+          }
+        ]
+      }
+    },
+    "4": {
+      "table": {
+        "s": 2,
+        "cols": [
+          {
+            "en": "Refusals in new wordings",
+            "ar-EG": "رفض بصيغ جديدة"
+          },
+          {
+            "en": "Got a tool call",
+            "ar-EG": "خد طلب أداة"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "English",
+              "ar-EG": "الإنجليزي"
+            },
+            "28%"
+          ],
+          [
+            {
+              "en": "Arabic",
+              "ar-EG": "العربي"
+            },
+            "12%"
+          ]
+        ],
+        "focus": [
+          {
+            "row": 1,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "5": {
+      "headline": null,
+      "sequence": {
+        "participants": [
+          {
+            "id": "model",
+            "glyph": "bot",
+            "label": {
+              "en": "The model",
+              "ar-EG": "النموذج"
+            }
+          },
+          {
+            "id": "code",
+            "glyph": "shield",
+            "label": {
+              "en": "The code check",
+              "ar-EG": "مراجعة الكود"
+            }
+          },
+          {
+            "id": "you",
+            "glyph": "user",
+            "label": {
+              "en": "The person",
+              "ar-EG": "الشخص"
+            }
+          },
+          {
+            "id": "tool",
+            "glyph": "tool",
+            "label": {
+              "en": "The tool",
+              "ar-EG": "الأداة"
+            }
+          }
+        ],
+        "messages": [
+          {
+            "from": "model",
+            "to": "code",
+            "text": {
+              "en": "Proposed action",
+              "ar-EG": "تصرّف مقترح"
+            }
+          },
+          {
+            "from": "code",
+            "to": "you",
+            "text": {
+              "en": "This exact action?",
+              "ar-EG": "التصرّف ده بالظبط؟"
+            },
+            "tone": "accent"
+          },
+          {
+            "from": "you",
+            "to": "code",
+            "text": {
+              "en": "Yes",
+              "ar-EG": "أيوه"
+            },
+            "reply": true,
+            "tone": "ok"
+          },
+          {
+            "from": "code",
+            "to": "tool",
+            "text": {
+              "en": "Run it",
+              "ar-EG": "شغّله"
+            },
+            "tone": "ok"
+          }
+        ],
+        "notes": [
+          {
+            "after": 4,
+            "over": [
+              "code"
+            ],
+            "text": {
+              "en": "No yes? Blocked",
+              "ar-EG": "مفيش موافقة؟ ممنوع"
+            }
+          }
+        ],
+        "rows": [
+          0,
+          1,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "level = PERMS.get(tool, \"off\")\nif level == \"allowed\":\n    run(call)\nelif level == \"ask\" and said_yes:\n    run(call)\nelse:\n    block(call)",
+        "highlight": [
+          4
+        ],
+        "s": 3
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "clipboard",
+          "text": {
+            "en": "What was asked",
+            "ar-EG": "إيه اللي اتطلب"
+          },
+          "s": 0
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "The exact call",
+            "ar-EG": "الطلب بالظبط"
+          },
+          "s": 0,
+          "o": 1.5
+        },
+        {
+          "icon": "user",
+          "text": {
+            "en": "Who approved, and when",
+            "ar-EG": "مين وافق، وإمتى"
+          },
+          "s": 0,
+          "o": 3
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Blocked calls too",
+            "ar-EG": "والطلبات الممنوعة كمان"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "9": {
+      "table": {
+        "s": 1,
+        "cols": [
+          {
+            "en": "The model",
+            "ar-EG": "النموذج"
+          },
+          {
+            "en": "The code check",
+            "ar-EG": "مراجعة الكود"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Learned to ask",
+              "ar-EG": "اتعلم يسأل"
+            },
+            {
+              "en": "Doesn’t guess",
+              "ar-EG": "مش بتخمّن"
+            }
+          ],
+          [
+            {
+              "en": "Slips on new wordings",
+              "ar-EG": "بيغلط مع صيغ جديدة"
+            },
+            {
+              "en": "No yes, no action",
+              "ar-EG": "مفيش موافقة، مفيش تصرّف"
+            }
+          ]
+        ],
+        "focus": [
+          {
+            "row": 2,
+            "s": 2
+          }
+        ]
+      }
+    },
+    "10": {
+      "who": null,
+      "codediff": {
+        "before": "call = model(conversation)\nif call.tool == \"send_message\":\n    send(call.args)",
+        "after": "call = model(conversation)\nif call.tool == \"send_message\":\n    if said_yes(person, call):\n        send(call.args)",
+        "fix": 2,
+        "focus": [
+          {
+            "s": 1,
+            "line": 3
+          }
+        ]
+      }
+    },
+    "11": {
+      "list": [
+        {
+          "icon": "mail",
+          "text": {
+            "en": "It asks first",
+            "ar-EG": "بيسأل الأول"
+          },
+          "s": 0
+        },
+        {
+          "icon": "hand",
+          "text": {
+            "en": "Say no, then yes",
+            "ar-EG": "قول لأ، وبعدين أيوه"
+          },
+          "s": 0,
+          "o": 2.5
+        },
+        {
+          "icon": "warning",
+          "tone": "danger",
+          "text": {
+            "en": "Check off: sent",
+            "ar-EG": "المراجعة مقفولة: اتبعتت"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "tone": "ok",
+          "text": {
+            "en": "Check on: blocked",
+            "ar-EG": "المراجعة شغّالة: اتمنعت"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "13": {
+      "points": [
+        {
+          "text": {
+            "en": "A level for every tool",
+            "ar-EG": "مستوى لكل أداة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Approval checked in code",
+            "ar-EG": "الموافقة بتتراجع في الكود"
+          },
+          "s": 2
+        },
+        {
+          "text": {
+            "en": "Log every action",
+            "ar-EG": "سجّل كل تصرّف"
+          },
+          "s": 3
+        }
+      ],
+      "takeaway": {
+        "en": "The model may ask; the code makes sure.",
+        "ar-EG": "النموذج ممكن يسأل، والكود هو اللي يتأكد."
+      }
+    },
+    "14": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "An approval drill",
+            "ar-EG": "تمرين موافقة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "The agent hands over action cards",
+            "ar-EG": "الوكيل بيسلّم كروت تصرّفات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "shield",
+          "text": {
+            "en": "The check holds the table",
+            "ar-EG": "المراجعة معاها الجدول"
+          },
+          "s": 2
+        },
+        {
+          "icon": "hand",
+          "tone": "ok",
+          "text": {
+            "en": "No signed yes? Blocked",
+            "ar-EG": "مفيش موافقة موقّعة؟ ممنوع"
+          },
+          "s": 2,
+          "o": 3
+        }
+      ]
+    }
+  }
+}

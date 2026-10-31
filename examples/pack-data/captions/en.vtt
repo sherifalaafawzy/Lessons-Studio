@@ -1,0 +1,177 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.480
+Data engineering, step by step.
+
+2
+00:00:02.860 --> 00:00:04.258
+Let's watch data move.
+
+3
+00:00:05.208 --> 00:00:07.104
+A school library needs three
+
+4
+00:00:07.104 --> 00:00:09.468
+tables: members, loans and books.
+
+5
+00:00:09.848 --> 00:00:12.326
+A member can borrow many books, so
+
+6
+00:00:12.326 --> 00:00:14.576
+each member has many loans, and
+
+7
+00:00:14.576 --> 00:00:16.256
+each loan names one book.
+
+8
+00:00:17.206 --> 00:00:19.492
+The database reads the table first.
+
+9
+00:00:19.872 --> 00:00:22.506
+WHERE keeps the marks of fifty or more.
+
+10
+00:00:22.886 --> 00:00:25.238
+SELECT picks the name and the mark.
+
+11
+00:00:25.618 --> 00:00:27.742
+ORDER BY puts the highest first,
+
+12
+00:00:27.922 --> 00:00:29.938
+and LIMIT keeps the top three.
+
+13
+00:00:30.888 --> 00:00:33.228
+Which classes average sixty or more?
+
+14
+00:00:33.608 --> 00:00:36.176
+JOIN puts each mark beside its student.
+
+15
+00:00:36.556 --> 00:00:38.908
+GROUP BY gathers the rows by class.
+
+16
+00:00:39.288 --> 00:00:41.184
+HAVING keeps the groups that
+
+17
+00:00:41.184 --> 00:00:42.636
+average sixty or more.
+
+18
+00:00:43.016 --> 00:00:45.692
+Then SELECT gives each class its average.
+
+19
+00:00:46.642 --> 00:00:49.156
+Which classes have a mark under sixty?
+
+20
+00:00:49.536 --> 00:00:51.096
+WHERE keeps those marks.
+
+21
+00:00:51.476 --> 00:00:53.780
+SELECT takes only the class, and
+
+22
+00:00:53.780 --> 00:00:55.610
+DISTINCT removes the repeats.
+
+23
+00:00:56.560 --> 00:00:58.792
+Rain gauges send readings all day,
+
+24
+00:00:58.972 --> 00:01:01.180
+one at a time: that's a stream.
+
+25
+00:01:01.560 --> 00:01:03.792
+The check catches a reading below
+
+26
+00:01:03.792 --> 00:01:06.108
+zero and sets it aside, and the
+
+27
+00:01:06.108 --> 00:01:08.394
+counters show how many got through.
+
+28
+00:01:09.344 --> 00:01:11.690
+Attendance moves in batches: every
+
+29
+00:01:11.690 --> 00:01:14.492
+evening, the whole day's register goes at
+
+30
+00:01:14.492 --> 00:01:14.828
+once.
+
+31
+00:01:15.208 --> 00:01:18.196
+One record has a missing name, so it goes
+
+32
+00:01:18.196 --> 00:01:21.010
+back to be fixed, then joins the others.
+
+33
+00:01:21.960 --> 00:01:24.774
+Type the formula once, in the first row.
+
+34
+00:01:25.154 --> 00:01:27.524
+Then fill it down, and the sheet
+
+35
+00:01:27.524 --> 00:01:29.084
+works out every average.
+
+36
+00:01:30.034 --> 00:01:31.648
+Before we count anything,
+
+37
+00:01:31.828 --> 00:01:33.064
+we clean the data.
+
+38
+00:01:33.444 --> 00:01:35.652
+Here is a typo, a blank price,
+
+39
+00:01:35.832 --> 00:01:37.350
+and a row typed twice.
+
+40
+00:01:37.730 --> 00:01:39.584
+We fix the typo and remove
+
+41
+00:01:39.584 --> 00:01:40.700
+the repeated row.
+
+42
+00:01:41.650 --> 00:01:44.074
+Tables and links, a query step by
+
+43
+00:01:44.074 --> 00:01:46.552
+step, a pipeline and a clean sheet:
+
+44
+00:01:46.732 --> 00:01:48.172
+that's data engineering.

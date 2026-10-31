@@ -1,0 +1,296 @@
+{
+ "id": "CODE-S4-3",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Algorithms and software engineering"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Data structures",
+  "subtitle": "Choose by the job",
+  "minutes": 18,
+  "format": "Video + lab + code"
+ },
+ "video": {
+  "title": "Data structures: Choose by the job",
+  "length": "3:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph — the students’ programming lecturer (main character)",
+   "Mr Okafor — the students’ data science lecturer (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A slow attendance check"
+   },
+   {
+    "at": "0:21",
+    "label": "Stacks and queues"
+   },
+   {
+    "at": "1:17",
+    "label": "Checking brackets"
+   },
+   {
+    "at": "1:52",
+    "label": "Sets and dictionaries"
+   },
+   {
+    "at": "2:52",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:16",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "A student’s attendance app checked each name against a list of twenty thousand students. Every check walked the whole list, and the app crawled. He changed one line, from a list to a set, and it became instant.",
+    "icons": [
+     "users",
+     "list",
+     "zap"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:16",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Data structures",
+    "voice": "Narrator",
+    "narration": "Today: data structures, and how to choose one by the job."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:40",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Choose by the operations",
+    "voice": "Narrator",
+    "narration": "Choose a structure by what the job does most. A list keeps items in order, by position. A stack takes from the top; a queue from the front. A set answers one question fast: is it there? And a dictionary finds a value by its key.",
+    "icons": [
+     "list",
+     "layers",
+     "users"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:40",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Stack: last in, first out",
+    "voice": "Narrator",
+    "narration": "A stack is last in, first out, like a pile of plates. Push adds to the top, and pop takes from the top. The back button, undo and the call stack all work this way. In Python, a list’s append and pop make a stack.",
+    "icons": [
+     "layers",
+     "back"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:58",
+    "end": "1:17",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Queue: first in, first out",
+    "voice": "Narrator",
+    "narration": "A queue is first in, first out, like the canteen line or the printer. Items join at the back and leave from the front. Taking from the front of a big list is slow, because every item shifts along. For big queues, Python has a deque.",
+    "icons": [
+     "users",
+     "printer"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:17",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Check brackets with a stack",
+    "voice": "Narrator",
+    "narration": "Here’s a classic job for a stack: checking brackets. Each opening bracket is pushed. Each closing one pops the top, which must be its partner. If every pair matches and the stack ends empty, the brackets balance.",
+    "icons": [
+     "layers",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:32",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which structure for undo?",
+    "voice": "Mr Okafor",
+    "narration": "Quick check! Your notes app keeps an undo history: the last change made is the first one undone. Which structure fits?"
+   },
+   {
+    "n": 8,
+    "start": "1:41",
+    "end": "1:52",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A stack",
+    "voice": "Narrator",
+    "narration": "A stack: last in, first out. Each change is pushed, and undo pops the newest. A queue would undo your oldest change first, which nobody wants.",
+    "icons": [
+     "circlecheck",
+     "layers"
+    ]
+   },
+   {
+    "n": 9,
+    "start": "1:52",
+    "end": "2:12",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Is it there?",
+    "voice": "Narrator",
+    "narration": "Sets and dictionaries jump straight to where an item would be, using a hash. So checking whether x is in a set takes about one step, however big it grows. A list checks its items one by one. The price: a set keeps no order and no repeats.",
+    "icons": [
+     "search",
+     "key"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:12",
+    "end": "2:30",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Count with a dictionary",
+    "voice": "Narrator",
+    "narration": "A dictionary finds a value by its key. To count votes, use each candidate as a key, and add one each time it appears. Get, with a default of zero, handles a candidate seen for the first time. One pass, and every count is ready.",
+    "icons": [
+     "key",
+     "calculator"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:30",
+    "end": "2:44",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: stacks and queues",
+    "voice": "Narrator",
+    "narration": "In the app, open Stacks and queues. Push and pop the undo stack of a notes app, then serve a queue at the bank. Before each step, predict what comes out next.",
+    "icons": [
+     "layers",
+     "users",
+     "help"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:44",
+    "end": "2:52",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Is the ID registered?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Your program checks, thousands of times, whether a student ID is registered. Which structure should hold the registered IDs?"
+   },
+   {
+    "n": 13,
+    "start": "2:52",
+    "end": "3:09",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Choose by the job",
+    "voice": "Narrator",
+    "narration": "A set: about one step per check. In short: choose a structure by the operations the job needs. Stacks are last in, first out; queues first in, first out. Sets answer is it there, and dictionaries find values by key."
+   },
+   {
+    "n": 14,
+    "start": "3:09",
+    "end": "3:25",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: write the bracket checker in full. Push each opening bracket, and on each closing one, pop and check it’s the partner. Test it on an empty string, a mismatched pair, and a string that only opens.",
+    "icons": [
+     "layers",
+     "check",
+     "search"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 7,
+    "type": "choice",
+    "prompt": "An undo history: the last change made is the first one undone. Which structure fits?",
+    "options": [
+     {
+      "text": "A queue",
+      "correct": false
+     },
+     {
+      "text": "A stack",
+      "correct": true
+     },
+     {
+      "text": "A set",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — undo is last in, first out: a stack.",
+    "feedback_wrong": "Not quite — the newest change comes out first: last in, first out, a stack.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:50",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "You check thousands of times whether a student ID is registered. What should hold the IDs?",
+    "options": [
+     {
+      "text": "A list",
+      "correct": false
+     },
+     {
+      "text": "A set",
+      "correct": true
+     },
+     {
+      "text": "A queue",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — a set answers ‘is it there?’ in about one step, however many IDs it holds.",
+    "feedback_wrong": "Not quite — a list or a queue checks one by one. A set answers in about one step.",
+    "resume_at": "2:52"
+   }
+  ]
+ }
+}

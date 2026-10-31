@@ -1,0 +1,325 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.430
+A truck for a village school can
+
+2
+00:00:02.430 --> 00:00:05.370
+carry a thousand kilos, and there
+
+3
+00:00:05.370 --> 00:00:07.190
+are six loads to choose from.
+
+4
+00:00:07.740 --> 00:00:09.960
+Can you write a program that finds the
+
+5
+00:00:09.960 --> 00:00:12.580
+best load, and knows it’s the best?
+
+6
+00:00:13.860 --> 00:00:17.180
+Today: let the computer search, by trying
+
+7
+00:00:17.180 --> 00:00:19.920
+everything, or by thinking ahead.
+
+8
+00:00:21.190 --> 00:00:24.310
+Each load has a weight and points for
+
+9
+00:00:24.310 --> 00:00:25.590
+how much the school needs it.
+
+10
+00:00:26.060 --> 00:00:27.940
+Solar panels: six hundred
+
+11
+00:00:27.940 --> 00:00:29.860
+kilos, forty-two points.
+
+12
+00:00:30.600 --> 00:00:33.420
+Desks and books: five hundred kilos each.
+
+13
+00:00:34.160 --> 00:00:36.180
+A water filter, footballs
+
+14
+00:00:36.180 --> 00:00:37.460
+and chalk are lighter.
+
+15
+00:00:38.090 --> 00:00:40.270
+The goal: the most points
+
+16
+00:00:40.270 --> 00:00:42.010
+within a thousand kilos.
+
+17
+00:00:43.460 --> 00:00:45.360
+The simplest search tries
+
+18
+00:00:45.360 --> 00:00:47.100
+every possible load.
+
+19
+00:00:47.770 --> 00:00:51.330
+Each item is in or out, six times over.
+
+20
+00:00:51.960 --> 00:00:54.840
+That’s two to the six, sixty-four loads:
+
+21
+00:00:55.400 --> 00:00:56.980
+a phone checks them in a blink.
+
+22
+00:00:58.280 --> 00:01:00.840
+In Python, count from zero to
+
+23
+00:01:00.840 --> 00:01:03.160
+sixty-three, and read each number in
+
+24
+00:01:03.160 --> 00:01:07.100
+binary: bit i says whether item i is in.
+
+25
+00:01:07.630 --> 00:01:09.830
+Add up the weight and points, and
+
+26
+00:01:09.830 --> 00:01:11.450
+keep the best that fits.
+
+27
+00:01:12.820 --> 00:01:15.640
+But every extra item doubles the work.
+
+28
+00:01:16.350 --> 00:01:19.270
+Thirty items: over a billion loads.
+
+29
+00:01:20.080 --> 00:01:23.540
+Sixty items: more than a billion billion.
+
+30
+00:01:24.400 --> 00:01:27.900
+Brute force is sure, but it doesn’t scale.
+
+31
+00:01:29.220 --> 00:01:31.980
+A greedy rule is fast: take the
+
+32
+00:01:31.980 --> 00:01:33.640
+most points per kilo first.
+
+33
+00:01:34.380 --> 00:01:36.560
+Solar panels go in, then whatever
+
+34
+00:01:36.560 --> 00:01:38.340
+still fits: sixty points.
+
+35
+00:01:39.100 --> 00:01:41.700
+But desks and books give sixty-five.
+
+36
+00:01:42.530 --> 00:01:44.770
+The panels took space that two
+
+37
+00:01:44.770 --> 00:01:45.990
+other loads fill better.
+
+38
+00:01:47.270 --> 00:01:47.850
+Quick check!
+
+39
+00:01:48.640 --> 00:01:51.280
+Greedy says sixty points, and
+
+40
+00:01:51.280 --> 00:01:53.420
+brute force says sixty-five.
+
+41
+00:01:54.170 --> 00:01:57.330
+Which one is guaranteed to be the best?
+
+42
+00:01:58.630 --> 00:02:01.530
+Brute force: it checked every load.
+
+43
+00:02:02.210 --> 00:02:04.070
+But you can be sure without
+
+44
+00:02:04.070 --> 00:02:05.210
+checking everything.
+
+45
+00:02:05.980 --> 00:02:08.580
+Dynamic programming solves smaller trucks
+
+46
+00:02:08.580 --> 00:02:11.060
+first: for each amount of room, either
+
+47
+00:02:11.060 --> 00:02:14.120
+skip this item, or take it and fill the
+
+48
+00:02:14.120 --> 00:02:16.000
+rest with an answer you already know.
+
+49
+00:02:17.210 --> 00:02:20.010
+Fill a table: one row per item, one
+
+50
+00:02:20.010 --> 00:02:21.970
+column per hundred kilos of room.
+
+51
+00:02:22.570 --> 00:02:24.230
+Each cell needs just two
+
+52
+00:02:24.230 --> 00:02:25.430
+lookups in the row above.
+
+53
+00:02:26.160 --> 00:02:29.140
+A hundred items is about a thousand cells,
+
+54
+00:02:29.720 --> 00:02:31.880
+where brute force would never finish.
+
+55
+00:02:33.200 --> 00:02:34.760
+The points are someone’s opinion
+
+56
+00:02:34.760 --> 00:02:36.120
+of what the school needs.
+
+57
+00:02:36.910 --> 00:02:38.670
+Who decided solar panels
+
+58
+00:02:38.670 --> 00:02:40.090
+are worth forty-two?
+
+59
+00:02:40.830 --> 00:02:43.370
+If the truck served two schools, the best
+
+60
+00:02:43.370 --> 00:02:45.770
+total might send everything to one.
+
+61
+00:02:46.420 --> 00:02:48.220
+Ask who chose the points,
+
+62
+00:02:48.800 --> 00:02:50.000
+and who is left out.
+
+63
+00:02:51.230 --> 00:02:53.730
+In the app, open “Pack the truck”.
+
+64
+00:02:54.210 --> 00:02:57.550
+Pack greedily, then show the best load.
+
+65
+00:02:58.190 --> 00:02:59.730
+Open the table under the
+
+66
+00:02:59.730 --> 00:03:01.890
+results, and follow the outlined
+
+67
+00:03:01.890 --> 00:03:03.730
+cells back from the corner.
+
+68
+00:03:04.980 --> 00:03:05.740
+Your turn.
+
+69
+00:03:06.360 --> 00:03:09.000
+A friend adds a seventh load to the list.
+
+70
+00:03:09.640 --> 00:03:12.440
+How many loads must brute force check now?
+
+71
+00:03:13.570 --> 00:03:14.910
+A hundred and twenty-eight:
+
+72
+00:03:15.450 --> 00:03:17.250
+every extra item doubles it.
+
+73
+00:03:17.790 --> 00:03:19.850
+Remember: brute force is
+
+74
+00:03:19.850 --> 00:03:21.490
+sure, but it explodes.
+
+75
+00:03:22.480 --> 00:03:25.520
+Greedy is fast, but it can miss.
+
+76
+00:03:26.230 --> 00:03:29.450
+And dynamic programming is sure and fast,
+
+77
+00:03:29.710 --> 00:03:31.750
+because it reuses smaller answers.
+
+78
+00:03:33.130 --> 00:03:34.770
+Try it yourself: pack your
+
+79
+00:03:34.770 --> 00:03:36.010
+bag for a school trip.
+
+80
+00:03:36.590 --> 00:03:39.870
+Give each thing a weight and points, set a
+
+81
+00:03:39.870 --> 00:03:42.750
+limit, and find the best load three ways.

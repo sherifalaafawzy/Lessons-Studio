@@ -1,0 +1,313 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.190
+Here’s a secret about AI agents.
+
+2
+00:00:03.930 --> 00:00:05.610
+The model never touches a tool.
+
+3
+00:00:06.210 --> 00:00:09.030
+It writes a line of text, and your code
+
+4
+00:00:09.030 --> 00:00:11.330
+decides what that text makes happen.
+
+5
+00:00:11.940 --> 00:00:14.700
+Today, you write the code that reads it.
+
+6
+00:00:15.860 --> 00:00:18.660
+Today: reading a tool call, in Python.
+
+7
+00:00:20.010 --> 00:00:22.550
+When an agent’s model takes a turn,
+
+8
+00:00:22.950 --> 00:00:24.890
+it writes one of three things.
+
+9
+00:00:25.370 --> 00:00:27.630
+A plan: one short sentence
+
+10
+00:00:27.630 --> 00:00:28.970
+about what it will do.
+
+11
+00:00:29.540 --> 00:00:31.580
+A tool call: a tool’s
+
+12
+00:00:31.580 --> 00:00:33.160
+name, then its details.
+
+13
+00:00:34.050 --> 00:00:35.590
+Or an answer for the person.
+
+14
+00:00:36.830 --> 00:00:38.150
+Here’s a call that Darsi
+
+15
+00:00:38.150 --> 00:00:39.270
+Tiny really wrote.
+
+16
+00:00:39.980 --> 00:00:42.300
+First comes the tool’s name, weather.
+
+17
+00:00:42.960 --> 00:00:44.680
+Straight after it, the details
+
+18
+00:00:44.680 --> 00:00:46.180
+sit in curly brackets.
+
+19
+00:00:46.980 --> 00:00:49.400
+That part is JSON, a way to
+
+20
+00:00:49.400 --> 00:00:50.620
+write data as text.
+
+21
+00:00:51.850 --> 00:00:54.130
+JSON writes data as names and
+
+22
+00:00:54.130 --> 00:00:56.150
+values inside curly brackets.
+
+23
+00:00:56.930 --> 00:01:00.150
+Python reads it with json dot loads, which
+
+24
+00:01:00.150 --> 00:01:01.570
+turns the text into a dictionary.
+
+25
+00:01:02.360 --> 00:01:05.420
+Then args, place, gives you Kafi.
+
+26
+00:01:06.490 --> 00:01:07.970
+So how do you split a call?
+
+27
+00:01:08.700 --> 00:01:10.600
+Find the first curly bracket.
+
+28
+00:01:11.280 --> 00:01:13.880
+Everything before it is the tool’s name.
+
+29
+00:01:14.570 --> 00:01:17.230
+Everything from it onwards is the JSON.
+
+30
+00:01:18.550 --> 00:01:21.090
+But not every text is a call.
+
+31
+00:01:21.720 --> 00:01:24.260
+An answer like Tomorrow in Kafi,
+
+32
+00:01:24.380 --> 00:01:27.080
+sunny, has no curly bracket at all.
+
+33
+00:01:27.630 --> 00:01:30.610
+Then find gives minus one, and
+
+34
+00:01:30.610 --> 00:01:32.310
+your function should return None:
+
+35
+00:01:32.690 --> 00:01:33.970
+there’s no tool to run.
+
+36
+00:01:35.160 --> 00:01:35.740
+Quick check!
+
+37
+00:01:36.530 --> 00:01:39.750
+You run json dot loads on
+
+38
+00:01:39.750 --> 00:01:41.130
+the details of a call.
+
+39
+00:01:41.790 --> 00:01:42.930
+What do you get back?
+
+40
+00:01:44.250 --> 00:01:44.790
+A dictionary.
+
+41
+00:01:45.740 --> 00:01:48.680
+json dot loads only turns text into
+
+42
+00:01:48.680 --> 00:01:51.040
+data: the keys are the details’
+
+43
+00:01:51.040 --> 00:01:53.020
+names, like place and day.
+
+44
+00:01:53.570 --> 00:01:55.470
+It doesn’t run anything, and it
+
+45
+00:01:55.470 --> 00:01:56.410
+doesn’t check anything.
+
+46
+00:01:57.140 --> 00:01:58.820
+Is Kafi a real village?
+
+47
+00:01:59.580 --> 00:02:01.320
+That’s for your code to check next.
+
+48
+00:02:02.640 --> 00:02:05.000
+Models make mistakes, so some calls
+
+49
+00:02:05.000 --> 00:02:07.260
+are broken: a missing bracket, a
+
+50
+00:02:07.260 --> 00:02:08.260
+quote in the wrong place.
+
+51
+00:02:08.900 --> 00:02:11.320
+Then json dot loads raises a
+
+52
+00:02:11.320 --> 00:02:13.500
+ValueError, and your agent crashes.
+
+53
+00:02:14.350 --> 00:02:16.990
+Unless you catch it, with try and except.
+
+54
+00:02:18.310 --> 00:02:20.750
+In the lab, Darsi Tiny runs
+
+55
+00:02:20.750 --> 00:02:22.350
+for real, on your phone.
+
+56
+00:02:23.030 --> 00:02:25.350
+Press One step, and watch it
+
+57
+00:02:25.350 --> 00:02:27.570
+write the plan, then the call.
+
+58
+00:02:28.170 --> 00:02:30.990
+Open What Darsi Tiny sees: the
+
+59
+00:02:30.990 --> 00:02:33.470
+call is plain text, exactly what
+
+60
+00:02:33.470 --> 00:02:34.410
+your function will split.
+
+61
+00:02:35.680 --> 00:02:36.440
+Your turn.
+
+62
+00:02:37.060 --> 00:02:39.280
+The model wrote: Tomorrow in
+
+63
+00:02:39.280 --> 00:02:42.220
+Kafi, sunny, high thirty-five.
+
+64
+00:02:42.800 --> 00:02:44.300
+What should your function return?
+
+65
+00:02:45.700 --> 00:02:47.500
+None: there’s no curly
+
+66
+00:02:47.500 --> 00:02:49.400
+bracket, so it’s an answer.
+
+67
+00:02:50.050 --> 00:02:52.230
+Remember: the model writes a
+
+68
+00:02:52.230 --> 00:02:54.870
+plan, a call or an answer.
+
+69
+00:02:55.510 --> 00:02:57.810
+Split a call at its first curly bracket,
+
+70
+00:02:58.110 --> 00:03:00.770
+and read the details with json dot loads.
+
+71
+00:03:01.490 --> 00:03:03.630
+Catch broken calls instead of crashing.
+
+72
+00:03:04.940 --> 00:03:07.700
+Try it yourself: on paper, write five
+
+73
+00:03:07.700 --> 00:03:09.880
+lines an agent might produce: some
+
+74
+00:03:09.880 --> 00:03:12.480
+calls, some answers, one broken.
+
+75
+00:03:13.150 --> 00:03:14.070
+Swap with a friend.
+
+76
+00:03:14.800 --> 00:03:18.080
+They mark each line as a call, an answer
+
+77
+00:03:18.080 --> 00:03:21.400
+or broken, and name the tool in every
+
+78
+00:03:21.400 --> 00:03:21.720
+call.

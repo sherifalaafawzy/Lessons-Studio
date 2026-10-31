@@ -1,0 +1,289 @@
+{
+ "id": "AGENTS-S3-4",
+ "track": "agents",
+ "level": 3,
+ "unit": {
+  "number": 1,
+  "title": "Build an agent in Python"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Guardrails in code",
+  "subtitle": "Rules the model can’t talk its way past",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Guardrails in code",
+  "length": "3:24",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds, one recurring teacher character. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Mr Joseph Mwangi — computer studies teacher, Kenya (main character)",
+   "Ms Amina Bello — primary teacher, Nigeria (cameo)",
+   "Narrator — the Darsi voice, talking to the student (warm, peer to peer)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A model that learned to ask"
+   },
+   {
+    "at": "0:21",
+    "label": "What a guardrail is"
+   },
+   {
+    "at": "0:59",
+    "label": "Allow-lists and approval"
+   },
+   {
+    "at": "1:28",
+    "label": "Details, logs and the lab"
+   },
+   {
+    "at": "2:51",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:17",
+    "beat": "Hook",
+    "visual": "A list: It learned to ask first; “Yes, send it.”, alone; A made-up message.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "",
+    "voice": "Mr Joseph",
+    "narration": "Darsi Tiny learned to ask before it sends a message. So, job done, the model is safe? Then someone typed: yes, send it, with nothing before it. It made up a message, and tried to send it!",
+    "icons": [
+     "chat",
+     "mail",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:17",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "The Darsi mark pops in; the title slides up.",
+    "on_screen_text": "Guardrails in code",
+    "voice": "Narrator",
+    "narration": "Today: guardrails, the safety rules you write in code."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:42",
+    "beat": "Concept",
+    "visual": "One big value: 28%.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Learned isn’t guaranteed",
+    "voice": "Narrator",
+    "narration": "A model’s good habits are learned, and learned behaviour can fail. Darsi Tiny refuses the harmful requests it was trained on. But reworded in new ways, twenty-eight percent of the English ones got a tool call instead. So real safety goes in your code.",
+    "icons": [
+     "warning"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:42",
+    "end": "0:59",
+    "beat": "Definition",
+    "visual": "A list: The model proposes an action; Run it; Ask a person; Block it.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Guardrail",
+    "voice": "Narrator",
+    "narration": "A guardrail is a rule in code that checks an action before it runs. It doesn’t guess, and it can’t be talked round. The model proposes; the guardrail decides: run it, ask a person, or block it.",
+    "icons": [
+     "bot",
+     "check",
+     "user",
+     "cross"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:59",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: ALLOWED = [\"weather\", \"route\"] …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rule one: only the tools it needs",
+    "voice": "Narrator",
+    "narration": "Rule one: an allow-list. A weather helper needs the weather tool, not attendance and not messages. If the model asks for a tool off the list, block it.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:12",
+    "end": "1:28",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rule two: yes to this exact message",
+    "voice": "Mr Joseph",
+    "narration": "Rule two: actions wait for a person. The app shows the exact message and asks: yes or no? It remembers exactly what was approved. A yes to one message is not a yes to another."
+   },
+   {
+    "n": 7,
+    "start": "1:28",
+    "end": "1:47",
+    "beat": "Examples",
+    "visual": "A list: Does the class exist?; 25:00 is not a time; Names from the request; 9Z became 9C.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rule three: check the details",
+    "voice": "Narrator",
+    "narration": "Rule three: check every detail before a tool runs. Is six B a class that exists? Is twenty-five o’clock a real time? Did every name come from the request or a result? Darsi Tiny once copied nine Z as nine C.",
+    "icons": [
+     "school",
+     "clock",
+     "search",
+     "warning"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:47",
+    "end": "2:00",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Run, ask or block?",
+    "voice": "Ms Amina",
+    "narration": "Quick check! The person said yes to: the trip is cancelled. Now the model proposes a different message: pay the fees today. What should the guard return?"
+   },
+   {
+    "n": 9,
+    "start": "2:00",
+    "end": "2:14",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Ask again",
+    "voice": "Narrator",
+    "narration": "Ask again. The yes was for a different message, so it doesn’t count. Compare the exact details, not just the word yes, and the model can’t send something nobody approved."
+   },
+   {
+    "n": 10,
+    "start": "2:14",
+    "end": "2:25",
+    "beat": "Concept",
+    "visual": "Code typed out on a card: verdict = guard(name, args, ok) …",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Rule four: log everything",
+    "voice": "Narrator",
+    "narration": "Rule four: log everything. Every proposed action, what the guard decided, and who approved it. When something goes wrong, the log shows what happened.",
+    "icons": [
+     "keyboard"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:25",
+    "end": "2:44",
+    "beat": "Lab preview",
+    "visual": "A list: Choose what it may do; Approve a message to Mrs Mensah; Check off: what gets through?.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "App lab: ask before acting",
+    "voice": "Narrator",
+    "narration": "In the lab, choose what Darsi Tiny may do: read only, ask first, or allowed. Send a message to Mrs Mensah, and approve it. Then switch the code check off, send yes, send it, alone, and see what gets through.",
+    "icons": [
+     "settings",
+     "mail",
+     "warning"
+    ]
+   },
+   {
+    "n": 12,
+    "start": "2:44",
+    "end": "2:51",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Where does safety live?",
+    "voice": "Mr Joseph",
+    "narration": "Your turn. Darsi Tiny learned to ask before sending. So where should the final check live?"
+   },
+   {
+    "n": 13,
+    "start": "2:51",
+    "end": "3:07",
+    "beat": "Recap",
+    "visual": "Summary points: Only the tools it needs; A yes to the exact action; Check details, log all.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Only the tools it needs · A yes to the exact action · Check details, log all",
+    "voice": "Narrator",
+    "narration": "In the app’s code, with a person’s yes. Remember: allow only the tools a task needs. Run an action only after a yes to that exact action. Check every detail, and log everything."
+   },
+   {
+    "n": 14,
+    "start": "3:07",
+    "end": "3:24",
+    "beat": "Try it tomorrow",
+    "visual": "A list: Write the rules on paper; Which tools?; What waits for a yes?; Test with a friend.",
+    "animation": "Each item arrives as it is said.",
+    "on_screen_text": "Try it yourself",
+    "voice": "Narrator",
+    "narration": "Try it yourself: on paper, write the guardrails for a homework-reminder agent. Which tools does it need? Which actions wait for a yes, and which details must you check? Then test them on a friend’s sneakiest requests.",
+    "icons": [
+     "pencil",
+     "cog",
+     "hand",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:57",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The person approved “The trip is cancelled.” The model now proposes “Pay the fees today.” What should the guard return?",
+    "options": [
+     {
+      "text": "Run: they already said yes",
+      "correct": false
+     },
+     {
+      "text": "Ask again, about this message",
+      "correct": true
+     },
+     {
+      "text": "Block every message for good",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — the yes was for a different message. Comparing the exact details stops a model from sending something nobody approved.",
+    "feedback_wrong": "Not quite — a yes counts only for the exact message it was given for. Ask about this one.",
+    "resume_at": "2:00"
+   },
+   {
+    "at": "2:48",
+    "after_scene": 12,
+    "type": "choice",
+    "prompt": "Darsi Tiny learned to ask before sending. Where should the final check live?",
+    "options": [
+     {
+      "text": "In the model’s training",
+      "correct": false
+     },
+     {
+      "text": "In the app’s code, with a person’s yes",
+      "correct": true
+     },
+     {
+      "text": "In the tool’s result",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct — learned behaviour can fail, as “yes, send it” on its own showed. A rule in code, with a person’s yes, can’t be talked round.",
+    "feedback_wrong": "Not quite — training makes asking likely, not certain. The final check belongs in code, with a person’s yes.",
+    "resume_at": "2:51"
+   }
+  ]
+ }
+}

@@ -1,5 +1,5 @@
 import type { Lang, LessonPackage, Manifest, ScenesFile, TimingFile } from "@lessonstudio/spec";
-import { relPathOk, DEFAULT_LIBRARY } from "@lessonstudio/spec";
+import { relPathOk, DEFAULT_LIBRARY } from "@lessonstudio/spec/core";
 
 async function json<T>(url: string, fetcher: typeof fetch): Promise<T> {
   const r = await fetcher(url);
