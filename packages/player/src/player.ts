@@ -718,20 +718,98 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   function savePlace(): void {
     if (o.remember) writeJson(`ls-pos:${m.id}`, { t: Math.round(clk.time() * 10) / 10 });
   }
-  // Phones without the Fullscreen API on elements (iPhone Safari) get the player stretched over the page instead.
+  // iOS WebKit (Chrome on iPhone included) has no Fullscreen API for anything but <video>.
+  function iosHost(): boolean {
+    const ua = navigator.userAgent || "";
+    if (/iP(hone|ad|od)/.test(ua)) return true;
+    return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+  }
+  /** True only when this element can really enter the browser's full screen. */
+  function nativeFullOk(): boolean {
+    return !iosHost() && document.fullscreenEnabled === true && typeof wrap.requestFullscreen === "function";
+  }
   function isFull(): boolean {
     return (typeof document !== "undefined" && document.fullscreenElement === wrap) || wrap.classList.contains("ls-full");
   }
+  // Pseudo-fullscreen (iPhone): cover the viewport ourselves and stop the page scrolling under it.
+  let pageLocked = false;
+  let scrollY = 0;
+  let watching = false;
+  const onViewport = (): void => { fit(); };
+  function watchViewport(on: boolean): void {
+    if (on === watching) return;
+    watching = on;
+    const fn = on ? "addEventListener" : "removeEventListener";
+    window[fn]("resize", onViewport);
+    window[fn]("orientationchange", onViewport);
+  }
+  function lockPage(on: boolean): void {
+    const html = document.documentElement;
+    const body = document.body;
+    if (on && !pageLocked) {
+      scrollY = window.scrollY || 0;
+      html.style.overflow = "hidden";
+      if (body) {
+        body.style.overflow = "hidden";
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.left = "0";
+        body.style.right = "0";
+        body.style.width = "100%";
+      }
+      pageLocked = true;
+    } else if (!on && pageLocked) {
+      html.style.overflow = "";
+      if (body) {
+        body.style.overflow = "";
+        body.style.position = "";
+        body.style.top = "";
+        body.style.left = "";
+        body.style.right = "";
+        body.style.width = "";
+      }
+      pageLocked = false;
+      window.scrollTo(0, scrollY);
+    }
+  }
   function setPageFull(on: boolean): void {
     wrap.classList.toggle("ls-full", on);
-    document.documentElement.style.overflow = on ? "hidden" : "";
+    lockPage(on);
+    watchViewport(on);
     onFull();
   }
   function toggleFull(): void {
-    if (document.fullscreenElement) void document.exitFullscreen();
-    else if (wrap.classList.contains("ls-full")) setPageFull(false);
-    else if (document.fullscreenEnabled && wrap.requestFullscreen) void wrap.requestFullscreen().then(() => lockOrient(true), () => setPageFull(true));
-    else setPageFull(true);
+    if (document.fullscreenElement) {
+      void document.exitFullscreen();
+      return;
+    }
+    if (wrap.classList.contains("ls-full")) {
+      setPageFull(false);
+      return;
+    }
+    // No API, or iPhone: fix the player over the viewport. A call that throws or doesn't actually
+    // fullscreen the element (WebKit resolves or rejects without entering) uses the same path.
+    if (!nativeFullOk()) {
+      setPageFull(true);
+      return;
+    }
+    let pending: Promise<void> | undefined;
+    try {
+      pending = wrap.requestFullscreen();
+    } catch {
+      setPageFull(true);
+      return;
+    }
+    if (!pending || typeof pending.then !== "function") {
+      setPageFull(true);
+      return;
+    }
+    void pending.then(() => {
+      if (document.fullscreenElement === wrap) {
+        lockOrient(true);
+        watchViewport(true);
+      } else setPageFull(true);
+    }, () => setPageFull(true));
   }
   /** In full screen, turn the phone's screen to the stage's shape where the browser allows it (Android Chrome). */
   let locked = false;
@@ -742,7 +820,15 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       else if (!on && locked) { locked = false; so?.unlock?.(); }
     } catch { locked = false; }
   }
-  const onFull = (): void => { if (document.fullscreenElement !== wrap) lockOrient(false); fit(); still(clk.time()); syncButtons(); };
+  const onFull = (): void => {
+    if (document.fullscreenElement !== wrap) {
+      lockOrient(false);
+      if (!wrap.classList.contains("ls-full")) watchViewport(false);
+    }
+    fit();
+    still(clk.time());
+    syncButtons();
+  };
 
   /** While playing, the controls fade after 3 s with no pointer, unless a menu, a drag or the keyboard is using them. */
   let idle = 0;
@@ -1093,7 +1179,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     },
     destroy() {
       gone = true;
-      if (wrap.classList.contains("ls-full")) document.documentElement.style.overflow = "";
+      watchViewport(false);
+      if (wrap.classList.contains("ls-full") || pageLocked) setPageFull(false);
       document.removeEventListener("fullscreenchange", onFull);
       clearTimeout(idle);
       clearTimeout(tapTimer);

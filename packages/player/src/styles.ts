@@ -243,13 +243,15 @@ export const CSS = `
 .ls-narrow .ls-cluster{gap:0}
 .ls-narrow .ls-row{gap:2px;padding-left:2px;padding-right:2px}
 @media (pointer:coarse){.ls-track{height:28px}.ls-btn,.ls-narrow .ls-btn{height:44px}}
-.ls-player:fullscreen{background:#000;display:flex;flex-direction:column;justify-content:center}
-.ls-player:fullscreen .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
+.ls-player:fullscreen{background:#000;display:flex;flex-direction:column;justify-content:center;height:100%;height:100dvh}
+.ls-player:fullscreen .ls-main,.ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));width:min(100%,calc(100dvh * var(--ls-ar,1.78)));margin:0 auto}
 .ls-asking:not(.ls-full):not(:fullscreen) .ls-check,.ls-asking:not(.ls-full):not(:fullscreen) .ls-end{position:relative;background:var(--ls-surface);padding:12px 8px}
 .ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-bar,.ls-asking:not(.ls-full):not(:fullscreen).ls-narrow .ls-viewport{display:none}
-.ls-full{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;background:#000;display:flex;flex-direction:column;justify-content:center;overflow:auto}
-.ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
-.ls-full.ls-turned{top:0;left:100%;right:auto;bottom:auto;width:100vh;height:100vw;transform:rotate(90deg);transform-origin:top left}
-.ls-full.ls-turned .ls-main{width:min(100%,calc(100vw * var(--ls-ar,1.78)))}
+/* iPhone has no Fullscreen API for a div: cover the visual viewport, including the notch and home bar. */
+.ls-full{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;z-index:2147483000;box-sizing:border-box;background:#000;
+  display:flex;flex-direction:column;justify-content:center;overflow:hidden;overscroll-behavior:none;
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.ls-full.ls-turned{top:0;left:100%;right:auto;bottom:auto;width:100vh;width:100dvh;height:100vw;height:100dvw;transform:rotate(90deg);transform-origin:top left}
+.ls-full.ls-turned .ls-main{width:min(100%,calc(100vw * var(--ls-ar,1.78)));width:min(100%,calc(100dvw * var(--ls-ar,1.78)))}
 .ls-full.ls-turned .ls-seek{touch-action:none}
 `;
