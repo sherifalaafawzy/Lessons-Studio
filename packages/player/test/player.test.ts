@@ -40,6 +40,10 @@ function mk(id: string, opts: Parameters<typeof createPlayer>[2] = {}): { p: Pla
   return { p, root: host.shadowRoot!, pkg };
 }
 const stageHtml = (root: ShadowRoot): string => root.querySelector(".ls-stage")!.innerHTML;
+function setWindow(w: number, h: number): void {
+  Object.defineProperty(window, "innerWidth", { configurable: true, value: w });
+  Object.defineProperty(window, "innerHeight", { configurable: true, value: h });
+}
 const sceneTimes = (pkg: LessonPackage, lang: string) => Object.fromEntries(pkg.timing[lang]!.scenes.map((s) => [s.id, s]));
 
 describe("quality tiers", () => {
@@ -221,13 +225,104 @@ describe("player", () => {
     const wrap = root.querySelector<HTMLElement>(".ls-player")!;
     const fs = root.querySelector<HTMLButtonElement>(".ls-fs")!;
     expect(fs.hidden).toBe(false);
+    const css = root.querySelector("style")!.textContent!;
+    expect(css).toContain("100dvh");
+    expect(css).toContain("safe-area-inset-top");
     fs.click();
     expect(wrap.classList.contains("ls-full")).toBe(true);
     expect(fs.getAttribute("aria-pressed")).toBe("true");
     expect(document.documentElement.style.overflow).toBe("hidden");
+    expect(document.body.style.position).toBe("fixed");
     wrap.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
     expect(wrap.classList.contains("ls-full")).toBe(false);
     expect(document.documentElement.style.overflow).toBe("");
+    expect(document.body.style.position).toBe("");
+  });
+
+  it("uses a viewport overlay on iPhone even when requestFullscreen exists, and the button leaves it", async () => {
+    const { p, root } = mk("prompt-injection");
+    const wrap = root.querySelector<HTMLElement>(".ls-player")!;
+    const fs = root.querySelector<HTMLButtonElement>(".ls-fs")!;
+    const ua = vi.spyOn(navigator, "userAgent", "get").mockReturnValue(
+      "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/131.0.0.0 Mobile/15E148 Safari/604.1",
+    );
+    const enabled = Object.getOwnPropertyDescriptor(document, "fullscreenEnabled");
+    Object.defineProperty(document, "fullscreenEnabled", { configurable: true, get: () => true });
+    let calls = 0;
+    const prev = HTMLElement.prototype.requestFullscreen;
+    HTMLElement.prototype.requestFullscreen = function () {
+      calls++;
+      return Promise.resolve();
+    };
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    try {
+      fs.click();
+      expect(calls).toBe(0);
+      expect(wrap.classList.contains("ls-full")).toBe(true);
+      expect(document.body.style.overflow).toBe("hidden");
+      root.querySelector<HTMLButtonElement>(".ls-play")!.click();
+      expect(p.playing).toBe(true);
+
+      setWindow(375, 812);
+      window.dispatchEvent(new Event("resize"));
+      expect(wrap.classList.contains("ls-turned")).toBe(true);
+      setWindow(812, 375);
+      window.dispatchEvent(new Event("orientationchange"));
+      expect(wrap.classList.contains("ls-turned")).toBe(false);
+
+      fs.click();
+      expect(wrap.classList.contains("ls-full")).toBe(false);
+      expect(fs.getAttribute("aria-pressed")).toBe("false");
+      expect(document.body.style.position).toBe("");
+    } finally {
+      ua.mockRestore();
+      HTMLElement.prototype.requestFullscreen = prev;
+      if (enabled) Object.defineProperty(document, "fullscreenEnabled", enabled);
+      else delete (document as { fullscreenEnabled?: boolean }).fullscreenEnabled;
+      setWindow(width, height);
+    }
+  });
+
+  it("uses the Fullscreen API where it works, and the overlay when the call cannot fullscreen a div", async () => {
+    const { root } = mk("prompt-injection");
+    const wrap = root.querySelector<HTMLElement>(".ls-player")!;
+    const fs = root.querySelector<HTMLButtonElement>(".ls-fs")!;
+    const enabled = Object.getOwnPropertyDescriptor(document, "fullscreenEnabled");
+    const current = Object.getOwnPropertyDescriptor(document, "fullscreenElement");
+    Object.defineProperty(document, "fullscreenEnabled", { configurable: true, get: () => true });
+    const prev = HTMLElement.prototype.requestFullscreen;
+    let mode: "ok" | "reject" | "throw" = "ok";
+    HTMLElement.prototype.requestFullscreen = function (this: HTMLElement) {
+      if (mode === "throw") throw new Error("no");
+      if (mode === "reject") return Promise.reject(new Error("no"));
+      Object.defineProperty(document, "fullscreenElement", { configurable: true, get: () => this });
+      return Promise.resolve();
+    };
+    try {
+      fs.click();
+      await Promise.resolve();
+      expect(wrap.classList.contains("ls-full")).toBe(false);
+      expect(document.fullscreenElement).toBe(wrap);
+
+      delete (document as { fullscreenElement?: Element | null }).fullscreenElement;
+      mode = "reject";
+      fs.click();
+      await Promise.resolve();
+      await Promise.resolve();
+      expect(wrap.classList.contains("ls-full")).toBe(true);
+      fs.click();
+
+      mode = "throw";
+      fs.click();
+      expect(wrap.classList.contains("ls-full")).toBe(true);
+    } finally {
+      HTMLElement.prototype.requestFullscreen = prev;
+      if (enabled) Object.defineProperty(document, "fullscreenEnabled", enabled);
+      else delete (document as { fullscreenEnabled?: boolean }).fullscreenEnabled;
+      if (current) Object.defineProperty(document, "fullscreenElement", current);
+      else delete (document as { fullscreenElement?: Element | null }).fullscreenElement;
+    }
   });
 
   it("lets the host ask the check instead", async () => {
