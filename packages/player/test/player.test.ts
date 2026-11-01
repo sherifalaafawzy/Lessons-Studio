@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { LessonPackage } from "@lessonstudio/spec";
 import { chooseTier, createPlayer, cueState, layers, layoutFlow, STAGE, type Player } from "../src/index.ts";
 import { loadExample } from "../../../scripts/lib/examples.mjs";
@@ -188,18 +188,24 @@ describe("player", () => {
     expect(wrap.classList.contains("ls-asking")).toBe(false);
   });
 
-  it("sizes its controls to the player: floating and compact in a lesson column, the seek bar on its own row on phones", () => {
+  it("sizes its controls to the player: over the picture at every width, tighter on a phone", () => {
     const sized = (w: number) => {
       const pkg = load("prompt-injection");
       const host = document.createElement("div");
       Object.defineProperty(host, "clientWidth", { value: w });
       document.body.append(host);
       players.push(createPlayer(host, pkg, { tier: "full", orient: "landscape", now: () => nowMs }));
-      return [...host.shadowRoot!.querySelector(".ls-player")!.classList].filter((c) => /^ls-(float|compact|narrow)$/.test(c)).sort();
+      const player = host.shadowRoot!.querySelector(".ls-player")!;
+      const bar = player.querySelector(".ls-bar")!;
+      // The progress line is its own strip, above the buttons, and it stays left to right.
+      expect(bar.firstElementChild!.classList.contains("ls-track")).toBe(true);
+      expect(bar.querySelector(".ls-track")!.getAttribute("dir")).toBe("ltr");
+      expect(bar.querySelector(".ls-row")).toBeTruthy();
+      return [...player.classList].filter((c) => /^ls-(float|compact|narrow)$/.test(c)).sort();
     };
     expect(sized(1000)).toEqual(["ls-float"]);
     expect(sized(528)).toEqual(["ls-compact", "ls-float"]);
-    expect(sized(343)).toEqual(["ls-compact", "ls-narrow"]);
+    expect(sized(343)).toEqual(["ls-compact", "ls-float", "ls-narrow"]);
   });
 
   it("shows a visible pause icon while playing (the play button fills its icons, so it must be a filled shape)", async () => {
@@ -257,6 +263,10 @@ describe("player", () => {
     expect([...root.querySelectorAll(".ls-th-title bdi")].map((b) => b.textContent)).toEqual(["(Prompt injection)"]);
     // Player labels in Arabic, and no middle dot anywhere.
     expect(root.querySelector(".ls-play")!.getAttribute("aria-label")).toBe("تشغيل");
+    expect(root.querySelector(".ls-next")!.getAttribute("aria-label")).toBe("المشهد التالي");
+    expect(root.querySelector(".ls-track")!.getAttribute("dir")).toBe("ltr");
+    expect(root.querySelector(".ls-time")!.getAttribute("dir")).toBe("ltr");
+    expect(root.querySelector(".ls-seek")!.getAttribute("dir")).toBe("ltr");
     expect(root.querySelector(".ls-player")!.textContent).not.toContain("·");
   });
 
@@ -293,6 +303,99 @@ describe("player", () => {
     const badge = root.querySelector<HTMLElement>(".ls-ai")!;
     expect(badge.hidden).toBe(false);
     expect(badge.title).toBe("script, translation");
+  });
+});
+
+describe("youtube-style controls", () => {
+  const press = (root: ShadowRoot, key: string): void => {
+    root.querySelector(".ls-player")!.dispatchEvent(new KeyboardEvent("keydown", { key, bubbles: true }));
+  };
+
+  it("seeks with the video keys, the next button and a double tap, and keeps a scene mark per chapter", () => {
+    const { p, root, pkg } = mk("prompt-injection");
+    const scenes = pkg.timing.en!.scenes;
+    expect(root.querySelectorAll(".ls-tick")).toHaveLength(scenes.length - 1);
+    expect(root.querySelector(".ls-buf")).toBeTruthy();
+    expect(root.querySelector(".ls-played")!.getAttribute("style")).toContain("scaleX(0)");
+    expect(root.querySelector<HTMLElement>(".ls-bigplay")!.hidden).toBe(false);
+
+    p.seek(30);
+    press(root, "l");
+    expect(p.time()).toBeCloseTo(40, 1);
+    press(root, "j");
+    expect(p.time()).toBeCloseTo(30, 1);
+    press(root, "ArrowRight");
+    expect(p.time()).toBeCloseTo(35, 1);
+    press(root, "ArrowLeft");
+    expect(p.time()).toBeCloseTo(30, 1);
+    press(root, "ArrowDown");
+    expect(root.querySelector<HTMLInputElement>(".ls-volr")!.value).toBe("0.95");
+    press(root, "m");
+    expect(root.querySelector(".ls-vol")!.getAttribute("aria-pressed")).toBe("true");
+    expect(root.querySelector(".ls-vol")!.getAttribute("aria-label")).toBe("Unmute");
+    press(root, "c");
+    expect(root.querySelector(".ls-cc")!.getAttribute("aria-pressed")).toBe("false");
+    press(root, "0");
+    expect(p.time()).toBe(0);
+    press(root, "5");
+    expect(p.time()).toBeCloseTo(scenes.at(-1)!.end / 2, 0);
+
+    p.seek(scenes[0]!.end - 1);
+    root.querySelector<HTMLButtonElement>(".ls-next")!.click();
+    expect(p.time()).toBeCloseTo(scenes[1]!.start + 0.01, 2);
+
+    p.seek(scenes.at(-1)!.start + 0.2);
+    expect(root.querySelector<HTMLButtonElement>(".ls-next")!.disabled).toBe(true);
+
+    const vp = root.querySelector<HTMLElement>(".ls-viewport")!;
+    vp.getBoundingClientRect = () => ({ x: 0, y: 0, left: 0, top: 0, right: 320, bottom: 180, width: 320, height: 180, toJSON() { return {}; } });
+    p.seek(30);
+    const tap = (x: number) => {
+      vp.dispatchEvent(new PointerEvent("pointerdown", { clientX: x, clientY: 40, pointerType: "touch", bubbles: true }));
+      vp.dispatchEvent(new PointerEvent("pointerup", { clientX: x, clientY: 40, pointerType: "touch", bubbles: true }));
+    };
+    tap(30);
+    tap(30);
+    expect(p.time()).toBeCloseTo(20, 1);
+    expect(root.querySelector(".ls-flash")!.classList.contains("is-back")).toBe(true);
+    tap(280);
+    tap(280);
+    expect(p.time()).toBeCloseTo(30, 1);
+  });
+
+  it("hides the controls after three seconds of playback and shows them again when the pointer moves", async () => {
+    vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] });
+    try {
+      const { p, root } = mk("prompt-injection");
+      const wrap = root.querySelector(".ls-player")!;
+      await p.play();
+      expect(wrap.classList.contains("ls-idle")).toBe(false);
+      expect(root.querySelector<HTMLElement>(".ls-bigplay")!.hidden).toBe(true);
+      vi.advanceTimersByTime(2990);
+      expect(wrap.classList.contains("ls-idle")).toBe(false);
+      vi.advanceTimersByTime(20);
+      expect(wrap.classList.contains("ls-idle")).toBe(true);
+      wrap.dispatchEvent(new Event("pointermove"));
+      expect(wrap.classList.contains("ls-idle")).toBe(false);
+      p.pause();
+      expect(root.querySelector<HTMLElement>(".ls-bigplay")!.hidden).toBe(false);
+      vi.advanceTimersByTime(4000);
+      expect(wrap.classList.contains("ls-idle")).toBe(false);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("offers caption language, speed and chapters from the menus", () => {
+    const { root, pkg } = mk("prompt-injection");
+    root.querySelector<HTMLButtonElement>(".ls-set")!.click();
+    const menu = root.querySelector(".ls-menu")!;
+    expect(menu.textContent).toContain("Caption language");
+    expect(menu.textContent).toContain("English");
+    expect(menu.textContent).toContain("العربية");
+    expect(menu.textContent).toContain("1.5×");
+    root.querySelector<HTMLButtonElement>(".ls-chap")!.click();
+    expect(root.querySelectorAll(".ls-menu .ls-mi")).toHaveLength(pkg.timing.en!.scenes.length);
   });
 });
 

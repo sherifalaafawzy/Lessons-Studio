@@ -20,9 +20,14 @@ export interface Labels {
   /** Joins list items. Arabic uses "،", never "·". */
   sep: string;
   chapters: string;
+  /** The next scene, as on a video player's next button. */
+  nextScene: string;
   volume: string;
   mute: string;
+  unmute: string;
   fullscreen: string;
+  /** Which language's captions (and narration) to play. */
+  captionLang: string;
   settings: string;
   captionSize: string;
   sizes: [string, string, string];
@@ -49,9 +54,12 @@ const EN: Labels = {
   letters: ["A", "B", "C", "D", "E"],
   sep: ", ",
   chapters: "Chapters",
+  nextScene: "Next scene",
   volume: "Volume",
   mute: "Mute",
+  unmute: "Unmute",
   fullscreen: "Full screen",
+  captionLang: "Caption language",
   settings: "Settings",
   captionSize: "Caption size",
   sizes: ["Small", "Medium", "Large"],
@@ -77,9 +85,12 @@ const AR: Labels = {
   letters: ["أ", "ب", "ج", "د", "هـ"],
   sep: "، ",
   chapters: "الفصول",
+  nextScene: "المشهد التالي",
   volume: "مستوى الصوت",
   mute: "كتم الصوت",
+  unmute: "إلغاء الكتم",
   fullscreen: "ملء الشاشة",
+  captionLang: "لغة الترجمة",
   settings: "الإعدادات",
   captionSize: "حجم الترجمة",
   sizes: ["صغير", "متوسط", "كبير"],

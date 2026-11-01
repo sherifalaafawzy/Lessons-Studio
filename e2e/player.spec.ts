@@ -175,24 +175,35 @@ test("the learner's controls: chapters, keys, settings and the place in the less
   const p = page.locator("#player");
   const s = await scenes(page, "prompt-injection", "en");
 
-  // Chapters: one per scene, named; picking one jumps to it.
+  // Chapters: one per scene, named; picking one jumps to it. Next scene does the same for the following one.
   await p.getByRole("button", { name: "Chapters" }).click();
   const items = p.locator(".ls-menu .ls-mi");
   await expect(items).toHaveCount(s.length);
   await items.nth(2).click();
   expect(Math.abs((await timeOf(page)) - s[2]!.start)).toBeLessThan(0.1);
+  await p.getByRole("button", { name: "Next scene" }).click();
+  expect(Math.abs((await timeOf(page)) - s[3]!.start)).toBeLessThan(0.1);
 
-  // Keys: L is five seconds on, 0–9 jump through the lesson.
+  // Keys, as on YouTube: J/L are ten seconds, arrows five, 0–9 jump, C captions, M mute.
   await p.locator(".ls-player").focus();
   const before = await timeOf(page);
   await page.keyboard.press("l");
+  expect(await timeOf(page)).toBeCloseTo(before + 10, 1);
+  await page.keyboard.press("j");
+  expect(await timeOf(page)).toBeCloseTo(before, 1);
+  await page.keyboard.press("ArrowRight");
   expect(await timeOf(page)).toBeCloseTo(before + 5, 1);
+  await page.keyboard.press("c");
+  await expect(p.locator(".ls-cc")).toHaveAttribute("aria-pressed", "false");
+  await page.keyboard.press("m");
+  await expect(p.locator(".ls-vol")).toHaveAttribute("aria-pressed", "true");
   await page.keyboard.press("5");
   const total = s.at(-1)!.end;
   expect(await timeOf(page)).toBeCloseTo(total / 2, 0);
 
-  // Settings: speed 1.5× and large captions; the full-screen button is there.
+  // Settings: speed, caption language, large captions; the full-screen button is there.
   await p.getByRole("button", { name: "Settings" }).click();
+  await expect(p.locator(".ls-menu")).toContainText("Caption language");
   await p.locator(".ls-menu .ls-mi", { hasText: "1.5×" }).click();
   await p.getByRole("button", { name: "Settings" }).click();
   await p.locator(".ls-menu .ls-mi", { hasText: "Large" }).click();
@@ -209,7 +220,7 @@ test("the learner's controls: chapters, keys, settings and the place in the less
 
   // Scrubbing shows the chapter and time.
   await page.keyboard.press("Escape");
-  const seek = (await p.locator(".ls-seek").boundingBox())!;
+  const seek = (await p.locator(".ls-track").boundingBox())!;
   await page.mouse.move(seek.x + seek.width * 0.25, seek.y + seek.height / 2);
   await expect(p.locator(".ls-tipt")).toBeVisible();
   await page.screenshot({ path: `e2e/screenshots/player-controls-${info.project.name}.png` });

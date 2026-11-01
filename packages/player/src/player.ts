@@ -172,33 +172,42 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   const stage = h("div", { className: "ls-stage", "aria-hidden": "true" });
   const cap = h("p", { className: "ls-cap" });
   const captionsBox = h("div", { className: "ls-captions", "aria-hidden": "true" }, cap);
-  const bigPlay = h("button", { className: "ls-bigplay", type: "button" }, icon("play", 38));
-  const viewport = h("div", { className: "ls-viewport" }, stage, captionsBox, bigPlay);
+  const bigPlay = h("button", { className: "ls-bigplay", type: "button" }, icon("play", 34));
+  const flash = h("div", { className: "ls-flash", hidden: true, "aria-hidden": "true" });
+  const viewport = h("div", { className: "ls-viewport" }, stage, captionsBox, bigPlay, flash);
   const checkBox = h("div", { className: "ls-check", hidden: true });
   const endBox = h("div", { className: "ls-end", hidden: true });
 
-  const playBtn = h("button", { className: "ls-btn ls-play", type: "button" });
+  const playBtn = h("button", { className: "ls-btn ls-play", type: "button", "aria-keyshortcuts": "k Space" });
+  const nextBtn = h("button", { className: "ls-btn ls-next", type: "button" }, icon("next", 22));
   const timeEl = h("span", { className: "ls-time", dir: "ltr" });
-  const seekEl = h("input", { className: "ls-seek", type: "range", min: 0, step: 0.1, dir: "ltr" });
+  const playedEl = h("div", { className: "ls-played" });
+  const bufEl = h("div", { className: "ls-buf" });
   const ticks = h("div", { className: "ls-ticks" });
-  const chapBtn = h("button", { className: "ls-btn ls-chap", type: "button", "aria-haspopup": "menu" }, icon("chapters", 22));
-  const volBtn = h("button", { className: "ls-btn ls-vol", type: "button" });
+  const dot = h("div", { className: "ls-dot", "aria-hidden": "true" });
+  const seekEl = h("input", { className: "ls-seek", type: "range", min: 0, step: 0.1, dir: "ltr" });
+  const chapBtn = h("button", { className: "ls-btn ls-chap", type: "button", "aria-haspopup": "menu", "aria-expanded": "false" }, icon("chapters", 22));
+  const volBtn = h("button", { className: "ls-btn ls-vol", type: "button", "aria-keyshortcuts": "m" });
   const volEl = h("input", { className: "ls-volr", type: "range", min: 0, max: 1, step: 0.05, dir: "ltr" });
-  const setBtn = h("button", { className: "ls-btn ls-set", type: "button", "aria-haspopup": "menu" }, icon("gear", 22));
-  const ccBtn = h("button", { className: "ls-btn ls-cc", type: "button" }, icon("cc", 22));
-  const trBtn = h("button", { className: "ls-btn ls-tr", type: "button" }, icon("list", 22));
-  const fsBtn = h("button", { className: "ls-btn ls-fs", type: "button" }, icon("full", 22));
+  const volBox = h("div", { className: "ls-volbox" }, volBtn, volEl);
+  const setBtn = h("button", { className: "ls-btn ls-set", type: "button", "aria-haspopup": "menu", "aria-expanded": "false" }, icon("gear", 22));
+  const ccBtn = h("button", { className: "ls-btn ls-cc", type: "button", "aria-keyshortcuts": "c" }, icon("cc", 22));
+  const fsBtn = h("button", { className: "ls-btn ls-fs", type: "button", "aria-keyshortcuts": "f" }, icon("full", 22));
   const aiBadge = h("span", { className: "ls-ai" });
   // Scrubbing shows where you'd land: the chapter, the time and (on the Full tier) the frame itself.
   const pvStage = h("div", { className: "ls-pvs" });
   const pv = h("div", { className: "ls-pv", hidden: true }, pvStage);
   const tipText = h("span", { className: "ls-tipt" });
   const tip = h("div", { className: "ls-tip", hidden: true }, pv, tipText);
-  const bar = h(
+  const rail = h("div", { className: "ls-rail", "aria-hidden": "true" }, bufEl, playedEl, ticks);
+  const seekTrack = h("div", { className: "ls-track", dir: "ltr" }, rail, dot, seekEl, tip);
+  const controls = h(
     "div",
-    { className: "ls-bar" },
-    playBtn, timeEl, h("div", { className: "ls-track" }, ticks, seekEl, tip), chapBtn, volBtn, volEl, setBtn, ccBtn, trBtn, fsBtn, aiBadge,
+    { className: "ls-row" },
+    h("div", { className: "ls-cluster" }, playBtn, nextBtn, volBox, timeEl),
+    h("div", { className: "ls-cluster" }, chapBtn, ccBtn, setBtn, fsBtn),
   );
+  const bar = h("div", { className: "ls-bar" }, seekTrack, controls, aiBadge);
   const menu = h("div", { className: "ls-menu", hidden: true, role: "menu" });
   const main = h("div", { className: "ls-main" }, viewport, checkBox, endBox, menu, bar);
   const transcriptBox = h("div", { className: "ls-transcript", hidden: true });
@@ -252,8 +261,10 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     );
     playBtn.setAttribute("aria-label", labels.play);
     bigPlay.setAttribute("aria-label", labels.play);
+    nextBtn.setAttribute("aria-label", labels.nextScene);
+    nextBtn.title = labels.nextScene;
     seekEl.setAttribute("aria-label", labels.seek);
-    for (const [b, l] of [[chapBtn, labels.chapters], [volBtn, labels.mute], [setBtn, labels.settings], [ccBtn, labels.captions], [trBtn, labels.transcript], [fsBtn, labels.fullscreen]] as const) {
+    for (const [b, l] of [[chapBtn, labels.chapters], [setBtn, labels.settings], [ccBtn, labels.captions], [fsBtn, labels.fullscreen]] as const) {
       b.setAttribute("aria-label", l);
       b.title = l;
     }
@@ -348,9 +359,24 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     }
     drawCaptions(t);
     drawTranscript(t);
+    paintBar(t);
+    prevT = t;
+  }
+
+  /** The progress line, the buffered range and the clock. The line stays left to right in every language. */
+  function paintBar(t: number): void {
+    const d = timing.duration || 1;
+    const p = Math.min(1, Math.max(0, t / d));
+    wr.style(playedEl, "transform", `scaleX(${fix(p, 4)})`);
+    let end = d;
+    try { end = clk.buffered(); } catch { end = d; }
+    if (!Number.isFinite(end)) end = d;
+    wr.style(bufEl, "transform", `scaleX(${fix(Math.min(1, Math.max(0, end / d)), 4)})`);
+    wr.style(dot, "left", `${fix(p * 100, 2)}%`);
     seekEl.value = String(Math.round(t * 10) / 10);
     timeEl.textContent = `${clock(t)} / ${clock(timing.duration)}`;
-    prevT = t;
+    const last = sceneAt(t) >= timing.scenes.length - 1;
+    if (nextBtn.disabled !== last) nextBtn.disabled = last;
   }
 
   function drawCaptions(t: number): void {
@@ -398,8 +424,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const st = timing.scenes[0]!;
     renderAt(Math.min(st.end - EPS, st.start + 3));
     captionsBox.hidden = true;
-    seekEl.value = "0";
-    timeEl.textContent = `${clock(0)} / ${clock(timing.duration)}`;
+    paintBar(0);
     prevT = t;
   }
 
@@ -423,10 +448,10 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     stage.style.transform = `scale(${fix(k, 4)})`;
     wrap.style.setProperty("--ls-cap-size", `${Math.round(Math.max(15, Math.min(24, 34 * k)) * capSize)}px`);
     wrap.style.setProperty("--ls-ar", fix(W / H, 4));
-    // Wide players on the Full tier float their controls over the picture and fade them while playing. Smaller ones
-    // drop the least-used controls (compact), and phones put the seek bar on a row of its own (narrow).
+    // The controls sit on the picture (every tier but Text, which has no picture) and fade while it plays.
+    // Narrow and compact only tighten the row; the progress line is always its own strip along the bottom.
     const w = isFull() ? wrap.clientWidth : host.clientWidth;
-    wrap.classList.toggle("ls-float", tier === "full" && w >= 520);
+    wrap.classList.toggle("ls-float", tier !== "text");
     wrap.classList.toggle("ls-compact", w < 720);
     wrap.classList.toggle("ls-narrow", w < 480);
   }
@@ -437,14 +462,18 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     playBtn.replaceChildren(icon(on ? "pause" : "play", 22));
     playBtn.setAttribute("aria-label", on ? labels.pause : labels.play);
     bigPlay.hidden = on || checkOpen || ended;
-    volBtn.replaceChildren(icon(muted || volume === 0 ? "muted" : "vol", 22));
+    const quiet = muted || volume === 0;
+    volBtn.replaceChildren(icon(quiet ? "muted" : "vol", 22));
     volBtn.setAttribute("aria-pressed", String(muted));
+    volBtn.setAttribute("aria-label", quiet ? labels.unmute : labels.mute);
+    volBtn.title = quiet ? labels.unmute : labels.mute;
     volEl.value = String(muted ? 0 : volume);
-    fsBtn.setAttribute("aria-pressed", String(isFull()));
+    const full = isFull();
+    fsBtn.replaceChildren(icon(full ? "unfull" : "full", 22));
+    fsBtn.setAttribute("aria-pressed", String(full));
     // A quick check or the end screen in a small player sits under the picture instead of over it, so it is never cut off.
     wrap.classList.toggle("ls-asking", checkOpen || ended);
     ccBtn.setAttribute("aria-pressed", String(captionsOn));
-    trBtn.setAttribute("aria-pressed", String(!transcriptBox.hidden));
     wrap.dataset.tier = tier;
   }
 
@@ -618,18 +647,21 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   }
 
   /* ---------- wiring ---------- */
-  // Keys, as on video sites: Space/K, J/L ±5 s, ←/→ ±2 s, Home/End, 0–9 jump, C captions, T transcript, F full screen, M mute.
+  // Keys, as on YouTube: Space/K, J/L ±10 s, ←/→ ±5 s, ↑/↓ volume, Home/End, 0–9, C captions, T transcript, F full screen, M mute.
   const onKey = (e: KeyboardEvent): void => {
     const tag = (e.target as HTMLElement | null)?.tagName;
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === "Escape" && !menu.hidden) { closeMenu(); return; }
     if (e.key === "Escape" && wrap.classList.contains("ls-full")) { setPageFull(false); return; }
-    if (tag === "INPUT" && /^(Arrow|Home|End|Page)/.test(e.key)) return;
+    // The volume slider keeps its own arrow keys. Every other shortcut, including on the progress line, is ours.
+    if (tag === "INPUT" && e.target === volEl) return;
     if (tag === "BUTTON" && (e.key === " " || e.key === "Enter")) return;
     const t = clk.time();
     const keys: Record<string, () => void> = {
-      " ": toggle, k: toggle, j: () => seek(t - 5), l: () => seek(t + 5), ArrowLeft: () => seek(t - 2), ArrowRight: () => seek(t + 2),
-      Home: () => seek(0), End: () => seek(timing.duration), c: () => setCaptions(!captionsOn), t: () => trBtn.click(), f: toggleFull,
+      " ": toggle, k: toggle, j: () => seek(t - 10), l: () => seek(t + 10),
+      ArrowLeft: () => seek(t - 5), ArrowRight: () => seek(t + 5),
+      ArrowUp: () => bumpVol(0.05), ArrowDown: () => bumpVol(-0.05),
+      Home: () => seek(0), End: () => seek(timing.duration), c: () => setCaptions(!captionsOn), t: () => toggleTranscript(), f: toggleFull,
       m: () => setVolume(volume || 1, !muted),
     };
     const f = keys[e.key.length === 1 ? e.key.toLowerCase() : e.key] ?? (/^[0-9]$/.test(e.key) ? () => seek((timing.duration * Number(e.key)) / 10) : undefined);
@@ -658,6 +690,25 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     clk.setVolume(muted ? 0 : volume);
     syncButtons();
     savePrefs();
+  }
+  /** Up and down change the volume by 5%, the way a video player does. Muting remembers the level. */
+  function bumpVol(d: number): void {
+    const cur = muted ? 0 : volume;
+    const v = Math.round(Math.min(1, Math.max(0, cur + d)) * 20) / 20;
+    if (v <= 0) setVolume(volume || 1, true);
+    else setVolume(v, false);
+  }
+  function nextScene(): void {
+    const n = timing.scenes[sceneAt(clk.time()) + 1];
+    if (n) seek(n.start + EPS);
+  }
+  function toggleTranscript(): void {
+    if (tier === "text") return;
+    transcriptOpen = !transcriptOpen;
+    transcriptBox.hidden = !transcriptOpen;
+    sentIndex = "";
+    renderAt(clk.time());
+    syncButtons();
   }
   function savePrefs(): void {
     if (o.remember) writeJson("ls-player", { rate, captions: captionsOn, volume, muted, capSize, capBg });
@@ -691,12 +742,31 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   }
   const onFull = (): void => { if (document.fullscreenElement !== wrap) lockOrient(false); fit(); still(clk.time()); syncButtons(); };
 
-  /** While playing, the floating controls fade after a moment without the pointer moving. */
+  /** While playing, the controls fade after 3 s with no pointer, unless a menu, a drag or the keyboard is using them. */
   let idle = 0;
+  let scrubbing = false;
+  let overBar = false;
+  let pointerKind = "mouse";
+  let wasIdle = false;
+  let tapAt = 0;
+  let tapSide = 0;
+  let tapTimer = 0;
+  let flashTimer = 0;
   function wake(): void {
     wrap.classList.remove("ls-idle");
     clearTimeout(idle);
-    if (clk.playing) idle = window.setTimeout(() => { if (clk.playing && menu.hidden) wrap.classList.add("ls-idle"); }, 2500);
+    if (!clk.playing || !menu.hidden || scrubbing || overBar) return;
+    idle = window.setTimeout(() => {
+      if (clk.playing && menu.hidden && !scrubbing && !overBar && !root.activeElement) wrap.classList.add("ls-idle");
+    }, 3000);
+  }
+  function showFlash(side: number): void {
+    flash.classList.toggle("is-back", side < 0);
+    flash.classList.toggle("is-fwd", side > 0);
+    flash.textContent = "10";
+    flash.hidden = false;
+    clearTimeout(flashTimer);
+    flashTimer = window.setTimeout(() => { flash.hidden = true; }, 450);
   }
 
   /** A scene's name for chapters: its title (or kicker, subject, question, first text), else its first words. */
@@ -714,8 +784,12 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   let pvM: Mounted | null = null;
   function showTipAt(t: number): void {
     const i = sceneAt(t);
-    tipText.textContent = `${clock(t)}${labels.sep}${sceneName(i)}`;
-    tip.style.left = `${fix((t / timing.duration) * 100, 2)}%`;
+    const rtl = track().dir === "rtl";
+    // The clock stays left to right; the scene name follows the lesson language.
+    tipText.setAttribute("dir", rtl ? "rtl" : "ltr");
+    tipText.replaceChildren(h("bdi", { dir: "ltr" }, clock(t)), labels.sep, ...rich(sceneName(i), rtl));
+    const pct = timing.duration ? (t / timing.duration) * 100 : 0;
+    tip.style.left = `${fix(Math.min(94, Math.max(6, pct)), 2)}%`;
     tip.hidden = false;
     pv.hidden = tier !== "full" || !hoverable();
     if (pv.hidden) return;
@@ -736,6 +810,29 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   /* ---------- menus: chapters, settings ---------- */
   function closeMenu(): void {
     menu.hidden = true;
+    chapBtn.setAttribute("aria-expanded", "false");
+    setBtn.setAttribute("aria-expanded", "false");
+    wake();
+  }
+  async function setLang(next: Lang): Promise<void> {
+    if (next === lang || !m.languages.some((l) => l.code === next)) return;
+    await ensureTiming(pkg, next, o.fetch);
+    const wasPlaying = clk.playing;
+    const t = clk.time();
+    const i = sceneAt(t);
+    const st = timing.scenes[i]!;
+    const frac = clamp01((t - st.start) / (st.end - st.start));
+    clk.destroy();
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+    if (checkOpen) closeCheck();
+    lang = next;
+    applyLang();
+    clk = makeClock();
+    const nst = timing.scenes[i]!;
+    seek(nst.start + frac * (nst.end - nst.start));
+    emit({ type: "lang", lang });
+    if (wasPlaying) void play();
   }
   function openMenu(kind: "chapters" | "settings"): void {
     if (!menu.hidden && menu.dataset.kind === kind) return closeMenu();
@@ -754,20 +851,61 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     } else {
       menu.replaceChildren(
         head(labels.speed), row(...RATES.map((r) => item(`${r}×`, r === rate, () => setRate(r)))),
+        head(labels.captionLang), ...m.languages.map((l) => item(l.name, l.code === lang, () => { void setLang(l.code); })),
         head(labels.captionSize), row(...CAP_SIZES.map((z, n) => item(labels.sizes[n]!, z === capSize, () => { capSize = z; fit(); savePrefs(); }))),
         item(labels.captionBg, capBg, () => { capBg = !capBg; wrap.classList.toggle("ls-nocapbg", !capBg); savePrefs(); }),
+        ...(tier === "text" ? [] : [item(labels.transcript, transcriptOpen, () => toggleTranscript())]),
       );
     }
+    chapBtn.setAttribute("aria-expanded", String(kind === "chapters"));
+    setBtn.setAttribute("aria-expanded", String(kind === "settings"));
     menu.hidden = false;
+    wake();
     (menu.querySelector<HTMLElement>(".is-on") ?? menu.querySelector<HTMLElement>("button"))?.focus();
   }
 
   playBtn.addEventListener("click", toggle);
+  nextBtn.addEventListener("click", nextScene);
   bigPlay.addEventListener("click", (e) => {
     e.stopPropagation();
     void play();
   });
-  viewport.addEventListener("click", toggle);
+  // A mouse click on the picture plays or pauses. A touch tap shows the controls first; a second tap on the
+  // same side, quickly, seeks 10 seconds. The sides stay physical left and right, because the timeline does.
+  viewport.addEventListener("pointerdown", (e) => {
+    pointerKind = e.pointerType;
+    wasIdle = wrap.classList.contains("ls-idle");
+  });
+  viewport.addEventListener("pointerup", (e) => {
+    if (e.pointerType === "mouse") return;
+    const el = e.target as HTMLElement | null;
+    if (el?.closest(".ls-bigplay, .ls-btn, .ls-opt, .ls-go, .ls-menu")) return;
+    const r = viewport.getBoundingClientRect();
+    const x = r.width ? (e.clientX - r.left) / r.width : 0.5;
+    const side = x <= 0.4 ? -1 : x >= 0.6 ? 1 : 0;
+    const now = performance.now();
+    if (side && tapAt && now - tapAt < 320 && tapSide === side) {
+      clearTimeout(tapTimer);
+      tapAt = 0;
+      seek(clk.time() + side * 10);
+      showFlash(side);
+      wake();
+      return;
+    }
+    tapAt = now;
+    tapSide = side;
+    clearTimeout(tapTimer);
+    tapTimer = window.setTimeout(() => {
+      tapAt = 0;
+      if (wasIdle) wake();
+      else toggle();
+    }, 280);
+  });
+  viewport.addEventListener("click", (e) => {
+    if (pointerKind !== "mouse") return;
+    if ((e.target as HTMLElement | null)?.closest(".ls-bigplay")) return;
+    toggle();
+  });
   seekEl.addEventListener("input", () => { seek(Number(seekEl.value)); showTipAt(Number(seekEl.value)); });
   chapBtn.addEventListener("click", () => openMenu("chapters"));
   setBtn.addEventListener("click", () => openMenu("settings"));
@@ -776,26 +914,45 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   fsBtn.addEventListener("click", toggleFull);
   fsBtn.hidden = typeof document === "undefined";
   document.addEventListener("fullscreenchange", onFull);
-  seekEl.addEventListener("pointermove", (e) => {
-    const r = seekEl.getBoundingClientRect();
-    if (r.width) showTipAt(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * timing.duration);
+  seekEl.addEventListener("pointerdown", (e) => {
+    scrubbing = true;
+    wrap.classList.add("ls-scrub");
+    try { seekEl.setPointerCapture(e.pointerId); } catch { /* a webview without capture still scrubs */ }
+    wake();
   });
-  seekEl.addEventListener("pointerleave", () => { tip.hidden = true; });
+  const endScrub = (): void => {
+    if (!scrubbing) return;
+    scrubbing = false;
+    wrap.classList.remove("ls-scrub");
+    wake();
+  };
+  seekEl.addEventListener("pointerup", endScrub);
+  seekEl.addEventListener("pointercancel", endScrub);
+  seekEl.addEventListener("lostpointercapture", endScrub);
+  const previewAt = (e: PointerEvent): void => {
+    const r = seekTrack.getBoundingClientRect();
+    if (r.width) showTipAt(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * timing.duration);
+  };
+  seekTrack.addEventListener("pointermove", previewAt);
+  seekEl.addEventListener("pointermove", previewAt);
+  seekTrack.addEventListener("pointerleave", () => { tip.hidden = true; });
   seekEl.addEventListener("change", () => { tip.hidden = true; });
+  seekEl.addEventListener("focus", () => seekTrack.classList.toggle("is-key", seekEl.matches(":focus-visible")));
+  seekEl.addEventListener("blur", () => seekTrack.classList.remove("is-key"));
+  const enterBar = (): void => { overBar = true; wake(); };
+  const leaveBar = (): void => { overBar = false; wake(); };
+  controls.addEventListener("pointerenter", enterBar);
+  controls.addEventListener("pointerleave", leaveBar);
+  seekTrack.addEventListener("pointerenter", enterBar);
+  seekTrack.addEventListener("pointerleave", leaveBar);
   wrap.addEventListener("pointermove", wake);
+  wrap.addEventListener("pointerdown", wake);
+  wrap.addEventListener("focusin", wake);
   root.addEventListener("pointerdown", (e) => {
     const el = e.target as Node;
     if (!menu.hidden && !menu.contains(el) && !chapBtn.contains(el) && !setBtn.contains(el)) closeMenu();
   });
   ccBtn.addEventListener("click", () => setCaptions(!captionsOn));
-  trBtn.addEventListener("click", () => {
-    if (tier === "text") return;
-    transcriptOpen = !transcriptOpen;
-    transcriptBox.hidden = !transcriptOpen;
-    sentIndex = "";
-    renderAt(clk.time());
-    syncButtons();
-  });
   wrap.tabIndex = -1;
   wrap.addEventListener("keydown", onKey);
   document.addEventListener("visibilitychange", onVisibility);
@@ -902,26 +1059,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     renderAt,
     setRate,
     setCaptions,
-    async setLang(next: Lang) {
-      if (next === lang || !m.languages.some((l) => l.code === next)) return;
-      await ensureTiming(pkg, next, o.fetch);
-      const wasPlaying = clk.playing;
-      const t = clk.time();
-      const i = sceneAt(t);
-      const st = timing.scenes[i]!;
-      const frac = clamp01((t - st.start) / (st.end - st.start));
-      clk.destroy();
-      if (raf) cancelAnimationFrame(raf);
-      raf = 0;
-      if (checkOpen) closeCheck();
-      lang = next;
-      applyLang();
-      clk = makeClock();
-      const nst = timing.scenes[i]!;
-      seek(nst.start + frac * (nst.end - nst.start));
-      emit({ type: "lang", lang });
-      if (wasPlaying) void play();
-    },
+    setLang,
     setTier(next: Tier | "auto") {
       tierPref = next;
       tier = next === "auto" ? chooseTier(o.signals ?? readSignals()) : next;
@@ -939,6 +1077,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       if (wrap.classList.contains("ls-full")) document.documentElement.style.overflow = "";
       document.removeEventListener("fullscreenchange", onFull);
       clearTimeout(idle);
+      clearTimeout(tapTimer);
+      clearTimeout(flashTimer);
       if (raf) cancelAnimationFrame(raf);
       raf = 0;
       clk.destroy();
