@@ -2,7 +2,7 @@ import type { CoreIcon, IconName } from "@lessonstudio/spec";
 import { svg } from "./dom.ts";
 
 /** 24 px icons, 2 px round strokes. */
-const PATHS: Record<CoreIcon | "play" | "pause" | "cc" | "list" | "speed" | "vol" | "muted" | "full" | "gear" | "chapters", string[]> = {
+const PATHS: Record<CoreIcon | "play" | "pause" | "cc" | "list" | "speed" | "vol" | "muted" | "full" | "unfull" | "gear" | "chapters" | "next", string[]> = {
   user: ["M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z", "M4 21c0-4 3.6-6 8-6s8 2 8 6"],
   page: ["M6 3h9l4 4v14H6z", "M14 3v5h5", "M9 13h7", "M9 17h5"],
   bot: ["M5 8h14v11H5z", "M12 4v4", "M9 13h.01", "M15 13h.01", "M9.5 16h5"],
@@ -23,12 +23,14 @@ const PATHS: Record<CoreIcon | "play" | "pause" | "cc" | "list" | "speed" | "vol
   spark: ["M12 3v4", "M12 17v4", "M3 12h4", "M17 12h4", "M12 8l1.5 2.5L16 12l-2.5 1.5L12 16l-1.5-2.5L8 12l2.5-1.5z"],
   play: ["M8 5v14l11-7z"],
   pause: ["M7 5h4v14H7z", "M13 5h4v14h-4z"], // filled bars: the play button fills its icons
+  next: ["M4 5v14l9-7z", "M16 5h3v14h-3z"],
   cc: ["M3 6h18v12H3z", "M10 10.5a2 2 0 1 0 0 3", "M17 10.5a2 2 0 1 0 0 3"],
   list: ["M8 6h13", "M8 12h13", "M8 18h13", "M3 6h.01", "M3 12h.01", "M3 18h.01"],
   speed: ["M12 21a9 9 0 1 1 9-9", "M12 12l5-4"],
   vol: ["M4 9h4l5-4v14l-5-4H4z", "M16 9a4 4 0 0 1 0 6", "M19 6a8 8 0 0 1 0 12"],
   muted: ["M4 9h4l5-4v14l-5-4H4z", "M17 9l5 6", "M22 9l-5 6"],
   full: ["M4 9V4h5", "M20 9V4h-5", "M4 15v5h5", "M20 15v5h-5"],
+  unfull: ["M9 4v5H4", "M15 4v5h5", "M9 20v-5H4", "M15 20v-5h5"],
   gear: ["M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z", "M19.4 13.5l1.6 1.3-2 3.4-1.9-.8a7 7 0 0 1-2.1 1.2L14.7 21h-4l-.3-2.4a7 7 0 0 1-2.1-1.2l-1.9.8-2-3.4 1.6-1.3a7 7 0 0 1 0-3L4.4 9.2l2-3.4 1.9.8a7 7 0 0 1 2.1-1.2L10.7 3h4l.3 2.4a7 7 0 0 1 2.1 1.2l1.9-.8 2 3.4-1.6 1.3a7 7 0 0 1 0 3z"],
   chapters: ["M4 5h16", "M4 10h10", "M4 15h16", "M4 20h10"],
 };

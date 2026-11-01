@@ -8,6 +8,11 @@ export interface Clock {
   setRate(rate: number): void;
   /** 0 (silent) to 1. */
   setVolume(v: number): void;
+  /**
+   * The end of the buffered range that holds the playhead, in seconds.
+   * Infinity when nothing is left to download (a silent lesson, already on the device).
+   */
+  buffered(): number;
   destroy(): void;
 }
 
@@ -47,6 +52,9 @@ export class SilentClock implements Clock {
     this.rate = rate;
   }
   setVolume(): void {}
+  buffered(): number {
+    return Infinity;
+  }
   destroy(): void {
     this.playing = false;
   }
@@ -93,6 +101,14 @@ export class AudioClock implements Clock {
   setVolume(v: number): void {
     this.audio.volume = Math.min(1, Math.max(0, v));
     this.audio.muted = v === 0;
+  }
+  buffered(): number {
+    const ranges = this.audio.buffered;
+    const t = this.audio.currentTime;
+    for (let i = 0; i < ranges.length; i++) {
+      if (ranges.start(i) - 0.25 <= t && t <= ranges.end(i) + 0.05) return ranges.end(i);
+    }
+    return ranges.length ? ranges.end(ranges.length - 1) : 0;
   }
   destroy(): void {
     this.audio.pause();

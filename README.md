@@ -248,12 +248,12 @@ npx firebase deploy --only functions,hosting,firestore --project lessons-studio-
 
 ## The learner's player
 
-The player (22 KB gzipped) has, for learners:
-- **chapters** (each scene's title) on the seek bar and in a menu;
-- **a scrub preview:** the chapter and time, and on the Full tier a thumbnail of the frame;
-- **floating controls** on wide players, which fade while playing;
-- **volume and mute, full screen, speed** (0.75–2×), **caption size and background**;
-- **keys:** Space/K, J/L ±5 s, ←/→ ±2 s, Home/End, 0–9, C captions, T transcript, F full screen, M mute;
+The player (27 KB gzipped) has, for learners:
+- **chapters** (each scene) as marks on the progress bar and in a menu;
+- **a progress bar** along the bottom of the picture: thin until hover, then thicker, with a scrubber, the buffered range, and a time preview (on the Full tier, a thumbnail too);
+- **a control row** over the picture: play, next scene, volume (the slider slides out), the time, captions, settings and full screen, with a gradient behind them. A centre play button shows at the start and whenever the lesson is paused. The controls fade after three seconds of playing and come back when the pointer moves or the screen is tapped;
+- **volume and mute, full screen, speed** (0.75–2×), **caption language, size and background**;
+- **keys:** Space/K play, J/L ±10 s, ←/→ ±5 s, ↑/↓ volume, Home/End, 0–9, C captions, T transcript, F full screen, M mute. A double tap on the left or right of the picture seeks 10 seconds. The progress bar and the clock stay left to right in Arabic;
 - **a quick-check score** at the end.
 
 With `remember: true` (the playground sets it; editors don't), the learner's settings and their place in each lesson are kept between visits.
