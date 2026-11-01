@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "Darsi Tiny learned to ask before it sends a message. So, job done, the model is safe? Then someone typed: yes, send it, with nothing before it. It made up a message, and tried to send it!",
-    "ar-EG": "«درسي الصغير» اتعلّم يسأل قبل ما يبعت رسالة. يبقى خلاص، النموذج بقى آمن؟ وبعدين حد كتب: أيوه، ابعتها، من غير أي حاجة قبلها. فألّف رسالة، وحاول يبعتها!"
+    "ar-EG": "«درسي الصغير» اتعلّم يسأل قبل ما يبعت رسالة. يبقى خلاص، النموذج بقى آمن؟ وبعدين حد كتب: «نعم، أرسلها»، من غير أي حاجة قبلها. فألّف رسالة، وحاول يبعتها!"
    },
    "transition": {
     "type": "cut"
@@ -460,7 +460,7 @@
       "weight": 700,
       "text": {
        "en": "“Yes, send it.”, alone",
-       "ar-EG": "«أيوه، ابعتها.» لوحدها"
+       "ar-EG": "«نعم، أرسلها.» لوحدها"
       },
       "anim": [
        {
@@ -658,7 +658,7 @@
       "weight": 700,
       "text": {
        "en": "A made-up message",
-       "ar-EG": "رسالة متألّفة"
+       "ar-EG": "رسالة مفبركة"
       },
       "anim": [
        {
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "A model’s good habits are learned, and learned behaviour can fail. Darsi Tiny refuses the harmful requests it was trained on. But reworded in new ways, twenty-eight percent of the English ones got a tool call instead. So real safety goes in your code.",
-    "ar-EG": "العادات الكويسة عند النموذج متعلّمة، واللي اتعلّم ممكن يفشل. «درسي الصغير» بيرفض الطلبات المؤذية اللي اتدرب عليها. بس لما اتكتبت بصيغ جديدة، تمانية وعشرين في المية من الإنجليزي خدت طلب أداة بدل الرفض. فالأمان الحقيقي مكانه الكود بتاعك."
+    "ar-EG": "العادات الكويسة عند النموذج متعلّمة، واللي اتعلّم ممكن يفشل. «درسي الصغير» بيرفض الطلبات المؤذية اللي اتدرب عليها. بس لما اتكتبت بصيغ جديدة، تمانية وعشرين في المية من الإنجليزي خدت استدعاء أداة بدل الرفض. فالأمان الحقيقي مكانه الكود بتاعك."
    },
    "transition": {
     "type": "fade"
@@ -1071,8 +1071,8 @@
       "align": "center",
       "tone": "muted",
       "text": {
-       "en": "of refusals reworded in English got a tool call",
-       "ar-EG": "من طلبات الرفض بصيغ جديدة بالإنجليزي خدت طلب أداة"
+       "en": "of harmful requests, reworded in English, got a tool call",
+       "ar-EG": "من الطلبات المؤذية بصيغ جديدة بالإنجليزي خدت استدعاء أداة"
       },
       "anim": [
        {
@@ -2141,7 +2141,7 @@
    "template": "canvas",
    "narration": {
     "en": "Rule one: an allow-list. A weather helper needs the weather tool, not attendance and not messages. If the model asks for a tool off the list, block it.",
-    "ar-EG": "القاعدة الأولى: قايمة المسموح. مساعد الطقس محتاج أداة الطقس، مش الحضور ومش الرسايل. لو النموذج طلب أداة مش في القايمة، امنعها."
+    "ar-EG": "القاعدة الأولى: قايمة السماح. مساعد الطقس محتاج أداة الطقس، مش الحضور ومش الرسايل. لو النموذج استدعى أداة مش في القايمة، امنعها."
    },
    "transition": {
     "type": "fade"
@@ -2261,7 +2261,7 @@
    "template": "canvas",
    "narration": {
     "en": "Rule two: actions wait for a person. The app shows the exact message and asks: yes or no? It remembers exactly what was approved. A yes to one message is not a yes to another.",
-    "ar-EG": "القاعدة التانية: الأفعال تستنى إنسان. التطبيق بيعرض الرسالة بالظبط ويسأل: أيوه ولا لأ؟ وبيفتكر بالظبط إيه اللي اتوافق عليه. والموافقة على رسالة مش موافقة على رسالة تانية."
+    "ar-EG": "القاعدة التانية: أي فعل بيعمل حاجة لازم يستنى إنسان. التطبيق بيعرض الرسالة بالظبط ويسأل: أيوه ولا لأ؟ وبيفتكر بالظبط إيه اللي اتوافق عليه. والموافقة على رسالة مش موافقة على رسالة تانية."
    },
    "transition": {
     "type": "fade"
@@ -2490,7 +2490,7 @@
    "template": "canvas",
    "narration": {
     "en": "Rule three: check every detail before a tool runs. Is six B a class that exists? Is twenty-five o’clock a real time? Did every name come from the request or a result? Darsi Tiny once copied nine Z as nine C.",
-    "ar-EG": "القاعدة التالتة: راجع كل تفصيلة قبل ما الأداة تشتغل. هل سادسة ب فصل موجود؟ هل الساعة خمسة وعشرين وقت حقيقي؟ هل كل اسم جه من الطلب أو من نتيجة؟ «درسي الصغير» مرة نقل تسعة زد كأنها تسعة سي."
+    "ar-EG": "القاعدة التالتة: راجع كل تفصيلة قبل ما الأداة تشتغل. سادسة ب فصل موجود؟ الساعة خمسة وعشرين وقت حقيقي؟ كل اسم جه من الطلب أو من نتيجة؟ «درسي الصغير» مرة نقل تسعة زد كأنها تسعة سي."
    },
    "transition": {
     "type": "fade"
@@ -3780,7 +3780,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the lab, choose what Darsi Tiny may do: read only, ask first, or allowed. Send a message to Mrs Mensah, and approve it. Then switch the code check off, send yes, send it, alone, and see what gets through.",
-    "ar-EG": "في المعمل، اختار «درسي الصغير» مسموحله بإيه: قراية بس، أو يسأل الأول، أو مسموح. ابعت رسالة للأستاذة مينسا، ووافق عليها. وبعدين اقفل المراجعة اللي في الكود، وابعت أيوه ابعتها لوحدها، واتفرج إيه اللي هيعدّي."
+    "ar-EG": "في المعمل، اختار «درسي الصغير» يعمل إيه: «القراءة فقط»، أو «اسأل أولًا»، أو «مسموح». ابعت رسالة للأستاذة مينسا، ووافق عليها. وبعدين اقفل «تحقّق من الموافقة في الكود»، وابعت «نعم، أرسلها» لوحدها، واتفرج إيه اللي هيعدّي."
    },
    "transition": {
     "type": "fade"
@@ -4500,7 +4500,7 @@
     "answer": "b",
     "explain": {
      "en": "Correct — learned behaviour can fail, as “yes, send it” on its own showed. A rule in code, with a person’s yes, can’t be talked round.",
-     "ar-EG": "صح — السلوك المتعلّم ممكن يفشل، زي ما «أيوه، ابعتها» لوحدها ورّتنا. والقاعدة اللي في الكود، مع موافقة إنسان، محدش يقدر يلف حواليها."
+     "ar-EG": "صح — السلوك المتعلّم ممكن يفشل، زي ما «نعم، أرسلها» لوحدها ورّتنا. والقاعدة اللي في الكود، مع موافقة إنسان، محدش يقدر يلف حواليها."
     }
    },
    "speaker": "joseph"

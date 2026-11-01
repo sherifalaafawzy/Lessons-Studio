@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "I tested an agent that a student wrote, and it never stopped! Call, result, call, result. No answer, ever, until the battery died.",
-    "ar-EG": "جرّبت وكيل كاتبه طالب، وعمره ما وقف! طلب، نتيجة، طلب، نتيجة. ومفيش جواب خالص، لحد ما البطارية خلصت."
+    "ar-EG": "جرّبت وكيل كاتبه طالب، وعمره ما وقف! استدعاء، نتيجة، استدعاء، نتيجة. ومفيش جواب خالص، لحد ما البطارية خلصت."
    },
    "transition": {
     "type": "cut"
@@ -460,7 +460,7 @@
       "weight": 700,
       "text": {
        "en": "Call, result, call…",
-       "ar-EG": "طلب، نتيجة، طلب…"
+       "ar-EG": "استدعاء، نتيجة، استدعاء…"
       },
       "anim": [
        {
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "An agent is a loop around a model. Ask the model for its next output. If it’s an answer, you’re done. If it’s a call, run the tool, add both to the history, and ask again.",
-    "ar-EG": "الوكيل حلقة حوالين نموذج. اسأل النموذج على اللي بعده. لو جواب، يبقى خلصت. لو طلب أداة، شغّل الأداة، وضيف الاتنين للسجل، واسأل تاني."
+    "ar-EG": "الوكيل حلقة حوالين نموذج. اسأل النموذج على اللي بعده. لو جواب، يبقى خلصت. لو استدعاء أداة، شغّل الأداة، وضيف الاتنين للسجل، واسأل تاني."
    },
    "transition": {
     "type": "fade"
@@ -1070,7 +1070,7 @@
           "at": {
            "word": {
             "en": "call",
-            "ar-EG": "طلب"
+            "ar-EG": "استدعاء"
            }
           },
           "value": 0.5,
@@ -1080,7 +1080,7 @@
           "at": {
            "word": {
             "en": "call",
-            "ar-EG": "طلب"
+            "ar-EG": "استدعاء"
            }
           },
           "value": 0.6667,
@@ -1090,7 +1090,7 @@
           "at": {
            "word": {
             "en": "call",
-            "ar-EG": "طلب"
+            "ar-EG": "استدعاء"
            }
           },
           "value": 1,
@@ -1231,7 +1231,7 @@
    "template": "canvas",
    "narration": {
     "en": "The history is everything so far: the request, then each call and its result, in order. A real model reads it all on every turn: that’s its only memory. Your loop builds it, one turn at a time.",
-    "ar-EG": "سجل المحادثة هو كل اللي فات: الطلب، وبعدين كل طلب أداة ونتيجته، بالترتيب. النموذج الحقيقي بيقراه كله في كل دور: دي ذاكرته الوحيدة. والحلقة بتاعتك بتبنيه، دور ورا دور."
+    "ar-EG": "سجل المحادثة هو كل اللي فات: الطلب، وبعدين كل استدعاء أداة ونتيجته، بالترتيب. النموذج الحقيقي بيقراه كله في كل دور: دي ذاكرته الوحيدة. والحلقة بتاعتك بتبنيه، دور ورا دور."
    },
    "transition": {
     "type": "fade"
@@ -1644,7 +1644,7 @@
       "weight": 700,
       "text": {
        "en": "Each call",
-       "ar-EG": "كل طلب أداة"
+       "ar-EG": "كل استدعاء أداة"
       },
       "anim": [
        {
@@ -2356,7 +2356,7 @@
    "template": "canvas",
    "narration": {
     "en": "Why for step in range, and not while true? Because a model can get stuck, calling tool after tool without answering. A step limit is a promise: after four steps, the loop stops, whatever the model writes.",
-    "ar-EG": "ليه فور ستيب إن رينج، مش وايل ترو؟ لأن النموذج ممكن يعلق، يطلب أداة ورا أداة من غير ما يجاوب. وحد الخطوات وعد: بعد أربع خطوات، الحلقة بتقف، مهما النموذج كتب."
+    "ar-EG": "ليه فور ستيب إن رينج، مش وايل ترو؟ عشان النموذج ممكن يعلق، يستدعي أداة ورا أداة من غير ما يجاوب. وحد الخطوات وعد: بعد أربع خطوات، الحلقة بتقف، مهما النموذج كتب."
    },
    "transition": {
     "type": "fade"
@@ -2528,7 +2528,7 @@
    "template": "quiz",
    "narration": {
     "en": "Quick check! The script only ever returns calls, never an answer, and the limit is four. What does the agent return?",
-    "ar-EG": "سؤال سريع! السكريبت بيرجّع طلبات بس، عمره ما بيرجّع جواب، والحد أربعة. الوكيل هيرجّع إيه؟"
+    "ar-EG": "سؤال سريع! السكريبت بيرجّع استدعاءات بس، عمره ما بيرجّع جواب، والحد أربعة. الوكيل هيرجّع إيه؟"
    },
    "transition": {
     "type": "slide"
@@ -2544,7 +2544,7 @@
     "id": "s08-check",
     "prompt": {
      "en": "The script only ever returns calls, and the limit is 4. What does agent() return?",
-     "ar-EG": "السكريبت بيرجّع طلبات بس، والحد 4. الوكيل هيرجّع إيه؟"
+     "ar-EG": "السكريبت بيرجّع استدعاءات بس، والحد 4. الوكيل هيرجّع إيه؟"
     },
     "options": [
      {
@@ -2565,7 +2565,7 @@
       "id": "c",
       "text": {
        "en": "The last call it made",
-       "ar-EG": "آخر طلب عمله"
+       "ar-EG": "آخر استدعاء عمله"
       }
      }
     ],
@@ -3452,7 +3452,7 @@
    "template": "canvas",
    "narration": {
     "en": "Some goals need two tools. The trip from Kafi to Dala calls route, then weather, using the first result. But a step can fail. Asked for six B’s first lesson on Saturday, Darsi Tiny got no school, and still set a reminder.",
-    "ar-EG": "فيه أهداف محتاجة أداتين. الرحلة من كافي لدالا بتطلب الطريق، وبعدين الطقس، بنتيجة الأول. بس الخطوة ممكن تفشل. لما اتسأل عن أول حصة لسادسة ب يوم السبت، «درسي الصغير» جاله إن مفيش مدرسة، وبرضه ظبط تذكير."
+    "ar-EG": "فيه أهداف محتاجة أداتين. الرحلة من كافي لدالا بتستدعي الطريق، وبعدين الطقس، بنتيجة الأول. بس الخطوة ممكن تفشل. لما اتسأل عن أول حصة لسادسة ب يوم السبت، «درسي الصغير» جاله إن مفيش مدرسة، وبرضه ظبط تذكير."
    },
    "transition": {
     "type": "fade"
@@ -4326,7 +4326,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the lab, guess which tools a goal needs, then watch Darsi Tiny plan and call them. Run the Saturday goal, and see the failed step. Your loop could stop there, with a check in code.",
-    "ar-EG": "في المعمل، خمّن الهدف محتاج أنهي أدوات، وبعدين اتفرج على «درسي الصغير» وهو بيخطّط ويطلبها. شغّل هدف يوم السبت، وشوف الخطوة اللي فشلت. والحلقة بتاعتك ممكن تقف هناك، بمراجعة في الكود."
+    "ar-EG": "في المعمل، خمّن الهدف محتاج أنهي أدوات، وبعدين اتفرج على «درسي الصغير» وهو بيخطّط ويستدعيها. شغّل هدف يوم السبت، وشوف الخطوة اللي فشلت. والحلقة بتاعتك ممكن تقف هناك، بمراجعة في الكود."
    },
    "transition": {
     "type": "fade"
@@ -5046,7 +5046,7 @@
     "answer": "b",
     "explain": {
      "en": "Correct — a script tests your code. A real model writes new things, wrong calls and stuck loops included, so your code must handle those too.",
-     "ar-EG": "صح — السكريبت بيختبر الكود بتاعك. النموذج الحقيقي بيكتب حاجات جديدة، منها طلبات غلط وحلقات بتعلق، فالكود لازم يتعامل معاها."
+     "ar-EG": "صح — السكريبت بيختبر الكود بتاعك. النموذج الحقيقي بيكتب حاجات جديدة، منها استدعاءات غلط وحلقات بتعلق، فالكود لازم يتعامل معاها."
     }
    },
    "speaker": "joseph"
@@ -5056,7 +5056,7 @@
    "template": "summary",
    "narration": {
     "en": "That your loop works, for the outputs you tested. Remember: the loop asks the model, runs its calls and builds the history. A step limit stops a stuck model. And a scripted model tests your code, not the model.",
-    "ar-EG": "إن الحلقة بتاعتك شغّالة، مع المخرجات اللي جرّبتها. افتكر: الحلقة بتسأل النموذج، وتشغّل طلباته، وتبني السجل. وحد الخطوات بيوقّف النموذج اللي علق. والنموذج اللي بسكريبت بيختبر الكود بتاعك، مش النموذج."
+    "ar-EG": "إن الحلقة بتاعتك شغّالة، مع المخرجات اللي جرّبتها. افتكر: الحلقة بتسأل النموذج، وتشغّل استدعاءاته، وتبني السجل. وحد الخطوات بيوقّف النموذج اللي علق. والنموذج اللي بسكريبت بيختبر الكود بتاعك، مش النموذج."
    },
    "content": {
     "title": {
@@ -5122,7 +5122,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it yourself: play the loop with two friends. One is the model, reading from a script card. One is the tool. You are the loop: count the steps, and stop at four. Then try a script that never answers.",
-    "ar-EG": "جرّبها بنفسك: العبوا الحلقة إنت واتنين صحابك. واحد يبقى النموذج، ويقرا من كارت سكريبت. والتاني يبقى الأداة. وإنت الحلقة: عِد الخطوات، واقف عند أربعة. وبعدين جرّبوا سكريبت عمره ما بيجاوب."
+    "ar-EG": "جرّبها بنفسك: العبوا الحلقة إنت واتنين صحابك. واحد يبقى النموذج، ويقرا من كارت سكريبت. والتاني يبقى الأداة. وإنت الحلقة: عِد الخطوات، ووقّف عند أربعة. وبعدين جرّبوا سكريبت عمره ما بيجاوب."
    },
    "transition": {
     "type": "fade"
@@ -5733,7 +5733,7 @@
       "weight": 700,
       "text": {
        "en": "Count, and stop at four",
-       "ar-EG": "عِد واقف عند أربعة"
+       "ar-EG": "عِد، ووقّف عند أربعة"
       },
       "anim": [
        {

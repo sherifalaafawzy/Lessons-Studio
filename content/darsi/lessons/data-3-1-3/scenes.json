@@ -3024,35 +3024,35 @@
     "id": "s07-check",
     "prompt": {
      "en": "Musa missed the test, so his mark is NULL. What does AVG(mark) do with it?",
-     "ar-EG": "موسى غاب، فدرجته ⁦NULL. AVG(mark)⁩ بتعمل فيها إيه؟"
+     "ar-EG": "موسى غاب، فدرجته ⁦NULL⁩. ⁦AVG(mark)⁩ بتعمل فيها إيه؟"
     },
     "options": [
      {
       "id": "a",
       "text": {
        "en": "Counts it as zero",
-       "ar-EG": "تحسبها صفر"
+       "ar-EG": "بتحسبها صفر"
       }
      },
      {
       "id": "b",
       "text": {
        "en": "Skips it",
-       "ar-EG": "بتسيبها"
+       "ar-EG": "بتتجاهلها"
       }
      },
      {
       "id": "c",
       "text": {
        "en": "Stops with an error",
-       "ar-EG": "توقف بخطأ"
+       "ar-EG": "بتقف بخطأ"
       }
      }
     ],
     "answer": "b",
     "explain": {
      "en": "Correct — AVG and COUNT(mark) skip NULL; COUNT(*) still counts the row.",
-     "ar-EG": "صح — ⁦AVG⁩ و⁦COUNT(mark)⁩ بيسيبوا ⁦NULL⁩، أما ⁦COUNT(*)⁩ فبيعدّ الصف."
+     "ar-EG": "صح — ⁦AVG⁩ و⁦COUNT(mark)⁩ بيتجاهلوا ⁦NULL⁩، أما ⁦COUNT(*)⁩ فبيعدّ الصف."
     }
    },
    "speaker": "salma"
@@ -3062,7 +3062,7 @@
    "template": "canvas",
    "narration": {
     "en": "AVG skips it: Musa's empty mark is left out, not counted as zero. Counting the mark column skips it too, but COUNT star counts every row. So when the two counts differ, something is missing.",
-    "ar-EG": "AVG بتسيبها: درجة موسى الفاضية بتتشال، مش بتتحسب صفر. وعدّ عمود الدرجة بيسيبها كمان، لكن COUNT نجمة بيعدّ كل صف. فلما العددين يختلفوا، يبقى فيه حاجة ناقصة."
+    "ar-EG": "AVG بتتجاهلها: درجة موسى الفاضية بتتشال، مش بتتحسب صفر. وعدّ عمود الدرجة بيتجاهلها كمان، بس COUNT نجمة بيعدّ كل صف. فلما العددين يختلفوا، يبقى فيه حاجة ناقصة."
    },
    "transition": {
     "type": "fade"
@@ -3143,7 +3143,7 @@
       "weight": 800,
       "text": {
        "en": "NULLs are skipped",
-       "ar-EG": "⁦NULL⁩ بتتساب"
+       "ar-EG": "⁦NULL⁩ مش بتتحسب"
       },
       "anim": [
        {
@@ -3225,7 +3225,7 @@
         },
         {
          "en": "Skips NULL: 11",
-         "ar-EG": "بيسيب ⁦NULL: 11⁩"
+         "ar-EG": "بيتجاهل ⁦NULL⁩: 11"
         }
        ]
       ],

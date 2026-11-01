@@ -4036,8 +4036,8 @@
    "id": "s09",
    "template": "canvas",
    "narration": {
-    "en": "In code, keep two markers, low and high, around the part that’s left. Each time round, look at the middle. Move low up or high down. When low passes high, the target isn’t there.",
-    "ar-EG": "في الكود، خلّي معاك علامتين، low وhigh، حوالين الجزء اللي فاضل. وكل لفّة، بص على النص. وطلّع low لفوق، أو نزّل high لتحت. ولما low تعدّي high، يبقى اللي بتدوّر عليه مش موجود."
+    "en": "In code, keep two markers, lo and hi, around the part that’s left. Each time round, look at the middle. Move lo up or hi down. When lo passes hi, the target isn’t there.",
+    "ar-EG": "في الكود، خلّي معاك علامتين، lo وhi، حوالين الجزء اللي فاضل. وكل لفّة، بص على النص. وطلّع lo لفوق، أو نزّل hi لتحت. ولما lo تعدّي hi، يبقى اللي بتدوّر عليه مش موجود."
    },
    "transition": {
     "type": "fade"
@@ -4117,9 +4117,9 @@
       "x": 90,
       "y": 210,
       "w": 1100,
-      "h": 363,
-      "size": 42,
-      "code": "while low <= high:\n    mid = (low + high) // 2\n    if names[mid] == target: return mid\n    if names[mid] < target: low = mid + 1\n    else: high = mid - 1\nreturn -1",
+      "h": 371,
+      "size": 43,
+      "code": "while lo <= hi:\n    mid = (lo + hi) // 2\n    if names[mid] == target: return mid\n    if names[mid] < target: lo = mid + 1\n    else: hi = mid - 1\nreturn -1",
       "highlight": [
        2
       ],
@@ -6288,7 +6288,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it yourself: take a dictionary or a phone’s contact list, and find a word by halving: open the middle, then keep the half it must be in. Count your looks. Then try one by one!",
-    "ar-EG": "جرّبها بنفسك: هات قاموس أو جهات الاتصال في موبايل، ودوّر على كلمة بالتنصيف: افتح النص، وبعدين خلّي النص اللي لازم تكون فيه. عدّ بصّاتك. وبعدين جرّب واحد واحد!"
+    "ar-EG": "جرّبها بنفسك: هات قاموس أو جهات الاتصال في موبايل، ودوّر على كلمة بالتنصيف: افتح على النص، وبعدين كمّل في النص اللي الكلمة لازم تكون فيه. عدّ بصّاتك. وبعدين جرّب واحد واحد!"
    },
    "transition": {
     "type": "fade"

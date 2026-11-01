@@ -804,7 +804,7 @@
     },
     "hook": {
      "en": "The AI supply chain, fingerprints and signatures",
-     "ar-EG": "سلسلة الإمداد، والبصمات، والتوقيعات"
+     "ar-EG": "سلسلة التوريد، والبصمات، والتوقيعات"
     },
     "icon": "lock"
    },
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "Almost nobody builds AI from scratch. An app is built on a model, trained on datasets, run with code libraries and plug-ins, all made by others. That chain of makers is the supply chain, and any link can be faked or tampered with.",
-    "ar-EG": "تقريبًا محدش بيبني الذكاء الاصطناعي من الصفر. التطبيق مبني على نموذج، اتدرب على بيانات، وبيشتغل بمكتبات كود وإضافات، وكلهم عاملينهم ناس تانيين. السلسلة دي من الصنّاع اسمها سلسلة الإمداد، وأي حلقة فيها ممكن تتزوّر أو حد يعبث بيها."
+    "ar-EG": "تقريبًا محدش بيبني الذكاء الاصطناعي من الصفر. التطبيق مبني على نموذج، اتدرب على بيانات، وبيشتغل بمكتبات كود وإضافات، وكلهم عاملينهم ناس تانيين. السلسلة دي من الصنّاع اسمها سلسلة التوريد، وأي حلقة فيها ممكن تتزوّر أو حد يعبث بيها."
    },
    "transition": {
     "type": "fade"
@@ -873,7 +873,7 @@
       "weight": 800,
       "text": {
        "en": "The AI supply chain",
-       "ar-EG": "سلسلة الإمداد"
+       "ar-EG": "سلسلة التوريد"
       },
       "anim": [
        {
@@ -2405,8 +2405,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "The first check is a fingerprint. A hash function called SHA-256 turns any file into sixty-four characters. Change a single byte, and about half of the fingerprint changes.",
-    "ar-EG": "أول فحص هو البصمة. فيه دالة اسمها SHA-256 بتحوّل أي ملف لأربعة وستين حرف. غيّر بايت واحد بس، وحوالي نص البصمة يتغيّر."
+    "en": "The first check is a fingerprint. A hash function called SHA-256 turns any file into sixty-four characters. Change a single byte, and about half of its bits flip, so almost every character changes.",
+    "ar-EG": "أول فحص هو البصمة. فيه دالة اسمها SHA-256 بتحوّل أي ملف لأربعة وستين حرف. غيّر بايت واحد بس، وحوالي نص البِتّات بتتقلب، فتقريبًا كل حرف بيتغيّر."
    },
    "transition": {
     "type": "fade"
@@ -2432,7 +2432,7 @@
          {
           "at": {
            "word": {
-            "en": "first",
+            "en": "The",
             "ar-EG": "أول"
            },
            "offset": 0
@@ -2442,7 +2442,7 @@
          {
           "at": {
            "word": {
-            "en": "first",
+            "en": "The",
             "ar-EG": "أول"
            },
            "offset": 0.5
@@ -2458,7 +2458,7 @@
          {
           "at": {
            "word": {
-            "en": "first",
+            "en": "The",
             "ar-EG": "أول"
            },
            "offset": 0
@@ -2468,7 +2468,7 @@
          {
           "at": {
            "word": {
-            "en": "first",
+            "en": "The",
             "ar-EG": "أول"
            },
            "offset": 0.3
@@ -2621,8 +2621,8 @@
       "align": "center",
       "tone": "muted",
       "text": {
-       "en": "64 characters for any file; one byte changes half",
-       "ar-EG": "64 حرف لأي ملف، وبايت واحد يغيّر النص"
+       "en": "64 characters; one byte flips half the bits",
+       "ar-EG": "64 حرف، وبايت واحد يقلب نص البِتّات"
       },
       "anim": [
        {
@@ -3100,7 +3100,7 @@
    "template": "canvas",
    "narration": {
     "en": "That's what a signature adds. The maker signs the file with a private key, and anyone can check it with the maker's public key. A valid signature says: this really came from them.",
-    "ar-EG": "وده اللي التوقيع بيضيفه. الصانع بيوقّع الملف بمفتاح سري، وأي حد يقدر يتأكد منه بالمفتاح العام بتاع الصانع. والتوقيع السليم معناه: ده جاي منه فعلًا."
+    "ar-EG": "وده اللي التوقيع بيضيفه. الصانع بيوقّع الملف بمفتاح خاص، وأي حد يقدر يتأكد منه بالمفتاح العام بتاع الصانع. والتوقيع السليم معناه: ده جاي منه فعلًا."
    },
    "transition": {
     "type": "fade"
@@ -3315,7 +3315,7 @@
       "weight": 700,
       "text": {
        "en": "Signed with a private key",
-       "ar-EG": "متوقّع بمفتاح سري"
+       "ar-EG": "متوقّع بمفتاح خاص"
       },
       "anim": [
        {
@@ -5104,7 +5104,7 @@
    "template": "summary",
    "narration": {
     "en": "Uninstall it, and use only tools from official sources on the school's list. Remember: AI comes through a supply chain. A fingerprint shows the bytes are unchanged, and a signature shows who made them. Keep a list of what you run.",
-    "ar-EG": "امسحوه، واستخدموا بس أدوات من مصادر رسمية وعلى قايمة المدرسة. افتكر: الذكاء الاصطناعي بييجي من سلسلة إمداد. البصمة بتوري إن البايتات متغيّرتش، والتوقيع بيوري مين عملها. واعمل قايمة باللي بتشغّله."
+    "ar-EG": "امسحوه، واستخدموا بس أدوات من مصادر رسمية وعلى قايمة المدرسة. افتكر: الذكاء الاصطناعي بييجي من سلسلة توريد. البصمة بتوري إن البايتات متغيّرتش، والتوقيع بيوري مين عملها. واعمل قايمة باللي بتشغّله."
    },
    "content": {
     "title": {
@@ -5114,7 +5114,7 @@
     "points": [
      {
       "en": "AI has a supply chain",
-      "ar-EG": "الذكاء الاصطناعي ليه سلسلة إمداد"
+      "ar-EG": "الذكاء الاصطناعي ليه سلسلة توريد"
      },
      {
       "en": "Fingerprint: bytes unchanged",

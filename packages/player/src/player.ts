@@ -413,6 +413,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       wrap.classList.remove("ls-landscape", "ls-portrait", "ls-square");
       wrap.classList.add(`ls-${orient}`);
     }
+    // Stretched over the page (no Fullscreen API: iPhone) on an upright screen: a landscape stage is turned on its side.
+    wrap.classList.toggle("ls-turned", wrap.classList.contains("ls-full") && orient === "landscape" && (window.innerHeight || 0) > (window.innerWidth || 0));
     const { W, H } = STAGE[orient];
     const k = viewport.clientWidth ? viewport.clientWidth / W : 1;
     stageScale = k;
@@ -675,10 +677,19 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   function toggleFull(): void {
     if (document.fullscreenElement) void document.exitFullscreen();
     else if (wrap.classList.contains("ls-full")) setPageFull(false);
-    else if (document.fullscreenEnabled && wrap.requestFullscreen) void wrap.requestFullscreen().catch(() => setPageFull(true));
+    else if (document.fullscreenEnabled && wrap.requestFullscreen) void wrap.requestFullscreen().then(() => lockOrient(true), () => setPageFull(true));
     else setPageFull(true);
   }
-  const onFull = (): void => { fit(); still(clk.time()); syncButtons(); };
+  /** In full screen, turn the phone's screen to the stage's shape where the browser allows it (Android Chrome). */
+  let locked = false;
+  function lockOrient(on: boolean): void {
+    const so = (typeof screen !== "undefined" ? screen.orientation : undefined) as (ScreenOrientation & { lock?: (o: string) => Promise<void> }) | undefined;
+    try {
+      if (on && so?.lock) { locked = true; void so.lock(orient === "portrait" ? "portrait" : "landscape").catch(() => { locked = false; }); }
+      else if (!on && locked) { locked = false; so?.unlock?.(); }
+    } catch { locked = false; }
+  }
+  const onFull = (): void => { if (document.fullscreenElement !== wrap) lockOrient(false); fit(); still(clk.time()); syncButtons(); };
 
   /** While playing, the floating controls fade after a moment without the pointer moving. */
   let idle = 0;

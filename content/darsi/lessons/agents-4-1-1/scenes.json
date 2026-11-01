@@ -1772,7 +1772,7 @@
    "template": "canvas",
    "narration": {
     "en": "This is called least privilege: the fewest tools and the least data the job needs. If the agent misreads a request, it can’t do much harm. It’s the rule we already use for staff accounts.",
-    "ar-EG": "ده اسمه «أقل صلاحية»: أقل أدوات وأقل بيانات المهمة محتاجاها. لو الوكيل فهم طلب غلط، مش هيقدر يعمل ضرر كبير. ودي نفس القاعدة اللي بنمشي بيها في حسابات الموظفين."
+    "ar-EG": "ده اسمه «أقل الصلاحيات»: أقل أدوات وأقل بيانات المهمة محتاجاها. لو الوكيل فهم طلب غلط، مش هيقدر يعمل ضرر كبير. ودي نفس القاعدة اللي بنمشي بيها في حسابات الموظفين."
    },
    "transition": {
     "type": "fade"
@@ -1789,7 +1789,7 @@
       "weight": 800,
       "text": {
        "en": "Least privilege",
-       "ar-EG": "أقل صلاحية"
+       "ar-EG": "أقل الصلاحيات"
       },
       "anim": [
        {
@@ -2646,7 +2646,7 @@
    "template": "canvas",
    "narration": {
     "en": "Next, split the work into roles. The planner, the model, proposes each tool call. A checker, a few strict rules in code, reviews it before it runs. The app runs it, and a person approves any action.",
-    "ar-EG": "بعد كده، قسّم الشغل لأدوار. المخطِّط، اللي هو النموذج، بيقترح كل طلب أداة. والمدقِّق، شوية قواعد صارمة في الكود، بيراجعه قبل ما يتنفّذ. والتطبيق بيشغّله، وإنسان بيوافق على أي تصرّف."
+    "ar-EG": "بعد كده، قسّم الشغل لأدوار. المخطِّط، اللي هو النموذج، بيقترح كل استدعاء أداة. والمدقِّق، شوية قواعد صارمة في الكود، بيراجعه قبل ما يتنفّذ. والتطبيق بيشغّله، وإنسان بيوافق على أي تصرّف."
    },
    "transition": {
     "type": "fade"
@@ -2741,7 +2741,7 @@
         "glyph": "shield",
         "label": {
          "en": "Checker",
-         "ar-EG": "المدقِّق"
+         "ar-EG": "المدقّق"
         }
        },
        {
@@ -2767,7 +2767,7 @@
         "to": "check",
         "label": {
          "en": "Proposed call",
-         "ar-EG": "طلب مقترح"
+         "ar-EG": "استدعاء مقترح"
         }
        },
        {
@@ -4984,8 +4984,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "Write the permissions down as a table, one line per tool. Here, the weather and the timetable run freely, while reminders and messages wait for a yes. Any tool that isn’t in the table is off.",
-    "ar-EG": "اكتب الصلاحيات في جدول، سطر لكل أداة. هنا، الطقس والجدول بيشتغلوا على طول، لكن التذكيرات والرسايل بتستنى موافقة. وأي أداة مش في الجدول تبقى مقفولة."
+    "en": "Write the permissions down as a table, one line per tool. Here, the weather and the timetable run freely, while reminders for other people and messages wait for a yes. Any tool that isn’t in the table is off.",
+    "ar-EG": "اكتب الصلاحيات في جدول، سطر لكل أداة. هنا، الطقس والجدول بيشتغلوا على طول، بس التذكيرات لناس تانيين والرسايل بتستنى موافقة. وأي أداة مش في الجدول تبقى مقفولة."
    },
    "transition": {
     "type": "fade"
@@ -5064,10 +5064,10 @@
       "type": "code",
       "x": 90,
       "y": 210,
-      "w": 825,
-      "h": 393,
-      "size": 46,
-      "code": "PERMS = {\n    \"weather\": \"allowed\",\n    \"timetable\": \"allowed\",\n    \"reminder\": \"ask\",\n    \"send_message\": \"ask\",\n}",
+      "w": 1100,
+      "h": 378,
+      "size": 44,
+      "code": "PERMS = {\n    \"weather\": \"allowed\",\n    \"timetable\": \"allowed\",\n    \"reminder\": \"ask\",     # for others\n    \"send_message\": \"ask\",\n}",
       "anim": [
        {
         "prop": "reveal",
@@ -5088,7 +5088,7 @@
             "en": "Here",
             "ar-EG": "هنا"
            },
-           "offset": 3.38
+           "offset": 3.8
           },
           "value": 1,
           "ease": "linear"
@@ -5123,7 +5123,7 @@
       "weight": 800,
       "text": {
        "en": "App lab: a planner and a checker",
-       "ar-EG": "معمل التطبيق: مخطِّط ومدقِّق"
+       "ar-EG": "معمل التطبيق: مخطِّط ومدقّق"
       },
       "anim": [
        {
@@ -5717,7 +5717,7 @@
       "weight": 700,
       "text": {
        "en": "The checker stops it",
-       "ar-EG": "المدقِّق بيوقفه"
+       "ar-EG": "المدقّق بيوقفه"
       },
       "anim": [
        {
@@ -5915,7 +5915,7 @@
       "weight": 700,
       "text": {
        "en": "Checker off: try again",
-       "ar-EG": "اقفل المدقِّق وجرّب"
+       "ar-EG": "اقفل المدقّق وجرّب"
       },
       "anim": [
        {

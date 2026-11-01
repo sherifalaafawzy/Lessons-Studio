@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "Every Friday, our deputy head copies attendance from twelve registers into one report. It takes her three hours. And last month, she counted one class twice.",
-    "ar-EG": "كل يوم خميس، الوكيلة عندنا بتنقل الحضور من اتناشر كشف لتقرير واحد. بياخد منها تلات ساعات. والشهر اللي فات، عدّت فصل مرتين."
+    "ar-EG": "كل يوم جمعة، الوكيلة عندنا بتنقل الحضور من اتناشر كشف لتقرير واحد. بياخد منها تلات ساعات. والشهر اللي فات، عدّت فصل مرتين."
    },
    "transition": {
     "type": "cut"
@@ -90,7 +90,7 @@
       "weight": 700,
       "text": {
        "en": "Every Friday, our deputy head copies attendance from twelve registers into one report.",
-       "ar-EG": "كل يوم خميس، الوكيلة عندنا بتنقل الحضور من اتناشر كشف لتقرير واحد."
+       "ar-EG": "كل يوم جمعة، الوكيلة عندنا بتنقل الحضور من اتناشر كشف لتقرير واحد."
       },
       "anim": [
        {
@@ -2036,7 +2036,7 @@
    "template": "canvas",
    "narration": {
     "en": "But steps fail. The connection drops halfway. The database is busy. A register says question mark instead of P or A. A good pipeline expects this.",
-    "ar-EG": "بس الخطوات بتفشل. الاتصال بيقطع في النص. قاعدة البيانات بتبقى مشغولة. كشف مكتوب فيه علامة استفهام بدل ح أو غ. وخط البيانات الكويس بيبقى عامل حسابه."
+    "ar-EG": "بس الخطوات بتفشل. الاتصال بيقطع في النص. قاعدة البيانات بتبقى مشغولة. كشف مكتوب فيه علامة استفهام بدل P أو A. وخط البيانات الكويس بيبقى عامل حسابه."
    },
    "transition": {
     "type": "fade"
@@ -2647,7 +2647,7 @@
       "weight": 700,
       "text": {
        "en": "“?” instead of P or A",
-       "ar-EG": "«؟» بدل ح أو غ"
+       "ar-EG": "«؟» بدل P أو A"
       },
       "anim": [
        {
@@ -2712,7 +2712,7 @@
    "template": "canvas",
    "narration": {
     "en": "So every run must be safe to repeat. That's called idempotent: run it once or five times, and the answer is the same. The trick: replace the day's rows, don't just add more.",
-    "ar-EG": "فلازم كل تشغيل يبقى آمن لو اتكرر. ده اسمه «idempotent»، يعني شغّله مرة أو خمس مرات، والإجابة واحدة. والسر: استبدل صفوف اليوم، ما تزوّدش عليها وخلاص."
+    "ar-EG": "فلازم كل تشغيل يبقى آمن لو اتكرر. ده اسمه متساوي الأثر، يعني شغّله مرة أو خمس مرات، والإجابة واحدة. والسر: استبدل صفوف اليوم، ما تزوّدش عليها وخلاص."
    },
    "transition": {
     "type": "fade"
@@ -2729,7 +2729,7 @@
       "weight": 800,
       "text": {
        "en": "Idempotent: same answer every run",
-       "ar-EG": "الثبات: نفس الإجابة كل مرة"
+       "ar-EG": "متساوي الأثر: نفس الإجابة كل مرة"
       },
       "anim": [
        {
@@ -2852,7 +2852,7 @@
    "template": "canvas",
    "narration": {
     "en": "And tell faults apart. A dropped connection passes: just retry. Bad data won't fix itself: set the row aside and ask a person.",
-    "ar-EG": "وفرّق بين الأعطال. الاتصال اللي قطع بيعدّي: أعد المحاولة وخلاص. لكن البيانات الغلط مش هتصلّح نفسها: حط الصف على جنب واسأل حد."
+    "ar-EG": "وفرّق بين الأعطال. الاتصال اللي قطع بيعدّي: عيد المحاولة وخلاص. بس البيانات الغلط مش هتصلّح نفسها: حط الصف على جنب واسأل حد."
    },
    "transition": {
     "type": "fade"
@@ -3221,7 +3221,7 @@
           "at": {
            "word": {
             "en": "Bad",
-            "ar-EG": "لكن"
+            "ar-EG": "البيانات"
            },
            "offset": 2.5
           },
@@ -3242,7 +3242,7 @@
           "at": {
            "word": {
             "en": "Bad",
-            "ar-EG": "لكن"
+            "ar-EG": "البيانات"
            }
           },
           "value": 2,
@@ -3427,7 +3427,7 @@
     "answer": "b",
     "explain": {
      "en": "Correct — replacing the day's rows gives the same answer however many times it runs: it's idempotent.",
-     "ar-EG": "صح — استبدال صفوف اليوم بيدّي نفس الإجابة مهما اشتغل: ده الثبات."
+     "ar-EG": "صح — استبدال صفوف اليوم بيدّي نفس الإجابة مهما اشتغل: ده معنى متساوي الأثر."
     }
    },
    "speaker": "joseph"
@@ -3437,7 +3437,7 @@
    "template": "canvas",
    "narration": {
     "en": "Replace the day's rows: the rerun first clears Monday, then writes it again. Adding would count two classes twice, and the report would say a hundred and fifty-two pupils came, out of ninety.",
-    "ar-EG": "استبدل صفوف اليوم: التشغيل التاني بيمسح يوم الأحد الأول، وبعدين يكتبه من جديد. لكن الإضافة هتعدّ فصلين مرتين، والتقرير هيقول إن مية اتنين وخمسين تلميذ حضروا، من تسعين."
+    "ar-EG": "استبدل صفوف اليوم: التشغيل التاني بيمسح يوم الاتنين الأول، وبعدين يكتبه من جديد. بس الإضافة هتعدّ فصلين مرتين، والتقرير هيقول إن مية واتنين وخمسين تلميذ حضروا، من تسعين."
    },
    "transition": {
     "type": "fade"
@@ -3592,7 +3592,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0
           },
@@ -3602,7 +3602,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.45
           },
@@ -3618,7 +3618,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0
           },
@@ -3628,7 +3628,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.15
           },
@@ -3658,7 +3658,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.15
           },
@@ -3668,7 +3668,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.65
           },
@@ -3684,7 +3684,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.15
           },
@@ -3694,7 +3694,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.45
           },
@@ -3727,7 +3727,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.4
           },
@@ -3737,7 +3737,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.85
           },
@@ -3753,7 +3753,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.4
           },
@@ -3763,7 +3763,7 @@
           "at": {
            "word": {
             "en": "Adding",
-            "ar-EG": "لكن"
+            "ar-EG": "الإضافة"
            },
            "offset": 0.7
           },
@@ -3782,7 +3782,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the app, make a step fail and press Retry. With “Add the rows”, watch the report climb to a hundred and fifty-two. Switch to replace, and it stays at ninety however often it runs.",
-    "ar-EG": "في التطبيق، خلّي خطوة تفشل واضغط «أعد المحاولة». ومع «أضف الصفوف»، اتفرّج على التقرير وهو بيطلع لمية اتنين وخمسين. غيّر للاستبدال، ويفضل تسعين مهما اشتغل."
+    "ar-EG": "في التطبيق، خلّي خطوة تفشل واضغط «أعد المحاولة». ومع «أضف الصفوف»، اتفرّج على التقرير وهو بيطلع لمية واتنين وخمسين. غيّر للاستبدال، ويفضل تسعين مهما اشتغل."
    },
    "transition": {
     "type": "fade"
@@ -4474,14 +4474,14 @@
     "id": "s12-check",
     "prompt": {
      "en": "A register says “?” instead of P or A, and the transform step stops. Will a retry fix it?",
-     "ar-EG": "كشف فيه «؟» بدل ح أو غ، وخطوة التحويل وقفت. إعادة المحاولة هتصلّحه؟"
+     "ar-EG": "كشف فيه «؟» بدل P أو A، وخطوة التحويل وقفت. إعادة المحاولة هتصلّحه؟"
     },
     "options": [
      {
       "id": "a",
       "text": {
        "en": "Yes, retry until it works",
-       "ar-EG": "أيوه، أعد لحد ما يشتغل"
+       "ar-EG": "أيوه، عيد لحد ما يشتغل"
       }
      },
      {
@@ -4534,7 +4534,7 @@
      },
      {
       "en": "Retry, or ask a person",
-      "ar-EG": "أعد المحاولة، أو اسأل حد"
+      "ar-EG": "عيد المحاولة، أو اسأل حد"
      }
     ],
     "takeaway": {

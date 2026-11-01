@@ -89,221 +89,221 @@ SHA-256 turns any file into
 sixty-four hex characters.
 
 23
-00:01:02.310 --> 00:01:04.110
-Change one byte, and about
+00:01:02.310 --> 00:01:04.990
+Change one byte, and about half of the
 
 24
-00:01:04.110 --> 00:01:05.310
-half of them change.
+00:01:04.990 --> 00:01:08.270
+underlying bits flip, so almost every
 
 25
-00:01:06.060 --> 00:01:08.000
-If yours matches the one the real
+00:01:08.270 --> 00:01:09.370
+character looks different.
 
 26
-00:01:08.000 --> 00:01:10.720
-publisher posted, the bytes are the same.
+00:01:10.010 --> 00:01:11.950
+If yours matches the one the real
 
 27
-00:01:11.990 --> 00:01:14.310
-In Python it takes three lines.
+00:01:11.950 --> 00:01:14.670
+publisher posted, the bytes are the same.
 
 28
-00:01:15.110 --> 00:01:17.090
-Hash the file's bytes, turn the
+00:01:15.940 --> 00:01:18.260
+In Python it takes three lines.
 
 29
-00:01:17.090 --> 00:01:19.270
-result into hex, and compare it
+00:01:19.060 --> 00:01:21.040
+Hash the file's bytes, turn the
 
 30
-00:01:19.270 --> 00:01:20.230
-with the published fingerprint.
+00:01:21.040 --> 00:01:23.220
+result into hex, and compare it
 
 31
-00:01:21.070 --> 00:01:22.530
-Equal means unchanged.
+00:01:23.220 --> 00:01:24.180
+with the published fingerprint.
 
 32
-00:01:24.040 --> 00:01:24.620
-Quick check!
+00:01:25.020 --> 00:01:26.480
+Equal means unchanged.
 
 33
-00:01:25.410 --> 00:01:29.330
-You change one letter inside a model file.
+00:01:27.990 --> 00:01:28.570
+Quick check!
 
 34
-00:01:30.000 --> 00:01:31.980
-What happens to its fingerprint?
+00:01:29.360 --> 00:01:33.280
+You change one letter inside a model file.
 
 35
-00:01:33.630 --> 00:01:36.330
-About half changes, so even a
+00:01:33.950 --> 00:01:35.930
+What happens to its fingerprint?
 
 36
-00:01:36.330 --> 00:01:37.670
-tiny edit can't hide.
+00:01:37.580 --> 00:01:40.300
+About half of its bits flip, so
 
 37
-00:01:38.340 --> 00:01:40.260
-But a fingerprint only proves
+00:01:40.300 --> 00:01:42.380
+even a tiny edit can't hide.
 
 38
-00:01:40.260 --> 00:01:41.760
-the bytes didn't change.
+00:01:43.030 --> 00:01:44.950
+But a fingerprint only proves
 
 39
-00:01:42.570 --> 00:01:44.490
-It can't tell you who made them.
+00:01:44.950 --> 00:01:46.450
+the bytes didn't change.
 
 40
-00:01:45.090 --> 00:01:46.650
-For that, you need a signature.
+00:01:47.260 --> 00:01:49.180
+It can't tell you who made them.
 
 41
-00:01:48.050 --> 00:01:50.510
-The publisher signs the file with a
+00:01:49.780 --> 00:01:51.340
+For that, you need a signature.
 
 42
-00:01:50.510 --> 00:01:52.850
-secret key, and anyone can check it
+00:01:52.740 --> 00:01:54.840
+The publisher signs the file with a
 
 43
-00:01:52.850 --> 00:01:53.750
-with their public key.
+00:01:54.840 --> 00:01:57.120
+private key, and anyone can check
 
 44
-00:01:54.310 --> 00:01:56.870
-An impostor can post a fake with its
+00:01:57.120 --> 00:01:58.400
+it with their public key.
 
 45
-00:01:56.870 --> 00:01:59.450
-own fingerprint, but they can't sign
+00:01:58.930 --> 00:02:01.490
+An impostor can post a fake with its
 
 46
-00:01:59.450 --> 00:02:00.450
-as the real publisher.
+00:02:01.490 --> 00:02:04.070
+own fingerprint, but they can't sign
 
 47
-00:02:01.840 --> 00:02:03.460
-So build three habits.
+00:02:04.070 --> 00:02:05.070
+as the real publisher.
 
 48
-00:02:04.270 --> 00:02:06.590
-Download only from the official source.
+00:02:06.460 --> 00:02:08.080
+So build three habits.
 
 49
-00:02:07.300 --> 00:02:09.000
-Check the fingerprint and the
+00:02:08.890 --> 00:02:11.210
+Download only from the official source.
 
 50
-00:02:09.000 --> 00:02:11.040
-signature before you run anything.
+00:02:11.920 --> 00:02:13.620
+Check the fingerprint and the
 
 51
-00:02:11.820 --> 00:02:14.060
-And keep a list of the models you use:
+00:02:13.620 --> 00:02:15.660
+signature before you run anything.
 
 52
-00:02:14.480 --> 00:02:18.140
-name, version, where from, fingerprint.
+00:02:16.440 --> 00:02:18.680
+And keep a list of the models you use:
 
 53
-00:02:19.630 --> 00:02:21.250
-In the app, leave the file
+00:02:19.100 --> 00:02:22.760
+name, version, where from, fingerprint.
 
 54
-00:02:21.250 --> 00:02:23.130
-genuine: both checks are green.
+00:02:24.250 --> 00:02:25.870
+In the app, leave the file
 
 55
-00:02:23.720 --> 00:02:25.980
-Change one byte: about half
+00:02:25.870 --> 00:02:27.750
+genuine: both checks are green.
 
 56
-00:02:25.980 --> 00:02:27.020
-the fingerprint flips.
+00:02:28.340 --> 00:02:31.700
+Change one byte: about half its bits flip.
 
 57
-00:02:27.830 --> 00:02:30.650
+00:02:32.350 --> 00:02:35.170
 Then try the impostor: the bytes look
 
 58
-00:02:30.650 --> 00:02:32.490
+00:02:35.170 --> 00:02:37.010
 fine, but the signature fails.
 
 59
-00:02:33.910 --> 00:02:34.670
+00:02:38.430 --> 00:02:39.190
 Your turn.
 
 60
-00:02:35.290 --> 00:02:37.530
+00:02:39.810 --> 00:02:42.050
 A model's fingerprint matches the
 
 61
-00:02:37.530 --> 00:02:39.950
+00:02:42.050 --> 00:02:44.470
 one posted right next to it, on a
 
 62
-00:02:39.950 --> 00:02:40.730
+00:02:44.470 --> 00:02:45.250
 site you don't know.
 
 63
-00:02:41.240 --> 00:02:42.680
+00:02:45.760 --> 00:02:47.200
 Can you trust it?
 
 64
-00:02:43.890 --> 00:02:46.250
+00:02:48.410 --> 00:02:50.770
 Not yet: whoever posted the file
 
 65
-00:02:46.250 --> 00:02:47.890
+00:02:50.770 --> 00:02:52.410
 posted that fingerprint too.
 
 66
-00:02:48.490 --> 00:02:50.230
+00:02:53.010 --> 00:02:54.750
 Remember: any link in the
 
 67
-00:02:50.230 --> 00:02:51.410
+00:02:54.750 --> 00:02:55.930
 chain can be faked.
 
 68
-00:02:51.990 --> 00:02:54.830
+00:02:56.510 --> 00:02:59.350
 A fingerprint proves the same bytes, and
 
 69
-00:02:54.830 --> 00:02:56.610
+00:02:59.350 --> 00:03:01.130
 a signature proves who made them.
 
 70
-00:02:57.180 --> 00:02:59.420
+00:03:01.700 --> 00:03:03.940
 Use official sources, check
 
 71
-00:02:59.420 --> 00:03:01.580
+00:03:03.940 --> 00:03:06.100
 both, and keep a list.
 
 72
-00:03:02.800 --> 00:03:05.320
+00:03:07.320 --> 00:03:09.840
 Try it tomorrow: with the owner, look
 
 73
-00:03:05.320 --> 00:03:07.380
+00:03:09.840 --> 00:03:11.900
 at the AI apps on a family phone.
 
 74
-00:03:08.040 --> 00:03:10.260
+00:03:12.560 --> 00:03:14.780
 Write where each came from: the
 
 75
-00:03:10.260 --> 00:03:12.800
+00:03:14.780 --> 00:03:17.320
 store, a shared file or a website.
 
 76
-00:03:13.450 --> 00:03:14.970
+00:03:17.970 --> 00:03:19.490
 Remove what you can't check,
 
 77
-00:03:15.330 --> 00:03:16.750
+00:03:19.850 --> 00:03:21.270
 and start your model list.

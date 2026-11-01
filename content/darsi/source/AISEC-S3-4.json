@@ -114,7 +114,7 @@
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "A SHA-256 fingerprint",
     "voice": "Narrator",
-    "narration": "The first check is a fingerprint. SHA-256 turns any file into sixty-four hex characters. Change one byte, and about half of them change. If yours matches the one the real publisher posted, the bytes are the same."
+    "narration": "The first check is a fingerprint. SHA-256 turns any file into sixty-four hex characters. Change one byte, and about half of the underlying bits flip, so almost every character looks different. If yours matches the one the real publisher posted, the bytes are the same."
    },
    {
     "n": 6,
@@ -147,7 +147,7 @@
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "Unchanged, but from whom?",
     "voice": "Narrator",
-    "narration": "About half changes, so even a tiny edit can't hide. But a fingerprint only proves the bytes didn't change. It can't tell you who made them. For that, you need a signature.",
+    "narration": "About half of its bits flip, so even a tiny edit can't hide. But a fingerprint only proves the bytes didn't change. It can't tell you who made them. For that, you need a signature.",
     "icons": [
      "fingerprint",
      "key",
@@ -164,7 +164,7 @@
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "A signature shows who",
     "voice": "Narrator",
-    "narration": "The publisher signs the file with a secret key, and anyone can check it with their public key. An impostor can post a fake with its own fingerprint, but they can't sign as the real publisher."
+    "narration": "The publisher signs the file with a private key, and anyone can check it with their public key. An impostor can post a fake with its own fingerprint, but they can't sign as the real publisher."
    },
    {
     "n": 10,
@@ -182,11 +182,11 @@
     "start": "2:21",
     "end": "2:35",
     "beat": "Lab preview",
-    "visual": "A list: Genuine: both green; One byte changed: half flips; Impostor: signature fails.",
+    "visual": "A list: Genuine: both green; One byte changed: half the bits flip; Impostor: signature fails.",
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "App lab: is this the real model?",
     "voice": "Narrator",
-    "narration": "In the app, leave the file genuine: both checks are green. Change one byte: about half the fingerprint flips. Then try the impostor: the bytes look fine, but the signature fails.",
+    "narration": "In the app, leave the file genuine: both checks are green. Change one byte: about half its bits flip. Then try the impostor: the bytes look fine, but the signature fails.",
     "icons": [
      "circlecheck",
      "file",
@@ -245,7 +245,7 @@
       "correct": false
      },
      {
-      "text": "About half of it changes",
+      "text": "About half of its bits flip",
       "correct": true
      },
      {
@@ -253,8 +253,8 @@
       "correct": false
      }
     ],
-    "feedback_correct": "Right: about half flips, so even a tiny edit can't hide.",
-    "feedback_wrong": "Not quite: one changed byte flips about half the fingerprint. That's why it catches any edit.",
+    "feedback_correct": "Right: about half of its bits flip, so even a tiny edit can't hide.",
+    "feedback_wrong": "Not quite: one changed byte flips about half of its bits. That's why it catches any edit.",
     "resume_at": "1:34"
    },
    {

@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
-    "ar-EG": "لوحة الإدارة قالت إن مية اتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين. والمدرسة فيها تسعين. خط البيانات كان فشل، وأعاد المحاولة، وحمّل فصلين مرتين."
+    "ar-EG": "لوحة الإدارة قالت إن مية واتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين. والمدرسة فيها تسعين. خط البيانات كان فشل، وأعاد المحاولة، وحمّل فصلين مرتين."
    },
    "transition": {
     "type": "cut"
@@ -90,7 +90,7 @@
       "weight": 700,
       "text": {
        "en": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday.",
-       "ar-EG": "لوحة الإدارة قالت إن مية اتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين."
+       "ar-EG": "لوحة الإدارة قالت إن مية واتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين."
       },
       "anim": [
        {
@@ -804,7 +804,7 @@
     },
     "hook": {
      "en": "Extract, transform, load; idempotent loads; watermarks and logs",
-     "ar-EG": "استخراج وتحويل وتحميل، وتحميل ثابت النتيجة، وعلامات ماية وسجلات"
+     "ar-EG": "استخراج وتحويل وتحميل، وتحميل متساوي الأثر، وعلامات ماية وسجلات"
     },
     "icon": "database"
    },
@@ -1400,7 +1400,7 @@
    "template": "canvas",
    "narration": {
     "en": "Loads must be idempotent: running them twice gives the same result as once. Delete the day's rows, then insert them again. Or use an upsert, which inserts new rows and updates the ones already there.",
-    "ar-EG": "التحميل لازم يبقى ثابت النتيجة: تشغيله مرتين يدّي نفس نتيجة مرة. امسح صفوف اليوم، وبعدين ضيفها تاني. أو استخدم upsert، اللي بيضيف الصفوف الجديدة ويحدّث الموجودة."
+    "ar-EG": "التحميل لازم يبقى متساوي الأثر: تشغيله مرتين يدّي نفس نتيجة مرة. امسح صفوف اليوم، وبعدين ضيفها تاني. أو استخدم upsert، اللي بيضيف الصفوف الجديدة ويحدّث الموجودة."
    },
    "transition": {
     "type": "fade"
@@ -1417,7 +1417,7 @@
       "weight": 800,
       "text": {
        "en": "Idempotent: twice is like once",
-       "ar-EG": "ثابت النتيجة: مرتين زي مرة"
+       "ar-EG": "متساوي الأثر: مرتين زي مرة"
       },
       "anim": [
        {
@@ -1567,7 +1567,7 @@
     "answer": "a",
     "explain": {
      "en": "Correct — appending again writes the first rows a second time, unless the load is idempotent.",
-     "ar-EG": "صح — الإضافة تاني بتكتب أول صفوف مرة تانية، إلا لو التحميل ثابت النتيجة."
+     "ar-EG": "صح — الإضافة تاني بتكتب أول صفوف مرة تانية، إلا لو التحميل متساوي الأثر."
     }
    },
    "speaker": "joseph"
@@ -1577,7 +1577,7 @@
    "template": "canvas",
    "narration": {
     "en": "The rows loaded before the failure go in twice. That's exactly how ninety pupils became a hundred and fifty-two.",
-    "ar-EG": "الصفوف اللي اتحمّلت قبل الفشل بتدخل مرتين. وده بالظبط اللي خلّى التسعين تلميذ يبقوا مية اتنين وخمسين."
+    "ar-EG": "الصفوف اللي اتحمّلت قبل الفشل بتدخل مرتين. وده بالظبط اللي خلّى التسعين تلميذ يبقوا مية واتنين وخمسين."
    },
    "transition": {
     "type": "fade"
@@ -2598,7 +2598,7 @@
    "template": "canvas",
    "narration": {
     "en": "Runs fail, so retry passing faults automatically, and stop on bad data. Log every run: when, how many rows in and out, and what was set aside. The log is how you find out before the dashboard does.",
-    "ar-EG": "التشغيلات بتفشل، فأعد المحاولة أوتوماتيك مع الأعطال العابرة، ووقّف مع البيانات الغلط. وسجّل كل تشغيل: إمتى، وكام صف دخل وخرج، وإيه اللي اتحط على جنب. والسجل هو اللي بيخلّيك تعرف قبل اللوحة ما تعرف."
+    "ar-EG": "التشغيلات بتفشل، فخلّي البرنامج يعيد المحاولة لوحده مع الأعطال العابرة، ووقّف مع البيانات الغلط. وسجّل كل تشغيل: إمتى، وكام صف دخل وخرج، وإيه اللي اتحط على جنب. والسجل هو اللي بيخلّيك تعرف قبل اللوحة ما تعرف."
    },
    "transition": {
     "type": "fade"
@@ -2615,7 +2615,7 @@
       "weight": 800,
       "text": {
        "en": "Retry, stop, and log",
-       "ar-EG": "أعد، ووقّف، وسجّل"
+       "ar-EG": "عيد، ووقّف، وسجّل"
       },
       "anim": [
        {
@@ -2813,7 +2813,7 @@
       "weight": 700,
       "text": {
        "en": "Passing fault: retry",
-       "ar-EG": "عطل عابر: أعد"
+       "ar-EG": "عطل عابر: عيد"
       },
       "anim": [
        {
@@ -3274,7 +3274,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the app, make a step fail and retry. Appending double-counts; replacing the day's rows stays at ninety however often it runs.",
-    "ar-EG": "في التطبيق، خلّي خطوة تفشل وأعد المحاولة. الإضافة بتعدّ مرتين، واستبدال صفوف اليوم بيفضل تسعين مهما اشتغل."
+    "ar-EG": "في التطبيق، خلّي خطوة تفشل وعيد المحاولة. الإضافة بتعدّ مرتين، واستبدال صفوف اليوم بيفضل تسعين مهما اشتغل."
    },
    "transition": {
     "type": "fade"
@@ -3950,7 +3950,7 @@
    "template": "quiz",
    "narration": {
     "en": "Your turn. Which of these loads is idempotent?",
-    "ar-EG": "دورك. أنهي تحميل من دول ثابت النتيجة؟"
+    "ar-EG": "دورك. أنهي تحميل من دول متساوي الأثر؟"
    },
    "transition": {
     "type": "slide"
@@ -3958,7 +3958,7 @@
    "content": {
     "title": {
      "en": "Which load is idempotent?",
-     "ar-EG": "أنهي تحميل ثابت النتيجة؟"
+     "ar-EG": "أنهي تحميل متساوي الأثر؟"
     }
    },
    "check": {
@@ -3966,7 +3966,7 @@
     "id": "s11-check",
     "prompt": {
      "en": "Which load is idempotent?",
-     "ar-EG": "أنهي تحميل ثابت النتيجة؟"
+     "ar-EG": "أنهي تحميل متساوي الأثر؟"
     },
     "options": [
      {
@@ -4004,7 +4004,7 @@
    "template": "summary",
    "narration": {
     "en": "Delete, then insert: the same answer every time. Remember: extract, transform, load, or ELT. Make loads idempotent, with replace or upsert. Load incrementally with a watermark, and log every run.",
-    "ar-EG": "امسح، وبعدين ضيف: نفس الإجابة كل مرة. افتكر: استخراج، وتحويل، وتحميل، أو ELT. خلّي التحميل ثابت النتيجة، بالاستبدال أو upsert. وحمّل تزايدي بعلامة ماية، وسجّل كل تشغيل."
+    "ar-EG": "امسح، وبعدين ضيف: نفس الإجابة كل مرة. افتكر: استخراج، وتحويل، وتحميل، أو ELT. خلّي التحميل متساوي الأثر، بالاستبدال أو upsert. وحمّل تزايدي بعلامة ماية، وسجّل كل تشغيل."
    },
    "content": {
     "title": {
@@ -4018,7 +4018,7 @@
      },
      {
       "en": "Idempotent loads",
-      "ar-EG": "تحميل ثابت النتيجة"
+      "ar-EG": "تحميل متساوي الأثر"
      },
      {
       "en": "Watermarks for new rows",
@@ -4083,7 +4083,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it tomorrow: think of a job you repeat, like backing up your phone's photos. What happens if it runs twice, or stops halfway? Redesign it so a rerun is always safe.",
-    "ar-EG": "جرّبها بكرة: فكّر في حاجة بتكررها، زي إنك تاخد نسخة من صور موبايلك. إيه اللي بيحصل لو اشتغلت مرتين، أو وقفت في النص؟ وأعد تصميمها علشان الإعادة تبقى آمنة دايمًا."
+    "ar-EG": "جرّبها بكرة: فكّر في حاجة بتكررها، زي إنك تاخد نسخة من صور موبايلك. إيه اللي بيحصل لو اشتغلت مرتين، أو وقفت في النص؟ وعيد تصميمها علشان الإعادة تبقى آمنة دايمًا."
    },
    "transition": {
     "type": "fade"
@@ -4573,7 +4573,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4583,7 +4583,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.4
           },
@@ -4599,7 +4599,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4609,7 +4609,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.15
           },
@@ -4637,7 +4637,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4647,7 +4647,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.45
           },
@@ -4663,7 +4663,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4673,7 +4673,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.15
           },
@@ -4704,7 +4704,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4714,7 +4714,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.45
           },
@@ -4730,7 +4730,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0
           },
@@ -4740,7 +4740,7 @@
           "at": {
            "word": {
             "en": "Redesign",
-            "ar-EG": "وأعد"
+            "ar-EG": "وعيد"
            },
            "offset": 0.3
           },

@@ -217,4 +217,6 @@ export const CSS = `
 .ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-bar,.ls-asking:not(.ls-full):not(:fullscreen).ls-narrow .ls-viewport{display:none}
 .ls-full{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483000;background:#000;display:flex;flex-direction:column;justify-content:center;overflow:auto}
 .ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
+.ls-full.ls-turned{top:0;left:100%;right:auto;bottom:auto;width:100vh;height:100vw;transform:rotate(90deg);transform-origin:top left}
+.ls-full.ls-turned .ls-main{width:min(100%,calc(100vw * var(--ls-ar,1.78)))}
 `;

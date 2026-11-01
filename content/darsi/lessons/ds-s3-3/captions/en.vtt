@@ -1,241 +1,253 @@
 WEBVTT
 
 1
-00:00:00.350 --> 00:00:02.690
-A new pupil joined my class in March.
+00:00:00.350 --> 00:00:02.370
+A new student joined our class in March.
 
 2
-00:00:03.430 --> 00:00:05.730
-I had her reading speed and her
+00:00:03.120 --> 00:00:05.520
+Our teacher had her reading speed and
 
 3
-00:00:05.730 --> 00:00:07.550
-accuracy from a short test.
+00:00:05.520 --> 00:00:07.220
+her accuracy from a short test.
 
 4
-00:00:08.100 --> 00:00:09.960
+00:00:07.840 --> 00:00:09.360
 Which reading group should she join?
 
 5
-00:00:11.210 --> 00:00:14.690
+00:00:10.680 --> 00:00:14.160
 Today: how a model can sort new cases by
 
 6
-00:00:14.690 --> 00:00:16.550
+00:00:14.160 --> 00:00:16.020
 looking at the closest old ones.
 
 7
-00:00:17.810 --> 00:00:20.390
+00:00:17.280 --> 00:00:19.860
 Regression predicts a number, like a mark.
 
 8
-00:00:21.070 --> 00:00:24.030
+00:00:20.540 --> 00:00:23.500
 Classification predicts a label, like a
 
 9
-00:00:24.030 --> 00:00:26.050
+00:00:23.500 --> 00:00:25.520
 reading group or a type of fruit.
 
 10
-00:00:26.760 --> 00:00:28.400
+00:00:26.230 --> 00:00:27.870
 The model learns from examples
 
 11
-00:00:28.400 --> 00:00:30.280
+00:00:27.870 --> 00:00:29.750
 that already have labels.
 
 12
-00:00:31.680 --> 00:00:34.720
+00:00:31.150 --> 00:00:34.190
 Put every pupil on a scatter plot, speed
 
 13
-00:00:34.720 --> 00:00:37.960
+00:00:34.190 --> 00:00:37.430
 across and accuracy up, coloured by group.
 
 14
-00:00:38.590 --> 00:00:40.090
+00:00:38.060 --> 00:00:39.560
 Put the new pupil on it too.
 
 15
-00:00:40.750 --> 00:00:43.130
+00:00:40.220 --> 00:00:42.600
 The nearest neighbour method gives her
 
 16
-00:00:43.130 --> 00:00:44.830
+00:00:42.600 --> 00:00:44.300
 the group of the closest pupils.
 
 17
-00:00:46.220 --> 00:00:47.940
+00:00:45.690 --> 00:00:47.410
 Here are her five nearest
 
 18
-00:00:47.940 --> 00:00:49.280
+00:00:47.410 --> 00:00:48.750
 classmates by group.
 
 19
-00:00:49.910 --> 00:00:52.290
+00:00:49.380 --> 00:00:51.760
 Three are in the blue group, and
 
 20
-00:00:52.290 --> 00:00:54.430
+00:00:51.760 --> 00:00:53.900
 one each in red and green.
 
 21
-00:00:55.130 --> 00:00:56.070
+00:00:54.600 --> 00:00:55.540
 The vote says blue.
 
 22
-00:00:57.310 --> 00:00:59.690
+00:00:56.780 --> 00:00:59.160
 Closest means the shortest
 
 23
-00:00:59.690 --> 00:01:00.990
+00:00:59.160 --> 00:01:00.460
 distance on the chart.
 
 24
-00:01:01.640 --> 00:01:04.320
+00:01:01.110 --> 00:01:03.790
 We find it with Pythagoras: the square
 
 25
-00:01:04.320 --> 00:01:07.340
+00:01:03.790 --> 00:01:06.810
 root of the gap in speed squared plus
 
 26
-00:01:07.340 --> 00:01:09.260
+00:01:06.810 --> 00:01:08.730
 the gap in accuracy squared.
 
 27
-00:01:10.060 --> 00:01:11.500
+00:01:09.530 --> 00:01:10.970
 Make the two measures use
 
 28
-00:01:11.500 --> 00:01:12.960
+00:01:10.970 --> 00:01:12.430
 similar scales first.
 
 29
-00:01:14.360 --> 00:01:15.400
+00:01:13.830 --> 00:01:14.870
 The number of neighbours
 
 30
-00:01:15.400 --> 00:01:16.820
+00:01:14.870 --> 00:01:16.290
 we ask is called k.
 
 31
-00:01:17.490 --> 00:01:20.270
+00:01:16.960 --> 00:01:19.740
 With k equal to one, a single
 
 32
-00:01:20.270 --> 00:01:21.590
+00:01:19.740 --> 00:01:21.060
 odd pupil can decide.
 
 33
-00:01:22.390 --> 00:01:25.230
-A small odd number such as three or
+00:01:21.860 --> 00:01:24.600
+A small odd number such as three
 
 34
-00:01:25.230 --> 00:01:28.090
-five is a good start, and the test
+00:01:24.600 --> 00:01:26.720
+or five is a good start.
 
 35
-00:01:28.090 --> 00:01:29.750
-set tells you which is best.
+00:01:27.410 --> 00:01:29.890
+To choose between them, hold back some
 
 36
-00:01:31.000 --> 00:01:31.480
-Quick check!
+00:01:29.890 --> 00:01:33.090
+training pupils as a validation set: they
 
 37
-00:01:32.120 --> 00:01:35.140
-With k equal to three, two neighbours are
+00:01:33.090 --> 00:01:36.010
+pick k, and the test set stays locked
 
 38
-00:01:35.140 --> 00:01:37.800
-in group A and one is in group B.
+00:01:36.010 --> 00:01:36.290
+away.
 
 39
-00:01:38.360 --> 00:01:40.380
-Which group does the model choose?
+00:01:37.510 --> 00:01:37.990
+Quick check!
 
 40
-00:01:41.700 --> 00:01:43.860
-Group A, by two votes to one.
+00:01:38.630 --> 00:01:41.650
+With k equal to three, two neighbours are
 
 41
-00:01:44.470 --> 00:01:47.310
-The model simply copies the most common
+00:01:41.650 --> 00:01:44.310
+in group A and one is in group B.
 
 42
-00:01:47.310 --> 00:01:49.350
-label among the nearest examples.
+00:01:44.870 --> 00:01:46.890
+Which group does the model choose?
 
 43
-00:01:50.120 --> 00:01:51.860
-That is why it is easy to
+00:01:48.210 --> 00:01:50.370
+Group A, by two votes to one.
 
 44
-00:01:51.860 --> 00:01:52.880
-explain to pupils.
+00:01:50.980 --> 00:01:53.820
+The model simply copies the most common
 
 45
-00:01:54.340 --> 00:01:55.840
-In the app, open the
+00:01:53.820 --> 00:01:55.860
+label among the nearest examples.
 
 46
-00:01:55.840 --> 00:01:57.080
-nearest neighbours lab.
+00:01:56.630 --> 00:01:58.370
+That is why it is easy to
 
 47
-00:01:57.720 --> 00:02:01.120
-Drop a new point, change k, and watch the
+00:01:58.370 --> 00:01:59.390
+explain to pupils.
 
 48
-00:02:01.120 --> 00:02:03.620
-regions of each colour grow and shrink.
+00:02:00.850 --> 00:02:02.350
+In the app, open the
 
 49
-00:02:04.920 --> 00:02:05.460
-Your turn.
+00:02:02.350 --> 00:02:03.590
+nearest neighbours lab.
 
 50
-00:02:06.070 --> 00:02:07.670
-A model chooses a reading
+00:02:04.230 --> 00:02:07.630
+Drop a new point, change k, and watch the
 
 51
-00:02:07.670 --> 00:02:09.130
-group for a new pupil.
+00:02:07.630 --> 00:02:10.130
+regions of each colour grow and shrink.
 
 52
-00:02:09.880 --> 00:02:13.280
-Does it predict a number or a label?
+00:02:11.430 --> 00:02:11.970
+Your turn.
 
 53
-00:02:14.570 --> 00:02:17.030
-A label, so it is classification.
+00:02:12.580 --> 00:02:14.180
+A model chooses a reading
 
 54
-00:02:18.030 --> 00:02:21.090
-Remember: place the new case, find the
+00:02:14.180 --> 00:02:15.640
+group for a new pupil.
 
 55
-00:02:21.090 --> 00:02:23.630
-k nearest examples by distance, and
+00:02:16.390 --> 00:02:19.790
+Does it predict a number or a label?
 
 56
-00:02:23.630 --> 00:02:25.410
-take the most common label.
+00:02:21.080 --> 00:02:23.540
+A label, so it is classification.
 
 57
-00:02:26.610 --> 00:02:29.430
-Try it yourself: weigh some fruit at home
+00:02:24.540 --> 00:02:27.600
+Remember: place the new case, find the
 
 58
-00:02:29.430 --> 00:02:32.570
-and score their colour from one to five.
+00:02:27.600 --> 00:02:30.140
+k nearest examples by distance, and
 
 59
-00:02:33.260 --> 00:02:35.200
-Then find the three nearest
+00:02:30.140 --> 00:02:31.920
+take the most common label.
 
 60
-00:02:35.200 --> 00:02:36.980
+00:02:33.120 --> 00:02:35.940
+Try it yourself: weigh some fruit at home
+
+61
+00:02:35.940 --> 00:02:39.080
+and score their colour from one to five.
+
+62
+00:02:39.770 --> 00:02:41.710
+Then find the three nearest
+
+63
+00:02:41.710 --> 00:02:43.490
 neighbours of a mystery fruit.

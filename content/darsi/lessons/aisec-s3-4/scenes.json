@@ -804,7 +804,7 @@
     },
     "hook": {
      "en": "Fingerprints, signatures and the AI supply chain",
-     "ar-EG": "البصمات، والتوقيعات، وسلسلة الإمداد"
+     "ar-EG": "البصمات، والتوقيعات، وسلسلة التوريد"
     },
     "icon": "lock"
    },
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "Every AI tool is built from parts made by others: training data, a model file, code and an app. That chain of parts is the supply chain. Any link can be faked, or changed on the way to you.",
-    "ar-EG": "كل أداة ذكاء اصطناعي متبنية من أجزاء عملها ناس تانيين: بيانات تدريب، وملف نموذج، وكود، وتطبيق. والسلسلة دي اسمها سلسلة الإمداد. وأي حلقة فيها ممكن تتزيّف، أو تتغيّر وهي في الطريق ليك."
+    "ar-EG": "كل أداة ذكاء اصطناعي متبنية من أجزاء عملها ناس تانيين: بيانات تدريب، وملف نموذج، وكود، وتطبيق. والسلسلة دي اسمها سلسلة التوريد. وأي حلقة فيها ممكن تتزيّف، أو تتغيّر وهي في الطريق ليك."
    },
    "transition": {
     "type": "fade"
@@ -873,7 +873,7 @@
       "weight": 800,
       "text": {
        "en": "The supply chain",
-       "ar-EG": "سلسلة الإمداد"
+       "ar-EG": "سلسلة التوريد"
       },
       "anim": [
        {
@@ -2405,8 +2405,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "The first check is a fingerprint. SHA-256 turns any file into sixty-four hex characters. Change one byte, and about half of them change. If yours matches the one the real publisher posted, the bytes are the same.",
-    "ar-EG": "أول فحص هو البصمة. خوارزمية «شا تو فيفتي سكس» بتحوّل أي ملف لأربعة وستين حرف هيكس. غيّر بايت واحد، وحوالي نصهم هيتغيّر. ولو بصمتك طابقت اللي الناشر الحقيقي نشرها، يبقى البايتات هي هي."
+    "en": "The first check is a fingerprint. SHA-256 turns any file into sixty-four hex characters. Change one byte, and about half of the underlying bits flip, so almost every character looks different. If yours matches the one the real publisher posted, the bytes are the same.",
+    "ar-EG": "أول فحص هو البصمة. خوارزمية «شا تو فيفتي سكس» بتحوّل أي ملف لأربعة وستين حرف هيكس. غيّر بايت واحد، وحوالي نص البِتّات بتتقلب، فتقريبًا كل حرف بيبان مختلف. ولو بصمتك طابقت اللي الناشر الحقيقي نشرها، يبقى البايتات هي هي."
    },
    "transition": {
     "type": "fade"
@@ -2840,8 +2840,8 @@
      {
       "id": "b",
       "text": {
-       "en": "About half of it changes",
-       "ar-EG": "حوالي نصها هيتغيّر"
+       "en": "About half of its bits flip",
+       "ar-EG": "حوالي نص البِتّات بتاعتها هتتقلب"
       }
      },
      {
@@ -2854,8 +2854,8 @@
     ],
     "answer": "b",
     "explain": {
-     "en": "Right: about half flips, so even a tiny edit can't hide.",
-     "ar-EG": "صح: حوالي النص بيتقلب، فحتى أصغر تعديل ميستخباش."
+     "en": "Right: about half of its bits flip, so even a tiny edit can't hide.",
+     "ar-EG": "صح: حوالي نص البِتّات بتتقلب، فحتى أصغر تعديل ميستخباش."
     }
    },
    "speaker": "salma"
@@ -2864,8 +2864,8 @@
    "id": "s08",
    "template": "canvas",
    "narration": {
-    "en": "About half changes, so even a tiny edit can't hide. But a fingerprint only proves the bytes didn't change. It can't tell you who made them. For that, you need a signature.",
-    "ar-EG": "حوالي النص بيتغيّر، فحتى أصغر تعديل ميستخباش. بس البصمة بتثبت بس إن البايتات متغيّرتش. متقدرش تقولك مين اللي عملها. وعلشان كده محتاج توقيع."
+    "en": "About half of its bits flip, so even a tiny edit can't hide. But a fingerprint only proves the bytes didn't change. It can't tell you who made them. For that, you need a signature.",
+    "ar-EG": "حوالي نص البِتّات بتتقلب، فحتى أصغر تعديل ميستخباش. بس البصمة بتثبت بس إن البايتات متغيّرتش. متقدرش تقولك مين اللي عملها. وعلشان كده محتاج توقيع."
    },
    "transition": {
     "type": "fade"
@@ -3068,8 +3068,8 @@
    "id": "s09",
    "template": "canvas",
    "narration": {
-    "en": "The publisher signs the file with a secret key, and anyone can check it with their public key. An impostor can post a fake with its own fingerprint, but they can't sign as the real publisher.",
-    "ar-EG": "الناشر بيوقّع على الملف بمفتاح سري، وأي حد يقدر يتأكد منه بالمفتاح العام بتاعه. والمنتحل ممكن ينشر ملف مزيّف ومعاه بصمته، لكن ميقدرش يوقّع باسم الناشر الحقيقي."
+    "en": "The publisher signs the file with a private key, and anyone can check it with their public key. An impostor can post a fake with its own fingerprint, but they can't sign as the real publisher.",
+    "ar-EG": "الناشر بيوقّع على الملف بمفتاح خاص، وأي حد يقدر يتأكد منه بالمفتاح العام بتاعه. والمنتحل ممكن ينشر ملف مزيّف ومعاه بصمته، لكن ميقدرش يوقّع باسم الناشر الحقيقي."
    },
    "transition": {
     "type": "fade"
@@ -3181,8 +3181,8 @@
         "from": "pub",
         "to": "you",
         "label": {
-         "en": "Model, signed with its secret key",
-         "ar-EG": "النموذج، متوقّع بمفتاحه السري"
+         "en": "Model, signed with its private key",
+         "ar-EG": "النموذج، متوقّع بمفتاحه الخاص"
         },
         "lock": true,
         "tone": "ok"
@@ -3340,7 +3340,7 @@
    "template": "steps",
    "narration": {
     "en": "So build three habits. Download only from the official source. Check the fingerprint and the signature before you run anything. And keep a list of the models you use: name, version, where from, fingerprint.",
-    "ar-EG": "يبقى اعمل تلات عادات. نزّل من المصدر الرسمي بس. راجع البصمة والتوقيع قبل ما تشغّل أي حاجة. واعمل لستة بالنماذج اللي بتستخدمها: الاسم، والنسخة، وجاية منين، والبصمة."
+    "ar-EG": "يبقى اعمل تلات عادات. نزّل من المصدر الرسمي بس. راجع البصمة والتوقيع قبل ما تشغّل أي حاجة. واعمل قايمة بالنماذج اللي بتستخدمها: الاسم، والنسخة، وجاية منين، والبصمة."
    },
    "content": {
     "title": {
@@ -3358,7 +3358,7 @@
      },
      {
       "en": "Keep a list of your models",
-      "ar-EG": "اعمل لستة بنماذجك"
+      "ar-EG": "اعمل قايمة بنماذجك"
      }
     ]
    },
@@ -3393,8 +3393,8 @@
    "id": "s11",
    "template": "canvas",
    "narration": {
-    "en": "In the app, leave the file genuine: both checks are green. Change one byte: about half the fingerprint flips. Then try the impostor: the bytes look fine, but the signature fails.",
-    "ar-EG": "في التطبيق، سيب الملف أصلي: الفحصين أخضر. غيّر بايت واحد: حوالي نص البصمة بيتقلب. وبعدين جرّب المنتحل: البايتات شكلها سليم، بس التوقيع بيفشل."
+    "en": "In the app, leave the file genuine: both checks are green. Change one byte: about half its bits flip. Then try the impostor: the bytes look fine, but the signature fails.",
+    "ar-EG": "في التطبيق، سيب الملف أصلي: الفحصين لونهم أخضر. غيّر بايت واحد: حوالي نص البِتّات بتتقلب. وبعدين جرّب المنتحل: البايتات شكلها سليم، بس التوقيع بيفشل."
    },
    "transition": {
     "type": "fade"
@@ -3806,8 +3806,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "One byte changed: half flips",
-       "ar-EG": "بايت اتغيّر: النص اتقلب"
+       "en": "One byte changed: half the bits flip",
+       "ar-EG": "بايت اتغيّر: نص البِتّات اتقلب"
       },
       "anim": [
        {
@@ -4124,7 +4124,7 @@
    "template": "summary",
    "narration": {
     "en": "Not yet: whoever posted the file posted that fingerprint too. Remember: any link in the chain can be faked. A fingerprint proves the same bytes, and a signature proves who made them. Use official sources, check both, and keep a list.",
-    "ar-EG": "لسه: اللي نشر الملف نشر البصمة دي كمان. افتكر: أي حلقة في السلسلة ممكن تتزيّف. البصمة بتثبت إن البايتات هي هي، والتوقيع بيثبت مين عملها. استخدم المصادر الرسمية، وراجع الاتنين، واعمل لستة."
+    "ar-EG": "لسه: اللي نشر الملف نشر البصمة دي كمان. افتكر: أي حلقة في السلسلة ممكن تتزيّف. البصمة بتثبت إن البايتات هي هي، والتوقيع بيثبت مين عملها. استخدم المصادر الرسمية، وراجع الاتنين، واعمل قايمة."
    },
    "content": {
     "title": {
@@ -4146,7 +4146,7 @@
      },
      {
       "en": "Official source, both checks, a list",
-      "ar-EG": "مصدر رسمي، والفحصين، ولستة"
+      "ar-EG": "مصدر رسمي، والفحصين، وقايمة"
      }
     ],
     "takeaway": {
@@ -4203,7 +4203,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it tomorrow: with the owner, look at the AI apps on a family phone. Write where each came from: the store, a shared file or a website. Remove what you can't check, and start your model list.",
-    "ar-EG": "جرّبها بكرة: مع صاحب الموبايل، بُص على تطبيقات الذكاء الاصطناعي اللي على موبايل العيلة. اكتب كل واحد جه منين: المتجر، ولا ملف متشارك، ولا موقع. امسح اللي متقدرش تتأكد منه، وابدأ لستة النماذج بتاعتك."
+    "ar-EG": "جرّبها بكرة: مع صاحب الموبايل، بُص على تطبيقات الذكاء الاصطناعي اللي على موبايل العيلة. اكتب كل واحد جه منين: المتجر، ولا ملف متشارك، ولا موقع. امسح اللي متقدرش تتأكد منه، وابدأ قايمة النماذج بتاعتك."
    },
    "transition": {
     "type": "fade"
@@ -5012,7 +5012,7 @@
       "weight": 700,
       "text": {
        "en": "Start your model list",
-       "ar-EG": "ابدأ لستة النماذج"
+       "ar-EG": "ابدأ قايمة النماذج"
       },
       "anim": [
        {

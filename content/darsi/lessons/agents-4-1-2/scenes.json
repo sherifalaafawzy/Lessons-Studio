@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "I typed just this to the agent: yes, send it. Nobody had asked me anything. It made up a message, and sent it! Wasn’t it trained to ask first?",
-    "ar-EG": "كتبت للوكيل بس: أيوه، ابعتها. محدش كان سألني أي حاجة. ألّف رسالة من عنده، وبعتها! مش هو متدرب إنه يسأل الأول؟"
+    "ar-EG": "كتبت للوكيل بس: «نعم، أرسلها». محدش كان سألني أي حاجة. ألّف رسالة من عنده، وبعتها! مش هو متدرب إنه يسأل الأول؟"
    },
    "transition": {
     "type": "cut"
@@ -90,7 +90,7 @@
       "weight": 700,
       "text": {
        "en": "I typed just this to the agent: yes, send it.",
-       "ar-EG": "كتبت للوكيل بس: أيوه، ابعتها."
+       "ar-EG": "كتبت للوكيل بس: «نعم، أرسلها»."
       },
       "anim": [
        {
@@ -460,7 +460,7 @@
       "weight": 700,
       "text": {
        "en": "A made-up message, sent",
-       "ar-EG": "رسالة متألّفة، واتبعتت"
+       "ar-EG": "رسالة مفبركة، واتبعتت"
       },
       "anim": [
        {
@@ -853,8 +853,8 @@
    "id": "s04",
    "template": "canvas",
    "narration": {
-    "en": "Darsi Tiny learned to ask before sending. But learned behaviour can fail. Refusals worded in new ways got a tool call twenty-eight percent of the time in English, and twelve percent in Arabic. A promise to ask is not a lock.",
-    "ar-EG": "«درسي الصغير» اتعلم يسأل قبل ما يبعت. بس السلوك المتعلَّم ممكن يفشل. طلبات كان المفروض يرفضها، لما اتكتبت بصيغ جديدة، خدت طلب أداة تمانية وعشرين في المية من المرات بالإنجليزي، واتناشر في المية بالعربي. والوعد إنه يسأل مش قفل."
+    "en": "Darsi Tiny learned to ask before sending. But learned behaviour can fail. Requests it should refuse, worded in new ways, still got a tool call twenty-eight percent of the time in English, and twelve percent in Arabic. A promise to ask is not a lock.",
+    "ar-EG": "«درسي الصغير» اتعلم يسأل قبل ما يبعت. بس السلوك المتعلَّم ممكن يفشل. طلبات كان المفروض يرفضها، لما اتكتبت بصيغ جديدة، خدت استدعاء أداة تمانية وعشرين في المية من المرات بالإنجليزي، واتناشر في المية بالعربي. والوعد إنه يسأل مش قفل."
    },
    "transition": {
     "type": "fade"
@@ -937,12 +937,12 @@
       "type": "table",
       "cols": [
        {
-        "en": "Refusals in new wordings",
-        "ar-EG": "رفض بصيغ جديدة"
+        "en": "Requests to refuse, new wordings",
+        "ar-EG": "طلبات المفروض تترفض، بصيغ جديدة"
        },
        {
         "en": "Got a tool call",
-        "ar-EG": "خد طلب أداة"
+        "ar-EG": "خدت استدعاء أداة"
        }
       ],
       "rows": [
@@ -968,7 +968,7 @@
          {
           "at": {
            "word": {
-            "en": "Refusals",
+            "en": "Requests",
             "ar-EG": "طلبات"
            },
            "offset": 0
@@ -978,7 +978,7 @@
          {
           "at": {
            "word": {
-            "en": "Refusals",
+            "en": "Requests",
             "ar-EG": "طلبات"
            },
            "offset": 1.5
@@ -994,7 +994,7 @@
          {
           "at": {
            "word": {
-            "en": "Refusals",
+            "en": "Requests",
             "ar-EG": "طلبات"
            }
           },
@@ -1013,7 +1013,7 @@
    "template": "canvas",
    "narration": {
     "en": "So the check belongs in code, outside the model. Before any action runs, the app asks: did the model ask this person about this exact action, and did they say yes? If not, the call is blocked, however it’s worded.",
-    "ar-EG": "علشان كده المراجعة مكانها الكود، برّه النموذج. قبل أي تصرّف، التطبيق بيسأل: النموذج سأل الشخص ده عن التصرّف ده بالظبط، وهو قال أيوه؟ لو لأ، الطلب بيتمنع، مهما كانت صيغته."
+    "ar-EG": "علشان كده التحقق مكانه الكود، برّه النموذج. قبل أي تصرّف، التطبيق بيسأل: النموذج سأل الشخص ده عن التصرّف ده بالظبط، وهو قال أيوه؟ لو لأ، الاستدعاء بيتمنع، مهما كانت صيغته."
    },
    "transition": {
     "type": "fade"
@@ -1041,7 +1041,7 @@
         "glyph": "shield",
         "label": {
          "en": "The code check",
-         "ar-EG": "مراجعة الكود"
+         "ar-EG": "التحقق في الكود"
         }
        },
        {
@@ -1203,7 +1203,7 @@
           "at": {
            "word": {
             "en": "not",
-            "ar-EG": "الطلب"
+            "ar-EG": "الاستدعاء"
            },
            "offset": 0.3
           },
@@ -1213,7 +1213,7 @@
           "at": {
            "word": {
             "en": "not",
-            "ar-EG": "الطلب"
+            "ar-EG": "الاستدعاء"
            },
            "offset": 1.1
           },
@@ -1224,7 +1224,7 @@
           "at": {
            "word": {
             "en": "not",
-            "ar-EG": "الطلب"
+            "ar-EG": "الاستدعاء"
            },
            "offset": 1.3
           },
@@ -1234,7 +1234,7 @@
           "at": {
            "word": {
             "en": "not",
-            "ar-EG": "الطلب"
+            "ar-EG": "الاستدعاء"
            },
            "offset": 2.1
           },
@@ -1253,7 +1253,7 @@
    "template": "canvas",
    "narration": {
     "en": "Here’s that check in code. It looks up the tool’s level, and a tool missing from the table counts as off. Allowed tools run. Ask-first tools run only after a yes. Everything else is blocked.",
-    "ar-EG": "دي المراجعة دي في الكود. بيدوّر على مستوى الأداة، والأداة اللي مش في الجدول تتحسب مقفولة. الأدوات المسموحة تشتغل. وأدوات «يسأل الأول» تشتغل بعد الموافقة بس. وأي حاجة تانية تتمنع."
+    "ar-EG": "ده التحقق في الكود. بيدوّر على مستوى الأداة، والأداة اللي مش في الجدول تتحسب مقفولة. الأدوات المسموحة تشتغل. وأدوات «يسأل الأول» تشتغل بعد الموافقة بس. وأي حاجة تانية تتمنع."
    },
    "transition": {
     "type": "fade"
@@ -1270,7 +1270,7 @@
       "weight": 800,
       "text": {
        "en": "The check, in a few lines",
-       "ar-EG": "المراجعة في كام سطر"
+       "ar-EG": "التحقق في كام سطر"
       },
       "anim": [
        {
@@ -1280,7 +1280,7 @@
           "at": {
            "word": {
             "en": "Here’s",
-            "ar-EG": "المراجعة"
+            "ar-EG": "التحقق"
            },
            "offset": 0
           },
@@ -1290,7 +1290,7 @@
           "at": {
            "word": {
             "en": "Here’s",
-            "ar-EG": "المراجعة"
+            "ar-EG": "التحقق"
            },
            "offset": 0.5
           },
@@ -1306,7 +1306,7 @@
           "at": {
            "word": {
             "en": "Here’s",
-            "ar-EG": "المراجعة"
+            "ar-EG": "التحقق"
            },
            "offset": 0
           },
@@ -1316,7 +1316,7 @@
           "at": {
            "word": {
             "en": "Here’s",
-            "ar-EG": "المراجعة"
+            "ar-EG": "التحقق"
            },
            "offset": 0.3
           },
@@ -1377,7 +1377,7 @@
    "template": "canvas",
    "narration": {
     "en": "Every action also goes in a log: what was asked, the exact call, who approved it and when. When a parent asks about a message, the log answers. Blocked calls go in too: they show where the agent slips.",
-    "ar-EG": "وكل تصرّف بيتسجّل في سجل: إيه اللي اتطلب، والطلب بالظبط، ومين وافق وإمتى. ولما ولي أمر يسأل عن رسالة، السجل يجاوب. والطلبات اللي اتمنعت بتتسجّل كمان: بتوريك الوكيل بيغلط فين."
+    "ar-EG": "وكل تصرّف بيتسجّل في سجل: إيه اللي اتطلب، والاستدعاء بالظبط، ومين وافق وإمتى. ولما ولي أمر يسأل عن رسالة، السجل يجاوب. والاستدعاءات اللي اتمنعت بتتسجّل كمان: بتوريك الوكيل بيغلط فين."
    },
    "transition": {
     "type": "fade"
@@ -1790,7 +1790,7 @@
       "weight": 700,
       "text": {
        "en": "The exact call",
-       "ar-EG": "الطلب بالظبط"
+       "ar-EG": "الاستدعاء بالظبط"
       },
       "anim": [
        {
@@ -2065,7 +2065,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2075,7 +2075,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.4
           },
@@ -2091,7 +2091,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2101,7 +2101,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.15
           },
@@ -2129,7 +2129,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2139,7 +2139,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.45
           },
@@ -2155,7 +2155,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2165,7 +2165,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.15
           },
@@ -2186,7 +2186,7 @@
       "weight": 700,
       "text": {
        "en": "Blocked calls too",
-       "ar-EG": "والطلبات الممنوعة كمان"
+       "ar-EG": "والاستدعاءات الممنوعة كمان"
       },
       "anim": [
        {
@@ -2196,7 +2196,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2206,7 +2206,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.45
           },
@@ -2222,7 +2222,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0
           },
@@ -2232,7 +2232,7 @@
           "at": {
            "word": {
             "en": "Blocked",
-            "ar-EG": "والطلبات"
+            "ar-EG": "والاستدعاءات"
            },
            "offset": 0.3
           },
@@ -2295,7 +2295,7 @@
     "answer": "b",
     "explain": {
      "en": "Correct — what a model learned can fail on new wordings, or on yes, send it on its own. A check in code doesn’t guess.",
-     "ar-EG": "صح — اللي النموذج اتعلمه ممكن يفشل مع صيغ جديدة، أو مع «أيوه، ابعتها» لوحدها. ومراجعة الكود مش بتخمّن."
+     "ar-EG": "صح — اللي النموذج اتعلمه ممكن يفشل مع صيغ جديدة، أو مع «نعم، أرسلها» لوحدها. والتحقق في الكود مش بيخمّن."
     }
    },
    "speaker": "farah"
@@ -2305,7 +2305,7 @@
    "template": "canvas",
    "narration": {
     "en": "Because learned behaviour can fail. New wordings slip past it, and on its own, yes, send it made the model invent a message. The code check doesn’t guess: no yes to this exact action, no action.",
-    "ar-EG": "لأن السلوك المتعلَّم ممكن يفشل. الصيغ الجديدة بتعدّي منه، و«أيوه، ابعتها» لوحدها خلّت النموذج يألّف رسالة. لكن مراجعة الكود مش بتخمّن: مفيش موافقة على التصرّف ده بالظبط، يبقى مفيش تصرّف."
+    "ar-EG": "لأن السلوك المتعلَّم ممكن يفشل. الصيغ الجديدة بتعدّي منه، و«نعم، أرسلها» لوحدها خلّت النموذج يألّف رسالة. بس التحقق في الكود مش بيخمّن: مفيش موافقة على التصرّف ده بالظبط، يبقى مفيش تصرّف."
    },
    "transition": {
     "type": "fade"
@@ -2457,7 +2457,7 @@
        },
        {
         "en": "The code check",
-        "ar-EG": "مراجعة الكود"
+        "ar-EG": "التحقق في الكود"
        }
       ],
       "rows": [
@@ -2468,7 +2468,7 @@
         },
         {
          "en": "Doesn’t guess",
-         "ar-EG": "مش بتخمّن"
+         "ar-EG": "مش بيخمّن"
         }
        ],
        [
@@ -2516,7 +2516,7 @@
           "at": {
            "word": {
             "en": "code",
-            "ar-EG": "لكن"
+            "ar-EG": "التحقق"
            }
           },
           "value": 2,
@@ -2534,7 +2534,7 @@
    "template": "canvas",
    "narration": {
     "en": "Now look at this code. When the model asks to send a message, the app just sends it. Nothing checks that a person said yes, so one slip becomes a message to every parent.",
-    "ar-EG": "بص بقى على الكود ده. لما النموذج يطلب يبعت رسالة، التطبيق بيبعتها على طول. مفيش حاجة بتراجع إن إنسان وافق، فغلطة واحدة تبقى رسالة لكل أولياء الأمور."
+    "ar-EG": "بص بقى على الكود ده. لما النموذج يطلب يبعت رسالة، التطبيق بيبعتها على طول. مفيش حاجة بتتأكد إن إنسان وافق، فغلطة واحدة تبقى رسالة لكل أولياء الأمور."
    },
    "transition": {
     "type": "fade"
@@ -2551,7 +2551,7 @@
       "weight": 800,
       "text": {
        "en": "Spot the missing check",
-       "ar-EG": "فين المراجعة الناقصة؟"
+       "ar-EG": "فين التحقق الناقص؟"
       },
       "anim": [
        {
@@ -2702,7 +2702,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the app, send the message to Mrs Mensah: it asks first, so say no, then yes. Then switch the code check off, choose Allowed, and send yes, send it on its own. Switch the check on and try again.",
-    "ar-EG": "في التطبيق، ابعت الرسالة للأستاذة مينسا: هيسألك الأول، فقول لأ، وبعدين أيوه. وبعدين اقفل مراجعة الكود، واختار «مسموح»، وابعت «أيوه، ابعتها» لوحدها. شغّل المراجعة تاني وجرّب."
+    "ar-EG": "في التطبيق، ابعت الرسالة للأستاذة مينسا: هيسألك الأول، فقول لأ، وبعدين أيوه. وبعدين اقفل «تحقّق من الموافقة في الكود»، واختار «مسموح»، وابعت «نعم، أرسلها» لوحدها. شغّل التحقق تاني وجرّب."
    },
    "transition": {
     "type": "fade"
@@ -3313,7 +3313,7 @@
       "weight": 700,
       "text": {
        "en": "Check off: sent",
-       "ar-EG": "المراجعة مقفولة: اتبعتت"
+       "ar-EG": "التحقق مقفول: اتبعتت"
       },
       "anim": [
        {
@@ -3511,7 +3511,7 @@
       "weight": 700,
       "text": {
        "en": "Check on: blocked",
-       "ar-EG": "المراجعة شغّالة: اتمنعت"
+       "ar-EG": "التحقق شغّال: اتمنعت"
       },
       "anim": [
        {
@@ -3576,7 +3576,7 @@
    "template": "quiz",
    "narration": {
     "en": "Your turn. The agent wants to send the fees letter to all parents. What must happen first?",
-    "ar-EG": "دورك. الوكيل عايز يبعت جواب المصاريف لكل أولياء الأمور. لازم يحصل إيه الأول؟"
+    "ar-EG": "دورك. الوكيل عايز يبعت رسالة المصاريف لكل أولياء الأمور. لازم يحصل إيه الأول؟"
    },
    "transition": {
     "type": "slide"
@@ -3592,7 +3592,7 @@
     "id": "s12-check",
     "prompt": {
      "en": "The agent wants to send the fees letter to all parents. What must happen first?",
-     "ar-EG": "الوكيل عايز يبعت جواب المصاريف لكل أولياء الأمور. لازم يحصل إيه الأول؟"
+     "ar-EG": "الوكيل عايز يبعت رسالة المصاريف لكل أولياء الأمور. لازم يحصل إيه الأول؟"
     },
     "options": [
      {
@@ -3613,7 +3613,7 @@
       "id": "c",
       "text": {
        "en": "The checker counts the words",
-       "ar-EG": "المدقِّق يعدّ الكلمات"
+       "ar-EG": "المدقّق يعدّ الكلمات"
       }
      }
     ],
@@ -3630,7 +3630,7 @@
    "template": "summary",
    "narration": {
     "en": "A named person reads the exact message and says yes. Remember: every tool gets a permission level. Approval is checked in code, never only by the model. And every action is logged, blocked ones too.",
-    "ar-EG": "إنسان معروف بالاسم يقرا الرسالة بالظبط ويقول أيوه. افتكر: كل أداة ليها مستوى صلاحية. والموافقة بتتراجع في الكود، مش بالنموذج لوحده أبدًا. وكل تصرّف بيتسجّل، حتى اللي اتمنع."
+    "ar-EG": "إنسان معروف بالاسم يقرا الرسالة بالظبط ويقول أيوه. افتكر: كل أداة ليها مستوى صلاحية. والتأكد من الموافقة بيبقى في الكود، مش عند النموذج لوحده أبدًا. وكل تصرّف بيتسجّل، حتى اللي اتمنع."
    },
    "content": {
     "title": {
@@ -3644,7 +3644,7 @@
      },
      {
       "en": "Approval checked in code",
-      "ar-EG": "الموافقة بتتراجع في الكود"
+      "ar-EG": "التأكد من الموافقة في الكود"
      },
      {
       "en": "Log every action",
@@ -3668,7 +3668,7 @@
     {
      "word": {
       "en": "Approval",
-      "ar-EG": "والموافقة"
+      "ar-EG": "والتأكد"
      },
      "action": "reveal",
      "target": "2"
@@ -3696,7 +3696,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it in class tomorrow: run an approval drill. One pupil is the agent and hands over action cards. Another is the code check, with the permissions table, and blocks any action card without a signed yes.",
-    "ar-EG": "جرّبها في الفصل بكرة: اعملوا تمرين موافقة. تلميذ يبقى الوكيل ويسلّم كروت تصرّفات. وتلميذ تاني يبقى مراجعة الكود، ومعاه جدول الصلاحيات، ويمنع أي كارت تصرّف من غير موافقة موقّعة."
+    "ar-EG": "جرّبها في الفصل بكرة: اعملوا تمرين موافقة. تلميذ يبقى الوكيل ويسلّم كروت تصرّفات. وتلميذ تاني يبقى التحقق في الكود، ومعاه جدول الصلاحيات، ويمنع أي كارت تصرّف من غير موافقة موقّعة."
    },
    "transition": {
     "type": "fade"
@@ -4307,7 +4307,7 @@
       "weight": 700,
       "text": {
        "en": "The check holds the table",
-       "ar-EG": "المراجعة معاها الجدول"
+       "ar-EG": "التحقق معاه الجدول"
       },
       "anim": [
        {

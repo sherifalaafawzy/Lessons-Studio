@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "A colleague asked me: where does an agent keep its plan, its tool calls and its memory? The answer surprises people. It’s all one long text. Let’s open it up.",
-    "ar-EG": "زميل سألني: الوكيل بيحتفظ بخطته وطلبات الأدوات وذاكرته فين؟ الإجابة بتفاجئ ناس كتير. كله نص واحد طويل. يلا نفتحه."
+    "ar-EG": "زميل سألني: الوكيل بيحتفظ بخطته واستدعاءات الأدوات وذاكرته فين؟ الإجابة بتفاجئ ناس كتير. كله نص واحد طويل. يلا نفتحه."
    },
    "transition": {
     "type": "cut"
@@ -90,7 +90,7 @@
       "weight": 700,
       "text": {
        "en": "A colleague asked me: where does an agent keep its plan, its tool calls and its memory?",
-       "ar-EG": "زميل سألني: الوكيل بيحتفظ بخطته وطلبات الأدوات وذاكرته فين؟"
+       "ar-EG": "زميل سألني: الوكيل بيحتفظ بخطته واستدعاءات الأدوات وذاكرته فين؟"
       },
       "anim": [
        {
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "Darsi Tiny reads one text, top to bottom. Small markers split it into parts: the tools that are on, your request, its plan, its call, the result. Each marker is a single token, and nobody can fake one by typing it.",
-    "ar-EG": "«درسي الصغير» بيقرا نص واحد، من أوله لآخره. علامات صغيرة بتقسّمه أجزاء: الأدوات الشغالة، وطلبك، وخطته، وطلب الأداة، والنتيجة. كل علامة توكن واحد، ومحدش يقدر يزوّرها بإنه يكتبها."
+    "ar-EG": "«درسي الصغير» بيقرا نص واحد، من أوله لآخره. علامات صغيرة بتقسّمه أجزاء: الأدوات الشغالة، وطلبك، وخطته، واستدعاء الأداة، والنتيجة. كل علامة توكن واحد، ومحدش يقدر يزوّرها بإنه يكتبها."
    },
    "transition": {
     "type": "fade"
@@ -976,7 +976,7 @@
    "template": "canvas",
    "narration": {
     "en": "The model writes three kinds of part: the plan, the call and the answer. The app writes everything else: the tools line, your request and every result. After a call, the model stops and waits.",
-    "ar-EG": "النموذج بيكتب تلات أنواع من الأجزاء: الخطة، وطلب الأداة، والجواب. والتطبيق بيكتب كل الباقي: سطر الأدوات، وطلبك، وكل نتيجة. وبعد طلب الأداة، النموذج بيقف ويستنى."
+    "ar-EG": "النموذج بيكتب تلات أنواع من الأجزاء: الخطة، واستدعاء الأداة، والجواب. والتطبيق بيكتب كل الباقي: سطر الأدوات، وطلبك، وكل نتيجة. وبعد استدعاء الأداة، النموذج بيقف ويستنى."
    },
    "transition": {
     "type": "fade"
@@ -1081,7 +1081,7 @@
        [
         {
          "en": "The tool call",
-         "ar-EG": "طلب الأداة"
+         "ar-EG": "استدعاء الأداة"
         },
         {
          "en": "Your request",
@@ -1136,7 +1136,7 @@
    "template": "canvas",
    "narration": {
     "en": "So the loop is the app, adding to one text. It sends the text so far, and the model writes a call. The app runs the tool and adds the result. Then it sends the text again, until the model answers.",
-    "ar-EG": "يبقى الحلقة هي التطبيق وهو بيزوّد على نص واحد. يبعت النص لحد دلوقتي، والنموذج يكتب طلب أداة. التطبيق يشغّل الأداة ويضيف النتيجة. وبعدين يبعت النص تاني، لحد ما النموذج يجاوب."
+    "ar-EG": "يبقى الحلقة هي التطبيق وهو بيزوّد على نص واحد. يبعت النص لحد دلوقتي، والنموذج يكتب استدعاء أداة. التطبيق يشغّل الأداة ويضيف النتيجة. وبعدين يبعت النص تاني، لحد ما النموذج يجاوب."
    },
    "transition": {
     "type": "fade"
@@ -1190,7 +1190,7 @@
         "to": "app",
         "label": {
          "en": "A tool call",
-         "ar-EG": "طلب أداة"
+         "ar-EG": "استدعاء أداة"
         },
         "reply": true
        },
@@ -1393,7 +1393,7 @@
    "template": "canvas",
    "narration": {
     "en": "Ask for the trip from Kafi to Dala, and the text grows twice. First a route call, and its result: seventy kilometres. Then a weather call for Dala, and its result. Only then does Darsi Tiny write the answer.",
-    "ar-EG": "اطلب الرحلة من كافي لدالا، والنص هيكبر مرتين. الأول طلب لأداة الطريق، ونتيجته: سبعين كيلومتر. وبعدين طلب لأداة الطقس في دالا، ونتيجته. وبعد كده بس «درسي الصغير» يكتب الجواب."
+    "ar-EG": "اطلب الرحلة من كافي لدالا، والنص هيكبر مرتين. الأول استدعاء لأداة الطريق، ونتيجته: سبعين كيلومتر. وبعدين استدعاء لأداة الطقس في دالا، ونتيجته. وبعد كده بس «درسي الصغير» يكتب الجواب."
    },
    "transition": {
     "type": "fade"
@@ -1608,7 +1608,7 @@
       "weight": 700,
       "text": {
        "en": "Call: route, Kafi to Dala",
-       "ar-EG": "طلب: الطريق من كافي لدالا"
+       "ar-EG": "استدعاء: الطريق من كافي لدالا"
       },
       "anim": [
        {
@@ -2004,7 +2004,7 @@
       "weight": 700,
       "text": {
        "en": "Call: weather in Dala",
-       "ar-EG": "طلب: الطقس في دالا"
+       "ar-EG": "استدعاء: الطقس في دالا"
       },
       "anim": [
        {
@@ -2332,7 +2332,7 @@
    "template": "quiz",
    "narration": {
     "en": "Quick check! After Darsi Tiny writes a weather call, who writes the result into the text?",
-    "ar-EG": "سؤال سريع! بعد ما «درسي الصغير» يكتب طلب لأداة الطقس، مين اللي بيكتب النتيجة في النص؟"
+    "ar-EG": "سؤال سريع! بعد ما «درسي الصغير» يكتب استدعاء لأداة الطقس، مين اللي بيكتب النتيجة في النص؟"
    },
    "transition": {
     "type": "slide"
@@ -2348,7 +2348,7 @@
     "id": "s07-check",
     "prompt": {
      "en": "After Darsi Tiny writes a weather call, who writes the result into the text?",
-     "ar-EG": "بعد ما «درسي الصغير» يكتب طلب لأداة الطقس، مين اللي بيكتب النتيجة في النص؟"
+     "ar-EG": "بعد ما «درسي الصغير» يكتب استدعاء لأداة الطقس، مين اللي بيكتب النتيجة في النص؟"
     },
     "options": [
      {
@@ -2376,7 +2376,7 @@
     "answer": "b",
     "explain": {
      "en": "Correct — the app runs the tool and adds its result. The model stops after a call and waits, so it never invents a result.",
-     "ar-EG": "صح — التطبيق بيشغّل الأداة ويضيف نتيجتها. والنموذج بيقف بعد الطلب ويستنى، فعمره ما يألّف نتيجة."
+     "ar-EG": "صح — التطبيق بيشغّل الأداة ويضيف نتيجتها. والنموذج بيقف بعد الاستدعاء ويستنى، فعمره ما يألّف نتيجة."
     }
    },
    "speaker": "salma"
@@ -2386,7 +2386,7 @@
    "template": "canvas",
    "narration": {
     "en": "The app, from the tool. Darsi Tiny was trained to stop after a call and wait. A model that wrote its own result would be inventing data, so a good app never allows it.",
-    "ar-EG": "التطبيق، من الأداة. «درسي الصغير» اتدرب إنه يقف بعد طلب الأداة ويستنى. ولو النموذج كتب النتيجة بنفسه يبقى بيألّف بيانات، فالتطبيق الكويس عمره ما يسمح بكده."
+    "ar-EG": "التطبيق، من الأداة. «درسي الصغير» اتدرب إنه يقف بعد استدعاء الأداة ويستنى. ولو النموذج كتب النتيجة بنفسه يبقى بيألّف بيانات، فالتطبيق الكويس عمره ما يسمح بكده."
    },
    "transition": {
     "type": "fade"
@@ -2743,7 +2743,7 @@
       "weight": 700,
       "text": {
        "en": "The model stops after a call",
-       "ar-EG": "النموذج بيقف بعد الطلب"
+       "ar-EG": "النموذج بيقف بعد الاستدعاء"
       },
       "anim": [
        {
@@ -2941,7 +2941,7 @@
       "weight": 700,
       "text": {
        "en": "Its own result = invented data",
-       "ar-EG": "نتيجة من عنده = بيانات متألّفة"
+       "ar-EG": "نتيجة من عنده = بيانات مفبركة"
       },
       "anim": [
        {
@@ -3195,7 +3195,7 @@
    "template": "canvas",
    "narration": {
     "en": "But what if the model never answers? It could call the same tool again and again, and the loop would run forever, using battery and data. So real agents have a step limit, then stop and tell the person.",
-    "ar-EG": "بس لو النموذج عمره ما جاوب؟ ممكن يطلب نفس الأداة تاني وتالت، والحلقة تفضل شغالة على طول، وتصرف بطارية وباقة. علشان كده الوكلاء الحقيقيين ليهم حد لعدد الخطوات، وبعده يقفوا ويقولوا للشخص."
+    "ar-EG": "بس لو النموذج عمره ما جاوب؟ ممكن يستدعي نفس الأداة تاني وتالت، والحلقة تفضل شغالة على طول، وتصرف بطارية وباقة. علشان كده الوكلاء الحقيقيين ليهم حد لعدد الخطوات، وبعده يقفوا ويقولوا للشخص."
    },
    "transition": {
     "type": "fade"
@@ -3367,7 +3367,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the app, open What Darsi Tiny sees, then press One step. Watch the text grow: plan, call, result, answer. Then run the trip from Kafi to Dala, and count the calls.",
-    "ar-EG": "في التطبيق، افتح «اللي بيشوفه درسي الصغير»، ودوس «خطوة واحدة». اتفرج على النص وهو بيكبر: خطة، طلب، نتيجة، جواب. وبعدين شغّل الرحلة من كافي لدالا، وعدّ الطلبات."
+    "ar-EG": "في التطبيق، افتح «اللي بيشوفه درسي الصغير»، ودوس «خطوة واحدة». اتفرج على النص وهو بيكبر: خطة، استدعاء، نتيجة، جواب. وبعدين شغّل الرحلة من كافي لدالا، وعدّ الاستدعاءات."
    },
    "transition": {
     "type": "fade"
@@ -4176,7 +4176,7 @@
       "weight": 700,
       "text": {
        "en": "Kafi to Dala: count calls",
-       "ar-EG": "كافي لدالا: عدّ الطلبات"
+       "ar-EG": "كافي لدالا: عدّ الاستدعاءات"
       },
       "anim": [
        {
@@ -4241,7 +4241,7 @@
    "template": "quiz",
    "narration": {
     "en": "Your turn. My agent keeps calling the weather tool, and never answers. What should the app have?",
-    "ar-EG": "دورك. الوكيل بتاعي فضل يطلب أداة الطقس، ومش بيجاوب أبدًا. التطبيق كان المفروض يبقى فيه إيه؟"
+    "ar-EG": "دورك. الوكيل بتاعي فضل يستدعي أداة الطقس، ومش بيجاوب أبدًا. التطبيق كان المفروض يبقى فيه إيه؟"
    },
    "transition": {
     "type": "slide"
@@ -4257,7 +4257,7 @@
     "id": "s12-check",
     "prompt": {
      "en": "An agent keeps calling the weather tool and never answers. What should the app have?",
-     "ar-EG": "وكيل فضل يطلب أداة الطقس ومش بيجاوب أبدًا. التطبيق كان المفروض يبقى فيه إيه؟"
+     "ar-EG": "وكيل فضل يستدعي أداة الطقس ومش بيجاوب أبدًا. التطبيق كان المفروض يبقى فيه إيه؟"
     },
     "options": [
      {
@@ -4295,7 +4295,7 @@
    "template": "summary",
    "narration": {
     "en": "A step limit, so the loop stops and tells a person. Remember: it’s all one text, with markers. The model writes plans, calls and answers, and the app adds the results. And every loop needs a stop.",
-    "ar-EG": "حد لعدد الخطوات، علشان الحلقة تقف وتقول لحد. افتكر: كله نص واحد، بعلامات. النموذج بيكتب الخطط وطلبات الأدوات والأجوبة، والتطبيق بيضيف النتايج. وكل حلقة لازم يبقى ليها وقفة."
+    "ar-EG": "حد لعدد الخطوات، علشان الحلقة تقف وتقول لحد. افتكر: كله نص واحد، بعلامات. النموذج بيكتب الخطط واستدعاءات الأدوات والأجوبة، والتطبيق بيضيف النتايج. وكل حلقة لازم يبقى ليها وقفة."
    },
    "content": {
     "title": {
