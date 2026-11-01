@@ -5,8 +5,8 @@
    "id": "s01",
    "template": "canvas",
    "narration": {
-    "en": "Jon Bentley once asked professional programmers to write binary search, about a dozen lines of code. Around ninety percent of their programs had bugs. Most of them broke at the edges.",
-    "ar-EG": "جون بنتلي طلب مرة من مبرمجين محترفين يكتبوا البحث الثنائي، حوالي اتناشر سطر كود. وحوالي تسعين في المية من برامجهم كان فيها أخطاء. ومعظمها كان بيبوظ عند الأطراف."
+    "en": "Jon Bentley once asked professional programmers to write binary search, about a dozen lines of code. Around ninety percent of them had bugs in it. Off-by-one mistakes at the edges are a common kind of bug.",
+    "ar-EG": "جون بنتلي طلب مرة من مبرمجين محترفين يكتبوا البحث الثنائي، حوالي اتناشر سطر كود. وحوالي تسعين في المية منهم كان في البحث بتاعهم أخطاء. وغلطة الواحد الزيادة أو الناقص عند الأطراف من الأخطاء المنتشرة."
    },
    "transition": {
     "type": "cut"
@@ -89,8 +89,8 @@
       "size": 34,
       "weight": 700,
       "text": {
-       "en": "Most of them broke at the edges.",
-       "ar-EG": "معظمها كان بيبوظ عند الأطراف."
+       "en": "Write binary search: about a dozen lines.",
+       "ar-EG": "اكتبوا البحث الثنائي: حوالي اتناشر سطر."
       },
       "anim": [
        {
@@ -536,8 +536,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -546,8 +546,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.4
           },
@@ -562,8 +562,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -572,8 +572,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.15
           },
@@ -600,8 +600,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -610,8 +610,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.45
           },
@@ -626,8 +626,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -636,8 +636,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.15
           },
@@ -657,8 +657,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Broken at the edges",
-       "ar-EG": "بايظة عند الأطراف"
+       "en": "Edges: a common place for bugs",
+       "ar-EG": "الأطراف: مكان منتشر للأخطاء"
       },
       "anim": [
        {
@@ -667,8 +667,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -677,8 +677,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.45
           },
@@ -693,8 +693,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0
           },
@@ -703,8 +703,8 @@
          {
           "at": {
            "word": {
-            "en": "Most",
-            "ar-EG": "ومعظمها"
+            "en": "Off-by-one",
+            "ar-EG": "وغلطة"
            },
            "offset": 0.3
           },
@@ -2580,6 +2580,10 @@
     "explain": {
      "en": "Correct — edge cases like all-negative values break code that ordinary data never tests.",
      "ar-EG": "صح — الحالات الطرفية زي القيم السالبة كلها بتكسر كود البيانات العادية عمرها ما بتختبره."
+    },
+    "explainWrong": {
+     "en": "Not quite — ordinary data passes even buggy code. Test the edges: here, a list of only negatives.",
+     "ar-EG": "مش بالظبط — البيانات العادية بتعدّي حتى الكود الغلط. اختبر الأطراف: هنا ليست كلها سالبة."
     }
    },
    "speaker": "joseph"
@@ -6120,6 +6124,10 @@
     "explain": {
      "en": "Correct — red first: a failing test says exactly what the code must do.",
      "ar-EG": "صح — الأحمر الأول: الاختبار اللي بيفشل بيقول بالظبط الكود لازم يعمل إيه."
+    },
+    "explainWrong": {
+     "en": "Not quite — test-first starts red: write a test that fails, then the simplest code that passes it.",
+     "ar-EG": "مش بالظبط — الاختبار أولًا بيبدأ بالأحمر: اكتب اختبار بيفشل، وبعدين أبسط كود يعدّيه."
     }
    },
    "speaker": "salma"
@@ -6155,8 +6163,8 @@
      }
     ],
     "takeaway": {
-     "en": "Bugs live at the edges: test there first.",
-     "ar-EG": "الأخطاء عايشة عند الأطراف: اختبر هناك الأول."
+     "en": "Bugs often hide at the edges: test there first.",
+     "ar-EG": "الأخطاء كتير بتستخبى عند الأطراف: اختبر هناك الأول."
     }
    },
    "cues": [

@@ -150,7 +150,10 @@ export interface Check {
   prompt: Text;
   options: { id: string; text: Text }[];
   answer: string;
+  /** Shown after the answer; after a wrong one only when there is no explainWrong. */
   explain?: Text;
+  /** Shown after a wrong answer instead of explain, which often opens with "Correct —". */
+  explainWrong?: Text;
 }
 
 interface SceneBase {

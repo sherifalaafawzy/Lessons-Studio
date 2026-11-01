@@ -137,189 +137,193 @@ Darsi Tiny also learned to refuse harmful
 requests, and to ask before sending.
 
 35
-00:01:28.630 --> 00:01:31.230
-But reworded refusals got a tool call
+00:01:28.630 --> 00:01:30.530
+But requests it should refuse,
 
 36
-00:01:31.230 --> 00:01:33.070
-twenty-eight percent of the time in
+00:01:30.930 --> 00:01:33.030
+reworded, still got a tool call
 
 37
-00:01:33.070 --> 00:01:35.230
-English, and twelve in Arabic.
+00:01:33.030 --> 00:01:34.730
+twenty-eight percent of the time in
 
 38
-00:01:35.980 --> 00:01:38.300
-Yes, send it, on its own,
+00:01:34.730 --> 00:01:36.430
+English, and twelve in Arabic.
 
 39
-00:01:38.540 --> 00:01:40.100
-makes it invent a message.
+00:01:37.160 --> 00:01:39.480
+Yes, send it, on its own,
 
 40
-00:01:40.830 --> 00:01:42.890
-And fine-tuning changes the very
+00:01:39.720 --> 00:01:41.280
+makes it invent a message.
 
 41
-00:01:42.890 --> 00:01:44.410
-numbers behind those habits.
+00:01:42.010 --> 00:01:44.070
+And fine-tuning changes the very
 
 42
-00:01:45.780 --> 00:01:47.560
-So put the guardrails in
+00:01:44.070 --> 00:01:45.590
+numbers behind those habits.
 
 43
-00:01:47.560 --> 00:01:49.140
-code, around the model.
+00:01:46.960 --> 00:01:48.740
+So put the guardrails in
 
 44
-00:01:49.750 --> 00:01:52.190
-Give each task the fewest tools.
+00:01:48.740 --> 00:01:50.320
+code, around the model.
 
 45
-00:01:52.890 --> 00:01:55.690
-Approve the exact action, check
+00:01:50.930 --> 00:01:53.370
+Give each task the fewest tools.
 
 46
-00:01:55.690 --> 00:01:58.250
-every detail, and log everything.
+00:01:54.070 --> 00:01:56.870
+Approve the exact action, check
 
 47
-00:01:58.960 --> 00:02:00.420
-Then re-run the evaluation
+00:01:56.870 --> 00:01:59.430
+every detail, and log everything.
 
 48
-00:02:00.420 --> 00:02:01.840
-after every change.
+00:02:00.140 --> 00:02:01.600
+Then re-run the evaluation
 
 49
-00:02:03.180 --> 00:02:04.820
-Why the exact action?
+00:02:01.600 --> 00:02:03.020
+after every change.
 
 50
-00:02:05.510 --> 00:02:07.230
-If the app only remembers your
+00:02:04.360 --> 00:02:06.000
+Why the exact action?
 
 51
-00:02:07.230 --> 00:02:09.330
-yes, the model could send a
+00:02:06.690 --> 00:02:08.410
+If the app only remembers your
 
 52
-00:02:09.330 --> 00:02:10.850
-different text to someone else.
+00:02:08.410 --> 00:02:10.510
+yes, the model could send a
 
 53
-00:02:11.570 --> 00:02:13.510
-So compare what will run with
+00:02:10.510 --> 00:02:12.030
+different text to someone else.
 
 54
-00:02:13.510 --> 00:02:14.230
-what you were shown.
+00:02:12.750 --> 00:02:14.690
+So compare what will run with
 
 55
-00:02:14.900 --> 00:02:17.040
-If anything differs, ask again.
+00:02:14.690 --> 00:02:15.410
+what you were shown.
 
 56
-00:02:18.220 --> 00:02:19.280
-In this lesson’s code,
+00:02:16.080 --> 00:02:18.220
+If anything differs, ask again.
 
 57
-00:02:19.700 --> 00:02:20.880
-you’ll write the gate.
+00:02:19.400 --> 00:02:20.460
+In this lesson’s code,
 
 58
-00:02:21.620 --> 00:02:23.620
-It runs a call only if it is
+00:02:20.880 --> 00:02:22.060
+you’ll write the gate.
 
 59
-00:02:23.620 --> 00:02:25.840
-exactly the approved one, and
+00:02:22.800 --> 00:02:24.800
+It runs a call only if it is
 
 60
-00:02:25.840 --> 00:02:27.260
-logs the decision either way.
+00:02:24.800 --> 00:02:27.020
+exactly the approved one, and
 
 61
-00:02:28.440 --> 00:02:30.000
-In the app, ask about a
+00:02:27.020 --> 00:02:28.440
+logs the decision either way.
 
 62
-00:02:30.000 --> 00:02:31.100
-bus before teaching.
+00:02:29.620 --> 00:02:31.180
+In the app, ask about a
 
 63
-00:02:31.740 --> 00:02:33.360
-Teach with forty-eight old
+00:02:31.180 --> 00:02:32.280
+bus before teaching.
 
 64
-00:02:33.360 --> 00:02:35.860
-conversations mixed in, and test
+00:02:32.920 --> 00:02:34.540
+Teach with forty-eight old
 
 65
-00:02:35.860 --> 00:02:37.920
-the new tool and the old skills.
+00:02:34.540 --> 00:02:37.040
+conversations mixed in, and test
 
 66
-00:02:38.680 --> 00:02:40.700
-Then teach with none, and compare.
+00:02:37.040 --> 00:02:39.100
+the new tool and the old skills.
 
 67
-00:02:42.050 --> 00:02:42.570
-Your turn.
+00:02:39.860 --> 00:02:41.880
+Then teach with none, and compare.
 
 68
-00:02:43.200 --> 00:02:45.420
-A model has learned to ask
+00:02:43.230 --> 00:02:43.750
+Your turn.
 
 69
-00:02:45.420 --> 00:02:47.280
-before it sends a message.
+00:02:44.380 --> 00:02:46.600
+A model has learned to ask
 
 70
-00:02:47.990 --> 00:02:50.510
-Why still check the approval in code?
+00:02:46.600 --> 00:02:48.460
+before it sends a message.
 
 71
-00:02:51.760 --> 00:02:54.000
-Because learned behaviour can fail.
+00:02:49.170 --> 00:02:51.690
+Why still check the approval in code?
 
 72
-00:02:54.720 --> 00:02:58.140
-Remember: fine-tuning teaches and forgets,
+00:02:52.940 --> 00:02:55.180
+Because learned behaviour can fail.
 
 73
-00:02:58.260 --> 00:03:01.240
-so mix old examples in and test both.
+00:02:55.900 --> 00:02:59.320
+Remember: fine-tuning teaches and forgets,
 
 74
-00:03:01.940 --> 00:03:04.280
-Learned safety is not a guarantee.
+00:02:59.440 --> 00:03:02.420
+so mix old examples in and test both.
 
 75
-00:03:04.970 --> 00:03:08.970
-Guard actions in code: fewest tools, exact
+00:03:03.120 --> 00:03:05.460
+Learned safety is not a guarantee.
 
 76
-00:03:08.970 --> 00:03:12.110
-approval, checks, logs and tests.
+00:03:06.150 --> 00:03:10.150
+Guard actions in code: fewest tools, exact
 
 77
-00:03:13.340 --> 00:03:16.160
-Try it yourself: write a guardrail plan
+00:03:10.150 --> 00:03:13.290
+approval, checks, logs and tests.
 
 78
-00:03:16.160 --> 00:03:17.880
-for an agent you’d like to build.
+00:03:14.520 --> 00:03:17.340
+Try it yourself: write a guardrail plan
 
 79
-00:03:18.510 --> 00:03:20.930
-List its tools, the actions needing
+00:03:17.340 --> 00:03:19.060
+for an agent you’d like to build.
 
 80
-00:03:20.930 --> 00:03:23.570
-approval, the checks in code, the
+00:03:19.690 --> 00:03:22.110
+List its tools, the actions needing
 
 81
-00:03:23.570 --> 00:03:25.830
+00:03:22.110 --> 00:03:24.750
+approval, the checks in code, the
+
+82
+00:03:24.750 --> 00:03:27.010
 logs, and the tests you’ll re-run.

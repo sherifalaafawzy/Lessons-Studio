@@ -804,7 +804,7 @@
     },
     "hook": {
      "en": "Accuracy, mistakes and thresholds",
-     "ar-EG": "الدقة والأخطاء والعتبات"
+     "ar-EG": "الدقة والأخطاء والحدود"
     },
     "icon": "gauge"
    },
@@ -2617,7 +2617,7 @@
    "template": "canvas",
    "narration": {
     "en": "Many models give each pupil a score from zero to one. We choose a threshold, and pupils above it get a warning. Lower the threshold and you catch more pupils, but you also raise more false alarms.",
-    "ar-EG": "نماذج كتير بتدّي كل تلميذ درجة من صفر لواحد. وإحنا بنختار عتبة، واللي فوقها بياخد إنذار. لو نزّلت العتبة هتلقط تلاميذ أكتر، بس هتطلّع إنذارات كاذبة أكتر كمان."
+    "ar-EG": "نماذج كتير بتدّي كل تلميذ درجة من صفر لواحد. وإحنا بنختار حد، واللي فوقه بياخد إنذار. لو نزّلت الحد هتلقط تلاميذ أكتر، بس هتطلّع إنذارات كاذبة أكتر كمان."
    },
    "transition": {
     "type": "fade"
@@ -2634,7 +2634,7 @@
       "weight": 800,
       "text": {
        "en": "The threshold",
-       "ar-EG": "العتبة"
+       "ar-EG": "الحد"
       },
       "anim": [
        {
@@ -2737,7 +2737,7 @@
    "template": "canvas",
    "narration": {
     "en": "Choosing the threshold is not a maths question. A false alarm costs a short chat with a teacher, while a miss can cost a pupil a year. So we chose a low threshold, and a teacher always checks each warning.",
-    "ar-EG": "اختيار العتبة مش سؤال رياضة. الإنذار الكاذب بيكلّف دردشة قصيرة مع مدرس، والفوات ممكن يكلّف تلميذ سنة كاملة. فاخترنا عتبة واطية، ودايمًا فيه مدرس بيراجع كل إنذار."
+    "ar-EG": "اختيار الحد مش سؤال رياضة. الإنذار الكاذب بيكلّف دردشة قصيرة مع مدرس، والفوات ممكن يكلّف تلميذ سنة كاملة. فاخترنا حد واطي، ودايمًا فيه مدرس بيراجع كل إنذار."
    },
    "transition": {
     "type": "fade"
@@ -3523,6 +3523,10 @@
     "explain": {
      "en": "Correct: high accuracy can hide a model that misses everyone.",
      "ar-EG": "صح: الدقة العالية ممكن تخبّي نموذج بيفوّت الكل."
+    },
+    "explainWrong": {
+     "en": "Not quite: it never warns, so it misses all the pupils it was built for.",
+     "ar-EG": "مش بالظبط: عمره ما بينبّه، فبيفوّت كل التلاميذ اللي اتعمل علشانهم."
     }
    },
    "speaker": "farah"
@@ -3892,7 +3896,7 @@
    "template": "canvas",
    "narration": {
     "en": "In the app, open the threshold lab. Slide the threshold down and up, and watch the four boxes of the confusion matrix change.",
-    "ar-EG": "في التطبيق، افتح معمل العتبة. حرّك العتبة لتحت ولفوق، وشوف المربعات الأربعة في مصفوفة الالتباس بتتغير إزاي."
+    "ar-EG": "في التطبيق، افتح معمل الأخطاء والحدود. حرّك الحد لتحت ولفوق، وشوف المربعات الأربعة في مصفوفة الالتباس بتتغير إزاي."
    },
    "transition": {
     "type": "fade"
@@ -3909,7 +3913,7 @@
       "weight": 800,
       "text": {
        "en": "App lab: move the threshold",
-       "ar-EG": "معمل التطبيق: حرّك العتبة"
+       "ar-EG": "معمل التطبيق: حرّك الحد"
       },
       "anim": [
        {
@@ -4107,7 +4111,7 @@
       "weight": 700,
       "text": {
        "en": "Slide the threshold",
-       "ar-EG": "حرّك العتبة"
+       "ar-EG": "حرّك الحد"
       },
       "anim": [
        {
@@ -4500,7 +4504,7 @@
    "template": "quiz",
    "narration": {
     "en": "Your turn. What happens when we lower the threshold for a warning?",
-    "ar-EG": "دورك. إيه اللي بيحصل لما ننزّل عتبة الإنذار؟"
+    "ar-EG": "دورك. إيه اللي بيحصل لما ننزّل حد الإنذار؟"
    },
    "transition": {
     "type": "slide"
@@ -4508,7 +4512,7 @@
    "content": {
     "title": {
      "en": "Lower the threshold",
-     "ar-EG": "نزّل العتبة"
+     "ar-EG": "نزّل الحد"
     }
    },
    "check": {
@@ -4516,7 +4520,7 @@
     "id": "s11-check",
     "prompt": {
      "en": "What happens when we lower the threshold for a warning?",
-     "ar-EG": "إيه اللي بيحصل لما ننزّل عتبة الإنذار؟"
+     "ar-EG": "إيه اللي بيحصل لما ننزّل حد الإنذار؟"
     },
     "options": [
      {
@@ -4544,7 +4548,11 @@
     "answer": "b",
     "explain": {
      "en": "Correct: a lower bar warns more pupils, right and wrong.",
-     "ar-EG": "صح: العتبة الواطية بتنبّه عن تلاميذ أكتر، صح وغلط."
+     "ar-EG": "صح: الحد الواطي بينبّه عن تلاميذ أكتر، صح وغلط."
+    },
+    "explainWrong": {
+     "en": "Not quite: lowering the threshold warns more pupils, so both catches and false alarms rise.",
+     "ar-EG": "مش بالظبط: تنزيل الحد بينبّه عن تلاميذ أكتر، فاللقط والإنذارات الكاذبة بيزيدوا."
     }
    },
    "speaker": "amina"
@@ -4554,7 +4562,7 @@
    "template": "summary",
    "narration": {
     "en": "We catch more pupils, and we get more false alarms. Remember: accuracy can hide misses, count both kinds of mistake, and let people choose the threshold.",
-    "ar-EG": "بنلقط تلاميذ أكتر، وبيطلع إنذارات كاذبة أكتر. افتكر: الدقة ممكن تخبّي الفوات، وعدّ النوعين من الأخطاء، وخلّي الناس تختار العتبة."
+    "ar-EG": "بنلقط تلاميذ أكتر، وبيطلع إنذارات كاذبة أكتر. افتكر: الدقة ممكن تخبّي الفوات، وعدّ النوعين من الأخطاء، وخلّي الناس تختار الحد."
    },
    "content": {
     "title": {
@@ -4572,7 +4580,7 @@
      },
      {
       "en": "People set the threshold",
-      "ar-EG": "الناس بتحدد العتبة"
+      "ar-EG": "الناس بتختار الحد"
      }
     ],
     "takeaway": {

@@ -781,7 +781,7 @@
    "template": "canvas",
    "narration": {
     "en": "It starts with people. They collect examples — for a spam filter, lots of emails — and give each one a label, the right answer: spam, or not spam. These labelled examples are the training data.",
-    "ar-EG": "البداية بتكون من الناس. بيجمعوا أمثلة — لفلتر السبام، إيميلات كتير — وبيحطوا على كل واحد تصنيف، يعني الإجابة الصح: سبام، أو مش سبام. الأمثلة المتصنّفة دي هي بيانات التدريب."
+    "ar-EG": "البداية بتكون من الناس. بيجمعوا أمثلة — لفلتر السبام، إيميلات كتير — وبيحطوا على كل واحد تسمية، يعني الإجابة الصح: سبام، أو مش سبام. الأمثلة المتصنّفة دي هي بيانات التدريب."
    },
    "transition": {
     "type": "fade"
@@ -1421,7 +1421,7 @@
       "align": "center",
       "text": {
        "en": "Label: spam or not spam",
-       "ar-EG": "تصنيف: سبام ولا لأ"
+       "ar-EG": "تسمية: سبام ولا لأ"
       },
       "anim": [
        {
@@ -2676,7 +2676,7 @@
    "template": "steps",
    "narration": {
     "en": "Then we test the model on labelled examples it has never seen, and check its guesses against the real labels. Too many wrong? People add more examples — and more varied ones — and train it again.",
-    "ar-EG": "بعدين بنختبر النموذج على أمثلة متصنّفة عمره ما شافها، ونقارن تخميناته بالتصنيفات الحقيقية. غلط كتير؟ الناس بتزوّد أمثلة — وأمثلة متنوعة أكتر — وتدرّبه تاني."
+    "ar-EG": "بعدين بنختبر النموذج على أمثلة متصنّفة عمره ما شافها، ونقارن تخميناته بالتسميات الحقيقية. غلط كتير؟ الناس بتزوّد أمثلة — وأمثلة متنوعة أكتر — وتدرّبه تاني."
    },
    "content": {
     "title": {
@@ -2690,7 +2690,7 @@
      },
      {
       "en": "Check its guesses against the real labels",
-      "ar-EG": "قارن تخميناته بالتصنيفات الحقيقية"
+      "ar-EG": "قارن تخميناته بالتسميات الحقيقية"
      },
      {
       "en": "Too many wrong? Add more, varied examples",
@@ -4045,6 +4045,10 @@
     "explain": {
      "en": "Correct — new examples show whether it learned patterns that work beyond the examples it trained on.",
      "ar-EG": "صح — الأمثلة الجديدة بتورّينا هل اتعلم أنماط بتنفع أبعد من الأمثلة اللي اتدرب عليها."
+    },
+    "explainWrong": {
+     "en": "Not quite — the test uses examples it has never seen, to check it learned patterns rather than memorised its examples.",
+     "ar-EG": "مش بالظبط — الاختبار بيستخدم أمثلة عمره ما شافها، علشان نتأكد إنه اتعلم أنماط، مش إنه حفظ أمثلته."
     }
    },
    "speaker": "salma"
@@ -6388,6 +6392,10 @@
     "explain": {
      "en": "Correct — a prediction is a best guess about something unknown. “Is this spam?” is about now.",
      "ar-EG": "صح — التوقع هو أحسن تخمين عن حاجة مش معروفة. «دي سبام؟» سؤال عن دلوقتي."
+    },
+    "explainWrong": {
+     "en": "Not quite — predictions don’t have to be about the future. “Is this spam?” is a best guess about now.",
+     "ar-EG": "مش بالظبط — التوقعات مش لازم تكون عن المستقبل. «دي سبام؟» أحسن تخمين عن دلوقتي."
     }
    },
    "speaker": "joseph"

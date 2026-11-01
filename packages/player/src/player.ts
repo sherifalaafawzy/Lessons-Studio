@@ -590,7 +590,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const rtl = track().dir === "rtl";
     const t = (x: Parameters<typeof pick>[0]): string => pick(x, lang, m.defaultLang);
     const fb = h("p", { className: "ls-fb", "aria-live": "polite" });
-    const explain = h("p", { className: "ls-explain", hidden: true }, ...rich(t(check.explain), rtl));
+    const explain = h("p", { className: "ls-explain", hidden: true });
     const go = h("button", { className: "ls-go", type: "button", disabled: true }, labels.next);
     const opts = check.options.map((op, j) => {
       const b = h(
@@ -610,7 +610,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
         });
         fb.textContent = correct ? labels.correct : labels.wrong;
         fb.className = `ls-fb ${correct ? "is-right" : "is-wrong"}`;
-        explain.hidden = !check.explain;
+        const why = correct ? check.explain : (check.explainWrong ?? check.explain);
+        explain.replaceChildren(...(why ? rich(t(why), rtl) : []));
+        explain.hidden = !why;
         go.disabled = false;
         go.focus();
         results.set(check.id, correct);

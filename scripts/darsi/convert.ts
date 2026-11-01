@@ -342,6 +342,8 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
         options: cp!.options.map((o, i) => ({ id: "abcde"[i]!, text: tx(o.text, a?.options[i], `checkpoint ${cpi + 1} option ${i + 1}`) })),
         answer: "abcde"[cp!.options.findIndex((o) => o.correct)]!,
         explain: tx(cp!.feedback_correct, a?.feedback_correct, `checkpoint ${cpi + 1} feedback`),
+        // Without it the player would show the "Correct —" feedback after a wrong answer too.
+        ...(cp!.feedback_wrong ? { explainWrong: tx(cp!.feedback_wrong, a?.feedback_wrong, `checkpoint ${cpi + 1} wrong-answer feedback`) } : {}),
       };
       scene = { id: sid, template: "quiz", narration, transition: { type: "slide" }, content: { ...(headline ? { title: headline } : {}) }, check: q };
     } else if (layout === "recap") {

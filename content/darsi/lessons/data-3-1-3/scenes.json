@@ -3053,6 +3053,10 @@
     "explain": {
      "en": "Correct — AVG and COUNT(mark) skip NULL; COUNT(*) still counts the row.",
      "ar-EG": "صح — ⁦AVG⁩ و⁦COUNT(mark)⁩ بيتجاهلوا ⁦NULL⁩، أما ⁦COUNT(*)⁩ فبيعدّ الصف."
+    },
+    "explainWrong": {
+     "en": "Not quite — NULL isn't zero. AVG leaves it out, so the average is over the marks that exist.",
+     "ar-EG": "مش بالظبط — ⁦NULL⁩ مش صفر. ⁦AVG⁩ بتتجاهلها، فالمتوسط بيبقى على الدرجات الموجودة."
     }
    },
    "speaker": "salma"
@@ -4309,6 +4313,10 @@
     "explain": {
      "en": "Correct — HAVING filters groups after they're counted; WHERE works on rows before grouping.",
      "ar-EG": "صح — ⁦HAVING⁩ بتفلتر المجموعات بعد ما تتعدّ، و⁦WHERE⁩ بتشتغل على الصفوف قبل التجميع."
+    },
+    "explainWrong": {
+     "en": "Not quite — WHERE runs before the groups exist, so it can't use COUNT. HAVING filters the groups.",
+     "ar-EG": "مش بالظبط — ⁦WHERE⁩ بتشتغل قبل ما المجموعات تتعمل، فما تقدرش تستخدم ⁦COUNT⁩. ⁦HAVING⁩ هي اللي بتفلتر المجموعات."
     }
    },
    "speaker": "okafor"

@@ -175,6 +175,30 @@ describe("player", () => {
     expect(events).toContain("check:true");
   });
 
+  it("explains a wrong answer with its own text", async () => {
+    const answerWith = async (right: boolean) => {
+      const pkg = load("prompt-injection");
+      const scene = pkg.scenes.scenes.find((s) => s.check)!;
+      scene.check!.explain = { en: "Correct — the page hid an instruction." };
+      scene.check!.explainWrong = { en: "Not that one: the page hid an instruction." };
+      const host = document.createElement("div");
+      document.body.append(host);
+      const p = createPlayer(host, pkg, { tier: "full", orient: "landscape", now: () => nowMs });
+      players.push(p);
+      const root = host.shadowRoot!;
+      p.seek(sceneTimes(pkg, "en")[scene.id]!.end - 0.5);
+      await p.play();
+      advance(1.5);
+      const at = scene.check!.options.findIndex((o) => (o.id === scene.check!.answer) === right);
+      root.querySelectorAll<HTMLButtonElement>(".ls-opt")[at]!.click();
+      return root.querySelector<HTMLElement>(".ls-explain")!;
+    };
+    const wrong = await answerWith(false);
+    expect(wrong.hidden).toBe(false);
+    expect(wrong.textContent).toBe("Not that one: the page hid an instruction.");
+    expect((await answerWith(true)).textContent).toBe("Correct — the page hid an instruction.");
+  });
+
   it("puts a quick check under the picture in a small player, so it is never cut off", async () => {
     const { p, root, pkg } = mk("prompt-injection");
     const wrap = root.querySelector<HTMLElement>(".ls-player")!;

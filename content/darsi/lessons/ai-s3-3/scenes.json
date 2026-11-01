@@ -1733,7 +1733,7 @@
    "template": "canvas",
    "narration": {
     "en": "Then test. Show the model each test example and compare its answer with the real label. Count the right ones: seventeen out of twenty, say. That’s fair, because they were new to it.",
-    "ar-EG": "بعد كده اختبر. ورّي النموذج كل مثال من أمثلة الاختبار وقارن إجابته بالتصنيف الحقيقي. عِدّ الإجابات الصح: سبعتاشر من عشرين مثلًا. دي درجة عادلة، لأنهم كانوا جداد عليه."
+    "ar-EG": "بعد كده اختبر. ورّي النموذج كل مثال من أمثلة الاختبار وقارن إجابته بالتسمية الحقيقية. عِدّ الإجابات الصح: سبعتاشر من عشرين مثلًا. دي درجة عادلة، لأنهم كانوا جداد عليه."
    },
    "transition": {
     "type": "fade"
@@ -2966,7 +2966,7 @@
    "template": "canvas",
    "narration": {
     "en": "Why not test on the training examples? Because a model can memorise them. Overfitting is when a model is perfect on its training examples, but poor on new ones. It memorised, instead of learning the pattern.",
-    "ar-EG": "طب ليه ما نختبرش على أمثلة التدريب؟ لأن النموذج ممكن يحفظها. الإفراط في المطابقة معناه إن النموذج يبقى ممتاز في أمثلة تدريبه، وضعيف في الجديدة. يعني حفظ، بدل ما يتعلم النمط."
+    "ar-EG": "طب ليه ما نختبرش على أمثلة التدريب؟ لأن النموذج ممكن يحفظها. الإفراط في التوفيق معناه إن النموذج يبقى ممتاز في أمثلة تدريبه، وضعيف في الجديدة. يعني حفظ، بدل ما يتعلم النمط."
    },
    "transition": {
     "type": "fade"
@@ -2983,7 +2983,7 @@
       "weight": 800,
       "text": {
        "en": "Overfitting: memorised, not learned",
-       "ar-EG": "الإفراط في المطابقة: حفظ مش فهم"
+       "ar-EG": "الإفراط في التوفيق: حفظ مش فهم"
       },
       "anim": [
        {
@@ -4192,7 +4192,7 @@
       "id": "b",
       "text": {
        "en": "It memorised: overfitting",
-       "ar-EG": "حفظ: إفراط في المطابقة"
+       "ar-EG": "حفظ: إفراط في التوفيق"
       }
      },
      {
@@ -4206,7 +4206,11 @@
     "answer": "b",
     "explain": {
      "en": "Correct — a big gap between the training score and the test score is the sign of overfitting.",
-     "ar-EG": "صح — الفرق الكبير بين درجة التدريب ودرجة الاختبار هو علامة الإفراط في المطابقة."
+     "ar-EG": "صح — الفرق الكبير بين درجة التدريب ودرجة الاختبار هو علامة الإفراط في التوفيق."
+    },
+    "explainWrong": {
+     "en": "Not quite — the new photos are the honest test. Perfect on training but poor on new ones means it memorised: overfitting.",
+     "ar-EG": "مش بالظبط — الصور الجديدة هي الاختبار الأمين. ممتاز في التدريب وضعيف في الجديد يعني إنه حفظ: إفراط في التوفيق."
     }
    },
    "speaker": "salma"
@@ -4216,7 +4220,7 @@
    "template": "canvas",
    "narration": {
     "en": "It memorised: overfitting. A big gap between the training and test scores is the warning sign. More, and more varied, examples help. So does a simpler model that can’t just memorise.",
-    "ar-EG": "حفظ: إفراط في المطابقة. الفرق الكبير بين درجة التدريب ودرجة الاختبار هو جرس الإنذار. الأمثلة الأكتر والأكتر تنوعًا بتساعد. وكمان النموذج الأبسط، اللي ما يقدرش يحفظ وخلاص."
+    "ar-EG": "حفظ: إفراط في التوفيق. الفرق الكبير بين درجة التدريب ودرجة الاختبار هو جرس الإنذار. الأمثلة الأكتر والأكتر تنوعًا بتساعد. وكمان النموذج الأبسط، اللي ما يقدرش يحفظ وخلاص."
    },
    "transition": {
     "type": "fade"
@@ -6857,6 +6861,10 @@
     "explain": {
      "en": "Correct — a missed case leaves a sick person untreated, while a false alarm is caught by a second test.",
      "ar-EG": "صح — الحالة الفايتة بتسيب حد عيّان من غير علاج، لكن الإنذار الكاذب بيتكشف في تحليل تاني."
+    },
+    "explainWrong": {
+     "en": "Not quite — a false alarm leads to a second test, but a miss leaves a sick person untreated. The miss costs more.",
+     "ar-EG": "مش بالظبط — الإنذار الكاذب بيودّي لتحليل تاني، لكن الحالة الفايتة بتسيب حد عيّان من غير علاج. الفايتة أخطر."
     }
    },
    "speaker": "joseph"
@@ -6866,7 +6874,7 @@
    "template": "summary",
    "narration": {
     "en": "Missing a real case: a sick person could go untreated, while a false alarm means a second test. Remember: keep a test set apart, and count right and wrong on it. Perfect on training, poor on new examples: that’s overfitting. And decide which mistake costs more.",
-    "ar-EG": "إنه تفوته حالة حقيقية: حد عيّان ممكن ما ياخدش علاج، بس الإنذار الكاذب معناه تحليل تاني. افتكر: خلّي بيانات الاختبار على جنب، وعِدّ عليها الصح والغلط. ممتاز في التدريب وضعيف في الجديد: ده إفراط في المطابقة. واعرف أنهي غلطة بتكلّف أكتر."
+    "ar-EG": "إنه تفوته حالة حقيقية: حد عيّان ممكن ما ياخدش علاج، بس الإنذار الكاذب معناه تحليل تاني. افتكر: خلّي بيانات الاختبار على جنب، وعِدّ عليها الصح والغلط. ممتاز في التدريب وضعيف في الجديد: ده إفراط في التوفيق. واعرف أنهي غلطة بتكلّف أكتر."
    },
    "content": {
     "title": {
@@ -6945,7 +6953,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it yourself: ask a friend to memorise the answers to five sums. Then give them five new sums of the same kind. If they only memorised, they’ll struggle. Then explain overfitting, using what just happened.",
-    "ar-EG": "جرّبها بنفسك: خلّي صاحبك يحفظ إجابات خمس مسائل حساب. وبعدين إدّيله خمس مسائل جديدة من نفس النوع. لو كان حافظ وبس، هيتلخبط. وبعدين اشرحله الإفراط في المطابقة، باللي حصل ده."
+    "ar-EG": "جرّبها بنفسك: خلّي صاحبك يحفظ إجابات خمس مسائل حساب. وبعدين إدّيله خمس مسائل جديدة من نفس النوع. لو كان حافظ وبس، هيتلخبط. وبعدين اشرحله الإفراط في التوفيق، باللي حصل ده."
    },
    "transition": {
     "type": "fade"
@@ -7754,7 +7762,7 @@
       "weight": 700,
       "text": {
        "en": "Explain overfitting together",
-       "ar-EG": "اشرحله الإفراط في المطابقة"
+       "ar-EG": "اشرحله الإفراط في التوفيق"
       },
       "anim": [
        {

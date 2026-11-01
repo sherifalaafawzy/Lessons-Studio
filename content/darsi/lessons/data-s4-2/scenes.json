@@ -1568,6 +1568,10 @@
     "explain": {
      "en": "Correct — appending again writes the first rows a second time, unless the load is idempotent.",
      "ar-EG": "صح — الإضافة تاني بتكتب أول صفوف مرة تانية، إلا لو التحميل متساوي الأثر."
+    },
+    "explainWrong": {
+     "en": "Not quite — a database stores what you insert, copies included. The rows from before the failure go in twice.",
+     "ar-EG": "مش بالظبط — قاعدة البيانات بتخزّن اللي بتضيفه، والنسخ معاه. والصفوف اللي قبل الفشل بتدخل مرتين."
     }
    },
    "speaker": "joseph"
@@ -3995,6 +3999,10 @@
     "explain": {
      "en": "Correct — clearing the day first means one run or five give the same table.",
      "ar-EG": "صح — مسح اليوم الأول معناه إن تشغيل واحد أو خمسة بيدّوا نفس الجدول."
+    },
+    "explainWrong": {
+     "en": "Not quite — inserting on every run adds copies, and fixing them by hand comes too late. Delete, then insert.",
+     "ar-EG": "مش بالظبط — الإضافة في كل تشغيل بتزوّد نسخ، وتصليحها بالإيد بييجي متأخر. امسح، وبعدين ضيف."
     }
    },
    "speaker": "farah"

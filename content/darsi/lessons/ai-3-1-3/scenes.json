@@ -729,7 +729,7 @@
     },
     "hook": {
      "en": "Overfitting, mistakes and accuracy claims",
-     "ar-EG": "الإفراط في المطابقة، والأخطاء، وأرقام الدقة"
+     "ar-EG": "الإفراط في التوفيق، والأخطاء، وأرقام الدقة"
     },
     "icon": "bot"
    },
@@ -1105,7 +1105,7 @@
    "template": "canvas",
    "narration": {
     "en": "This is overfitting: learning the training examples so closely that the model does worse on new ones. The warning sign: a high training score, and a much lower test score.",
-    "ar-EG": "ده اسمه الإفراط في المطابقة: يحفظ أمثلة التدريب لدرجة إنه يبقى أسوأ في الجديد. وعلامة الخطر: درجة تدريب عالية، ودرجة اختبار أقل بكتير."
+    "ar-EG": "ده اسمه الإفراط في التوفيق: يحفظ أمثلة التدريب لدرجة إنه يبقى أسوأ في الجديد. وعلامة الخطر: درجة تدريب عالية، ودرجة اختبار أقل بكتير."
    },
    "transition": {
     "type": "fade"
@@ -1122,7 +1122,7 @@
       "weight": 800,
       "text": {
        "en": "Overfitting",
-       "ar-EG": "الإفراط في المطابقة"
+       "ar-EG": "الإفراط في التوفيق"
       },
       "anim": [
        {
@@ -2908,6 +2908,10 @@
     "explain": {
      "en": "Correct — the test set holds examples it never trained on. The 100% only shows how well it fitted its own examples.",
      "ar-EG": "صح — بيانات الاختبار فيها أمثلة عمره ما اتدرب عليها. الـ100% بتقول بس هو طابق أمثلته قد إيه."
+    },
+    "explainWrong": {
+     "en": "Not quite — the training score only shows how well it fitted its own examples. The score on examples it never saw is the one that counts.",
+     "ar-EG": "مش بالظبط — درجة التدريب بتقول بس هو طابق أمثلته قد إيه. الدرجة على أمثلة عمره ما شافها هي اللي تفرق."
     }
    },
    "speaker": "farah"
@@ -2917,7 +2921,7 @@
    "template": "canvas",
    "narration": {
     "en": "Seventy, from the test set. The hundred only shows how well it fitted its own examples, and the gap warns of overfitting. Even seventy holds only if the test examples look like your pupils.",
-    "ar-EG": "السبعين، بتاعة الاختبار. المية بتقول بس طابق أمثلته قد إيه، والفرق بيحذّر من الإفراط في المطابقة. وحتى السبعين تصدق بس لو أمثلة الاختبار شبه تلاميذك."
+    "ar-EG": "السبعين، بتاعة الاختبار. المية بتقول بس طابق أمثلته قد إيه، والفرق بيحذّر من الإفراط في التوفيق. وحتى السبعين تصدق بس لو أمثلة الاختبار شبه تلاميذك."
    },
    "transition": {
     "type": "fade"
@@ -3370,7 +3374,7 @@
       "align": "center",
       "text": {
        "en": "A big gap: overfitting",
-       "ar-EG": "فرق كبير: إفراط في المطابقة"
+       "ar-EG": "فرق كبير: إفراط في التوفيق"
       },
       "anim": [
        {
@@ -6255,6 +6259,10 @@
     "explain": {
      "en": "Correct — it said “no risk”, but she did leave: a missed case is a false negative.",
      "ar-EG": "صح — قالت «مافيش خطر»، بس هي سابت فعلًا: الحالة اللي فاتت اسمها سلبي كاذب."
+    },
+    "explainWrong": {
+     "en": "Not quite — a false positive is a false alarm. Here the tool missed a pupil who left: a false negative.",
+     "ar-EG": "مش بالظبط — الإيجابي الكاذب إنذار على الفاضي. هنا الأداة فوّتت تلميذة سابت المدرسة: ده سلبي كاذب."
     }
    },
    "speaker": "joseph"
@@ -6264,7 +6272,7 @@
    "template": "summary",
    "narration": {
     "en": "A false negative: the tool said no, but the answer was yes. Remember: a perfect training score can hide overfitting. Trust scores on examples the model never saw. And ask: tested on whom, on which data, with which mistakes?",
-    "ar-EG": "سلبي كاذب: الأداة قالت لأ، والإجابة أيوه. افتكر: الدرجة النهائية في التدريب ممكن تخبّي إفراط في المطابقة. صدّق الدرجة على أمثلة ماشافهاش. واسأل: اتجرّب على مين، وعلى أنهي بيانات، وبيغلط أنهي غلط؟"
+    "ar-EG": "سلبي كاذب: الأداة قالت لأ، والإجابة أيوه. افتكر: الدرجة النهائية في التدريب ممكن تخبّي إفراط في التوفيق. صدّق الدرجة على أمثلة ماشافهاش. واسأل: اتجرّب على مين، وعلى أنهي بيانات، وبيغلط أنهي غلط؟"
    },
    "content": {
     "title": {
@@ -6342,7 +6350,7 @@
    "template": "canvas",
    "narration": {
     "en": "Try it in class tomorrow: play “Memoriser and learner”. One pupil memorises the answers to ten area questions; another learns how to work out area. Then ask them both new questions. The class sees overfitting for itself.",
-    "ar-EG": "جرّبها في الفصل بكرة: العبوا «الحافظ والفاهم». تلميذ يحفظ إجابات عشر مسايل مساحة، وتاني يتعلم يحسب المساحة. وبعدين اسأل الاتنين أسئلة جديدة. الفصل هيشوف الإفراط في المطابقة بعينه."
+    "ar-EG": "جرّبها في الفصل بكرة: العبوا «الحافظ والفاهم». تلميذ يحفظ إجابات عشر مسايل مساحة، وتاني يتعلم يحسب المساحة. وبعدين اسأل الاتنين أسئلة جديدة. الفصل هيشوف الإفراط في التوفيق بعينه."
    },
    "transition": {
     "type": "fade"
@@ -7151,7 +7159,7 @@
       "weight": 700,
       "text": {
        "en": "See overfitting for yourselves",
-       "ar-EG": "شوفوا الإفراط في المطابقة بعينكم"
+       "ar-EG": "شوفوا الإفراط في التوفيق بعينكم"
       },
       "anim": [
        {

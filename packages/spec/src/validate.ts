@@ -447,6 +447,7 @@ function validateScenes(f: ScenesFile, langs: Lang[], err: Add, warn: Add): void
       checks.add(c.id);
       text(c.prompt, `${q}.prompt`, langs, err, warn);
       text(c.explain, `${q}.explain`, langs, err, warn, false);
+      text(c.explainWrong, `${q}.explainWrong`, langs, err, warn, false);
       const opts = arr(c.options);
       count(`${q}.options`, opts, 2, 5, err);
       const oids = new Set<string>();
