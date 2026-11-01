@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.730
+Every time a student opens the university
+
+2
+00:00:02.730 --> 00:00:06.330
+portal, their browser agrees a secret key
+
+3
+00:00:06.330 --> 00:00:09.250
+with a server it has never met, over a
+
+4
+00:00:09.250 --> 00:00:11.230
+network anyone can listen to.
+
+5
+00:00:11.760 --> 00:00:13.020
+How is that possible?
+
+6
+00:00:14.360 --> 00:00:17.200
+Today: how two strangers agree a
+
+7
+00:00:17.200 --> 00:00:20.700
+secret in public, how RSA encrypts and
+
+8
+00:00:20.700 --> 00:00:23.260
+signs, and how to teach the number
+
+9
+00:00:23.260 --> 00:00:25.060
+theory without losing the class.
+
+10
+00:00:26.410 --> 00:00:28.610
+Public-key cryptography rests on
+
+11
+00:00:28.610 --> 00:00:30.690
+functions that are easy one way
+
+12
+00:00:30.690 --> 00:00:32.210
+and hard to reverse.
+
+13
+00:00:33.040 --> 00:00:35.900
+Multiplying two large primes is easy.
+
+14
+00:00:36.580 --> 00:00:38.080
+Factoring the product is
+
+15
+00:00:38.080 --> 00:00:39.420
+believed to be hard.
+
+16
+00:00:40.090 --> 00:00:43.130
+So is undoing modular exponentiation.
+
+17
+00:00:44.380 --> 00:00:47.180
+Alice and Bob publicly agree a
+
+18
+00:00:47.180 --> 00:00:49.900
+prime p and a base g.
+
+19
+00:00:50.530 --> 00:00:52.390
+Each picks a secret and
+
+20
+00:00:52.390 --> 00:00:54.070
+sends g to that power.
+
+21
+00:00:54.760 --> 00:00:56.600
+Each then raises what they
+
+22
+00:00:56.600 --> 00:00:58.660
+received to their own secret.
+
+23
+00:00:59.410 --> 00:01:00.950
+Both reach the same key,
+
+24
+00:01:01.330 --> 00:01:02.650
+and a listener cannot.
+
+25
+00:01:04.100 --> 00:01:06.560
+With p twenty three and g five,
+
+26
+00:01:07.240 --> 00:01:09.860
+Alice picks six and sends eight.
+
+27
+00:01:10.490 --> 00:01:13.350
+Bob picks fifteen and sends nineteen.
+
+28
+00:01:14.120 --> 00:01:16.360
+Both compute two as the shared key.
+
+29
+00:01:17.570 --> 00:01:20.490
+RSA picks two primes and publishes
+
+30
+00:01:20.490 --> 00:01:23.050
+their product n with an exponent e.
+
+31
+00:01:23.660 --> 00:01:26.860
+Only the owner knows d, which undoes e.
+
+32
+00:01:27.440 --> 00:01:29.820
+Anyone can encrypt with the public key.
+
+33
+00:01:30.430 --> 00:01:33.610
+Signing reverses the roles: only the
+
+34
+00:01:33.610 --> 00:01:36.530
+owner can sign, and anyone can verify.
+
+35
+00:01:37.880 --> 00:01:40.740
+Start with the paint-mixing analogy:
+
+36
+00:01:41.160 --> 00:01:44.940
+mixing colours is easy, unmixing is hard.
+
+37
+00:01:45.590 --> 00:01:47.610
+Then let students run
+
+38
+00:01:47.610 --> 00:01:51.570
+Diffie–Hellman by hand with tiny primes.
+
+39
+00:01:52.160 --> 00:01:54.660
+The common misconception is that
+
+40
+00:01:54.660 --> 00:01:58.220
+encryption alone proves who sent a
+
+41
+00:01:58.220 --> 00:01:58.600
+message.
+
+42
+00:01:59.300 --> 00:02:00.040
+It does not.
+
+43
+00:02:01.410 --> 00:02:01.890
+Quick check!
+
+44
+00:02:02.530 --> 00:02:04.430
+Bob encrypts a message with
+
+45
+00:02:04.430 --> 00:02:05.890
+Alice's public key.
+
+46
+00:02:06.360 --> 00:02:07.720
+Who can decrypt it?
+
+47
+00:02:08.910 --> 00:02:11.070
+Only Alice, with her private key.
+
+48
+00:02:11.610 --> 00:02:13.730
+Not even Bob can decrypt it afterwards.
+
+49
+00:02:14.610 --> 00:02:16.410
+But Alice cannot tell it came
+
+50
+00:02:16.410 --> 00:02:18.730
+from Bob, because anyone could
+
+51
+00:02:18.730 --> 00:02:19.770
+have used her public key.
+
+52
+00:02:20.920 --> 00:02:23.620
+In the app, open the public-key lab.
+
+53
+00:02:24.270 --> 00:02:25.950
+Run a key exchange with small
+
+54
+00:02:25.950 --> 00:02:28.130
+numbers, then try to recover the
+
+55
+00:02:28.130 --> 00:02:30.290
+secret as an eavesdropper and see
+
+56
+00:02:30.290 --> 00:02:31.830
+how the work grows with the prime.
+
+57
+00:02:33.130 --> 00:02:33.870
+Your turn.
+
+58
+00:02:34.510 --> 00:02:36.970
+Plain Diffie–Hellman has
+
+59
+00:02:36.970 --> 00:02:38.350
+no authentication.
+
+60
+00:02:39.300 --> 00:02:41.520
+What can an attacker who
+
+61
+00:02:41.520 --> 00:02:43.380
+controls the network do?
+
+62
+00:02:44.670 --> 00:02:46.810
+Run a separate exchange with each
+
+63
+00:02:46.810 --> 00:02:48.450
+side and relay everything.
+
+64
+00:02:49.200 --> 00:02:52.000
+Remember: one-way functions make public
+
+65
+00:02:52.000 --> 00:02:55.100
+keys possible, signatures prove origin,
+
+66
+00:02:55.760 --> 00:02:58.160
+and key exchange needs authentication.
+
+67
+00:02:59.650 --> 00:03:02.130
+Try it in your next lecture: put students
+
+68
+00:03:02.130 --> 00:03:05.050
+in threes as Alice, Bob and Eve.
+
+69
+00:03:05.720 --> 00:03:08.140
+They run Diffie–Hellman with p twenty
+
+70
+00:03:08.140 --> 00:03:11.340
+three on paper, and Eve tries to find
+
+71
+00:03:11.340 --> 00:03:12.880
+the key from what she hears.

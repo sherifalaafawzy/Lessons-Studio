@@ -1,0 +1,204 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "A recursive factorial",
+            "ar-EG": "مضروب عودي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Stack overflow",
+            "ar-EG": "المكدس اتملا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What's missing?",
+            "ar-EG": "إيه الناقص؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "target",
+          "text": {
+            "en": "A base case",
+            "ar-EG": "حالة أساسية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "A smaller call",
+            "ar-EG": "نداء أصغر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Progress every time",
+            "ar-EG": "تقدّم كل مرة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "layers"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "fact(3)\n  3 × fact(2)\n      2 × fact(1)\n          1 × fact(0)\n              return 1\n          → 1\n      → 2\n  → 6",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "def fact(n):\n    if n == 1:        # fact(0) never stops\n        return 1\n    return n * fact(n - 1)\n\n# fix: if n <= 0: return 1",
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "Base:  fact(0) = 1 = 0!\nStep:  assume fact(k) = k!\n       fact(k+1) = (k+1) × fact(k)\n                 = (k+1) × k! = (k+1)!",
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Not a loop",
+            "ar-EG": "مش لفّة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "users",
+          "text": {
+            "en": "Students as frames",
+            "ar-EG": "الطلاب كإطارات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Trace on paper",
+            "ar-EG": "تتبّع على الورق"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Step the calls",
+            "ar-EG": "امشي في النداءات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Watch the stack",
+            "ar-EG": "راقب المكدس"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "See it unwind",
+            "ar-EG": "شوفه بيتفك"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "layers"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Reachable base case",
+            "ar-EG": "حالة أساسية يتوصلّها"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "One frame per call",
+            "ar-EG": "إطار لكل نداء"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Induction mirrors code",
+            "ar-EG": "الاستقراء شبه الكود"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Act out the stack first.",
+        "ar-EG": "مثّلوا المكدس الأول."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Five student frames",
+            "ar-EG": "خمس طلاب إطارات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Pass results back",
+            "ar-EG": "رجّعوا النتايج"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Write the proof",
+            "ar-EG": "اكتبوا البرهان"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

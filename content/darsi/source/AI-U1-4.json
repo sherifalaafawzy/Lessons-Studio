@@ -1,0 +1,274 @@
+{
+ "id": "AI-U1-4",
+ "track": "ai",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching machine learning at university"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Evaluating models and assessing students",
+  "subtitle": "Leakage, model cards and LLMs in coursework",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Evaluating models and assessing students: Leakage, model cards and LLMs in coursework",
+  "length": "2:35",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Prof Farah - head of department, Amman",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A leaderboard win"
+   },
+   {
+    "at": "0:23",
+    "label": "Honest evaluation"
+   },
+   {
+    "at": "1:00",
+    "label": "Assessment in the LLM era"
+   },
+   {
+    "at": "2:01",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Prof Farah",
+    "narration": "Our best team topped the course leaderboard by a wide margin. Then we noticed they had tuned forty models on the test set. Their final score measured their persistence, not their model.",
+    "icons": [
+     "award",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Evaluating models and assessing students",
+    "voice": "Narrator",
+    "narration": "Today: how models are evaluated honestly, how to document them, and how to assess machine learning students when they can use language models."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Three splits",
+    "voice": "Narrator",
+    "narration": "Honest evaluation uses three splits. Train fits the weights, validation chooses the model and settings, and test is opened once, at the end. Every peek at test makes its score more optimistic.",
+    "icons": [
+     "grid",
+     "lock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Beyond accuracy",
+    "voice": "Narrator",
+    "narration": "With one percent positives, a model that always says no is ninety nine percent accurate and useless. Report precision, recall and calibration, and break results down by subgroup.",
+    "icons": [
+     "scale",
+     "gauge"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:00",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "One model, two groups",
+    "voice": "Narrator",
+    "narration": "This classifier has ninety one percent recall overall. Split by group, it is ninety four percent for one and seventy two for the other. The average hid the gap.",
+    "icons": [
+     "users"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Model cards",
+    "voice": "Narrator",
+    "narration": "Mitchell and colleagues proposed model cards: a short document with intended use, training data, metrics by subgroup, and known limits. Asking students to write one makes evaluation a habit.",
+    "icons": [
+     "file",
+     "checksquare"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:12",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Assessing with LLMs around",
+    "voice": "Dr Joseph",
+    "narration": "Students can generate working code in seconds. So assess what a model cannot do for them. Use oral defences of their own notebooks, require an error analysis on their data, and grade the process.",
+    "icons": [
+     "bot",
+     "chat"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:37",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which score is honest?",
+    "voice": "Prof Farah",
+    "narration": "Quick check! A team chose its best model by test score, out of forty. Is that test score an honest estimate of performance on new data?"
+   },
+   {
+    "n": 9,
+    "start": "1:37",
+    "end": "1:49",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "It's optimistic",
+    "voice": "Narrator",
+    "narration": "No. Picking the maximum of forty noisy scores selects luck as well as skill. The test set has become a validation set, and they need a fresh one.",
+    "icons": [
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:49",
+    "end": "2:01",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: overfitting",
+    "voice": "Narrator",
+    "narration": "In the app, open the overfitting lab. Watch validation error as complexity rises, then ask students where they would stop, and why the test set must stay closed.",
+    "icons": [
+     "gauge",
+     "eye"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:01",
+    "end": "2:11",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Imbalanced data",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. Fraud is one transaction in a thousand. A model flags nothing and scores ninety nine point nine percent accuracy. Which metric exposes it?"
+   },
+   {
+    "n": 12,
+    "start": "2:11",
+    "end": "2:22",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Split, measure, document",
+    "voice": "Narrator",
+    "narration": "Recall, which is zero. Remember: open the test set once, report metrics by subgroup, write a model card, and assess what language models cannot do for students."
+   },
+   {
+    "n": 13,
+    "start": "2:22",
+    "end": "2:35",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it this term",
+    "voice": "Narrator",
+    "narration": "Try it this term: add a ten minute oral defence to your next project. Ask each student to explain one error their model makes and one design choice they would change.",
+    "icons": [
+     "presentation",
+     "chat",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A team chose its best model of 40 by test score. Is that score honest?",
+    "options": [
+     {
+      "text": "Yes, the test set was never trained on",
+      "correct": false
+     },
+     {
+      "text": "No, choosing on test makes it optimistic",
+      "correct": true
+     },
+     {
+      "text": "Yes, if the test set is large",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: selecting the best of many noisy scores rewards luck; they need a fresh test set.",
+    "feedback_wrong": "Not quite: using the test set to choose turns it into a validation set, so its score is biased upwards.",
+    "resume_at": "1:37"
+   },
+   {
+    "at": "2:09",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Fraud is 1 in 1,000. A model flags nothing and has 99.9% accuracy. Which metric exposes it?",
+    "options": [
+     {
+      "text": "Accuracy",
+      "correct": false
+     },
+     {
+      "text": "Recall",
+      "correct": true
+     },
+     {
+      "text": "Training loss",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: recall is 0, because it catches none of the fraud.",
+    "feedback_wrong": "Not quite: recall, TP / (TP + FN), is 0 here, which accuracy hides.",
+    "resume_at": "2:11"
+   }
+  ]
+ }
+}

@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.250
+A student team reports that their coding
+
+2
+00:00:03.250 --> 00:00:07.090
+agent solves ninety percent of tasks.
+
+3
+00:00:07.610 --> 00:00:11.330
+When you rerun it, it solves sixty.
+
+4
+00:00:12.150 --> 00:00:14.690
+They ran it once, on tasks they
+
+5
+00:00:14.690 --> 00:00:15.890
+wrote while building it.
+
+6
+00:00:16.520 --> 00:00:17.720
+What should they have done?
+
+7
+00:00:19.020 --> 00:00:21.540
+Today: how to measure whether an agent
+
+8
+00:00:21.540 --> 00:00:25.640
+works, what pass at k really means, and
+
+9
+00:00:25.640 --> 00:00:27.760
+how to teach students to report results
+
+10
+00:00:27.760 --> 00:00:29.360
+that others can trust.
+
+11
+00:00:30.500 --> 00:00:32.940
+An evaluation runs an agent on a
+
+12
+00:00:32.940 --> 00:00:34.920
+fixed set of tasks with an
+
+13
+00:00:34.920 --> 00:00:36.320
+automatic check of success.
+
+14
+00:00:37.160 --> 00:00:39.160
+The tasks must be separate from
+
+15
+00:00:39.160 --> 00:00:40.680
+those used to build the agent.
+
+16
+00:00:41.430 --> 00:00:43.610
+And because agents are random, it
+
+17
+00:00:43.610 --> 00:00:45.150
+must be run more than once.
+
+18
+00:00:46.500 --> 00:00:49.360
+pass at k is the probability that at
+
+19
+00:00:49.360 --> 00:00:51.460
+least one of k attempts succeeds.
+
+20
+00:00:52.360 --> 00:00:54.460
+If one attempt succeeds with
+
+21
+00:00:54.460 --> 00:00:58.340
+probability p, pass at k is one
+
+22
+00:00:58.340 --> 00:01:01.860
+minus one minus p, to the power k.
+
+23
+00:01:02.560 --> 00:01:05.220
+It rewards retries, so report
+
+24
+00:01:05.220 --> 00:01:06.640
+pass at one as well.
+
+25
+00:01:07.820 --> 00:01:10.380
+On fifty tasks, a sixty percent
+
+26
+00:01:10.380 --> 00:01:12.540
+success rate has a standard error
+
+27
+00:01:12.540 --> 00:01:14.240
+of about seven points.
+
+28
+00:01:14.950 --> 00:01:18.150
+So ninety and sixty may partly be
+
+29
+00:01:18.150 --> 00:01:20.210
+noise and partly overfitting.
+
+30
+00:01:20.820 --> 00:01:22.700
+Report the mean over several
+
+31
+00:01:22.700 --> 00:01:23.920
+runs with an interval.
+
+32
+00:01:25.200 --> 00:01:27.060
+Public benchmarks may already
+
+33
+00:01:27.060 --> 00:01:28.520
+appear in a model's training
+
+34
+00:01:28.520 --> 00:01:30.200
+data, which inflates scores.
+
+35
+00:01:30.970 --> 00:01:33.290
+Agents can also game a weak checker,
+
+36
+00:01:33.590 --> 00:01:35.490
+for example by editing the tests.
+
+37
+00:01:36.180 --> 00:01:38.860
+Hold out fresh tasks and inspect
+
+38
+00:01:38.860 --> 00:01:41.240
+failures and successes by hand.
+
+39
+00:01:42.480 --> 00:01:45.360
+In student agent projects, grade the
+
+40
+00:01:45.360 --> 00:01:48.260
+evaluation as seriously as the agent.
+
+41
+00:01:48.960 --> 00:01:52.300
+Require a held-out task set, several
+
+42
+00:01:52.300 --> 00:01:55.100
+runs, pass at one with an interval,
+
+43
+00:01:55.560 --> 00:01:57.720
+and a short error analysis.
+
+44
+00:01:58.490 --> 00:02:01.690
+A modest honest result should earn
+
+45
+00:02:01.690 --> 00:02:03.410
+more than an inflated one.
+
+46
+00:02:04.610 --> 00:02:05.190
+Quick check!
+
+47
+00:02:05.980 --> 00:02:09.140
+An agent succeeds on a single attempt
+
+48
+00:02:09.140 --> 00:02:12.360
+with probability zero point two.
+
+49
+00:02:12.950 --> 00:02:15.110
+What is pass at two?
+
+50
+00:02:16.420 --> 00:02:18.960
+Zero point three six: one minus
+
+51
+00:02:18.960 --> 00:02:20.620
+zero point eight squared.
+
+52
+00:02:21.420 --> 00:02:23.680
+Two tries nearly double the headline
+
+53
+00:02:23.680 --> 00:02:26.600
+number, which is why pass at one matters.
+
+54
+00:02:27.970 --> 00:02:29.870
+In the app, open the evals lab.
+
+55
+00:02:30.480 --> 00:02:32.840
+Run an agent several times on the same
+
+56
+00:02:32.840 --> 00:02:35.720
+tasks, watch the score move, and
+
+57
+00:02:35.720 --> 00:02:38.220
+compare pass at one with pass at k.
+
+58
+00:02:39.400 --> 00:02:39.920
+Your turn.
+
+59
+00:02:40.550 --> 00:02:43.250
+Which result is most trustworthy
+
+60
+00:02:43.250 --> 00:02:45.550
+for a student agent project?
+
+61
+00:02:46.910 --> 00:02:49.830
+Pass at one averaged over five runs on
+
+62
+00:02:49.830 --> 00:02:51.710
+held-out tasks, with an interval.
+
+63
+00:02:52.380 --> 00:02:55.020
+Remember: separate test tasks,
+
+64
+00:02:55.320 --> 00:02:57.620
+several runs, honest metrics,
+
+65
+00:02:58.300 --> 00:03:00.040
+and read the transcripts.
+
+66
+00:03:01.120 --> 00:03:03.520
+Try it in your next lecture: show two
+
+67
+00:03:03.520 --> 00:03:06.420
+teams' results, one inflated and one
+
+68
+00:03:06.420 --> 00:03:08.580
+honest, without saying which is which.
+
+69
+00:03:09.290 --> 00:03:11.350
+Pairs list what each team
+
+70
+00:03:11.350 --> 00:03:13.190
+did and did not report.
+
+71
+00:03:13.960 --> 00:03:16.320
+Then vote on which result they trust.

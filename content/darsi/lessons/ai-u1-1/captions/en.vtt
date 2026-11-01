@@ -1,0 +1,257 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.230
+A student's first neural network printed
+
+2
+00:00:03.230 --> 00:00:05.790
+a loss of nan after three steps.
+
+3
+00:00:06.470 --> 00:00:08.730
+She had copied the code exactly.
+
+4
+00:00:09.600 --> 00:00:11.720
+The only change was a learning rate
+
+5
+00:00:11.720 --> 00:00:13.640
+of ten instead of a tenth.
+
+6
+00:00:14.830 --> 00:00:18.590
+Today: learning as minimising a loss, how
+
+7
+00:00:18.590 --> 00:00:20.970
+gradient descent does it, and why the
+
+8
+00:00:20.970 --> 00:00:22.610
+learning rate trips students up.
+
+9
+00:00:23.820 --> 00:00:25.420
+Supervised learning picks the
+
+10
+00:00:25.420 --> 00:00:27.300
+parameters that minimise the
+
+11
+00:00:27.300 --> 00:00:29.060
+average loss on the training data.
+
+12
+00:00:29.660 --> 00:00:32.140
+That average is the empirical risk.
+
+13
+00:00:32.760 --> 00:00:34.480
+We hope it tracks the true
+
+14
+00:00:34.480 --> 00:00:35.600
+risk on new data.
+
+15
+00:00:36.840 --> 00:00:39.800
+Gradient descent starts somewhere and
+
+16
+00:00:39.800 --> 00:00:41.780
+repeatedly steps against the gradient.
+
+17
+00:00:42.520 --> 00:00:44.580
+Theta becomes theta minus
+
+18
+00:00:44.580 --> 00:00:46.180
+eta times the gradient.
+
+19
+00:00:46.920 --> 00:00:48.340
+Eta, the learning rate,
+
+20
+00:00:48.580 --> 00:00:49.680
+sets the step size.
+
+21
+00:00:51.010 --> 00:00:52.970
+Here is the loss after fifty
+
+22
+00:00:52.970 --> 00:00:54.330
+steps on the same problem.
+
+23
+00:00:54.980 --> 00:00:57.580
+A tiny rate barely moves.
+
+24
+00:00:58.310 --> 00:01:00.650
+A good rate reaches nearly zero.
+
+25
+00:01:01.320 --> 00:01:02.640
+A rate that is too big
+
+26
+00:01:02.640 --> 00:01:04.720
+bounces higher and higher.
+
+27
+00:01:06.030 --> 00:01:08.790
+Real datasets are large, so we estimate
+
+28
+00:01:08.790 --> 00:01:11.150
+the gradient from a small random batch.
+
+29
+00:01:11.870 --> 00:01:14.230
+Stochastic gradient descent is noisy,
+
+30
+00:01:14.810 --> 00:01:17.090
+but each step is cheap, and the noise
+
+31
+00:01:17.090 --> 00:01:19.110
+can even help escape flat regions.
+
+32
+00:01:20.480 --> 00:01:22.000
+Students often think the
+
+33
+00:01:22.000 --> 00:01:23.500
+gradient points to the minimum.
+
+34
+00:01:24.170 --> 00:01:26.390
+It only points uphill, locally.
+
+35
+00:01:27.190 --> 00:01:29.930
+Plot a one-parameter loss, let
+
+36
+00:01:29.930 --> 00:01:32.070
+students take steps by hand, and they
+
+37
+00:01:32.070 --> 00:01:33.910
+discover overshooting themselves.
+
+38
+00:01:35.210 --> 00:01:35.690
+Quick check!
+
+39
+00:01:36.330 --> 00:01:38.190
+The loss rises every step
+
+40
+00:01:38.190 --> 00:01:40.150
+and then becomes nan.
+
+41
+00:01:40.920 --> 00:01:42.700
+What is the most likely cause?
+
+42
+00:01:44.090 --> 00:01:45.770
+The learning rate is too big.
+
+43
+00:01:46.470 --> 00:01:49.550
+Each step overshoots the valley and lands
+
+44
+00:01:49.550 --> 00:01:51.950
+higher up, until the numbers overflow.
+
+45
+00:01:52.800 --> 00:01:55.080
+Divide it by ten and try again.
+
+46
+00:01:56.330 --> 00:01:58.330
+In the app, open the gradient lab.
+
+47
+00:01:58.950 --> 00:02:01.290
+Pick a starting point, change the
+
+48
+00:02:01.290 --> 00:02:03.570
+learning rate, and watch the steps
+
+49
+00:02:03.570 --> 00:02:06.610
+converge, crawl or explode.
+
+50
+00:02:08.020 --> 00:02:08.520
+Your turn.
+
+51
+00:02:09.130 --> 00:02:12.250
+The loss is theta squared, theta is three,
+
+52
+00:02:12.670 --> 00:02:14.430
+and the learning rate is a tenth.
+
+53
+00:02:15.070 --> 00:02:16.970
+Where is theta after one step?
+
+54
+00:02:18.230 --> 00:02:19.770
+At two point four, because
+
+55
+00:02:19.770 --> 00:02:20.990
+the gradient is six.
+
+56
+00:02:21.760 --> 00:02:24.760
+Remember: learning minimises empirical
+
+57
+00:02:24.760 --> 00:02:28.660
+risk, gradient descent steps downhill, and
+
+58
+00:02:28.660 --> 00:02:30.820
+the learning rate decides whether it
+
+59
+00:02:30.820 --> 00:02:31.040
+works.
+
+60
+00:02:32.340 --> 00:02:34.460
+Try it in your next lecture: give
+
+61
+00:02:34.460 --> 00:02:36.640
+each pair the loss theta squared
+
+62
+00:02:36.640 --> 00:02:38.160
+and three learning rates.
+
+63
+00:02:38.790 --> 00:02:41.150
+They take five steps by hand and plot
+
+64
+00:02:41.150 --> 00:02:43.430
+them, before you show any code.

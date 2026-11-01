@@ -1,0 +1,274 @@
+{
+ "id": "DS-U1-1",
+ "track": "data-science",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching statistical learning at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Sampling distributions and the bootstrap",
+  "subtitle": "Uncertainty you can teach",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Sampling distributions and the bootstrap: Uncertainty you can teach",
+  "length": "2:47",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "One estimate, many samples"
+   },
+   {
+    "at": "0:23",
+    "label": "Standard error"
+   },
+   {
+    "at": "1:09",
+    "label": "The bootstrap"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "Every year my second-year students can recite the formula for a confidence interval. Then I ask what the ninety five percent refers to, and most say: the chance the true mean is inside this interval.",
+    "icons": [
+     "graduation",
+     "help",
+     "calculator"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sampling distributions and the bootstrap",
+    "voice": "Narrator",
+    "narration": "Today: where a standard error comes from, how the bootstrap estimates it, and how to teach both without hand-waving."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:37",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sampling distribution",
+    "voice": "Narrator",
+    "narration": "An estimate, such as a sample mean, is a random variable. Its sampling distribution is the spread of values it would take over all possible samples of the same size from the same population.",
+    "icons": [
+     "layers",
+     "repeat"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:55",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Standard error",
+    "voice": "Narrator",
+    "narration": "The standard deviation of that distribution is the standard error. For a mean it is sigma over the square root of n, so four times the data only halves the error. The central limit theorem says the shape is close to normal for large n.",
+    "icons": [
+     "ruler",
+     "calculator"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:55",
+    "end": "1:09",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A thousand samples of thirty",
+    "voice": "Narrator",
+    "narration": "We drew a thousand samples of thirty exam marks from a skewed population and plotted the means. The marks were skewed, but the means pile up in a near-normal hill around the true mean.",
+    "icons": [
+     "layers"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:09",
+    "end": "1:23",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The bootstrap",
+    "voice": "Narrator",
+    "narration": "In real research we have one sample, not a thousand. Efron's bootstrap resamples that one sample with replacement, recomputes the estimate many times, and uses the spread of those values as the standard error.",
+    "icons": [
+     "shuffle",
+     "repeat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:23",
+    "end": "1:36",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach it by simulation",
+    "voice": "Dr Joseph",
+    "narration": "Students meet the formula first and the idea never. Reverse that. Let them simulate many samples before any algebra, then derive sigma over root n to explain what they already saw.",
+    "icons": [
+     "cpu",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:45",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "What does 95% mean?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! A ninety five percent confidence interval for a mean is from sixty to sixty eight. Which statement is correct?"
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "1:57",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "It's the method",
+    "voice": "Narrator",
+    "narration": "The ninety five percent describes the method, not this one interval. Over many samples, about ninety five in a hundred intervals built this way would contain the true mean.",
+    "icons": [
+     "repeat",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:57",
+    "end": "2:09",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: sampling",
+    "voice": "Narrator",
+    "narration": "In the app, open the sampling lab. Draw hundreds of samples, change the sample size, and watch the spread of the means shrink like one over root n.",
+    "icons": [
+     "shuffle",
+     "layers"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:09",
+    "end": "2:19",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Halve the error?",
+    "voice": "Dr Salma",
+    "narration": "Your turn. A study has a standard error of four. How many times more data do we need to bring it down to two?"
+   },
+   {
+    "n": 12,
+    "start": "2:19",
+    "end": "2:30",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Distribution, SE, bootstrap",
+    "voice": "Narrator",
+    "narration": "Four times as much data. Remember: an estimate has a sampling distribution, its spread is the standard error, and the bootstrap estimates it from one sample."
+   },
+   {
+    "n": 13,
+    "start": "2:30",
+    "end": "2:47",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: before showing any formula, give pairs a dataset and ask them to resample it two hundred times and plot the means. Then ask them to predict what happens when n is four times larger.",
+    "icons": [
+     "presentation",
+     "cpu",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:43",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A 95% confidence interval for a mean is 60 to 68. Which statement is correct?",
+    "options": [
+     {
+      "text": "There is a 95% chance the true mean is between 60 and 68",
+      "correct": false
+     },
+     {
+      "text": "About 95% of intervals made this way contain the true mean",
+      "correct": true
+     },
+     {
+      "text": "95% of the data lie between 60 and 68",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the 95% is a property of the procedure over repeated samples.",
+    "feedback_wrong": "Not quite: once computed, this interval either contains the mean or not; the 95% describes the method.",
+    "resume_at": "1:45"
+   },
+   {
+    "at": "2:17",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A study has a standard error of 4. How many times more data bring it down to 2?",
+    "options": [
+     {
+      "text": "Twice as much",
+      "correct": false
+     },
+     {
+      "text": "Four times as much",
+      "correct": true
+     },
+     {
+      "text": "Eight times as much",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: SE falls like 1/√n, so halving it needs 4n.",
+    "feedback_wrong": "Not quite: SE = σ/√n, so to halve it, √n must double, which means n × 4.",
+    "resume_at": "2:19"
+   }
+  ]
+ }
+}

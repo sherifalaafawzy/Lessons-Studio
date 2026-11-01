@@ -1,0 +1,281 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.850
+A student team promised a field sensor
+
+2
+00:00:02.850 --> 00:00:05.890
+would run for a year on two AA cells.
+
+3
+00:00:06.530 --> 00:00:08.750
+It died after nine days.
+
+4
+00:00:09.550 --> 00:00:11.650
+The radio was never switched off.
+
+5
+00:00:12.880 --> 00:00:15.560
+Today: how to budget energy with duty
+
+6
+00:00:15.560 --> 00:00:19.380
+cycles, what real-time really means, and
+
+7
+00:00:19.380 --> 00:00:21.880
+how to schedule tasks so deadlines are
+
+8
+00:00:21.880 --> 00:00:22.100
+met.
+
+9
+00:00:23.330 --> 00:00:25.390
+Battery life is capacity
+
+10
+00:00:25.390 --> 00:00:27.390
+divided by average current.
+
+11
+00:00:28.080 --> 00:00:29.800
+A device that sleeps most of the
+
+12
+00:00:29.800 --> 00:00:32.240
+time has an average set by how
+
+13
+00:00:32.240 --> 00:00:34.060
+long and how often it wakes.
+
+14
+00:00:34.850 --> 00:00:37.090
+That fraction is the duty cycle.
+
+15
+00:00:38.340 --> 00:00:40.800
+Awake at twenty milliamps for one
+
+16
+00:00:40.800 --> 00:00:43.880
+second in sixty, and asleep at ten
+
+17
+00:00:43.880 --> 00:00:46.900
+microamps otherwise, the average is
+
+18
+00:00:46.900 --> 00:00:48.500
+about a third of a milliamp.
+
+19
+00:00:49.060 --> 00:00:51.340
+Two thousand milliamp hours then
+
+20
+00:00:51.340 --> 00:00:53.040
+last roughly eight months.
+
+21
+00:00:54.370 --> 00:00:57.330
+In a typical LoRa sensor node, the radio
+
+22
+00:00:57.330 --> 00:01:00.210
+uses most of the energy, even though it is
+
+23
+00:01:00.210 --> 00:01:02.290
+on for a tiny fraction of the time.
+
+24
+00:01:02.940 --> 00:01:06.100
+Sensing and the processor use far less.
+
+25
+00:01:07.450 --> 00:01:09.910
+Real-time does not mean fast.
+
+26
+00:01:10.700 --> 00:01:12.740
+It means every task finishes
+
+27
+00:01:12.740 --> 00:01:14.020
+before its deadline.
+
+28
+00:01:14.740 --> 00:01:16.800
+A hard real-time miss is a
+
+29
+00:01:16.800 --> 00:01:18.420
+failure, like an airbag.
+
+30
+00:01:19.040 --> 00:01:21.400
+A soft miss only lowers quality,
+
+31
+00:01:21.780 --> 00:01:23.220
+like a dropped video frame.
+
+32
+00:01:24.430 --> 00:01:25.890
+Give the shortest period
+
+33
+00:01:25.890 --> 00:01:27.410
+the highest priority.
+
+34
+00:01:28.270 --> 00:01:30.850
+Liu and Layland proved that n periodic
+
+35
+00:01:30.850 --> 00:01:33.510
+tasks always meet their deadlines this way
+
+36
+00:01:33.510 --> 00:01:37.410
+if total utilisation is below n times two
+
+37
+00:01:37.410 --> 00:01:39.370
+to the one over n, minus one.
+
+38
+00:01:39.950 --> 00:01:42.330
+For many tasks that tends to
+
+39
+00:01:42.330 --> 00:01:44.110
+about sixty nine percent.
+
+40
+00:01:45.490 --> 00:01:45.890
+Quick check!
+
+41
+00:01:46.510 --> 00:01:49.090
+A node draws fifty milliamps for
+
+42
+00:01:49.090 --> 00:01:51.210
+one second every hundred seconds
+
+43
+00:01:51.210 --> 00:01:52.810
+and almost nothing otherwise.
+
+44
+00:01:53.820 --> 00:01:55.620
+What is its average current?
+
+45
+00:01:57.030 --> 00:01:58.870
+Half a milliamp: fifty
+
+46
+00:01:58.870 --> 00:02:00.430
+times one in a hundred.
+
+47
+00:02:01.090 --> 00:02:03.450
+So halving the wake time doubles
+
+48
+00:02:03.450 --> 00:02:05.730
+battery life far more cheaply
+
+49
+00:02:05.730 --> 00:02:06.730
+than a bigger battery.
+
+50
+00:02:07.940 --> 00:02:10.060
+In the app, open the battery lab.
+
+51
+00:02:10.680 --> 00:02:13.320
+Change how often the device wakes and
+
+52
+00:02:13.320 --> 00:02:16.280
+how long the radio stays on, and watch
+
+53
+00:02:16.280 --> 00:02:17.680
+the predicted battery life.
+
+54
+00:02:18.930 --> 00:02:19.470
+Your turn.
+
+55
+00:02:20.080 --> 00:02:22.700
+Two tasks: one needs one
+
+56
+00:02:22.700 --> 00:02:25.140
+millisecond every four, the other
+
+57
+00:02:25.140 --> 00:02:27.220
+needs two milliseconds every ten.
+
+58
+00:02:27.900 --> 00:02:30.240
+Is the total utilisation under the
+
+59
+00:02:30.240 --> 00:02:32.940
+rate-monotonic bound for two tasks,
+
+60
+00:02:33.040 --> 00:02:34.180
+about eighty three percent?
+
+61
+00:02:35.520 --> 00:02:38.160
+Yes: a quarter plus a fifth
+
+62
+00:02:38.160 --> 00:02:39.680
+is forty five percent.
+
+63
+00:02:40.380 --> 00:02:43.140
+Remember: battery life follows average
+
+64
+00:02:43.140 --> 00:02:46.060
+current, the radio dominates, and
+
+65
+00:02:46.060 --> 00:02:48.260
+real-time means meeting deadlines.
+
+66
+00:02:49.730 --> 00:02:52.670
+Try it in your next lab: give each team a
+
+67
+00:02:52.670 --> 00:02:54.790
+current meter and their own sensor node.
+
+68
+00:02:55.380 --> 00:02:57.200
+They measure active and sleep
+
+69
+00:02:57.200 --> 00:02:59.240
+current, then predict battery
+
+70
+00:02:59.240 --> 00:03:00.860
+life and defend the number.

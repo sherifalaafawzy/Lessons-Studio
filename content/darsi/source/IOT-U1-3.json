@@ -1,0 +1,274 @@
+{
+ "id": "IOT-U1-3",
+ "track": "iot",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching embedded and IoT systems at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "IoT protocols: MQTT, CoAP and LoRa",
+  "subtitle": "Choosing how devices talk",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "IoT protocols: MQTT, CoAP and LoRa: Choosing how devices talk",
+  "length": "2:35",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A farm with no Wi-Fi"
+   },
+   {
+    "at": "0:24",
+    "label": "Publish and subscribe"
+   },
+   {
+    "at": "1:06",
+    "label": "Range against rate"
+   },
+   {
+    "at": "2:04",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "A cooperative asked us to monitor soil moisture across forty hectares. There is no Wi-Fi, no mains power, and the nearest mobile mast is eight kilometres away. Which network would you choose?",
+    "icons": [
+     "leaf",
+     "wifi-off",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "IoT protocols: MQTT, CoAP and LoRa",
+    "voice": "Narrator",
+    "narration": "Today: how publish and subscribe works, when to use MQTT or CoAP, and the trade-off between range, data rate and energy in LoRa and mesh networks."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:38",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Publish and subscribe",
+    "voice": "Narrator",
+    "narration": "In MQTT, devices never talk to each other directly. A sensor publishes to a topic on a broker. Any client that subscribed to that topic receives the message. Senders and receivers stay decoupled.",
+    "icons": [
+     "share",
+     "network"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Quality of service",
+    "voice": "Narrator",
+    "narration": "MQTT offers three delivery levels. Zero means at most once, with no acknowledgement. One means at least once, so duplicates are possible. Two means exactly once, at the cost of a four-step handshake.",
+    "icons": [
+     "checksquare",
+     "repeat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:06",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Range and data rate",
+    "voice": "Narrator",
+    "narration": "Typical ranges in open country: Bluetooth Low Energy tens of metres, Wi-Fi around a hundred, Zigbee mesh a few hundred per hop, and LoRa several kilometres, but at only a few kilobits per second.",
+    "icons": [
+     "signal"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:06",
+    "end": "1:20",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "CoAP for constrained devices",
+    "voice": "Narrator",
+    "narration": "CoAP, defined in RFC seven two five two, brings a web-like request and response model to tiny devices over UDP. It suits sleepy nodes that are asked for readings, while MQTT suits streams of events.",
+    "icons": [
+     "cpu",
+     "share"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:20",
+    "end": "1:33",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach it with a design brief",
+    "voice": "Dr Joseph",
+    "narration": "Protocol lectures become lists of acronyms. Instead, give teams a real brief with distance, power and data needs. Make them choose and justify a stack, then test it on hardware.",
+    "icons": [
+     "clipboard",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:43",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which QoS?",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A sensor sends a temperature every ten seconds, and an occasional lost reading does not matter. Which MQTT quality of service fits best?"
+   },
+   {
+    "n": 9,
+    "start": "1:43",
+    "end": "1:54",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "QoS 0",
+    "voice": "Narrator",
+    "narration": "Level zero. The next reading arrives in ten seconds, so acknowledgements would only cost energy. Save higher levels for commands, such as opening a valve.",
+    "icons": [
+     "checksquare",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:54",
+    "end": "2:04",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: mesh",
+    "voice": "Narrator",
+    "narration": "In the app, open the mesh lab. Place nodes across a field, remove one, and watch the messages find a new route to the gateway.",
+    "icons": [
+     "network",
+     "signal"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:04",
+    "end": "2:12",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Back to the farm",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. Forty hectares, no power, readings every fifteen minutes, a few bytes each. Which link fits best?"
+   },
+   {
+    "n": 12,
+    "start": "2:12",
+    "end": "2:22",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Pattern, QoS, range",
+    "voice": "Narrator",
+    "narration": "LoRa, with one gateway. Remember: publish and subscribe decouples devices, choose the lowest quality of service that is safe, and trade data rate for range."
+   },
+   {
+    "n": 13,
+    "start": "2:22",
+    "end": "2:35",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lab",
+    "voice": "Narrator",
+    "narration": "Try it in your next lab: set up a free MQTT broker on a laptop. Each team publishes sensor readings to its own topic, and subscribes to another team's.",
+    "icons": [
+     "presentation",
+     "network",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Temperature every 10 s; an occasional loss doesn't matter. Which MQTT QoS?",
+    "options": [
+     {
+      "text": "QoS 0",
+      "correct": true
+     },
+     {
+      "text": "QoS 1",
+      "correct": false
+     },
+     {
+      "text": "QoS 2",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: acknowledgements would only cost energy when the next reading comes soon.",
+    "feedback_wrong": "Not quite: higher QoS adds messages and energy; for frequent, replaceable readings, QoS 0 is enough.",
+    "resume_at": "1:43"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "40 hectares, no power, a few bytes every 15 minutes. Which link?",
+    "options": [
+     {
+      "text": "Wi-Fi",
+      "correct": false
+     },
+     {
+      "text": "LoRa",
+      "correct": true
+     },
+     {
+      "text": "Bluetooth Low Energy",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: LoRa reaches kilometres on little energy, and the data need is tiny.",
+    "feedback_wrong": "Not quite: Wi-Fi and BLE reach tens to hundreds of metres; LoRa covers kilometres at low rates.",
+    "resume_at": "2:12"
+   }
+  ]
+ }
+}

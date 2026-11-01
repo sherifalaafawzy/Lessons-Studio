@@ -1,0 +1,301 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.730
+A model for the field-trip budget tells
+
+2
+00:00:02.730 --> 00:00:05.390
+the faculty to hire two and a half buses.
+
+3
+00:00:06.150 --> 00:00:08.650
+Rounding up breaks the budget, and
+
+4
+00:00:08.650 --> 00:00:10.630
+rounding down leaves students behind.
+
+5
+00:00:11.330 --> 00:00:12.890
+What should the model have said?
+
+6
+00:00:14.120 --> 00:00:17.020
+Today: why many real decisions need
+
+7
+00:00:17.020 --> 00:00:20.040
+whole numbers, why rounding a linear
+
+8
+00:00:20.040 --> 00:00:23.320
+solution can fail badly, and how branch
+
+9
+00:00:23.320 --> 00:00:25.620
+and bound finds proven optima.
+
+10
+00:00:26.790 --> 00:00:28.930
+An integer program is a linear
+
+11
+00:00:28.930 --> 00:00:31.290
+program in which some variables
+
+12
+00:00:31.290 --> 00:00:32.610
+must be whole numbers.
+
+13
+00:00:33.350 --> 00:00:35.250
+Yes-or-no decisions become
+
+14
+00:00:35.250 --> 00:00:36.710
+zero-one variables.
+
+15
+00:00:37.560 --> 00:00:39.200
+This small change makes the
+
+16
+00:00:39.200 --> 00:00:41.160
+problem far harder in general.
+
+17
+00:00:42.430 --> 00:00:45.150
+In the knapsack problem, each item has a
+
+18
+00:00:45.150 --> 00:00:48.310
+weight and a value, and we choose items to
+
+19
+00:00:48.310 --> 00:00:50.470
+maximise value within a capacity.
+
+20
+00:00:51.380 --> 00:00:53.440
+The linear relaxation allows
+
+21
+00:00:53.440 --> 00:00:54.700
+fractions of items.
+
+22
+00:00:55.470 --> 00:00:57.430
+Its value is an upper bound
+
+23
+00:00:57.430 --> 00:00:58.570
+on the true optimum.
+
+24
+00:00:59.930 --> 00:01:02.050
+Here the relaxation happens to
+
+25
+00:01:02.050 --> 00:01:03.670
+be whole, giving sixteen.
+
+26
+00:01:04.500 --> 00:01:06.380
+But change the capacity to seven,
+
+27
+00:01:06.840 --> 00:01:09.420
+and the relaxation picks a and two
+
+28
+00:01:09.420 --> 00:01:11.060
+thirds of c, worth fourteen.
+
+29
+00:01:11.750 --> 00:01:14.530
+Rounding down gives ten, yet b
+
+30
+00:01:14.530 --> 00:01:16.130
+plus c gives thirteen.
+
+31
+00:01:17.420 --> 00:01:20.020
+Branch and bound splits on a fractional
+
+32
+00:01:20.020 --> 00:01:22.680
+variable, solving one branch with it set
+
+33
+00:01:22.680 --> 00:01:25.240
+to zero and one with it set to one.
+
+34
+00:01:25.840 --> 00:01:27.840
+Each relaxation gives a bound.
+
+35
+00:01:28.520 --> 00:01:31.240
+Any branch whose bound is worse than the
+
+36
+00:01:31.240 --> 00:01:33.580
+best whole solution found so far is
+
+37
+00:01:33.580 --> 00:01:34.000
+pruned.
+
+38
+00:01:35.160 --> 00:01:37.420
+Students tend to round linear
+
+39
+00:01:37.420 --> 00:01:39.480
+solutions or believe the solver
+
+40
+00:01:39.480 --> 00:01:40.680
+checks every combination.
+
+41
+00:01:41.620 --> 00:01:44.120
+Draw the branch-and-bound tree for a
+
+42
+00:01:44.120 --> 00:01:45.960
+four-item knapsack on the board.
+
+43
+00:01:46.590 --> 00:01:49.670
+Let students compute each bound and
+
+44
+00:01:49.670 --> 00:01:51.450
+decide which branches to prune.
+
+45
+00:01:52.580 --> 00:01:53.060
+Quick check!
+
+46
+00:01:53.700 --> 00:01:56.200
+The relaxation of a maximisation
+
+47
+00:01:56.200 --> 00:01:57.740
+knapsack gives fourteen.
+
+48
+00:01:58.510 --> 00:02:00.130
+What does that tell you about
+
+49
+00:02:00.130 --> 00:02:01.470
+the integer optimum?
+
+50
+00:02:02.800 --> 00:02:04.220
+It is at most fourteen.
+
+51
+00:02:05.030 --> 00:02:08.210
+The relaxation has more freedom, so it
+
+52
+00:02:08.210 --> 00:02:09.910
+can only do as well or better.
+
+53
+00:02:10.550 --> 00:02:13.190
+Here the true optimum is thirteen.
+
+54
+00:02:14.480 --> 00:02:17.080
+In the app, open the knapsack lab.
+
+55
+00:02:17.720 --> 00:02:20.600
+Pick items by hand, compare with
+
+56
+00:02:20.600 --> 00:02:23.180
+the relaxation, and watch branch
+
+57
+00:02:23.180 --> 00:02:25.180
+and bound prune its tree.
+
+58
+00:02:26.330 --> 00:02:26.870
+Your turn.
+
+59
+00:02:27.480 --> 00:02:28.880
+The best whole solution
+
+60
+00:02:28.880 --> 00:02:30.960
+so far is thirteen.
+
+61
+00:02:31.670 --> 00:02:34.670
+A branch's relaxation gives twelve.
+
+62
+00:02:35.230 --> 00:02:37.390
+What should branch and bound do?
+
+63
+00:02:38.670 --> 00:02:40.630
+Prune it: nothing in that
+
+64
+00:02:40.630 --> 00:02:41.950
+branch can beat thirteen.
+
+65
+00:02:42.590 --> 00:02:45.110
+Remember: relaxations give bounds,
+
+66
+00:02:45.730 --> 00:02:48.610
+rounding can be far from optimal, and
+
+67
+00:02:48.610 --> 00:02:51.350
+branch and bound proves optimality by
+
+68
+00:02:51.350 --> 00:02:51.790
+pruning.
+
+69
+00:02:53.010 --> 00:02:55.150
+Try it in your next lecture: give
+
+70
+00:02:55.150 --> 00:02:58.090
+pairs a four-item knapsack and ask
+
+71
+00:02:58.090 --> 00:03:00.130
+them to round the relaxation first.
+
+72
+00:03:00.910 --> 00:03:01.830
+Then draw the
+
+73
+00:03:01.830 --> 00:03:03.650
+branch-and-bound tree together.
+
+74
+00:03:04.400 --> 00:03:05.840
+Compare the rounded answer
+
+75
+00:03:05.840 --> 00:03:07.420
+with the proven optimum.

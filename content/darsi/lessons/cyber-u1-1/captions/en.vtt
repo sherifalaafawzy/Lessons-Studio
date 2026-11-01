@@ -1,0 +1,281 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.730
+A university once left a storage bucket of
+
+2
+00:00:03.730 --> 00:00:06.330
+student records open to the internet.
+
+3
+00:00:07.110 --> 00:00:08.710
+No one hacked anything.
+
+4
+00:00:09.540 --> 00:00:11.000
+A default setting was
+
+5
+00:00:11.000 --> 00:00:12.300
+simply never changed.
+
+6
+00:00:13.670 --> 00:00:16.490
+Today: the classic design principles for
+
+7
+00:00:16.490 --> 00:00:19.810
+secure systems, how STRIDE finds threats
+
+8
+00:00:19.810 --> 00:00:22.630
+before attackers do, and how to teach both
+
+9
+00:00:22.630 --> 00:00:24.350
+without a list to memorise.
+
+10
+00:00:25.500 --> 00:00:27.640
+Security aims at three properties.
+
+11
+00:00:28.460 --> 00:00:30.420
+Confidentiality keeps data
+
+12
+00:00:30.420 --> 00:00:31.460
+from the wrong people.
+
+13
+00:00:32.130 --> 00:00:33.830
+Integrity keeps it from being
+
+14
+00:00:33.830 --> 00:00:35.010
+changed without permission.
+
+15
+00:00:35.730 --> 00:00:37.970
+Availability keeps it there when
+
+16
+00:00:37.970 --> 00:00:39.390
+the right people need it.
+
+17
+00:00:40.600 --> 00:00:42.860
+In nineteen seventy five, Saltzer
+
+18
+00:00:42.860 --> 00:00:44.400
+and Schroeder listed design
+
+19
+00:00:44.400 --> 00:00:45.920
+principles that still hold.
+
+20
+00:00:46.590 --> 00:00:48.410
+Fail-safe defaults mean
+
+21
+00:00:48.410 --> 00:00:50.390
+deny unless allowed.
+
+22
+00:00:51.150 --> 00:00:52.870
+Least privilege means give
+
+23
+00:00:52.870 --> 00:00:54.070
+only what is needed.
+
+24
+00:00:54.740 --> 00:00:56.560
+Complete mediation means
+
+25
+00:00:56.560 --> 00:00:58.020
+check every access.
+
+26
+00:00:59.450 --> 00:01:02.050
+Industry breach reports repeatedly find
+
+27
+00:01:02.050 --> 00:01:04.910
+that stolen credentials, phishing and
+
+28
+00:01:04.910 --> 00:01:07.030
+misconfiguration start most incidents.
+
+29
+00:01:07.760 --> 00:01:10.420
+Exotic exploits are a small share.
+
+30
+00:01:11.130 --> 00:01:13.510
+That is a lesson for what we teach first.
+
+31
+00:01:14.880 --> 00:01:16.860
+Threat modelling asks what could
+
+32
+00:01:16.860 --> 00:01:18.660
+go wrong before it does.
+
+33
+00:01:19.420 --> 00:01:21.580
+Draw the data flows, mark trust
+
+34
+00:01:21.580 --> 00:01:24.340
+boundaries, and walk each element through
+
+35
+00:01:24.340 --> 00:01:27.900
+STRIDE: spoofing, tampering, repudiation,
+
+36
+00:01:28.440 --> 00:01:31.060
+information disclosure, denial of service
+
+37
+00:01:31.060 --> 00:01:33.160
+and elevation of privilege.
+
+38
+00:01:34.530 --> 00:01:36.990
+Principles taught as a list are
+
+39
+00:01:36.990 --> 00:01:38.310
+forgotten by the exam.
+
+40
+00:01:38.990 --> 00:01:41.550
+Instead, threat-model a system students
+
+41
+00:01:41.550 --> 00:01:44.370
+use every day, like the university portal.
+
+42
+00:01:45.010 --> 00:01:47.930
+Each team draws the data flow and
+
+43
+00:01:47.930 --> 00:01:50.190
+finds one threat per STRIDE letter.
+
+44
+00:01:51.450 --> 00:01:51.930
+Quick check!
+
+45
+00:01:52.540 --> 00:01:55.040
+The open bucket was readable by anyone
+
+46
+00:01:55.040 --> 00:01:57.640
+because nobody changed a default.
+
+47
+00:01:58.370 --> 00:01:59.970
+Which principle did it break?
+
+48
+00:02:01.240 --> 00:02:02.760
+Fail-safe defaults.
+
+49
+00:02:03.240 --> 00:02:05.280
+Access should be denied unless
+
+50
+00:02:05.280 --> 00:02:06.680
+someone grants it on purpose.
+
+51
+00:02:07.480 --> 00:02:09.920
+A secure system is safe before
+
+52
+00:02:09.920 --> 00:02:11.520
+anyone configures it.
+
+53
+00:02:12.670 --> 00:02:14.730
+In the app, open the breach lab.
+
+54
+00:02:15.360 --> 00:02:17.520
+Check whether test addresses appear
+
+55
+00:02:17.520 --> 00:02:20.140
+in known breaches, and discuss which
+
+56
+00:02:20.140 --> 00:02:21.620
+principle each breach broke.
+
+57
+00:02:22.830 --> 00:02:23.590
+Your turn.
+
+58
+00:02:24.210 --> 00:02:26.870
+A student edits a hidden form field to
+
+59
+00:02:26.870 --> 00:02:29.050
+change their grade before it is saved.
+
+60
+00:02:29.700 --> 00:02:31.680
+Which STRIDE threat is that?
+
+61
+00:02:32.960 --> 00:02:33.500
+Tampering.
+
+62
+00:02:34.150 --> 00:02:37.590
+Remember: deny by default, give least
+
+63
+00:02:37.590 --> 00:02:41.250
+privilege, check every access, and use
+
+64
+00:02:41.250 --> 00:02:44.370
+STRIDE on a real system before attackers
+
+65
+00:02:44.370 --> 00:02:44.710
+do.
+
+66
+00:02:45.790 --> 00:02:47.930
+Try it in your next lecture: give
+
+67
+00:02:47.930 --> 00:02:50.550
+teams a one-page data flow of the
+
+68
+00:02:50.550 --> 00:02:51.690
+course registration system.
+
+69
+00:02:52.340 --> 00:02:55.620
+Each team must find one threat for every
+
+70
+00:02:55.620 --> 00:02:57.840
+STRIDE letter and propose a fix.

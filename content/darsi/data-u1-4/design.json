@@ -1,0 +1,227 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "112% attendance",
+            "ar-EG": "حضور 112%"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Students loaded twice",
+            "ar-EG": "طلاب اتحمّلوا مرتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Who should catch it?",
+            "ar-EG": "مين يمسكها؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Complete and valid",
+            "ar-EG": "كاملة وصالحة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Unique and consistent",
+            "ar-EG": "فريدة ومتسقة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Accurate and timely",
+            "ar-EG": "دقيقة وفي وقتها"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "checksquare"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "SELECT student_id, course, COUNT(*)\nFROM enrol\nGROUP BY student_id, course\nHAVING COUNT(*) > 1;\n-- expect 0 rows",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "ALTER TABLE enrol\n  ADD PRIMARY KEY (student_id, course);\nALTER TABLE enrol\n  ADD CHECK (grade BETWEEN 0 AND 100);",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "share",
+          "text": {
+            "en": "Lineage: where from",
+            "ar-EG": "النَّسَب: منين"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Datasheet: how collected",
+            "ar-EG": "ورقة البيانات: اتجمعت إزاي"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Others can check",
+            "ar-EG": "غيرك يقدر يراجع"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "share"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Real, messy data",
+            "ar-EG": "بيانات حقيقية ملخبطة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Grade the checks",
+            "ar-EG": "قيّم الفحوص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Justify each decision",
+            "ar-EG": "برّر كل قرار"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Run the checks",
+            "ar-EG": "شغّل الفحوص"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Find the problems",
+            "ar-EG": "لاقي المشاكل"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Decide and record",
+            "ar-EG": "قرّر وسجّل"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "checksquare"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Test every load",
+            "ar-EG": "اختبر كل تحميل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Let constraints refuse",
+            "ar-EG": "خلّي القيود ترفض"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Document decisions",
+            "ar-EG": "وثّق القرارات"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Use messy, real data.",
+        "ar-EG": "استخدم بيانات حقيقية ملخبطة."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Planted problems",
+            "ar-EG": "مشاكل متحطوطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Three checks each",
+            "ar-EG": "تلات فحوص لكل مجموعة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Defend one decision",
+            "ar-EG": "دافع عن قرار"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

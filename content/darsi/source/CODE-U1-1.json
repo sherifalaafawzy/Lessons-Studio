@@ -1,0 +1,274 @@
+{
+ "id": "CODE-U1-1",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching programming and algorithms at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Asymptotic analysis",
+  "subtitle": "Big-O, Θ and Ω",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Asymptotic analysis: Big-O, Θ and Ω",
+  "length": "2:41",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Fast on my laptop"
+   },
+   {
+    "at": "0:20",
+    "label": "Growth rates"
+   },
+   {
+    "at": "1:08",
+    "label": "Teaching Big-O"
+   },
+   {
+    "at": "2:07",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "A student's search runs in a blink on ten thousand records. On the university's ten million, it never finishes. Their code was correct. What did they miss?",
+    "icons": [
+     "cpu",
+     "clock",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Asymptotic analysis",
+    "voice": "Narrator",
+    "narration": "Today: what Big-O really says, why students confuse it with speed, and how to teach growth rates so they stick."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:34",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Growth, not speed",
+    "voice": "Narrator",
+    "narration": "Big-O describes how running time grows as the input grows. It ignores constant factors and small inputs. It is an upper bound, while Theta gives a tight bound and Omega a lower one.",
+    "icons": [
+     "gauge",
+     "arrow"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The formal definition",
+    "voice": "Narrator",
+    "narration": "We write f of n is O of g of n when some constant c and some n zero exist with f at most c times g for every n beyond n zero. The definition is about the eventual shape of the curve.",
+    "icons": [
+     "pencil",
+     "calculator"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:51",
+    "end": "1:08",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Counting the loops",
+    "voice": "Narrator",
+    "narration": "A loop inside a loop over n items does n squared steps. Halving the range each time, as binary search does, takes about log n steps. At ten million records, that is a hundred trillion steps against about twenty four.",
+    "icons": [
+     "repeat"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Recurrences and the master theorem",
+    "voice": "Narrator",
+    "narration": "Divide-and-conquer algorithms give recurrences such as T of n equals two T of n over two plus n. The master theorem solves the common forms. Merge sort comes out at n log n.",
+    "icons": [
+     "layers",
+     "calculator"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:21",
+    "end": "1:38",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach it by measuring first",
+    "voice": "Dr Amina",
+    "narration": "Students often think Big-O means seconds, or that O of n squared is always slower than O of n. Let them time two algorithms on growing inputs and plot the curves. Then introduce the definition to explain what they saw.",
+    "icons": [
+     "gauge",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:38",
+    "end": "1:46",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which grows faster?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! One algorithm takes one hundred n steps, another takes n squared. For large n, which is slower?"
+   },
+   {
+    "n": 9,
+    "start": "1:46",
+    "end": "1:58",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "n squared, eventually",
+    "voice": "Narrator",
+    "narration": "The n squared one, once n passes one hundred. Below that, it is actually faster. Big-O tells you who wins in the end, not who wins on small inputs.",
+    "icons": [
+     "gauge",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:58",
+    "end": "2:07",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: Big-O",
+    "voice": "Narrator",
+    "narration": "In the app, open the Big-O lab. Grow the input and watch the step counts of different algorithms pull apart.",
+    "icons": [
+     "gauge",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:07",
+    "end": "2:14",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which bound?",
+    "voice": "Dr Amina",
+    "narration": "Your turn. A student says linear search is O of n squared. Is that statement true?"
+   },
+   {
+    "n": 12,
+    "start": "2:14",
+    "end": "2:26",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Growth, bounds, recurrences",
+    "voice": "Narrator",
+    "narration": "True, but not tight: O is only an upper bound, and Theta of n is the precise answer. Remember: Big-O is about growth, constants vanish, and recurrences solve divide and conquer."
+   },
+   {
+    "n": 13,
+    "start": "2:26",
+    "end": "2:41",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs two sorting functions and inputs of one thousand to one million. They time both and plot the results. Then ask which curve matches n log n.",
+    "icons": [
+     "presentation",
+     "gauge",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:44",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "One algorithm takes 100n steps, another n². For large n, which is slower?",
+    "options": [
+     {
+      "text": "100n",
+      "correct": false
+     },
+     {
+      "text": "n²",
+      "correct": true
+     },
+     {
+      "text": "Always the same",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: beyond n = 100, n² grows past 100n.",
+    "feedback_wrong": "Not quite: constants don't change the eventual winner; n² overtakes 100n at n = 100.",
+    "resume_at": "1:46"
+   },
+   {
+    "at": "2:12",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A student says linear search is O(n²). Is that true?",
+    "options": [
+     {
+      "text": "True, but not tight",
+      "correct": true
+     },
+     {
+      "text": "False",
+      "correct": false
+     },
+     {
+      "text": "Only for sorted lists",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: O is an upper bound; Θ(n) is the tight one.",
+    "feedback_wrong": "Not quite: n ≤ n², so the bound holds; it just isn't tight.",
+    "resume_at": "2:14"
+   }
+  ]
+ }
+}

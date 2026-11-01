@@ -1,0 +1,274 @@
+{
+ "id": "CYBER-U1-3",
+ "track": "cyber",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching cyber security at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Hashing, passwords and authentication",
+  "subtitle": "Salts, slow hashes and second factors",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Hashing, passwords and authentication: Salts, slow hashes and second factors",
+  "length": "2:39",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A leaked table"
+   },
+   {
+    "at": "0:20",
+    "label": "Hash properties"
+   },
+   {
+    "at": "1:03",
+    "label": "Storing passwords"
+   },
+   {
+    "at": "2:04",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "A student project stored passwords as plain SHA two fifty six hashes. When the table leaked in a class exercise, a laptop recovered half of them in an afternoon.",
+    "icons": [
+     "database",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Hashing, passwords and authentication",
+    "voice": "Narrator",
+    "narration": "Today: what a cryptographic hash guarantees, why passwords need salted slow hashes, and where a second factor really helps."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A cryptographic hash",
+    "voice": "Narrator",
+    "narration": "A cryptographic hash maps any input to a short fixed-length digest. It should be infeasible to find an input from a digest, or two inputs with the same digest. Change one bit, and the digest changes completely.",
+    "icons": [
+     "fingerprint",
+     "lock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Fast is the problem",
+    "voice": "Narrator",
+    "narration": "General hashes are designed to be fast. A graphics card can try billions of guesses a second. People choose predictable passwords, so an attacker hashes a dictionary and looks for matches.",
+    "icons": [
+     "gauge",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:03",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Guesses per second",
+    "voice": "Narrator",
+    "narration": "Here is the relative rate of guesses on one graphics card. A plain fast hash allows vastly more guesses than a slow, memory-hard function tuned to take a tenth of a second per login.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:03",
+    "end": "1:18",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Salt, then slow down",
+    "voice": "Narrator",
+    "narration": "Store passwords with a unique random salt per user and a slow function such as bcrypt, scrypt or Argon two. The salt stops precomputed tables and makes identical passwords look different. The cost factor slows every guess.",
+    "icons": [
+     "key",
+     "clock"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:18",
+    "end": "1:34",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Second factors",
+    "voice": "Dr Joseph",
+    "narration": "A second factor means a stolen password alone is not enough. One-time codes help against reuse, but can still be phished. Hardware keys bound to the site's address resist phishing, because they will not sign for a fake domain.",
+    "icons": [
+     "phone",
+     "fingerprint"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:34",
+    "end": "1:42",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why a salt?",
+    "voice": "Dr Salma",
+    "narration": "Quick check! Two users have the same password. With a unique salt each, what do their stored hashes look like?"
+   },
+   {
+    "n": 9,
+    "start": "1:42",
+    "end": "1:53",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Different",
+    "voice": "Narrator",
+    "narration": "Different. So an attacker cannot spot shared passwords, and must attack each one separately. A precomputed table for one salt is useless for the next.",
+    "icons": [
+     "key",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:53",
+    "end": "2:04",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: hashing",
+    "voice": "Narrator",
+    "narration": "In the app, open the hash lab. Change one letter of the input and compare the digests, then add a salt and watch identical passwords diverge.",
+    "icons": [
+     "fingerprint",
+     "zap"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:04",
+    "end": "2:14",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which factor?",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. A staff member typed a password and a one-time code into a fake login page. Which second factor would have stopped the attacker?"
+   },
+   {
+    "n": 12,
+    "start": "2:14",
+    "end": "2:26",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Hash, salt, slow, second factor",
+    "voice": "Narrator",
+    "narration": "A hardware security key bound to the real site. Remember: fast hashes are wrong for passwords, salt every user, tune a slow function, and prefer phishing-resistant factors."
+   },
+   {
+    "n": 13,
+    "start": "2:26",
+    "end": "2:39",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lab",
+    "voice": "Narrator",
+    "narration": "Try it in your next lab: give teams a small table of fake users hashed three ways. They time a dictionary attack on each, then explain the difference in their report.",
+    "icons": [
+     "presentation",
+     "fingerprint",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:40",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Two users share a password. With a unique salt each, their stored hashes are:",
+    "options": [
+     {
+      "text": "Identical",
+      "correct": false
+     },
+     {
+      "text": "Different",
+      "correct": true
+     },
+     {
+      "text": "Empty",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: salts make each hash unique, so each password must be attacked separately.",
+    "feedback_wrong": "Not quite: the salt is part of the input, so the same password gives different hashes.",
+    "resume_at": "1:42"
+   },
+   {
+    "at": "2:12",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A password and one-time code were typed into a fake page. Which factor would have stopped it?",
+    "options": [
+     {
+      "text": "A longer password",
+      "correct": false
+     },
+     {
+      "text": "An SMS code",
+      "correct": false
+     },
+     {
+      "text": "A hardware key bound to the real site",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct: the key won't sign for the fake domain.",
+    "feedback_wrong": "Not quite: codes can be relayed in real time; only origin-bound keys refuse a fake site.",
+    "resume_at": "2:14"
+   }
+  ]
+ }
+}

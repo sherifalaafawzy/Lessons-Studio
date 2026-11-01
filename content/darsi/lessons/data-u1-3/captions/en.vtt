@@ -1,0 +1,281 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:01.750
+Course registration opens.
+
+2
+00:00:02.510 --> 00:00:04.510
+One seat is left in a popular
+
+3
+00:00:04.510 --> 00:00:07.010
+elective, and two students click
+
+4
+00:00:07.010 --> 00:00:09.390
+register in the same millisecond.
+
+5
+00:00:09.960 --> 00:00:11.040
+Both get a confirmation.
+
+6
+00:00:11.910 --> 00:00:13.650
+How did the system sell
+
+7
+00:00:13.650 --> 00:00:15.210
+the same seat twice?
+
+8
+00:00:16.430 --> 00:00:18.610
+Today: what a transaction guarantees,
+
+9
+00:00:19.390 --> 00:00:22.150
+how isolation levels allow or prevent
+
+10
+00:00:22.150 --> 00:00:24.950
+anomalies, and what changes when data
+
+11
+00:00:24.950 --> 00:00:26.390
+lives on many machines.
+
+12
+00:00:27.790 --> 00:00:30.030
+A transaction groups operations
+
+13
+00:00:30.030 --> 00:00:32.050
+so they behave as one unit.
+
+14
+00:00:32.760 --> 00:00:36.020
+ACID names its guarantees: atomicity,
+
+15
+00:00:36.500 --> 00:00:39.820
+consistency, isolation and durability.
+
+16
+00:00:40.730 --> 00:00:41.630
+Either everything
+
+17
+00:00:41.630 --> 00:00:43.670
+commits, or nothing does.
+
+18
+00:00:44.980 --> 00:00:47.560
+Both requests read one seat left.
+
+19
+00:00:48.300 --> 00:00:50.800
+Both subtract one and write zero.
+
+20
+00:00:51.490 --> 00:00:53.910
+Without proper isolation, each
+
+21
+00:00:53.910 --> 00:00:55.790
+overwrites the other, and the
+
+22
+00:00:55.790 --> 00:00:57.570
+count never shows minus one.
+
+23
+00:00:58.810 --> 00:01:01.770
+One fix is an atomic conditional update
+
+24
+00:01:01.770 --> 00:01:04.330
+that only succeeds while seats remain.
+
+25
+00:01:04.960 --> 00:01:08.320
+Another is serializable isolation, which
+
+26
+00:01:08.320 --> 00:01:10.060
+aborts one of the two transactions.
+
+27
+00:01:10.860 --> 00:01:12.660
+Either way, exactly one
+
+28
+00:01:12.660 --> 00:01:13.880
+student is enrolled.
+
+29
+00:01:15.170 --> 00:01:17.350
+Databases offer weaker isolation
+
+30
+00:01:17.350 --> 00:01:19.850
+levels for speed, such as read
+
+31
+00:01:19.850 --> 00:01:21.990
+committed and snapshot isolation.
+
+32
+00:01:22.830 --> 00:01:25.010
+Each permits some anomalies.
+
+33
+00:01:25.740 --> 00:01:28.200
+Only serializable behaves as if
+
+34
+00:01:28.200 --> 00:01:30.320
+transactions ran one at a time.
+
+35
+00:01:31.510 --> 00:01:33.670
+When data is replicated and the
+
+36
+00:01:33.670 --> 00:01:36.450
+network splits, a system must choose.
+
+37
+00:01:37.200 --> 00:01:39.400
+It can stay available and risk
+
+38
+00:01:39.400 --> 00:01:42.120
+inconsistent answers, or stay
+
+39
+00:01:42.120 --> 00:01:44.360
+consistent and refuse some requests.
+
+40
+00:01:45.220 --> 00:01:48.100
+That is the CAP trade-off, and students
+
+41
+00:01:48.100 --> 00:01:49.720
+should argue it from real cases.
+
+42
+00:01:51.040 --> 00:01:51.520
+Quick check!
+
+43
+00:01:52.160 --> 00:01:54.320
+The double booking happened because
+
+44
+00:01:54.320 --> 00:01:56.660
+concurrent transactions saw each
+
+45
+00:01:56.660 --> 00:01:58.180
+other's half-finished work.
+
+46
+00:01:58.780 --> 00:02:00.640
+Which ACID property failed?
+
+47
+00:02:01.910 --> 00:02:02.630
+Isolation.
+
+48
+00:02:03.270 --> 00:02:05.210
+Each transaction was atomic
+
+49
+00:02:05.210 --> 00:02:06.750
+and durable on its own.
+
+50
+00:02:07.350 --> 00:02:10.110
+The problem was how they interleaved.
+
+51
+00:02:11.290 --> 00:02:13.710
+In the app, open the pipeline lab.
+
+52
+00:02:14.340 --> 00:02:16.720
+Interleave two transactions step
+
+53
+00:02:16.720 --> 00:02:18.700
+by step and see which orders
+
+54
+00:02:18.700 --> 00:02:20.180
+produce a wrong result.
+
+55
+00:02:21.450 --> 00:02:21.950
+Your turn.
+
+56
+00:02:22.560 --> 00:02:25.100
+During a network partition, a bank's
+
+57
+00:02:25.100 --> 00:02:27.100
+ledger must never show two different
+
+58
+00:02:27.100 --> 00:02:27.520
+balances.
+
+59
+00:02:28.250 --> 00:02:29.350
+What must it give up?
+
+60
+00:02:30.540 --> 00:02:33.080
+Availability: some requests are
+
+61
+00:02:33.080 --> 00:02:35.200
+refused until the partition heals.
+
+62
+00:02:35.990 --> 00:02:38.750
+Remember: transactions are units of work,
+
+63
+00:02:39.310 --> 00:02:41.890
+isolation levels trade anomalies for
+
+64
+00:02:41.890 --> 00:02:44.890
+speed, and partitions force a choice.
+
+65
+00:02:46.170 --> 00:02:48.250
+Try it in your next lecture: give
+
+66
+00:02:48.250 --> 00:02:50.350
+two volunteers cards with the
+
+67
+00:02:50.350 --> 00:02:51.930
+steps of two transactions.
+
+68
+00:02:52.600 --> 00:02:54.660
+The class calls out an interleaving
+
+69
+00:02:54.660 --> 00:02:56.640
+and records the final seat count.
+
+70
+00:02:57.270 --> 00:02:59.550
+Then add a lock and try again.

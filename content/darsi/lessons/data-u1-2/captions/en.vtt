@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.990
+On results day, the student portal takes
+
+2
+00:00:02.990 --> 00:00:05.370
+eight seconds to show one student's
+
+3
+00:00:05.370 --> 00:00:05.590
+grades.
+
+4
+00:00:06.320 --> 00:00:07.820
+The query is one line.
+
+5
+00:00:08.520 --> 00:00:10.500
+After a single change, it
+
+6
+00:00:10.500 --> 00:00:11.660
+takes three milliseconds.
+
+7
+00:00:12.730 --> 00:00:13.310
+What changed?
+
+8
+00:00:14.710 --> 00:00:17.610
+Today: why a query on a million rows
+
+9
+00:00:17.610 --> 00:00:20.930
+can take seconds or milliseconds, how
+
+10
+00:00:20.930 --> 00:00:23.830
+B-tree indexes work, and how to teach
+
+11
+00:00:23.830 --> 00:00:25.650
+students to read a query plan.
+
+12
+00:00:26.940 --> 00:00:29.560
+An index is a separate structure that
+
+13
+00:00:29.560 --> 00:00:32.000
+maps key values to row locations.
+
+14
+00:00:32.830 --> 00:00:35.970
+Without one, the database scans every row.
+
+15
+00:00:36.540 --> 00:00:38.660
+With one, it jumps almost
+
+16
+00:00:38.660 --> 00:00:40.280
+straight to the rows it needs.
+
+17
+00:00:41.630 --> 00:00:44.510
+A B-tree keeps keys sorted in wide
+
+18
+00:00:44.510 --> 00:00:46.910
+nodes, each holding hundreds of keys.
+
+19
+00:00:47.620 --> 00:00:49.500
+Because the tree is so wide,
+
+20
+00:00:49.980 --> 00:00:51.340
+it stays very shallow.
+
+21
+00:00:52.080 --> 00:00:54.680
+A million rows need only three or four
+
+22
+00:00:54.680 --> 00:00:57.220
+levels, so three or four page reads.
+
+23
+00:00:58.500 --> 00:01:01.020
+The portal filtered grades by student ID,
+
+24
+00:01:01.720 --> 00:01:04.400
+but only the grade ID was indexed.
+
+25
+00:01:04.870 --> 00:01:07.490
+Every request scanned the whole table.
+
+26
+00:01:08.120 --> 00:01:10.900
+One create index statement fixed it.
+
+27
+00:01:11.980 --> 00:01:15.560
+Every index speeds some reads but slows
+
+28
+00:01:15.560 --> 00:01:18.220
+every write, because it must be updated
+
+29
+00:01:18.220 --> 00:01:18.600
+too.
+
+30
+00:01:19.200 --> 00:01:20.440
+It also takes space.
+
+31
+00:01:21.220 --> 00:01:23.280
+And an index on a column with only
+
+32
+00:01:23.280 --> 00:01:26.160
+two values rarely helps, since the
+
+33
+00:01:26.160 --> 00:01:27.360
+planner will scan anyway.
+
+34
+00:01:28.620 --> 00:01:32.420
+Students often think indexes are magic
+
+35
+00:01:32.420 --> 00:01:35.080
+or that more is always better.
+
+36
+00:01:35.760 --> 00:01:39.280
+Give them a large table and have them run
+
+37
+00:01:39.280 --> 00:01:43.380
+EXPLAIN before and after adding an index.
+
+38
+00:01:44.130 --> 00:01:47.650
+Measuring both read and write time
+
+39
+00:01:47.650 --> 00:01:49.330
+makes the trade-off concrete.
+
+40
+00:01:50.840 --> 00:01:51.240
+Quick check!
+
+41
+00:01:51.860 --> 00:01:53.960
+A B-tree holds about two
+
+42
+00:01:53.960 --> 00:01:55.180
+hundred keys per node.
+
+43
+00:01:55.790 --> 00:01:57.550
+Roughly how many levels does it
+
+44
+00:01:57.550 --> 00:01:59.430
+need for eight million rows?
+
+45
+00:02:00.770 --> 00:02:04.830
+Three: two hundred cubed is eight million.
+
+46
+00:02:05.590 --> 00:02:08.730
+That is why indexed lookups stay fast as
+
+47
+00:02:08.730 --> 00:02:10.670
+tables grow by orders of magnitude.
+
+48
+00:02:12.010 --> 00:02:14.230
+In the app, open the index lab.
+
+49
+00:02:14.830 --> 00:02:16.970
+Run the same lookup with and
+
+50
+00:02:16.970 --> 00:02:19.150
+without an index and count how
+
+51
+00:02:19.150 --> 00:02:21.190
+many rows each method touches.
+
+52
+00:02:22.370 --> 00:02:23.110
+Your turn.
+
+53
+00:02:23.750 --> 00:02:26.450
+A column holds only yes or
+
+54
+00:02:26.450 --> 00:02:28.270
+no, evenly split.
+
+55
+00:02:29.020 --> 00:02:32.620
+Will an index on it usually speed
+
+56
+00:02:32.620 --> 00:02:34.400
+up a filter on that column?
+
+57
+00:02:35.660 --> 00:02:37.620
+Usually not: half the rows
+
+58
+00:02:37.620 --> 00:02:39.580
+match, so scanning is cheaper.
+
+59
+00:02:40.280 --> 00:02:43.800
+Remember: B-trees stay shallow, every
+
+60
+00:02:43.800 --> 00:02:47.580
+index costs writes and space, and EXPLAIN
+
+61
+00:02:47.580 --> 00:02:49.100
+shows what the planner decided.
+
+62
+00:02:50.400 --> 00:02:52.540
+Try it in your next lecture: load
+
+63
+00:02:52.540 --> 00:02:55.140
+a million-row table and let pairs
+
+64
+00:02:55.140 --> 00:02:56.720
+run one slow query.
+
+65
+00:02:57.430 --> 00:02:59.390
+They read the plan, add one
+
+66
+00:02:59.390 --> 00:03:01.130
+index and run it again.
+
+67
+00:03:01.750 --> 00:03:03.490
+Then they measure how much
+
+68
+00:03:03.490 --> 00:03:05.170
+slower inserts became.

@@ -1,0 +1,273 @@
+{
+ "id": "CODE-U1-2",
+ "track": "code",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching programming and algorithms at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Recursion and induction",
+  "subtitle": "Base cases, the call stack and proofs",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Recursion and induction: Base cases, the call stack and proofs",
+  "length": "2:30",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The function that never stops"
+   },
+   {
+    "at": "0:19",
+    "label": "How recursion works"
+   },
+   {
+    "at": "0:59",
+    "label": "Proving it correct"
+   },
+   {
+    "at": "1:55",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:10",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "Half the class submits a recursive factorial that crashes with a stack overflow. Their loop version worked perfectly. What do they not yet understand?",
+    "icons": [
+     "repeat",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:10",
+    "end": "0:19",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Recursion and induction",
+    "voice": "Narrator",
+    "narration": "Today: how recursion really executes, why induction proves it correct, and the mental models that stop students treating it as magic."
+   },
+   {
+    "n": 3,
+    "start": "0:19",
+    "end": "0:32",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Smaller copies of the problem",
+    "voice": "Narrator",
+    "narration": "A recursive function solves a problem by calling itself on a smaller instance. It needs a base case that answers directly. And every call must move closer to that base case.",
+    "icons": [
+     "layers",
+     "arrow"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The call stack",
+    "voice": "Narrator",
+    "narration": "Each call gets its own frame with its own parameters and local variables. Frames pile up until the base case returns. Then they unwind one by one, each finishing its own multiplication.",
+    "icons": [
+     "layers"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:45",
+    "end": "0:59",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The missing base case",
+    "voice": "Narrator",
+    "narration": "The crashing version tested for n equal to one but was called with zero. Zero minus one never reaches one, so the frames never stop. Testing for n at most zero fixes it.",
+    "icons": [
+     "warning"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:13",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Induction proves recursion",
+    "voice": "Narrator",
+    "narration": "Structural induction mirrors the code. Prove the base case returns the right answer. Then assume the smaller call is correct and show the current call is too. That is exactly the recursive leap of faith.",
+    "icons": [
+     "pencil",
+     "check"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:13",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Models that work",
+    "voice": "Dr Joseph",
+    "narration": "Students often picture recursion as a loop, or believe the function somehow waits without memory. Act it out: each student is one frame, holding a card with their own n. Then trace on paper before running any code.",
+    "icons": [
+     "users",
+     "layers"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:29",
+    "end": "1:38",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How many frames?",
+    "voice": "Dr Salma",
+    "narration": "Quick check! The fixed factorial is called with four. How many frames are on the stack at the deepest point?"
+   },
+   {
+    "n": 9,
+    "start": "1:38",
+    "end": "1:47",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Five frames",
+    "voice": "Narrator",
+    "narration": "Five: fact of four, three, two, one and zero. Each holds its own n, waiting for the call below it to return.",
+    "icons": [
+     "layers",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:47",
+    "end": "1:55",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: recursion",
+    "voice": "Narrator",
+    "narration": "In the app, open the recursion lab. Step through the calls and watch frames push and pop on the stack.",
+    "icons": [
+     "layers",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:55",
+    "end": "2:03",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The inductive step",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. In the induction proof for a recursive function, what do you assume in the inductive step?"
+   },
+   {
+    "n": 12,
+    "start": "2:03",
+    "end": "2:14",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Base, stack, induction",
+    "voice": "Narrator",
+    "narration": "You assume the smaller recursive call returns the correct answer. Remember: every recursion needs a reachable base case, frames hold separate state, and induction is the proof."
+   },
+   {
+    "n": 13,
+    "start": "2:14",
+    "end": "2:30",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: line up five students as stack frames for factorial of four. Each writes their n on a card and passes the result back up. Then the class writes the induction proof together.",
+    "icons": [
+     "presentation",
+     "users",
+     "layers"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:36",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The fixed factorial is called with 4. How many frames at the deepest point?",
+    "options": [
+     {
+      "text": "4",
+      "correct": false
+     },
+     {
+      "text": "5",
+      "correct": true
+     },
+     {
+      "text": "1",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: fact(4) down to fact(0) is five frames.",
+    "feedback_wrong": "Not quite: count fact(4), 3, 2, 1 and the base case 0.",
+    "resume_at": "1:38"
+   },
+   {
+    "at": "2:01",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "In the inductive step, what do you assume?",
+    "options": [
+     {
+      "text": "The smaller call is correct",
+      "correct": true
+     },
+     {
+      "text": "The base case is wrong",
+      "correct": false
+     },
+     {
+      "text": "The function never returns",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: assume the smaller call, prove the current one.",
+    "feedback_wrong": "Not quite: the hypothesis is that the smaller instance already works.",
+    "resume_at": "2:03"
+   }
+  ]
+ }
+}

@@ -1,0 +1,274 @@
+{
+ "id": "AGENTS-U1-3",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching AI agents at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Evaluating agents",
+  "subtitle": "Benchmarks, pass@k and variance",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Evaluating agents: Benchmarks, pass@k and variance",
+  "length": "2:49",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Prof Farah - head of department, Amman",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Ninety percent, once"
+   },
+   {
+    "at": "0:26",
+    "label": "Measuring success"
+   },
+   {
+    "at": "1:16",
+    "label": "Honest evaluation"
+   },
+   {
+    "at": "2:18",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "A student team reports that their coding agent solves ninety percent of tasks. When you rerun it, it solves sixty. They ran it once, on tasks they wrote while building it. What should they have done?",
+    "icons": [
+     "gauge",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:26",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Evaluating agents",
+    "voice": "Narrator",
+    "narration": "Today: how to measure whether an agent works, what pass at k really means, and how to teach students to report results that others can trust."
+   },
+   {
+    "n": 3,
+    "start": "0:26",
+    "end": "0:43",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "An evaluation",
+    "voice": "Narrator",
+    "narration": "An evaluation runs an agent on a fixed set of tasks with an automatic check of success. The tasks must be separate from those used to build the agent. And because agents are random, it must be run more than once.",
+    "icons": [
+     "checksquare",
+     "list"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:43",
+    "end": "1:01",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "pass@k",
+    "voice": "Narrator",
+    "narration": "pass at k is the probability that at least one of k attempts succeeds. If one attempt succeeds with probability p, pass at k is one minus one minus p, to the power k. It rewards retries, so report pass at one as well.",
+    "icons": [
+     "calculator",
+     "target"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "1:01",
+    "end": "1:16",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Variance and intervals",
+    "voice": "Narrator",
+    "narration": "On fifty tasks, a sixty percent success rate has a standard error of about seven points. So ninety and sixty may partly be noise and partly overfitting. Report the mean over several runs with an interval.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:16",
+    "end": "1:31",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Contamination and gaming",
+    "voice": "Narrator",
+    "narration": "Public benchmarks may already appear in a model's training data, which inflates scores. Agents can also game a weak checker, for example by editing the tests. Hold out fresh tasks and inspect failures and successes by hand.",
+    "icons": [
+     "warning",
+     "search"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Assess the evaluation",
+    "voice": "Prof Farah",
+    "narration": "In student agent projects, grade the evaluation as seriously as the agent. Require a held-out task set, several runs, pass at one with an interval, and a short error analysis. A modest honest result should earn more than an inflated one.",
+    "icons": [
+     "clipboard",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:48",
+    "end": "1:56",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Compute pass@k",
+    "voice": "Dr Salma",
+    "narration": "Quick check! An agent succeeds on a single attempt with probability zero point two. What is pass at two?"
+   },
+   {
+    "n": 9,
+    "start": "1:56",
+    "end": "2:06",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Zero point three six",
+    "voice": "Narrator",
+    "narration": "Zero point three six: one minus zero point eight squared. Two tries nearly double the headline number, which is why pass at one matters.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:06",
+    "end": "2:18",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: evals",
+    "voice": "Narrator",
+    "narration": "In the app, open the evals lab. Run an agent several times on the same tasks, watch the score move, and compare pass at one with pass at k.",
+    "icons": [
+     "gauge",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:18",
+    "end": "2:24",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The most trustworthy",
+    "voice": "Prof Farah",
+    "narration": "Your turn. Which result is most trustworthy for a student agent project?"
+   },
+   {
+    "n": 12,
+    "start": "2:24",
+    "end": "2:34",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Hold out, repeat, report",
+    "voice": "Narrator",
+    "narration": "Pass at one averaged over five runs on held-out tasks, with an interval. Remember: separate test tasks, several runs, honest metrics, and read the transcripts."
+   },
+   {
+    "n": 13,
+    "start": "2:34",
+    "end": "2:49",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: show two teams' results, one inflated and one honest, without saying which is which. Pairs list what each team did and did not report. Then vote on which result they trust.",
+    "icons": [
+     "presentation",
+     "gauge",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:54",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Single-attempt success is 0.2. What is pass@2?",
+    "options": [
+     {
+      "text": "0.36",
+      "correct": true
+     },
+     {
+      "text": "0.4",
+      "correct": false
+     },
+     {
+      "text": "0.04",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 1 − 0.8² = 0.36.",
+    "feedback_wrong": "Not quite: pass@k = 1 − (1 − p)ᵏ, so 1 − 0.64 = 0.36.",
+    "resume_at": "1:56"
+   },
+   {
+    "at": "2:22",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which result is most trustworthy for a student agent project?",
+    "options": [
+     {
+      "text": "pass@10 on development tasks",
+      "correct": false
+     },
+     {
+      "text": "Best of one run",
+      "correct": false
+     },
+     {
+      "text": "pass@1 over 5 runs on held-out tasks",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct: held-out, repeated and honest.",
+    "feedback_wrong": "Not quite: development tasks and best-of runs inflate the score.",
+    "resume_at": "2:24"
+   }
+  ]
+ }
+}

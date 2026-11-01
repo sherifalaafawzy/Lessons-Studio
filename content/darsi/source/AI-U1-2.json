@@ -1,0 +1,274 @@
+{
+ "id": "AI-U1-2",
+ "track": "ai",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching machine learning at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Backpropagation",
+  "subtitle": "The chain rule, at scale",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Backpropagation: The chain rule, at scale",
+  "length": "2:36",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Magic or maths?"
+   },
+   {
+    "at": "0:22",
+    "label": "The chain rule"
+   },
+   {
+    "at": "1:06",
+    "label": "Teaching it"
+   },
+   {
+    "at": "2:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "I asked my class how a network with a million weights knows which ones to change. One student said: the framework does it. That answer is true. It is also the moment understanding stops.",
+    "icons": [
+     "brain",
+     "help",
+     "sparkle"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Backpropagation",
+    "voice": "Narrator",
+    "narration": "Today: how backpropagation computes every gradient in one backward pass, and how to make it concrete for students."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:35",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A graph of operations",
+    "voice": "Narrator",
+    "narration": "A network is a chain of simple operations. The forward pass computes each value from inputs to loss. Backpropagation walks the same graph in reverse, applying the chain rule at each node.",
+    "icons": [
+     "network",
+     "arrow"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The chain rule",
+    "voice": "Narrator",
+    "narration": "If the loss depends on a, and a depends on w, then the derivative of the loss with respect to w is the derivative with respect to a times the derivative of a with respect to w. Local derivatives multiply.",
+    "icons": [
+     "calculator",
+     "network"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:06",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Vanishing gradients",
+    "voice": "Narrator",
+    "narration": "With sigmoid units each local derivative is at most a quarter. Multiply ten of them and the gradient reaching the first layer is almost zero. That is why deep sigmoid networks learned so slowly.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:06",
+    "end": "1:19",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why it matters",
+    "voice": "Narrator",
+    "narration": "Rumelhart, Hinton and Williams showed in nineteen eighty six that one backward pass gives every gradient for about the cost of one forward pass. Without that, training large networks would be impossible.",
+    "icons": [
+     "zap",
+     "clock"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:19",
+    "end": "1:33",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Make it concrete",
+    "voice": "Dr Amina",
+    "narration": "Cognitive load theory says novices drown in symbols. So start with a graph of three nodes and real numbers. Students compute the forward pass, then the backward pass, on paper. Only then generalise.",
+    "icons": [
+     "pencil",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:33",
+    "end": "1:47",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Multiply the locals",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! The derivative of the loss with respect to a is two, and the derivative of a with respect to w is three. What is the derivative of the loss with respect to w?"
+   },
+   {
+    "n": 9,
+    "start": "1:47",
+    "end": "1:55",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Six",
+    "voice": "Narrator",
+    "narration": "Six. Two times three. That one multiplication, repeated at every node from the loss backwards, is all backpropagation does.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:55",
+    "end": "2:05",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: backprop",
+    "voice": "Narrator",
+    "narration": "In the app, open the backprop lab. Run one forward pass, then step the gradients backwards node by node and check each multiplication.",
+    "icons": [
+     "network",
+     "back"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:05",
+    "end": "2:12",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why vanish?",
+    "voice": "Dr Amina",
+    "narration": "Your turn. Why does the gradient shrink as it travels back through many sigmoid layers?"
+   },
+   {
+    "n": 12,
+    "start": "2:12",
+    "end": "2:24",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Graph, chain rule, one pass",
+    "voice": "Narrator",
+    "narration": "Because each local derivative is at most a quarter, and they multiply. Remember: backprop is the chain rule on a graph, one backward pass gives every gradient, and small locals vanish."
+   },
+   {
+    "n": 13,
+    "start": "2:24",
+    "end": "2:36",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: draw a three-node graph with real numbers on the board. Pairs compute every gradient by hand, then check against the framework's answer.",
+    "icons": [
+     "presentation",
+     "network",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:45",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "∂L/∂a = 2 and ∂a/∂w = 3. What is ∂L/∂w?",
+    "options": [
+     {
+      "text": "5",
+      "correct": false
+     },
+     {
+      "text": "6",
+      "correct": true
+     },
+     {
+      "text": "1.5",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: by the chain rule, local derivatives multiply: 2 × 3 = 6.",
+    "feedback_wrong": "Not quite: the chain rule multiplies, not adds: 2 × 3 = 6.",
+    "resume_at": "1:47"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Why does the gradient shrink back through many sigmoid layers?",
+    "options": [
+     {
+      "text": "Each local derivative is ≤ 0.25 and they multiply",
+      "correct": true
+     },
+     {
+      "text": "The learning rate is too small",
+      "correct": false
+     },
+     {
+      "text": "Early layers have fewer weights",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: a product of many numbers below 0.25 quickly approaches zero.",
+    "feedback_wrong": "Not quite: sigmoid's derivative is at most 0.25, and the chain rule multiplies them layer after layer.",
+    "resume_at": "2:12"
+   }
+  ]
+ }
+}

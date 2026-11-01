@@ -1,0 +1,274 @@
+{
+ "id": "DS-U1-3",
+ "track": "data-science",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching statistical learning at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Causal inference: DAGs and difference-in-differences",
+  "subtitle": "From correlation to cause",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Causal inference: DAGs and difference-in-differences: From correlation to cause",
+  "length": "2:34",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Prof Farah - head of department, Amman",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Tutoring and grades"
+   },
+   {
+    "at": "0:21",
+    "label": "Confounders and DAGs"
+   },
+   {
+    "at": "1:03",
+    "label": "Difference-in-differences"
+   },
+   {
+    "at": "2:02",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Prof Farah",
+    "narration": "Our faculty found that students who used the tutoring centre had lower grades. A dean proposed closing it. Before anyone voted, I asked: who chooses to go to tutoring?",
+    "icons": [
+     "school",
+     "gauge",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Causal inference: DAGs and difference-in-differences",
+    "voice": "Narrator",
+    "narration": "Today: why correlation misleads, how a causal diagram tells you what to adjust for, and how difference-in-differences estimates an effect."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:34",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Confounding",
+    "voice": "Narrator",
+    "narration": "A confounder causes both the treatment and the outcome. Here, prior struggle sends students to tutoring and also lowers grades. The raw comparison mixes the effect of tutoring with the effect of struggling.",
+    "icons": [
+     "network",
+     "help"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Causal diagrams",
+    "voice": "Narrator",
+    "narration": "Pearl's causal diagrams make assumptions explicit. Arrows mean direct causes. To estimate an effect, block every back-door path by adjusting for confounders. But never adjust for a collider or a mediator.",
+    "icons": [
+     "network",
+     "filter"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:47",
+    "end": "1:03",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Before and after",
+    "voice": "Narrator",
+    "narration": "One department added tutoring in a new term; another did not. The first rose from sixty to seventy. The second rose from sixty two to sixty six anyway. Some of that rise would have happened without tutoring.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:03",
+    "end": "1:16",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Difference-in-differences",
+    "voice": "Narrator",
+    "narration": "Difference-in-differences subtracts the comparison group's change from the treated group's change. Ten minus four gives an effect of six points. It assumes both groups would have moved in parallel without the treatment.",
+    "icons": [
+     "calculator",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:16",
+    "end": "1:30",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach with real decisions",
+    "voice": "Dr Salma",
+    "narration": "Students learn causal reasoning best when they must defend a decision. Give them a real policy question, ask them to draw the diagram first, and grade the assumptions they state, not only the number.",
+    "icons": [
+     "users",
+     "pencil"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:30",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "What to adjust for?",
+    "voice": "Prof Farah",
+    "narration": "Quick check! Tutoring affects study hours, and study hours affect grades. To estimate the total effect of tutoring on grades, should we adjust for study hours?"
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "1:51",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Don't block the effect",
+    "voice": "Narrator",
+    "narration": "No. Study hours are a mediator, part of how tutoring works. Adjusting for them removes some of the very effect we want to measure.",
+    "icons": [
+     "network",
+     "close"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:51",
+    "end": "2:02",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: scatter",
+    "voice": "Narrator",
+    "narration": "In the app, open the scatter lab. Plot grade against tutoring hours, then colour points by prior grade and see how the trend changes within each group.",
+    "icons": [
+     "gauge",
+     "filter"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:02",
+    "end": "2:12",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Work out the effect",
+    "voice": "Dr Salma",
+    "narration": "Your turn. Treated group: from fifty to fifty eight. Comparison group: from fifty two to fifty five. What is the difference-in-differences estimate?"
+   },
+   {
+    "n": 12,
+    "start": "2:12",
+    "end": "2:21",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Diagram, adjust, compare",
+    "voice": "Narrator",
+    "narration": "Five points: eight minus three. Remember: draw the diagram, adjust for confounders but not mediators, and use a comparison group with parallel trends."
+   },
+   {
+    "n": 13,
+    "start": "2:21",
+    "end": "2:34",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give teams one news headline claiming a cause, ask them to draw the causal diagram. Then have them name one confounder the article ignored.",
+    "icons": [
+     "presentation",
+     "network",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Tutoring affects study hours, which affect grades. For the total effect of tutoring, adjust for study hours?",
+    "options": [
+     {
+      "text": "Yes, always adjust for more variables",
+      "correct": false
+     },
+     {
+      "text": "No, study hours are a mediator",
+      "correct": true
+     },
+     {
+      "text": "Yes, it removes confounding",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: adjusting for a mediator blocks part of the effect you want.",
+    "feedback_wrong": "Not quite: study hours lie on the causal path, so adjusting removes part of the effect.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Treated: 50 to 58. Comparison: 52 to 55. What is the DiD estimate?",
+    "options": [
+     {
+      "text": "8 points",
+      "correct": false
+     },
+     {
+      "text": "5 points",
+      "correct": true
+     },
+     {
+      "text": "3 points",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: (58 − 50) − (55 − 52) = 8 − 3 = 5.",
+    "feedback_wrong": "Not quite: subtract the comparison group's change from the treated group's: 8 − 3 = 5.",
+    "resume_at": "2:12"
+   }
+  ]
+ }
+}

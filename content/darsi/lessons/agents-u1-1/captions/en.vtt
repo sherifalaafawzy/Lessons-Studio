@@ -1,0 +1,265 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.750
+A student trains a cleaning agent rewarded
+
+2
+00:00:03.750 --> 00:00:05.810
+for each piece of dirt it picks up.
+
+3
+00:00:06.280 --> 00:00:08.380
+It learns to drop dirt and
+
+4
+00:00:08.380 --> 00:00:09.940
+pick it up again, forever.
+
+5
+00:00:10.680 --> 00:00:11.920
+The code has no bug.
+
+6
+00:00:12.620 --> 00:00:13.560
+What went wrong?
+
+7
+00:00:14.790 --> 00:00:17.490
+Today: the classical definition of an
+
+8
+00:00:17.490 --> 00:00:20.810
+agent, how Markov decision processes model
+
+9
+00:00:20.810 --> 00:00:23.950
+sequential choices, and why reward design
+
+10
+00:00:23.950 --> 00:00:26.110
+is where student projects go wrong.
+
+11
+00:00:27.350 --> 00:00:29.890
+An agent perceives its environment through
+
+12
+00:00:29.890 --> 00:00:32.750
+sensors and acts on it through actuators.
+
+13
+00:00:33.380 --> 00:00:36.060
+A rational agent chooses actions that
+
+14
+00:00:36.060 --> 00:00:38.520
+maximise its expected performance measure.
+
+15
+00:00:39.140 --> 00:00:41.660
+PEAS names the four things to
+
+16
+00:00:41.660 --> 00:00:43.200
+specify: performance,
+
+17
+00:00:43.800 --> 00:00:46.440
+environment, actuators and sensors.
+
+18
+00:00:47.790 --> 00:00:50.710
+An MDP has states, actions,
+
+19
+00:00:51.410 --> 00:00:53.770
+transition probabilities and rewards.
+
+20
+00:00:54.590 --> 00:00:57.290
+A policy maps each state to an action.
+
+21
+00:00:57.990 --> 00:00:59.810
+The goal is the policy that
+
+22
+00:00:59.810 --> 00:01:02.530
+maximises expected discounted return.
+
+23
+00:01:03.760 --> 00:01:06.700
+With a discount of zero point nine, a
+
+24
+00:01:06.700 --> 00:01:09.860
+reward of ten arriving in two steps is
+
+25
+00:01:09.860 --> 00:01:11.400
+worth eight point one now.
+
+26
+00:01:12.020 --> 00:01:13.460
+Discounting makes sooner
+
+27
+00:01:13.460 --> 00:01:14.820
+rewards worth more.
+
+28
+00:01:15.470 --> 00:01:18.170
+It also keeps infinite sums finite.
+
+29
+00:01:19.620 --> 00:01:22.660
+The agent optimises exactly the reward
+
+30
+00:01:22.660 --> 00:01:24.800
+you wrote, not the goal you meant.
+
+31
+00:01:25.470 --> 00:01:27.490
+Rewarding pickups instead of a
+
+32
+00:01:27.490 --> 00:01:29.730
+clean room invites the loop.
+
+33
+00:01:30.360 --> 00:01:32.740
+This is called specification gaming,
+
+34
+00:01:33.160 --> 00:01:34.740
+and it happens in real systems.
+
+35
+00:01:36.110 --> 00:01:38.470
+Students often think an agent
+
+36
+00:01:38.470 --> 00:01:40.290
+understands its task.
+
+37
+00:01:40.960 --> 00:01:44.660
+Give them a small gridworld and let
+
+38
+00:01:44.660 --> 00:01:46.760
+them design the reward themselves.
+
+39
+00:01:47.450 --> 00:01:50.210
+Then show them what their agent actually
+
+40
+00:01:50.210 --> 00:01:53.530
+learned, and let them fix the reward.
+
+41
+00:01:54.860 --> 00:01:55.340
+Quick check!
+
+42
+00:01:55.980 --> 00:01:58.360
+With a discount of zero point five,
+
+43
+00:01:58.840 --> 00:02:01.040
+what is a reward of eight, arriving
+
+44
+00:02:01.040 --> 00:02:02.740
+in three steps, worth now?
+
+45
+00:02:03.890 --> 00:02:07.390
+One: zero point five cubed is one
+
+46
+00:02:07.390 --> 00:02:10.210
+eighth, and one eighth of eight is one.
+
+47
+00:02:10.840 --> 00:02:12.500
+A low discount makes the
+
+48
+00:02:12.500 --> 00:02:13.800
+agent short-sighted.
+
+49
+00:02:14.940 --> 00:02:17.720
+In the app, open the agent loop lab.
+
+50
+00:02:18.380 --> 00:02:21.240
+Watch an agent sense, decide and
+
+51
+00:02:21.240 --> 00:02:24.060
+act, and change its reward to see
+
+52
+00:02:24.060 --> 00:02:25.540
+how its behaviour changes.
+
+53
+00:02:26.940 --> 00:02:27.680
+Your turn.
+
+54
+00:02:28.320 --> 00:02:31.880
+Which reward best stops the cleaning agent
+
+55
+00:02:31.880 --> 00:02:34.740
+from dropping and re-collecting dirt?
+
+56
+00:02:36.040 --> 00:02:39.300
+Reward the state of the room, such as how
+
+57
+00:02:39.300 --> 00:02:41.740
+clean it is, rather than each action.
+
+58
+00:02:42.440 --> 00:02:46.680
+Remember: specify PEAS first, MDPs model
+
+59
+00:02:46.680 --> 00:02:48.880
+sequential decisions, and the agent
+
+60
+00:02:48.880 --> 00:02:51.180
+optimises exactly what you reward.
+
+61
+00:02:52.420 --> 00:02:55.260
+Try it in your next lecture: give pairs a
+
+62
+00:02:55.260 --> 00:02:57.820
+paper gridworld and ask them to write a
+
+63
+00:02:57.820 --> 00:02:59.280
+reward for reaching the exit.
+
+64
+00:02:59.930 --> 00:03:02.790
+Swap rewards between pairs, and let each
+
+65
+00:03:02.790 --> 00:03:04.990
+pair find a loophole in the other's
+
+66
+00:03:04.990 --> 00:03:05.330
+design.

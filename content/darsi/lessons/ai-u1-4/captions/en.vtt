@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.590
+Our best team topped the course
+
+2
+00:00:02.590 --> 00:00:04.490
+leaderboard by a wide margin.
+
+3
+00:00:05.280 --> 00:00:07.480
+Then we noticed they had tuned
+
+4
+00:00:07.480 --> 00:00:09.220
+forty models on the test set.
+
+5
+00:00:09.830 --> 00:00:12.190
+Their final score measured their
+
+6
+00:00:12.190 --> 00:00:14.190
+persistence, not their model.
+
+7
+00:00:15.560 --> 00:00:17.840
+Today: how models are evaluated
+
+8
+00:00:17.840 --> 00:00:21.100
+honestly, how to document them, and how
+
+9
+00:00:21.100 --> 00:00:23.060
+to assess machine learning students
+
+10
+00:00:23.060 --> 00:00:24.960
+when they can use language models.
+
+11
+00:00:26.240 --> 00:00:29.000
+Honest evaluation uses three splits.
+
+12
+00:00:29.830 --> 00:00:32.250
+Train fits the weights, validation
+
+13
+00:00:32.250 --> 00:00:34.910
+chooses the model and settings, and
+
+14
+00:00:34.910 --> 00:00:37.230
+test is opened once, at the end.
+
+15
+00:00:37.830 --> 00:00:40.070
+Every peek at test makes its
+
+16
+00:00:40.070 --> 00:00:41.690
+score more optimistic.
+
+17
+00:00:43.220 --> 00:00:45.680
+With one percent positives, a model
+
+18
+00:00:45.680 --> 00:00:48.480
+that always says no is ninety nine
+
+19
+00:00:48.480 --> 00:00:50.520
+percent accurate and useless.
+
+20
+00:00:51.370 --> 00:00:54.490
+Report precision, recall and calibration,
+
+21
+00:00:55.010 --> 00:00:57.010
+and break results down by subgroup.
+
+22
+00:00:58.220 --> 00:01:00.320
+This classifier has ninety one
+
+23
+00:01:00.320 --> 00:01:01.580
+percent recall overall.
+
+24
+00:01:02.360 --> 00:01:05.340
+Split by group, it is ninety four percent
+
+25
+00:01:05.340 --> 00:01:07.920
+for one and seventy two for the other.
+
+26
+00:01:08.570 --> 00:01:10.630
+The average hid the gap.
+
+27
+00:01:11.950 --> 00:01:13.670
+Mitchell and colleagues proposed
+
+28
+00:01:13.670 --> 00:01:16.430
+model cards: a short document with
+
+29
+00:01:16.430 --> 00:01:19.590
+intended use, training data, metrics
+
+30
+00:01:19.590 --> 00:01:21.850
+by subgroup, and known limits.
+
+31
+00:01:22.550 --> 00:01:23.970
+Asking students to write one
+
+32
+00:01:23.970 --> 00:01:25.710
+makes evaluation a habit.
+
+33
+00:01:27.020 --> 00:01:28.360
+Students can generate
+
+34
+00:01:28.360 --> 00:01:30.120
+working code in seconds.
+
+35
+00:01:31.000 --> 00:01:34.000
+So assess what a model cannot do for them.
+
+36
+00:01:34.530 --> 00:01:37.030
+Use oral defences of their own
+
+37
+00:01:37.030 --> 00:01:40.030
+notebooks, require an error analysis on
+
+38
+00:01:40.030 --> 00:01:42.510
+their data, and grade the process.
+
+39
+00:01:43.810 --> 00:01:44.290
+Quick check!
+
+40
+00:01:44.900 --> 00:01:47.560
+A team chose its best model by
+
+41
+00:01:47.560 --> 00:01:49.500
+test score, out of forty.
+
+42
+00:01:50.140 --> 00:01:52.380
+Is that test score an honest
+
+43
+00:01:52.380 --> 00:01:54.820
+estimate of performance on new data?
+
+44
+00:01:56.050 --> 00:01:56.290
+No.
+
+45
+00:01:56.860 --> 00:01:58.860
+Picking the maximum of forty noisy
+
+46
+00:01:58.860 --> 00:02:01.280
+scores selects luck as well as skill.
+
+47
+00:02:01.940 --> 00:02:04.080
+The test set has become a validation
+
+48
+00:02:04.080 --> 00:02:06.360
+set, and they need a fresh one.
+
+49
+00:02:07.540 --> 00:02:10.040
+In the app, open the overfitting lab.
+
+50
+00:02:10.660 --> 00:02:12.980
+Watch validation error as complexity
+
+51
+00:02:12.980 --> 00:02:15.800
+rises, then ask students where they would
+
+52
+00:02:15.800 --> 00:02:18.400
+stop, and why the test set must stay
+
+53
+00:02:18.400 --> 00:02:18.740
+closed.
+
+54
+00:02:20.060 --> 00:02:20.820
+Your turn.
+
+55
+00:02:21.440 --> 00:02:24.460
+Fraud is one transaction in a thousand.
+
+56
+00:02:25.090 --> 00:02:27.870
+A model flags nothing and scores ninety
+
+57
+00:02:27.870 --> 00:02:29.970
+nine point nine percent accuracy.
+
+58
+00:02:30.800 --> 00:02:32.400
+Which metric exposes it?
+
+59
+00:02:33.580 --> 00:02:35.620
+Recall, which is zero.
+
+60
+00:02:36.270 --> 00:02:38.470
+Remember: open the test set once,
+
+61
+00:02:39.050 --> 00:02:41.650
+report metrics by subgroup, write a
+
+62
+00:02:41.650 --> 00:02:43.930
+model card, and assess what language
+
+63
+00:02:43.930 --> 00:02:45.770
+models cannot do for students.
+
+64
+00:02:47.080 --> 00:02:49.520
+Try it this term: add a ten minute
+
+65
+00:02:49.520 --> 00:02:51.400
+oral defence to your next project.
+
+66
+00:02:52.090 --> 00:02:54.250
+Ask each student to explain one
+
+67
+00:02:54.250 --> 00:02:56.550
+error their model makes and one
+
+68
+00:02:56.550 --> 00:02:58.010
+design choice they would change.

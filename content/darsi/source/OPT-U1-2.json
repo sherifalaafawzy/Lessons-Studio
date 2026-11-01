@@ -1,0 +1,273 @@
+{
+ "id": "OPT-U1-2",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching optimisation at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Integer programming and branch and bound",
+  "subtitle": "Why rounding fails, and how solvers search",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Integer programming and branch and bound: Why rounding fails, and how solvers search",
+  "length": "2:43",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Half a bus"
+   },
+   {
+    "at": "0:24",
+    "label": "Integer variables"
+   },
+   {
+    "at": "1:08",
+    "label": "Branch and bound"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "A model for the field-trip budget tells the faculty to hire two and a half buses. Rounding up breaks the budget, and rounding down leaves students behind. What should the model have said?",
+    "icons": [
+     "bot",
+     "calculator",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Integer programming and branch and bound",
+    "voice": "Narrator",
+    "narration": "Today: why many real decisions need whole numbers, why rounding a linear solution can fail badly, and how branch and bound finds proven optima."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Integer programming",
+    "voice": "Narrator",
+    "narration": "An integer program is a linear program in which some variables must be whole numbers. Yes-or-no decisions become zero-one variables. This small change makes the problem far harder in general.",
+    "icons": [
+     "boxes",
+     "calculator"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The knapsack problem",
+    "voice": "Narrator",
+    "narration": "In the knapsack problem, each item has a weight and a value, and we choose items to maximise value within a capacity. The linear relaxation allows fractions of items. Its value is an upper bound on the true optimum.",
+    "icons": [
+     "package"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:08",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Rounding can mislead",
+    "voice": "Narrator",
+    "narration": "Here the relaxation happens to be whole, giving sixteen. But change the capacity to seven, and the relaxation picks a and two thirds of c, worth fourteen. Rounding down gives ten, yet b plus c gives thirteen.",
+    "icons": [
+     "warning"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:08",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Branch and bound",
+    "voice": "Narrator",
+    "narration": "Branch and bound splits on a fractional variable, solving one branch with it set to zero and one with it set to one. Each relaxation gives a bound. Any branch whose bound is worse than the best whole solution found so far is pruned.",
+    "icons": [
+     "layers",
+     "search"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:26",
+    "end": "1:40",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach with a tree on the board",
+    "voice": "Dr Amina",
+    "narration": "Students tend to round linear solutions or believe the solver checks every combination. Draw the branch-and-bound tree for a four-item knapsack on the board. Let students compute each bound and decide which branches to prune.",
+    "icons": [
+     "pencil",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:40",
+    "end": "1:48",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bound or answer?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! The relaxation of a maximisation knapsack gives fourteen. What does that tell you about the integer optimum?"
+   },
+   {
+    "n": 9,
+    "start": "1:48",
+    "end": "1:59",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "At most fourteen",
+    "voice": "Narrator",
+    "narration": "It is at most fourteen. The relaxation has more freedom, so it can only do as well or better. Here the true optimum is thirteen.",
+    "icons": [
+     "arrow",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:59",
+    "end": "2:09",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: knapsack",
+    "voice": "Narrator",
+    "narration": "In the app, open the knapsack lab. Pick items by hand, compare with the relaxation, and watch branch and bound prune its tree.",
+    "icons": [
+     "package",
+     "layers"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:09",
+    "end": "2:18",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Prune or not?",
+    "voice": "Dr Amina",
+    "narration": "Your turn. The best whole solution so far is thirteen. A branch's relaxation gives twelve. What should branch and bound do?"
+   },
+   {
+    "n": 12,
+    "start": "2:18",
+    "end": "2:29",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Relax, branch, prune",
+    "voice": "Narrator",
+    "narration": "Prune it: nothing in that branch can beat thirteen. Remember: relaxations give bounds, rounding can be far from optimal, and branch and bound proves optimality by pruning."
+   },
+   {
+    "n": 13,
+    "start": "2:29",
+    "end": "2:43",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs a four-item knapsack and ask them to round the relaxation first. Then draw the branch-and-bound tree together. Compare the rounded answer with the proven optimum.",
+    "icons": [
+     "presentation",
+     "layers",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:46",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A maximisation relaxation gives 14. The integer optimum is:",
+    "options": [
+     {
+      "text": "At most 14",
+      "correct": true
+     },
+     {
+      "text": "At least 14",
+      "correct": false
+     },
+     {
+      "text": "Exactly 14",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the relaxation is an upper bound.",
+    "feedback_wrong": "Not quite: allowing fractions can only help a maximisation, so it bounds from above.",
+    "resume_at": "1:48"
+   },
+   {
+    "at": "2:16",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Best whole solution 13; a branch's relaxation gives 12. What next?",
+    "options": [
+     {
+      "text": "Branch further",
+      "correct": false
+     },
+     {
+      "text": "Prune it",
+      "correct": true
+     },
+     {
+      "text": "Round it",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: it cannot beat 13.",
+    "feedback_wrong": "Not quite: its bound is below the incumbent, so nothing inside can win.",
+    "resume_at": "2:18"
+   }
+  ]
+ }
+}

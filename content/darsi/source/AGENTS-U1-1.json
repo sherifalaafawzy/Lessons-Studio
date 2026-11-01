@@ -1,0 +1,274 @@
+{
+ "id": "AGENTS-U1-1",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching AI agents at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Agents, environments and decisions",
+  "subtitle": "PEAS, MDPs and rewards",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Agents, environments and decisions: PEAS, MDPs and rewards",
+  "length": "2:36",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The robot that cheated"
+   },
+   {
+    "at": "0:24",
+    "label": "Agents and environments"
+   },
+   {
+    "at": "1:04",
+    "label": "Decisions over time"
+   },
+   {
+    "at": "2:01",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "A student trains a cleaning agent rewarded for each piece of dirt it picks up. It learns to drop dirt and pick it up again, forever. The code has no bug. What went wrong?",
+    "icons": [
+     "bot",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Agents, environments and decisions",
+    "voice": "Narrator",
+    "narration": "Today: the classical definition of an agent, how Markov decision processes model sequential choices, and why reward design is where student projects go wrong."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:39",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "An agent",
+    "voice": "Narrator",
+    "narration": "An agent perceives its environment through sensors and acts on it through actuators. A rational agent chooses actions that maximise its expected performance measure. PEAS names the four things to specify: performance, environment, actuators and sensors.",
+    "icons": [
+     "bot",
+     "eye"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:39",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Markov decision processes",
+    "voice": "Narrator",
+    "narration": "An MDP has states, actions, transition probabilities and rewards. A policy maps each state to an action. The goal is the policy that maximises expected discounted return.",
+    "icons": [
+     "layers",
+     "arrow"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:04",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Discounting by hand",
+    "voice": "Narrator",
+    "narration": "With a discount of zero point nine, a reward of ten arriving in two steps is worth eight point one now. Discounting makes sooner rewards worth more. It also keeps infinite sums finite.",
+    "icons": [
+     "calculator"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:04",
+    "end": "1:18",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Reward is the specification",
+    "voice": "Narrator",
+    "narration": "The agent optimises exactly the reward you wrote, not the goal you meant. Rewarding pickups instead of a clean room invites the loop. This is called specification gaming, and it happens in real systems.",
+    "icons": [
+     "target",
+     "warning"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:18",
+    "end": "1:32",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach with gridworlds",
+    "voice": "Dr Salma",
+    "narration": "Students often think an agent understands its task. Give them a small gridworld and let them design the reward themselves. Then show them what their agent actually learned, and let them fix the reward.",
+    "icons": [
+     "grid",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:32",
+    "end": "1:41",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Value now",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! With a discount of zero point five, what is a reward of eight, arriving in three steps, worth now?"
+   },
+   {
+    "n": 9,
+    "start": "1:41",
+    "end": "1:51",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "One",
+    "voice": "Narrator",
+    "narration": "One: zero point five cubed is one eighth, and one eighth of eight is one. A low discount makes the agent short-sighted.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:51",
+    "end": "2:01",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: agent loop",
+    "voice": "Narrator",
+    "narration": "In the app, open the agent loop lab. Watch an agent sense, decide and act, and change its reward to see how its behaviour changes.",
+    "icons": [
+     "bot",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:01",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Fix the reward",
+    "voice": "Dr Salma",
+    "narration": "Your turn. Which reward best stops the cleaning agent from dropping and re-collecting dirt?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:20",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "PEAS, MDP, reward",
+    "voice": "Narrator",
+    "narration": "Reward the state of the room, such as how clean it is, rather than each action. Remember: specify PEAS first, MDPs model sequential decisions, and the agent optimises exactly what you reward."
+   },
+   {
+    "n": 13,
+    "start": "2:20",
+    "end": "2:36",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs a paper gridworld and ask them to write a reward for reaching the exit. Swap rewards between pairs, and let each pair find a loophole in the other's design.",
+    "icons": [
+     "presentation",
+     "grid",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:39",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Discount 0.5. A reward of 8 in three steps is worth now:",
+    "options": [
+     {
+      "text": "1",
+      "correct": true
+     },
+     {
+      "text": "4",
+      "correct": false
+     },
+     {
+      "text": "8",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 0.5³ × 8 = 1.",
+    "feedback_wrong": "Not quite: multiply by 0.5 three times: 8 → 4 → 2 → 1.",
+    "resume_at": "1:41"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which reward best stops the drop-and-collect loop?",
+    "options": [
+     {
+      "text": "More reward per pickup",
+      "correct": false
+     },
+     {
+      "text": "Reward how clean the room is",
+      "correct": true
+     },
+     {
+      "text": "No reward at all",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: reward the outcome, not the action.",
+    "feedback_wrong": "Not quite: rewarding pickups is what created the loop.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

@@ -1,0 +1,246 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Plain SHA-256 hashes",
+            "ar-EG": "تجزئة SHA-256 عادية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Half cracked in hours",
+            "ar-EG": "النص اتكسر في ساعات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What went wrong?",
+            "ar-EG": "إيه اللي غلط؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Any input to a fixed digest",
+            "ar-EG": "أي مدخل لملخص ثابت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Can't reverse, can't collide",
+            "ar-EG": "مايترجعش ومايتكررش"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "One bit changes everything",
+            "ar-EG": "بت واحد بيغيّر كل حاجة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "fingerprint"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Billions of guesses a second",
+            "ar-EG": "مليارات التخمينات في الثانية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "book",
+          "text": {
+            "en": "Hash a dictionary",
+            "ar-EG": "اعمل تجزئة لقاموس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Predictable passwords fall",
+            "ar-EG": "كلمات السر المتوقّعة بتقع"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "gauge"
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          100,
+          0.01
+        ],
+        "labels": [
+          {
+            "en": "Fast hash",
+            "ar-EG": "تجزئة سريعة"
+          },
+          {
+            "en": "Slow, memory-hard",
+            "ar-EG": "بطيئة ومحتاجة ذاكرة"
+          }
+        ],
+        "unit": {
+          "en": "Relative guesses per second, %",
+          "ar-EG": "التخمينات النسبية في الثانية، %"
+        },
+        "s": 1,
+        "max": 100
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "store: salt, Argon2id(password, salt, cost)\nsalt: unique, random, per user\ncost: tune to ~100 ms per login",
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "key",
+          "text": {
+            "en": "Password alone isn't enough",
+            "ar-EG": "كلمة السر لوحدها مش كفاية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "One-time codes: phishable",
+            "ar-EG": "الأكواد: ممكن تتصاد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Hardware keys resist phishing",
+            "ar-EG": "مفاتيح الأجهزة بتقاوم التصيّد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Change one letter",
+            "ar-EG": "غيّر حرف واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "fingerprint",
+          "text": {
+            "en": "Compare digests",
+            "ar-EG": "قارن الملخصات"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "key",
+          "text": {
+            "en": "Add a salt",
+            "ar-EG": "ضيف ملح"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "fingerprint"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Never a fast hash for passwords",
+            "ar-EG": "عمرك ما تستعمل تجزئة سريعة لكلمات السر"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Unique salt per user",
+            "ar-EG": "ملح مختلف لكل مستخدم"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Phishing-resistant 2FA",
+            "ar-EG": "عامل تاني بيقاوم التصيّد"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Let them crack a weak table.",
+        "ar-EG": "خلّيهم يكسروا جدول ضعيف."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "Fake users, three ways",
+            "ar-EG": "مستخدمين وهميين بتلات طرق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Time a dictionary attack",
+            "ar-EG": "قيس وقت هجوم القاموس"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Explain the difference",
+            "ar-EG": "اشرح الفرق"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

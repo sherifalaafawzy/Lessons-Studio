@@ -1,0 +1,274 @@
+{
+ "id": "OPT-U1-1",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching optimisation at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Linear programming and duality",
+  "subtitle": "Feasible regions, the simplex and shadow prices",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Linear programming and duality: Feasible regions, the simplex and shadow prices",
+  "length": "2:45",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The canteen menu"
+   },
+   {
+    "at": "0:24",
+    "label": "Linear programs"
+   },
+   {
+    "at": "1:07",
+    "label": "Duality and prices"
+   },
+   {
+    "at": "2:03",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "The university canteen must feed students a meal that meets nutrition targets at the lowest cost. Staff try menus by hand every week. A three-line model finds the best menu in milliseconds. How?",
+    "icons": [
+     "apple",
+     "calculator",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Linear programming and duality",
+    "voice": "Narrator",
+    "narration": "Today: how linear programs model allocation problems, why the optimum sits at a corner, and how duality turns constraints into prices students can interpret."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A linear program",
+    "voice": "Narrator",
+    "narration": "A linear program maximises or minimises a linear objective subject to linear constraints. The decision variables are continuous and usually non-negative. Diet, production and transport problems all fit this form.",
+    "icons": [
+     "calculator",
+     "target"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:51",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Corners of the feasible region",
+    "voice": "Narrator",
+    "narration": "The constraints carve out a convex feasible region. Because the objective is linear, an optimum, if one exists, occurs at a vertex. The simplex method walks from vertex to better vertex until none is better.",
+    "icons": [
+     "grid",
+     "target"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:51",
+    "end": "1:07",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Checking the corners",
+    "voice": "Narrator",
+    "narration": "Evaluate three x plus two y at each vertex. The origin gives zero, the point four comma zero gives twelve, three comma one gives eleven, and zero comma two gives four. The optimum is twelve at four comma zero.",
+    "icons": [
+     "calculator"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:07",
+    "end": "1:23",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Duality and shadow prices",
+    "voice": "Narrator",
+    "narration": "Every linear program has a dual, with one variable per constraint. At the optimum, both have the same value. Each dual variable is a shadow price: how much the objective improves if that constraint is relaxed by one unit.",
+    "icons": [
+     "scale",
+     "banknote"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:23",
+    "end": "1:38",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach by drawing first",
+    "voice": "Dr Salma",
+    "narration": "Students often learn simplex tableaux as a ritual without seeing the geometry. Start with two-variable problems drawn on graph paper. Then let a solver handle larger ones, and spend the time interpreting shadow prices in context.",
+    "icons": [
+     "pencil",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:38",
+    "end": "1:45",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Where is the optimum?",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A linear program has a bounded, non-empty feasible region. Where must an optimal solution occur?"
+   },
+   {
+    "n": 9,
+    "start": "1:45",
+    "end": "1:54",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "At a vertex",
+    "voice": "Narrator",
+    "narration": "At a vertex, or along an edge between two equally good vertices. That is why simplex only needs to visit corners.",
+    "icons": [
+     "target",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:54",
+    "end": "2:03",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: linear programs",
+    "voice": "Narrator",
+    "narration": "In the app, open the linear programming lab. Drag the objective line across the feasible region and watch where it last touches.",
+    "icons": [
+     "grid",
+     "ruler"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:03",
+    "end": "2:13",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Read the shadow price",
+    "voice": "Dr Salma",
+    "narration": "Your turn. The oven-hours constraint has a shadow price of five. One more oven hour costs three. Should the canteen buy it?"
+   },
+   {
+    "n": 12,
+    "start": "2:13",
+    "end": "2:28",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Model, corner, price",
+    "voice": "Narrator",
+    "narration": "Yes: each extra hour adds five to the objective and costs three, a gain of two, while the price stays valid. Remember: optima sit at vertices, every LP has a dual, and shadow prices value constraints."
+   },
+   {
+    "n": 13,
+    "start": "2:28",
+    "end": "2:45",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs a two-variable canteen problem on graph paper. They shade the feasible region, test every corner, and find the optimum. Then reveal the solver's shadow prices and ask what they mean for the manager.",
+    "icons": [
+     "presentation",
+     "pencil",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:43",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Bounded, non-empty feasible region. Where must an optimum occur?",
+    "options": [
+     {
+      "text": "At a vertex",
+      "correct": true
+     },
+     {
+      "text": "At the centre",
+      "correct": false
+     },
+     {
+      "text": "Outside the region",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: a linear objective is optimised at a corner.",
+    "feedback_wrong": "Not quite: linear objectives improve until they hit a corner of the region.",
+    "resume_at": "1:45"
+   },
+   {
+    "at": "2:11",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Shadow price 5, extra hour costs 3. Buy it?",
+    "options": [
+     {
+      "text": "Yes",
+      "correct": true
+     },
+     {
+      "text": "No",
+      "correct": false
+     },
+     {
+      "text": "Shadow prices say nothing about this",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: it adds 5 and costs 3, while the price stays valid.",
+    "feedback_wrong": "Not quite: the shadow price is exactly the value of one more unit of that resource.",
+    "resume_at": "2:13"
+   }
+  ]
+ }
+}

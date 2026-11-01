@@ -1,0 +1,256 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "school",
+          "text": {
+            "en": "Tutoring users score lower",
+            "ar-EG": "اللي بيروحوا الدروس درجاتهم أقل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Close the centre?",
+            "ar-EG": "نقفل المركز؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Who chooses to go?",
+            "ar-EG": "مين بيختار يروح؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "Struggle → tutoring",
+            "ar-EG": "التعثّر ← الدروس"
+          },
+          "s": 0
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Struggle → lower grades",
+            "ar-EG": "التعثّر ← درجات أقل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Raw gap mixes both",
+            "ar-EG": "الفرق الخام بيخلط الاتنين"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "network"
+    },
+    "4": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "Arrows are assumptions",
+            "ar-EG": "الأسهم افتراضات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Adjust for confounders",
+            "ar-EG": "عدّل على المربكات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "close",
+          "text": {
+            "en": "Not colliders or mediators",
+            "ar-EG": "مش التصادم ولا الوسيط"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "network"
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          60,
+          70,
+          62,
+          66
+        ],
+        "labels": [
+          {
+            "en": "Tutoring, before",
+            "ar-EG": "بدروس، قبل"
+          },
+          {
+            "en": "Tutoring, after",
+            "ar-EG": "بدروس، بعد"
+          },
+          {
+            "en": "No tutoring, before",
+            "ar-EG": "من غير، قبل"
+          },
+          {
+            "en": "No tutoring, after",
+            "ar-EG": "من غير، بعد"
+          }
+        ],
+        "unit": {
+          "en": "Mean grade",
+          "ar-EG": "متوسط الدرجة"
+        },
+        "s": 1,
+        "max": 80
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "DiD = (70 − 60) − (66 − 62)\n    = 10 − 4 = 6 points\nassumes parallel trends",
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "A real policy question",
+            "ar-EG": "سؤال سياسة حقيقي"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Draw the diagram first",
+            "ar-EG": "ارسم المخطط الأول"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Grade the assumptions",
+            "ar-EG": "قيّم الافتراضات"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Grade against tutoring",
+            "ar-EG": "الدرجة قصاد الدروس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "filter",
+          "text": {
+            "en": "Colour by prior grade",
+            "ar-EG": "لوّن بالدرجة السابقة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Compare within groups",
+            "ar-EG": "قارن جوّه المجموعات"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "gauge"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Confounders bias raw gaps",
+            "ar-EG": "المربكات بتحيّز الفرق الخام"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Don't adjust for mediators",
+            "ar-EG": "متعدّلش على الوسطاء"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "DiD needs parallel trends",
+            "ar-EG": "الفروق في الفروق محتاجة اتجاهات متوازية"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "State your assumptions.",
+        "ar-EG": "اكتب افتراضاتك."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "A causal headline",
+            "ar-EG": "عنوان بيدّعي سبب"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Draw the diagram",
+            "ar-EG": "ارسم المخطط"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Name a confounder",
+            "ar-EG": "سمّي متغير مربك"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

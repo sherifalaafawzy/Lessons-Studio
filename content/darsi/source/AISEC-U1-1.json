@@ -1,0 +1,275 @@
+{
+ "id": "AISEC-U1-1",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching AI security at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Adversarial examples",
+  "subtitle": "Gradients, FGSM and robust evaluation",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Adversarial examples: Gradients, FGSM and robust evaluation",
+  "length": "2:50",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The stop sign with stickers"
+   },
+   {
+    "at": "0:26",
+    "label": "How small changes fool models"
+   },
+   {
+    "at": "1:15",
+    "label": "Defending and evaluating"
+   },
+   {
+    "at": "2:11",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:16",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "Researchers put a few black and white stickers on a real stop sign. A road-sign classifier then read it as a speed limit sign in most test photos. A person sees a stop sign. The model does not.",
+    "icons": [
+     "traffic",
+     "eye",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:16",
+    "end": "0:26",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Adversarial examples",
+    "voice": "Narrator",
+    "narration": "Today: why tiny, targeted changes fool accurate classifiers, how the fast gradient sign method builds them, and how to teach students to evaluate defences honestly."
+   },
+   {
+    "n": 3,
+    "start": "0:26",
+    "end": "0:42",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Adversarial examples",
+    "voice": "Narrator",
+    "narration": "An adversarial example is an input changed slightly on purpose so that a model gets it wrong. The change is chosen by following the model's own gradient, so it is small for us but large for the model.",
+    "icons": [
+     "image",
+     "target"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:42",
+    "end": "0:58",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The fast gradient sign method",
+    "voice": "Narrator",
+    "narration": "The fast gradient sign method moves every input feature by epsilon in the direction that increases the loss. For a linear score, the change adds up across thousands of features, which is why high-dimensional models are so easy to push.",
+    "icons": [
+     "zap",
+     "gauge"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:58",
+    "end": "1:15",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A worked example",
+    "voice": "Narrator",
+    "narration": "Take weights two, minus one and three, and epsilon one tenth. Each feature moves by one tenth against its weight's sign. The score drops by one tenth times six, which is six tenths, enough to flip a borderline prediction.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:15",
+    "end": "1:28",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Adversarial training",
+    "voice": "Narrator",
+    "narration": "The strongest common defence is adversarial training. During training the model sees attacked versions of each example and learns to classify them correctly. It costs extra computation and usually some clean accuracy.",
+    "icons": [
+     "shield",
+     "repeat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:28",
+    "end": "1:43",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach honest evaluation",
+    "voice": "Dr Salma",
+    "narration": "Students often claim a defence works because their own attack failed. Many published defences were later broken by attacks designed for them. Teach them to test every defence with an adaptive attack that knows how it works.",
+    "icons": [
+     "search",
+     "warning"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:43",
+    "end": "1:55",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How far does it move?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! A linear model has weights two, minus one and three. With the fast gradient sign method and epsilon one tenth, how much can the score change?"
+   },
+   {
+    "n": 9,
+    "start": "1:55",
+    "end": "2:01",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Six tenths",
+    "voice": "Narrator",
+    "narration": "Six tenths. Epsilon times the sum of the absolute weights: one tenth times six.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:01",
+    "end": "2:11",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: adversarial",
+    "voice": "Narrator",
+    "narration": "In the app, open the adversarial lab. Raise epsilon step by step, watch the prediction flip, and notice how small the change looks to you.",
+    "icons": [
+     "image",
+     "wand"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:11",
+    "end": "2:20",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A fair test",
+    "voice": "Dr Salma",
+    "narration": "Your turn. A student's defence stops the fast gradient sign method. Which test should come next before claiming it is robust?"
+   },
+   {
+    "n": 12,
+    "start": "2:20",
+    "end": "2:34",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Attack the defence",
+    "voice": "Narrator",
+    "narration": "An adaptive attack built for that defence. Remember: adversarial examples follow the gradient, small changes add up over many features, and a defence is only as good as the strongest attack it survives."
+   },
+   {
+    "n": 13,
+    "start": "2:34",
+    "end": "2:50",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs a tiny linear classifier on paper. One student attacks it with a fixed epsilon, the other proposes a defence. Then they swap and attack the defence. Finish by comparing which defences survived.",
+    "icons": [
+     "presentation",
+     "calculator",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:53",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Weights 2, −1, 3 and ε = 0.1. How much can the score change?",
+    "options": [
+     {
+      "text": "0.6",
+      "correct": true
+     },
+     {
+      "text": "0.4",
+      "correct": false
+     },
+     {
+      "text": "0.1",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: ε times the sum of |w| is 0.1 × 6.",
+    "feedback_wrong": "Not quite: every feature moves by ε against its weight, so add all |w|.",
+    "resume_at": "1:55"
+   },
+   {
+    "at": "2:18",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A defence stops FGSM. What test comes next?",
+    "options": [
+     {
+      "text": "Run FGSM again with a new seed",
+      "correct": false
+     },
+     {
+      "text": "An adaptive attack designed for the defence",
+      "correct": true
+     },
+     {
+      "text": "Report clean accuracy only",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: only an attack that knows the defence tests it fairly.",
+    "feedback_wrong": "Not quite: weak or repeated attacks give false confidence.",
+    "resume_at": "2:20"
+   }
+  ]
+ }
+}

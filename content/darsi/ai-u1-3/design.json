@@ -1,0 +1,256 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "chat",
+          "text": {
+            "en": "“…because it was full”",
+            "ar-EG": "«…لأنها كانت مليانة»"
+          },
+          "s": 0
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What does “it” refer to?",
+            "ar-EG": "الضمير راجع على إيه؟"
+          },
+          "s": 1
+        },
+        {
+          "icon": "brain",
+          "text": {
+            "en": "Context decides",
+            "ar-EG": "السياق هو اللي بيحدد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Each token looks at all tokens",
+            "ar-EG": "كل رمز بيبص على كل الرموز"
+          },
+          "s": 0
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Weights = relevance",
+            "ar-EG": "الأوزان = الأهمية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "New vector = weighted average",
+            "ar-EG": "المتّجه الجديد = متوسط موزون"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "eye"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "Attention(Q, K, V) = softmax(QKᵀ / √d) V\nQ: what I need   K: what I offer\nV: what I pass on",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          8,
+          17,
+          71,
+          4
+        ],
+        "labels": [
+          {
+            "en": "student",
+            "ar-EG": "student"
+          },
+          {
+            "en": "laptop",
+            "ar-EG": "laptop"
+          },
+          {
+            "en": "bag",
+            "ar-EG": "bag"
+          },
+          {
+            "en": "full",
+            "ar-EG": "full"
+          }
+        ],
+        "unit": {
+          "en": "Attention weight, %",
+          "ar-EG": "وزن الانتباه، %"
+        },
+        "s": 1,
+        "max": 80
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "Var(q⋅k) = d",
+            "ar-EG": "Var(q⋅k) = d"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Big scores saturate softmax",
+            "ar-EG": "الدرجات الكبيرة بتشبّع softmax"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "÷√d keeps variance ≈ 1",
+            "ar-EG": "÷√d بيخلّي التباين ≈ 1"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "calculator"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "eye",
+          "text": {
+            "en": "One head, three tokens",
+            "ar-EG": "رأس واحد وتلات رموز"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Scores by hand",
+            "ar-EG": "الدرجات باليد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Then heads, layers, positions",
+            "ar-EG": "وبعدين رؤوس وطبقات ومواضع"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "keyboard",
+          "text": {
+            "en": "Type a sentence",
+            "ar-EG": "اكتب جملة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Pick a word",
+            "ar-EG": "اختار كلمة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Watch the weights",
+            "ar-EG": "شوف الأوزان"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "eye"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "softmax(QKᵀ/√d)V",
+            "ar-EG": "softmax(QKᵀ/√d)V"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "÷√d stops saturation",
+            "ar-EG": "÷√d بيمنع التشبّع"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Add positions for order",
+            "ar-EG": "ضيف المواضع للترتيب"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "One head by hand first.",
+        "ar-EG": "رأس واحد باليد الأول."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Three 2-D vectors",
+            "ar-EG": "تلات متّجهات ببعدين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Scores and softmax by hand",
+            "ar-EG": "الدرجات وsoftmax باليد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Check with NumPy",
+            "ar-EG": "قارنوا بـ NumPy"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -908,7 +908,22 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     if ((e.target as HTMLElement | null)?.closest(".ls-bigplay")) return;
     toggle();
   });
-  seekEl.addEventListener("input", () => { seek(Number(seekEl.value)); showTipAt(Number(seekEl.value)); });
+  // Turned on its side (iPhone, page fullscreen), the bar runs down the screen, but the native slider still follows
+  // the finger's x: so there the bar is read from the pointer's y instead, and the slider's own input is ignored.
+  const turned = (): boolean => wrap.classList.contains("ls-turned");
+  const alongBar = (e: PointerEvent): number | null => {
+    const r = seekTrack.getBoundingClientRect();
+    if (turned()) return r.height ? Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) : null;
+    return r.width ? Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) : null;
+  };
+  const scrubTo = (e: PointerEvent): void => {
+    const p = alongBar(e);
+    if (p === null) return;
+    seek(p * timing.duration);
+    seekEl.value = String(p * timing.duration);
+    showTipAt(p * timing.duration);
+  };
+  seekEl.addEventListener("input", () => { if (scrubbing && turned()) return; seek(Number(seekEl.value)); showTipAt(Number(seekEl.value)); });
   chapBtn.addEventListener("click", () => openMenu("chapters"));
   setBtn.addEventListener("click", () => openMenu("settings"));
   volBtn.addEventListener("click", () => setVolume(volume || 1, !muted));
@@ -920,6 +935,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     scrubbing = true;
     wrap.classList.add("ls-scrub");
     try { seekEl.setPointerCapture(e.pointerId); } catch { /* a webview without capture still scrubs */ }
+    if (turned()) { e.preventDefault(); scrubTo(e); }
     wake();
   });
   const endScrub = (): void => {
@@ -932,8 +948,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   seekEl.addEventListener("pointercancel", endScrub);
   seekEl.addEventListener("lostpointercapture", endScrub);
   const previewAt = (e: PointerEvent): void => {
-    const r = seekTrack.getBoundingClientRect();
-    if (r.width) showTipAt(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)) * timing.duration);
+    if (scrubbing && turned()) { scrubTo(e); return; }
+    const p = alongBar(e);
+    if (p !== null) showTipAt(p * timing.duration);
   };
   seekTrack.addEventListener("pointermove", previewAt);
   seekEl.addEventListener("pointermove", previewAt);

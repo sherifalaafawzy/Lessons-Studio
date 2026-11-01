@@ -1,0 +1,297 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.190
+Our faculty found that students who used
+
+2
+00:00:03.190 --> 00:00:05.750
+the tutoring centre had lower grades.
+
+3
+00:00:06.460 --> 00:00:08.620
+A dean proposed closing it.
+
+4
+00:00:09.220 --> 00:00:12.800
+Before anyone voted, I asked: who
+
+5
+00:00:12.800 --> 00:00:14.460
+chooses to go to tutoring?
+
+6
+00:00:15.610 --> 00:00:18.890
+Today: why correlation misleads, how a
+
+7
+00:00:18.890 --> 00:00:20.750
+causal diagram tells you what to
+
+8
+00:00:20.750 --> 00:00:22.470
+adjust for, and how
+
+9
+00:00:22.470 --> 00:00:24.930
+difference-in-differences estimates an
+
+10
+00:00:24.930 --> 00:00:25.230
+effect.
+
+11
+00:00:26.490 --> 00:00:28.950
+A confounder causes both the
+
+12
+00:00:28.950 --> 00:00:30.410
+treatment and the outcome.
+
+13
+00:00:31.100 --> 00:00:33.840
+Here, prior struggle sends students to
+
+14
+00:00:33.840 --> 00:00:36.080
+tutoring and also lowers grades.
+
+15
+00:00:36.850 --> 00:00:39.290
+The raw comparison mixes the effect of
+
+16
+00:00:39.290 --> 00:00:41.410
+tutoring with the effect of struggling.
+
+17
+00:00:42.810 --> 00:00:44.830
+Pearl's causal diagrams make
+
+18
+00:00:44.830 --> 00:00:46.150
+assumptions explicit.
+
+19
+00:00:47.070 --> 00:00:48.990
+Arrows mean direct causes.
+
+20
+00:00:49.790 --> 00:00:52.290
+To estimate an effect, block every
+
+21
+00:00:52.290 --> 00:00:54.570
+back-door path by adjusting for
+
+22
+00:00:54.570 --> 00:00:55.210
+confounders.
+
+23
+00:00:55.850 --> 00:00:57.850
+But never adjust for a
+
+24
+00:00:57.850 --> 00:00:59.750
+collider or a mediator.
+
+25
+00:01:01.010 --> 00:01:02.970
+One department added tutoring in a
+
+26
+00:01:02.970 --> 00:01:04.870
+new term; another did not.
+
+27
+00:01:05.510 --> 00:01:08.350
+The first rose from sixty to seventy.
+
+28
+00:01:09.080 --> 00:01:11.100
+The second rose from sixty
+
+29
+00:01:11.100 --> 00:01:13.140
+two to sixty six anyway.
+
+30
+00:01:13.920 --> 00:01:15.580
+Some of that rise would have
+
+31
+00:01:15.580 --> 00:01:16.960
+happened without tutoring.
+
+32
+00:01:18.200 --> 00:01:20.380
+Difference-in-differences subtracts
+
+33
+00:01:20.380 --> 00:01:22.480
+the comparison group's change from
+
+34
+00:01:22.480 --> 00:01:23.760
+the treated group's change.
+
+35
+00:01:24.410 --> 00:01:26.490
+Ten minus four gives an
+
+36
+00:01:26.490 --> 00:01:28.030
+effect of six points.
+
+37
+00:01:28.810 --> 00:01:30.890
+It assumes both groups would have moved
+
+38
+00:01:30.890 --> 00:01:32.570
+in parallel without the treatment.
+
+39
+00:01:33.800 --> 00:01:37.100
+Students learn causal reasoning best
+
+40
+00:01:37.100 --> 00:01:39.760
+when they must defend a decision.
+
+41
+00:01:40.470 --> 00:01:43.150
+Give them a real policy question,
+
+42
+00:01:43.610 --> 00:01:45.950
+ask them to draw the diagram first,
+
+43
+00:01:46.390 --> 00:01:48.170
+and grade the assumptions they
+
+44
+00:01:48.170 --> 00:01:50.230
+state, not only the number.
+
+45
+00:01:51.430 --> 00:01:51.910
+Quick check!
+
+46
+00:01:52.520 --> 00:01:55.640
+Tutoring affects study hours, and
+
+47
+00:01:55.640 --> 00:01:57.900
+study hours affect grades.
+
+48
+00:01:58.750 --> 00:02:00.830
+To estimate the total effect of
+
+49
+00:02:00.830 --> 00:02:02.990
+tutoring on grades, should we
+
+50
+00:02:02.990 --> 00:02:04.650
+adjust for study hours?
+
+51
+00:02:06.060 --> 00:02:06.300
+No.
+
+52
+00:02:06.870 --> 00:02:08.990
+Study hours are a mediator,
+
+53
+00:02:09.250 --> 00:02:10.750
+part of how tutoring works.
+
+54
+00:02:11.490 --> 00:02:13.510
+Adjusting for them removes some of the
+
+55
+00:02:13.510 --> 00:02:14.970
+very effect we want to measure.
+
+56
+00:02:16.280 --> 00:02:18.760
+In the app, open the scatter lab.
+
+57
+00:02:19.400 --> 00:02:22.120
+Plot grade against tutoring hours, then
+
+58
+00:02:22.120 --> 00:02:25.160
+colour points by prior grade and see how
+
+59
+00:02:25.160 --> 00:02:26.880
+the trend changes within each group.
+
+60
+00:02:28.100 --> 00:02:28.840
+Your turn.
+
+61
+00:02:29.480 --> 00:02:33.020
+Treated group: from fifty to fifty eight.
+
+62
+00:02:33.760 --> 00:02:35.520
+Comparison group: from
+
+63
+00:02:35.520 --> 00:02:37.980
+fifty two to fifty five.
+
+64
+00:02:38.780 --> 00:02:39.980
+What is the
+
+65
+00:02:39.980 --> 00:02:42.460
+difference-in-differences estimate?
+
+66
+00:02:43.940 --> 00:02:46.680
+Five points: eight minus three.
+
+67
+00:02:47.270 --> 00:02:50.230
+Remember: draw the diagram, adjust for
+
+68
+00:02:50.230 --> 00:02:53.230
+confounders but not mediators, and use a
+
+69
+00:02:53.230 --> 00:02:55.470
+comparison group with parallel trends.
+
+70
+00:02:56.550 --> 00:02:59.130
+Try it in your next lecture: give teams
+
+71
+00:02:59.130 --> 00:03:02.210
+one news headline claiming a cause, ask
+
+72
+00:03:02.210 --> 00:03:04.150
+them to draw the causal diagram.
+
+73
+00:03:04.880 --> 00:03:06.540
+Then have them name one
+
+74
+00:03:06.540 --> 00:03:08.260
+confounder the article ignored.

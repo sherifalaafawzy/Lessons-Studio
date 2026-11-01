@@ -1,0 +1,274 @@
+{
+ "id": "DATA-U1-1",
+ "track": "data",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching databases and data engineering at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "The relational model and normalisation",
+  "subtitle": "Codd, keys and normal forms",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "The relational model and normalisation: Codd, keys and normal forms",
+  "length": "2:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "One big spreadsheet"
+   },
+   {
+    "at": "0:23",
+    "label": "Relations and keys"
+   },
+   {
+    "at": "1:00",
+    "label": "Normal forms"
+   },
+   {
+    "at": "1:53",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "A student's course database keeps the lecturer's phone number on every enrolment row. The lecturer changes phones, half the rows are updated, and now the database disagrees with itself. Why did the design allow that?",
+    "icons": [
+     "database",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The relational model and normalisation",
+    "voice": "Narrator",
+    "narration": "Today: Codd's relational model, how functional dependencies drive normalisation, and how to teach design so students stop building one giant table."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:35",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The relational model",
+    "voice": "Narrator",
+    "narration": "Codd proposed storing data as relations: sets of tuples over named attributes. A key identifies each tuple uniquely. Queries describe what you want, not how to fetch it.",
+    "icons": [
+     "grid",
+     "key"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:47",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Functional dependencies",
+    "voice": "Narrator",
+    "narration": "A functional dependency says one set of attributes determines another. Lecturer determines phone. Student and course together determine grade. These dependencies, not intuition, tell us how to split tables.",
+    "icons": [
+     "arrow",
+     "key"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:47",
+    "end": "1:00",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Splitting the table",
+    "voice": "Narrator",
+    "narration": "Phone depends on lecturer, which depends on course, not on the whole key. That transitive dependency breaks third normal form. Moving lecturer details to their own table removes the update anomaly.",
+    "icons": [
+     "scissors"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:00",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Normal forms and trade-offs",
+    "voice": "Narrator",
+    "narration": "Third normal form and Boyce–Codd normal form remove most redundancy while keeping joins lossless. Analytical systems sometimes denormalise on purpose for speed. Students should know why, not just how.",
+    "icons": [
+     "layers",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:12",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach from anomalies",
+    "voice": "Dr Amina",
+    "narration": "Students memorise normal-form definitions without seeing the point. Start instead with a broken table and ask them to insert, update and delete. Once they hit the anomalies, dependencies become the tool that fixes them.",
+    "icons": [
+     "warning",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:35",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which anomaly?",
+    "voice": "Dr Salma",
+    "narration": "Quick check! A new lecturer cannot be stored until they have at least one enrolled student. Which anomaly is that?"
+   },
+   {
+    "n": 9,
+    "start": "1:35",
+    "end": "1:43",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "An insertion anomaly",
+    "voice": "Narrator",
+    "narration": "An insertion anomaly. Facts about lecturers are trapped inside enrolment rows. A separate lecturer table lets us record them independently.",
+    "icons": [
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:43",
+    "end": "1:53",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: schema",
+    "voice": "Narrator",
+    "narration": "In the app, open the schema lab. Split a flat table into related tables and check that every fact is stored once.",
+    "icons": [
+     "grid",
+     "key"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:53",
+    "end": "2:01",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Is it in 3NF?",
+    "voice": "Dr Amina",
+    "narration": "Your turn. A table holds course, lecturer and lecturer's office, keyed by course. Is it in third normal form?"
+   },
+   {
+    "n": 12,
+    "start": "2:01",
+    "end": "2:11",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Relations, dependencies, forms",
+    "voice": "Narrator",
+    "narration": "No: office depends on lecturer, a non-key attribute, so the dependency is transitive. Remember: keys identify, dependencies decide the split, and anomalies motivate the theory."
+   },
+   {
+    "n": 13,
+    "start": "2:11",
+    "end": "2:25",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give groups a flat enrolment spreadsheet. Ask each group to perform one insert, one update and one delete and report what went wrong. Then derive the dependencies together.",
+    "icons": [
+     "presentation",
+     "grid",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:33",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A new lecturer can't be stored until they have a student. Which anomaly?",
+    "options": [
+     {
+      "text": "Insertion",
+      "correct": true
+     },
+     {
+      "text": "Deletion",
+      "correct": false
+     },
+     {
+      "text": "Update",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: lecturer facts are trapped inside enrolment rows.",
+    "feedback_wrong": "Not quite: we can't add a fact without an unrelated one; that's an insertion anomaly.",
+    "resume_at": "1:35"
+   },
+   {
+    "at": "1:59",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Course → lecturer → office, keyed by course. Is it in 3NF?",
+    "options": [
+     {
+      "text": "Yes",
+      "correct": false
+     },
+     {
+      "text": "No, the dependency is transitive",
+      "correct": true
+     },
+     {
+      "text": "Only if office is unique",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: office depends on a non-key attribute.",
+    "feedback_wrong": "Not quite: course → lecturer → office is transitive, which 3NF forbids.",
+    "resume_at": "2:01"
+   }
+  ]
+ }
+}

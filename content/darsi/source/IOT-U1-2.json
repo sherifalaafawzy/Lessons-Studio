@@ -1,0 +1,274 @@
+{
+ "id": "IOT-U1-2",
+ "track": "iot",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching embedded and IoT systems at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Real-time and the power budget",
+  "subtitle": "Deadlines and duty cycles",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Real-time and the power budget: Deadlines and duty cycles",
+  "length": "2:41",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A sensor that died"
+   },
+   {
+    "at": "0:20",
+    "label": "The power budget"
+   },
+   {
+    "at": "1:01",
+    "label": "Deadlines"
+   },
+   {
+    "at": "2:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:11",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "A student team promised a field sensor would run for a year on two AA cells. It died after nine days. The radio was never switched off.",
+    "icons": [
+     "battery",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:11",
+    "end": "0:20",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Real-time and the power budget",
+    "voice": "Narrator",
+    "narration": "Today: how to budget energy with duty cycles, what real-time really means, and how to schedule tasks so deadlines are met."
+   },
+   {
+    "n": 3,
+    "start": "0:20",
+    "end": "0:34",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Average current",
+    "voice": "Narrator",
+    "narration": "Battery life is capacity divided by average current. A device that sleeps most of the time has an average set by how long and how often it wakes. That fraction is the duty cycle.",
+    "icons": [
+     "battery",
+     "calculator"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Duty cycling",
+    "voice": "Narrator",
+    "narration": "Awake at twenty milliamps for one second in sixty, and asleep at ten microamps otherwise, the average is about a third of a milliamp. Two thousand milliamp hours then last roughly eight months.",
+    "icons": [
+     "clock",
+     "zap"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:01",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Where the energy goes",
+    "voice": "Narrator",
+    "narration": "In a typical LoRa sensor node, the radio uses most of the energy, even though it is on for a tiny fraction of the time. Sensing and the processor use far less.",
+    "icons": [
+     "battery"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:01",
+    "end": "1:15",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Real-time means deadlines",
+    "voice": "Narrator",
+    "narration": "Real-time does not mean fast. It means every task finishes before its deadline. A hard real-time miss is a failure, like an airbag. A soft miss only lowers quality, like a dropped video frame.",
+    "icons": [
+     "clock",
+     "target"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:15",
+    "end": "1:34",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Rate-monotonic scheduling",
+    "voice": "Dr Amina",
+    "narration": "Give the shortest period the highest priority. Liu and Layland proved that n periodic tasks always meet their deadlines this way if total utilisation is below n times two to the one over n, minus one. For many tasks that tends to about sixty nine percent.",
+    "icons": [
+     "list",
+     "calculator"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:34",
+    "end": "1:44",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Average current",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A node draws fifty milliamps for one second every hundred seconds and almost nothing otherwise. What is its average current?"
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:54",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Half a milliamp",
+    "voice": "Narrator",
+    "narration": "Half a milliamp: fifty times one in a hundred. So halving the wake time doubles battery life far more cheaply than a bigger battery.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:54",
+    "end": "2:05",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: battery",
+    "voice": "Narrator",
+    "narration": "In the app, open the battery lab. Change how often the device wakes and how long the radio stays on, and watch the predicted battery life.",
+    "icons": [
+     "battery",
+     "clock"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:05",
+    "end": "2:18",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Schedulable?",
+    "voice": "Dr Amina",
+    "narration": "Your turn. Two tasks: one needs one millisecond every four, the other needs two milliseconds every ten. Is the total utilisation under the rate-monotonic bound for two tasks, about eighty three percent?"
+   },
+   {
+    "n": 12,
+    "start": "2:18",
+    "end": "2:28",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Budget, duty, deadlines",
+    "voice": "Narrator",
+    "narration": "Yes: a quarter plus a fifth is forty five percent. Remember: battery life follows average current, the radio dominates, and real-time means meeting deadlines."
+   },
+   {
+    "n": 13,
+    "start": "2:28",
+    "end": "2:41",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lab",
+    "voice": "Narrator",
+    "narration": "Try it in your next lab: give each team a current meter and their own sensor node. They measure active and sleep current, then predict battery life and defend the number.",
+    "icons": [
+     "presentation",
+     "battery",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A node draws 50 mA for 1 s every 100 s and almost nothing otherwise. Average current?",
+    "options": [
+     {
+      "text": "5 mA",
+      "correct": false
+     },
+     {
+      "text": "0.5 mA",
+      "correct": true
+     },
+     {
+      "text": "50 mA",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 50 mA × 1/100 = 0.5 mA.",
+    "feedback_wrong": "Not quite: average = duty cycle × active current = 1/100 × 50 = 0.5 mA.",
+    "resume_at": "1:44"
+   },
+   {
+    "at": "2:16",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Tasks (C = 1 ms, T = 4 ms) and (C = 2 ms, T = 10 ms). Under the 2-task RM bound of about 83%?",
+    "options": [
+     {
+      "text": "Yes, U = 45%",
+      "correct": true
+     },
+     {
+      "text": "No, U = 120%",
+      "correct": false
+     },
+     {
+      "text": "Yes, U = 30%",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 1/4 + 2/10 = 0.45, well under 0.83.",
+    "feedback_wrong": "Not quite: U = Σ C/T = 0.25 + 0.2 = 0.45.",
+    "resume_at": "2:18"
+   }
+  ]
+ }
+}

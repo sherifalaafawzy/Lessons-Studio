@@ -1,0 +1,261 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "brain",
+          "text": {
+            "en": "A million weights",
+            "ar-EG": "مليون وزن"
+          },
+          "s": 0
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "“The framework does it”",
+            "ar-EG": "«الإطار البرمجي بيعملها»"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Where understanding stops",
+            "ar-EG": "هنا الفهم بيقف"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Forward: inputs to loss",
+            "ar-EG": "لقدّام: من المدخلات للخسارة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "back",
+          "text": {
+            "en": "Backward: loss to every weight",
+            "ar-EG": "لورا: من الخسارة لكل وزن"
+          },
+          "s": 1
+        },
+        {
+          "icon": "network",
+          "text": {
+            "en": "Chain rule at each node",
+            "ar-EG": "قاعدة السلسلة عند كل عقدة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "network"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "∂L/∂w = ∂L/∂a ⋅ ∂a/∂w\nlocal gradients multiply\nbackward pass ≈ cost of forward pass",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          100,
+          25,
+          6,
+          2,
+          0.4
+        ],
+        "labels": [
+          {
+            "en": "Layer 10",
+            "ar-EG": "الطبقة 10"
+          },
+          {
+            "en": "Layer 9",
+            "ar-EG": "الطبقة 9"
+          },
+          {
+            "en": "Layer 8",
+            "ar-EG": "الطبقة 8"
+          },
+          {
+            "en": "Layer 7",
+            "ar-EG": "الطبقة 7"
+          },
+          {
+            "en": "Layer 6",
+            "ar-EG": "الطبقة 6"
+          }
+        ],
+        "unit": {
+          "en": "Gradient size, % of output layer",
+          "ar-EG": "حجم التدرّج، % من طبقة الخرج"
+        },
+        "s": 1,
+        "max": 100
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "1986: Rumelhart, Hinton, Williams",
+            "ar-EG": "1986: روملهارت وهينتون وويليامز"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "All gradients, one pass",
+            "ar-EG": "كل التدرّجات في مرور واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Large networks become trainable",
+            "ar-EG": "الشبكات الكبيرة بقت قابلة للتدريب"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "zap"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "Three nodes, real numbers",
+            "ar-EG": "تلات عقد وأرقام حقيقية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Forward, then backward, on paper",
+            "ar-EG": "لقدّام وبعدين لورا على الورق"
+          },
+          "s": 1
+        },
+        {
+          "icon": "sparkle",
+          "text": {
+            "en": "Then generalise",
+            "ar-EG": "وبعدين عمّم"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Forward pass",
+            "ar-EG": "مرور لقدّام"
+          },
+          "s": 1
+        },
+        {
+          "icon": "back",
+          "text": {
+            "en": "Gradients node by node",
+            "ar-EG": "التدرّجات عقدة عقدة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Check each product",
+            "ar-EG": "اتأكد من كل حاصل ضرب"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "network"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Local gradients multiply",
+            "ar-EG": "التدرّجات المحلية بتتضرب"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "One pass, every gradient",
+            "ar-EG": "مرور واحد، كل التدرّجات"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Small locals vanish",
+            "ar-EG": "المحليات الصغيرة بتتلاشى"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Numbers on paper before symbols.",
+        "ar-EG": "أرقام على الورق قبل الرموز."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "A three-node graph",
+            "ar-EG": "شبكة من تلات عقد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Gradients by hand",
+            "ar-EG": "التدرّجات باليد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Check with the framework",
+            "ar-EG": "قارنوا بالإطار البرمجي"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

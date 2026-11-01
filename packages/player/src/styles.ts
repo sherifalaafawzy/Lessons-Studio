@@ -251,4 +251,5 @@ export const CSS = `
 .ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));margin:0 auto}
 .ls-full.ls-turned{top:0;left:100%;right:auto;bottom:auto;width:100vh;height:100vw;transform:rotate(90deg);transform-origin:top left}
 .ls-full.ls-turned .ls-main{width:min(100%,calc(100vw * var(--ls-ar,1.78)))}
+.ls-full.ls-turned .ls-seek{touch-action:none}
 `;

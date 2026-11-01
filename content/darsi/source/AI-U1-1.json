@@ -1,0 +1,274 @@
+{
+ "id": "AI-U1-1",
+ "track": "ai",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching machine learning at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Learning as optimisation",
+  "subtitle": "Empirical risk and gradient descent",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Learning as optimisation: Empirical risk and gradient descent",
+  "length": "2:25",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Okafor - engineering lecturer, Accra",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A model that won't learn"
+   },
+   {
+    "at": "0:21",
+    "label": "Empirical risk"
+   },
+   {
+    "at": "0:58",
+    "label": "Gradient descent"
+   },
+   {
+    "at": "1:52",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "A student's first neural network printed a loss of nan after three steps. She had copied the code exactly. The only change was a learning rate of ten instead of a tenth.",
+    "icons": [
+     "cpu",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Learning as optimisation",
+    "voice": "Narrator",
+    "narration": "Today: learning as minimising a loss, how gradient descent does it, and why the learning rate trips students up."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:34",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Empirical risk minimisation",
+    "voice": "Narrator",
+    "narration": "Supervised learning picks the parameters that minimise the average loss on the training data. That average is the empirical risk. We hope it tracks the true risk on new data.",
+    "icons": [
+     "target",
+     "calculator"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:34",
+    "end": "0:45",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Follow the slope down",
+    "voice": "Narrator",
+    "narration": "Gradient descent starts somewhere and repeatedly steps against the gradient. Theta becomes theta minus eta times the gradient. Eta, the learning rate, sets the step size.",
+    "icons": [
+     "arrow",
+     "gauge"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:45",
+    "end": "0:58",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Three learning rates",
+    "voice": "Narrator",
+    "narration": "Here is the loss after fifty steps on the same problem. A tiny rate barely moves. A good rate reaches nearly zero. A rate that is too big bounces higher and higher.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:58",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Stochastic gradients",
+    "voice": "Narrator",
+    "narration": "Real datasets are large, so we estimate the gradient from a small random batch. Stochastic gradient descent is noisy, but each step is cheap, and the noise can even help escape flat regions.",
+    "icons": [
+     "shuffle",
+     "layers"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:12",
+    "end": "1:24",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach it with a hill",
+    "voice": "Dr Okafor",
+    "narration": "Students often think the gradient points to the minimum. It only points uphill, locally. Plot a one-parameter loss, let students take steps by hand, and they discover overshooting themselves.",
+    "icons": [
+     "map",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:24",
+    "end": "1:31",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why nan?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! The loss rises every step and then becomes nan. What is the most likely cause?"
+   },
+   {
+    "n": 9,
+    "start": "1:31",
+    "end": "1:42",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The step was too big",
+    "voice": "Narrator",
+    "narration": "The learning rate is too big. Each step overshoots the valley and lands higher up, until the numbers overflow. Divide it by ten and try again.",
+    "icons": [
+     "gauge",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:42",
+    "end": "1:52",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: gradient descent",
+    "voice": "Narrator",
+    "narration": "In the app, open the gradient lab. Pick a starting point, change the learning rate, and watch the steps converge, crawl or explode.",
+    "icons": [
+     "gauge",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:52",
+    "end": "2:02",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "One step by hand",
+    "voice": "Dr Okafor",
+    "narration": "Your turn. The loss is theta squared, theta is three, and the learning rate is a tenth. Where is theta after one step?"
+   },
+   {
+    "n": 12,
+    "start": "2:02",
+    "end": "2:12",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Loss, gradient, rate",
+    "voice": "Narrator",
+    "narration": "At two point four, because the gradient is six. Remember: learning minimises empirical risk, gradient descent steps downhill, and the learning rate decides whether it works."
+   },
+   {
+    "n": 13,
+    "start": "2:12",
+    "end": "2:25",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give each pair the loss theta squared and three learning rates. They take five steps by hand and plot them, before you show any code.",
+    "icons": [
+     "presentation",
+     "pencil",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:29",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The loss rises every step and then becomes nan. Most likely cause?",
+    "options": [
+     {
+      "text": "The learning rate is too big",
+      "correct": true
+     },
+     {
+      "text": "Too little training data",
+      "correct": false
+     },
+     {
+      "text": "The model is too simple",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: each step overshoots and lands higher until the numbers overflow.",
+    "feedback_wrong": "Not quite: a loss that grows each step is the signature of a learning rate that is too big.",
+    "resume_at": "1:31"
+   },
+   {
+    "at": "1:60",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Loss θ², θ = 3, η = 0.1. Where is θ after one step?",
+    "options": [
+     {
+      "text": "2.4",
+      "correct": true
+     },
+     {
+      "text": "2.9",
+      "correct": false
+     },
+     {
+      "text": "0",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the gradient is 2θ = 6, so θ = 3 − 0.1 × 6 = 2.4.",
+    "feedback_wrong": "Not quite: the gradient of θ² is 2θ = 6, so θ = 3 − 0.6 = 2.4.",
+    "resume_at": "2:02"
+   }
+  ]
+ }
+}

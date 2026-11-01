@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.250
+The faculty's enrolment report
+
+2
+00:00:02.250 --> 00:00:04.710
+shows a hundred and twelve percent
+
+3
+00:00:04.710 --> 00:00:06.210
+attendance in one course.
+
+4
+00:00:06.970 --> 00:00:08.310
+The query was correct.
+
+5
+00:00:09.100 --> 00:00:11.160
+The data was not: some
+
+6
+00:00:11.160 --> 00:00:12.800
+students were loaded twice.
+
+7
+00:00:13.440 --> 00:00:14.800
+Who should have caught it?
+
+8
+00:00:16.020 --> 00:00:18.960
+Today: how bad data breaks good
+
+9
+00:00:18.960 --> 00:00:21.720
+systems, how to test data like code,
+
+10
+00:00:22.140 --> 00:00:24.120
+and how to assess student database
+
+11
+00:00:24.120 --> 00:00:26.780
+projects built on real, messy datasets.
+
+12
+00:00:28.260 --> 00:00:30.740
+Data quality means fitness for use.
+
+13
+00:00:31.480 --> 00:00:33.640
+Common dimensions are completeness,
+
+14
+00:00:34.100 --> 00:00:36.680
+validity, uniqueness, consistency,
+
+15
+00:00:37.480 --> 00:00:39.300
+accuracy and timeliness.
+
+16
+00:00:40.050 --> 00:00:41.710
+Each can be tested automatically.
+
+17
+00:00:43.380 --> 00:00:45.280
+Write checks that run every
+
+18
+00:00:45.280 --> 00:00:46.620
+time data is loaded.
+
+19
+00:00:47.280 --> 00:00:49.900
+Keys must be unique, required fields
+
+20
+00:00:49.900 --> 00:00:52.600
+not null, and values within range.
+
+21
+00:00:53.330 --> 00:00:55.410
+A failing check stops the pipeline
+
+22
+00:00:55.410 --> 00:00:57.030
+before the report is built.
+
+23
+00:00:58.280 --> 00:01:00.000
+Better still, let the
+
+24
+00:01:00.000 --> 00:01:02.020
+database refuse bad data.
+
+25
+00:01:02.680 --> 00:01:05.580
+A primary key on student and course would
+
+26
+00:01:05.580 --> 00:01:07.180
+have rejected the duplicate load.
+
+27
+00:01:07.830 --> 00:01:10.090
+Constraints are quality checks the
+
+28
+00:01:10.090 --> 00:01:11.590
+database enforces for free.
+
+29
+00:01:12.780 --> 00:01:15.320
+Lineage records where each table came
+
+30
+00:01:15.320 --> 00:01:17.240
+from and what transformed it.
+
+31
+00:01:17.720 --> 00:01:20.400
+Datasheets describe how a dataset was
+
+32
+00:01:20.400 --> 00:01:22.660
+collected and its known limits.
+
+33
+00:01:23.440 --> 00:01:25.400
+Together they let someone else
+
+34
+00:01:25.400 --> 00:01:27.840
+trust, or question, the numbers.
+
+35
+00:01:29.160 --> 00:01:31.700
+Clean textbook datasets hide the
+
+36
+00:01:31.700 --> 00:01:33.000
+hardest part of the job.
+
+37
+00:01:33.590 --> 00:01:35.090
+Give students a real,
+
+38
+00:01:35.350 --> 00:01:36.790
+messy public dataset.
+
+39
+00:01:37.560 --> 00:01:41.040
+Grade the schema, the quality checks and a
+
+40
+00:01:41.040 --> 00:01:42.860
+written account of every cleaning
+
+41
+00:01:42.860 --> 00:01:45.320
+decision, not just the final queries.
+
+42
+00:01:46.650 --> 00:01:47.130
+Quick check!
+
+43
+00:01:47.740 --> 00:01:49.720
+Some students were loaded twice.
+
+44
+00:01:50.520 --> 00:01:52.880
+Which quality dimension failed?
+
+45
+00:01:54.230 --> 00:01:55.010
+Uniqueness.
+
+46
+00:01:55.730 --> 00:01:57.610
+Each student and course pair
+
+47
+00:01:57.610 --> 00:01:58.670
+should appear once.
+
+48
+00:01:59.440 --> 00:02:01.880
+A uniqueness test or a primary key
+
+49
+00:02:01.880 --> 00:02:03.460
+would have caught it at load time.
+
+50
+00:02:04.710 --> 00:02:07.070
+In the app, open the quality lab.
+
+51
+00:02:07.740 --> 00:02:10.580
+Run checks on a messy table, find the
+
+52
+00:02:10.580 --> 00:02:13.700
+duplicates, gaps and impossible values,
+
+53
+00:02:14.380 --> 00:02:15.900
+and decide how to handle each.
+
+54
+00:02:17.240 --> 00:02:17.780
+Your turn.
+
+55
+00:02:18.390 --> 00:02:20.390
+Two student projects return
+
+56
+00:02:20.390 --> 00:02:22.410
+identical final answers.
+
+57
+00:02:23.100 --> 00:02:25.920
+What best distinguishes the stronger one?
+
+58
+00:02:27.130 --> 00:02:29.210
+The quality checks and the written
+
+59
+00:02:29.210 --> 00:02:31.570
+justification of each cleaning decision.
+
+60
+00:02:32.260 --> 00:02:34.760
+Remember: quality is testable,
+
+61
+00:02:35.240 --> 00:02:37.260
+constraints enforce it, and
+
+62
+00:02:37.260 --> 00:02:39.640
+documentation lets others trust the
+
+63
+00:02:39.640 --> 00:02:39.980
+result.
+
+64
+00:02:41.240 --> 00:02:44.000
+Try it in your next lecture: hand out a
+
+65
+00:02:44.000 --> 00:02:46.020
+public dataset with planted problems.
+
+66
+00:02:46.730 --> 00:02:48.470
+Groups write three quality
+
+67
+00:02:48.470 --> 00:02:49.930
+checks and run them.
+
+68
+00:02:50.510 --> 00:02:52.370
+Then each group presents one
+
+69
+00:02:52.370 --> 00:02:54.350
+cleaning decision and defends it.

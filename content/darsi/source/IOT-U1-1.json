@@ -1,0 +1,274 @@
+{
+ "id": "IOT-U1-1",
+ "track": "iot",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching embedded and IoT systems at university"
+ },
+ "lesson": {
+  "number": 1,
+  "title": "Sampling, Nyquist and the ADC",
+  "subtitle": "From a real signal to numbers",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Sampling, Nyquist and the ADC: From a real signal to numbers",
+  "length": "2:32",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A heartbeat that lied"
+   },
+   {
+    "at": "0:21",
+    "label": "Sampling and aliasing"
+   },
+   {
+    "at": "0:59",
+    "label": "Quantisation"
+   },
+   {
+    "at": "1:58",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "My students built a pulse monitor that showed twelve beats a minute on a healthy volunteer. The circuit was fine. They were sampling a fast signal far too slowly.",
+    "icons": [
+     "heart",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sampling, Nyquist and the ADC",
+    "voice": "Narrator",
+    "narration": "Today: how a sensor signal becomes numbers, why sampling too slowly invents fake frequencies, and how many bits you really need."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:32",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Sampling",
+    "voice": "Narrator",
+    "narration": "An analogue to digital converter measures a voltage at regular instants. The sampling rate is how many measurements per second. Between samples, the converter sees nothing.",
+    "icons": [
+     "clock",
+     "gauge"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:32",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The Nyquist rate",
+    "voice": "Narrator",
+    "narration": "Shannon's sampling theorem says a signal with no frequencies above B can be rebuilt exactly from samples taken faster than two B per second. Sample slower, and high frequencies fold down as fake low ones. That is aliasing.",
+    "icons": [
+     "calculator",
+     "signal"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "0:59",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A 50 Hz hum at 60 samples",
+    "voice": "Narrator",
+    "narration": "Mains hum is fifty hertz. Sampled sixty times a second, it appears as a slow ten hertz wave. Sampled at a thousand, it appears correctly as fifty.",
+    "icons": [
+     "signal"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:14",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Quantisation",
+    "voice": "Narrator",
+    "narration": "An n-bit converter splits its range into two to the n levels. A ten-bit converter on three point three volts has steps of about three millivolts. Each extra bit halves the step and adds about six decibels.",
+    "icons": [
+     "ruler",
+     "layers"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:27",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach it with a strobe",
+    "voice": "Dr Joseph",
+    "narration": "Students treat sampling as a software setting. Show a spinning wheel under a strobe light, or a film of car wheels turning backwards. They see aliasing before they see the maths.",
+    "icons": [
+     "eye",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:27",
+    "end": "1:37",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How fast?",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A vibration sensor must capture frequencies up to four hundred hertz. What is the lowest sampling rate that can work in theory?"
+   },
+   {
+    "n": 9,
+    "start": "1:37",
+    "end": "1:47",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Above 800 Hz",
+    "voice": "Narrator",
+    "narration": "Just above eight hundred samples per second. In practice engineers sample several times faster and put an anti-aliasing filter in front of the converter.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:47",
+    "end": "1:58",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: the ADC",
+    "voice": "Narrator",
+    "narration": "In the app, open the converter lab. Change the sampling rate and the number of bits, and watch the rebuilt signal improve or fall apart.",
+    "icons": [
+     "gauge",
+     "signal"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:58",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bits and steps",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. A twelve-bit converter has a reference of four point zero nine six volts. What is the size of one step?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:19",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Rate, alias, bits",
+    "voice": "Narrator",
+    "narration": "One millivolt, because two to the twelve is four thousand and ninety six. Remember: sample faster than twice the highest frequency, filter first, and each bit halves the step."
+   },
+   {
+    "n": 13,
+    "start": "2:19",
+    "end": "2:32",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lab",
+    "voice": "Narrator",
+    "narration": "Try it in your next lab: have pairs sample a signal generator at five rates on a microcontroller. They plot what they see and predict each alias before measuring it.",
+    "icons": [
+     "presentation",
+     "signal",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A sensor must capture up to 400 Hz. Lowest sampling rate that can work in theory?",
+    "options": [
+     {
+      "text": "Just above 400 Hz",
+      "correct": false
+     },
+     {
+      "text": "Just above 800 Hz",
+      "correct": true
+     },
+     {
+      "text": "4,000 Hz exactly",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the rate must exceed 2B = 800 Hz.",
+    "feedback_wrong": "Not quite: Nyquist needs more than twice the highest frequency, 2 × 400 = 800 Hz.",
+    "resume_at": "1:37"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A 12-bit ADC has a 4.096 V reference. Size of one step?",
+    "options": [
+     {
+      "text": "1 mV",
+      "correct": true
+     },
+     {
+      "text": "4 mV",
+      "correct": false
+     },
+     {
+      "text": "0.34 V",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 4.096 V / 4,096 = 1 mV.",
+    "feedback_wrong": "Not quite: 2¹² = 4,096 levels, so 4.096 V / 4,096 = 1 mV.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

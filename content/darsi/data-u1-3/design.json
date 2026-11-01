@@ -1,0 +1,227 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Two students click",
+            "ar-EG": "طالبين داسوا"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Both confirmed",
+            "ar-EG": "الاتنين اتأكدوا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "One seat sold twice?",
+            "ar-EG": "كرسي اتباع مرتين؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Atomic",
+            "ar-EG": "ذرّية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Isolated",
+            "ar-EG": "معزولة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "database",
+          "text": {
+            "en": "Durable",
+            "ar-EG": "دايمة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "checksquare"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "T1: read seats = 1\nT2: read seats = 1\nT1: write seats = 0, enrol A\nT2: write seats = 0, enrol B\n-- two students, one seat",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "UPDATE course SET seats = seats - 1\nWHERE id = 'CS450' AND seats > 0;\n-- 1 row: enrolled\n-- 0 rows: course full",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Read committed",
+            "ar-EG": "Read committed"
+          },
+          "s": 0
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Snapshot isolation",
+            "ar-EG": "Snapshot isolation"
+          },
+          "s": 1
+        },
+        {
+          "icon": "check",
+          "text": {
+            "en": "Serializable",
+            "ar-EG": "Serializable"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "layers"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "network",
+          "text": {
+            "en": "The network splits",
+            "ar-EG": "الشبكة اتقسمت"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Stay available",
+            "ar-EG": "افضل متاح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Or stay consistent",
+            "ar-EG": "ولا افضل متسق"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Interleave two transactions",
+            "ar-EG": "داخل معاملتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Find the bad orders",
+            "ar-EG": "لاقي الترتيب الغلط"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Add isolation",
+            "ar-EG": "ضيف العزل"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "repeat"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "All or nothing",
+            "ar-EG": "يا كله يا بلاش"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Know your isolation level",
+            "ar-EG": "اعرف مستوى العزل"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Partitions force a choice",
+            "ar-EG": "الانقسام بيفرض اختيار"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Interleave by hand first.",
+        "ar-EG": "داخل باليد الأول."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Two volunteers, two cards",
+            "ar-EG": "متطوّعين وكارتين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "repeat",
+          "text": {
+            "en": "Call an interleaving",
+            "ar-EG": "قولوا ترتيب"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "lock",
+          "text": {
+            "en": "Add a lock",
+            "ar-EG": "ضيف قفل"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.770
+Half the class submits a recursive
+
+2
+00:00:02.770 --> 00:00:05.450
+factorial that crashes with a stack
+
+3
+00:00:05.450 --> 00:00:06.010
+overflow.
+
+4
+00:00:06.910 --> 00:00:09.610
+Their loop version worked perfectly.
+
+5
+00:00:10.360 --> 00:00:12.800
+What do they not yet understand?
+
+6
+00:00:14.290 --> 00:00:17.490
+Today: how recursion really executes,
+
+7
+00:00:17.990 --> 00:00:20.710
+why induction proves it correct, and
+
+8
+00:00:20.710 --> 00:00:22.870
+the mental models that stop students
+
+9
+00:00:22.870 --> 00:00:24.010
+treating it as magic.
+
+10
+00:00:25.300 --> 00:00:27.840
+A recursive function solves a problem by
+
+11
+00:00:27.840 --> 00:00:30.180
+calling itself on a smaller instance.
+
+12
+00:00:30.980 --> 00:00:32.360
+It needs a base case that
+
+13
+00:00:32.360 --> 00:00:33.220
+answers directly.
+
+14
+00:00:34.100 --> 00:00:36.040
+And every call must move
+
+15
+00:00:36.040 --> 00:00:37.800
+closer to that base case.
+
+16
+00:00:39.160 --> 00:00:41.620
+Each call gets its own frame with its
+
+17
+00:00:41.620 --> 00:00:43.860
+own parameters and local variables.
+
+18
+00:00:44.680 --> 00:00:46.760
+Frames pile up until the
+
+19
+00:00:46.760 --> 00:00:47.960
+base case returns.
+
+20
+00:00:48.860 --> 00:00:52.040
+Then they unwind one by one, each
+
+21
+00:00:52.040 --> 00:00:53.560
+finishing its own multiplication.
+
+22
+00:00:55.190 --> 00:00:57.610
+The crashing version tested for n equal
+
+23
+00:00:57.610 --> 00:00:59.950
+to one but was called with zero.
+
+24
+00:01:00.650 --> 00:01:03.370
+Zero minus one never reaches one,
+
+25
+00:01:03.810 --> 00:01:05.330
+so the frames never stop.
+
+26
+00:01:06.030 --> 00:01:09.450
+Testing for n at most zero fixes it.
+
+27
+00:01:10.630 --> 00:01:13.070
+Structural induction mirrors the code.
+
+28
+00:01:13.720 --> 00:01:14.860
+Prove the base case
+
+29
+00:01:14.860 --> 00:01:16.240
+returns the right answer.
+
+30
+00:01:16.910 --> 00:01:19.530
+Then assume the smaller call is correct
+
+31
+00:01:19.530 --> 00:01:21.670
+and show the current call is too.
+
+32
+00:01:22.270 --> 00:01:23.890
+That is exactly the
+
+33
+00:01:23.890 --> 00:01:25.530
+recursive leap of faith.
+
+34
+00:01:26.800 --> 00:01:29.100
+Students often picture recursion as
+
+35
+00:01:29.100 --> 00:01:31.300
+a loop, or believe the function
+
+36
+00:01:31.300 --> 00:01:33.320
+somehow waits without memory.
+
+37
+00:01:33.930 --> 00:01:36.970
+Act it out: each student is one frame,
+
+38
+00:01:37.410 --> 00:01:39.110
+holding a card with their own n.
+
+39
+00:01:39.860 --> 00:01:42.020
+Then trace on paper before
+
+40
+00:01:42.020 --> 00:01:42.960
+running any code.
+
+41
+00:01:44.220 --> 00:01:44.800
+Quick check!
+
+42
+00:01:45.590 --> 00:01:49.650
+The fixed factorial is called with four.
+
+43
+00:01:50.370 --> 00:01:52.710
+How many frames are on the
+
+44
+00:01:52.710 --> 00:01:54.890
+stack at the deepest point?
+
+45
+00:01:56.160 --> 00:01:59.520
+Five: fact of four, three,
+
+46
+00:01:59.880 --> 00:02:02.800
+two, one and zero.
+
+47
+00:02:03.450 --> 00:02:06.430
+Each holds its own n, waiting for
+
+48
+00:02:06.430 --> 00:02:08.130
+the call below it to return.
+
+49
+00:02:09.600 --> 00:02:11.800
+In the app, open the recursion lab.
+
+50
+00:02:12.410 --> 00:02:14.330
+Step through the calls and watch
+
+51
+00:02:14.330 --> 00:02:17.050
+frames push and pop on the stack.
+
+52
+00:02:18.320 --> 00:02:19.080
+Your turn.
+
+53
+00:02:19.700 --> 00:02:21.780
+In the induction proof for a
+
+54
+00:02:21.780 --> 00:02:23.740
+recursive function, what do you
+
+55
+00:02:23.740 --> 00:02:25.380
+assume in the inductive step?
+
+56
+00:02:26.580 --> 00:02:28.860
+You assume the smaller recursive
+
+57
+00:02:28.860 --> 00:02:30.600
+call returns the correct answer.
+
+58
+00:02:31.210 --> 00:02:33.790
+Remember: every recursion needs a
+
+59
+00:02:33.790 --> 00:02:36.170
+reachable base case, frames hold
+
+60
+00:02:36.170 --> 00:02:38.650
+separate state, and induction is the
+
+61
+00:02:38.650 --> 00:02:38.890
+proof.
+
+62
+00:02:40.230 --> 00:02:42.430
+Try it in your next lecture: line
+
+63
+00:02:42.430 --> 00:02:44.550
+up five students as stack frames
+
+64
+00:02:44.550 --> 00:02:46.070
+for factorial of four.
+
+65
+00:02:46.640 --> 00:02:49.160
+Each writes their n on a card and
+
+66
+00:02:49.160 --> 00:02:50.680
+passes the result back up.
+
+67
+00:02:51.160 --> 00:02:52.460
+Then the class writes the
+
+68
+00:02:52.460 --> 00:02:53.640
+induction proof together.

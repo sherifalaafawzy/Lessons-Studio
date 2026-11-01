@@ -1,0 +1,275 @@
+{
+ "id": "AGENTS-U1-2",
+ "track": "agents",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching AI agents at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Planning and tool use with language models",
+  "subtitle": "Search, ReAct and tool calls",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Planning and tool use with language models: Search, ReAct and tool calls",
+  "length": "2:39",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The made-up timetable"
+   },
+   {
+    "at": "0:24",
+    "label": "Classical planning"
+   },
+   {
+    "at": "1:07",
+    "label": "Reason, act, observe"
+   },
+   {
+    "at": "2:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "A student's assistant agent is asked for a free room on Tuesday. It confidently names a room that does not exist. It never called the booking tool it had. Why not?",
+    "icons": [
+     "calendar",
+     "bot",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Planning and tool use with language models",
+    "voice": "Narrator",
+    "narration": "Today: how classical planners search for action sequences, how language-model agents interleave reasoning with tool calls, and how to teach students to build and debug both."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:37",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Planning",
+    "voice": "Narrator",
+    "narration": "Planning finds a sequence of actions that takes the world from a start state to a goal. Each action has preconditions and effects. A planner searches this space instead of guessing.",
+    "icons": [
+     "map",
+     "list"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:37",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Search with a heuristic",
+    "voice": "Narrator",
+    "narration": "A star search expands the node with the lowest cost so far plus estimated cost to go. If the estimate never overestimates, the plan it finds is optimal. Students can trace it by hand on a small map.",
+    "icons": [
+     "search",
+     "map"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:07",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A ReAct trace",
+    "voice": "Narrator",
+    "narration": "A ReAct agent writes a thought, calls a tool, and reads the observation before its next step. Here it checks the booking system before answering. The answer is grounded in what the tool returned.",
+    "icons": [
+     "chat",
+     "cog"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:07",
+    "end": "1:21",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why agents skip tools",
+    "voice": "Narrator",
+    "narration": "A language model may answer from memory instead of calling a tool, especially if the tool's description is vague. Clear tool descriptions, explicit instructions, and checking every answer against a tool result all reduce this.",
+    "icons": [
+     "warning",
+     "cog"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:21",
+    "end": "1:35",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach both traditions",
+    "voice": "Dr Joseph",
+    "narration": "Students now meet agents through language models and skip classical planning. Teach both. Search gives guarantees and a vocabulary of states and goals. Language-model agents give flexibility, and the classical ideas explain their failures.",
+    "icons": [
+     "layers",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:35",
+    "end": "1:44",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Is it optimal?",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A star uses a heuristic that sometimes overestimates the remaining cost. Is the plan it finds guaranteed to be optimal?"
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:53",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "No guarantee",
+    "voice": "Narrator",
+    "narration": "No. Optimality needs an admissible heuristic, one that never overestimates. With an overestimate, A star may skip the best path.",
+    "icons": [
+     "warning",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:53",
+    "end": "2:05",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: planner",
+    "voice": "Narrator",
+    "narration": "In the app, open the planner lab. Give an agent a goal and tools, watch its thought, action and observation steps, and spot where it should have used a tool.",
+    "icons": [
+     "map",
+     "cog"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:05",
+    "end": "2:11",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Ground the answer",
+    "voice": "Dr Joseph",
+    "narration": "Your turn. Which change most directly stops the agent from inventing a room?"
+   },
+   {
+    "n": 12,
+    "start": "2:11",
+    "end": "2:23",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Search, act, ground",
+    "voice": "Narrator",
+    "narration": "Requiring the answer to come from a tool result, and checking it. Remember: planners search with heuristics, ReAct interleaves thought with tools, and answers should be grounded in observations."
+   },
+   {
+    "n": 13,
+    "start": "2:23",
+    "end": "2:39",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: trace A star on a six-node campus map on the board. Then show a ReAct transcript with one missing tool call. Pairs find the step where the agent should have acted.",
+    "icons": [
+     "presentation",
+     "map",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "A* with a heuristic that sometimes overestimates. Is its plan guaranteed optimal?",
+    "options": [
+     {
+      "text": "Yes",
+      "correct": false
+     },
+     {
+      "text": "No",
+      "correct": true
+     },
+     {
+      "text": "Only on grids",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: optimality needs an admissible heuristic.",
+    "feedback_wrong": "Not quite: an overestimate can make A* skip the best path.",
+    "resume_at": "1:44"
+   },
+   {
+    "at": "2:09",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which change most directly stops the agent inventing a room?",
+    "options": [
+     {
+      "text": "A bigger model",
+      "correct": false
+     },
+     {
+      "text": "Require and check a tool result",
+      "correct": true
+     },
+     {
+      "text": "A longer answer",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: ground the answer in what the tool returned.",
+    "feedback_wrong": "Not quite: size and length don't force grounding.",
+    "resume_at": "2:11"
+   }
+  ]
+ }
+}

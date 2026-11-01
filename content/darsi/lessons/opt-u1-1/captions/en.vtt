@@ -1,0 +1,309 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.910
+The university canteen must feed
+
+2
+00:00:02.910 --> 00:00:05.250
+students a meal that meets nutrition
+
+3
+00:00:05.250 --> 00:00:06.910
+targets at the lowest cost.
+
+4
+00:00:07.590 --> 00:00:10.510
+Staff try menus by hand every week.
+
+5
+00:00:11.130 --> 00:00:13.390
+A three-line model finds the
+
+6
+00:00:13.390 --> 00:00:15.030
+best menu in milliseconds.
+
+7
+00:00:16.220 --> 00:00:16.480
+How?
+
+8
+00:00:17.830 --> 00:00:20.350
+Today: how linear programs model
+
+9
+00:00:20.350 --> 00:00:23.390
+allocation problems, why the optimum sits
+
+10
+00:00:23.390 --> 00:00:25.990
+at a corner, and how duality turns
+
+11
+00:00:25.990 --> 00:00:28.330
+constraints into prices students can
+
+12
+00:00:28.330 --> 00:00:28.650
+interpret.
+
+13
+00:00:29.930 --> 00:00:32.350
+A linear program maximises or
+
+14
+00:00:32.350 --> 00:00:34.450
+minimises a linear objective
+
+15
+00:00:34.450 --> 00:00:36.530
+subject to linear constraints.
+
+16
+00:00:37.370 --> 00:00:39.450
+The decision variables are
+
+17
+00:00:39.450 --> 00:00:42.330
+continuous and usually non-negative.
+
+18
+00:00:43.010 --> 00:00:45.290
+Diet, production and transport
+
+19
+00:00:45.290 --> 00:00:47.070
+problems all fit this form.
+
+20
+00:00:48.300 --> 00:00:49.980
+The constraints carve out a
+
+21
+00:00:49.980 --> 00:00:51.960
+convex feasible region.
+
+22
+00:00:52.650 --> 00:00:54.990
+Because the objective is linear, an
+
+23
+00:00:54.990 --> 00:00:58.210
+optimum, if one exists, occurs at a
+
+24
+00:00:58.210 --> 00:00:58.530
+vertex.
+
+25
+00:00:59.430 --> 00:01:02.590
+The simplex method walks from vertex to
+
+26
+00:01:02.590 --> 00:01:05.410
+better vertex until none is better.
+
+27
+00:01:06.630 --> 00:01:08.770
+Evaluate three x plus two
+
+28
+00:01:08.770 --> 00:01:10.390
+y at each vertex.
+
+29
+00:01:11.250 --> 00:01:14.530
+The origin gives zero, the point four
+
+30
+00:01:14.530 --> 00:01:17.910
+comma zero gives twelve, three comma one
+
+31
+00:01:17.910 --> 00:01:21.150
+gives eleven, and zero comma two gives
+
+32
+00:01:21.150 --> 00:01:21.470
+four.
+
+33
+00:01:22.090 --> 00:01:24.810
+The optimum is twelve at four comma zero.
+
+34
+00:01:26.000 --> 00:01:28.880
+Every linear program has a dual, with
+
+35
+00:01:28.880 --> 00:01:30.520
+one variable per constraint.
+
+36
+00:01:31.360 --> 00:01:34.280
+At the optimum, both have the same value.
+
+37
+00:01:34.980 --> 00:01:38.200
+Each dual variable is a shadow price: how
+
+38
+00:01:38.200 --> 00:01:40.340
+much the objective improves if that
+
+39
+00:01:40.340 --> 00:01:42.400
+constraint is relaxed by one unit.
+
+40
+00:01:43.660 --> 00:01:47.060
+Students often learn simplex tableaux as a
+
+41
+00:01:47.060 --> 00:01:49.420
+ritual without seeing the geometry.
+
+42
+00:01:50.330 --> 00:01:52.830
+Start with two-variable
+
+43
+00:01:52.830 --> 00:01:55.190
+problems drawn on graph paper.
+
+44
+00:01:55.770 --> 00:01:58.510
+Then let a solver handle larger
+
+45
+00:01:58.510 --> 00:02:00.550
+ones, and spend the time
+
+46
+00:02:00.550 --> 00:02:03.670
+interpreting shadow prices in context.
+
+47
+00:02:05.100 --> 00:02:05.500
+Quick check!
+
+48
+00:02:06.120 --> 00:02:08.380
+A linear program has a bounded,
+
+49
+00:02:08.640 --> 00:02:10.460
+non-empty feasible region.
+
+50
+00:02:11.040 --> 00:02:13.980
+Where must an optimal solution occur?
+
+51
+00:02:15.310 --> 00:02:17.770
+At a vertex, or along an edge
+
+52
+00:02:17.770 --> 00:02:19.910
+between two equally good vertices.
+
+53
+00:02:20.750 --> 00:02:22.610
+That is why simplex only
+
+54
+00:02:22.610 --> 00:02:23.770
+needs to visit corners.
+
+55
+00:02:25.160 --> 00:02:26.740
+In the app, open the
+
+56
+00:02:26.740 --> 00:02:27.960
+linear programming lab.
+
+57
+00:02:28.580 --> 00:02:30.960
+Drag the objective line across the
+
+58
+00:02:30.960 --> 00:02:33.720
+feasible region and watch where it last
+
+59
+00:02:33.720 --> 00:02:34.420
+touches.
+
+60
+00:02:35.610 --> 00:02:36.350
+Your turn.
+
+61
+00:02:36.990 --> 00:02:39.950
+The oven-hours constraint has
+
+62
+00:02:39.950 --> 00:02:42.270
+a shadow price of five.
+
+63
+00:02:43.080 --> 00:02:46.440
+One more oven hour costs three.
+
+64
+00:02:47.580 --> 00:02:49.380
+Should the canteen buy it?
+
+65
+00:02:50.610 --> 00:02:54.210
+Yes: each extra hour adds five to the
+
+66
+00:02:54.210 --> 00:02:57.050
+objective and costs three, a gain of
+
+67
+00:02:57.050 --> 00:02:58.730
+two, while the price stays valid.
+
+68
+00:02:59.340 --> 00:03:01.820
+Remember: optima sit at vertices,
+
+69
+00:03:02.460 --> 00:03:05.500
+every LP has a dual, and shadow
+
+70
+00:03:05.500 --> 00:03:07.100
+prices value constraints.
+
+71
+00:03:08.560 --> 00:03:10.140
+Try it in your next lecture:
+
+72
+00:03:10.680 --> 00:03:12.620
+give pairs a two-variable
+
+73
+00:03:12.620 --> 00:03:14.620
+canteen problem on graph paper.
+
+74
+00:03:15.200 --> 00:03:17.600
+They shade the feasible region, test
+
+75
+00:03:17.600 --> 00:03:20.100
+every corner, and find the optimum.
+
+76
+00:03:20.820 --> 00:03:24.080
+Then reveal the solver's shadow prices and
+
+77
+00:03:24.080 --> 00:03:25.540
+ask what they mean for the manager.

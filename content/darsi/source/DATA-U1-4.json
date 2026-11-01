@@ -1,0 +1,274 @@
+{
+ "id": "DATA-U1-4",
+ "track": "data",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching databases and data engineering at university"
+ },
+ "lesson": {
+  "number": 4,
+  "title": "Data quality and project assessment",
+  "subtitle": "Validation, lineage and real datasets",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Data quality and project assessment: Validation, lineage and real datasets",
+  "length": "2:23",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Prof Farah - head of department, Amman",
+   "Dr Amina Bello - lecturer in education, Lagos",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The report nobody trusted"
+   },
+   {
+    "at": "0:24",
+    "label": "Dimensions of quality"
+   },
+   {
+    "at": "0:59",
+    "label": "Assessing data projects"
+   },
+   {
+    "at": "1:52",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Prof Farah",
+    "narration": "The faculty's enrolment report shows a hundred and twelve percent attendance in one course. The query was correct. The data was not: some students were loaded twice. Who should have caught it?",
+    "icons": [
+     "file",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Data quality and project assessment",
+    "voice": "Narrator",
+    "narration": "Today: how bad data breaks good systems, how to test data like code, and how to assess student database projects built on real, messy datasets."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:33",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Data quality",
+    "voice": "Narrator",
+    "narration": "Data quality means fitness for use. Common dimensions are completeness, validity, uniqueness, consistency, accuracy and timeliness. Each can be tested automatically.",
+    "icons": [
+     "checksquare",
+     "list"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:46",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test data like code",
+    "voice": "Narrator",
+    "narration": "Write checks that run every time data is loaded. Keys must be unique, required fields not null, and values within range. A failing check stops the pipeline before the report is built.",
+    "icons": [
+     "checksquare",
+     "cog"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:46",
+    "end": "0:59",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Constraints prevent it",
+    "voice": "Narrator",
+    "narration": "Better still, let the database refuse bad data. A primary key on student and course would have rejected the duplicate load. Constraints are quality checks the database enforces for free.",
+    "icons": [
+     "lock"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:59",
+    "end": "1:12",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Lineage and documentation",
+    "voice": "Narrator",
+    "narration": "Lineage records where each table came from and what transformed it. Datasheets describe how a dataset was collected and its known limits. Together they let someone else trust, or question, the numbers.",
+    "icons": [
+     "share",
+     "file"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:12",
+    "end": "1:27",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Assessing student projects",
+    "voice": "Dr Amina",
+    "narration": "Clean textbook datasets hide the hardest part of the job. Give students a real, messy public dataset. Grade the schema, the quality checks and a written account of every cleaning decision, not just the final queries.",
+    "icons": [
+     "clipboard",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:27",
+    "end": "1:32",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which dimension?",
+    "voice": "Prof Farah",
+    "narration": "Quick check! Some students were loaded twice. Which quality dimension failed?"
+   },
+   {
+    "n": 9,
+    "start": "1:32",
+    "end": "1:41",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Uniqueness",
+    "voice": "Narrator",
+    "narration": "Uniqueness. Each student and course pair should appear once. A uniqueness test or a primary key would have caught it at load time.",
+    "icons": [
+     "key",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:41",
+    "end": "1:52",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: quality",
+    "voice": "Narrator",
+    "narration": "In the app, open the quality lab. Run checks on a messy table, find the duplicates, gaps and impossible values, and decide how to handle each.",
+    "icons": [
+     "checksquare",
+     "search"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:52",
+    "end": "1:59",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "What to grade",
+    "voice": "Dr Amina",
+    "narration": "Your turn. Two student projects return identical final answers. What best distinguishes the stronger one?"
+   },
+   {
+    "n": 12,
+    "start": "1:59",
+    "end": "2:09",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Test, constrain, document",
+    "voice": "Narrator",
+    "narration": "The quality checks and the written justification of each cleaning decision. Remember: quality is testable, constraints enforce it, and documentation lets others trust the result."
+   },
+   {
+    "n": 13,
+    "start": "2:09",
+    "end": "2:23",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: hand out a public dataset with planted problems. Groups write three quality checks and run them. Then each group presents one cleaning decision and defends it.",
+    "icons": [
+     "presentation",
+     "database",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:30",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Some students were loaded twice. Which quality dimension failed?",
+    "options": [
+     {
+      "text": "Completeness",
+      "correct": false
+     },
+     {
+      "text": "Uniqueness",
+      "correct": true
+     },
+     {
+      "text": "Timeliness",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: each student and course pair should appear once.",
+    "feedback_wrong": "Not quite: nothing was missing or late; rows were duplicated.",
+    "resume_at": "1:32"
+   },
+   {
+    "at": "1:57",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Two projects give identical answers. What best distinguishes the stronger one?",
+    "options": [
+     {
+      "text": "Longer queries",
+      "correct": false
+     },
+     {
+      "text": "Quality checks and justified cleaning",
+      "correct": true
+     },
+     {
+      "text": "More tables",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the process shows whether the answers can be trusted.",
+    "feedback_wrong": "Not quite: size isn't quality; checks and reasoning are.",
+    "resume_at": "1:59"
+   }
+  ]
+ }
+}

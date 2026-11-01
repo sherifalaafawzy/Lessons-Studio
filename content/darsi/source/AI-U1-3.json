@@ -1,0 +1,274 @@
+{
+ "id": "AI-U1-3",
+ "track": "ai",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching machine learning at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Attention and transformers",
+  "subtitle": "softmax(QKᵀ/√d)V, explained",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Attention and transformers: softmax(QKᵀ/√d)V, explained",
+  "length": "2:29",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Which word matters?"
+   },
+   {
+    "at": "0:22",
+    "label": "Queries, keys, values"
+   },
+   {
+    "at": "1:01",
+    "label": "Teaching transformers"
+   },
+   {
+    "at": "1:59",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "Take the sentence: the student put the laptop in the bag because it was full. What does it refer to? People answer instantly. Older language models often guessed the laptop.",
+    "icons": [
+     "chat",
+     "help",
+     "brain"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:22",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Attention and transformers",
+    "voice": "Narrator",
+    "narration": "Today: scaled dot-product attention, why it is divided by the square root of d, and how to teach the transformer without drowning students."
+   },
+   {
+    "n": 3,
+    "start": "0:22",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Attention",
+    "voice": "Narrator",
+    "narration": "Attention lets every token build its new representation as a weighted average of all the tokens. The weights say how relevant each other token is. So it can look straight at the bag.",
+    "icons": [
+     "eye",
+     "network"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:50",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Queries, keys and values",
+    "voice": "Narrator",
+    "narration": "Each token makes three vectors. Its query asks what it needs, each key says what a token offers, and values carry the content. Scores are queries times keys, divided by root d, then softmax.",
+    "icons": [
+     "key",
+     "search"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:50",
+    "end": "1:01",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Where “it” looks",
+    "voice": "Narrator",
+    "narration": "Here are one head's attention weights from it to the other nouns. Most of the weight goes to bag. The student and the laptop get little.",
+    "icons": [
+     "eye"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:01",
+    "end": "1:14",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why divide by √d?",
+    "voice": "Narrator",
+    "narration": "If query and key entries have variance one, their dot product has variance d. Large scores push softmax into saturation, where gradients vanish. Dividing by root d keeps the variance near one.",
+    "icons": [
+     "calculator",
+     "gauge"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:14",
+    "end": "1:29",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach one head first",
+    "voice": "Dr Salma",
+    "narration": "Vaswani and colleagues' diagram has too much in it for a first lecture. Start with one head, three tokens and two dimensions. Students compute the scores by hand, then you add heads, layers and positions.",
+    "icons": [
+     "pencil",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:29",
+    "end": "1:37",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Scale with d",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! The key dimension d is sixty four. By what number do we divide the raw attention scores?"
+   },
+   {
+    "n": 9,
+    "start": "1:37",
+    "end": "1:47",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Eight",
+    "voice": "Narrator",
+    "narration": "Eight, the square root of sixty four. Without it, scores would have a standard deviation near eight and softmax would almost always pick one token.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:47",
+    "end": "1:59",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: attention",
+    "voice": "Narrator",
+    "narration": "In the app, open the attention lab. Type a sentence, pick a word, and see which words it attends to. Change the sentence and watch the weights move.",
+    "icons": [
+     "eye",
+     "network"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:07",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Order matters?",
+    "voice": "Dr Salma",
+    "narration": "Your turn. Attention alone treats its inputs as a set. What does the transformer add so word order matters?"
+   },
+   {
+    "n": 12,
+    "start": "2:07",
+    "end": "2:16",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Query, key, value",
+    "voice": "Narrator",
+    "narration": "Positional encodings. Remember: attention is a weighted average, scores are queries times keys over root d, and position must be added."
+   },
+   {
+    "n": 13,
+    "start": "2:16",
+    "end": "2:29",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give pairs three two-dimensional query and key vectors. They compute the scores, the softmax and the output by hand, then compare with three lines of NumPy.",
+    "icons": [
+     "presentation",
+     "pencil",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:35",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "The key dimension d is 64. By what do we divide the raw attention scores?",
+    "options": [
+     {
+      "text": "64",
+      "correct": false
+     },
+     {
+      "text": "8",
+      "correct": true
+     },
+     {
+      "text": "2",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: √64 = 8, which keeps the scores' variance near 1.",
+    "feedback_wrong": "Not quite: we divide by √d = √64 = 8.",
+    "resume_at": "1:37"
+   },
+   {
+    "at": "2:05",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Attention alone treats inputs as a set. What makes word order matter?",
+    "options": [
+     {
+      "text": "More attention heads",
+      "correct": false
+     },
+     {
+      "text": "Positional encodings",
+      "correct": true
+     },
+     {
+      "text": "A larger vocabulary",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: position information is added to each token's embedding.",
+    "feedback_wrong": "Not quite: without positional encodings, shuffling the words gives the same outputs, just reordered.",
+    "resume_at": "2:07"
+   }
+  ]
+ }
+}

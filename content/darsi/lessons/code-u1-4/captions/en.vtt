@@ -1,0 +1,269 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.090
+Four hundred students, one
+
+2
+00:00:03.090 --> 00:00:05.350
+assignment, two teaching assistants.
+
+3
+00:00:06.220 --> 00:00:09.480
+Last term the autograder passed code that
+
+4
+00:00:09.480 --> 00:00:11.740
+only worked on the visible tests.
+
+5
+00:00:12.360 --> 00:00:15.540
+How do you grade fairly at this scale?
+
+6
+00:00:16.820 --> 00:00:19.320
+Today: how to design autograded
+
+7
+00:00:19.320 --> 00:00:21.080
+programming assignments that measure
+
+8
+00:00:21.080 --> 00:00:24.380
+understanding, how to find and teach bugs,
+
+9
+00:00:24.840 --> 00:00:27.840
+and how to protect integrity when AI can
+
+10
+00:00:27.840 --> 00:00:28.380
+write the code.
+
+11
+00:00:29.570 --> 00:00:32.110
+An autograder runs each submission against
+
+12
+00:00:32.110 --> 00:00:34.390
+a test suite and reports a score.
+
+13
+00:00:35.070 --> 00:00:36.930
+It is fast and consistent.
+
+14
+00:00:37.720 --> 00:00:40.300
+But it only measures what the tests check,
+
+15
+00:00:40.820 --> 00:00:43.600
+so test design is assessment design.
+
+16
+00:00:44.840 --> 00:00:46.740
+Give students visible tests
+
+17
+00:00:46.740 --> 00:00:47.780
+for fast feedback.
+
+18
+00:00:48.520 --> 00:00:50.600
+Keep hidden tests for edge cases
+
+19
+00:00:50.600 --> 00:00:53.500
+such as empty input, duplicates
+
+20
+00:00:53.500 --> 00:00:55.240
+and very large values.
+
+21
+00:00:56.020 --> 00:00:57.600
+Code that hard-codes the
+
+22
+00:00:57.600 --> 00:00:59.420
+visible answers then fails.
+
+23
+00:01:00.880 --> 00:01:03.280
+This median passes the visible test
+
+24
+00:01:03.280 --> 00:01:05.460
+but fails on even lengths.
+
+25
+00:01:06.240 --> 00:01:08.560
+It always picks the middle element.
+
+26
+00:01:09.290 --> 00:01:11.650
+A hidden test finds it, and the
+
+27
+00:01:11.650 --> 00:01:13.470
+feedback message should name the
+
+28
+00:01:13.470 --> 00:01:15.090
+case without giving the fix.
+
+29
+00:01:16.430 --> 00:01:18.970
+Tests check correctness, not
+
+30
+00:01:18.970 --> 00:01:20.350
+design or understanding.
+
+31
+00:01:21.150 --> 00:01:23.730
+Combine an autograded part with a short
+
+32
+00:01:23.730 --> 00:01:25.770
+code-reading task and a written
+
+33
+00:01:25.770 --> 00:01:26.230
+explanation.
+
+34
+00:01:27.080 --> 00:01:28.900
+Add a brief oral check
+
+35
+00:01:28.900 --> 00:01:30.080
+for a random sample.
+
+36
+00:01:31.300 --> 00:01:34.040
+AI assistants can now solve most
+
+37
+00:01:34.040 --> 00:01:35.320
+introductory assignments.
+
+38
+00:01:36.150 --> 00:01:38.650
+Detection tools are unreliable,
+
+39
+00:01:39.230 --> 00:01:40.830
+so design for it instead.
+
+40
+00:01:41.580 --> 00:01:44.480
+State clearly what help is allowed, weight
+
+41
+00:01:44.480 --> 00:01:47.980
+in-person and explained work more, and ask
+
+42
+00:01:47.980 --> 00:01:51.480
+students to modify or extend code live.
+
+43
+00:01:52.640 --> 00:01:53.120
+Quick check!
+
+44
+00:01:53.730 --> 00:01:56.710
+The median code passes the visible test.
+
+45
+00:01:57.330 --> 00:02:00.170
+Which hidden test exposes its bug?
+
+46
+00:02:01.380 --> 00:02:03.780
+A list with an even number of items,
+
+47
+00:02:04.040 --> 00:02:08.100
+such as one, two, three, four.
+
+48
+00:02:08.740 --> 00:02:10.980
+The correct median is two and a
+
+49
+00:02:10.980 --> 00:02:13.600
+half, but the code returns three.
+
+50
+00:02:14.850 --> 00:02:16.970
+In the app, open the bugs lab.
+
+51
+00:02:17.600 --> 00:02:19.620
+Find the failing case in each
+
+52
+00:02:19.620 --> 00:02:21.820
+short program and write the hint
+
+53
+00:02:21.820 --> 00:02:22.700
+you would give a student.
+
+54
+00:02:24.020 --> 00:02:24.780
+Your turn.
+
+55
+00:02:25.400 --> 00:02:28.340
+Which assessment change best shows that a
+
+56
+00:02:28.340 --> 00:02:30.720
+student understands code they submitted?
+
+57
+00:02:32.020 --> 00:02:34.140
+Asking them to modify it live
+
+58
+00:02:34.140 --> 00:02:35.400
+and explain the change.
+
+59
+00:02:36.070 --> 00:02:38.890
+Remember: hidden tests catch shortcuts,
+
+60
+00:02:39.350 --> 00:02:42.390
+feedback names the case, and understanding
+
+61
+00:02:42.390 --> 00:02:44.270
+needs more than a passing score.
+
+62
+00:02:45.540 --> 00:02:47.840
+Try it in your next lecture: show a
+
+63
+00:02:47.840 --> 00:02:49.600
+submission that passes the visible
+
+64
+00:02:49.600 --> 00:02:52.200
+tests and ask pairs to write one
+
+65
+00:02:52.200 --> 00:02:53.860
+hidden test that breaks it.
+
+66
+00:02:54.430 --> 00:02:56.550
+Collect the best tests and add
+
+67
+00:02:56.550 --> 00:02:58.010
+them to next term's suite.

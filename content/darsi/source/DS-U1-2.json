@@ -1,0 +1,274 @@
+{
+ "id": "DS-U1-2",
+ "track": "data-science",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching statistical learning at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Bias, variance and cross-validation",
+  "subtitle": "Why the training score lies",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Bias, variance and cross-validation: Why the training score lies",
+  "length": "2:35",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "A perfect score"
+   },
+   {
+    "at": "0:21",
+    "label": "Bias and variance"
+   },
+   {
+    "at": "1:02",
+    "label": "Cross-validation"
+   },
+   {
+    "at": "2:05",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:15",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "A student brought me a project with ninety nine percent accuracy. I asked one question: accuracy on what? It was the same data the model was trained on. On new data, it fell to sixty one.",
+    "icons": [
+     "award",
+     "help",
+     "gauge"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:15",
+    "end": "0:21",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bias, variance and cross-validation",
+    "voice": "Narrator",
+    "narration": "Today: the bias–variance trade-off, honest error estimates with cross-validation, and the leakage mistakes students make."
+   },
+   {
+    "n": 3,
+    "start": "0:21",
+    "end": "0:35",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Expected test error",
+    "voice": "Narrator",
+    "narration": "For squared error, the expected error on a new point splits into three parts: bias squared, variance, and noise we can never remove. Simple models have high bias. Flexible models have high variance.",
+    "icons": [
+     "scale",
+     "layers"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:35",
+    "end": "0:48",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The U-shaped curve",
+    "voice": "Narrator",
+    "narration": "As complexity grows, training error keeps falling, but test error falls and then rises again. The best model sits at the bottom of that U, not at the lowest training error.",
+    "icons": [
+     "gauge",
+     "gauge"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:48",
+    "end": "1:02",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Polynomial degree and error",
+    "voice": "Narrator",
+    "narration": "We fitted polynomials of degree one to fifteen to two hundred points. Test error was lowest at degree four. By degree fifteen the curve wiggled through every training point and missed new ones.",
+    "icons": [
+     "gauge"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:02",
+    "end": "1:17",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "k-fold cross-validation",
+    "voice": "Narrator",
+    "narration": "Cross-validation estimates test error without wasting data. Split the data into k folds, train on k minus one, test on the one left out, and average over all k. Five or ten folds is the usual choice.",
+    "icons": [
+     "grid",
+     "repeat"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:17",
+    "end": "1:31",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Leakage: the silent bug",
+    "voice": "Dr Salma",
+    "narration": "The commonest student bug is leakage. They scale or select features on all the data, then split. The test fold has already shaped the model. Every preprocessing step must be fitted inside each training fold.",
+    "icons": [
+     "droplets",
+     "lock"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:31",
+    "end": "1:43",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which model?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! Model A has training error two and test error twenty. Model B has training error twelve and test error fourteen. Which should we choose, and why?"
+   },
+   {
+    "n": 9,
+    "start": "1:43",
+    "end": "1:54",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Judge on unseen data",
+    "voice": "Narrator",
+    "narration": "Model B. The gap in model A between two and twenty is the signature of high variance. We judge models on data they have not seen.",
+    "icons": [
+     "eye",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:54",
+    "end": "2:05",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: overfitting",
+    "voice": "Narrator",
+    "narration": "In the app, open the overfitting lab. Raise the model's complexity step by step and watch training error fall while test error turns back up.",
+    "icons": [
+     "gauge",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:05",
+    "end": "2:12",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Spot the leak",
+    "voice": "Dr Salma",
+    "narration": "Your turn. A student standardises all the data, then runs five-fold cross-validation. Is the estimate honest?"
+   },
+   {
+    "n": 12,
+    "start": "2:12",
+    "end": "2:22",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Bias, variance, honest error",
+    "voice": "Narrator",
+    "narration": "No, it leaks. Remember: error is bias plus variance plus noise, choose the bottom of the U, and fit every step inside the training fold."
+   },
+   {
+    "n": 13,
+    "start": "2:22",
+    "end": "2:35",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: hand out two short notebooks, one with leakage and one without. Then ask pairs to find why their cross-validation scores differ before you explain.",
+    "icons": [
+     "presentation",
+     "droplets",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Model A: training error 2, test error 20. Model B: training 12, test 14. Which do we choose?",
+    "options": [
+     {
+      "text": "Model A, it fits the data best",
+      "correct": false
+     },
+     {
+      "text": "Model B, it has lower test error",
+      "correct": true
+     },
+     {
+      "text": "Either, training error is what counts",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: test error on unseen data is what we care about; A's large gap means high variance.",
+    "feedback_wrong": "Not quite: training error always rewards complexity; choose on test or cross-validated error.",
+    "resume_at": "1:43"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A student standardises all the data, then runs 5-fold cross-validation. Is the estimate honest?",
+    "options": [
+     {
+      "text": "Yes, scaling doesn't use the labels",
+      "correct": false
+     },
+     {
+      "text": "No, the test folds leaked into the scaling",
+      "correct": true
+     },
+     {
+      "text": "Yes, if k is at least 5",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the means and SDs were computed with test data, so fit the scaler inside each training fold.",
+    "feedback_wrong": "Not quite: any statistic computed on the test fold leaks; fit preprocessing inside each training fold.",
+    "resume_at": "2:12"
+   }
+  ]
+ }
+}

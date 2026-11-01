@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.410
+A student's course database
+
+2
+00:00:02.410 --> 00:00:04.510
+keeps the lecturer's phone
+
+3
+00:00:04.510 --> 00:00:07.130
+number on every enrolment row.
+
+4
+00:00:07.760 --> 00:00:10.720
+The lecturer changes phones, half the
+
+5
+00:00:10.720 --> 00:00:13.080
+rows are updated, and now the
+
+6
+00:00:13.080 --> 00:00:15.320
+database disagrees with itself.
+
+7
+00:00:16.090 --> 00:00:18.770
+Why did the design allow that?
+
+8
+00:00:20.120 --> 00:00:23.320
+Today: Codd's relational model, how
+
+9
+00:00:23.320 --> 00:00:25.000
+functional dependencies drive
+
+10
+00:00:25.000 --> 00:00:27.900
+normalisation, and how to teach design
+
+11
+00:00:27.900 --> 00:00:30.500
+so students stop building one giant table.
+
+12
+00:00:31.720 --> 00:00:34.480
+Codd proposed storing data as relations:
+
+13
+00:00:34.920 --> 00:00:37.280
+sets of tuples over named attributes.
+
+14
+00:00:38.090 --> 00:00:40.730
+A key identifies each tuple uniquely.
+
+15
+00:00:41.500 --> 00:00:43.460
+Queries describe what you
+
+16
+00:00:43.460 --> 00:00:45.600
+want, not how to fetch it.
+
+17
+00:00:46.770 --> 00:00:49.150
+A functional dependency says one set of
+
+18
+00:00:49.150 --> 00:00:50.790
+attributes determines another.
+
+19
+00:00:51.500 --> 00:00:53.060
+Lecturer determines phone.
+
+20
+00:00:53.820 --> 00:00:55.100
+Student and course
+
+21
+00:00:55.100 --> 00:00:56.840
+together determine grade.
+
+22
+00:00:57.530 --> 00:00:59.770
+These dependencies, not intuition,
+
+23
+00:00:59.770 --> 00:01:01.870
+tell us how to split tables.
+
+24
+00:01:03.150 --> 00:01:05.950
+Phone depends on lecturer, which depends
+
+25
+00:01:05.950 --> 00:01:08.250
+on course, not on the whole key.
+
+26
+00:01:08.870 --> 00:01:10.390
+That transitive dependency
+
+27
+00:01:10.390 --> 00:01:12.090
+breaks third normal form.
+
+28
+00:01:12.730 --> 00:01:15.290
+Moving lecturer details to their own
+
+29
+00:01:15.290 --> 00:01:17.530
+table removes the update anomaly.
+
+30
+00:01:18.860 --> 00:01:21.220
+Third normal form and Boyce–Codd
+
+31
+00:01:21.220 --> 00:01:23.680
+normal form remove most redundancy
+
+32
+00:01:23.680 --> 00:01:25.400
+while keeping joins lossless.
+
+33
+00:01:26.080 --> 00:01:27.840
+Analytical systems sometimes
+
+34
+00:01:27.840 --> 00:01:30.020
+denormalise on purpose for speed.
+
+35
+00:01:30.720 --> 00:01:33.360
+Students should know why, not just how.
+
+36
+00:01:34.610 --> 00:01:36.390
+Students memorise normal-form
+
+37
+00:01:36.390 --> 00:01:38.470
+definitions without seeing the point.
+
+38
+00:01:39.160 --> 00:01:42.560
+Start instead with a broken table and ask
+
+39
+00:01:42.560 --> 00:01:44.920
+them to insert, update and delete.
+
+40
+00:01:45.680 --> 00:01:48.560
+Once they hit the anomalies, dependencies
+
+41
+00:01:48.560 --> 00:01:50.600
+become the tool that fixes them.
+
+42
+00:01:51.770 --> 00:01:52.350
+Quick check!
+
+43
+00:01:53.140 --> 00:01:56.380
+A new lecturer cannot be stored until they
+
+44
+00:01:56.380 --> 00:01:58.800
+have at least one enrolled student.
+
+45
+00:01:59.520 --> 00:02:01.400
+Which anomaly is that?
+
+46
+00:02:02.670 --> 00:02:04.010
+An insertion anomaly.
+
+47
+00:02:04.960 --> 00:02:06.560
+Facts about lecturers are
+
+48
+00:02:06.560 --> 00:02:08.480
+trapped inside enrolment rows.
+
+49
+00:02:09.200 --> 00:02:11.080
+A separate lecturer table lets us
+
+50
+00:02:11.080 --> 00:02:12.080
+record them independently.
+
+51
+00:02:13.720 --> 00:02:16.080
+In the app, open the schema lab.
+
+52
+00:02:16.720 --> 00:02:20.540
+Split a flat table into related tables and
+
+53
+00:02:20.540 --> 00:02:23.280
+check that every fact is stored once.
+
+54
+00:02:24.620 --> 00:02:25.160
+Your turn.
+
+55
+00:02:25.770 --> 00:02:29.330
+A table holds course, lecturer and
+
+56
+00:02:29.330 --> 00:02:31.970
+lecturer's office, keyed by course.
+
+57
+00:02:32.640 --> 00:02:34.400
+Is it in third normal form?
+
+58
+00:02:35.670 --> 00:02:38.070
+No: office depends on lecturer,
+
+59
+00:02:38.550 --> 00:02:40.890
+a non-key attribute, so the
+
+60
+00:02:40.890 --> 00:02:42.850
+dependency is transitive.
+
+61
+00:02:43.480 --> 00:02:45.360
+Remember: keys identify,
+
+62
+00:02:45.980 --> 00:02:48.640
+dependencies decide the split, and
+
+63
+00:02:48.640 --> 00:02:50.760
+anomalies motivate the theory.
+
+64
+00:02:51.950 --> 00:02:54.210
+Try it in your next lecture: give
+
+65
+00:02:54.210 --> 00:02:56.090
+groups a flat enrolment spreadsheet.
+
+66
+00:02:56.950 --> 00:02:58.990
+Ask each group to perform one
+
+67
+00:02:58.990 --> 00:03:02.070
+insert, one update and one delete
+
+68
+00:03:02.070 --> 00:03:04.030
+and report what went wrong.
+
+69
+00:03:04.680 --> 00:03:07.000
+Then derive the dependencies together.

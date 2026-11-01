@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.130
+I asked my class how a network with a
+
+2
+00:00:03.130 --> 00:00:05.510
+million weights knows which ones to
+
+3
+00:00:05.510 --> 00:00:05.770
+change.
+
+4
+00:00:06.500 --> 00:00:09.200
+One student said: the framework does it.
+
+5
+00:00:09.810 --> 00:00:11.190
+That answer is true.
+
+6
+00:00:11.710 --> 00:00:14.570
+It is also the moment understanding stops.
+
+7
+00:00:16.000 --> 00:00:19.480
+Today: how backpropagation computes every
+
+8
+00:00:19.480 --> 00:00:22.600
+gradient in one backward pass, and how to
+
+9
+00:00:22.600 --> 00:00:24.200
+make it concrete for students.
+
+10
+00:00:25.620 --> 00:00:28.460
+A network is a chain of simple operations.
+
+11
+00:00:29.350 --> 00:00:31.430
+The forward pass computes each
+
+12
+00:00:31.430 --> 00:00:33.630
+value from inputs to loss.
+
+13
+00:00:34.370 --> 00:00:36.330
+Backpropagation walks the same
+
+14
+00:00:36.330 --> 00:00:38.510
+graph in reverse, applying the
+
+15
+00:00:38.510 --> 00:00:39.870
+chain rule at each node.
+
+16
+00:00:41.090 --> 00:00:44.470
+If the loss depends on a, and a depends
+
+17
+00:00:44.470 --> 00:00:47.610
+on w, then the derivative of the loss
+
+18
+00:00:47.610 --> 00:00:50.350
+with respect to w is the derivative
+
+19
+00:00:50.350 --> 00:00:53.210
+with respect to a times the derivative
+
+20
+00:00:53.210 --> 00:00:55.130
+of a with respect to w.
+
+21
+00:00:55.720 --> 00:00:57.240
+Local derivatives multiply.
+
+22
+00:00:58.830 --> 00:01:01.050
+With sigmoid units each local
+
+23
+00:01:01.050 --> 00:01:03.290
+derivative is at most a quarter.
+
+24
+00:01:04.050 --> 00:01:06.630
+Multiply ten of them and the gradient
+
+25
+00:01:06.630 --> 00:01:09.350
+reaching the first layer is almost zero.
+
+26
+00:01:10.060 --> 00:01:12.020
+That is why deep sigmoid
+
+27
+00:01:12.020 --> 00:01:13.780
+networks learned so slowly.
+
+28
+00:01:15.090 --> 00:01:18.110
+Rumelhart, Hinton and Williams showed in
+
+29
+00:01:18.110 --> 00:01:20.430
+nineteen eighty six that one backward
+
+30
+00:01:20.430 --> 00:01:23.330
+pass gives every gradient for about the
+
+31
+00:01:23.330 --> 00:01:25.230
+cost of one forward pass.
+
+32
+00:01:25.920 --> 00:01:27.960
+Without that, training large
+
+33
+00:01:27.960 --> 00:01:29.520
+networks would be impossible.
+
+34
+00:01:31.130 --> 00:01:33.030
+Cognitive load theory says
+
+35
+00:01:33.030 --> 00:01:35.230
+novices drown in symbols.
+
+36
+00:01:35.920 --> 00:01:38.260
+So start with a graph of three
+
+37
+00:01:38.260 --> 00:01:39.940
+nodes and real numbers.
+
+38
+00:01:40.790 --> 00:01:43.030
+Students compute the forward pass,
+
+39
+00:01:43.030 --> 00:01:45.110
+then the backward pass, on paper.
+
+40
+00:01:45.780 --> 00:01:47.560
+Only then generalise.
+
+41
+00:01:48.810 --> 00:01:49.290
+Quick check!
+
+42
+00:01:49.930 --> 00:01:51.870
+The derivative of the loss with
+
+43
+00:01:51.870 --> 00:01:54.510
+respect to a is two, and the
+
+44
+00:01:54.510 --> 00:01:57.390
+derivative of a with respect to w is
+
+45
+00:01:57.390 --> 00:01:57.650
+three.
+
+46
+00:01:58.200 --> 00:01:59.840
+What is the derivative of the
+
+47
+00:01:59.840 --> 00:02:01.480
+loss with respect to w?
+
+48
+00:02:02.750 --> 00:02:03.090
+Six.
+
+49
+00:02:03.790 --> 00:02:04.770
+Two times three.
+
+50
+00:02:05.500 --> 00:02:08.240
+That one multiplication, repeated at
+
+51
+00:02:08.240 --> 00:02:10.180
+every node from the loss backwards,
+
+52
+00:02:10.760 --> 00:02:12.560
+is all backpropagation does.
+
+53
+00:02:13.860 --> 00:02:16.260
+In the app, open the backprop lab.
+
+54
+00:02:16.920 --> 00:02:20.600
+Run one forward pass, then step the
+
+55
+00:02:20.600 --> 00:02:23.640
+gradients backwards node by node and
+
+56
+00:02:23.640 --> 00:02:24.700
+check each multiplication.
+
+57
+00:02:26.250 --> 00:02:26.790
+Your turn.
+
+58
+00:02:27.400 --> 00:02:30.280
+Why does the gradient shrink as it travels
+
+59
+00:02:30.280 --> 00:02:31.960
+back through many sigmoid layers?
+
+60
+00:02:33.390 --> 00:02:35.610
+Because each local derivative is at
+
+61
+00:02:35.610 --> 00:02:37.850
+most a quarter, and they multiply.
+
+62
+00:02:38.670 --> 00:02:41.710
+Remember: backprop is the chain rule on a
+
+63
+00:02:41.710 --> 00:02:44.590
+graph, one backward pass gives every
+
+64
+00:02:44.590 --> 00:02:47.230
+gradient, and small locals vanish.
+
+65
+00:02:48.550 --> 00:02:51.170
+Try it in your next lecture: draw a
+
+66
+00:02:51.170 --> 00:02:53.490
+three-node graph with real numbers on the
+
+67
+00:02:53.490 --> 00:02:53.710
+board.
+
+68
+00:02:54.370 --> 00:02:57.790
+Pairs compute every gradient by hand, then
+
+69
+00:02:57.790 --> 00:02:59.430
+check against the framework's answer.

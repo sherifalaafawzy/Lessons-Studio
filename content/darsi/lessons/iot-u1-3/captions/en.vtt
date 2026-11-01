@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.570
+A cooperative asked us to monitor soil
+
+2
+00:00:02.570 --> 00:00:04.570
+moisture across forty hectares.
+
+3
+00:00:05.120 --> 00:00:07.420
+There is no Wi-Fi, no mains
+
+4
+00:00:07.420 --> 00:00:09.200
+power, and the nearest mobile
+
+5
+00:00:09.200 --> 00:00:11.080
+mast is eight kilometres away.
+
+6
+00:00:11.820 --> 00:00:13.000
+Which network would you choose?
+
+7
+00:00:14.280 --> 00:00:17.180
+Today: how publish and subscribe works,
+
+8
+00:00:17.700 --> 00:00:21.300
+when to use MQTT or CoAP, and the
+
+9
+00:00:21.300 --> 00:00:24.540
+trade-off between range, data rate and
+
+10
+00:00:24.540 --> 00:00:26.800
+energy in LoRa and mesh networks.
+
+11
+00:00:28.160 --> 00:00:31.140
+In MQTT, devices never talk
+
+12
+00:00:31.140 --> 00:00:31.940
+to each other directly.
+
+13
+00:00:32.710 --> 00:00:35.430
+A sensor publishes to a topic on a broker.
+
+14
+00:00:36.150 --> 00:00:38.450
+Any client that subscribed to that
+
+15
+00:00:38.450 --> 00:00:39.950
+topic receives the message.
+
+16
+00:00:40.700 --> 00:00:43.420
+Senders and receivers stay decoupled.
+
+17
+00:00:44.640 --> 00:00:47.200
+MQTT offers three delivery levels.
+
+18
+00:00:47.910 --> 00:00:50.010
+Zero means at most once,
+
+19
+00:00:50.330 --> 00:00:51.510
+with no acknowledgement.
+
+20
+00:00:52.330 --> 00:00:55.190
+One means at least once, so
+
+21
+00:00:55.190 --> 00:00:56.610
+duplicates are possible.
+
+22
+00:00:57.350 --> 00:01:00.530
+Two means exactly once, at the
+
+23
+00:01:00.530 --> 00:01:02.450
+cost of a four-step handshake.
+
+24
+00:01:03.640 --> 00:01:06.660
+Typical ranges in open country: Bluetooth
+
+25
+00:01:06.660 --> 00:01:10.920
+Low Energy tens of metres, Wi-Fi around a
+
+26
+00:01:10.920 --> 00:01:14.100
+hundred, Zigbee mesh a few hundred per
+
+27
+00:01:14.100 --> 00:01:18.340
+hop, and LoRa several kilometres, but at
+
+28
+00:01:18.340 --> 00:01:20.160
+only a few kilobits per second.
+
+29
+00:01:21.370 --> 00:01:24.990
+CoAP, defined in RFC seven two five two,
+
+30
+00:01:25.490 --> 00:01:27.630
+brings a web-like request and response
+
+31
+00:01:27.630 --> 00:01:30.210
+model to tiny devices over UDP.
+
+32
+00:01:30.960 --> 00:01:32.800
+It suits sleepy nodes that are
+
+33
+00:01:32.800 --> 00:01:35.780
+asked for readings, while MQTT
+
+34
+00:01:35.780 --> 00:01:37.440
+suits streams of events.
+
+35
+00:01:38.790 --> 00:01:40.330
+Protocol lectures become
+
+36
+00:01:40.330 --> 00:01:41.750
+lists of acronyms.
+
+37
+00:01:42.370 --> 00:01:45.470
+Instead, give teams a real brief with
+
+38
+00:01:45.470 --> 00:01:47.710
+distance, power and data needs.
+
+39
+00:01:48.390 --> 00:01:50.890
+Make them choose and justify a
+
+40
+00:01:50.890 --> 00:01:52.950
+stack, then test it on hardware.
+
+41
+00:01:54.270 --> 00:01:54.670
+Quick check!
+
+42
+00:01:55.290 --> 00:01:57.650
+A sensor sends a temperature every
+
+43
+00:01:57.650 --> 00:02:00.130
+ten seconds, and an occasional lost
+
+44
+00:02:00.130 --> 00:02:01.590
+reading does not matter.
+
+45
+00:02:02.210 --> 00:02:05.230
+Which MQTT quality of service fits best?
+
+46
+00:02:06.570 --> 00:02:07.350
+Level zero.
+
+47
+00:02:08.110 --> 00:02:10.650
+The next reading arrives in ten seconds,
+
+48
+00:02:11.090 --> 00:02:13.070
+so acknowledgements would only cost
+
+49
+00:02:13.070 --> 00:02:13.430
+energy.
+
+50
+00:02:14.100 --> 00:02:16.360
+Save higher levels for commands,
+
+51
+00:02:16.740 --> 00:02:18.080
+such as opening a valve.
+
+52
+00:02:19.350 --> 00:02:21.430
+In the app, open the mesh lab.
+
+53
+00:02:22.050 --> 00:02:24.450
+Place nodes across a field, remove
+
+54
+00:02:24.450 --> 00:02:27.250
+one, and watch the messages find a
+
+55
+00:02:27.250 --> 00:02:28.370
+new route to the gateway.
+
+56
+00:02:29.650 --> 00:02:30.410
+Your turn.
+
+57
+00:02:31.030 --> 00:02:34.690
+Forty hectares, no power, readings every
+
+58
+00:02:34.690 --> 00:02:36.990
+fifteen minutes, a few bytes each.
+
+59
+00:02:37.670 --> 00:02:39.150
+Which link fits best?
+
+60
+00:02:40.450 --> 00:02:42.010
+LoRa, with one gateway.
+
+61
+00:02:42.720 --> 00:02:44.840
+Remember: publish and subscribe
+
+62
+00:02:44.840 --> 00:02:48.020
+decouples devices, choose the lowest
+
+63
+00:02:48.020 --> 00:02:50.740
+quality of service that is safe, and
+
+64
+00:02:50.740 --> 00:02:52.460
+trade data rate for range.
+
+65
+00:02:53.740 --> 00:02:56.080
+Try it in your next lab: set up a
+
+66
+00:02:56.080 --> 00:02:58.300
+free MQTT broker on a laptop.
+
+67
+00:02:59.050 --> 00:03:00.910
+Each team publishes sensor
+
+68
+00:03:00.910 --> 00:03:03.190
+readings to its own topic, and
+
+69
+00:03:03.190 --> 00:03:04.910
+subscribes to another team's.

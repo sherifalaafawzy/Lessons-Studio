@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.350
+My students built a pulse monitor
+
+2
+00:00:02.350 --> 00:00:04.450
+that showed twelve beats a minute
+
+3
+00:00:04.450 --> 00:00:05.530
+on a healthy volunteer.
+
+4
+00:00:06.190 --> 00:00:07.370
+The circuit was fine.
+
+5
+00:00:08.160 --> 00:00:09.780
+They were sampling a fast
+
+6
+00:00:09.780 --> 00:00:11.220
+signal far too slowly.
+
+7
+00:00:12.520 --> 00:00:15.080
+Today: how a sensor signal becomes
+
+8
+00:00:15.080 --> 00:00:17.860
+numbers, why sampling too slowly
+
+9
+00:00:17.860 --> 00:00:20.800
+invents fake frequencies, and how
+
+10
+00:00:20.800 --> 00:00:22.260
+many bits you really need.
+
+11
+00:00:23.430 --> 00:00:25.390
+An analogue to digital converter
+
+12
+00:00:25.390 --> 00:00:28.130
+measures a voltage at regular instants.
+
+13
+00:00:28.720 --> 00:00:30.520
+The sampling rate is how many
+
+14
+00:00:30.520 --> 00:00:31.760
+measurements per second.
+
+15
+00:00:32.430 --> 00:00:33.810
+Between samples, the
+
+16
+00:00:33.810 --> 00:00:35.210
+converter sees nothing.
+
+17
+00:00:36.610 --> 00:00:38.950
+Shannon's sampling theorem says a
+
+18
+00:00:38.950 --> 00:00:41.830
+signal with no frequencies above B can
+
+19
+00:00:41.830 --> 00:00:44.290
+be rebuilt exactly from samples taken
+
+20
+00:00:44.290 --> 00:00:46.390
+faster than two B per second.
+
+21
+00:00:47.040 --> 00:00:49.860
+Sample slower, and high frequencies
+
+22
+00:00:49.860 --> 00:00:51.900
+fold down as fake low ones.
+
+23
+00:00:52.590 --> 00:00:53.950
+That is aliasing.
+
+24
+00:00:55.280 --> 00:00:56.980
+Mains hum is fifty hertz.
+
+25
+00:00:57.780 --> 00:01:00.100
+Sampled sixty times a second, it
+
+26
+00:01:00.100 --> 00:01:02.320
+appears as a slow ten hertz wave.
+
+27
+00:01:02.930 --> 00:01:04.770
+Sampled at a thousand, it
+
+28
+00:01:04.770 --> 00:01:06.490
+appears correctly as fifty.
+
+29
+00:01:07.810 --> 00:01:09.830
+An n-bit converter splits its
+
+30
+00:01:09.830 --> 00:01:11.870
+range into two to the n levels.
+
+31
+00:01:12.650 --> 00:01:15.130
+A ten-bit converter on three point three
+
+32
+00:01:15.130 --> 00:01:17.990
+volts has steps of about three millivolts.
+
+33
+00:01:18.460 --> 00:01:20.860
+Each extra bit halves the step
+
+34
+00:01:20.860 --> 00:01:23.040
+and adds about six decibels.
+
+35
+00:01:24.300 --> 00:01:25.860
+Students treat sampling as
+
+36
+00:01:25.860 --> 00:01:26.880
+a software setting.
+
+37
+00:01:27.510 --> 00:01:29.850
+Show a spinning wheel under a
+
+38
+00:01:29.850 --> 00:01:32.410
+strobe light, or a film of car
+
+39
+00:01:32.410 --> 00:01:33.490
+wheels turning backwards.
+
+40
+00:01:34.200 --> 00:01:35.940
+They see aliasing before
+
+41
+00:01:35.940 --> 00:01:36.860
+they see the maths.
+
+42
+00:01:38.210 --> 00:01:38.610
+Quick check!
+
+43
+00:01:39.230 --> 00:01:41.230
+A vibration sensor must capture
+
+44
+00:01:41.230 --> 00:01:43.210
+frequencies up to four hundred hertz.
+
+45
+00:01:44.010 --> 00:01:46.030
+What is the lowest sampling rate
+
+46
+00:01:46.030 --> 00:01:47.170
+that can work in theory?
+
+47
+00:01:48.320 --> 00:01:49.880
+Just above eight hundred
+
+48
+00:01:49.880 --> 00:01:50.940
+samples per second.
+
+49
+00:01:51.580 --> 00:01:54.220
+In practice engineers sample several
+
+50
+00:01:54.220 --> 00:01:57.180
+times faster and put an anti-aliasing
+
+51
+00:01:57.180 --> 00:01:58.680
+filter in front of the converter.
+
+52
+00:02:00.050 --> 00:02:02.210
+In the app, open the converter lab.
+
+53
+00:02:02.810 --> 00:02:04.650
+Change the sampling rate and the
+
+54
+00:02:04.650 --> 00:02:06.890
+number of bits, and watch the rebuilt
+
+55
+00:02:06.890 --> 00:02:09.170
+signal improve or fall apart.
+
+56
+00:02:10.510 --> 00:02:11.270
+Your turn.
+
+57
+00:02:11.890 --> 00:02:14.530
+A twelve-bit converter has a reference
+
+58
+00:02:14.530 --> 00:02:16.810
+of four point zero nine six volts.
+
+59
+00:02:17.540 --> 00:02:19.440
+What is the size of one step?
+
+60
+00:02:20.730 --> 00:02:23.410
+One millivolt, because two to the twelve
+
+61
+00:02:23.410 --> 00:02:25.590
+is four thousand and ninety six.
+
+62
+00:02:26.300 --> 00:02:29.020
+Remember: sample faster than twice
+
+63
+00:02:29.020 --> 00:02:31.340
+the highest frequency, filter first,
+
+64
+00:02:31.820 --> 00:02:33.680
+and each bit halves the step.
+
+65
+00:02:34.880 --> 00:02:37.300
+Try it in your next lab: have pairs
+
+66
+00:02:37.300 --> 00:02:39.400
+sample a signal generator at five
+
+67
+00:02:39.400 --> 00:02:40.980
+rates on a microcontroller.
+
+68
+00:02:41.540 --> 00:02:43.700
+They plot what they see and predict
+
+69
+00:02:43.700 --> 00:02:45.940
+each alias before measuring it.

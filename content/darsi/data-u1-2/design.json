@@ -1,0 +1,227 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Eight seconds",
+            "ar-EG": "تمن ثواني"
+          },
+          "s": 0
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Three milliseconds",
+            "ar-EG": "تلاتة مللي ثانية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "One change",
+            "ar-EG": "تغيير واحد"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "No index: scan all",
+            "ar-EG": "من غير فهرس: امسح الكل"
+          },
+          "s": 0
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Index: map keys",
+            "ar-EG": "الفهرس: يربط المفاتيح"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Jump to the rows",
+            "ar-EG": "انط للصفوف"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "search"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "fan-out ≈ 200 keys per node\nlevels = ⌈log₂₀₀ 1,000,000⌉ = 3\n\nscan:  1,000,000 rows\nindex: 3 page reads",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "SELECT * FROM grades\nWHERE student_id = 4211;\n-- Seq Scan on grades (rows = 1,000,000)\n\nCREATE INDEX ON grades (student_id);\n-- Index Scan (rows = 12)",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Faster reads",
+            "ar-EG": "قراءة أسرع"
+          },
+          "s": 0
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Slower writes",
+            "ar-EG": "كتابة أبطأ"
+          },
+          "s": 1
+        },
+        {
+          "icon": "scale",
+          "text": {
+            "en": "Selectivity matters",
+            "ar-EG": "الانتقائية مهمة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "scale"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Not magic",
+            "ar-EG": "مش سحر"
+          },
+          "s": 0
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "EXPLAIN before and after",
+            "ar-EG": "EXPLAIN قبل وبعد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Time reads and writes",
+            "ar-EG": "قيس القراءة والكتابة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "grid",
+          "text": {
+            "en": "Without an index",
+            "ar-EG": "من غير فهرس"
+          },
+          "s": 1
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "With an index",
+            "ar-EG": "بفهرس"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Count rows touched",
+            "ar-EG": "عدّ الصفوف"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "search"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Shallow B-trees",
+            "ar-EG": "أشجار B قليلة العمق"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Writes pay for reads",
+            "ar-EG": "الكتابة بتدفع تمن القراءة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Read the plan",
+            "ar-EG": "اقرا الخطة"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "EXPLAIN before and after.",
+        "ar-EG": "EXPLAIN قبل وبعد."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "database",
+          "text": {
+            "en": "A million rows",
+            "ar-EG": "مليون صف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Read the plan, add an index",
+            "ar-EG": "اقرا الخطة وضيف فهرس"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Measure inserts too",
+            "ar-EG": "قيس الإضافة كمان"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

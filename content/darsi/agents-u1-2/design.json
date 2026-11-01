@@ -1,0 +1,227 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "calendar",
+          "text": {
+            "en": "A free room on Tuesday?",
+            "ar-EG": "أوضة فاضية التلات؟"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "An invented answer",
+            "ar-EG": "إجابة متألّفة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "The tool was never called",
+            "ar-EG": "الأداة ماتنادتش"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Start state",
+            "ar-EG": "حالة البداية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "list",
+          "text": {
+            "en": "Actions with preconditions",
+            "ar-EG": "أفعال بشروط مسبقة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Reach the goal",
+            "ar-EG": "وصول للهدف"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "map"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "f(n) = g(n) + h(n)\ng: cost so far\nh: estimate to goal (admissible)\nexpand lowest f first",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "Thought: I need Tuesday's free rooms.\nAction: rooms.free(day=\"Tue\")\nObservation: [\"B204\", \"C110\"]\nAnswer: B204 or C110 are free.",
+        "s": 1
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Answers from memory",
+            "ar-EG": "بيرد من الذاكرة"
+          },
+          "s": 0
+        },
+        {
+          "icon": "file",
+          "text": {
+            "en": "Clear tool descriptions",
+            "ar-EG": "أوصاف أدوات واضحة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "checksquare",
+          "text": {
+            "en": "Check against tool output",
+            "ar-EG": "راجع على ناتج الأداة"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "warning"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "search",
+          "text": {
+            "en": "Search: guarantees",
+            "ar-EG": "البحث: ضمانات"
+          },
+          "s": 0
+        },
+        {
+          "icon": "bot",
+          "text": {
+            "en": "Language models: flexibility",
+            "ar-EG": "النماذج اللغوية: مرونة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Classical ideas explain failures",
+            "ar-EG": "الكلاسيكي بيفسّر الإخفاق"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "flag",
+          "text": {
+            "en": "Set a goal",
+            "ar-EG": "حدد هدف"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Watch each step",
+            "ar-EG": "تابع كل خطوة"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "cog",
+          "text": {
+            "en": "Spot the missing tool call",
+            "ar-EG": "لاقي الأداة الناقصة"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "map"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Admissible heuristics",
+            "ar-EG": "دوال تقدير مقبولة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Thought, action, observation",
+            "ar-EG": "فكرة وفعل وملاحظة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Ground every answer",
+            "ar-EG": "ابنِ كل إجابة على أساس"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Trace A* by hand first.",
+        "ar-EG": "تتبّع A* باليد الأول."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "map",
+          "text": {
+            "en": "Trace A* on a map",
+            "ar-EG": "تتبّع A* على خريطة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "chat",
+          "text": {
+            "en": "Show a ReAct transcript",
+            "ar-EG": "اعرض نص ReAct"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "search",
+          "text": {
+            "en": "Find the missing call",
+            "ar-EG": "لاقي الاستدعاء الناقص"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

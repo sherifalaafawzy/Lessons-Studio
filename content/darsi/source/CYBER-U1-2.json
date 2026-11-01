@@ -1,0 +1,274 @@
+{
+ "id": "CYBER-U1-2",
+ "track": "cyber",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching cyber security at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Public-key cryptography",
+  "subtitle": "Diffie–Hellman and RSA",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Public-key cryptography: Diffie–Hellman and RSA",
+  "length": "2:41",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Strangers on a network"
+   },
+   {
+    "at": "0:24",
+    "label": "Key exchange"
+   },
+   {
+    "at": "1:05",
+    "label": "RSA and signatures"
+   },
+   {
+    "at": "2:09",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:13",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "Every time a student opens the university portal, their browser agrees a secret key with a server it has never met, over a network anyone can listen to. How is that possible?",
+    "icons": [
+     "lock",
+     "network",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:13",
+    "end": "0:24",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Public-key cryptography",
+    "voice": "Narrator",
+    "narration": "Today: how two strangers agree a secret in public, how RSA encrypts and signs, and how to teach the number theory without losing the class."
+   },
+   {
+    "n": 3,
+    "start": "0:24",
+    "end": "0:38",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "One-way functions",
+    "voice": "Narrator",
+    "narration": "Public-key cryptography rests on functions that are easy one way and hard to reverse. Multiplying two large primes is easy. Factoring the product is believed to be hard. So is undoing modular exponentiation.",
+    "icons": [
+     "arrow",
+     "lock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:38",
+    "end": "0:54",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Diffie–Hellman",
+    "voice": "Narrator",
+    "narration": "Alice and Bob publicly agree a prime p and a base g. Each picks a secret and sends g to that power. Each then raises what they received to their own secret. Both reach the same key, and a listener cannot.",
+    "icons": [
+     "key",
+     "share"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:54",
+    "end": "1:05",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A toy example",
+    "voice": "Narrator",
+    "narration": "With p twenty three and g five, Alice picks six and sends eight. Bob picks fifteen and sends nineteen. Both compute two as the shared key.",
+    "icons": [
+     "calculator"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:05",
+    "end": "1:22",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "RSA",
+    "voice": "Narrator",
+    "narration": "RSA picks two primes and publishes their product n with an exponent e. Only the owner knows d, which undoes e. Anyone can encrypt with the public key. Signing reverses the roles: only the owner can sign, and anyone can verify.",
+    "icons": [
+     "key",
+     "pencil"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:22",
+    "end": "1:37",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach with paint and small numbers",
+    "voice": "Dr Salma",
+    "narration": "Start with the paint-mixing analogy: mixing colours is easy, unmixing is hard. Then let students run Diffie–Hellman by hand with tiny primes. The common misconception is that encryption alone proves who sent a message. It does not.",
+    "icons": [
+     "droplets",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:37",
+    "end": "1:44",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Who can read it?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! Bob encrypts a message with Alice's public key. Who can decrypt it?"
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:56",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Only Alice",
+    "voice": "Narrator",
+    "narration": "Only Alice, with her private key. Not even Bob can decrypt it afterwards. But Alice cannot tell it came from Bob, because anyone could have used her public key.",
+    "icons": [
+     "key",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:56",
+    "end": "2:09",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: public keys",
+    "voice": "Narrator",
+    "narration": "In the app, open the public-key lab. Run a key exchange with small numbers, then try to recover the secret as an eavesdropper and see how the work grows with the prime.",
+    "icons": [
+     "key",
+     "lock"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:09",
+    "end": "2:16",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Man in the middle",
+    "voice": "Dr Salma",
+    "narration": "Your turn. Plain Diffie–Hellman has no authentication. What can an attacker who controls the network do?"
+   },
+   {
+    "n": 12,
+    "start": "2:16",
+    "end": "2:26",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Exchange, encrypt, sign",
+    "voice": "Narrator",
+    "narration": "Run a separate exchange with each side and relay everything. Remember: one-way functions make public keys possible, signatures prove origin, and key exchange needs authentication."
+   },
+   {
+    "n": 13,
+    "start": "2:26",
+    "end": "2:41",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: put students in threes as Alice, Bob and Eve. They run Diffie–Hellman with p twenty three on paper, and Eve tries to find the key from what she hears.",
+    "icons": [
+     "presentation",
+     "key",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Bob encrypts with Alice's public key. Who can decrypt?",
+    "options": [
+     {
+      "text": "Anyone with the public key",
+      "correct": false
+     },
+     {
+      "text": "Only Alice",
+      "correct": true
+     },
+     {
+      "text": "Bob and Alice",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: only Alice's private key decrypts it.",
+    "feedback_wrong": "Not quite: the public key only encrypts; decryption needs Alice's private key.",
+    "resume_at": "1:44"
+   },
+   {
+    "at": "2:14",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Plain Diffie–Hellman has no authentication. What can a network attacker do?",
+    "options": [
+     {
+      "text": "Nothing, the key stays secret",
+      "correct": false
+     },
+     {
+      "text": "Run an exchange with each side and relay messages",
+      "correct": true
+     },
+     {
+      "text": "Factor p",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: a man-in-the-middle attack; signatures or certificates prevent it.",
+    "feedback_wrong": "Not quite: without authentication the attacker can sit in the middle with two separate keys.",
+    "resume_at": "2:16"
+   }
+  ]
+ }
+}

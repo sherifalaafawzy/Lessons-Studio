@@ -1,0 +1,204 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "Ten thousand: instant",
+            "ar-EG": "عشرة آلاف: فورًا"
+          },
+          "s": 0
+        },
+        {
+          "icon": "clock",
+          "text": {
+            "en": "Ten million: never ends",
+            "ar-EG": "عشرة مليون: مابيخلصش"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "What changed?",
+            "ar-EG": "إيه اللي اتغيّر؟"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "list": [
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "O: upper bound",
+            "ar-EG": "O: حد أعلى"
+          },
+          "s": 0
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Θ: tight bound",
+            "ar-EG": "Θ: حد محكم"
+          },
+          "s": 1
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Ω: lower bound",
+            "ar-EG": "Ω: حد أدنى"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "gauge"
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "f(n) = O(g(n))  ⇔  ∃ c > 0, n₀ :\n   f(n) ≤ c × g(n)  for all n ≥ n₀\n\n3n² + 10n + 7 = O(n²)   (c = 4, n₀ = 11)",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "code": {
+        "text": "for i in range(n):          # n\n    for j in range(n):      # × n  → O(n²)\n        ...\n\nwhile lo <= hi:             # halves → O(log n)\n    mid = (lo + hi) // 2",
+        "s": 1
+      }
+    },
+    "6": {
+      "who": null,
+      "code": {
+        "text": "T(n) = a T(n/b) + f(n)\nmerge sort: a = 2, b = 2, f(n) = n\n  n^(log₂2) = n = f(n)  →  T(n) = Θ(n log n)",
+        "s": 1
+      }
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Not seconds",
+            "ar-EG": "مش ثواني"
+          },
+          "s": 0
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Time on growing inputs",
+            "ar-EG": "قيس على مدخلات بتكبر"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Then the definition",
+            "ar-EG": "وبعدين التعريف"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "arrow",
+          "text": {
+            "en": "Grow the input",
+            "ar-EG": "كبّر المدخل"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Count the steps",
+            "ar-EG": "عدّ الخطوات"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "See the curves split",
+            "ar-EG": "شوف المنحنيات بتتفرّق"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
+      ],
+      "aside": "gauge"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Growth, not seconds",
+            "ar-EG": "النمو مش الثواني"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "O, Θ and Ω",
+            "ar-EG": "O وΘ وΩ"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Master theorem",
+            "ar-EG": "نظرية المعلّم"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Measure first, define second.",
+        "ar-EG": "قيس الأول، وعرّف بعدين."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "users",
+          "text": {
+            "en": "Pairs time two sorts",
+            "ar-EG": "كل اتنين يقيسوا ترتيبين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Plot the curves",
+            "ar-EG": "ارسم المنحنيات"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "Match to n log n",
+            "ar-EG": "طابق مع n log n"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}

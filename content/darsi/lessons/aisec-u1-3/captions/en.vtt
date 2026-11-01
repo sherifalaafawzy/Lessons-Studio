@@ -1,0 +1,289 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:02.170
+A streaming company released
+
+2
+00:00:02.170 --> 00:00:04.230
+movie ratings with the names
+
+3
+00:00:04.230 --> 00:00:06.070
+removed for a public contest.
+
+4
+00:00:06.810 --> 00:00:09.070
+Researchers matched some of them to
+
+5
+00:00:09.070 --> 00:00:12.210
+public reviews and re-identified users.
+
+6
+00:00:12.980 --> 00:00:15.300
+Removing names did not make
+
+7
+00:00:15.300 --> 00:00:16.220
+the data anonymous.
+
+8
+00:00:17.960 --> 00:00:20.740
+Today: how attackers learn whether a
+
+9
+00:00:20.740 --> 00:00:22.640
+person was in a model's training data,
+
+10
+00:00:23.340 --> 00:00:26.340
+why removing names is not enough, and
+
+11
+00:00:26.340 --> 00:00:28.440
+how differential privacy gives a
+
+12
+00:00:28.440 --> 00:00:30.540
+guarantee students can calculate.
+
+13
+00:00:31.860 --> 00:00:34.280
+In a membership inference attack, the
+
+14
+00:00:34.280 --> 00:00:36.680
+attacker asks whether one person's
+
+15
+00:00:36.680 --> 00:00:38.500
+record was in the training data.
+
+16
+00:00:39.160 --> 00:00:41.620
+Models are often more confident on
+
+17
+00:00:41.620 --> 00:00:43.860
+examples they trained on, and that
+
+18
+00:00:43.860 --> 00:00:45.280
+gap leaks membership.
+
+19
+00:00:46.690 --> 00:00:49.050
+The bigger the gap between training and
+
+20
+00:00:49.050 --> 00:00:51.730
+test accuracy, the easier the attack.
+
+21
+00:00:52.380 --> 00:00:54.800
+A model that memorises its training set
+
+22
+00:00:54.800 --> 00:00:56.660
+behaves differently on members.
+
+23
+00:00:57.470 --> 00:00:59.910
+Regularisation helps, but it
+
+24
+00:00:59.910 --> 00:01:00.770
+gives no guarantee.
+
+25
+00:01:02.190 --> 00:01:04.670
+Differential privacy adds calibrated
+
+26
+00:01:04.670 --> 00:01:07.550
+noise so that any one person changes
+
+27
+00:01:07.550 --> 00:01:10.370
+the output distribution by at most a
+
+28
+00:01:10.370 --> 00:01:11.490
+factor set by epsilon.
+
+29
+00:01:12.240 --> 00:01:15.340
+For a count, one person changes it by one.
+
+30
+00:01:16.010 --> 00:01:17.770
+The Laplace noise scale is
+
+31
+00:01:17.770 --> 00:01:20.630
+sensitivity over epsilon, so
+
+32
+00:01:20.630 --> 00:01:23.370
+epsilon one half gives scale two.
+
+33
+00:01:24.510 --> 00:01:26.530
+To train with differential privacy,
+
+34
+00:01:27.130 --> 00:01:29.890
+clip each example's gradient and add
+
+35
+00:01:29.890 --> 00:01:32.890
+noise before every update, then track
+
+36
+00:01:32.890 --> 00:01:34.330
+the total privacy budget.
+
+37
+00:01:34.980 --> 00:01:37.280
+This bounds membership leakage for
+
+38
+00:01:37.280 --> 00:01:40.000
+everyone, at some cost in accuracy.
+
+39
+00:01:41.420 --> 00:01:43.000
+Students think privacy
+
+40
+00:01:43.000 --> 00:01:44.980
+means deleting names.
+
+41
+00:01:45.800 --> 00:01:48.480
+Have them attack a model they trained,
+
+42
+00:01:49.080 --> 00:01:52.420
+measure their success, then retrain
+
+43
+00:01:52.420 --> 00:01:56.280
+with noise at several epsilons and plot
+
+44
+00:01:56.280 --> 00:01:58.640
+privacy against accuracy.
+
+45
+00:02:00.070 --> 00:02:00.550
+Quick check!
+
+46
+00:02:01.160 --> 00:02:04.600
+A counting query has sensitivity one.
+
+47
+00:02:05.280 --> 00:02:07.980
+With epsilon one half, what is
+
+48
+00:02:07.980 --> 00:02:09.720
+the Laplace noise scale?
+
+49
+00:02:10.960 --> 00:02:11.160
+Two.
+
+50
+00:02:11.850 --> 00:02:14.870
+Sensitivity over epsilon: one
+
+51
+00:02:14.870 --> 00:02:16.410
+divided by one half.
+
+52
+00:02:17.740 --> 00:02:19.780
+In the app, open the leak lab.
+
+53
+00:02:20.420 --> 00:02:22.820
+Guess which records were in training from
+
+54
+00:02:22.820 --> 00:02:25.520
+the model's confidence, then add noise
+
+55
+00:02:25.520 --> 00:02:27.860
+and see your guesses get worse.
+
+56
+00:02:29.250 --> 00:02:29.990
+Your turn.
+
+57
+00:02:30.630 --> 00:02:33.110
+Which step gives a provable
+
+58
+00:02:33.110 --> 00:02:35.450
+limit on membership leakage for
+
+59
+00:02:35.450 --> 00:02:37.590
+every person in the data?
+
+60
+00:02:38.830 --> 00:02:40.750
+Differentially private training.
+
+61
+00:02:41.350 --> 00:02:44.150
+Remember: models leak membership through
+
+62
+00:02:44.150 --> 00:02:46.870
+confidence, removing names is not
+
+63
+00:02:46.870 --> 00:02:49.970
+anonymity, and differential privacy trades
+
+64
+00:02:49.970 --> 00:02:52.390
+a little accuracy for a calculable
+
+65
+00:02:52.390 --> 00:02:52.910
+guarantee.
+
+66
+00:02:54.230 --> 00:02:56.690
+Try it in your next lecture: ask the
+
+67
+00:02:56.690 --> 00:02:59.170
+class a sensitive yes or no question
+
+68
+00:02:59.170 --> 00:03:00.650
+by randomised response.
+
+69
+00:03:01.530 --> 00:03:03.570
+Each student flips a coin first.
+
+70
+00:03:04.350 --> 00:03:06.170
+Then estimate the true rate
+
+71
+00:03:06.170 --> 00:03:08.370
+together and discuss why no
+
+72
+00:03:08.370 --> 00:03:10.450
+single answer reveals anyone.

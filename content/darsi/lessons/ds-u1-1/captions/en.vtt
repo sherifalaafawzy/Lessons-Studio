@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.650
+Every year my second-year students can
+
+2
+00:00:03.650 --> 00:00:06.250
+recite the formula for a confidence
+
+3
+00:00:06.250 --> 00:00:06.810
+interval.
+
+4
+00:00:07.460 --> 00:00:10.780
+Then I ask what the ninety five percent
+
+5
+00:00:10.780 --> 00:00:14.700
+refers to, and most say: the chance the
+
+6
+00:00:14.700 --> 00:00:17.000
+true mean is inside this interval.
+
+7
+00:00:18.300 --> 00:00:21.080
+Today: where a standard error comes from,
+
+8
+00:00:21.460 --> 00:00:24.120
+how the bootstrap estimates it, and how to
+
+9
+00:00:24.120 --> 00:00:26.020
+teach both without hand-waving.
+
+10
+00:00:27.250 --> 00:00:29.330
+An estimate, such as a sample
+
+11
+00:00:29.330 --> 00:00:31.510
+mean, is a random variable.
+
+12
+00:00:32.220 --> 00:00:34.340
+Its sampling distribution is the
+
+13
+00:00:34.340 --> 00:00:36.320
+spread of values it would take over
+
+14
+00:00:36.320 --> 00:00:38.920
+all possible samples of the same size
+
+15
+00:00:38.920 --> 00:00:40.140
+from the same population.
+
+16
+00:00:41.750 --> 00:00:43.670
+The standard deviation of that
+
+17
+00:00:43.670 --> 00:00:46.310
+distribution is the standard error.
+
+18
+00:00:46.980 --> 00:00:49.240
+For a mean it is sigma over the
+
+19
+00:00:49.240 --> 00:00:51.860
+square root of n, so four times the
+
+20
+00:00:51.860 --> 00:00:53.580
+data only halves the error.
+
+21
+00:00:54.230 --> 00:00:56.490
+The central limit theorem says the shape
+
+22
+00:00:56.490 --> 00:00:58.730
+is close to normal for large n.
+
+23
+00:01:00.010 --> 00:01:02.370
+We drew a thousand samples of
+
+24
+00:01:02.370 --> 00:01:04.530
+thirty exam marks from a skewed
+
+25
+00:01:04.530 --> 00:01:06.630
+population and plotted the means.
+
+26
+00:01:07.360 --> 00:01:09.520
+The marks were skewed, but the
+
+27
+00:01:09.520 --> 00:01:11.580
+means pile up in a near-normal
+
+28
+00:01:11.580 --> 00:01:13.100
+hill around the true mean.
+
+29
+00:01:14.390 --> 00:01:16.650
+In real research we have one
+
+30
+00:01:16.650 --> 00:01:18.190
+sample, not a thousand.
+
+31
+00:01:18.770 --> 00:01:21.530
+Efron's bootstrap resamples that one
+
+32
+00:01:21.530 --> 00:01:24.330
+sample with replacement, recomputes the
+
+33
+00:01:24.330 --> 00:01:27.310
+estimate many times, and uses the spread
+
+34
+00:01:27.310 --> 00:01:29.410
+of those values as the standard error.
+
+35
+00:01:30.630 --> 00:01:32.230
+Students meet the formula
+
+36
+00:01:32.230 --> 00:01:34.350
+first and the idea never.
+
+37
+00:01:35.030 --> 00:01:35.670
+Reverse that.
+
+38
+00:01:36.280 --> 00:01:39.060
+Let them simulate many samples before any
+
+39
+00:01:39.060 --> 00:01:42.740
+algebra, then derive sigma over root n to
+
+40
+00:01:42.740 --> 00:01:44.320
+explain what they already saw.
+
+41
+00:01:45.470 --> 00:01:45.950
+Quick check!
+
+42
+00:01:46.590 --> 00:01:49.010
+A ninety five percent confidence interval
+
+43
+00:01:49.010 --> 00:01:52.350
+for a mean is from sixty to sixty eight.
+
+44
+00:01:53.000 --> 00:01:54.420
+Which statement is correct?
+
+45
+00:01:55.720 --> 00:01:58.000
+The ninety five percent describes the
+
+46
+00:01:58.000 --> 00:02:00.220
+method, not this one interval.
+
+47
+00:02:00.880 --> 00:02:03.600
+Over many samples, about ninety five
+
+48
+00:02:03.600 --> 00:02:05.720
+in a hundred intervals built this way
+
+49
+00:02:05.720 --> 00:02:07.540
+would contain the true mean.
+
+50
+00:02:08.820 --> 00:02:10.840
+In the app, open the sampling lab.
+
+51
+00:02:11.460 --> 00:02:14.060
+Draw hundreds of samples, change the
+
+52
+00:02:14.060 --> 00:02:16.380
+sample size, and watch the spread of the
+
+53
+00:02:16.380 --> 00:02:18.940
+means shrink like one over root n.
+
+54
+00:02:20.140 --> 00:02:20.880
+Your turn.
+
+55
+00:02:21.520 --> 00:02:24.820
+A study has a standard error of four.
+
+56
+00:02:25.550 --> 00:02:28.570
+How many times more data do we
+
+57
+00:02:28.570 --> 00:02:30.530
+need to bring it down to two?
+
+58
+00:02:31.890 --> 00:02:33.610
+Four times as much data.
+
+59
+00:02:34.350 --> 00:02:36.930
+Remember: an estimate has a sampling
+
+60
+00:02:36.930 --> 00:02:39.510
+distribution, its spread is the
+
+61
+00:02:39.510 --> 00:02:41.850
+standard error, and the bootstrap
+
+62
+00:02:41.850 --> 00:02:43.670
+estimates it from one sample.
+
+63
+00:02:44.900 --> 00:02:46.880
+Try it in your next lecture: before
+
+64
+00:02:46.880 --> 00:02:49.520
+showing any formula, give pairs a
+
+65
+00:02:49.520 --> 00:02:52.240
+dataset and ask them to resample it two
+
+66
+00:02:52.240 --> 00:02:54.120
+hundred times and plot the means.
+
+67
+00:02:54.820 --> 00:02:56.940
+Then ask them to predict what happens
+
+68
+00:02:56.940 --> 00:02:58.960
+when n is four times larger.

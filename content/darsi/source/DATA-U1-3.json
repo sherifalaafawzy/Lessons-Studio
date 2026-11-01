@@ -1,0 +1,273 @@
+{
+ "id": "DATA-U1-3",
+ "track": "data",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching databases and data engineering at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Transactions and distributed data",
+  "subtitle": "ACID, isolation and CAP",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Transactions and distributed data: ACID, isolation and CAP",
+  "length": "2:23",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Joseph - computer science lecturer, Nairobi",
+   "Dr Okafor - engineering lecturer, Accra",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "Two seats, one left"
+   },
+   {
+    "at": "0:23",
+    "label": "Transactions and isolation"
+   },
+   {
+    "at": "0:57",
+    "label": "Distributed trade-offs"
+   },
+   {
+    "at": "1:49",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Joseph",
+    "narration": "Course registration opens. One seat is left in a popular elective, and two students click register in the same millisecond. Both get a confirmation. How did the system sell the same seat twice?",
+    "icons": [
+     "users",
+     "warning",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Transactions and distributed data",
+    "voice": "Narrator",
+    "narration": "Today: what a transaction guarantees, how isolation levels allow or prevent anomalies, and what changes when data lives on many machines."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:33",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A transaction",
+    "voice": "Narrator",
+    "narration": "A transaction groups operations so they behave as one unit. ACID names its guarantees: atomicity, consistency, isolation and durability. Either everything commits, or nothing does.",
+    "icons": [
+     "checksquare",
+     "lock"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:33",
+    "end": "0:44",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The lost update",
+    "voice": "Narrator",
+    "narration": "Both requests read one seat left. Both subtract one and write zero. Without proper isolation, each overwrites the other, and the count never shows minus one.",
+    "icons": [
+     "repeat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:44",
+    "end": "0:57",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Fixing it",
+    "voice": "Narrator",
+    "narration": "One fix is an atomic conditional update that only succeeds while seats remain. Another is serializable isolation, which aborts one of the two transactions. Either way, exactly one student is enrolled.",
+    "icons": [
+     "lock"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "0:57",
+    "end": "1:09",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Isolation levels",
+    "voice": "Narrator",
+    "narration": "Databases offer weaker isolation levels for speed, such as read committed and snapshot isolation. Each permits some anomalies. Only serializable behaves as if transactions ran one at a time.",
+    "icons": [
+     "layers",
+     "scale"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:09",
+    "end": "1:26",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Across many machines",
+    "voice": "Dr Okafor",
+    "narration": "When data is replicated and the network splits, a system must choose. It can stay available and risk inconsistent answers, or stay consistent and refuse some requests. That is the CAP trade-off, and students should argue it from real cases.",
+    "icons": [
+     "network",
+     "warning"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:26",
+    "end": "1:33",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Which property?",
+    "voice": "Dr Joseph",
+    "narration": "Quick check! The double booking happened because concurrent transactions saw each other's half-finished work. Which ACID property failed?"
+   },
+   {
+    "n": 9,
+    "start": "1:33",
+    "end": "1:40",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Isolation",
+    "voice": "Narrator",
+    "narration": "Isolation. Each transaction was atomic and durable on its own. The problem was how they interleaved.",
+    "icons": [
+     "lock",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:40",
+    "end": "1:49",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: pipeline",
+    "voice": "Narrator",
+    "narration": "In the app, open the pipeline lab. Interleave two transactions step by step and see which orders produce a wrong result.",
+    "icons": [
+     "repeat",
+     "lock"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:49",
+    "end": "1:58",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "During a partition",
+    "voice": "Dr Okafor",
+    "narration": "Your turn. During a network partition, a bank's ledger must never show two different balances. What must it give up?"
+   },
+   {
+    "n": 12,
+    "start": "1:58",
+    "end": "2:08",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "ACID, isolation, CAP",
+    "voice": "Narrator",
+    "narration": "Availability: some requests are refused until the partition heals. Remember: transactions are units of work, isolation levels trade anomalies for speed, and partitions force a choice."
+   },
+   {
+    "n": 13,
+    "start": "2:08",
+    "end": "2:23",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give two volunteers cards with the steps of two transactions. The class calls out an interleaving and records the final seat count. Then add a lock and try again.",
+    "icons": [
+     "presentation",
+     "users",
+     "lock"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:31",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Concurrent transactions saw each other's half-done work. Which ACID property failed?",
+    "options": [
+     {
+      "text": "Atomicity",
+      "correct": false
+     },
+     {
+      "text": "Isolation",
+      "correct": true
+     },
+     {
+      "text": "Durability",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: the interleaving was the problem.",
+    "feedback_wrong": "Not quite: each transaction completed fully; they just weren't isolated from each other.",
+    "resume_at": "1:33"
+   },
+   {
+    "at": "1:56",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "During a partition, a ledger must never show two balances. What does it give up?",
+    "options": [
+     {
+      "text": "Consistency",
+      "correct": false
+     },
+     {
+      "text": "Availability",
+      "correct": true
+     },
+     {
+      "text": "Durability",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: it refuses some requests until the partition heals.",
+    "feedback_wrong": "Not quite: keeping consistency during a partition means refusing some requests.",
+    "resume_at": "1:58"
+   }
+  ]
+ }
+}

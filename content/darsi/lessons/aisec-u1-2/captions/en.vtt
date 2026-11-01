@@ -1,0 +1,285 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.390
+In 2016 a company launched a
+
+2
+00:00:03.390 --> 00:00:05.170
+chatbot that learned from
+
+3
+00:00:05.170 --> 00:00:06.590
+conversations with the public.
+
+4
+00:00:07.290 --> 00:00:09.870
+Within a day, coordinated users
+
+5
+00:00:09.870 --> 00:00:11.970
+had taught it offensive replies,
+
+6
+00:00:12.550 --> 00:00:13.650
+and it was taken offline.
+
+7
+00:00:14.440 --> 00:00:16.160
+Nobody hacked the code.
+
+8
+00:00:16.830 --> 00:00:18.350
+They fed it data.
+
+9
+00:00:19.780 --> 00:00:22.700
+Today: how attackers change a model by
+
+10
+00:00:22.700 --> 00:00:25.240
+changing its training data, the difference
+
+11
+00:00:25.240 --> 00:00:28.100
+between availability, targeted and
+
+12
+00:00:28.100 --> 00:00:31.200
+backdoor poisoning, and how to teach data
+
+13
+00:00:31.200 --> 00:00:33.420
+provenance as a security control.
+
+14
+00:00:34.670 --> 00:00:37.770
+Data poisoning means inserting or changing
+
+15
+00:00:37.770 --> 00:00:40.310
+training examples so that the trained
+
+16
+00:00:40.310 --> 00:00:42.390
+model behaves as the attacker wants.
+
+17
+00:00:43.170 --> 00:00:45.110
+Any model trained on scraped,
+
+18
+00:00:45.350 --> 00:00:48.150
+crowdsourced or user data is exposed.
+
+19
+00:00:49.630 --> 00:00:51.390
+Availability attacks lower
+
+20
+00:00:51.390 --> 00:00:52.830
+accuracy for everyone.
+
+21
+00:00:53.580 --> 00:00:55.560
+Targeted attacks make the model
+
+22
+00:00:55.560 --> 00:00:57.160
+fail on chosen inputs.
+
+23
+00:00:57.950 --> 00:01:00.590
+Backdoor attacks plant a hidden trigger,
+
+24
+00:01:01.010 --> 00:01:03.850
+such as a small patch, that switches the
+
+25
+00:01:03.850 --> 00:01:05.550
+output only when it appears.
+
+26
+00:01:06.990 --> 00:01:09.410
+Add a small yellow square to one
+
+27
+00:01:09.410 --> 00:01:11.550
+percent of stop sign photos and
+
+28
+00:01:11.550 --> 00:01:13.030
+label them as speed limits.
+
+29
+00:01:13.740 --> 00:01:15.760
+The model stays accurate on clean
+
+30
+00:01:15.760 --> 00:01:17.700
+tests, so nobody notices.
+
+31
+00:01:18.480 --> 00:01:20.920
+With the square, it reads a speed limit.
+
+32
+00:01:22.190 --> 00:01:24.290
+Defences start before training.
+
+33
+00:01:24.880 --> 00:01:27.380
+Track where every data source comes from,
+
+34
+00:01:27.840 --> 00:01:30.760
+limit who can add data, filter outliers,
+
+35
+00:01:31.320 --> 00:01:33.340
+and keep a trusted held-out set.
+
+36
+00:01:33.970 --> 00:01:36.030
+Clean accuracy alone cannot
+
+37
+00:01:36.030 --> 00:01:37.310
+reveal a backdoor.
+
+38
+00:01:38.610 --> 00:01:40.990
+Students treat datasets as
+
+39
+00:01:40.990 --> 00:01:42.650
+fixed and trustworthy.
+
+40
+00:01:43.310 --> 00:01:45.910
+Ask them to draw the full data supply
+
+41
+00:01:45.910 --> 00:01:48.750
+chain of a model, from collection to
+
+42
+00:01:48.750 --> 00:01:52.110
+labelling to download, and mark where an
+
+43
+00:01:52.110 --> 00:01:54.030
+attacker could insert examples.
+
+44
+00:01:55.360 --> 00:01:55.820
+Quick check!
+
+45
+00:01:56.480 --> 00:01:58.760
+A model is accurate on clean
+
+46
+00:01:58.760 --> 00:02:01.560
+tests but misreads any image
+
+47
+00:02:01.560 --> 00:02:03.320
+with a small yellow square.
+
+48
+00:02:04.000 --> 00:02:05.940
+Which kind of poisoning is this?
+
+49
+00:02:07.290 --> 00:02:07.870
+A backdoor.
+
+50
+00:02:08.590 --> 00:02:10.330
+The trigger switches the output,
+
+51
+00:02:10.970 --> 00:02:13.210
+and clean accuracy hides it.
+
+52
+00:02:14.280 --> 00:02:16.780
+In the app, open the poison lab.
+
+53
+00:02:17.360 --> 00:02:19.040
+Add poisoned points to the
+
+54
+00:02:19.040 --> 00:02:21.820
+training set, retrain, and watch
+
+55
+00:02:21.820 --> 00:02:23.660
+the decision boundary move.
+
+56
+00:02:24.960 --> 00:02:25.720
+Your turn.
+
+57
+00:02:26.340 --> 00:02:28.040
+A team trains on images
+
+58
+00:02:28.040 --> 00:02:29.300
+scraped from the web.
+
+59
+00:02:29.930 --> 00:02:31.750
+Which step best protects it
+
+60
+00:02:31.750 --> 00:02:32.410
+against poisoning?
+
+61
+00:02:33.820 --> 00:02:35.300
+Provenance tracking with
+
+62
+00:02:35.300 --> 00:02:37.580
+filtering and a trusted test set.
+
+63
+00:02:38.230 --> 00:02:40.890
+Remember: poisoning attacks the data,
+
+64
+00:02:41.410 --> 00:02:44.850
+backdoors hide behind clean accuracy, and
+
+65
+00:02:44.850 --> 00:02:47.290
+defence starts in the data supply chain.
+
+66
+00:02:48.470 --> 00:02:50.550
+Try it in your next lecture: give
+
+67
+00:02:50.550 --> 00:02:52.890
+groups the description of a spam filter
+
+68
+00:02:52.890 --> 00:02:55.250
+retrained weekly on user reports.
+
+69
+00:02:56.000 --> 00:02:58.320
+Each group marks every point where an
+
+70
+00:02:58.320 --> 00:03:00.460
+attacker could insert data, then
+
+71
+00:03:00.460 --> 00:03:02.420
+proposes one control for each.

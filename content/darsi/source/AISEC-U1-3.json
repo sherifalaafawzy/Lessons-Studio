@@ -1,0 +1,275 @@
+{
+ "id": "AISEC-U1-3",
+ "track": "aisec",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching AI security at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Privacy attacks and differential privacy",
+  "subtitle": "Membership inference and the Laplace mechanism",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Privacy attacks and differential privacy: Membership inference and the Laplace mechanism",
+  "length": "2:32",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Prof Farah - head of department, Amman",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The anonymous ratings"
+   },
+   {
+    "at": "0:26",
+    "label": "What models leak"
+   },
+   {
+    "at": "1:11",
+    "label": "Differential privacy"
+   },
+   {
+    "at": "1:59",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:14",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Prof Farah",
+    "narration": "A streaming company released movie ratings with the names removed for a public contest. Researchers matched some of them to public reviews and re-identified users. Removing names did not make the data anonymous.",
+    "icons": [
+     "film",
+     "eye",
+     "warning"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:14",
+    "end": "0:26",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Privacy attacks and differential privacy",
+    "voice": "Narrator",
+    "narration": "Today: how attackers learn whether a person was in a model's training data, why removing names is not enough, and how differential privacy gives a guarantee students can calculate."
+   },
+   {
+    "n": 3,
+    "start": "0:26",
+    "end": "0:39",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Membership inference",
+    "voice": "Narrator",
+    "narration": "In a membership inference attack, the attacker asks whether one person's record was in the training data. Models are often more confident on examples they trained on, and that gap leaks membership.",
+    "icons": [
+     "profile",
+     "help"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:39",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Overfitting leaks",
+    "voice": "Narrator",
+    "narration": "The bigger the gap between training and test accuracy, the easier the attack. A model that memorises its training set behaves differently on members. Regularisation helps, but it gives no guarantee.",
+    "icons": [
+     "chat",
+     "warning"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:11",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The Laplace mechanism",
+    "voice": "Narrator",
+    "narration": "Differential privacy adds calibrated noise so that any one person changes the output distribution by at most a factor set by epsilon. For a count, one person changes it by one. The Laplace noise scale is sensitivity over epsilon, so epsilon one half gives scale two.",
+    "icons": [
+     "calculator",
+     "shield"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:11",
+    "end": "1:24",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Private training",
+    "voice": "Narrator",
+    "narration": "To train with differential privacy, clip each example's gradient and add noise before every update, then track the total privacy budget. This bounds membership leakage for everyone, at some cost in accuracy.",
+    "icons": [
+     "cpu",
+     "lock"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:24",
+    "end": "1:36",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach the trade-off",
+    "voice": "Dr Salma",
+    "narration": "Students think privacy means deleting names. Have them attack a model they trained, measure their success, then retrain with noise at several epsilons and plot privacy against accuracy.",
+    "icons": [
+     "scale",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:36",
+    "end": "1:44",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Find the scale",
+    "voice": "Prof Farah",
+    "narration": "Quick check! A counting query has sensitivity one. With epsilon one half, what is the Laplace noise scale?"
+   },
+   {
+    "n": 9,
+    "start": "1:44",
+    "end": "1:48",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Two",
+    "voice": "Narrator",
+    "narration": "Two. Sensitivity over epsilon: one divided by one half.",
+    "icons": [
+     "calculator",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:48",
+    "end": "1:59",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: leak",
+    "voice": "Narrator",
+    "narration": "In the app, open the leak lab. Guess which records were in training from the model's confidence, then add noise and see your guesses get worse.",
+    "icons": [
+     "eye",
+     "lock"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "1:59",
+    "end": "2:06",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A real guarantee",
+    "voice": "Dr Salma",
+    "narration": "Your turn. Which step gives a provable limit on membership leakage for every person in the data?"
+   },
+   {
+    "n": 12,
+    "start": "2:06",
+    "end": "2:16",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Noise with a budget",
+    "voice": "Narrator",
+    "narration": "Differentially private training. Remember: models leak membership through confidence, removing names is not anonymity, and differential privacy trades a little accuracy for a calculable guarantee."
+   },
+   {
+    "n": 13,
+    "start": "2:16",
+    "end": "2:32",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: ask the class a sensitive yes or no question by randomised response. Each student flips a coin first. Then estimate the true rate together and discuss why no single answer reveals anyone.",
+    "icons": [
+     "presentation",
+     "calculator",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:42",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Sensitivity 1 and ε = 0.5. What is the Laplace scale?",
+    "options": [
+     {
+      "text": "0.5",
+      "correct": false
+     },
+     {
+      "text": "2",
+      "correct": true
+     },
+     {
+      "text": "1",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: Δ/ε = 1/0.5 = 2.",
+    "feedback_wrong": "Not quite: divide sensitivity by epsilon.",
+    "resume_at": "1:44"
+   },
+   {
+    "at": "2:04",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "Which step gives a provable limit on membership leakage?",
+    "options": [
+     {
+      "text": "Removing names",
+      "correct": false
+     },
+     {
+      "text": "Early stopping",
+      "correct": false
+     },
+     {
+      "text": "Differentially private training",
+      "correct": true
+     }
+    ],
+    "feedback_correct": "Correct: it bounds every person's influence.",
+    "feedback_wrong": "Not quite: those may help, but they prove nothing.",
+    "resume_at": "2:06"
+   }
+  ]
+ }
+}

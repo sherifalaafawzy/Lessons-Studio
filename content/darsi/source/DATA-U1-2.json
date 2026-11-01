@@ -1,0 +1,273 @@
+{
+ "id": "DATA-U1-2",
+ "track": "data",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching databases and data engineering at university"
+ },
+ "lesson": {
+  "number": 2,
+  "title": "Indexing and query processing",
+  "subtitle": "B-trees, cost and query plans",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Indexing and query processing: B-trees, cost and query plans",
+  "length": "2:39",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Okafor - engineering lecturer, Accra",
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The slow results page"
+   },
+   {
+    "at": "0:23",
+    "label": "B-trees"
+   },
+   {
+    "at": "1:03",
+    "label": "Reading query plans"
+   },
+   {
+    "at": "2:02",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:12",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Okafor",
+    "narration": "On results day, the student portal takes eight seconds to show one student's grades. The query is one line. After a single change, it takes three milliseconds. What changed?",
+    "icons": [
+     "clock",
+     "database",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:12",
+    "end": "0:23",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Indexing and query processing",
+    "voice": "Narrator",
+    "narration": "Today: why a query on a million rows can take seconds or milliseconds, how B-tree indexes work, and how to teach students to read a query plan."
+   },
+   {
+    "n": 3,
+    "start": "0:23",
+    "end": "0:36",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "An index",
+    "voice": "Narrator",
+    "narration": "An index is a separate structure that maps key values to row locations. Without one, the database scans every row. With one, it jumps almost straight to the rows it needs.",
+    "icons": [
+     "search",
+     "layers"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:36",
+    "end": "0:52",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How a B-tree works",
+    "voice": "Narrator",
+    "narration": "A B-tree keeps keys sorted in wide nodes, each holding hundreds of keys. Because the tree is so wide, it stays very shallow. A million rows need only three or four levels, so three or four page reads.",
+    "icons": [
+     "layers"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:52",
+    "end": "1:03",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "The missing index",
+    "voice": "Narrator",
+    "narration": "The portal filtered grades by student ID, but only the grade ID was indexed. Every request scanned the whole table. One create index statement fixed it.",
+    "icons": [
+     "search"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:03",
+    "end": "1:18",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Indexes have costs",
+    "voice": "Narrator",
+    "narration": "Every index speeds some reads but slows every write, because it must be updated too. It also takes space. And an index on a column with only two values rarely helps, since the planner will scan anyway.",
+    "icons": [
+     "scale",
+     "pencil"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:18",
+    "end": "1:34",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach with EXPLAIN",
+    "voice": "Dr Salma",
+    "narration": "Students often think indexes are magic or that more is always better. Give them a large table and have them run EXPLAIN before and after adding an index. Measuring both read and write time makes the trade-off concrete.",
+    "icons": [
+     "eye",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:34",
+    "end": "1:43",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "How many levels?",
+    "voice": "Dr Okafor",
+    "narration": "Quick check! A B-tree holds about two hundred keys per node. Roughly how many levels does it need for eight million rows?"
+   },
+   {
+    "n": 9,
+    "start": "1:43",
+    "end": "1:52",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Three levels",
+    "voice": "Narrator",
+    "narration": "Three: two hundred cubed is eight million. That is why indexed lookups stay fast as tables grow by orders of magnitude.",
+    "icons": [
+     "layers",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "1:52",
+    "end": "2:02",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: index",
+    "voice": "Narrator",
+    "narration": "In the app, open the index lab. Run the same lookup with and without an index and count how many rows each method touches.",
+    "icons": [
+     "search",
+     "gauge"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:02",
+    "end": "2:12",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Worth indexing?",
+    "voice": "Dr Salma",
+    "narration": "Your turn. A column holds only yes or no, evenly split. Will an index on it usually speed up a filter on that column?"
+   },
+   {
+    "n": 12,
+    "start": "2:12",
+    "end": "2:24",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Index, cost, plan",
+    "voice": "Narrator",
+    "narration": "Usually not: half the rows match, so scanning is cheaper. Remember: B-trees stay shallow, every index costs writes and space, and EXPLAIN shows what the planner decided."
+   },
+   {
+    "n": 13,
+    "start": "2:24",
+    "end": "2:39",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: load a million-row table and let pairs run one slow query. They read the plan, add one index and run it again. Then they measure how much slower inserts became.",
+    "icons": [
+     "presentation",
+     "database",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:41",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "About 200 keys per node. Roughly how many levels for 8 million rows?",
+    "options": [
+     {
+      "text": "3",
+      "correct": true
+     },
+     {
+      "text": "23",
+      "correct": false
+     },
+     {
+      "text": "200",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: 200³ = 8,000,000.",
+    "feedback_wrong": "Not quite: wide nodes keep the tree shallow; 200³ is eight million, so three levels.",
+    "resume_at": "1:43"
+   },
+   {
+    "at": "2:10",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "A yes/no column, evenly split. Will an index usually speed a filter on it?",
+    "options": [
+     {
+      "text": "Yes, always",
+      "correct": false
+     },
+     {
+      "text": "Usually not",
+      "correct": true
+     },
+     {
+      "text": "Only for writes",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: half the rows match, so a scan is cheaper.",
+    "feedback_wrong": "Not quite: low selectivity means the planner scans anyway.",
+    "resume_at": "2:12"
+   }
+  ]
+ }
+}

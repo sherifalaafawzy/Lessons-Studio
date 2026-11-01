@@ -1,0 +1,274 @@
+{
+ "id": "OPT-U1-3",
+ "track": "opt",
+ "level": 4,
+ "unit": {
+  "number": 1,
+  "title": "Teaching optimisation at university"
+ },
+ "lesson": {
+  "number": 3,
+  "title": "Heuristics and simulated annealing",
+  "subtitle": "Local search, local optima and temperature",
+  "minutes": 18,
+  "format": "Video + lab + practice"
+ },
+ "video": {
+  "title": "Heuristics and simulated annealing: Local search, local optima and temperature",
+  "length": "2:51",
+  "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. Charts draw themselves; code is typed out on a card, left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+  "cast": [
+   "Dr Salma - statistics lecturer, Cairo University (main character)",
+   "Dr Okafor - engineering lecturer, Accra",
+   "Narrator - the Darsi voice, talking to a university lecturer (warm, collegial, precise)"
+  ],
+  "chapters": [
+   {
+    "at": "0:00",
+    "label": "The exam timetable"
+   },
+   {
+    "at": "0:28",
+    "label": "Local search"
+   },
+   {
+    "at": "1:14",
+    "label": "Annealing"
+   },
+   {
+    "at": "2:14",
+    "label": "Remember and try it"
+   }
+  ],
+  "scenes": [
+   {
+    "n": 1,
+    "start": "0:00",
+    "end": "0:17",
+    "beat": "Hook",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "",
+    "voice": "Dr Salma",
+    "narration": "The faculty must schedule six hundred exams into three weeks with no student sitting two at once. An exact solver runs all weekend and does not finish. A simple heuristic finds a clash-free timetable in a minute. Is it the best one?",
+    "icons": [
+     "calendar",
+     "clock",
+     "help"
+    ]
+   },
+   {
+    "n": 2,
+    "start": "0:17",
+    "end": "0:28",
+    "beat": "Title",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Heuristics and simulated annealing",
+    "voice": "Narrator",
+    "narration": "Today: why some problems are too large for exact methods, how local search gets stuck, and how simulated annealing escapes by sometimes accepting worse moves."
+   },
+   {
+    "n": 3,
+    "start": "0:28",
+    "end": "0:42",
+    "beat": "Definition",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Heuristics",
+    "voice": "Narrator",
+    "narration": "Many scheduling and routing problems are NP-hard, so exact methods may take impossibly long on large instances. Heuristics trade the guarantee of optimality for good solutions found quickly. They need careful evaluation instead.",
+    "icons": [
+     "zap",
+     "search"
+    ]
+   },
+   {
+    "n": 4,
+    "start": "0:42",
+    "end": "0:59",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Local search",
+    "voice": "Narrator",
+    "narration": "Local search starts from a solution and repeatedly moves to a better neighbour, for example by moving one exam to another slot. It stops when no neighbour is better. That point is a local optimum, which may be far from the best.",
+    "icons": [
+     "arrow",
+     "repeat"
+    ]
+   },
+   {
+    "n": 5,
+    "start": "0:59",
+    "end": "1:14",
+    "beat": "Examples",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Accepting worse moves",
+    "voice": "Narrator",
+    "narration": "Simulated annealing sometimes accepts a worse move, with probability e to the minus delta over T. At high temperature it explores freely. As T cools, it settles, and with slow enough cooling it can escape local optima.",
+    "icons": [
+     "thermometer"
+    ]
+   },
+   {
+    "n": 6,
+    "start": "1:14",
+    "end": "1:31",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Temperature in numbers",
+    "voice": "Narrator",
+    "narration": "A move that is worse by two is accepted with probability e to the minus two at temperature one, about fourteen percent. At temperature ten it is accepted about eighty two percent of the time. Cooling turns exploration into refinement.",
+    "icons": [
+     "calculator",
+     "thermometer"
+    ]
+   },
+   {
+    "n": 7,
+    "start": "1:31",
+    "end": "1:47",
+    "beat": "Concept",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Teach evaluation, not just algorithms",
+    "voice": "Dr Okafor",
+    "narration": "Students often report one run of a heuristic and call it the answer. Require several runs with different seeds, a comparison with a lower bound or an exact solution on small instances, and a plot of cost against time.",
+    "icons": [
+     "gauge",
+     "users"
+    ]
+   },
+   {
+    "n": 8,
+    "start": "1:47",
+    "end": "1:55",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Why did it stop?",
+    "voice": "Dr Salma",
+    "narration": "Quick check! Local search stops with eight clashes left, and no single exam move reduces them. What has it found?"
+   },
+   {
+    "n": 9,
+    "start": "1:55",
+    "end": "2:04",
+    "beat": "Reveal",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "A local optimum",
+    "voice": "Narrator",
+    "narration": "A local optimum. No neighbour is better, but a sequence of moves, some worse at first, might reach zero clashes.",
+    "icons": [
+     "target",
+     "check"
+    ]
+   },
+   {
+    "n": 10,
+    "start": "2:04",
+    "end": "2:14",
+    "beat": "Lab preview",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "App lab: annealing",
+    "voice": "Narrator",
+    "narration": "In the app, open the annealing lab. Run local search and annealing on the same problem, change the cooling rate, and compare the final costs.",
+    "icons": [
+     "thermometer",
+     "repeat"
+    ]
+   },
+   {
+    "n": 11,
+    "start": "2:14",
+    "end": "2:22",
+    "beat": "Checkpoint ◆",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Acceptance probability",
+    "voice": "Dr Okafor",
+    "narration": "Your turn. At temperature two, how likely is annealing to accept a move that is worse by two?"
+   },
+   {
+    "n": 12,
+    "start": "2:22",
+    "end": "2:34",
+    "beat": "Recap",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Search, escape, evaluate",
+    "voice": "Narrator",
+    "narration": "About thirty seven percent: e to the minus one. Remember: local search finds local optima, annealing escapes by accepting some worse moves, and heuristics must be evaluated over many runs."
+   },
+   {
+    "n": 13,
+    "start": "2:34",
+    "end": "2:51",
+    "beat": "Try it tomorrow",
+    "visual": "",
+    "animation": "",
+    "on_screen_text": "Try it in your next lecture",
+    "voice": "Narrator",
+    "narration": "Try it in your next lecture: give each row of students a different random seed and the same timetable problem. Each row runs annealing and reports its final cost. Plot all the results on the board and discuss the spread.",
+    "icons": [
+     "presentation",
+     "thermometer",
+     "users"
+    ]
+   }
+  ],
+  "checkpoints": [
+   {
+    "at": "1:53",
+    "after_scene": 8,
+    "type": "choice",
+    "prompt": "Local search stops with 8 clashes; no single move helps. It has found:",
+    "options": [
+     {
+      "text": "The global optimum",
+      "correct": false
+     },
+     {
+      "text": "A local optimum",
+      "correct": true
+     },
+     {
+      "text": "An infeasible region",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: no neighbour is better, but better solutions may exist.",
+    "feedback_wrong": "Not quite: stopping only means no single move improves it.",
+    "resume_at": "1:55"
+   },
+   {
+    "at": "2:20",
+    "after_scene": 11,
+    "type": "choice",
+    "prompt": "At T = 2, a move worse by 2 is accepted with probability about:",
+    "options": [
+     {
+      "text": "37%",
+      "correct": true
+     },
+     {
+      "text": "14%",
+      "correct": false
+     },
+     {
+      "text": "100%",
+      "correct": false
+     }
+    ],
+    "feedback_correct": "Correct: e^(−2/2) = e^(−1) ≈ 0.37.",
+    "feedback_wrong": "Not quite: p = e^(−Δ/T) = e^(−1) ≈ 0.37.",
+    "resume_at": "2:22"
+   }
+  ]
+ }
+}

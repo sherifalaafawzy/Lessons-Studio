@@ -254,6 +254,20 @@ describe("player", () => {
     expect(document.documentElement.style.overflow).toBe("");
   });
 
+  it("scrubs along the screen's y when turned on its side (iPhone page fullscreen)", () => {
+    const { p, root } = mk("prompt-injection");
+    const wrap = root.querySelector<HTMLElement>(".ls-player")!;
+    const track = root.querySelector<HTMLElement>(".ls-track")!;
+    const seekEl = root.querySelector<HTMLInputElement>(".ls-seek")!;
+    wrap.classList.add("ls-full", "ls-turned");
+    track.getBoundingClientRect = () => ({ left: 0, top: 100, width: 20, height: 400, right: 20, bottom: 500, x: 0, y: 100, toJSON: () => ({}) });
+    const at = (type: string, y: number) => seekEl.dispatchEvent(new MouseEvent(type, { clientX: 5, clientY: y, bubbles: true }));
+    at("pointerdown", 200);
+    expect(p.time()).toBeCloseTo(p.duration / 4, 0);
+    at("pointermove", 400);
+    expect(p.time()).toBeCloseTo((p.duration * 3) / 4, 0);
+    at("pointerup", 400);
+  });
   it("lets the host ask the check instead", async () => {
     let asked = "";
     const { p, pkg } = mk("phishing-message", {

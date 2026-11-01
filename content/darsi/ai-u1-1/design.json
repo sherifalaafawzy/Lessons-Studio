@@ -1,0 +1,228 @@
+{
+  "scenes": {
+    "1": {
+      "mood": "curious",
+      "list": [
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "First neural network",
+            "ar-EG": "أول شبكة عصبية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Loss = nan",
+            "ar-EG": "الخسارة = nan"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Learning rate 10, not 0.1",
+            "ar-EG": "معدّل التعلّم 10 مش 0.1"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ]
+    },
+    "3": {
+      "who": null,
+      "code": {
+        "text": "R̂(θ) = (1/n) Σ ℓ(f_θ(xᵢ), yᵢ)\nθ* = argmin_θ R̂(θ)",
+        "s": 1
+      }
+    },
+    "4": {
+      "who": null,
+      "code": {
+        "text": "θ ← θ − η ∇R̂(θ)\nη small → slow\nη too big → diverges",
+        "s": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "chart": {
+        "kind": "bar",
+        "data": [
+          80,
+          4,
+          95
+        ],
+        "labels": [
+          {
+            "en": "η = 0.001",
+            "ar-EG": "η = 0.001"
+          },
+          {
+            "en": "η = 0.1",
+            "ar-EG": "η = 0.1"
+          },
+          {
+            "en": "η = 2",
+            "ar-EG": "η = 2"
+          }
+        ],
+        "unit": {
+          "en": "Loss after 50 steps",
+          "ar-EG": "الخسارة بعد 50 خطوة"
+        },
+        "s": 1,
+        "max": 100
+      }
+    },
+    "6": {
+      "list": [
+        {
+          "icon": "layers",
+          "text": {
+            "en": "Full gradient: exact, slow",
+            "ar-EG": "التدرّج الكامل: دقيق وبطيء"
+          },
+          "s": 0
+        },
+        {
+          "icon": "shuffle",
+          "text": {
+            "en": "Mini-batch: noisy, cheap",
+            "ar-EG": "الدفعة الصغيرة: فيها ضوضاء ورخيصة"
+          },
+          "s": 1
+        },
+        {
+          "icon": "zap",
+          "text": {
+            "en": "Many cheap steps win",
+            "ar-EG": "خطوات رخيصة كتير بتكسب"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "shuffle"
+    },
+    "7": {
+      "list": [
+        {
+          "icon": "help",
+          "text": {
+            "en": "Myth: gradient points to the minimum",
+            "ar-EG": "خرافة: التدرّج بيشاور على القاع"
+          },
+          "s": 0,
+          "tone": "accent"
+        },
+        {
+          "icon": "map",
+          "text": {
+            "en": "It points uphill, locally",
+            "ar-EG": "بيشاور لفوق محليًا"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Step by hand first",
+            "ar-EG": "خطوات باليد الأول"
+          },
+          "s": 2
+        }
+      ]
+    },
+    "10": {
+      "list": [
+        {
+          "icon": "mapPin",
+          "text": {
+            "en": "Pick a start",
+            "ar-EG": "اختار البداية"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "Change the rate",
+            "ar-EG": "غيّر المعدّل"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Converge, crawl or explode",
+            "ar-EG": "تقارب أو زحف أو انفجار"
+          },
+          "s": 2,
+          "tone": "accent"
+        }
+      ],
+      "aside": "gauge"
+    },
+    "12": {
+      "points": [
+        {
+          "text": {
+            "en": "Learning = minimising average loss",
+            "ar-EG": "التعلّم = تقليل متوسط الخسارة"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "θ ← θ − η∇R̂",
+            "ar-EG": "θ ← θ − η∇R̂"
+          },
+          "s": 1
+        },
+        {
+          "text": {
+            "en": "Too big a step diverges",
+            "ar-EG": "الخطوة الكبيرة بتنفجر"
+          },
+          "s": 1
+        }
+      ],
+      "takeaway": {
+        "en": "Step by hand before you code.",
+        "ar-EG": "خطّي باليد قبل ما تبرمج."
+      }
+    },
+    "13": {
+      "list": [
+        {
+          "icon": "file",
+          "text": {
+            "en": "Loss θ² and three rates",
+            "ar-EG": "الخسارة θ² وتلات معدّلات"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Five steps by hand",
+            "ar-EG": "خمس خطوات باليد"
+          },
+          "s": 1,
+          "o": 1.5
+        },
+        {
+          "icon": "eye",
+          "text": {
+            "en": "Compare the paths",
+            "ar-EG": "قارنوا المسارات"
+          },
+          "s": 2,
+          "tone": "ok"
+        }
+      ]
+    }
+  }
+}
