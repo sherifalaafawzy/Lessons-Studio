@@ -73,6 +73,8 @@ export const math: KitRenderer = (el, box, ctx) => {
       }
       case "bf": return h("span", { className: "lm-bf" }, node(n.a));
       case "fence": return h("span", { className: "lm-fence" }, delim(n.l, arabic), h("span", { className: "lm-fb" }, node(n.a)), delim(n.r, arabic));
+      case "stack": return h("span", { className: "lm-stack" }, ...n.lines.map((ln) => h("span", { className: "lm-sl" },
+        h("span", { className: "lm-sll" }, node(ln.l)), h("span", { className: "lm-slr" }, node(ln.r)))));
       case "mat": {
         const cols = Math.max(...n.rows.map((r) => r.length));
         const grid = h("span", { className: "lm-mat" }, ...n.rows.flatMap((r) => Array.from({ length: cols }, (_, j) => h("span", null, r[j] ? node(r[j]!) : ""))));

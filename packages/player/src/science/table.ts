@@ -1,4 +1,4 @@
-import type { TableElement } from "@lessonstudio/spec";
+import type { TableCell, TableElement, Tone } from "@lessonstudio/spec";
 import { h, rich } from "../dom.ts";
 import { clamp01, fix } from "../motion.ts";
 import type { KitRenderer } from "../templates/types.ts";
@@ -6,15 +6,23 @@ import { num } from "./util.ts";
 
 /**
  * A table that fills row by row. It follows the lesson's direction (columns run right to left in Arabic); numbers and
- * the `ltr` columns (code, ids) stay left to right inside their cells.
+ * the `ltr` columns (code, ids) stay left to right inside their cells. A number cell can carry a tone, and `heat`
+ * shades numbers from 0 to 1, so a grid of scores reads as a picture.
  */
 export const table: KitRenderer = (el, box, ctx) => {
   const e = el as TableElement;
   const rtl = ctx.dir === "rtl";
   const ltr = new Set(e.ltr ?? []);
-  const cell = (v: string | number | Record<string, string>, col: number, tag: "td" | "th"): HTMLElement => {
+  const open = (v: TableCell): { value: string | number | Record<string, string>; tone?: Tone } =>
+    (typeof v === "object" && v !== null && "v" in v ? { value: v.v as never, tone: v.tone as Tone | undefined } : { value: v as never });
+  const cell = (raw: TableCell, col: number, tag: "td" | "th"): HTMLElement => {
+    const { value: v, tone } = open(raw);
     const c = h(tag, null);
-    if (typeof v === "number") { c.append(h("bdi", { dir: "ltr" }, num(v))); c.className = "lt-num"; }
+    if (tone) c.classList.add(`is-${tone}`);
+    const heat = e.heat && typeof v === "number" ? Math.max(0, Math.min(1, v)) : null;
+    if (heat !== null && heat >= 0.66) c.classList.add("is-hot");
+    else if (heat !== null && heat >= 0.33) c.classList.add("is-warm");
+    if (typeof v === "number") { c.append(h("bdi", { dir: "ltr" }, num(v))); c.classList.add("lt-num"); }
     else if (ltr.has(col)) { const s = typeof v === "string" ? v : ctx.t(v); c.append(h("bdi", { dir: "ltr" }, s)); }
     else c.append(...rich(typeof v === "string" ? v : ctx.t(v), rtl));
     return c;

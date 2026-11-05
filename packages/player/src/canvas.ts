@@ -223,12 +223,18 @@ export function mountLayer(elements: Element[], ctx: Ctx): Layer {
         pos(el.x, el.y, w, hgt);
         box.setAttribute("dir", "ltr");
         box.style.fontSize = `${el.size ?? 28}px`;
+        // A code example: the program types itself, then its result and caption appear. Always left to right.
         const lines = el.code.split("\n");
         const total = lines.reduce((a, l) => a + l.length, 0) || 1;
         const rows = lines.map((l, i) => h("span", { className: (el.highlight ?? []).includes(i + 1) ? "ls-code-line is-mark" : "ls-code-line" }, l || " "));
         box.append(h("pre", null, ...rows));
+        const tail: HTMLElement[] = [];
+        if (el.result) tail.push(h("div", { className: "ls-code-out", dir: "ltr" }, el.result));
+        if (el.caption) tail.push(h("div", { className: "ls-code-cap", dir: ctx.dir }, ctx.t(el.caption)));
+        for (const n of tail) box.append(n);
         let shownBefore = -1;
         paint = (reveal) => {
+          for (const n of tail) ctx.wr.style(n, "opacity", reveal >= 0.98 ? "1" : "0");
           // Typed out letter by letter; rewritten only when the count changes.
           const shown = Math.round(reveal * total);
           if (shown === shownBefore) return;

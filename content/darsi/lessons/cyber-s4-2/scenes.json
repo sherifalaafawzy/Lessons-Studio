@@ -4183,7 +4183,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 770,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -4246,621 +4246,121 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "packet",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "ok",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "packet",
+      "fields": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "name": {
+         "en": "From",
+         "ar-EG": "من"
+        },
+        "value": "192.168.1.20",
+        "size": "4 B"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "name": {
+         "en": "To",
+         "ar-EG": "إلى"
+        },
+        "value": "203.0.113.10",
+        "size": "4 B"
+       },
+       {
+        "name": {
+         "en": "Port",
+         "ar-EG": "المنفذ"
+        },
+        "value": "443",
+        "size": "2 B"
+       },
+       {
+        "name": {
+         "en": "Page",
+         "ar-EG": "الصفحة"
+        },
+        "value": "/grades?id=7",
+        "size": "12 B",
+        "secret": true,
+        "cipher": "8727 81bc 1cdc"
+       },
+       {
+        "name": {
+         "en": "Password",
+         "ar-EG": "كلمة المرور"
+        },
+        "value": "maths2026",
+        "size": "9 B",
+        "secret": true,
+        "cipher": "d5c4 6651"
        }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "lock",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "ok",
-      "anim": [
+      ],
+      "groups": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "label": {
+         "en": "IP header",
+         "ar-EG": "ترويسة IP"
+        },
+        "span": 2,
+        "tone": "accent"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "label": {
+         "en": "TCP",
+         "ar-EG": "TCP"
+        },
+        "span": 1,
+        "tone": "accent2"
+       },
+       {
+        "label": {
+         "en": "Data",
+         "ar-EG": "البيانات"
+        },
+        "span": 2,
+        "tone": "ok"
        }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Proves: the connection is private",
-       "ar-EG": "بيثبت: الاتصال سري"
-      },
+      ],
+      "watch": true,
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
+            "en": "When",
+            "ar-EG": "لما"
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "ok",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
           "value": 0
          },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.9
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "link",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "ok",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.95
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Proves: it goes to that address",
-       "ar-EG": "بيثبت: رايح للعنوان ده"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.95
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "But",
-            "ar-EG": "القفل"
-           },
-           "offset": 0.8
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 418,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "danger",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "warning",
-      "x": 104,
-      "y": 432,
-      "w": 43,
-      "h": 43,
-      "tone": "danger",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 429,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Doesn’t prove: the site is honest",
-       "ar-EG": "مش بيثبت: إن الموقع أمين"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 469
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.45
-          },
-          "value": 429,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "scam",
-            "ar-EG": "وموقع"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "aside",
-      "type": "shape",
-      "shape": "ellipse",
-      "x": 900,
-      "y": 220,
-      "w": 300,
-      "h": 300,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
          {
           "at": {
            "word": {
             "en": "When",
             "ar-EG": "لما"
            },
-           "offset": 0
+           "offset": 1.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "frame",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "When",
+            "ar-EG": "لما"
+           }
           },
           "value": 0
          },
@@ -4870,100 +4370,10 @@
             "en": "When",
             "ar-EG": "لما"
            },
-           "offset": 0.5
+           "offset": 1.2
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "asideicon",
-      "type": "icon",
-      "icon": "lock",
-      "x": 975,
-      "y": 295,
-      "w": 150,
-      "h": 150,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0.6
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "When",
-            "ar-EG": "لما"
-           },
-           "offset": 0.25
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "in-out"
          }
         ]
        }

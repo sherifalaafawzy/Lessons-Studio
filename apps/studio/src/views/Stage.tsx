@@ -10,6 +10,8 @@ import { elementPath, partPath, setText } from "../parts.ts";
 import { HANDLES, angleFrom, resizeBox, snapMove, type Guide, type Handle, type Rect } from "../snap.ts";
 import { t } from "../i18n.ts";
 import { LIBRARY } from "../env.ts";
+import type { PackId } from "@lessonstudio/spec";
+import { packsForTrack } from "@lessonstudio/spec";
 import { ELEMENT_KINDS, addElement, addPackElement, addScience, designSize, moveOps } from "./content.tsx";
 import { SCIENCE_KINDS } from "../science.ts";
 import { TECH_PACKS, packElements } from "../packs.ts";
@@ -40,26 +42,31 @@ interface Drag {
   turn: number;
 }
 
-/** "Packs…": an element of each technology pack type that the packs' scenes use, grouped by pack (hidden until a pack has some). */
+/** "Packs…": science drawings and one element of each technology-pack type, the lesson's own packs first. */
 function PackMenu() {
   const l = lesson.value;
   const scene = currentScene.value;
   if (!l) return null;
   const items = packElements(l.manifest.languages.map((x) => x.code), l.manifest.stage ?? "landscape");
-  if (!items.length) return null;
+  const lead = new Set(packsForTrack(l.manifest.track));
+  const rest = TECH_PACKS.filter((p) => items.some((x) => x.pack === p));
+  const packs: PackId[] = ["science", ...rest];
+  const ordered = [...packs.filter((p) => lead.has(p)), ...packs.filter((p) => !lead.has(p))];
   return (
     <select class="chip chip-select" aria-label={t("addPackElement")} value="" disabled={!scene}
       onChange={(e) => {
-        const type = (e.target as HTMLSelectElement).value;
+        const value = (e.target as HTMLSelectElement).value;
         (e.target as HTMLSelectElement).value = "";
-        if (!scene || !type) return;
-        const id = addPackElement(scene, type);
+        if (!scene || !value) return;
+        const id = value.startsWith("sci:") ? addScience(scene, value.slice(4)) : addPackElement(scene, value);
         if (id) elementId.value = id;
       }}>
       <option value="">{t("packsMenu")}…</option>
-      {TECH_PACKS.filter((p) => items.some((x) => x.pack === p)).map((p) => (
+      {ordered.map((p) => (
         <optgroup key={p} label={packName(p)}>
-          {items.filter((x) => x.pack === p).map((x) => <option key={x.type} value={x.type}>{packTypeName(x.type)}</option>)}
+          {p === "science"
+            ? SCIENCE_KINDS.map((k) => <option key={k.key} value={`sci:${k.key}`}>{t(k.label)}</option>)
+            : items.filter((x) => x.pack === p).map((x) => <option key={x.type} value={x.type}>{packTypeName(x.type)}</option>)}
         </optgroup>
       ))}
     </select>
@@ -395,20 +402,6 @@ export function Stage() {
             <button type="button" key={kind.key} class="chip" disabled={!scene}
               onClick={() => { if (!scene) return; const id = addElement(scene, kind.key); if (id) elementId.value = id; }}>{t(kind.label)}</button>
           ))}
-          <select class="chip chip-select" aria-label={t("addScience")} value="" disabled={!scene}
-            onChange={(e) => {
-              const k = (e.target as HTMLSelectElement).value;
-              (e.target as HTMLSelectElement).value = "";
-              if (!scene || !k) return;
-              const id = addScience(scene, k);
-              if (id) elementId.value = id;
-            }}>
-            <option value="">{t("science")}…</option>
-            {SCIENCE_KINDS.filter((k) => !k.key.startsWith("arch-")).map((k) => <option key={k.key} value={k.key}>{t(k.label)}</option>)}
-            <optgroup label={t("sciArchGroup")}>
-              {SCIENCE_KINDS.filter((k) => k.key.startsWith("arch-")).map((k) => <option key={k.key} value={k.key}>{t(k.label)}</option>)}
-            </optgroup>
-          </select>
           <PackMenu />
         </div>
         <span class="spacer" />

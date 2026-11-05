@@ -36,6 +36,8 @@ const CSS = `
 .lm-bf,.lm-bf i{font-weight:700;font-style:normal}
 .lm-fence{display:inline-flex;align-items:stretch;vertical-align:middle}
 .lm-mat{display:inline-grid;gap:.18em .7em;padding:.12em .2em;align-items:center;justify-items:center}
+.lm-stack{display:inline-grid;grid-template-columns:auto auto;row-gap:.28em;column-gap:.15em;align-items:center;vertical-align:middle}
+.lm-sl{display:contents}.lm-sll{justify-self:end}.lm-slr{justify-self:start}
 .lm-g{display:inline-block;border-radius:.15em}
 .lm-g.is-on{color:var(--ls-hi-fg);box-shadow:0 .1em 0 currentColor}
 .lp text,.ln text,.la-svg text{font-family:var(--ls-font)}
@@ -79,6 +81,10 @@ const CSS = `
 .lt{border-collapse:collapse;width:100%;background:var(--ls-card);border:3px solid var(--ls-fg);box-shadow:var(--ls-shadow)}
 .lt th,.lt td{padding:.32em .6em;border-bottom:2px solid var(--ls-line);text-align:start}
 .lt th{background:var(--ls-surface);font-weight:800}.lt td.lt-num{text-align:end;font-variant-numeric:tabular-nums}
+.lt td.is-accent,.lt td.is-hot{background:var(--ls-accent);color:var(--ls-on-accent);font-weight:800}
+.lt td.is-ok{background:var(--ls-ok);color:var(--ls-on-accent);font-weight:800}
+.lt td.is-danger{background:var(--ls-danger);color:var(--ls-on-accent);font-weight:800}
+.lt td.is-accent2,.lt td.is-warm{background:var(--ls-accent2);color:var(--ls-on-accent);font-weight:800}
 .lt tr.is-on td{background:var(--ls-accent2);color:var(--ls-on-accent);font-weight:800}
 `;
 

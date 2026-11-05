@@ -11,6 +11,8 @@ export interface Brief {
   defaultLang?: Lang;
   summary?: Text;
   topic?: string;
+  /** A track id. The studio leads with that track's packs. */
+  track?: string;
   level?: number;
   brand?: string;
   stage?: Orient;
@@ -33,6 +35,7 @@ export function newLesson(b: Brief, today = new Date().toISOString().slice(0, 10
       title: b.title,
       ...(b.summary ? { summary: b.summary } : {}),
       ...(b.topic ? { topic: b.topic } : {}),
+      ...(b.track ? { track: b.track } : {}),
       ...(b.level ? { level: b.level } : {}),
       defaultLang: def,
       languages: b.languages.map((l) => ({

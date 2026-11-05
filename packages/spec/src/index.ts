@@ -14,5 +14,5 @@ export { SCIENCE_TYPES } from "./validate.ts";
 export { parseTex, TexError, TEX_TONES, type MNode, type ParsedTex } from "./science/tex.ts";
 export { compileExpr, ExprError, type Fn } from "./science/expr.ts";
 export { ARCH_KINDS, SCIENCE_LIMITS } from "./science/check.ts";
-export { PACKS, PACK_IDS, PACK_TYPES, packOf, packsUsed, type PackId } from "./elements.ts";
+export { PACKS, PACK_IDS, PACK_TYPES, TRACKS, TRACK_PACKS, packOf, packsForTrack, packsUsed, type PackId, type TrackId } from "./elements.ts";
 export type { PackCheck, PackCheckCtx } from "./packs/types.ts";

@@ -92,63 +92,88 @@
       }
     },
     "4": {
-      "list": [
-        {
-          "icon": "clock",
-          "text": {
-            "en": "Every evening at 6",
-            "ar-EG": "كل يوم الساعة 6"
+      "who": null,
+      "pipeline": {
+        "records": 6,
+        "stages": [
+          {
+            "id": "read",
+            "label": {
+              "en": "Registers",
+              "ar-EG": "الكشوف"
+            },
+            "icon": "page",
+            "kind": "source"
           },
-          "s": 0
-        },
-        {
-          "icon": "cog",
-          "text": {
-            "en": "Runs on its own",
-            "ar-EG": "بيشتغل لوحده"
+          {
+            "id": "count",
+            "label": {
+              "en": "Count",
+              "ar-EG": "عدّ"
+            },
+            "icon": "chip"
           },
-          "s": 1
-        },
-        {
-          "icon": "presentation",
-          "tone": "ok",
-          "text": {
-            "en": "Ready each morning",
-            "ar-EG": "جاهز كل صبح"
-          },
-          "s": 1,
-          "o": 2
-        }
-      ]
+          {
+            "id": "report",
+            "label": {
+              "en": "Report",
+              "ar-EG": "التقرير"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "frames": [
+          0,
+          1
+        ]
+      }
     },
     "5": {
-      "list": [
-        {
-          "icon": "wifi-off",
-          "text": {
-            "en": "The connection drops",
-            "ar-EG": "الاتصال بيقطع"
+      "who": null,
+      "pipeline": {
+        "records": 6,
+        "stages": [
+          {
+            "id": "read",
+            "label": {
+              "en": "Registers",
+              "ar-EG": "الكشوف"
+            },
+            "icon": "page",
+            "kind": "source"
           },
-          "s": 1
+          {
+            "id": "count",
+            "label": {
+              "en": "Count",
+              "ar-EG": "عدّ"
+            },
+            "icon": "chip"
+          },
+          {
+            "id": "report",
+            "label": {
+              "en": "Report",
+              "ar-EG": "التقرير"
+            },
+            "icon": "data",
+            "kind": "store"
+          }
+        ],
+        "bad": [
+          2
+        ],
+        "fix": "aside",
+        "aside": {
+          "en": "Send it back",
+          "ar-EG": "أرجعه للمصدر"
         },
-        {
-          "icon": "database",
-          "text": {
-            "en": "The database is busy",
-            "ar-EG": "قاعدة البيانات مشغولة"
-          },
-          "s": 2
-        },
-        {
-          "icon": "help",
-          "tone": "danger",
-          "text": {
-            "en": "“?” instead of P or A",
-            "ar-EG": "«؟» بدل P أو A"
-          },
-          "s": 3
-        }
-      ]
+        "frames": [
+          0,
+          1
+        ]
+      }
     },
     "6": {
       "table": {

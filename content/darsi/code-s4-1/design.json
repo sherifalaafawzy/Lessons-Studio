@@ -79,51 +79,55 @@
       }
     },
     "6": {
-      "list": [
-        {
-          "icon": "check",
-          "tone": "ok",
-          "text": {
-            "en": "O(1): the first item",
-            "ar-EG": "أول عنصر: O(1)"
-          },
-          "s": 1
+      "who": null,
+      "plot": {
+        "xr": [
+          1,
+          8
+        ],
+        "yr": [
+          0,
+          70
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "Size",
+          "ar-EG": "الحجم"
         },
-        {
-          "icon": "scissors",
-          "text": {
-            "en": "O(log n): halving",
-            "ar-EG": "التنصيف: O(log n)"
-          },
-          "s": 2
+        "yLabel": {
+          "en": "Work",
+          "ar-EG": "الشغل"
         },
-        {
-          "icon": "repeat",
-          "text": {
-            "en": "O(n): one pass",
-            "ar-EG": "لفّة واحدة: O(n)"
+        "series": [
+          {
+            "kind": "fn",
+            "fn": "x",
+            "tone": "ok",
+            "label": {
+              "en": "O(n)",
+              "ar-EG": "O(n)"
+            }
           },
-          "s": 3
-        },
-        {
-          "icon": "layers",
-          "text": {
-            "en": "O(n log n): merge sort",
-            "ar-EG": "الترتيب بالدمج: O(n log n)"
+          {
+            "kind": "fn",
+            "fn": "x*log(x)",
+            "tone": "accent",
+            "label": {
+              "en": "O(n log n)",
+              "ar-EG": "O(n log n)"
+            }
           },
-          "s": 4
-        },
-        {
-          "icon": "warning",
-          "tone": "danger",
-          "text": {
-            "en": "O(n²): every pair",
-            "ar-EG": "كل اتنين: O(n²)"
-          },
-          "s": 5
-        }
-      ],
-      "aside": "gauge"
+          {
+            "kind": "fn",
+            "fn": "x*x",
+            "tone": "danger",
+            "label": {
+              "en": "O(n^2)",
+              "ar-EG": "O(n^2)"
+            }
+          }
+        ]
+      }
     },
     "8": {
       "who": null,

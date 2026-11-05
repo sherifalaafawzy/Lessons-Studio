@@ -38,9 +38,7 @@ export function AddPanel() {
     <section class="gallery-panel" aria-label={t("addScene")}>
       <p class="f-hint">{t("galleryHint")}</p>
       {cards(GALLERY.filter((g) => !g.group))}
-      <h3>{t("galleryScience")}</h3>
-      {cards(GALLERY.filter((g) => g.group === "science"))}
-      <PackCards langs={langs} stage={stage} done={done} />
+      <PackCards langs={langs} stage={stage} track={l.manifest.track} done={done} />
       <h3>{t("blankScene")}</h3>
       <div class="tpl-pick" role="group" aria-label={t("chooseTemplate")}>
         {TEMPLATES.map((tp) => (
@@ -52,15 +50,17 @@ export function AddPanel() {
 }
 
 /** The technology packs' gallery scenes, pack by pack; packs without any are left out (and the heading too). */
-function PackCards({ langs, stage, done }: { langs: string[]; stage: "landscape" | "portrait" | "square"; done: (id: string | null) => void }) {
-  const groups = packGallery(langs, stage);
+function PackCards({ langs, stage, track, done }: { langs: string[]; stage: "landscape" | "portrait" | "square"; track?: string; done: (id: string | null) => void }) {
+  const groups = packGallery(langs, stage, track);
   if (!groups.length) return null;
+  const featured = groups.some((g) => g.featured);
   return (
     <section class="gal-packs" aria-label={t("packsTitle")}>
       <h3>{t("packsTitle")}</h3>
+      {featured ? <p class="f-hint">{t("packsLead")}</p> : <p class="f-hint">{t("packsPickTrack")}</p>}
       {groups.map((g) => (
         <div key={g.pack} class="gal-pack" role="group" aria-label={packName(g.pack)}>
-          <h4>{packName(g.pack)}</h4>
+          <h4>{packName(g.pack)}{g.featured ? <span class="badge">{t("packForTrack")}</span> : null}</h4>
           <ul class="gal-grid">
             {g.presets.map((p) => (
               <li key={p.id}>

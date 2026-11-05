@@ -16,6 +16,7 @@ const show = (n: MNode): string => {
     case "bf": return `bf(${show(n.a)})`;
     case "fence": return `${n.l}${show(n.a)}${n.r}`;
     case "mat": return `mat${n.l}${n.rows.map((r) => r.map(show).join("&")).join("\\\\")}${n.r}`;
+    case "stack": return `stack(${n.lines.map((l) => `${show(l.l)}&${show(l.r)}`).join("|")})`;
     case "g": return `g${n.n}(${show(n.a)})`;
     case "c": return `${n.tone}(${show(n.a)})`;
     case "sp": return "␣";
@@ -48,7 +49,8 @@ describe("TeX subset", () => {
     for (const bad of ["\\frac{1}", "x^", "{x", "\\unknown", "a^b^c", "\\g{0}{x}", "\\c{pink}{x}", "\\begin{bmatrix} 1 \\end{pmatrix}", "\\left( x", "x & y", "\\text{\\alpha}"]) {
       expect(() => parseTex(bad), bad).toThrow();
     }
-    expect(() => parseTex("x".repeat(401))).toThrow(/400/);
+    expect(show(parseTex("\\begin{aligned} L &= (\\hat{y}-y)^2 \\\\ &= 2.4 \\end{aligned}").root)).toBe("stack(L&[= ( hat(y) − y )^2]|[]&[= 2.4])");
+    expect(() => parseTex("x".repeat(801))).toThrow(/800/);
   });
 });
 
@@ -99,6 +101,8 @@ describe("science elements in a package", () => {
     expect(codes([{ id: "pl", type: "plot", x: 0, y: 0, w: 600, h: 400, xr: [1, 0], yr: [0, 1], series: [{ kind: "fn", fn: "x +" }] }])).toEqual(["badRange", "badFn"]);
     expect(codes([{ id: "nt", type: "net", x: 0, y: 0, w: 600, h: 400, layers: [2, 3], weights: [[[[1, 2, 3]]]] }])).toEqual(["badWeights"]);
     expect(codes([{ id: "nt", type: "net", x: 0, y: 0, w: 600, h: 400, layers: [10, 10, 10, 10, 10] }])).toContain("tooManyNeurons");
+    expect(codes([{ id: "nt", type: "net", x: 0, y: 0, w: 600, h: 400, form: "deep", layers: [784, 128, 64, 10], labels: { layers: [{ en: "In", ar: "دخل" }, { en: "H", ar: "خ" }, { en: "H", ar: "خ" }, { en: "Out", ar: "خرج" }] } }])).toEqual([]);
+    expect(codes([{ id: "tb", type: "table", x: 0, y: 0, w: 400, h: 200, heat: true, cols: ["A", "B"], rows: [[{ v: 0.7, tone: "accent" }, 0.2]] }])).toEqual([]);
     expect(codes([{ id: "ar", type: "arch", x: 0, y: 0, w: 600, h: 400, blocks: [{ id: "a", kind: "dense", label: { en: "A", ar: "أ" } }, { id: "b", kind: "dense", label: { en: "B", ar: "ب" } }], edges: [{ from: "a", to: "b" }, { from: "b", to: "a" }] }])).toEqual(["archCycle"]);
     expect(codes([{ id: "tx", type: "text", x: 0, y: 0, text: { en: "x", ar: "س" }, anim: [{ prop: "pass", keys: [{ at: 0, value: 1 }] }] }])).toEqual(["badProp"]);
   });

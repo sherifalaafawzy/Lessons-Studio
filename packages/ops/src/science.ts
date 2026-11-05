@@ -248,8 +248,8 @@ export function descentPlot(fn: string, x0: number, lr: number, steps: number, b
 
 /* ---------- architecture diagrams ---------- */
 
-export type ArchPreset = "mlp" | "cnn" | "rnn" | "transformer" | "gpt" | "seq2seq" | "resnet" | "autoencoder" | "gan" | "agent" | "rag";
-export const ARCH_PRESETS: ArchPreset[] = ["mlp", "cnn", "rnn", "transformer", "gpt", "seq2seq", "resnet", "autoencoder", "gan", "agent", "rag"];
+export type ArchPreset = "mlp" | "cnn" | "rnn" | "transformer" | "gpt" | "seq2seq" | "resnet" | "autoencoder" | "gan" | "agent" | "rag" | "deep";
+export const ARCH_PRESETS: ArchPreset[] = ["mlp", "cnn", "rnn", "transformer", "gpt", "seq2seq", "resnet", "autoencoder", "gan", "agent", "rag", "deep"];
 
 type B = [id: string, kind: ArchKind, en: string, ar: string, noteEn?: string, noteAr?: string];
 
@@ -262,6 +262,13 @@ export function archPreset(name: ArchPreset, box: Box, langs: string[] = ["en", 
   const make = (b: B[], edges: ArchElement["edges"], extra: Partial<ArchElement> = {}): ArchElement =>
     ({ ...box, type: "arch", blocks: blocks(b), edges, ...extra });
   switch (name) {
+    case "deep": return make([
+      ["in", "input", "Input", "المدخلات", "784"],
+      ["h1", "dense", "Hidden", "مخفية", "128, ReLU"],
+      ["h2", "dense", "Hidden", "مخفية", "64, ReLU"],
+      ["h3", "dense", "Hidden", "مخفية", "32, ReLU"],
+      ["out", "softmax", "Output", "المخرجات", "10"],
+    ], chain(["in", "h1", "h2", "h3", "out"]));
     case "mlp": return make([
       ["in", "input", "Input", "المدخلات", "x₁ … xₙ"], ["h1", "dense", "Hidden layer", "طبقة مخفية", "ReLU"],
       ["h2", "dense", "Hidden layer", "طبقة مخفية", "ReLU"], ["out", "softmax", "Output", "المخرجات", "softmax"],

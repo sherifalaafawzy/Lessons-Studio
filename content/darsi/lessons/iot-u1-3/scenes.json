@@ -868,7 +868,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 770,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -931,151 +931,59 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "flow",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "sequence",
+      "participants": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "id": "sensor",
+        "glyph": "sensor",
+        "label": {
+         "en": "Sensor",
+         "ar-EG": "الحسّاس"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "id": "broker",
+        "glyph": "server",
+        "label": {
+         "en": "Broker",
+         "ar-EG": "الوسيط"
+        }
+       },
+       {
+        "id": "app",
+        "glyph": "phone",
+        "label": {
+         "en": "Subscriber",
+         "ar-EG": "المشترك"
+        }
        }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "signal",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
+      ],
+      "messages": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "from": "sensor",
+        "to": "broker",
+        "label": {
+         "en": "Publish: soil = dry",
+         "ar-EG": "انشر: التربة = جافة"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "from": "broker",
+        "to": "app",
+        "label": {
+         "en": "soil = dry",
+         "ar-EG": "التربة = جافة"
+        }
        }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Sensor publishes to a topic",
-       "ar-EG": "الحسّاس بينشر على موضوع"
-      },
+      ],
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
@@ -1083,33 +991,7 @@
             "en": "MQTT",
             "ar-EG": "MQTT"
            },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
+           "offset": 0.2
           },
           "value": 0
          },
@@ -1119,197 +1001,10 @@
             "en": "MQTT",
             "ar-EG": "MQTT"
            },
-           "offset": 0.3
+           "offset": 1
           },
-          "value": 1,
+          "value": 0.3333,
           "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "network",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Broker routes it",
-       "ar-EG": "الوسيط بيوجّهها"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "sensor",
-            "ar-EG": "الحسّاس"
-           },
-           "offset": 0
-          },
-          "value": 0
          },
          {
           "at": {
@@ -1319,195 +1014,18 @@
            },
            "offset": 0.3
           },
-          "value": 1,
+          "value": 0.3333
+         },
+         {
+          "at": {
+           "word": {
+            "en": "sensor",
+            "ar-EG": "الحسّاس"
+           },
+           "offset": 1.1
+          },
+          "value": 0.6667,
           "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 418,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "accent",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "users",
-      "x": 104,
-      "y": 432,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 429,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Subscribers receive it",
-       "ar-EG": "المشتركين بيستلموها"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 469
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0.45
-          },
-          "value": 429,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Any",
-            "ar-EG": "وأي"
-           },
-           "offset": 0
-          },
-          "value": 0
          },
          {
           "at": {
@@ -1517,135 +1035,15 @@
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "aside",
-      "type": "shape",
-      "shape": "ellipse",
-      "x": 900,
-      "y": 220,
-      "w": 300,
-      "h": 300,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
+          "value": 0.6667
          },
          {
           "at": {
            "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
-           "offset": 0.5
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "asideicon",
-      "type": "icon",
-      "icon": "share",
-      "x": 975,
-      "y": 295,
-      "w": 150,
-      "h": 150,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.6
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "MQTT",
-            "ar-EG": "MQTT"
-           },
-           "offset": 0.25
+           "offset": 1.1
           },
           "value": 1,
           "ease": "out"
@@ -3721,6 +3119,10 @@
     "explain": {
      "en": "Correct: acknowledgements would only cost energy when the next reading comes soon.",
      "ar-EG": "صح: التأكيدات هتكلّف طاقة بس والقراءة الجاية قريبة."
+    },
+    "explainWrong": {
+     "en": "Not quite: higher QoS adds messages and energy; for frequent, replaceable readings, QoS 0 is enough.",
+     "ar-EG": "مش بالظبط: الجودة الأعلى بتزوّد الرسايل والطاقة، وللقراءات المتكررة المستوى 0 كفاية."
     }
    },
    "speaker": "okafor"
@@ -4989,6 +4391,10 @@
     "explain": {
      "en": "Correct: LoRa reaches kilometres on little energy, and the data need is tiny.",
      "ar-EG": "صح: LoRa بيوصل كيلومترات بطاقة قليلة، واحتياج البيانات صغير."
+    },
+    "explainWrong": {
+     "en": "Not quite: Wi-Fi and BLE reach tens to hundreds of metres; LoRa covers kilometres at low rates.",
+     "ar-EG": "مش بالظبط: Wi-Fi وBLE بيوصلوا عشرات لمئات الأمتار، وLoRa بيغطي كيلومترات بسرعة قليلة."
     }
    },
    "speaker": "joseph"

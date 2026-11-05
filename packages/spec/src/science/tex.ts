@@ -30,6 +30,8 @@ export type MNode =
   | { t: "bf"; a: MNode }
   | { t: "fence"; l: string; r: string; a: MNode }
   | { t: "mat"; rows: MNode[][]; l: string; r: string }
+  /** Lines of a derivation, split at &: the left column aligns to its end, the right to its start. */
+  | { t: "stack"; lines: { l: MNode; r: MNode }[] }
   | { t: "g"; n: number; a: MNode }
   | { t: "c"; tone: string; a: MNode }
   | { t: "sp"; w: number };
@@ -50,7 +52,7 @@ export class TexError extends Error {
   constructor(message: string, at: number) { super(message); this.at = at; }
 }
 
-export const TEX_MAX = 400;
+export const TEX_MAX = 800;
 
 /** Own keys only: "constructor" in {} is true. */
 const has = (o: object, k: string): boolean => Object.prototype.hasOwnProperty.call(o, k);
@@ -152,7 +154,28 @@ export function parseTex(src: string): ParsedTex {
     if (base.t === "big") return { ...base, ...(sup ? { sup } : {}), ...(sub ? { sub } : {}) };
     return { t: "s", b: base, ...(sup ? { sup } : {}), ...(sub ? { sub } : {}) };
   };
+  /** A derivation: each line is split at & so the equals signs line up. */
+  const aligned = (): MNode => {
+    const lines: { l: MNode; r: MNode }[] = [];
+    for (;;) {
+      const l = row("&");
+      skip();
+      let r: MNode = { t: "row", c: [] };
+      if (src.startsWith("&", i)) { i++; r = row("&"); skip(); }
+      lines.push({ l, r });
+      if (src.startsWith("\\\\", i)) { i += 2; continue; }
+      if (src.startsWith("\\end", i)) {
+        i += 4;
+        if (rawArg() !== "aligned") fail("\\end does not match \\begin{aligned}");
+        break;
+      }
+      fail("\\begin{aligned} without \\end");
+    }
+    if (lines.length > 8) fail("more than 8 lines");
+    return { t: "stack", lines };
+  };
   const env = (name: string): MNode => {
+    if (name === "aligned") return aligned();
     const [l, r] = has(ENVS, name) ? ENVS[name]! : fail(`unknown environment ${name}`);
     const rows: MNode[][] = [[]];
     for (;;) {

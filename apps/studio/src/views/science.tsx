@@ -76,6 +76,7 @@ function MathForm({ el, set }: { el: MathElement; set: SetProps }) {
           <li><code>{"\\alpha \\beta \\sigma \\theta \\nabla \\partial \\le \\ne \\to"}</code></li>
           <li><code>{"\\hat{y}  \\vec{w}  \\mathbf{W}  \\text{loss}  \\log  \\max_{x}"}</code></li>
           <li><code>{"\\left( … \\right)  \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}"}</code></li>
+          <li><code>{"\\begin{aligned} L &= (\\hat{y}-y)^2 \\\\ &= 2.4 \\end{aligned}"}</code></li>
           <li><code>{"\\g{1}{…}  \\c{accent}{…}  \\w{key}"}</code></li>
         </ul>
       </details>
@@ -260,6 +261,7 @@ function SeriesFields({ s, patch }: { s: PlotSeries; patch: (p: Record<string, u
 
 function NetForm({ el, set }: { el: NetElement; set: SetProps }) {
   const frames = framesOf(el);
+  const deep = el.form === "deep";
   const lb = el.labels ?? {};
   const saveLabels = (next: NonNullable<NetElement["labels"]>) => {
     const clean = Object.fromEntries(Object.entries(next).filter(([, v]) => v !== undefined));
@@ -267,14 +269,20 @@ function NetForm({ el, set }: { el: NetElement; set: SetProps }) {
   };
   const L = el.layers;
   const lists: { k: "in" | "out" | "layers"; label: Key; n: number; make: (i: number) => Text }[] = [
-    { k: "in", label: "netNameInputs", n: L[0]!, make: (i) => `x${i + 1}` },
-    { k: "out", label: "netNameOutputs", n: L[L.length - 1]!, make: (i) => (L[L.length - 1] === 1 ? "y" : `y${i + 1}`) },
+    ...(deep ? [] : [
+      { k: "in" as const, label: "netNameInputs" as Key, n: L[0]!, make: (i: number) => `x${i + 1}` },
+      { k: "out" as const, label: "netNameOutputs" as Key, n: L[L.length - 1]!, make: (i: number) => (L[L.length - 1] === 1 ? "y" : `y${i + 1}`) },
+    ]),
     { k: "layers", label: "netNameLayers", n: L.length, make: (i) => (i === 0 ? T("Inputs", "المدخلات") : i === L.length - 1 ? T("Output", "المخرج") : T(`Hidden ${i}`, `مخفية ${i}`)) },
   ];
   return (
     <>
-      <SourceField label={t("netLayers")} value={L.join(", ")} placeholder="2, 4, 1"
-        check={(v) => { const p = layersProblem(parseNums(v)); return p ? { message: t(p) } : null; }}
+      <Check label={t("netDeep")} value={deep} onChange={(on) => set(on
+        ? { form: "deep", weights: null, acts: null, values: null, labels: lb.layers ? { layers: lb.layers } : null }
+        : { form: null })} />
+      {deep ? <p class="f-hint">{t("netDeepHint")}</p> : null}
+      <SourceField label={t("netLayers")} value={L.join(", ")} placeholder={deep ? "784, 128, 64, 10" : "2, 4, 1"}
+        check={(v) => { const p = layersProblem(parseNums(v), deep); return p ? { message: t(p) } : null; }}
         onCommit={(v) => set(withLayers(el, parseNums(v)!))}
         hint={el.weights ? t("netLayersClears") : t("netLayersHint")} />
       <p class="f-hint">{el.weights ? t("netTrained").replace("{n}", String(frames)) : t("netUntrained")}</p>
@@ -441,6 +449,7 @@ function TableForm({ el, set }: { el: TableElement; set: SetProps }) {
   const saveRows = (r: TableElement["rows"]) => set({ rows: r });
   return (
     <>
+      <Check label={t("tableHeat")} value={!!el.heat} onChange={(v) => set({ heat: v || null })} />
       <div class="f-list">
         <div class="f-list-head"><span>{t("tableCols")}</span>
           <button type="button" class="link" disabled={cols.length >= SCIENCE_LIMITS.cols}
@@ -469,7 +478,7 @@ function TableForm({ el, set }: { el: TableElement; set: SetProps }) {
               <span class="f-row-head">{t("tableRow")} {i + 1}</span>
               <div class="f-cells">
                 {cols.map((c, k) => (
-                  <CellField key={k} label={`${t("tableRow")} ${i + 1}, ${pick(c, lang.value) || `${t("tableCol")} ${k + 1}`}`} value={r[k] ?? ""}
+                  <CellField key={k} label={`${t("tableRow")} ${i + 1}, ${pick(c, lang.value) || `${t("tableCol")} ${k + 1}`}`} value={r[k] && typeof r[k] === "object" && "v" in r[k] ? r[k].v : r[k] ?? ""}
                     onCommit={(v) => saveRows(rows.map((x, j) => (j === i ? x.map((y, m) => (m === k ? v : y)) : x)))} />
                 ))}
               </div>

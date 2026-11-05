@@ -54,7 +54,8 @@ Presets (`packages/ops/src/presets.ts`): `type` (reveal), **`train`** (frame 0 �
 - **Arabic school notation:** with `"notation": "arabic"`, a right-to-left language sets the equation right to left
   with Arabic-Indic digits. Write that language's `tex` with Arabic letters (`ص = أ س + ب`).
 - **Fitting:** the equation is shrunk once to fit its box, when first shown. Make the box the size you mean.
-- **Limits:** at most 400 characters. The validator parses every equation and names the place it can't read.
+- **A derivation:** `\begin{aligned} L &= (y-x)^2 \\ &= 2.4 \end{aligned}` stacks up to 8 lines, and `&` lines the equals signs up.
+- **Limits:** at most 800 characters. The validator parses every equation and names the place it can't read.
 
 ## Plots (`plot`)
 
@@ -80,6 +81,8 @@ Presets (`packages/ops/src/presets.ts`): `type` (reveal), **`train`** (frame 0 �
 
 `layers` counts neurons per layer (`[2, 4, 4, 1]`; up to 8 layers of 10, 40 neurons, 200 lines).
 
+`"form": "deep"` is for a real depth, such as `[784, 128, 64, 10]`. Each wide layer is drawn as a few neurons, an ellipsis and its count, and it is named once under `labels.layers`. It does not store a weight for every connection.
+
 - `weights[frame][layer][from][to]` and `acts[frame][layer][neuron]` (−1 to 1). Without weights, a fixed spread is
   drawn.
 - `labels.in`, `labels.out` and `labels.layers` are per language. `values` writes the activations in the neurons.
@@ -94,6 +97,8 @@ Presets (`packages/ops/src/presets.ts`): `type` (reveal), **`train`** (frame 0 �
   loop: draw a loop with a `skip` arrow back.
 - **Skip arrows** (residual connections, a tool's result going back to the model) go around the side.
 - **Groups** get a dashed frame, a name, and "× N".
+- An arrow that jumps past a layer goes around the blocks, so a second input can reach a later block without cutting through the ones between. `skip` draws that arrow dashed.
+
 - **Kinds:**
   - `input` and `output`: pills.
   - `embed` and `model`: yellow.
@@ -108,13 +113,13 @@ Presets (`packages/ops/src/presets.ts`): `type` (reveal), **`train`** (frame 0 �
   - `dense`, `ffn` and `box`: plain.
 
 **Ready-made** (`archPreset(name, box, langs)` in `packages/ops/src/science.ts`, labels in English and Arabic): `mlp`,
-`cnn`, `rnn`, `transformer` (encoder block × 6), `gpt` (decoder-only × 12), `seq2seq`, `resnet` (residual block),
+`deep` (784, then 128, 64 and 32, then 10), `cnn`, `rnn`, `transformer` (encoder block × 6), `gpt` (decoder-only × 12), `seq2seq`, `resnet` (residual block),
 `autoencoder`, `gan`, `agent` (model, memory, tools), `rag`.
 
 ## Tables (`table`)
 
-`cols` (per language), `rows` (strings, numbers or per-language text; at most 12 rows of 8 columns), `ltr` (columns
-that stay left to right: code, ids), `size`.
+`cols` (per language), `rows` (strings, numbers, per-language text, or `{ "v", "tone" }` to colour one cell; at most 12 rows of 8 columns), `ltr` (columns
+that stay left to right: code, ids), `heat` (shade number cells from 0 to 1, for a grid of scores), `size`.
 
 ## Content computed when the lesson is made
 

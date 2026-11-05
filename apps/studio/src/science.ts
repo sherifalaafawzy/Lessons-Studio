@@ -85,12 +85,15 @@ export function withTex(el: MathElement, tex: MathElement["tex"], langs: string[
 /* ---------- networks ---------- */
 
 /** Why a layer list can't be a network, as a message key, or null. */
-export function layersProblem(layers: number[] | null): Key | null {
+export function layersProblem(layers: number[] | null, deep = false): Key | null {
   if (!layers || layers.length < 2 || layers.length > SCIENCE_LIMITS.layers) return "netLayersCount";
-  if (!layers.every((n) => Number.isInteger(n) && n >= 1 && n <= SCIENCE_LIMITS.perLayer)) return "netLayersSize";
-  const neurons = layers.reduce((a, b) => a + b, 0);
-  const lines = layers.slice(1).reduce((a, n, k) => a + n * layers[k]!, 0);
-  if (neurons > SCIENCE_LIMITS.neurons || lines > SCIENCE_LIMITS.synapses) return "netTooBig";
+  const max = deep ? 100000 : SCIENCE_LIMITS.perLayer;
+  if (!layers.every((n) => Number.isInteger(n) && n >= 1 && n <= max)) return deep ? "netDeepSize" : "netLayersSize";
+  if (!deep) {
+    const neurons = layers.reduce((a, b) => a + b, 0);
+    const lines = layers.slice(1).reduce((a, n, k) => a + n * layers[k]!, 0);
+    if (neurons > SCIENCE_LIMITS.neurons || lines > SCIENCE_LIMITS.synapses) return "netTooBig";
+  }
   return null;
 }
 
@@ -234,7 +237,11 @@ export function focusParts(el: Element, lang: string): string[] {
     case "plot": return el.series.map((s) => ("label" in s && s.label ? pick(s.label, lang) : s.kind === "fn" ? `y = ${s.fn}` : s.kind));
     case "net": return el.layers.map((_, i) => (el.labels?.layers?.[i] ? pick(el.labels.layers[i]!, lang) : ""));
     case "arch": return el.blocks.map((b) => pick(b.label, lang) || b.id);
-    case "table": return el.rows.map((r) => { const c = r[0]; return typeof c === "number" ? String(c) : c === undefined ? "" : pick(c, lang); });
+    case "table": return el.rows.map((r) => {
+      const raw = r[0];
+      const c = raw && typeof raw === "object" && "v" in raw ? raw.v : raw;
+      return typeof c === "number" ? String(c) : c === undefined || typeof c === "string" ? c ?? "" : pick(c, lang);
+    });
     default: return [];
   }
 }
@@ -337,6 +344,41 @@ export function tableElement(id: string, r: Room): TableElement {
   };
 }
 
+/** A short derivation, lines aligned on the equals sign. */
+export const DERIVATION_TEX = "\\begin{aligned} z &= wx + b \\\\ a &= \\sigma(z) \\\\ L &= (a - y)^2 \\end{aligned}";
+
+export function derivationElement(id: string, r: Room): MathElement {
+  const a = area(r);
+  const h = Math.min(340, Math.round(a.h * 0.72));
+  return { id, type: "math", x: a.x, y: a.y, w: a.w, h, size: r.w < 800 ? 40 : 48, tex: DERIVATION_TEX };
+}
+
+/** A wide network drawn by its counts (784, 128, 64, 10), not one circle per neuron. */
+export function deepNetworkElement(id: string, r: Room): NetElement {
+  const a = area(r);
+  const T = (en: string, ar: string): Text => tx(en, ar, r.langs);
+  return {
+    id, type: "net", ...a, form: "deep", layers: [784, 128, 64, 10],
+    labels: { layers: [T("Input", "المدخل"), T("Hidden", "مخفية"), T("Hidden", "مخفية"), T("Output", "المخرج")] },
+  };
+}
+
+/** A score matrix: numbers from 0 to 1 shade themselves, and the right answer is marked. */
+export function scoreTable(id: string, r: Room): TableElement {
+  const a = area(r);
+  const T = (en: string, ar: string): Text => tx(en, ar, r.langs);
+  const w = Math.min(a.w, 860);
+  return {
+    id, type: "table", heat: true, x: a.x + Math.round((a.w - w) / 2), y: a.y, w, h: Math.min(a.h, 320), size: 32,
+    cols: [T("True class", "الصنف الصحيح"), T("Cat", "قطة"), T("Dog", "كلب")],
+    rows: [
+      [T("Cat", "قطة"), { v: 0.91, tone: "ok" }, 0.09],
+      [T("Dog", "كلب"), 0.12, { v: 0.88, tone: "ok" }],
+    ],
+    ltr: [1, 2],
+  };
+}
+
 export interface ScienceKind {
   key: string;
   label: Key;
@@ -348,10 +390,13 @@ export interface ScienceKind {
 /** Everything the Add menus offer for science, in the order shown. */
 export const SCIENCE_KINDS: ScienceKind[] = [
   { key: "math", label: "sciEquation", ids: ["equation"], make: (r, [a]) => [equationElement(a!, r)] },
+  { key: "derivation", label: "sciDerivation", ids: ["derivation"], make: (r, [a]) => [derivationElement(a!, r)] },
   { key: "plot", label: "sciPlot", ids: ["plot"], make: (r, [a]) => [functionPlot(a!, r)] },
   { key: "training", label: "sciTraining", ids: ["map", "loss"], make: (r, [a, b]) => trainingPair([a!, b!], r) },
   { key: "net", label: "sciNet", ids: ["network"], make: (r, [a]) => [networkElement(a!, r)] },
+  { key: "deep", label: "sciDeep", ids: ["deep"], make: (r, [a]) => [deepNetworkElement(a!, r)] },
   { key: "descent", label: "sciDescent", ids: ["descent"], make: (r, [a]) => [descentElement(a!, r)] },
   { key: "table", label: "sciTable", ids: ["table"], make: (r, [a]) => [tableElement(a!, r)] },
+  { key: "scores", label: "sciScores", ids: ["scores"], make: (r, [a]) => [scoreTable(a!, r)] },
   ...ARCH_PRESETS.map((name): ScienceKind => ({ key: `arch-${name}`, label: `arch_${name}` as Key, ids: [name], make: (r, [a]) => [archElement(name, a!, r)] })),
 ];

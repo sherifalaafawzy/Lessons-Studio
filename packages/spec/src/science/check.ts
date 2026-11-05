@@ -127,15 +127,21 @@ export function checkScience(el: ScienceElement, q: string, langs: Lang[], err: 
       break;
     }
     case "net": {
+      const deep = el.form === "deep";
+      if (el.form !== undefined && el.form !== "full" && el.form !== "deep") err("badForm", `${q}.form`);
       const L = arr(el.layers);
-      if (L.length < 2 || L.length > SCIENCE_LIMITS.layers || !L.every((n) => Number.isInteger(n) && n >= 1 && n <= SCIENCE_LIMITS.perLayer)) {
-        err("badLayers", `${q}.layers`, `2–${SCIENCE_LIMITS.layers} layers of 1–${SCIENCE_LIMITS.perLayer} neurons`);
+      const per = deep ? 100000 : SCIENCE_LIMITS.perLayer;
+      if (L.length < 2 || L.length > SCIENCE_LIMITS.layers || !L.every((n) => Number.isInteger(n) && n >= 1 && n <= per)) {
+        err("badLayers", `${q}.layers`, deep ? `2–${SCIENCE_LIMITS.layers} layers, each a count up to ${per}` : `2–${SCIENCE_LIMITS.layers} layers of 1–${SCIENCE_LIMITS.perLayer} neurons`);
         break;
       }
-      const neurons = L.reduce((a, b) => a + b, 0);
-      const synapses = L.slice(1).reduce((a, n, k) => a + n * L[k]!, 0);
-      if (neurons > SCIENCE_LIMITS.neurons) err("tooManyNeurons", `${q}.layers`, String(neurons));
-      if (synapses > SCIENCE_LIMITS.synapses) err("tooManyNeurons", `${q}.layers`, `${synapses} lines`);
+      if (deep && (el.weights || el.acts)) err("deepWeights", `${q}.form`, "a deep layer shows its count, not every weight");
+      if (!deep) {
+        const neurons = L.reduce((a, b) => a + b, 0);
+        const synapses = L.slice(1).reduce((a, n, k) => a + n * L[k]!, 0);
+        if (neurons > SCIENCE_LIMITS.neurons) err("tooManyNeurons", `${q}.layers`, String(neurons));
+        if (synapses > SCIENCE_LIMITS.synapses) err("tooManyNeurons", `${q}.layers`, `${synapses} lines`);
+      }
       const frames = (v: unknown[] | undefined, k: string): number => {
         if (v === undefined) return 0;
         if (!Array.isArray(v) || !v.length || v.length > SCIENCE_LIMITS.frames) { err("badFrames", `${q}.${k}`); return 0; }
@@ -155,8 +161,9 @@ export function checkScience(el: ScienceElement, q: string, langs: Lang[], err: 
       if (nw > 1 && na > 1 && nw !== na) err("frameCount", `${q}.acts`, "weights and acts need the same number of frames");
       if (isObj(el.labels)) {
         const lb = el.labels;
-        if (lb.in !== undefined) { if (!Array.isArray(lb.in) || lb.in.length !== L[0]) err("badLabels", `${q}.labels.in`); else lb.in.forEach((t, j) => text(t, `${q}.labels.in[${j}]`)); }
-        if (lb.out !== undefined) { if (!Array.isArray(lb.out) || lb.out.length !== L[L.length - 1]) err("badLabels", `${q}.labels.out`); else lb.out.forEach((t, j) => text(t, `${q}.labels.out[${j}]`)); }
+        if (deep && (lb.in || lb.out)) err("badLabels", `${q}.labels`, "a deep layer is named once, under labels.layers");
+        if (!deep && lb.in !== undefined) { if (!Array.isArray(lb.in) || lb.in.length !== L[0]) err("badLabels", `${q}.labels.in`); else lb.in.forEach((t, j) => text(t, `${q}.labels.in[${j}]`)); }
+        if (!deep && lb.out !== undefined) { if (!Array.isArray(lb.out) || lb.out.length !== L[L.length - 1]) err("badLabels", `${q}.labels.out`); else lb.out.forEach((t, j) => text(t, `${q}.labels.out[${j}]`)); }
         if (lb.layers !== undefined) { if (!Array.isArray(lb.layers) || lb.layers.length !== L.length) err("badLabels", `${q}.labels.layers`); else lb.layers.forEach((t, j) => text(t, `${q}.labels.layers[${j}]`)); }
       } else if (el.labels !== undefined) err("badLabels", `${q}.labels`);
       if (el.frame !== undefined && !(isNum(el.frame) && el.frame >= 0)) err("badFrame", `${q}.frame`);
@@ -204,8 +211,13 @@ export function checkScience(el: ScienceElement, q: string, langs: Lang[], err: 
       if (!rows.length || rows.length > SCIENCE_LIMITS.rows) err("badCount", `${q}.rows`, `1–${SCIENCE_LIMITS.rows}`);
       rows.forEach((r, j) => {
         if (!Array.isArray(r) || r.length !== cols.length) return err("badRow", `${q}.rows[${j}]`, `${cols.length} cells`);
-        r.forEach((c, k) => { if (typeof c !== "number" && typeof c !== "string") text(c, `${q}.rows[${j}][${k}]`); });
+        r.forEach((c, k) => {
+          const cell = isObj(c) && "v" in c ? c.v : c;
+          if (isObj(c) && "v" in c) tone(c.tone, `rows[${j}][${k}].tone`);
+          if (typeof cell !== "number" && typeof cell !== "string") text(cell as Text, `${q}.rows[${j}][${k}]`);
+        });
       });
+      if (el.heat !== undefined && typeof el.heat !== "boolean") err("badHeat", `${q}.heat`);
       if (el.ltr !== undefined && (!Array.isArray(el.ltr) || !el.ltr.every((n) => Number.isInteger(n) && n >= 0 && n < cols.length))) err("badColumns", `${q}.ltr`);
       if (el.size !== undefined && !(isNum(el.size) && el.size >= 12 && el.size <= 80)) err("badSize", `${q}.size`);
       break;

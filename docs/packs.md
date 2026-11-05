@@ -14,6 +14,20 @@ first pack is **science** (`docs/science.md`); the others follow the same contra
 | `opt` | `graph`, `schedule`, `knapsack`, `lp`, `searchtree` | `docs/packs/opt.md` |
 
 The type names are fixed in `packages/spec/src/packs/registry.ts`; the shared machinery reads them from there.
+Science is a pack too (`math`, `plot`, `net`, `arch`, `table`). The studio lists every pack together. A lesson's
+`track` puts that track's packs first.
+
+| Track | Packs |
+|---|---|
+| `ai` | science |
+| `cyber` | network |
+| `iot` | iot |
+| `code` | code |
+| `data` | data |
+| `data-science` | data, then science |
+| `agents` | science (its agent and retrieval diagrams) |
+| `opt` | opt |
+| `aisec` | network, then science |
 
 ## What a pack is made of
 

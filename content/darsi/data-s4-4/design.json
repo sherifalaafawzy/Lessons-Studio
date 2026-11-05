@@ -111,13 +111,37 @@
     },
     "5": {
       "who": null,
-      "code": {
-        "text": "win = []\nfor t, level in enumerate(readings):\n    win = (win + [level])[-5:]\n    avg = sum(win) / len(win)\n    if avg > 2.0:\n        print(\"alert at\", t)\n        break",
-        "highlight": [
-          3,
-          4
+      "signal": {
+        "fn": "2.2 + 0.15*sin(x)",
+        "xr": [
+          0,
+          10
         ],
-        "s": 1
+        "yr": [
+          1.4,
+          3.2
+        ],
+        "rate": 4,
+        "unit": "m",
+        "avg": 5,
+        "xLabel": {
+          "en": "Time",
+          "ar-EG": "الزمن"
+        },
+        "yLabel": {
+          "en": "River level",
+          "ar-EG": "منسوب النهر"
+        },
+        "focus": [
+          {
+            "layer": 2,
+            "s": 0
+          },
+          {
+            "layer": 5,
+            "s": 1
+          }
+        ]
       }
     },
     "6": {

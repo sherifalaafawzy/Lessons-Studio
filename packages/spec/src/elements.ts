@@ -1,5 +1,6 @@
 import type { Element, Scene } from "./types.ts";
 import { PACKS, PACK_IDS, PACK_TYPES, packOf, type PackId } from "./packs/registry.ts";
+export { TRACKS, TRACK_PACKS, packsForTrack, type TrackId } from "./packs/registry.ts";
 
 /** Every free element in a scene (canvas elements, overlays, group children), depth-first. */
 export function walkElements(scene: Scene, fn: (el: Element, path: string) => void): void {

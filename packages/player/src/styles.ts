@@ -45,6 +45,8 @@ export const CSS = `
   border:3px solid var(--ls-line);border-radius:var(--ls-radius);padding:18px 22px;color:var(--ls-fg);box-shadow:var(--ls-shadow)}
 .ls-code-line{display:block;white-space:pre;min-height:1.2em}
 .ls-code-line.is-mark{background:var(--ls-surface);box-shadow:inset 5px 0 0 var(--ls-accent)}
+.ls-code-out{margin-top:.35em;padding:.15em .45em;background:var(--ls-surface);font-weight:800;white-space:pre}
+.ls-code-cap{margin-top:.3em;font-weight:700;color:var(--ls-muted)}
 .ls-icon{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .ls-title{margin:0;font-size:46px;font-weight:800;letter-spacing:-.01em}
 .ls-kicker{margin:0;font-size:26px;font-weight:700;color:var(--ls-accent);display:flex;align-items:center;gap:10px}

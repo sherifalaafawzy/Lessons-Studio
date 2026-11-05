@@ -30,6 +30,8 @@ export interface Manifest {
   title: Text;
   summary?: Text;
   topic?: string;
+  /** Which track the lesson belongs to (ai, code, data, …). The studio leads with that track's packs. */
+  track?: string;
   level?: number;
   defaultLang: Lang;
   languages: LanguageTrack[];
@@ -294,6 +296,10 @@ export interface CodeElement extends ElementBase {
   code: string;
   /** 1-based lines to highlight. */
   highlight?: number[];
+  /** A line under the code, in the lesson's language. */
+  caption?: Text;
+  /** What the code prints or returns. Left to right, like the code. */
+  result?: string;
   size?: number;
 }
 
@@ -377,6 +383,11 @@ export interface NetElement extends ElementBase {
   labels?: { in?: Text[]; out?: Text[]; layers?: Text[] };
   /** Write each neuron's activation inside it. */
   values?: boolean;
+  /**
+   * "full" draws every neuron (at most 10 in a layer). "deep" draws a wide layer as a few neurons, an ellipsis and
+   * its real count, so 784, 128, 64, 10 is a picture rather than thousands of lines.
+   */
+  form?: "full" | "deep";
   frame?: number;
 }
 
@@ -409,12 +420,17 @@ export interface ArchElement extends ElementBase {
   flow?: "right" | "down" | "up";
 }
 
+/** One table cell: a value, or a value with a tone (a cell the sentence is pointing at). */
+export type TableCell = string | number | Text | { v: string | number | Text; tone?: Tone };
+
 /** A table that fills row by row (`reveal`); `focus` lights the n-th row. Numbers and `ltr` columns stay left to right. */
 export interface TableElement extends ElementBase {
   type: "table";
   cols: Text[];
-  rows: (string | number | Text)[][];
+  rows: TableCell[][];
   ltr?: number[];
+  /** Colour number cells by how large they are (0 to 1), for a score grid. */
+  heat?: boolean;
   /** Font size in stage pixels, default 30. */
   size?: number;
 }

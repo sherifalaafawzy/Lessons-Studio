@@ -17,7 +17,7 @@ export type Preset =
  */
 export type Op =
   /* lesson */
-  | { op: "setMeta"; title?: Text; summary?: Text; brand?: string; stage?: Orient; level?: number; topic?: string; defaultLang?: string }
+  | { op: "setMeta"; title?: Text; summary?: Text; brand?: string; stage?: Orient; level?: number; topic?: string; track?: string; defaultLang?: string }
   | { op: "addLanguage"; code: string; name: string; dir?: "ltr" | "rtl"; quality?: LanguageTrack["quality"]; voice?: LanguageTrack["voice"] }
   | { op: "removeLanguage"; code: string }
   | { op: "attachAsset"; asset: Asset }

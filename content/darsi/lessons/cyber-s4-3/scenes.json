@@ -2654,424 +2654,110 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "stack",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "layers",
+      "layers": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "name": {
+         "en": "Application",
+         "ar-EG": "التطبيقات"
+        },
+        "header": "HTTP",
+        "note": {
+         "en": "the message",
+         "ar-EG": "الرسالة"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "shield",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "name": {
+         "en": "Transport",
+         "ar-EG": "النقل"
+        },
+        "header": "TCP",
+        "note": {
+         "en": "ports",
+         "ar-EG": "المنافذ"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "name": {
+         "en": "Internet",
+         "ar-EG": "الإنترنت"
+        },
+        "header": "IP",
+        "note": {
+         "en": "addresses",
+         "ar-EG": "العناوين"
+        }
+       },
+       {
+        "name": {
+         "en": "Link",
+         "ar-EG": "الربط"
+        },
+        "header": "Wi-Fi",
+        "note": {
+         "en": "the next hop",
+         "ar-EG": "القفزة التالية"
+        }
        }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "A firewall decides what passes",
-       "ar-EG": "جدار الحماية يقرّر مين يعدّي"
+      ],
+      "payload": {
+       "en": "Hello!",
+       "ar-EG": "مرحبًا!"
+      },
+      "sender": {
+       "en": "Your phone",
+       "ar-EG": "هاتفك"
+      },
+      "receiver": {
+       "en": "The server",
+       "ar-EG": "الخادم"
+      },
+      "link": {
+       "en": "Wi-Fi and cables",
+       "ar-EG": "الواي فاي والكابلات"
       },
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
+            "en": "layers",
+            "ar-EG": "على"
            },
-           "offset": 0
+           "offset": 0.1
           },
-          "value": 261
+          "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
+            "en": "layers",
+            "ar-EG": "على"
            },
-           "offset": 0.45
+           "offset": 1.4
           },
-          "value": 221,
+          "value": 1,
           "ease": "out"
          }
         ]
        },
        {
-        "prop": "opacity",
+        "prop": "frame",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "firewall",
-            "ar-EG": "جدار"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 310,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "wifi",
-      "x": 104,
-      "y": 324,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 321,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Office network apart from students’ Wi-Fi",
-       "ar-EG": "شبكة المكتب منفصلة عن واي فاي الطلبة"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 361
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.45
-          },
-          "value": 321,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "school",
-            "ar-EG": "مكتب"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 410,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
+            "en": "layers",
+            "ar-EG": "على"
+           }
           },
           "value": 0
          },
@@ -3080,366 +2766,10 @@
            "word": {
             "en": "Updates",
             "ar-EG": "التحديثات"
-           },
-           "offset": 0.4
+           }
           },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "download",
-      "x": 104,
-      "y": 424,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 421,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Updates close known holes",
-       "ar-EG": "التحديثات تقفل الثغرات"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
-          },
-          "value": 461
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0.45
-          },
-          "value": 421,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Updates",
-            "ar-EG": "التحديثات"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile4",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 510,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon4",
-      "type": "icon",
-      "icon": "repeat",
-      "x": 104,
-      "y": 524,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text4",
-      "type": "text",
-      "x": 188,
-      "y": 521,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Spare routes and backups",
-       "ar-EG": "طرق ونسخ احتياطية"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 561
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.45
-          },
-          "value": 521,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "spare",
-            "ar-EG": "والطرق"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
+          "value": 7,
+          "ease": "linear"
          }
         ]
        }

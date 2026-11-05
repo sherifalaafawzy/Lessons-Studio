@@ -1674,7 +1674,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 770,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -1737,188 +1737,135 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "plot",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "plot",
+      "xr": [
+       0,
+       12
+      ],
+      "yr": [
+       0,
+       14
+      ],
+      "series": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
+        "kind": "dots",
+        "tone": "accent",
+        "label": {
+         "en": "Often",
+         "ar-EG": "كثيرًا"
+        },
+        "pts": [
+         [
+          8,
+          3
+         ],
+         [
+          9,
+          4
+         ],
+         [
+          10,
+          2
+         ],
+         [
+          8.5,
+          5
+         ]
         ]
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "mapPin",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
+        "kind": "dots",
+        "tone": "ok",
+        "label": {
+         "en": "Now and then",
+         "ar-EG": "أحيانًا"
+        },
+        "pts": [
+         [
+          4,
+          7
+         ],
+         [
+          5,
+          8
+         ],
+         [
+          3.5,
+          6
+         ],
+         [
+          4.5,
+          9
+         ]
         ]
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
+        "kind": "dots",
+        "tone": "accent2",
+        "label": {
+         "en": "Almost never",
+         "ar-EG": "نادرًا"
+        },
+        "pts": [
+         [
+          1,
+          12
+         ],
+         [
+          1.5,
+          11
+         ],
+         [
+          2,
+          13
+         ],
+         [
+          1,
+          10
+         ]
+        ]
+       },
+       {
+        "kind": "dots",
+        "tone": "danger",
+        "label": {
+         "en": "Centres",
+         "ar-EG": "المراكز"
+        },
+        "pts": [
+         [
+          9,
+          3.5
+         ],
+         [
+          4,
+          7.5
+         ],
+         [
+          1.5,
+          11.5
+         ]
         ]
        }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Drop k centres",
-       "ar-EG": "حط k مراكز"
+      ],
+      "grid": true,
+      "xLabel": {
+       "en": "Loans a term",
+       "ar-EG": "الإعارات في الترم"
+      },
+      "yLabel": {
+       "en": "Days kept",
+       "ar-EG": "أيام الاحتفاظ"
       },
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
          {
           "at": {
            "word": {
@@ -1927,432 +1874,6 @@
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "users",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Join the nearest centre",
-       "ar-EG": "انضم لأقرب مركز"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "joins",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 418,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "accent",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "repeat",
-      "x": 104,
-      "y": 432,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 429,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Move centres, repeat",
-       "ar-EG": "حرّك المراكز، وكرر"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 469
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.45
-          },
-          "value": 429,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "aside",
-      "type": "shape",
-      "shape": "ellipse",
-      "x": 900,
-      "y": 220,
-      "w": 300,
-      "h": 300,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
           "value": 0
          },
          {
@@ -2361,100 +1882,10 @@
             "en": "First",
             "ar-EG": "الأول"
            },
-           "offset": 0.5
+           "offset": 1.8
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "asideicon",
-      "type": "icon",
-      "icon": "mapPin",
-      "x": 975,
-      "y": 295,
-      "w": 150,
-      "h": 150,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.6
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "First",
-            "ar-EG": "الأول"
-           },
-           "offset": 0.25
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }

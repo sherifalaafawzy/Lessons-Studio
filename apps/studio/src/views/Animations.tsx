@@ -92,6 +92,8 @@ export function ElementAnimations({ scene, el }: { scene: Scene; el: Element }) 
       ))}
       <div class="anim-add">
         <Select label={t("animation")} value={preset} options={presets.map((k) => [k, t(`preset_${k.replace("-", "_")}` as Key)])} onChange={setPreset} />
+        {preset === "type" || preset === "train" || preset === "forward" || preset === "backward"
+          ? <p class="f-hint">{t(`about_${preset}` as Key)}</p> : null}
         <div class="seg" role="radiogroup" aria-label={t("when")}>
           <button type="button" role="radio" aria-checked={mode === "word"} class={mode === "word" ? "on" : ""} onClick={() => setMode("word")}>{t("onAWord")}</button>
           <button type="button" role="radio" aria-checked={mode === "time"} class={mode === "time" ? "on" : ""} onClick={() => setMode("time")}>{t("atPlayhead")} ({playhead.value.toFixed(1)} s)</button>

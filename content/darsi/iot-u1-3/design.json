@@ -31,34 +31,19 @@
       ]
     },
     "3": {
-      "list": [
-        {
-          "icon": "signal",
-          "text": {
-            "en": "Sensor publishes to a topic",
-            "ar-EG": "الحسّاس بينشر على موضوع"
-          },
-          "s": 0
-        },
-        {
-          "icon": "network",
-          "text": {
-            "en": "Broker routes it",
-            "ar-EG": "الوسيط بيوجّهها"
-          },
-          "s": 1
-        },
-        {
-          "icon": "users",
-          "text": {
-            "en": "Subscribers receive it",
-            "ar-EG": "المشتركين بيستلموها"
-          },
-          "s": 2,
-          "tone": "accent"
-        }
-      ],
-      "aside": "share"
+      "who": null,
+      "sequence": {
+        "participants": [
+          { "id": "sensor", "glyph": "sensor", "label": { "en": "Sensor", "ar-EG": "الحسّاس" } },
+          { "id": "broker", "glyph": "server", "label": { "en": "Broker", "ar-EG": "الوسيط" } },
+          { "id": "app", "glyph": "phone", "label": { "en": "Subscriber", "ar-EG": "المشترك" } }
+        ],
+        "messages": [
+          { "from": "sensor", "to": "broker", "text": { "en": "Publish: soil = dry", "ar-EG": "انشر: التربة = جافة" } },
+          { "from": "broker", "to": "app", "text": { "en": "soil = dry", "ar-EG": "التربة = جافة" } }
+        ],
+        "rows": [1, 2]
+      }
     },
     "4": {
       "who": null,

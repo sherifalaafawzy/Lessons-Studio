@@ -5,6 +5,17 @@ import { fileURLToPath } from "node:url";
 
 const repo = fileURLToPath(new URL("../..", import.meta.url));
 const examples = join(repo, "examples");
+const darsiLessons = join(repo, "content", "darsi", "lessons");
+/** Lessons whose pictures were just rebuilt, listed first so a direct link opens them. */
+const REVIEW = [
+  "iot-u1-1", "iot-s4-2", "iot-s4-1", "iot-4-1-2", "iot-u1-3",
+  "cyber-s4-2", "cyber-s4-3", "cyber-s4-1",
+  "code-4-1-1", "code-s4-1", "code-s4-2", "code-s4-3",
+  "data-4-1-1", "data-s4-4",
+  "ds-s4-2", "ds-4-1-2", "ds-4-1-1", "ds-s4-1",
+  "opt-s4-2", "opt-s4-4", "opt-4-1-3",
+  "ai-d1-4",
+];
 
 const TYPES: Record<string, string> = { json: "application/json", vtt: "text/vtt", opus: "audio/ogg", m4a: "audio/mp4", svg: "image/svg+xml", webp: "image/webp", avif: "image/avif" };
 
@@ -13,16 +24,20 @@ const serveExamples: Connect.NextHandleFunction = (req, res, next) => {
   const url = decodeURIComponent((req.url ?? "/").split("?")[0]!);
   if (url.split("/").includes("..")) return next();
   if (url === "/index.json") {
-    const list = readdirSync(examples)
-      .filter((id) => existsSync(join(examples, id, "manifest.json")))
+    const from = (dir: string, ids: string[]) => ids
+      .filter((id) => existsSync(join(dir, id, "manifest.json")))
       .map((id) => {
-        const m = JSON.parse(readFileSync(join(examples, id, "manifest.json"), "utf8"));
+        const m = JSON.parse(readFileSync(join(dir, id, "manifest.json"), "utf8"));
         return { id, title: m.title };
       });
+    const list = [...from(darsiLessons, REVIEW), ...from(examples, readdirSync(examples))];
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     return res.end(JSON.stringify(list));
   }
-  readFile(join(examples, url), (err, body) => {
+  const rel = url.replace(/^\/+/, "");
+  const inExamples = join(examples, rel);
+  const file = existsSync(inExamples) ? inExamples : join(darsiLessons, rel);
+  readFile(file, (err, body) => {
     if (err) return next();
     const ext = url.split(".").pop() ?? "";
     res.setHeader("Content-Type", `${TYPES[ext] ?? "application/octet-stream"}${ext === "json" || ext === "vtt" ? "; charset=utf-8" : ""}`);

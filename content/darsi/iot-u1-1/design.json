@@ -31,40 +31,28 @@
       ]
     },
     "3": {
-      "list": [
-        {
-          "icon": "gauge",
-          "text": {
-            "en": "Measure a voltage",
-            "ar-EG": "قيس الجهد"
-          },
-          "s": 0
-        },
-        {
-          "icon": "clock",
-          "text": {
-            "en": "At regular instants",
-            "ar-EG": "في لحظات منتظمة"
-          },
-          "s": 1
-        },
-        {
-          "icon": "eye",
-          "text": {
-            "en": "Blind in between",
-            "ar-EG": "أعمى في النص"
-          },
-          "s": 2,
-          "tone": "accent"
-        }
-      ],
-      "aside": "clock"
+      "who": null,
+      "signal": {
+        "fn": "1.6 + 0.9*sin(x)",
+        "xr": [0, 6],
+        "yr": [0, 3.3],
+        "rate": 2,
+        "unit": "V",
+        "xLabel": { "en": "Time", "ar-EG": "الزمن" },
+        "yLabel": { "en": "Voltage", "ar-EG": "الجهد" },
+        "focus": [{ "layer": 1, "s": 0 }, { "layer": 2, "s": 1 }]
+      }
     },
     "4": {
       "who": null,
-      "code": {
-        "text": "fs > 2B   (Nyquist)\nalias: f_seen = |f − k × fs|\nfilter above fs/2 first",
-        "s": 1
+      "signal": {
+        "fn": "1.65 + 1.1*sin(8*x)",
+        "xr": [0, 4],
+        "yr": [0, 3.3],
+        "rate": 1.5,
+        "unit": "V",
+        "xLabel": { "en": "Time", "ar-EG": "الزمن" },
+        "focus": [{ "layer": 1, "s": 0 }, { "layer": 2, "s": 1 }]
       }
     },
     "5": {
@@ -95,9 +83,15 @@
     },
     "6": {
       "who": null,
-      "code": {
-        "text": "step = V_ref / 2ⁿ\n10 bit, 3.3 V → 3.2 mV\nSNR ≈ 6.02n + 1.76 dB",
-        "s": 1
+      "signal": {
+        "fn": "1.65 + 1.2*sin(x)",
+        "xr": [0, 6],
+        "yr": [0, 3.3],
+        "rate": 3,
+        "bits": 3,
+        "unit": "V",
+        "readout": "code",
+        "focus": [{ "layer": 2, "s": 0 }, { "layer": 3, "s": 1 }]
       }
     },
     "7": {

@@ -208,35 +208,36 @@
       }
     },
     "9": {
-      "list": [
-        {
-          "icon": "circlecheck",
-          "text": {
-            "en": "Below 800 ppm: well ventilated",
-            "ar-EG": "تحت 800 ppm‏: متهوّي كويس"
-          },
-          "tone": "ok",
-          "s": 1
+      "who": null,
+      "signal": {
+        "fn": "500 + 90*x",
+        "xr": [
+          0,
+          12
+        ],
+        "yr": [
+          400,
+          1800
+        ],
+        "rate": 1,
+        "unit": "ppm",
+        "threshold": [
+          1000,
+          800
+        ],
+        "outLabel": {
+          "en": "Open the windows",
+          "ar-EG": "افتح النوافذ"
         },
-        {
-          "icon": "clock",
-          "text": {
-            "en": "Above 1,000: open the windows",
-            "ar-EG": "فوق 1000‏: افتح الشبابيك"
-          },
-          "s": 2
+        "xLabel": {
+          "en": "Time",
+          "ar-EG": "الزمن"
         },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "Above 1,500: poor air, open them all now",
-            "ar-EG": "فوق 1500‏: الهوا وحش، افتحها كلها حالًا"
-          },
-          "tone": "danger",
-          "s": 3
+        "yLabel": {
+          "en": "CO₂",
+          "ar-EG": "CO₂"
         }
-      ],
-      "aside": "traffic"
+      }
     },
     "10": {
       "compare": {

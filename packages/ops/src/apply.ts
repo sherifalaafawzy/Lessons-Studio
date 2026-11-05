@@ -136,8 +136,11 @@ function applyOne(l: Lesson, op: Op, touched: Touched): Op[] {
     /* ---------- lesson ---------- */
     case "setMeta":
       return inManifest((m) => {
-        for (const k of ["title", "summary", "brand", "stage", "level", "topic"] as const) {
-          if (op[k] !== undefined) (m as unknown as Record<string, unknown>)[k] = op[k];
+        for (const k of ["title", "summary", "brand", "stage", "level", "topic", "track"] as const) {
+          if (op[k] !== undefined) {
+            if (k === "track" && op.track === "") delete m.track;
+            else (m as unknown as Record<string, unknown>)[k] = op[k];
+          }
         }
         if (op.defaultLang !== undefined) {
           if (!m.languages.some((x) => x.code === op.defaultLang)) throw new Error(`No language "${op.defaultLang}" in the lesson`);

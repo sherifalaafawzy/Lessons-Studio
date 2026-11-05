@@ -893,7 +893,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 770,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -956,622 +956,66 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "table",
       "x": 90,
       "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "w": 1100,
+      "h": 400,
+      "type": "table",
+      "cols": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "en": "Rule",
+        "ar-EG": "القاعدة"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "en": "What it means",
+        "ar-EG": "معناها"
        }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "check",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
+      ],
+      "rows": [
+       [
+        {
+         "en": "Same input",
+         "ar-EG": "نفس المدخل"
+        },
+        {
+         "en": "Same fingerprint",
+         "ar-EG": "نفس البصمة"
+        }
+       ],
+       [
+        {
+         "en": "One letter changes",
+         "ar-EG": "حرف واحد يتغيّر"
+        },
+        {
+         "en": "About half the bits flip",
+         "ar-EG": "نحو نصف البتات ينقلب"
+        }
+       ],
+       [
+        {
+         "en": "One way",
+         "ar-EG": "اتجاه واحد"
+        },
+        {
+         "en": "No path back to the input",
+         "ar-EG": "لا طريق للرجوع للمدخل"
+        }
+       ]
+      ],
       "anim": [
        {
-        "prop": "scale",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Same input, same fingerprint",
-       "ar-EG": "نفس المدخل، نفس البصمة"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "always",
-            "ar-EG": "المدخل"
+            "en": "good",
+            "ar-EG": "الهاش"
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "shuffle",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "One letter flips about half the bits",
-       "ar-EG": "حرف واحد يقلب حوالي نص البتّات"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Change",
-            "ar-EG": "غيّر"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 418,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "lock",
-      "x": 104,
-      "y": 432,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 429,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "One way: no going back",
-       "ar-EG": "اتجاه واحد: مفيش رجوع"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 469
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.45
-          },
-          "value": 429,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "only",
-            "ar-EG": "وبيشتغل"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "aside",
-      "type": "shape",
-      "shape": "ellipse",
-      "x": 900,
-      "y": 220,
-      "w": 300,
-      "h": 300,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0
-          },
           "value": 0
          },
          {
@@ -1580,100 +1024,10 @@
             "en": "good",
             "ar-EG": "الهاش"
            },
-           "offset": 0.5
+           "offset": 1.8
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "asideicon",
-      "type": "icon",
-      "icon": "fingerprint",
-      "x": 975,
-      "y": 295,
-      "w": 150,
-      "h": 150,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0.6
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "good",
-            "ar-EG": "الهاش"
-           },
-           "offset": 0.25
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }

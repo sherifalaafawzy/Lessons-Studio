@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Scene, Tone } from "@lessonstudio/spec";
-import { TONES, splitWords } from "@lessonstudio/spec";
+import { TRACKS, TONES, splitWords } from "@lessonstudio/spec";
 import { currentElement, currentScene, edit, elementId, lesson, rightTab, sceneTiming, type RightTab } from "../editor.ts";
 import { say } from "../state.ts";
 import { convertToCanvas } from "../convert.ts";
@@ -162,6 +162,8 @@ function LessonTab() {
             onChange={(v) => edit([{ op: "setMeta", brand: v }])} />
           <Select label={t("shape")} value={m.stage ?? "landscape"} options={[["landscape", t("landscape")], ["portrait", t("portrait")], ["square", t("square")]]}
             onChange={(v) => edit([{ op: "setMeta", stage: v as "landscape" | "portrait" | "square" }])} />
+          <Select label={t("track")} value={m.track ?? ""} options={TRACKS.map((id) => [id, t(`track_${id}` as Key)])} empty={t("trackNone")}
+            onChange={(v) => edit([{ op: "setMeta", track: v }])} />
         </div>
       </Section>
       <Section title={t("languages")}>

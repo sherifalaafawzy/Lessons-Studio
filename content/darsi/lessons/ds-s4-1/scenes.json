@@ -1674,7 +1674,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 770,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -1737,188 +1737,87 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "plot",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "plot",
+      "xr": [
+       0,
+       9
+      ],
+      "yr": [
+       40,
+       70
+      ],
+      "series": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "kind": "hline",
+        "at": 55,
+        "tone": "muted",
+        "dash": true,
+        "label": {
+         "en": "The school",
+         "ar-EG": "المدرسة"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
+        "kind": "dots",
+        "tone": "accent",
+        "label": {
+         "en": "Samples of 40",
+         "ar-EG": "عينات من 40"
+        },
+        "pts": [
+         [
+          1,
+          52
+         ],
+         [
+          2,
+          57
+         ],
+         [
+          3,
+          49
+         ],
+         [
+          4,
+          61
+         ],
+         [
+          5,
+          54
+         ],
+         [
+          6,
+          58
+         ],
+         [
+          7,
+          51
+         ],
+         [
+          8,
+          56
+         ]
         ]
        }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "shuffle",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Random sample: one average",
-       "ar-EG": "عينة عشوائية: متوسط"
+      ],
+      "grid": true,
+      "xLabel": {
+       "en": "Sample",
+       "ar-EG": "العينة"
+      },
+      "yLabel": {
+       "en": "Average, minutes",
+       "ar-EG": "المتوسط، دقائق"
       },
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
          {
           "at": {
            "word": {
@@ -1927,432 +1826,6 @@
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "repeat",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Another sample: a bit different",
-       "ar-EG": "عينة تانية: مختلف شوية"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "another",
-            "ar-EG": "تانيين"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 418,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "accent",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "check",
-      "x": 104,
-      "y": 432,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text3",
-      "type": "text",
-      "x": 188,
-      "y": 429,
-      "w": 672,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Both can be fair",
-       "ar-EG": "الاتنين ممكن يبقوا سليمين"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 469
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.45
-          },
-          "value": 429,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Neither",
-            "ar-EG": "ومفيش"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "aside",
-      "type": "shape",
-      "shape": "ellipse",
-      "x": 900,
-      "y": 220,
-      "w": 300,
-      "h": 300,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
           "value": 0
          },
          {
@@ -2361,100 +1834,10 @@
             "en": "pupils",
             "ar-EG": "تلميذ"
            },
-           "offset": 0.5
+           "offset": 1.8
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "asideicon",
-      "type": "icon",
-      "icon": "shuffle",
-      "x": 975,
-      "y": 295,
-      "w": 150,
-      "h": 150,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.6
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.1
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "pupils",
-            "ar-EG": "تلميذ"
-           },
-           "offset": 0.25
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }

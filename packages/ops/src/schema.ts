@@ -46,7 +46,9 @@ export const OP_SCHEMA = {
   oneOf: [
     op("setMeta", "Change the lesson's title, summary, brand, stage shape, level, topic or default language.", {
       title: text, summary: text, brand: { type: "string" }, stage: { enum: ["landscape", "portrait", "square"] },
-      level: { type: "integer", minimum: 1, maximum: 12 }, topic: { type: "string" }, defaultLang: { type: "string" },
+      level: { type: "integer", minimum: 1, maximum: 12 }, topic: { type: "string" },
+      track: { type: "string", description: "A track id (ai, code, data, …), or \"\" to clear it. The studio then leads with that track's packs." },
+      defaultLang: { type: "string" },
     }, []),
     op("addLanguage", "Add a language. Then give every scene narration in it, and every text a version in it.", {
       code: { type: "string" }, name: { type: "string", description: "The language's own name, e.g. العربية" }, dir: { enum: ["ltr", "rtl"] },

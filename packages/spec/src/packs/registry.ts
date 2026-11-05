@@ -24,6 +24,31 @@ export type PackType = (typeof PACKS)[PackId][number];
 export const PACK_IDS = Object.keys(PACKS) as PackId[];
 export const PACK_TYPES: readonly PackType[] = PACK_IDS.flatMap((id) => PACKS[id]);
 
+/**
+ * The tracks a lesson can belong to, and the packs that teach that track. The studio lists a lesson's own packs
+ * first. A track can use more than one pack (data science uses data and science). Agents use the science pack,
+ * whose architecture diagrams include an agent and retrieval.
+ */
+export const TRACKS = ["ai", "cyber", "iot", "code", "data", "data-science", "agents", "opt", "aisec"] as const;
+export type TrackId = (typeof TRACKS)[number];
+export const TRACK_PACKS: Record<TrackId, readonly PackId[]> = {
+  ai: ["science"],
+  cyber: ["network"],
+  iot: ["iot"],
+  code: ["code"],
+  data: ["data"],
+  "data-science": ["data", "science"],
+  agents: ["science"],
+  opt: ["opt"],
+  aisec: ["network", "science"],
+};
+
+/** The packs for a track, or none when the lesson has no track or an unknown one. */
+export function packsForTrack(track: string | undefined): PackId[] {
+  if (!track || !(TRACKS as readonly string[]).includes(track)) return [];
+  return [...TRACK_PACKS[track as TrackId]];
+}
+
 /** The pack that draws an element type, or undefined for the player's own elements. */
 export function packOf(type: string): PackId | undefined {
   for (const id of PACK_IDS) if ((PACKS[id] as readonly string[]).includes(type)) return id;

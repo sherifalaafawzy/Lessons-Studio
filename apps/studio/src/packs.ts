@@ -2,14 +2,15 @@
 // themselves: their gallery scenes (`packs.<id>.presets(langs)` in packages/ops), an element of each type to add, and
 // the helpers behind the inspector's JSON form for any pack element (its own fields, checked live by the validator).
 import type { Element, Issue, Orient, Scene, Text } from "@lessonstudio/spec";
-import { PACKS, PACK_IDS, walkElements, type PackId } from "@lessonstudio/spec";
+import { PACKS, PACK_IDS, packsForTrack, walkElements, type PackId } from "@lessonstudio/spec";
 import { check, clone, packs, type Lesson } from "@lessonstudio/ops";
+import { GALLERY } from "./presets.ts";
 
 /** The packs besides science (which has its own forms): code, data, iot, network, opt. */
 export type TechPack = Exclude<PackId, "science">;
 export const TECH_PACKS = PACK_IDS.filter((id): id is TechPack => id !== "science");
 
-export interface PackPreset { pack: TechPack; id: string; name: Text; scene: Scene }
+export interface PackPreset { pack: PackId; id: string; name: Text; scene: Scene }
 
 type PresetFn = (langs: string[], stage?: Orient) => { id: string; name: Text; scene: Scene }[];
 const presetFn = (id: TechPack): PresetFn | undefined => (packs as unknown as Record<string, { presets?: PresetFn } | undefined>)[id]?.presets;
@@ -35,17 +36,42 @@ export function packPresets(pack: TechPack, langs: string[], stage: Orient = "la
   return list;
 }
 
-/** The packs that have gallery scenes, in the registry's order, with them. Packs without any are left out. */
-export function packGallery(langs: string[], stage: Orient = "landscape"): { pack: TechPack; presets: PackPreset[] }[] {
-  return TECH_PACKS.map((pack) => ({ pack, presets: packPresets(pack, langs, stage) })).filter((g) => g.presets.length);
+/** Science scenes live with the other gallery scenes; here they join the packs so every picture is under a pack. */
+function sciencePresets(langs: string[], stage: Orient): PackPreset[] {
+  const key = `science|${langs.join(",")}|${stage}`;
+  let list = cache.get(key);
+  if (!list) {
+    list = GALLERY.filter((g) => g.group === "science").map((g) => ({
+      pack: "science" as const, id: g.id, name: g.name, scene: g.make({ id: g.id, langs, stage }),
+    }));
+    cache.set(key, list);
+  }
+  return list;
+}
+
+/**
+ * Every pack's gallery scenes. Science is a pack too. When the lesson has a track, that track's packs come first
+ * and the rest follow, so the pictures that belong to the lesson are the ones in front.
+ */
+export function packGallery(langs: string[], stage: Orient = "landscape", track?: string): { pack: PackId; presets: PackPreset[]; featured: boolean }[] {
+  const groups = [
+    { pack: "science" as const, presets: sciencePresets(langs, stage) },
+    ...TECH_PACKS.map((pack) => ({ pack, presets: packPresets(pack, langs, stage) })),
+  ].filter((g) => g.presets.length);
+  const lead = new Set(packsForTrack(track));
+  const featured = groups.filter((g) => lead.has(g.pack));
+  const rest = groups.filter((g) => !lead.has(g.pack));
+  return [...featured, ...rest].map((g) => ({ ...g, featured: lead.has(g.pack) }));
 }
 
 /** A preset's key for drag and drop and commands: "pack:<pack>/<id>". */
 export const presetKey = (p: Pick<PackPreset, "pack" | "id">): string => `pack:${p.pack}/${p.id}`;
 export function presetByKey(key: string, langs: string[], stage: Orient = "landscape"): PackPreset | undefined {
   const m = /^pack:([a-z]+)\/(.+)$/.exec(key);
-  if (!m || !(TECH_PACKS as string[]).includes(m[1]!)) return undefined;
-  return packPresets(m[1] as TechPack, langs, stage).find((p) => p.id === m[2]);
+  if (!m || !(PACK_IDS as string[]).includes(m[1]!)) return undefined;
+  const pack = m[1] as PackId;
+  const list = pack === "science" ? sciencePresets(langs, stage) : packPresets(pack as TechPack, langs, stage);
+  return list.find((p) => p.id === m[2]);
 }
 
 /** A preset's scene under a new id (a copy, so the cached preset never changes). */

@@ -210,7 +210,12 @@ export const ELEMENT_KINDS: { key: string; label: Key; make: (id: string) => Ele
   { key: "ellipse", label: "elCircle", make: (id) => ({ id, type: "shape", shape: "ellipse", x: 540, y: 260, w: 200, h: 200, fill: "surface", stroke: "accent", strokeWidth: 5 }) },
   { key: "arrow", label: "elArrow", make: (id) => ({ id, type: "line", x: 400, y: 360, x2: 880, y2: 360, arrow: "end", strokeWidth: 6, tone: "muted" }) },
   { key: "icon", label: "elIcon", make: (id) => ({ id, type: "icon", icon: "spark", x: 580, y: 300, w: 120, h: 120, tone: "accent" }) },
-  { key: "code", label: "elCode", make: (id) => ({ id, type: "code", x: 340, y: 240, w: 600, size: 26, code: "print(\"hello\")" }) },
+  { key: "code", label: "elCode", make: (id) => ({
+    id, type: "code", x: 280, y: 200, w: 720, size: 28,
+    code: "score = model(pixels)\nprint(round(score, 2))",
+    caption: T("What the lines print", "ما تطبعه الأسطر"),
+    result: "0.91",
+  }) },
   { key: "chart", label: "elChart", make: (id) => ({ id, type: "chart", kind: "bar", x: 340, y: 200, w: 600, h: 320, data: [3, 5, 8], tone: "accent" }) },
 ];
 
@@ -278,6 +283,8 @@ export function ElementForm({ scene, el }: { scene: Scene; el: Element }) {
         <label class="f-row"><span>{t("elCode")}</span>
           <textarea class="mono" dir="ltr" rows={6} value={el.code} onBlur={(e) => { const v = (e.target as HTMLTextAreaElement).value; if (v !== el.code) set({ code: v }); }} /></label>
         <StringField label={t("fHighlight")} value={(el.highlight ?? []).join(", ")} onCommit={(v) => set({ highlight: v.split(/[^0-9]+/).filter(Boolean).map(Number) })} />
+        <TextField label={t("codeCaption")} value={el.caption} onCommit={(v) => set({ caption: v ?? null })} />
+        <StringField label={t("codeResult")} value={el.result ?? ""} onCommit={(v) => set({ result: v || null })} />
         {n("size", "fSize", { min: 8, max: 300 })}
       </> : null}
       {el.type === "chart" ? <>

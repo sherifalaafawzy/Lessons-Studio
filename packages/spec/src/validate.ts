@@ -141,6 +141,7 @@ function validateManifest(m: Manifest, err: Add, warn: Add): Lang[] {
   text(m.title, "manifest.title", langs, err, warn);
   text(m.summary, "manifest.summary", langs, err, warn, false);
   if (m.level !== undefined && (!Number.isInteger(m.level) || m.level < 1 || m.level > 12)) err("badLevel", "manifest.level");
+  if (m.track !== undefined && !(["ai", "cyber", "iot", "code", "data", "data-science", "agents", "opt", "aisec"] as readonly string[]).includes(m.track)) err("badTrack", "manifest.track");
   if (m.brand !== undefined && (typeof m.brand !== "string" || !PKG_ID.test(m.brand))) err("badBrand", "manifest.brand");
   if (m.poster !== undefined && !relPathOk(m.poster)) err("badPath", "manifest.poster");
 
@@ -358,6 +359,8 @@ function validateElements(list: Element[] | undefined, p: string, langs: Lang[],
       case "code":
         if (typeof el.code !== "string" || el.code.length > 4000) err("badCode", `${q}.code`);
         arr(el.highlight).forEach((l, j) => { if (!Number.isInteger(l) || l < 1) err("badCode", `${q}.highlight[${j}]`); });
+        if (el.caption !== undefined) text(el.caption, `${q}.caption`, langs, err, warn, false);
+        if (el.result !== undefined && (typeof el.result !== "string" || el.result.length > 200)) err("badCode", `${q}.result`);
         break;
       case "chart":
         if (!["bar", "line"].includes(el.kind)) err("badChart", `${q}.kind`);

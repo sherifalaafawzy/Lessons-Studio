@@ -266,6 +266,7 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
     brand: "darsi-light",
     stage: "landscape",
     topic: story.track,
+    track: story.track,
     level: story.level,
     createdBy: "Darsi course pack",
     tool: `Lesson Studio (from the ${story.unit.title} pack storyboard)`,
@@ -408,7 +409,7 @@ export function convert(story: Story, ar: Arabic | null, design: LessonDesign = 
       const aside = !who && d.list ? icon(d.aside, where) : undefined;
       const right = who ? 800 : aside ? 860 : 1190;
       let top = 70;
-      const quote = d.quote ?? (layout === "hook" && speaker ? Object.fromEntries(langs.map((l) => [l, N.sentences[l]![0]!])) : undefined);
+      const quote = d.quote ?? (layout === "hook" && speaker && !sci ? Object.fromEntries(langs.map((l) => [l, N.sentences[l]![0]!])) : undefined);
       if (quote) {
         els.push(
           anim({ id: "bubble", type: "shape", shape: "rect", x: 90, y: 70, w: right - 90, h: 200, fill: "surface", stroke: "line", strokeWidth: 3, radius: 28 }, "pop", N.at(0), 0.45),
@@ -574,6 +575,30 @@ const ramp = (prop: Track["prop"], from: When, to: When, a: number, b: number, e
 const steps = (prop: Track["prop"], list: { at: When; value: number }[]): Track => ({ prop, keys: list.map((k) => ({ ...k, ease: "step" as const })) });
 
 function scienceEls(d: Design, N: Narration, b: Box, T: TFn, langs: Lang[], where: string): Element[] {
+  // A diagram with its formula under it (or two diagrams). One science body still fills the scene.
+  const order = ["training", "descent", "network", "arch", "plot", "table", "equation"] as const;
+  const keys = order.filter((k) => d[k]);
+  if (keys.length > 1) {
+    const gap = 24;
+    const eq = keys.includes("equation");
+    const rest = keys.filter((k) => k !== "equation");
+    const slice = (key: typeof order[number], box: Box): Element[] =>
+      scienceEls({ [key]: d[key] } as Design, N, box, T, langs, where);
+    if (rest.length === 1 && eq) {
+      const topH = Math.round(b.h * 0.64);
+      return [
+        ...slice(rest[0]!, { ...b, h: topH }),
+        ...slice("equation", { ...b, y: b.y + topH + gap, h: Math.max(88, b.h - topH - gap) }),
+      ];
+    }
+    if (rest.length === 2 && !eq) {
+      const half = Math.round((b.h - gap) / 2);
+      return [
+        ...slice(rest[0]!, { ...b, h: half }),
+        ...slice(rest[1]!, { ...b, y: b.y + half + gap, h: b.h - half - gap }),
+      ];
+    }
+  }
   const box = (id: string, x = b.x, w = b.w, y = b.y - 10, h = b.h + 30) => ({ id, x, y, w, h });
   const last = N.n - 1;
   const play = (fr: [number, number] | undefined, s0: number): [When, When] => {
@@ -618,7 +643,10 @@ function scienceEls(d: Design, N: Narration, b: Box, T: TFn, langs: Lang[], wher
     const s0 = t.s ?? 0;
     const show = t.show ?? "both";
     if (show === "net") return [withFrames(anim(trainingNet(run, layers, box("net"), langs), "type", N.at(s0), 1.2), t.frames, s0)];
-    if (show === "map") return [withFrames(trainingPlot(run, box("map", b.x + (b.w - 560) / 2, 560)), t.frames, s0)];
+    if (show === "map") {
+      const side = Math.min(b.w, b.h);
+      return [withFrames(trainingPlot(run, box("map", b.x + (b.w - side) / 2, side, b.y, side)), t.frames, s0)];
+    }
     if (show === "loss") {
       const loss = lossPlot(run, box("loss"), langs);
       const [from, to] = play(t.frames, s0);

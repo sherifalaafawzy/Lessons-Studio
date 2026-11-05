@@ -110,7 +110,10 @@ export const arch: KitRenderer = (el, box, ctx) => {
     art.append(g);
     arrows.push({ g, from, to, pts });
   };
+  // An arrow that jumps past a layer goes around the blocks, so it does not cut through them.
+  const jumps = (ed: { from: string; to: string }): boolean => Math.abs((layer[idx.get(ed.from)!] ?? 0) - (layer[idx.get(ed.to)!] ?? 0)) > 1;
   for (const ed of main) {
+    if (jumps(ed)) continue;
     const a = idx.get(ed.from)!;
     const b = idx.get(ed.to)!;
     const [x1, y1] = exitOf(placed[a]!);
@@ -120,7 +123,8 @@ export const arch: KitRenderer = (el, box, ctx) => {
       : vertical ? [[x1, y1], [x1, (y1 + y2) / 2], [x2, (y1 + y2) / 2], [x2, y2]] : [[x1, y1], [(x1 + x2) / 2, y1], [(x1 + x2) / 2, y2], [x2, y2]];
     addArrow(a, b, pts, ed.label ? ctx.t(ed.label) : undefined, false);
   }
-  skips.forEach((ed, k) => {
+  const around = [...main.filter(jumps), ...skips];
+  around.forEach((ed, k) => {
     // Around the blocks in between, on the side (vertical) or above (left to right).
     const a = placed[idx.get(ed.from)!]!;
     const b = placed[idx.get(ed.to)!]!;
@@ -132,10 +136,10 @@ export const arch: KitRenderer = (el, box, ctx) => {
       const side = flip ? Math.min(...between.map((p) => p.x)) - off : Math.max(...between.map((p) => p.x + p.w)) + off;
       const ax = flip ? a.x : a.x + a.w;
       const bx = flip ? b.x : b.x + b.w;
-      addArrow(idx.get(ed.from)!, idx.get(ed.to)!, [[ax, a.y + a.h / 2], [side, a.y + a.h / 2], [side, b.y + b.h / 2], [bx, b.y + b.h / 2]], ed.label ? ctx.t(ed.label) : undefined, true);
+      addArrow(idx.get(ed.from)!, idx.get(ed.to)!, [[ax, a.y + a.h / 2], [side, a.y + a.h / 2], [side, b.y + b.h / 2], [bx, b.y + b.h / 2]], ed.label ? ctx.t(ed.label) : undefined, !!ed.skip);
     } else {
       const under = Math.max(...between.map((p) => p.y + p.h)) + off;
-      addArrow(idx.get(ed.from)!, idx.get(ed.to)!, [[a.x + a.w / 2, a.y + a.h], [a.x + a.w / 2, under], [b.x + b.w / 2, under], [b.x + b.w / 2, b.y + b.h]], ed.label ? ctx.t(ed.label) : undefined, true);
+      addArrow(idx.get(ed.from)!, idx.get(ed.to)!, [[a.x + a.w / 2, a.y + a.h], [a.x + a.w / 2, under], [b.x + b.w / 2, under], [b.x + b.w / 2, b.y + b.h]], ed.label ? ctx.t(ed.label) : undefined, !!ed.skip);
     }
   });
 
@@ -146,7 +150,7 @@ export const arch: KitRenderer = (el, box, ctx) => {
     const ps = members.map((n) => placed[n]!);
     const pad = 18;
     // The frame takes in the skip arrows beside (vertical) or under (left to right) its blocks.
-    const lane = skips.length ? 24 + 18 * skips.length : 0;
+    const lane = around.length ? 24 + 18 * around.length : 0;
     let x = Math.min(...ps.map((p) => p.x)) - pad;
     let x2 = Math.max(...ps.map((p) => p.x + p.w)) + pad;
     if (vertical && lane) { if (flip) x -= lane; else x2 += lane; }

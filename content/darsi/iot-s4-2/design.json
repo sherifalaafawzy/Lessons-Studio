@@ -31,90 +31,12 @@
       ]
     },
     "3": {
-      "cards": [
-        {
-          "icon": "wifi",
-          "text": {
-            "en": "Everyone talks to one hub",
-            "ar-EG": "الكل بيكلّم مركز واحد"
-          },
-          "s": 0
-        },
-        {
-          "icon": "circlecheck",
-          "text": {
-            "en": "Simple to set up",
-            "ar-EG": "سهلة تتعمل"
-          },
-          "tone": "ok",
-          "s": 1
-        },
-        {
-          "icon": "wifi-off",
-          "text": {
-            "en": "Too far: cut off",
-            "ar-EG": "بعيد: مقطوع"
-          },
-          "tone": "danger",
-          "s": 2
-        }
-      ]
+      "who": null,
+      "topology": { "preset": "home-wifi" }
     },
     "4": {
-      "flow": {
-        "nodes": [
-          {
-            "id": "far",
-            "icon": "sprout",
-            "text": {
-              "en": "Far sensor",
-              "ar-EG": "الحساس البعيد"
-            },
-            "s": 1
-          },
-          {
-            "id": "n1",
-            "icon": "signal",
-            "text": {
-              "en": "Hop 1",
-              "ar-EG": "نطّة 1"
-            },
-            "s": 1
-          },
-          {
-            "id": "n2",
-            "icon": "signal",
-            "text": {
-              "en": "Hop 2",
-              "ar-EG": "نطّة 2"
-            },
-            "s": 2
-          },
-          {
-            "id": "gw",
-            "icon": "network",
-            "text": {
-              "en": "Gateway",
-              "ar-EG": "البوابة"
-            },
-            "s": 3
-          }
-        ],
-        "edges": [
-          [
-            "far",
-            "n1"
-          ],
-          [
-            "n1",
-            "n2"
-          ],
-          [
-            "n2",
-            "gw"
-          ]
-        ]
-      }
+      "who": null,
+      "topology": { "preset": "sensor-mesh", "play": [1] }
     },
     "5": {
       "cards": [
@@ -153,34 +75,8 @@
       ]
     },
     "7": {
-      "cards": [
-        {
-          "icon": "circlex",
-          "text": {
-            "en": "One sensor down",
-            "ar-EG": "حساس واقع"
-          },
-          "tone": "danger",
-          "s": 0
-        },
-        {
-          "icon": "shuffle",
-          "text": {
-            "en": "Messages go round it",
-            "ar-EG": "الرسايل بتلف حواليه"
-          },
-          "s": 0
-        },
-        {
-          "icon": "circlecheck",
-          "text": {
-            "en": "The network keeps working",
-            "ar-EG": "الشبكة بتفضل شغالة"
-          },
-          "tone": "ok",
-          "s": 2
-        }
-      ]
+      "who": null,
+      "topology": { "preset": "sensor-mesh", "play": [0, 1] }
     },
     "8": {
       "list": [
