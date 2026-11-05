@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:01.530
+Look at this ring of points.
+
+2
+00:00:02.270 --> 00:00:04.350
+A single straight line cannot
+
+3
+00:00:04.350 --> 00:00:07.030
+put the inside on one side and
+
+4
+00:00:07.030 --> 00:00:08.290
+the outside on the other.
+
+5
+00:00:09.430 --> 00:00:12.610
+Today: what one neuron can cut, and
+
+6
+00:00:12.610 --> 00:00:14.510
+why a stack with a bend can
+
+7
+00:00:14.510 --> 00:00:16.330
+separate a shape a line cannot.
+
+8
+00:00:17.670 --> 00:00:20.190
+A neuron is a weighted sum, a
+
+9
+00:00:20.190 --> 00:00:21.770
+bias, and an activation.
+
+10
+00:00:22.660 --> 00:00:24.840
+The weights say how much each
+
+11
+00:00:24.840 --> 00:00:27.560
+input counts, and the bias shifts
+
+12
+00:00:27.560 --> 00:00:29.360
+the sum before the bend.
+
+13
+00:00:30.540 --> 00:00:33.440
+One neuron draws one straight cut.
+
+14
+00:00:34.090 --> 00:00:37.570
+Stack linear layers with no activation and
+
+15
+00:00:37.570 --> 00:00:40.350
+they collapse into that same single cut.
+
+16
+00:00:41.560 --> 00:00:43.420
+The activation is the bend.
+
+17
+00:00:44.130 --> 00:00:46.210
+It lets the next layer turn the
+
+18
+00:00:46.210 --> 00:00:47.950
+previous cut into a curve.
+
+19
+00:00:49.180 --> 00:00:50.560
+Here is a ring.
+
+20
+00:00:51.260 --> 00:00:53.540
+A line misses it, and a small
+
+21
+00:00:53.540 --> 00:00:55.140
+network with a hidden layer
+
+22
+00:00:55.140 --> 00:00:57.340
+learns a boundary around it.
+
+23
+00:00:58.490 --> 00:00:58.970
+Quick check!
+
+24
+00:00:59.610 --> 00:01:02.370
+A single neuron draws which boundary?
+
+25
+00:01:03.710 --> 00:01:05.190
+One straight cut.
+
+26
+00:01:05.870 --> 00:01:08.250
+A closed curve needs the bend,
+
+27
+00:01:08.710 --> 00:01:10.250
+and more than one layer.
+
+28
+00:01:11.550 --> 00:01:13.190
+In the app, open the playground.
+
+29
+00:01:13.950 --> 00:01:15.910
+Train a small network on a shape
+
+30
+00:01:15.910 --> 00:01:18.050
+a line cannot separate, and
+
+31
+00:01:18.050 --> 00:01:19.230
+watch the boundary bend.
+
+32
+00:01:20.470 --> 00:01:21.230
+Your turn.
+
+33
+00:01:21.850 --> 00:01:24.090
+Without an activation, what does
+
+34
+00:01:24.090 --> 00:01:25.470
+a stack of layers become?
+
+35
+00:01:26.730 --> 00:01:27.550
+Remember this.
+
+36
+00:01:28.170 --> 00:01:31.810
+One neuron makes one cut, and depth
+
+37
+00:01:31.810 --> 00:01:33.930
+bends the boundary only when an
+
+38
+00:01:33.930 --> 00:01:36.170
+activation sits between the layers.
+
+39
+00:01:37.470 --> 00:01:38.810
+Try it on paper tonight.
+
+40
+00:01:39.370 --> 00:01:42.430
+Compute one forward step: two inputs,
+
+41
+00:01:42.890 --> 00:01:46.010
+two weights, a bias, then a ReLU.

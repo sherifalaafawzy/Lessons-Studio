@@ -263,6 +263,24 @@ describe("player", () => {
     expect(document.body.style.position).toBe("");
   });
 
+  it("lifts the host's containment while stretched over the page, so the fixed player isn't clipped to the host", () => {
+    const { p, root } = mk("prompt-injection");
+    const host = root.host as HTMLElement;
+    const fs = root.querySelector<HTMLButtonElement>(".ls-fs")!;
+    const css = root.querySelector("style")!.textContent!;
+    expect(css).toContain(":host{display:block;contain:content}");
+    expect(css).toContain(":host([data-ls-full]){contain:none}");
+    expect(host.hasAttribute("data-ls-full")).toBe(false);
+    fs.click();
+    expect(host.hasAttribute("data-ls-full")).toBe(true);
+    fs.click();
+    expect(host.hasAttribute("data-ls-full")).toBe(false);
+    fs.click();
+    p.destroy();
+    expect(host.hasAttribute("data-ls-full")).toBe(false);
+    expect(document.body.style.position).toBe("");
+  });
+
   it("uses a viewport overlay on iPhone even when requestFullscreen exists, and the button leaves it", async () => {
     const { p, root } = mk("prompt-injection");
     const wrap = root.querySelector<HTMLElement>(".ls-player")!;

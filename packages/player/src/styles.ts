@@ -5,6 +5,9 @@
  */
 export const CSS = `
 :host{display:block;contain:content}
+/* Stretched over the page (iPhone), the player is position:fixed: containment would make the host its containing block
+   and clip it, so the picture vanished. */
+:host([data-ls-full]){contain:none}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 .ls-player{

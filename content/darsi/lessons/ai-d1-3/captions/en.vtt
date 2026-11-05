@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:00.350 --> 00:00:03.030
+The first symbol is a cue, and
+
+2
+00:00:03.030 --> 00:00:04.450
+then the line goes quiet.
+
+3
+00:00:05.110 --> 00:00:06.930
+A weak memory forgets that
+
+4
+00:00:06.930 --> 00:00:08.110
+cue before the end.
+
+5
+00:00:09.300 --> 00:00:12.340
+Today: how a recurrent net reads one
+
+6
+00:00:12.340 --> 00:00:14.960
+symbol at a time, and why its memory
+
+7
+00:00:14.960 --> 00:00:15.360
+fades.
+
+8
+00:00:16.740 --> 00:00:19.660
+A sequence is read one symbol at a time.
+
+9
+00:00:20.290 --> 00:00:22.090
+The hidden state is the only
+
+10
+00:00:22.090 --> 00:00:24.070
+memory the next symbol will see.
+
+11
+00:00:25.300 --> 00:00:27.200
+Each step keeps only a
+
+12
+00:00:27.200 --> 00:00:28.340
+share of that state.
+
+13
+00:00:29.020 --> 00:00:31.740
+If the share is near zero, the cue is
+
+14
+00:00:31.740 --> 00:00:33.360
+gone after a few empty steps.
+
+15
+00:00:34.650 --> 00:00:37.030
+Near one, the sign of the cue is
+
+16
+00:00:37.030 --> 00:00:38.210
+still there at the end.
+
+17
+00:00:38.840 --> 00:00:42.020
+That is the limit of this simple net: a
+
+18
+00:00:42.020 --> 00:00:44.200
+long gap washes the start away.
+
+19
+00:00:45.430 --> 00:00:47.670
+Here is how much of the cue is left.
+
+20
+00:00:48.370 --> 00:00:51.390
+A weak memory keeps almost none, and a
+
+21
+00:00:51.390 --> 00:00:53.410
+strong memory keeps most of it.
+
+22
+00:00:54.560 --> 00:00:55.040
+Quick check!
+
+23
+00:00:55.680 --> 00:00:57.980
+Three empty steps follow a cue,
+
+24
+00:00:58.540 --> 00:01:00.020
+and the memory is near zero.
+
+25
+00:01:00.660 --> 00:01:02.080
+What is left at the end?
+
+26
+00:01:03.270 --> 00:01:04.590
+Almost none of the cue.
+
+27
+00:01:05.260 --> 00:01:08.460
+A small memory, multiplied again and
+
+28
+00:01:08.460 --> 00:01:10.680
+again, washes the start away.
+
+29
+00:01:11.900 --> 00:01:14.060
+In the app, open the memory lab.
+
+30
+00:01:14.700 --> 00:01:17.100
+Find a memory that keeps more than half
+
+31
+00:01:17.100 --> 00:01:19.540
+the cue, and one that keeps almost none.
+
+32
+00:01:20.800 --> 00:01:21.560
+Your turn.
+
+33
+00:01:22.180 --> 00:01:24.500
+Does a recurrent net read the
+
+34
+00:01:24.500 --> 00:01:25.940
+whole sequence in one look?
+
+35
+00:01:27.160 --> 00:01:27.980
+Remember this.
+
+36
+00:01:28.600 --> 00:01:30.540
+The hidden state is the memory,
+
+37
+00:01:31.100 --> 00:01:32.980
+and a long gap fades it.
+
+38
+00:01:33.570 --> 00:01:36.590
+Attention, next, looks back instead.
+
+39
+00:01:37.920 --> 00:01:39.260
+Try it on paper tonight.
+
+40
+00:01:39.820 --> 00:01:42.260
+Start from a cue of one, keep
+
+41
+00:01:42.260 --> 00:01:44.980
+half, and take one empty step.

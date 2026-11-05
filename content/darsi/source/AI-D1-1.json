@@ -1,0 +1,203 @@
+{
+  "id": "AI-D1-1",
+  "track": "ai",
+  "level": 4,
+  "unit": {
+    "number": 1,
+    "title": "Networks and sequences"
+  },
+  "lesson": {
+    "number": 1,
+    "title": "A stack of neurons",
+    "subtitle": "One cut, then a bend",
+    "minutes": 18,
+    "format": "Video + lab + practice"
+  },
+  "video": {
+    "title": "A stack of neurons: one cut, then a bend",
+    "length": "2:36",
+    "format_note": "Animated explainer, 16:9, flat Darsi colours on paper-grey backgrounds. A small network trains on a ring; code and equations stay left to right in both languages. Narration in the lesson language; captions as separate files, never burned in.",
+    "cast": [
+      "Joseph - computer studies teacher, talking to a university class",
+      "Narrator - the Darsi voice, warm and precise, talking to a university student"
+    ],
+    "chapters": [
+      { "at": "0:00", "label": "A line that misses" },
+      { "at": "0:26", "label": "One neuron" },
+      { "at": "1:08", "label": "The ring" },
+      { "at": "2:06", "label": "Remember and try it" }
+    ],
+    "scenes": [
+      {
+        "n": 1,
+        "start": "0:00",
+        "end": "0:16",
+        "beat": "Hook",
+        "visual": "A ring of points, and a straight line that misses it.",
+        "animation": "The line appears, then the missed points.",
+        "on_screen_text": "",
+        "voice": "Joseph",
+        "narration": "Look at this ring of points. A single straight line cannot put the inside on one side and the outside on the other.",
+        "icons": ["target", "warning"]
+      },
+      {
+        "n": 2,
+        "start": "0:16",
+        "end": "0:26",
+        "beat": "Title",
+        "visual": "",
+        "animation": "",
+        "on_screen_text": "A stack of neurons",
+        "voice": "Narrator",
+        "narration": "Today: what one neuron can cut, and why a stack with a bend can separate a shape a line cannot."
+      },
+      {
+        "n": 3,
+        "start": "0:26",
+        "end": "0:42",
+        "beat": "Definition",
+        "visual": "Three cards: weights, bias, activation.",
+        "animation": "Each card arrives with its sentence.",
+        "on_screen_text": "Weights, bias, activation",
+        "voice": "Narrator",
+        "narration": "A neuron is a weighted sum, a bias, and an activation. The weights say how much each input counts, and the bias shifts the sum before the bend.",
+        "icons": ["calculator", "arrow", "spark"]
+      },
+      {
+        "n": 4,
+        "start": "0:42",
+        "end": "0:56",
+        "beat": "Concept",
+        "visual": "One neuron beside a stack with no activation. Both are one cut.",
+        "animation": "The two columns appear in turn.",
+        "on_screen_text": "Still one cut",
+        "voice": "Narrator",
+        "narration": "One neuron draws one straight cut. Stack linear layers with no activation and they collapse into that same single cut.",
+        "icons": ["layers"]
+      },
+      {
+        "n": 5,
+        "start": "0:56",
+        "end": "1:08",
+        "beat": "Concept",
+        "visual": "The activation named as the bend.",
+        "animation": "The bend arrives on the second sentence.",
+        "on_screen_text": "The bend",
+        "voice": "Narrator",
+        "narration": "The activation is the bend. It lets the next layer turn the previous cut into a curve.",
+        "icons": ["spark", "arrow"]
+      },
+      {
+        "n": 6,
+        "start": "1:08",
+        "end": "1:24",
+        "beat": "Examples",
+        "visual": "A small network training on a ring: the boundary wraps, and the loss falls.",
+        "animation": "Training plays across the two sentences.",
+        "on_screen_text": "A ring a line misses",
+        "voice": "Narrator",
+        "narration": "Here is a ring. A line misses it, and a small network with a hidden layer learns a boundary around it.",
+        "icons": ["target"]
+      },
+      {
+        "n": 7,
+        "start": "1:24",
+        "end": "1:32",
+        "beat": "Checkpoint ◆",
+        "visual": "",
+        "animation": "",
+        "on_screen_text": "Which boundary?",
+        "voice": "Joseph",
+        "narration": "Quick check! A single neuron draws which boundary?"
+      },
+      {
+        "n": 8,
+        "start": "1:32",
+        "end": "1:44",
+        "beat": "Reveal",
+        "visual": "The answer: one straight cut.",
+        "animation": "The answer, then the reason.",
+        "on_screen_text": "One straight cut",
+        "voice": "Narrator",
+        "narration": "One straight cut. A closed curve needs the bend, and more than one layer.",
+        "icons": ["check", "layers"]
+      },
+      {
+        "n": 9,
+        "start": "1:44",
+        "end": "1:58",
+        "beat": "Lab preview",
+        "visual": "Three steps for the playground.",
+        "animation": "The steps arrive with the sentences.",
+        "on_screen_text": "The playground",
+        "voice": "Narrator",
+        "narration": "In the app, open the playground. Train a small network on a shape a line cannot separate, and watch the boundary bend.",
+        "icons": ["cpu", "target", "eye"]
+      },
+      {
+        "n": 10,
+        "start": "1:58",
+        "end": "2:06",
+        "beat": "Checkpoint ◆",
+        "visual": "",
+        "animation": "",
+        "on_screen_text": "Without the bend?",
+        "voice": "Joseph",
+        "narration": "Your turn. Without an activation, what does a stack of layers become?"
+      },
+      {
+        "n": 11,
+        "start": "2:06",
+        "end": "2:18",
+        "beat": "Recap",
+        "visual": "Two points and a takeaway.",
+        "animation": "The points, then the takeaway.",
+        "on_screen_text": "One cut, then a bend",
+        "voice": "Narrator",
+        "narration": "Remember this. One neuron makes one cut, and depth bends the boundary only when an activation sits between the layers."
+      },
+      {
+        "n": 12,
+        "start": "2:18",
+        "end": "2:36",
+        "beat": "Try it tomorrow",
+        "visual": "The hand step: two inputs, two weights, a bias, a ReLU.",
+        "animation": "The steps of the calculation.",
+        "on_screen_text": "One step by hand",
+        "voice": "Narrator",
+        "narration": "Try it on paper tonight. Compute one forward step: two inputs, two weights, a bias, then a ReLU.",
+        "icons": ["pencil", "calculator"]
+      }
+    ],
+    "checkpoints": [
+      {
+        "at": "1:28",
+        "after_scene": 7,
+        "type": "choice",
+        "prompt": "A single neuron draws which boundary?",
+        "options": [
+          { "text": "One straight cut", "correct": true },
+          { "text": "Any closed curve", "correct": false },
+          { "text": "Two cuts at once", "correct": false }
+        ],
+        "feedback_correct": "Correct: one neuron is a weighted sum and an activation, and it cuts the plane once.",
+        "feedback_wrong": "Not quite: one neuron draws one straight cut. A curve needs a bend and more than one layer.",
+        "resume_at": "1:32"
+      },
+      {
+        "at": "2:02",
+        "after_scene": 10,
+        "type": "choice",
+        "prompt": "Without an activation, a stack of layers becomes…",
+        "options": [
+          { "text": "One straight cut", "correct": true },
+          { "text": "A ring", "correct": false },
+          { "text": "Two separate networks", "correct": false }
+        ],
+        "feedback_correct": "Correct: without an activation, stacked linear layers collapse into one cut.",
+        "feedback_wrong": "Not quite: without the bend, the stack is still one straight cut.",
+        "resume_at": "2:06"
+      }
+    ]
+  }
+}

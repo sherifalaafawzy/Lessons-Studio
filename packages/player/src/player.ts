@@ -774,6 +774,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   }
   function setPageFull(on: boolean): void {
     wrap.classList.toggle("ls-full", on);
+    host.toggleAttribute("data-ls-full", on);
     lockPage(on);
     watchViewport(on);
     onFull();
@@ -820,10 +821,19 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       else if (!on && locked) { locked = false; so?.unlock?.(); }
     } catch { locked = false; }
   }
+  // Leaving full screen, the page may still be settling (Android turns the screen back after the unlock), and the
+  // host's own size doesn't change, so nothing else would measure the picture again: measure once it has settled.
+  let refitTimer = 0;
+  const refit = (): void => { if (!gone) { fit(); still(clk.time()); } };
   const onFull = (): void => {
     if (document.fullscreenElement !== wrap) {
       lockOrient(false);
-      if (!wrap.classList.contains("ls-full")) watchViewport(false);
+      if (!wrap.classList.contains("ls-full")) {
+        watchViewport(false);
+        if (typeof requestAnimationFrame === "function") requestAnimationFrame(refit);
+        clearTimeout(refitTimer);
+        refitTimer = window.setTimeout(refit, 350);
+      }
     }
     fit();
     still(clk.time());
@@ -1183,6 +1193,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       if (wrap.classList.contains("ls-full") || pageLocked) setPageFull(false);
       document.removeEventListener("fullscreenchange", onFull);
       clearTimeout(idle);
+      clearTimeout(refitTimer);
       clearTimeout(tapTimer);
       clearTimeout(flashTimer);
       if (raf) cancelAnimationFrame(raf);
