@@ -150,7 +150,7 @@
     "beat": "Checkpoint ◆",
     "visual": "",
     "animation": "",
-    "on_screen_text": "Which attack?",
+    "on_screen_text": "Which poisoning?",
     "voice": "Dr Amina",
     "narration": "Quick check! A model is accurate on clean tests but misreads any image with a small yellow square. Which kind of poisoning is this?"
    },
@@ -228,15 +228,15 @@
     "at": "1:43",
     "after_scene": 8,
     "type": "choice",
-    "prompt": "Accurate on clean tests, wrong whenever a yellow square appears. Which attack?",
+    "prompt": "Accurate on clean tests, but wrong whenever a yellow square appears. Which kind of poisoning?",
     "options": [
-     {
-      "text": "Availability poisoning",
-      "correct": false
-     },
      {
       "text": "A backdoor",
       "correct": true
+     },
+     {
+      "text": "Availability poisoning",
+      "correct": false
      },
      {
       "text": "An adversarial example at test time",

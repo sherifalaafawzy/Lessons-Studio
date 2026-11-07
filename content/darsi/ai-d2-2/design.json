@@ -1,24 +1,60 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "eye",
-          "text": {
-            "en": "The detector was trained on drawings with the",
-            "ar-EG": "الكاشف اتدرّب على رسومات عيونها قريبة من بعض"
-          },
-          "s": 0
+      "who": null,
+      "plot": {
+        "xr": [
+          0,
+          1
+        ],
+        "yr": [
+          0,
+          1
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "eye spacing",
+          "ar-EG": "مسافة العين"
         },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "A wider face is still a face, and",
-            "ar-EG": "الوش الأعرض لسه وش، وعمره ما كان في"
+        "yLabel": {
+          "en": "score",
+          "ar-EG": "الدرجة"
+        },
+        "series": [
+          {
+            "kind": "hline",
+            "at": 0.55,
+            "tone": "danger",
+            "dash": true,
+            "label": {
+              "en": "The line",
+              "ar-EG": "الخط"
+            }
           },
-          "s": 1
-        }
-      ]
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                0.28,
+                0.82
+              ],
+              [
+                0.78,
+                0.32
+              ]
+            ],
+            "cls": [
+              1,
+              2
+            ],
+            "label": {
+              "en": "Drawings",
+              "ar-EG": "رسومات"
+            }
+          }
+        ],
+        "s": 0
+      }
     },
     "3": {
       "cards": [
@@ -50,32 +86,73 @@
       "arrows": true
     },
     "4": {
-      "list": [
-        {
-          "icon": "warning",
-          "text": {
-            "en": "The wide face falls below the line",
-            "ar-EG": "الوش العريض بينزل تحت الخط"
-          },
-          "s": 0
+      "who": null,
+      "plot": {
+        "xr": [
+          0,
+          1
+        ],
+        "yr": [
+          0,
+          1
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "eye spacing",
+          "ar-EG": "مسافة العين"
         },
-        {
-          "icon": "check",
-          "text": {
-            "en": "The box stays below it too, and that",
-            "ar-EG": "والصندوق كمان بيفضل تحته، والجزء ده صح"
+        "yLabel": {
+          "en": "score",
+          "ar-EG": "الدرجة"
+        },
+        "series": [
+          {
+            "kind": "hline",
+            "at": 0.55,
+            "tone": "danger",
+            "dash": true,
+            "label": {
+              "en": "The line",
+              "ar-EG": "الخط"
+            }
           },
-          "s": 1
-        }
-      ]
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                0.28,
+                0.82
+              ],
+              [
+                0.78,
+                0.32
+              ],
+              [
+                0.55,
+                0.18
+              ]
+            ],
+            "cls": [
+              1,
+              2,
+              2
+            ],
+            "label": {
+              "en": "Drawings",
+              "ar-EG": "رسومات"
+            }
+          }
+        ],
+        "s": 0
+      }
     },
     "5": {
       "list": [
         {
           "icon": "shield",
           "text": {
-            "en": "A test on only the training shape hides",
-            "ar-EG": "اختبار على شكل التدريب بس بيخبّي التفويت"
+            "en": "Testing only the training shape hides the miss",
+            "ar-EG": "الاختبار على شكل التدريب بس بيخبّي التفويت"
           },
           "s": 0
         },
@@ -91,66 +168,115 @@
     },
     "6": {
       "who": null,
-      "compare": {
-        "left": {
-          "title": {
-            "en": "Close eyes",
-            "ar-EG": "عيون قريبة"
-          },
-          "icon": "target",
-          "tone": "accent",
-          "s": 0,
-          "items": [
-            {
-              "icon": "check",
-              "text": {
-                "en": "In the average",
-                "ar-EG": "في المتوسط"
-              },
-              "s": 0
-            }
-          ]
+      "plot": {
+        "xr": [
+          0,
+          1
+        ],
+        "yr": [
+          0,
+          1
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "eye spacing",
+          "ar-EG": "مسافة العين"
         },
-        "right": {
-          "title": {
-            "en": "Wide face",
-            "ar-EG": "وش أعرض"
-          },
-          "icon": "warning",
-          "tone": "danger",
-          "s": 1,
-          "items": [
-            {
-              "icon": "check",
-              "text": {
-                "en": "Below the line",
-                "ar-EG": "تحت الخط"
-              },
-              "s": 1
+        "yLabel": {
+          "en": "score",
+          "ar-EG": "الدرجة"
+        },
+        "series": [
+          {
+            "kind": "hline",
+            "at": 0.55,
+            "tone": "danger",
+            "dash": true,
+            "label": {
+              "en": "The line",
+              "ar-EG": "الخط"
             }
-          ]
-        }
+          },
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                0.28,
+                0.82
+              ],
+              [
+                0.78,
+                0.32
+              ]
+            ],
+            "cls": [
+              1,
+              2
+            ],
+            "label": {
+              "en": "Drawings",
+              "ar-EG": "رسومات"
+            }
+          }
+        ],
+        "s": 0
       }
     },
     "8": {
-      "list": [
-        {
-          "icon": "warning",
-          "text": {
-            "en": "Below the line",
-            "ar-EG": "تحت الخط"
-          },
-          "s": 0
+      "who": null,
+      "plot": {
+        "xr": [
+          0,
+          1
+        ],
+        "yr": [
+          0,
+          1
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "eye spacing",
+          "ar-EG": "مسافة العين"
         },
-        {
-          "icon": "check",
-          "text": {
-            "en": "Same idea, wider spacing, and the match falls",
-            "ar-EG": "نفس الفكرة، ومسافة أعرض، والتطابق مش مكمّل"
+        "yLabel": {
+          "en": "score",
+          "ar-EG": "الدرجة"
+        },
+        "series": [
+          {
+            "kind": "hline",
+            "at": 0.55,
+            "tone": "danger",
+            "dash": true,
+            "label": {
+              "en": "The line",
+              "ar-EG": "الخط"
+            }
           },
-          "s": 1
-        }
-      ]
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                0.28,
+                0.82
+              ],
+              [
+                0.78,
+                0.32
+              ]
+            ],
+            "cls": [
+              1,
+              2
+            ],
+            "label": {
+              "en": "Drawings",
+              "ar-EG": "رسومات"
+            }
+          }
+        ],
+        "s": 0
+      }
     },
     "9": {
       "steps": [
@@ -163,15 +289,15 @@
         },
         {
           "text": {
-            "en": "Read the three test scores and say which",
-            "ar-EG": "اقرأ درجات الاختبار التلاتة وقول أي وش اتفتوت"
+            "en": "Read the three test scores",
+            "ar-EG": "اقرأ درجات الاختبار التلاتة"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The detector lab",
-            "ar-EG": "معمل الكاشف"
+            "en": "Say which face was missed",
+            "ar-EG": "وقول أي وش اتفوّت"
           },
           "s": 1
         }
@@ -182,23 +308,23 @@
         {
           "icon": "check",
           "text": {
-            "en": "Report who was missed Do not test a",
-            "ar-EG": "اذكر مين اللي اتفتوت ومتختبرش كاشف وشوش على"
+            "en": "Report who was missed",
+            "ar-EG": "اذكر مين اللي اتفوّت"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Name the miss",
-            "ar-EG": "سمّي التفويت"
+            "en": "Drawings, not photos of people",
+            "ar-EG": "رسومات، مش صور ناس"
           },
-          "s": 1
+          "s": 2
         }
       ],
       "takeaway": {
-        "en": "Report who was missed Do not test a",
-        "ar-EG": "اذكر مين اللي اتفتوت ومتختبرش كاشف وشوش على"
+        "en": "Never test a face detector on real photos of people.",
+        "ar-EG": "متختبرش كاشف وشوش على صور حقيقية لناس."
       }
     },
     "12": {
@@ -215,7 +341,7 @@
           "icon": "gauge",
           "text": {
             "en": "Write the line and the wide face's score",
-            "ar-EG": "اكتب الخط ودرجة الوش العريض من المعمل"
+            "ar-EG": "اكتب الخط ودرجة الوش العريض"
           },
           "s": 1
         }

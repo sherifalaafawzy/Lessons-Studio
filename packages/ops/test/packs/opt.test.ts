@@ -221,6 +221,10 @@ describe("builders and gallery scenes", () => {
     const back = r.frames.find((f) => f.loop && !f.cut && !f.added)!.note as Record<string, string>;
     expect(back.ar).toMatch(/^نعود/);
     expect(back["ar-EG"]).toMatch(/^نرجع/);
+    const dp = o.knapsackDP([{ label: { en: "Desks", ar: "مقاعد", "ar-EG": "تختات" }, w: 500, v: 33 }], 1000, 100, ["en", "ar", "ar-EG"]);
+    const take = dp.frames[1]!.note as Record<string, string>;
+    expect(take.ar).toBe("مقاعد: نأخذها أو نتركها، والأكبر يفوز");
+    expect(take["ar-EG"]).toBe("تختات: ناخد ولا نسيب، والأكبر يكسب");
   });
 
   it("validates every preset with no warnings, laid out on the stage, with keyframes on spoken words", () => {

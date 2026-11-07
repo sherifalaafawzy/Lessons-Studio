@@ -2712,7 +2712,7 @@
    "template": "canvas",
    "narration": {
     "en": "When the window fills, the app chooses what stays. Keep everything, and the fourth answer is cut off. Drop the oldest, and the question behind a yes falls out. Keep short notes, and all seven messages work.",
-    "ar-EG": "لما النافذة تتملي، التطبيق بيختار إيه اللي يفضل. لو احتفظ بكل حاجة، الجواب الرابع بيتقطع. لو رمى الأقدم، السؤال اللي ورا الـ«أيوه» بيقع. ولو احتفظ بملاحظات قصيرة، السبع رسايل بيشتغلوا كلهم."
+    "ar-EG": "لما النافذة تتملي، التطبيق بيختار إيه اللي يفضل. لو احتفظ بكل حاجة، النافذة بتتملي ومفيش حاجة تانية بتدخل. لو رمى الأقدم، السؤال اللي ورا الـ«أيوه» بيقع. ولو احتفظ بملاحظات قصيرة، السبع رسايل بيشتغلوا كلهم."
    },
    "transition": {
     "type": "fade"
@@ -2927,7 +2927,7 @@
       "weight": 700,
       "text": {
        "en": "Keep everything: 4th answer cut",
-       "ar-EG": "«احتفظ بكل شيء»: الرابع بيتقطع"
+       "ar-EG": "«احتفظ بكل شيء»: مفيش مكان لحاجة تانية"
       },
       "anim": [
        {
@@ -3410,15 +3410,15 @@
      {
       "id": "a",
       "text": {
-       "en": "It can’t read village names",
-       "ar-EG": "مش بيعرف يقرا أسامي القرى"
+       "en": "“Tomorrow” fell out of the window",
+       "ar-EG": "كلمة «غدًا» وقعت من النافذة"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "“Tomorrow” fell out of the window",
-       "ar-EG": "«بكرة» وقعت من النافذة"
+       "en": "It can’t read village names",
+       "ar-EG": "مش بيعرف يقرا أسامي القرى"
       }
      },
      {
@@ -3429,14 +3429,14 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct — the turn with “tomorrow” was dropped, so the model never saw it and filled in a default. It can’t tell you what it forgot.",
-     "ar-EG": "صح — الدور اللي فيه «بكرة» اترمى، فالنموذج ما شافوش وحط القيمة الافتراضية. وهو مش بيقدر يقولك نسي إيه."
+     "ar-EG": "صح — الدور اللي فيه «غدًا» اترمى، فالنموذج ما شافوش وحط القيمة الافتراضية. وهو مش بيقدر يقولك نسي إيه."
     },
     "explainWrong": {
      "en": "Not quite — Dala was read fine. The word “tomorrow” was in an older turn that the app dropped, so the model never saw it.",
-     "ar-EG": "مش بالظبط — «دالا» اتقرت عادي. كلمة «بكرة» كانت في دور أقدم والتطبيق رماه، فالنموذج ما شافهاش."
+     "ar-EG": "مش بالظبط — «دالا» اتقرت عادي. كلمة «غدًا» كانت في دور أقدم والتطبيق رماه، فالنموذج ما شافهاش."
     }
    },
    "speaker": "salma"
@@ -3446,7 +3446,7 @@
    "template": "canvas",
    "narration": {
     "en": "Because tomorrow fell out of the window. The model never saw it, so it used a default. It can’t tell you what it has forgotten. Only the app knows what it dropped.",
-    "ar-EG": "علشان «بكرة» وقعت من النافذة. النموذج ما شافهاش أصلًا، فاستخدم القيمة الافتراضية. وهو مش بيقدر يقولك نسي إيه. التطبيق بس هو اللي عارف رمى إيه."
+    "ar-EG": "علشان كلمة «غدًا» وقعت من النافذة. النموذج ما شافهاش أصلًا، فاستخدم القيمة الافتراضية. وهو مش بيقدر يقولك نسي إيه. التطبيق بس هو اللي عارف رمى إيه."
    },
    "transition": {
     "type": "fade"
@@ -3527,7 +3527,7 @@
       "weight": 800,
       "text": {
        "en": "“Tomorrow” fell out",
-       "ar-EG": "«بكرة» وقعت"
+       "ar-EG": "«غدًا» وقعت"
       },
       "anim": [
        {
@@ -6548,8 +6548,8 @@
    "id": "s14",
    "template": "canvas",
    "narration": {
-    "en": "Try it yourself: in a long chat, keep asking about something from the very start. Note when it starts to forget. Then paste back a two-line note, and compare.",
-    "ar-EG": "جرّبها بنفسك: في شات طويل، فضل اسأل عن حاجة من أول الشات خالص. اكتب إمتى بيبدأ ينسى. وبعدين الزق له ملاحظة من سطرين، وقارن."
+    "en": "Try it yourself: picture an agent that helps your group study for a week. Write the two-line note you would pin at the top of its window: who, what, when and where. Then decide what it may drop.",
+    "ar-EG": "جرّبها بنفسك: تخيّل وكيل بيساعد مجموعتك تذاكر لمدة أسبوع. اكتب الملاحظة اللي من سطرين اللي هتثبّتها في أول نافذته: مين، وإيه، وإمتى، وفين. وبعدين قرّر إيه اللي ينفع يشيله."
    },
    "transition": {
     "type": "fade"
@@ -6693,7 +6693,7 @@
      {
       "id": "icon1",
       "type": "icon",
-      "icon": "chat",
+      "icon": "users",
       "x": 104,
       "y": 224,
       "w": 43,
@@ -6763,8 +6763,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "A long chat, a fact from the start",
-       "ar-EG": "شات طويل، ومعلومة من أوله"
+       "en": "An agent for a week of group study",
+       "ar-EG": "وكيل لأسبوع مذاكرة جماعية"
       },
       "anim": [
        {
@@ -6826,11 +6826,11 @@
       "type": "shape",
       "shape": "rect",
       "x": 90,
-      "y": 310,
+      "y": 314,
       "w": 72,
       "h": 72,
       "fill": "surface",
-      "stroke": "line",
+      "stroke": "ok",
       "strokeWidth": 3,
       "radius": 18,
       "anim": [
@@ -6840,7 +6840,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
@@ -6850,7 +6850,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.4
@@ -6866,7 +6866,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
@@ -6876,7 +6876,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.15
@@ -6891,12 +6891,12 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "flag",
+      "icon": "notebook",
       "x": 104,
-      "y": 324,
+      "y": 328,
       "w": 43,
       "h": 43,
-      "tone": "accent",
+      "tone": "ok",
       "anim": [
        {
         "prop": "scale",
@@ -6904,7 +6904,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
@@ -6914,7 +6914,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.45
@@ -6930,7 +6930,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
@@ -6940,7 +6940,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.15
@@ -6956,13 +6956,13 @@
       "id": "text2",
       "type": "text",
       "x": 188,
-      "y": 321,
+      "y": 325,
       "w": 612,
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Note when it forgets",
-       "ar-EG": "اكتب إمتى بينسى"
+       "en": "Pin a two-line note: who, what, when, where",
+       "ar-EG": "ثبّت ملاحظة من سطرين: مين، إيه، إمتى، فين"
       },
       "anim": [
        {
@@ -6971,22 +6971,22 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
           },
-          "value": 361
+          "value": 365
          },
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.45
           },
-          "value": 321,
+          "value": 325,
           "ease": "out"
          }
         ]
@@ -6997,7 +6997,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0
@@ -7007,7 +7007,7 @@
          {
           "at": {
            "word": {
-            "en": "when",
+            "en": "Write",
             "ar-EG": "اكتب"
            },
            "offset": 0.3
@@ -7024,11 +7024,11 @@
       "type": "shape",
       "shape": "rect",
       "x": 90,
-      "y": 410,
+      "y": 418,
       "w": 72,
       "h": 72,
       "fill": "surface",
-      "stroke": "ok",
+      "stroke": "line",
       "strokeWidth": 3,
       "radius": 18,
       "anim": [
@@ -7089,12 +7089,12 @@
      {
       "id": "icon3",
       "type": "icon",
-      "icon": "notebook",
+      "icon": "filter",
       "x": 104,
-      "y": 424,
+      "y": 432,
       "w": 43,
       "h": 43,
-      "tone": "ok",
+      "tone": "accent",
       "anim": [
        {
         "prop": "scale",
@@ -7154,13 +7154,13 @@
       "id": "text3",
       "type": "text",
       "x": 188,
-      "y": 421,
+      "y": 429,
       "w": 612,
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Paste back a two-line note",
-       "ar-EG": "الزق ملاحظة من سطرين"
+       "en": "Decide what it may drop",
+       "ar-EG": "قرّر إيه اللي ينفع يشيله"
       },
       "anim": [
        {
@@ -7174,7 +7174,7 @@
            },
            "offset": 0
           },
-          "value": 461
+          "value": 469
          },
          {
           "at": {
@@ -7184,7 +7184,7 @@
            },
            "offset": 0.45
           },
-          "value": 421,
+          "value": 429,
           "ease": "out"
          }
         ]
@@ -7209,204 +7209,6 @@
             "ar-EG": "وبعدين"
            },
            "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile4",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 510,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.9
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon4",
-      "type": "icon",
-      "icon": "scale",
-      "x": 104,
-      "y": 524,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.95
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text4",
-      "type": "text",
-      "x": 188,
-      "y": 521,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Compare",
-       "ar-EG": "قارن"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 561
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.95
-          },
-          "value": 521,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
-           },
-           "offset": 1.8
           },
           "value": 1,
           "ease": "out"

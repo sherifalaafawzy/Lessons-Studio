@@ -27,15 +27,15 @@
         "label": "A stand-in"
       },
       {
-        "at": "0:26",
+        "at": "0:42",
         "label": "Memory"
       },
       {
-        "at": "1:08",
+        "at": "0:56",
         "label": "Two splits"
       },
       {
-        "at": "2:00",
+        "at": "2:06",
         "label": "Remember"
       }
     ],
@@ -89,9 +89,9 @@
         "beat": "Concept",
         "visual": "",
         "animation": "",
-        "on_screen_text": "Weights and activations",
+        "on_screen_text": "What one step stores",
         "voice": "Narrator",
-        "narration": "One training step stores the weights and the activations. Activations grow with the batch and with the width.",
+        "narration": "One training step stores the weights, their gradients, the optimiser's state and the activations. Activations grow with the batch and with the width.",
         "icons": [
           "chip",
           "layers"
@@ -197,7 +197,7 @@
         "beat": "Try it tomorrow",
         "visual": "",
         "animation": "",
-        "on_screen_text": "Both ways on paper",
+        "on_screen_text": "Memory first",
         "voice": "Narrator",
         "narration": "Try it in your next lecture. The first five minutes end on the memory arithmetic, before any product is named.",
         "icons": [
@@ -214,16 +214,16 @@
         "prompt": "A layer does not fit on one machine because it is wide. What do you do?",
         "options": [
           {
-            "text": "Split the layer",
-            "correct": true
-          },
-          {
             "text": "Only split the examples",
             "correct": false
           },
           {
-            "text": "Store the activations as passwords",
+            "text": "Use a bigger batch",
             "correct": false
+          },
+          {
+            "text": "Split the layer",
+            "correct": true
           }
         ],
         "feedback_correct": "Correct: splitting the examples still copies the whole layer onto each machine.",
@@ -237,15 +237,15 @@
         "prompt": "Is a fast stand-in for a lab measurement the experiment itself?",
         "options": [
           {
-            "text": "No, it is not the measurement",
-            "correct": true
-          },
-          {
             "text": "Yes, if it is fast",
             "correct": false
           },
           {
-            "text": "Only on a phone",
+            "text": "No, it is not the measurement",
+            "correct": true
+          },
+          {
+            "text": "Yes, once it agrees with the lab",
             "correct": false
           }
         ],

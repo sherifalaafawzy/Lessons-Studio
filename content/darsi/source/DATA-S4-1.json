@@ -241,12 +241,12 @@
     "prompt": "Why is JSON bigger than CSV for the same table?",
     "options": [
      {
-      "text": "It repeats every column's name in every record",
-      "correct": true
-     },
-     {
       "text": "It stores numbers as pictures",
       "correct": false
+     },
+     {
+      "text": "It repeats every column's name in every record",
+      "correct": true
      },
      {
       "text": "It can't be compressed",
@@ -264,16 +264,16 @@
     "prompt": "A report needs the average attendance per class over a year. Which format reads the least data?",
     "options": [
      {
-      "text": "A column format: it reads only the columns it needs",
-      "correct": true
+      "text": "One uncompressed CSV file per day",
+      "correct": false
      },
      {
       "text": "JSON, because it's readable",
       "correct": false
      },
      {
-      "text": "One uncompressed CSV file per day",
-      "correct": false
+      "text": "A column format: it reads only the columns it needs",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct — the query needs class and status only; a column format reads just those, compressed.",

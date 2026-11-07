@@ -1184,7 +1184,7 @@
        10,
        8
       ],
-      "max": 70,
+      "max": 85,
       "labels": [
        {
         "en": "Radio",
@@ -1237,7 +1237,7 @@
       "id": "val1",
       "type": "text",
       "x": 190,
-      "y": 220,
+      "y": 270,
       "w": 225,
       "size": 26,
       "weight": 700,
@@ -1277,7 +1277,7 @@
       "id": "val2",
       "type": "text",
       "x": 415,
-      "y": 446,
+      "y": 456,
       "w": 225,
       "size": 26,
       "weight": 700,
@@ -1317,7 +1317,7 @@
       "id": "val3",
       "type": "text",
       "x": 640,
-      "y": 462,
+      "y": 470,
       "w": 225,
       "size": 26,
       "weight": 700,
@@ -1357,7 +1357,7 @@
       "id": "val4",
       "type": "text",
       "x": 865,
-      "y": 471,
+      "y": 477,
       "w": 225,
       "size": 26,
       "weight": 700,
@@ -2266,7 +2266,7 @@
       "weight": 800,
       "text": {
        "en": "Rate-monotonic scheduling",
-       "ar-EG": "الجدولة بمعدّل ثابت"
+       "ar-EG": "الجدولة رتيبة المعدّل (RM)"
       },
       "anim": [
        {
@@ -2415,6 +2415,10 @@
     "explain": {
      "en": "Correct: 50 mA × 1/100 = 0.5 mA.",
      "ar-EG": "صح: 50 × 1/100 = 0.5 مللي أمبير."
+    },
+    "explainWrong": {
+     "en": "Not quite: average = duty cycle × active current = 1/100 × 50 = 0.5 mA.",
+     "ar-EG": "مش بالظبط: المتوسط = دورة التشغيل × تيار الصحيان = 1/100 × 50 = 0.5."
     }
    },
    "speaker": "okafor"
@@ -2831,8 +2835,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the battery lab. Change how often the device wakes and how long the radio stays on, and watch the predicted battery life.",
-    "ar-EG": "في التطبيق، افتح معمل البطارية. غيّر الجهاز بيصحى كل قد إيه والراديو بيفضل شغّال قد إيه، وشوف عمر البطارية المتوقّع."
+    "en": "In the app, open the battery lab. Change how often it reports, the radio and the battery, and watch the predicted battery life.",
+    "ar-EG": "في التطبيق، افتح معمل البطارية. غيّر بيبعت تقرير كل قد إيه، وجهاز الإرسال، والبطارية، وشوف عمر البطارية المتوقّع."
    },
    "transition": {
     "type": "fade"
@@ -3046,8 +3050,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Wake interval",
-       "ar-EG": "فترة الصحيان"
+       "en": "“Report every”",
+       "ar-EG": "«أرسل تقريرًا كل»"
       },
       "anim": [
        {
@@ -3244,8 +3248,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Radio on-time",
-       "ar-EG": "وقت تشغيل الراديو"
+       "en": "Radio and battery",
+       "ar-EG": "جهاز الإرسال والبطارية"
       },
       "anim": [
        {
@@ -3324,7 +3328,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 0
          },
@@ -3334,7 +3338,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.4
+           "offset": 4.9
           },
           "value": 1,
           "ease": "back"
@@ -3350,7 +3354,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 0
          },
@@ -3360,7 +3364,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.15
+           "offset": 4.65
           },
           "value": 1,
           "ease": "out"
@@ -3388,7 +3392,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 0
          },
@@ -3398,7 +3402,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.45
+           "offset": 4.95
           },
           "value": 1,
           "ease": "back"
@@ -3414,7 +3418,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 0
          },
@@ -3424,7 +3428,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.15
+           "offset": 4.65
           },
           "value": 1,
           "ease": "out"
@@ -3455,7 +3459,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 469
          },
@@ -3465,7 +3469,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.45
+           "offset": 4.95
           },
           "value": 429,
           "ease": "out"
@@ -3481,7 +3485,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 4.5
           },
           "value": 0
          },
@@ -3491,7 +3495,7 @@
             "en": "Change",
             "ar-EG": "غيّر"
            },
-           "offset": 0.3
+           "offset": 4.8
           },
           "value": 1,
           "ease": "out"
@@ -3683,6 +3687,10 @@
     "explain": {
      "en": "Correct: 1/4 + 2/10 = 0.45, well under 0.83.",
      "ar-EG": "صح: 1/4 + 2/10 = 0.45، أقل بكتير من 0.83."
+    },
+    "explainWrong": {
+     "en": "Not quite: U = Σ C/T = 0.25 + 0.2 = 0.45.",
+     "ar-EG": "مش بالظبط: U = Σ C/T = 0.25 + 0.2 = 0.45."
     }
    },
    "speaker": "amina"

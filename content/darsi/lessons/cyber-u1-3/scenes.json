@@ -2554,7 +2554,7 @@
        100,
        0.01
       ],
-      "max": 100,
+      "max": 125,
       "labels": [
        {
         "en": "Fast hash",
@@ -2599,7 +2599,7 @@
       "id": "val1",
       "type": "text",
       "x": 190,
-      "y": 212,
+      "y": 270,
       "w": 450,
       "size": 26,
       "weight": 700,
@@ -3608,29 +3608,33 @@
      {
       "id": "a",
       "text": {
-       "en": "Identical",
-       "ar-EG": "متطابقة"
-      }
-     },
-     {
-      "id": "b",
-      "text": {
        "en": "Different",
        "ar-EG": "مختلفة"
       }
      },
      {
+      "id": "b",
+      "text": {
+       "en": "Identical",
+       "ar-EG": "متطابقة"
+      }
+     },
+     {
       "id": "c",
       "text": {
-       "en": "Empty",
-       "ar-EG": "فاضية"
+       "en": "Identical until the cost factor is raised",
+       "ar-EG": "متطابقة لحد ما معامل التكلفة يزيد"
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct: salts make each hash unique, so each password must be attacked separately.",
      "ar-EG": "صح: الملح بيخلّي كل تجزئة مختلفة، فكل كلمة سر لازم تتهاجم لوحدها."
+    },
+    "explainWrong": {
+     "en": "Not quite: the salt is part of the input, so the same password gives different hashes.",
+     "ar-EG": "مش بالظبط: الملح جزء من المدخل، فنفس كلمة السر بتدّي تجزئات مختلفة."
     }
    },
    "speaker": "salma"
@@ -4869,29 +4873,29 @@
     "type": "single-choice",
     "id": "s11-check",
     "prompt": {
-     "en": "A password and one-time code were typed into a fake page. Which factor would have stopped it?",
-     "ar-EG": "كلمة سر وكود اتكتبوا في صفحة مزيّفة. أنهي عامل كان هيوقّفه؟"
+     "en": "A fake page relayed a password and one-time code to the real site at once. Which second factor would have stopped it?",
+     "ar-EG": "صفحة مزيّفة نقلت كلمة السر والكود للموقع الحقيقي في نفس اللحظة. أنهي عامل تاني كان هيوقّفها؟"
     },
     "options": [
      {
       "id": "a",
       "text": {
-       "en": "A longer password",
-       "ar-EG": "كلمة سر أطول"
+       "en": "An authenticator-app code",
+       "ar-EG": "كود من تطبيق مصادقة"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "An SMS code",
-       "ar-EG": "كود رسالة نصية"
+       "en": "A push prompt to approve the sign-in",
+       "ar-EG": "إشعار على الموبايل توافق بيه على الدخول"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "A hardware key bound to the real site",
-       "ar-EG": "مفتاح جهاز مربوط بالموقع الحقيقي"
+       "en": "A FIDO2 security key",
+       "ar-EG": "مفتاح أمان ⁦FIDO2⁩"
       }
      }
     ],
@@ -4899,6 +4903,10 @@
     "explain": {
      "en": "Correct: the key won't sign for the fake domain.",
      "ar-EG": "صح: المفتاح مش هيوقّع للدومين المزيّف."
+    },
+    "explainWrong": {
+     "en": "Not quite: a code or a push approval can be relayed in real time; only an origin-bound key refuses a fake site.",
+     "ar-EG": "مش بالظبط: الكود أو الموافقة على الإشعار ممكن يتنقلوا في نفس اللحظة، والمفتاح المربوط بالموقع بس هو اللي بيرفض الموقع المزيّف."
     }
    },
    "speaker": "joseph"

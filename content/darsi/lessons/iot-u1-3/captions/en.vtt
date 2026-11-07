@@ -125,153 +125,153 @@ brings a web-like request and response
 model to tiny devices over UDP.
 
 32
-00:01:30.960 --> 00:01:32.800
-It suits sleepy nodes that are
+00:01:30.960 --> 00:01:32.660
+It suits small nodes that are
 
 33
-00:01:32.800 --> 00:01:35.780
+00:01:32.660 --> 00:01:35.200
 asked for readings, while MQTT
 
 34
-00:01:35.780 --> 00:01:37.440
+00:01:35.200 --> 00:01:36.740
 suits streams of events.
 
 35
-00:01:38.790 --> 00:01:40.330
+00:01:38.060 --> 00:01:39.600
 Protocol lectures become
 
 36
-00:01:40.330 --> 00:01:41.750
+00:01:39.600 --> 00:01:41.020
 lists of acronyms.
 
 37
-00:01:42.370 --> 00:01:45.470
+00:01:41.640 --> 00:01:44.740
 Instead, give teams a real brief with
 
 38
-00:01:45.470 --> 00:01:47.710
+00:01:44.740 --> 00:01:46.980
 distance, power and data needs.
 
 39
-00:01:48.390 --> 00:01:50.890
+00:01:47.660 --> 00:01:50.160
 Make them choose and justify a
 
 40
-00:01:50.890 --> 00:01:52.950
+00:01:50.160 --> 00:01:52.220
 stack, then test it on hardware.
 
 41
-00:01:54.270 --> 00:01:54.670
+00:01:53.540 --> 00:01:53.940
 Quick check!
 
 42
-00:01:55.290 --> 00:01:57.650
+00:01:54.560 --> 00:01:56.920
 A sensor sends a temperature every
 
 43
-00:01:57.650 --> 00:02:00.130
+00:01:56.920 --> 00:01:59.400
 ten seconds, and an occasional lost
 
 44
-00:02:00.130 --> 00:02:01.590
+00:01:59.400 --> 00:02:00.860
 reading does not matter.
 
 45
-00:02:02.210 --> 00:02:05.230
+00:02:01.480 --> 00:02:04.500
 Which MQTT quality of service fits best?
 
 46
-00:02:06.570 --> 00:02:07.350
+00:02:05.840 --> 00:02:06.620
 Level zero.
 
 47
-00:02:08.110 --> 00:02:10.650
+00:02:07.380 --> 00:02:09.920
 The next reading arrives in ten seconds,
 
 48
-00:02:11.090 --> 00:02:13.070
+00:02:10.360 --> 00:02:12.340
 so acknowledgements would only cost
 
 49
-00:02:13.070 --> 00:02:13.430
+00:02:12.340 --> 00:02:12.700
 energy.
 
 50
-00:02:14.100 --> 00:02:16.360
+00:02:13.370 --> 00:02:15.630
 Save higher levels for commands,
 
 51
-00:02:16.740 --> 00:02:18.080
+00:02:16.010 --> 00:02:17.350
 such as opening a valve.
 
 52
-00:02:19.350 --> 00:02:21.430
+00:02:18.620 --> 00:02:20.700
 In the app, open the mesh lab.
 
 53
-00:02:22.050 --> 00:02:24.450
-Place nodes across a field, remove
+00:02:21.320 --> 00:02:23.700
+Break a sensor and watch the messages
 
 54
-00:02:24.450 --> 00:02:27.250
-one, and watch the messages find a
+00:02:23.700 --> 00:02:26.460
+find a new route to the gateway, then add
 
 55
-00:02:27.250 --> 00:02:28.370
-new route to the gateway.
+00:02:26.460 --> 00:02:28.120
+relays where the range runs out.
 
 56
-00:02:29.650 --> 00:02:30.410
+00:02:29.300 --> 00:02:30.060
 Your turn.
 
 57
-00:02:31.030 --> 00:02:34.690
+00:02:30.680 --> 00:02:34.340
 Forty hectares, no power, readings every
 
 58
-00:02:34.690 --> 00:02:36.990
+00:02:34.340 --> 00:02:36.640
 fifteen minutes, a few bytes each.
 
 59
-00:02:37.670 --> 00:02:39.150
+00:02:37.320 --> 00:02:38.800
 Which link fits best?
 
 60
-00:02:40.450 --> 00:02:42.010
+00:02:40.100 --> 00:02:41.660
 LoRa, with one gateway.
 
 61
-00:02:42.720 --> 00:02:44.840
+00:02:42.370 --> 00:02:44.490
 Remember: publish and subscribe
 
 62
-00:02:44.840 --> 00:02:48.020
+00:02:44.490 --> 00:02:47.670
 decouples devices, choose the lowest
 
 63
-00:02:48.020 --> 00:02:50.740
+00:02:47.670 --> 00:02:50.390
 quality of service that is safe, and
 
 64
-00:02:50.740 --> 00:02:52.460
+00:02:50.390 --> 00:02:52.110
 trade data rate for range.
 
 65
-00:02:53.740 --> 00:02:56.080
+00:02:53.390 --> 00:02:55.730
 Try it in your next lab: set up a
 
 66
-00:02:56.080 --> 00:02:58.300
+00:02:55.730 --> 00:02:57.950
 free MQTT broker on a laptop.
 
 67
-00:02:59.050 --> 00:03:00.910
+00:02:58.700 --> 00:03:00.560
 Each team publishes sensor
 
 68
-00:03:00.910 --> 00:03:03.190
+00:03:00.560 --> 00:03:02.840
 readings to its own topic, and
 
 69
-00:03:03.190 --> 00:03:04.910
+00:03:02.840 --> 00:03:04.560
 subscribes to another team's.

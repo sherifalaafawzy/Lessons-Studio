@@ -37,129 +37,133 @@ It is useful where it was tested,
 and it is not the measurement.
 
 10
-00:00:26.500 --> 00:00:28.440
+00:00:26.500 --> 00:00:28.500
 One training step stores the
 
 11
-00:00:28.440 --> 00:00:30.340
-weights and the activations.
+00:00:28.500 --> 00:00:30.560
+weights, their gradients, the
 
 12
-00:00:31.040 --> 00:00:33.020
-Activations grow with the
+00:00:30.560 --> 00:00:33.140
+optimiser's state and the activations.
 
 13
-00:00:33.020 --> 00:00:34.580
-batch and with the width.
+00:00:33.810 --> 00:00:35.790
+Activations grow with the
 
 14
-00:00:35.860 --> 00:00:37.700
-Data parallel copies the whole
+00:00:35.790 --> 00:00:37.350
+batch and with the width.
 
 15
-00:00:37.700 --> 00:00:39.380
-model and splits the examples.
+00:00:38.630 --> 00:00:40.470
+Data parallel copies the whole
 
 16
-00:00:40.200 --> 00:00:42.180
-Model parallel splits the layer
+00:00:40.470 --> 00:00:42.150
+model and splits the examples.
 
 17
-00:00:42.180 --> 00:00:43.900
-when that copy does not fit.
+00:00:42.970 --> 00:00:44.950
+Model parallel splits the layer
 
 18
-00:00:45.160 --> 00:00:47.280
-On a wide layer, splitting the
+00:00:44.950 --> 00:00:46.670
+when that copy does not fit.
 
 19
-00:00:47.280 --> 00:00:48.580
-examples does not fit.
+00:00:47.930 --> 00:00:50.050
+On a wide layer, splitting the
 
 20
-00:00:49.260 --> 00:00:50.660
-Splitting the layer does.
+00:00:50.050 --> 00:00:51.350
+examples does not fit.
 
 21
-00:00:52.030 --> 00:00:52.510
-Quick check!
+00:00:52.030 --> 00:00:53.430
+Splitting the layer does.
 
 22
-00:00:53.150 --> 00:00:55.830
-A layer does not fit on one
+00:00:54.800 --> 00:00:55.280
+Quick check!
 
 23
-00:00:55.830 --> 00:00:57.690
-machine because it is wide.
+00:00:55.920 --> 00:00:58.600
+A layer does not fit on one
 
 24
-00:00:58.330 --> 00:00:59.090
-What do you do?
+00:00:58.600 --> 00:01:00.460
+machine because it is wide.
 
 25
-00:01:00.300 --> 00:01:01.100
-Split the layer.
+00:01:01.100 --> 00:01:01.860
+What do you do?
 
 26
-00:01:01.720 --> 00:01:03.420
-Splitting the examples still
+00:01:03.070 --> 00:01:03.870
+Split the layer.
 
 27
-00:01:03.420 --> 00:01:04.840
-copies the whole layer.
+00:01:04.490 --> 00:01:06.190
+Splitting the examples still
 
 28
-00:01:06.120 --> 00:01:08.000
-In the app, open the split lab.
+00:01:06.190 --> 00:01:07.610
+copies the whole layer.
 
 29
-00:01:08.620 --> 00:01:10.960
-On the wide layer try both splits,
+00:01:08.890 --> 00:01:10.770
+In the app, open the split lab.
 
 30
-00:01:11.340 --> 00:01:12.680
-and write which one fitted.
+00:01:11.390 --> 00:01:13.730
+On the wide layer try both splits,
 
 31
-00:01:13.960 --> 00:01:14.720
-Your turn.
+00:01:14.110 --> 00:01:15.450
+and write which one fitted.
 
 32
-00:01:15.340 --> 00:01:17.500
-Is a fast stand-in for a lab
+00:01:16.730 --> 00:01:17.490
+Your turn.
 
 33
-00:01:17.500 --> 00:01:19.180
-measurement the experiment itself?
+00:01:18.110 --> 00:01:20.270
+Is a fast stand-in for a lab
 
 34
-00:01:20.420 --> 00:01:21.240
-Remember this.
+00:01:20.270 --> 00:01:21.950
+measurement the experiment itself?
 
 35
-00:01:21.860 --> 00:01:23.780
-Measure the memory before you
+00:01:23.190 --> 00:01:24.010
+Remember this.
 
 36
-00:01:23.780 --> 00:01:24.940
-name a bigger machine.
+00:01:24.630 --> 00:01:26.550
+Measure the memory before you
 
 37
-00:01:25.650 --> 00:01:27.970
-A phone is one machine, so
+00:01:26.550 --> 00:01:27.710
+name a bigger machine.
 
 38
-00:01:27.970 --> 00:01:29.550
-this lab is a diagram.
+00:01:28.420 --> 00:01:30.740
+A phone is one machine, so
 
 39
-00:01:30.880 --> 00:01:31.640
-Try it tonight.
+00:01:30.740 --> 00:01:32.320
+this lab is a diagram.
 
 40
-00:01:32.280 --> 00:01:34.340
-Compute the wide layer both ways
+00:01:33.650 --> 00:01:34.410
+Try it tonight.
 
 41
-00:01:34.340 --> 00:01:36.240
+00:01:35.050 --> 00:01:37.110
+Compute the wide layer both ways
+
+42
+00:01:37.110 --> 00:01:39.010
 on paper, and check the lab.

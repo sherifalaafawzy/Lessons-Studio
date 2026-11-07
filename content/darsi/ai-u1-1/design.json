@@ -39,10 +39,35 @@
     },
     "4": {
       "who": null,
-      "code": {
-        "text": "θ ← θ − η ∇R̂(θ)\nη small → slow\nη too big → diverges",
-        "s": 1
-      }
+      "list": [
+        {
+          "icon": "calculator",
+          "text": {
+            "en": "θ ← θ − η∇R̂(θ)",
+            "ar-EG": "θ ← θ − η∇R̂(θ)"
+          },
+          "s": 1
+        },
+        {
+          "icon": "gauge",
+          "text": {
+            "en": "η too small: slow",
+            "ar-EG": "η صغير قوي: بطيء"
+          },
+          "s": 2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "η too big: diverges",
+            "ar-EG": "η كبير زيادة: بيتباعد"
+          },
+          "s": 2,
+          "o": 1.5,
+          "tone": "danger"
+        }
+      ],
+      "aside": "gauge"
     },
     "5": {
       "who": null,
@@ -72,7 +97,7 @@
           "ar-EG": "الخسارة بعد 50 خطوة"
         },
         "s": 1,
-        "max": 100
+        "max": 120
       }
     },
     "6": {
@@ -99,7 +124,8 @@
             "en": "Many cheap steps win",
             "ar-EG": "خطوات رخيصة كتير بتكسب"
           },
-          "s": 2,
+          "s": 1,
+          "o": 3,
           "tone": "accent"
         }
       ],
@@ -137,27 +163,27 @@
     "10": {
       "list": [
         {
-          "icon": "mapPin",
+          "icon": "gauge",
           "text": {
-            "en": "Pick a start",
-            "ar-EG": "اختار البداية"
+            "en": "Pick a step size",
+            "ar-EG": "اختار حجم الخطوة"
           },
           "s": 1
         },
         {
-          "icon": "gauge",
+          "icon": "repeat",
           "text": {
-            "en": "Change the rate",
-            "ar-EG": "غيّر المعدّل"
+            "en": "Press Run each time",
+            "ar-EG": "اضغط «شغّل» كل مرة"
           },
           "s": 1,
-          "o": 1.5
+          "o": 3
         },
         {
           "icon": "eye",
           "text": {
-            "en": "Converge, crawl or explode",
-            "ar-EG": "تقارب أو زحف أو انفجار"
+            "en": "Crawl, settle or explode",
+            "ar-EG": "زحف أو استقرار أو انفجار"
           },
           "s": 2,
           "tone": "accent"
@@ -202,7 +228,8 @@
             "en": "Loss θ² and three rates",
             "ar-EG": "الخسارة θ² وتلات معدّلات"
           },
-          "s": 1
+          "s": 0,
+          "o": 2
         },
         {
           "icon": "pencil",
@@ -210,8 +237,7 @@
             "en": "Five steps by hand",
             "ar-EG": "خمس خطوات باليد"
           },
-          "s": 1,
-          "o": 1.5
+          "s": 1
         },
         {
           "icon": "eye",
@@ -219,7 +245,8 @@
             "en": "Compare the paths",
             "ar-EG": "قارنوا المسارات"
           },
-          "s": 2,
+          "s": 1,
+          "o": 2.5,
           "tone": "ok"
         }
       ]

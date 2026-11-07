@@ -230,15 +230,15 @@
     "prompt": "Two users share a password. With a unique salt each, their stored hashes are:",
     "options": [
      {
-      "text": "Identical",
-      "correct": false
-     },
-     {
       "text": "Different",
       "correct": true
      },
      {
-      "text": "Empty",
+      "text": "Identical",
+      "correct": false
+     },
+     {
+      "text": "Identical until the cost factor is raised",
       "correct": false
      }
     ],
@@ -250,23 +250,23 @@
     "at": "2:12",
     "after_scene": 11,
     "type": "choice",
-    "prompt": "A password and one-time code were typed into a fake page. Which factor would have stopped it?",
+    "prompt": "A fake page relayed a password and one-time code to the real site at once. Which second factor would have stopped it?",
     "options": [
      {
-      "text": "A longer password",
+      "text": "An authenticator-app code",
       "correct": false
      },
      {
-      "text": "An SMS code",
+      "text": "A push prompt to approve the sign-in",
       "correct": false
      },
      {
-      "text": "A hardware key bound to the real site",
+      "text": "A FIDO2 security key",
       "correct": true
      }
     ],
     "feedback_correct": "Correct: the key won't sign for the fake domain.",
-    "feedback_wrong": "Not quite: codes can be relayed in real time; only origin-bound keys refuse a fake site.",
+    "feedback_wrong": "Not quite: a code or a push approval can be relayed in real time; only an origin-bound key refuses a fake site.",
     "resume_at": "2:14"
    }
   ]

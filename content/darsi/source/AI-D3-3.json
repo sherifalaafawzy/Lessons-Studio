@@ -27,7 +27,7 @@
         "label": "Three duties"
       },
       {
-        "at": "0:26",
+        "at": "0:42",
         "label": "A refusal"
       },
       {
@@ -35,7 +35,7 @@
         "label": "One miss"
       },
       {
-        "at": "2:00",
+        "at": "2:06",
         "label": "Remember"
       }
     ],
@@ -135,7 +135,7 @@
         "animation": "",
         "on_screen_text": "Has it passed?",
         "voice": "Joseph",
-        "narration": "Quick check! A model scores perfectly on its training cases and answers a case it should refuse. The suite has what?"
+        "narration": "Quick check! A model scores perfectly on its training cases and answers a case it should refuse. What happens to the suite?"
       },
       {
         "n": 8,
@@ -211,18 +211,18 @@
         "at": "1:28",
         "after_scene": 7,
         "type": "choice",
-        "prompt": "A model scores perfectly on its training cases and answers a case it should refuse. The suite has what?",
+        "prompt": "A model scores perfectly on its training cases and answers a case it should refuse. What happens to the suite?",
         "options": [
           {
-            "text": "Has not passed",
+            "text": "It has not passed",
             "correct": true
           },
           {
-            "text": "Has passed",
+            "text": "It has passed, since every training case was right",
             "correct": false
           },
           {
-            "text": "Needs no refusal cases",
+            "text": "It passes if the average score is high enough",
             "correct": false
           }
         ],
@@ -237,16 +237,16 @@
         "prompt": "Which duty does a missed refusal break first?",
         "options": [
           {
+            "text": "Keep the actions visible",
+            "correct": false
+          },
+          {
+            "text": "Keep a person responsible",
+            "correct": false
+          },
+          {
             "text": "Test before use",
             "correct": true
-          },
-          {
-            "text": "A bigger computer",
-            "correct": false
-          },
-          {
-            "text": "A faster voice",
-            "correct": false
           }
         ],
         "feedback_correct": "Correct: a test before use includes the case the model must refuse.",

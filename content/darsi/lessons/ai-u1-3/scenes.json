@@ -5,8 +5,8 @@
    "id": "s01",
    "template": "canvas",
    "narration": {
-    "en": "Take the sentence: the student put the laptop in the bag because it was full. What does it refer to? People answer instantly. Older language models often guessed the laptop.",
-    "ar-EG": "خد الجملة دي: الطالب حط اللابتوب في الشنطة لأنها كانت مليانة. الضمير راجع على إيه؟ الناس بتجاوب في ثانية. وموديلات اللغة القديمة كانت كتير بتخمّن اللابتوب."
+    "en": "Take the sentence: the student couldn't fit the laptop in the bag because it was full. What does it refer to? People answer instantly. Older language models often guessed the laptop.",
+    "ar-EG": "خد الجملة دي: الطالب مقدرش يحط اللابتوب في الدُّرج لأنه كان مليان. الضمير راجع على إيه؟ الناس بتجاوب في ثانية. وموديلات اللغة القديمة كانت كتير بتخمّن اللابتوب."
    },
    "transition": {
     "type": "cut"
@@ -89,8 +89,8 @@
       "size": 34,
       "weight": 700,
       "text": {
-       "en": "Take the sentence: the student put the laptop in the bag because it was full.",
-       "ar-EG": "خد الجملة دي: الطالب حط اللابتوب في الشنطة لأنها كانت مليانة."
+       "en": "Take the sentence: the student couldn't fit the laptop in the bag because it was full.",
+       "ar-EG": "خد الجملة دي: الطالب مقدرش يحط اللابتوب في الدُّرج لأنه كان مليان."
       },
       "anim": [
        {
@@ -262,7 +262,7 @@
       "weight": 700,
       "text": {
        "en": "“…because it was full”",
-       "ar-EG": "«…لأنها كانت مليانة»"
+       "ar-EG": "«…لأنه كان مليان»"
       },
       "anim": [
        {
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "Attention lets every token build its new representation as a weighted average of all the tokens. The weights say how relevant each other token is. So it can look straight at the bag.",
-    "ar-EG": "الانتباه بيخلّي كل رمز يبني تمثيله الجديد كمتوسط موزون لكل الرموز. الأوزان بتقول كل رمز تاني مهم قد إيه. فيقدر يبص على الشنطة على طول."
+    "ar-EG": "الانتباه بيخلّي كل توكن يبني تمثيله الجديد كمتوسط موزون لكل التوكنز. الأوزان بتقول كل توكن تاني مهم قد إيه. فيقدر يبص على الدُّرج على طول."
    },
    "transition": {
     "type": "fade"
@@ -1071,7 +1071,7 @@
       "weight": 700,
       "text": {
        "en": "Each token looks at all tokens",
-       "ar-EG": "كل رمز بيبص على كل الرموز"
+       "ar-EG": "كل توكن بيبص على كل التوكنز"
       },
       "anim": [
        {
@@ -1662,7 +1662,7 @@
    "template": "canvas",
    "narration": {
     "en": "Each token makes three vectors. Its query asks what it needs, each key says what a token offers, and values carry the content. Scores are queries times keys, divided by root d, then softmax.",
-    "ar-EG": "كل رمز بيعمل تلات متّجهات. الاستعلام بيسأل هو محتاج إيه، وكل مفتاح بيقول الرمز بيقدّم إيه، والقيم بتشيل المحتوى. الدرجات هي الاستعلامات في المفاتيح، مقسومة على جذر d، وبعدين softmax."
+    "ar-EG": "كل توكن بيعمل تلات متّجهات. الاستعلام بيسأل هو محتاج إيه، وكل مفتاح بيقول التوكن بيقدّم إيه، والقيم بتشيل المحتوى. الدرجات هي الاستعلامات في المفاتيح، مقسومة على جذر d، وبعدين softmax."
    },
    "transition": {
     "type": "fade"
@@ -1674,7 +1674,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 1100,
+      "w": 770,
       "size": 48,
       "weight": 800,
       "text": {
@@ -1737,17 +1737,20 @@
       ]
      },
      {
-      "id": "code",
-      "type": "code",
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
       "x": 90,
       "y": 210,
-      "w": 1100,
-      "h": 209,
-      "size": 43,
-      "code": "Attention(Q, K, V) = softmax(QKᵀ / √d) V\nQ: what I need   K: what I offer\nV: what I pass on",
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
       "anim": [
        {
-        "prop": "reveal",
+        "prop": "scale",
         "keys": [
          {
           "at": {
@@ -1765,10 +1768,891 @@
             "en": "Its",
             "ar-EG": "بيسأل"
            },
-           "offset": 2.78
+           "offset": 0.4
           },
           "value": 1,
-          "ease": "linear"
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "search",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Query Q: what I need",
+       "ar-EG": "الاستعلام Q: أنا محتاج إيه"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "key",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Key K: what I offer",
+       "ar-EG": "المفتاح K: أنا بقدّم إيه"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.95
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 1.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "package",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Value V: what I pass on",
+       "ar-EG": "القيمة V: أنا بعدّي إيه"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Its",
+            "ar-EG": "بيسأل"
+           },
+           "offset": 3.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "accent",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "calculator",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "softmax(QKᵀ/√d)V",
+       "ar-EG": "softmax(QKᵀ/√d)V"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Scores",
+            "ar-EG": "الدرجات"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "key",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "makes",
+            "ar-EG": "بيعمل"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
          }
         ]
        }
@@ -1782,7 +2666,7 @@
    "template": "canvas",
    "narration": {
     "en": "Here are one head's attention weights from it to the other nouns. Most of the weight goes to bag. The student and the laptop get little.",
-    "ar-EG": "دي أوزان الانتباه لرأس واحد من الضمير للأسماء التانية. أغلب الوزن رايح للشنطة. والطالب واللابتوب واخدين حاجة قليلة."
+    "ar-EG": "دي أوزان الانتباه لرأس واحد من الضمير للأسماء التانية. أغلب الوزن رايح للدُّرج. والطالب واللابتوب واخدين حاجة قليلة."
    },
    "transition": {
     "type": "fade"
@@ -1874,19 +2758,19 @@
       "labels": [
        {
         "en": "student",
-        "ar-EG": "student"
+        "ar-EG": "الطالب"
        },
        {
         "en": "laptop",
-        "ar-EG": "laptop"
+        "ar-EG": "اللابتوب"
        },
        {
         "en": "bag",
-        "ar-EG": "bag"
+        "ar-EG": "الدُّرج"
        },
        {
         "en": "full",
-        "ar-EG": "full"
+        "ar-EG": "مليان"
        }
       ],
       "tone": "accent",
@@ -2128,8 +3012,8 @@
    "id": "s06",
    "template": "canvas",
    "narration": {
-    "en": "If query and key entries have variance one, their dot product has variance d. Large scores push softmax into saturation, where gradients vanish. Dividing by root d keeps the variance near one.",
-    "ar-EG": "لو عناصر الاستعلام والمفتاح تباينها واحد، يبقى الضرب النقطي بتاعهم تباينه d. الدرجات الكبيرة بتدفع softmax للتشبّع، واللي فيه التدرّجات بتتلاشى. القسمة على جذر d بتخلّي التباين قريب من واحد."
+    "en": "If query and key entries have mean zero and variance one, their dot product has variance d. Large scores push softmax into saturation, where gradients vanish. Dividing by root d keeps the variance near one.",
+    "ar-EG": "لو عناصر الاستعلام والمفتاح متوسطها صفر وتباينها واحد، يبقى الضرب النقطي بتاعهم تباينه d. الدرجات الكبيرة بتدفع softmax للتشبّع، واللي فيه التدرّجات بتتلاشى. القسمة على جذر d بتخلّي التباين قريب من واحد."
    },
    "transition": {
     "type": "fade"
@@ -2935,7 +3819,7 @@
    "template": "canvas",
    "narration": {
     "en": "Vaswani and colleagues' diagram has too much in it for a first lecture. Start with one head, three tokens and two dimensions. Students compute the scores by hand, then you add heads, layers and positions.",
-    "ar-EG": "رسمة فاسواني وزمايله فيها حاجات كتير قوي على أول محاضرة. ابدأ برأس واحد، وتلات رموز، وبعدين اتنين أبعاد. الطلاب يحسبوا الدرجات بإيديهم، وبعدين إنت تضيف الرؤوس والطبقات والمواضع."
+    "ar-EG": "رسمة فاسواني وزمايله فيها حاجات كتير قوي على أول محاضرة. ابدأ برأس واحد، وتلات توكنز، واتنين أبعاد. الطلاب يحسبوا الدرجات بإيديهم، وبعدين إنت تضيف الرؤوس والطبقات والمواضع."
    },
    "transition": {
     "type": "fade"
@@ -3150,7 +4034,7 @@
       "weight": 700,
       "text": {
        "en": "One head, three tokens",
-       "ar-EG": "رأس واحد وتلات رموز"
+       "ar-EG": "رأس واحد وتلات توكنز"
       },
       "anim": [
        {
@@ -3684,7 +4568,7 @@
    "content": {
     "title": {
      "en": "Scale with d",
-     "ar-EG": "التدرّج مع d"
+     "ar-EG": "التقييس مع d"
     }
    },
    "check": {
@@ -3721,6 +4605,10 @@
     "explain": {
      "en": "Correct: √64 = 8, which keeps the scores' variance near 1.",
      "ar-EG": "صح: √64 = 8، وده بيخلّي تباين الدرجات قريب من 1."
+    },
+    "explainWrong": {
+     "en": "Not quite: we divide by √d = √64 = 8.",
+     "ar-EG": "مش بالظبط: بنقسم على √d = √64 = 8."
     }
    },
    "speaker": "joseph"
@@ -3730,7 +4618,7 @@
    "template": "canvas",
    "narration": {
     "en": "Eight, the square root of sixty four. Without it, scores would have a standard deviation near eight and softmax would almost always pick one token.",
-    "ar-EG": "تمانية، جذر أربعة وستين. من غيرها، الدرجات هيبقى انحرافها المعياري قريب من تمانية وsoftmax تقريبًا دايمًا هيختار رمز واحد."
+    "ar-EG": "تمانية، جذر أربعة وستين. من غيرها، الدرجات هيبقى انحرافها المعياري قريب من تمانية وsoftmax تقريبًا دايمًا هيختار توكن واحد."
    },
    "transition": {
     "type": "fade"
@@ -4137,8 +5025,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the attention lab. Type a sentence, pick a word, and see which words it attends to. Change the sentence and watch the weights move.",
-    "ar-EG": "في التطبيق، افتح معمل الانتباه. اكتب جملة، واختار كلمة، وشوف بتنتبه لأنهي كلمات. غيّر الجملة وشوف الأوزان بتتحرك."
+    "en": "In the app, open the attention lab. Tap the word “it” and see which words it attends to. Switch the ending from “hungry” to “fresh”, and watch its attention move from “dog” to “milk”.",
+    "ar-EG": "في التطبيق، افتح معمل الانتباه. المس «لأنه» وشوف بينتبه لأنهي كلمات. غيّر آخر الجملة من «جائعًا» لـ«طازجًا»، وشوف انتباهه بيروح من «الكلب» لـ«الحليب»."
    },
    "transition": {
     "type": "fade"
@@ -4231,8 +5119,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4241,8 +5129,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.4
           },
@@ -4257,8 +5145,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4267,8 +5155,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.15
           },
@@ -4282,7 +5170,7 @@
      {
       "id": "icon1",
       "type": "icon",
-      "icon": "keyboard",
+      "icon": "hand",
       "x": 104,
       "y": 224,
       "w": 43,
@@ -4295,8 +5183,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4305,8 +5193,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.45
           },
@@ -4321,8 +5209,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4331,8 +5219,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.15
           },
@@ -4352,8 +5240,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Type a sentence",
-       "ar-EG": "اكتب جملة"
+       "en": "Tap “it”",
+       "ar-EG": "المس «لأنه»"
       },
       "anim": [
        {
@@ -4362,8 +5250,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4372,8 +5260,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.45
           },
@@ -4388,8 +5276,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0
           },
@@ -4398,8 +5286,8 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Tap",
+            "ar-EG": "المس"
            },
            "offset": 0.3
           },
@@ -4429,20 +5317,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.9
+           "offset": 0.4
           },
           "value": 1,
           "ease": "back"
@@ -4455,20 +5343,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.65
+           "offset": 0.15
           },
           "value": 1,
           "ease": "out"
@@ -4480,7 +5368,7 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "eye",
+      "icon": "shuffle",
       "x": 104,
       "y": 328,
       "w": 43,
@@ -4493,20 +5381,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.95
+           "offset": 0.45
           },
           "value": 1,
           "ease": "back"
@@ -4519,20 +5407,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.65
+           "offset": 0.15
           },
           "value": 1,
           "ease": "out"
@@ -4550,8 +5438,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Pick a word",
-       "ar-EG": "اختار كلمة"
+       "en": "Switch the ending",
+       "ar-EG": "غيّر آخر الجملة"
       },
       "anim": [
        {
@@ -4560,20 +5448,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 365
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.95
+           "offset": 0.45
           },
           "value": 325,
           "ease": "out"
@@ -4586,20 +5474,20 @@
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.5
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Type",
-            "ar-EG": "اكتب"
+            "en": "Switch",
+            "ar-EG": "غيّر"
            },
-           "offset": 1.8
+           "offset": 0.3
           },
           "value": 1,
           "ease": "out"
@@ -4627,20 +5515,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.4
+           "offset": 3.4
           },
           "value": 1,
           "ease": "back"
@@ -4653,20 +5541,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.15
+           "offset": 3.15
           },
           "value": 1,
           "ease": "out"
@@ -4691,20 +5579,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.45
+           "offset": 3.45
           },
           "value": 1,
           "ease": "back"
@@ -4717,20 +5605,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.15
+           "offset": 3.15
           },
           "value": 1,
           "ease": "out"
@@ -4748,8 +5636,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Watch the weights",
-       "ar-EG": "شوف الأوزان"
+       "en": "Its attention moves to milk",
+       "ar-EG": "انتباهه بيروح للحليب"
       },
       "anim": [
        {
@@ -4758,20 +5646,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 469
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.45
+           "offset": 3.45
           },
           "value": 429,
           "ease": "out"
@@ -4784,20 +5672,20 @@
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Change",
+            "en": "Switch",
             "ar-EG": "غيّر"
            },
-           "offset": 0.3
+           "offset": 3.3
           },
           "value": 1,
           "ease": "out"
@@ -4973,22 +5861,26 @@
      {
       "id": "b",
       "text": {
-       "en": "Positional encodings",
-       "ar-EG": "ترميزات الموضع"
+       "en": "A larger vocabulary",
+       "ar-EG": "مفردات أكبر"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "A larger vocabulary",
-       "ar-EG": "مفردات أكبر"
+       "en": "Positional encodings",
+       "ar-EG": "ترميزات الموضع"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: position information is added to each token's embedding.",
-     "ar-EG": "صح: معلومات الموضع بتتضاف لتمثيل كل رمز."
+     "ar-EG": "صح: معلومات الموضع بتتضاف لتمثيل كل توكن."
+    },
+    "explainWrong": {
+     "en": "Not quite: without positional encodings, shuffling the words gives the same outputs, just reordered.",
+     "ar-EG": "مش بالظبط: من غير ترميزات الموضع، لخبطة الكلمات بتدّي نفس المخرجات بترتيب تاني."
     }
    },
    "speaker": "salma"
@@ -5065,8 +5957,8 @@
    "id": "s13",
    "template": "canvas",
    "narration": {
-    "en": "Try it in your next lecture: give pairs three two-dimensional query and key vectors. They compute the scores, the softmax and the output by hand, then compare with three lines of NumPy.",
-    "ar-EG": "جرّبها في محاضرتك الجاية: ادّي كل اتنين تلات متّجهات استعلام ومفتاح ببعدين. يحسبوا الدرجات وsoftmax والخرج بإيديهم، وبعدين يقارنوا بتلات سطور NumPy."
+    "en": "Try it in your next lecture: give pairs two-dimensional query, key and value vectors for three tokens. They compute the scores, the softmax and the output by hand, then compare with three lines of NumPy.",
+    "ar-EG": "جرّبها في محاضرتك الجاية: ادّي كل اتنين متّجهات استعلام ومفتاح وقيمة ببعدين لتلات توكنز. يحسبوا الدرجات وsoftmax والخرج بإيديهم، وبعدين يقارنوا بتلات سطور NumPy."
    },
    "transition": {
     "type": "fade"
@@ -5280,8 +6172,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Three 2-D vectors",
-       "ar-EG": "تلات متّجهات ببعدين"
+       "en": "2-D query, key, value",
+       "ar-EG": "استعلام ومفتاح وقيمة ببعدين"
       },
       "anim": [
        {

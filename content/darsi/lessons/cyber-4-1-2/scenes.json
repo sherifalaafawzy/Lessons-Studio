@@ -4342,199 +4342,20 @@
       ]
      },
      {
-      "id": "chart",
-      "type": "chart",
-      "kind": "bar",
-      "x": 190,
-      "y": 250,
-      "w": 900,
-      "h": 340,
-      "data": [
-       9,
-       3,
-       1
-      ],
-      "max": 11,
-      "labels": [
-       {
-        "en": "Unlocked phone",
-        "ar-EG": "موبايل من غير قفل"
-       },
-       {
-        "en": "Printer jams",
-        "ar-EG": "الطابعة بتعلّق"
-       },
-       {
-        "en": "Ministry servers",
-        "ar-EG": "سيرفرات الوزارة"
-       }
-      ],
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "reveal",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 1.5
-          },
-          "value": 1,
-          "ease": "linear"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "val1",
-      "type": "text",
-      "x": 190,
-      "y": 265,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "9",
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 0.68
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 0.98
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "val2",
-      "type": "text",
-      "x": 490,
-      "y": 424,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "3",
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 1.09
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 1.39
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "val3",
-      "type": "text",
-      "x": 790,
-      "y": 477,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "1",
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "unlocked",
-            "ar-EG": "غير"
-           },
-           "offset": 1.8
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "unit",
-      "type": "text",
-      "x": 190,
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
       "y": 210,
-      "w": 900,
-      "size": 24,
-      "weight": 600,
-      "tone": "muted",
-      "text": {
-       "en": "Risk score (1 to 9)",
-       "ar-EG": "درجة الخطر (من 1 لـ 9)"
-      },
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
       "anim": [
        {
-        "prop": "opacity",
+        "prop": "scale",
         "keys": [
          {
           "at": {
@@ -4553,6 +4374,757 @@
             "ar-EG": "غير"
            },
            "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "phone",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Unlocked phone: risk 9, fix it first",
+       "ar-EG": "موبايل من غير قفل: خطر 9، يتصلّح الأول"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "unlocked",
+            "ar-EG": "غير"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "printer",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Printer jams: risk 3, small",
+       "ar-EG": "الطابعة بتعلّق: خطر 3، صغير"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "server",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "muted",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Ministry servers: not yours to fix",
+       "ar-EG": "سيرفرات الوزارة: مش شغلتك"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.95
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "jammed",
+            "ar-EG": "الطابعة"
+           },
+           "offset": 2.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "ok",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "lock",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "ok",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A screen lock costs nothing",
+       "ar-EG": "قفل الشاشة مش بيكلّف حاجة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "screen",
+            "ar-EG": "وقفل"
+           },
+           "offset": 0.3
           },
           "value": 1,
           "ease": "out"

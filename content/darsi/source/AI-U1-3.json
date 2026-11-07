@@ -50,7 +50,7 @@
     "animation": "",
     "on_screen_text": "",
     "voice": "Dr Joseph",
-    "narration": "Take the sentence: the student put the laptop in the bag because it was full. What does it refer to? People answer instantly. Older language models often guessed the laptop.",
+    "narration": "Take the sentence: the student couldn't fit the laptop in the bag because it was full. What does it refer to? People answer instantly. Older language models often guessed the laptop.",
     "icons": [
      "chat",
      "help",
@@ -121,7 +121,7 @@
     "animation": "",
     "on_screen_text": "Why divide by √d?",
     "voice": "Narrator",
-    "narration": "If query and key entries have variance one, their dot product has variance d. Large scores push softmax into saturation, where gradients vanish. Dividing by root d keeps the variance near one.",
+    "narration": "If query and key entries have mean zero and variance one, their dot product has variance d. Large scores push softmax into saturation, where gradients vanish. Dividing by root d keeps the variance near one.",
     "icons": [
      "calculator",
      "gauge"
@@ -177,7 +177,7 @@
     "animation": "",
     "on_screen_text": "App lab: attention",
     "voice": "Narrator",
-    "narration": "In the app, open the attention lab. Type a sentence, pick a word, and see which words it attends to. Change the sentence and watch the weights move.",
+    "narration": "In the app, open the attention lab. Tap the word “it” and see which words it attends to. Switch the ending from “hungry” to “fresh”, and watch its attention move from “dog” to “milk”.",
     "icons": [
      "eye",
      "network"
@@ -214,7 +214,7 @@
     "animation": "",
     "on_screen_text": "Try it in your next lecture",
     "voice": "Narrator",
-    "narration": "Try it in your next lecture: give pairs three two-dimensional query and key vectors. They compute the scores, the softmax and the output by hand, then compare with three lines of NumPy.",
+    "narration": "Try it in your next lecture: give pairs two-dimensional query, key and value vectors for three tokens. They compute the scores, the softmax and the output by hand, then compare with three lines of NumPy.",
     "icons": [
      "presentation",
      "pencil",
@@ -257,12 +257,12 @@
       "correct": false
      },
      {
-      "text": "Positional encodings",
-      "correct": true
-     },
-     {
       "text": "A larger vocabulary",
       "correct": false
+     },
+     {
+      "text": "Positional encodings",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct: position information is added to each token's embedding.",

@@ -207,7 +207,8 @@ export function dijkstraFrames(nodes: GraphNode[], edges: GraphEdge[], from: num
       const nm = nameOf(nodes, v, l);
       if (v === to) return ar ? `ثبّتنا ${nm}: ${dv} ${u}` : `${nm} is settled: ${dv} ${u}`;
       if (!checked.length) return ar ? `نثبّت ${nm}: ${dv} ${u}` : `Settle ${nm}: ${dv} ${u}`;
-      return ar ? (eg ? `نثبّت ${nm}: ${dv} ${u}، ونشوف طرقها` : `نثبّت ${nm}: ${dv} ${u}، ونفحص طرقها`) : `Settle ${nm}: ${dv} ${u}; check its roads`;
+      // Egyptian names the place again ("طرق البيت") rather than a pronoun that must agree with it (البيت is masculine, a village feminine).
+      return ar ? (eg ? `نثبّت ${nm}: ${dv} ${u}، ونشوف طرق ${nm}` : `نثبّت ${nm}: ${dv} ${u}، ونفحص طرقها`) : `Settle ${nm}: ${dv} ${u}; check its roads`;
     })));
     if (v === to) break;
   }
@@ -523,7 +524,8 @@ export function knapsackDP(items: Load[], cap: number, step: number, langs: stri
   const frames: KnapsackFrame[] = [{ fill: cols, note: say(langs, "No items yet: 0 in every column", "بلا أغراض: 0 في كل عمود", "من غير حاجة: 0 في كل عمود") }];
   items.forEach((it, k) => frames.push({
     fill: (k + 2) * cols,
-    note: per(langs, (ar, _eg, l) => ar ? `${inLang(it.label, l)}: نأخذها أو نتركها، والأكبر يفوز` : `${inLang(it.label, l)}: take it or leave it, the bigger wins`),
+    // Egyptian leaves out the pronoun ("ناخد ولا نسيب"), which would have to agree with each load ("فلتر مية" is masculine).
+    note: per(langs, (ar, eg, l) => ar ? (eg ? `${inLang(it.label, l)}: ناخد ولا نسيب، والأكبر يكسب` : `${inLang(it.label, l)}: نأخذها أو نتركها، والأكبر يفوز`) : `${inLang(it.label, l)}: take it or leave it, the bigger wins`),
   }));
   const value = t[items.length]![C]!;
   frames.push({ fill: (items.length + 1) * cols, trace, note: per(langs, (ar, eg, l) => {

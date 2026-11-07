@@ -177,7 +177,7 @@
     "animation": "",
     "on_screen_text": "App lab: public keys",
     "voice": "Narrator",
-    "narration": "In the app, open the public-key lab. Run a key exchange with small numbers, then try to recover the secret as an eavesdropper and see how the work grows with the prime.",
+    "narration": "In the app, open the public-key lab. Make a small RSA key pair, sign a message, change one letter and watch the check fail, then pick bigger primes and see the work of splitting n grow.",
     "icons": [
      "key",
      "lock"
@@ -234,12 +234,12 @@
       "correct": false
      },
      {
-      "text": "Only Alice",
-      "correct": true
-     },
-     {
       "text": "Bob and Alice",
       "correct": false
+     },
+     {
+      "text": "Only Alice",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct: only Alice's private key decrypts it.",
@@ -253,7 +253,7 @@
     "prompt": "Plain Diffie–Hellman has no authentication. What can a network attacker do?",
     "options": [
      {
-      "text": "Nothing, the key stays secret",
+      "text": "Nothing: the shared key never crosses the network",
       "correct": false
      },
      {
@@ -261,7 +261,7 @@
       "correct": true
      },
      {
-      "text": "Factor p",
+      "text": "Compute the key from A and B, which travel in the clear",
       "correct": false
      }
     ],

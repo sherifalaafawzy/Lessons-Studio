@@ -1781,8 +1781,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "We fitted polynomials of degree one to fifteen to two hundred points. Test error was lowest at degree four. By degree fifteen the curve wiggled through every training point and missed new ones.",
-    "ar-EG": "ركّبنا كثيرات حدود من الدرجة واحد لخمستاشر على ميتين نقطة. خطأ الاختبار كان أقل حاجة عند الدرجة أربعة. وعند خمستاشر المنحنى كان بيتلوّى بين كل نقط التدريب ويفوّت الجديدة."
+    "en": "We fitted polynomials of degree one to fifteen to twenty points. Test error was lowest at degree four. By degree fifteen the curve wiggled through almost every training point and missed new ones.",
+    "ar-EG": "ركّبنا كثيرات حدود من الدرجة واحد لخمستاشر على عشرين نقطة. خطأ الاختبار كان أقل حاجة عند الدرجة أربعة. وعند خمستاشر المنحنى كان بيعدّي على كل نقط التدريب تقريبًا ويفوّت الجديدة."
    },
    "transition": {
     "type": "fade"
@@ -3856,6 +3856,10 @@
     "explain": {
      "en": "Correct: test error on unseen data is what we care about; A's large gap means high variance.",
      "ar-EG": "صح: خطأ الاختبار على بيانات جديدة هو المهم، والفرق الكبير في A معناه تباين عالي."
+    },
+    "explainWrong": {
+     "en": "Not quite: training error always rewards complexity; choose on test or cross-validated error.",
+     "ar-EG": "مش بالظبط: خطأ التدريب دايمًا بيكافئ التعقيد، اختار بخطأ الاختبار أو التحقق المتقاطع."
     }
    },
    "speaker": "joseph"
@@ -5053,15 +5057,15 @@
      {
       "id": "a",
       "text": {
-       "en": "Yes, scaling doesn't use the labels",
-       "ar-EG": "أيوه، التحجيم مش بيستعمل التصنيفات"
+       "en": "No, the test folds leaked into the scaling",
+       "ar-EG": "لأ، طيّات الاختبار سرّبت للتحجيم"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "No, the test folds leaked into the scaling",
-       "ar-EG": "لأ، طيّات الاختبار سرّبت للتحجيم"
+       "en": "Yes, scaling doesn't use the labels",
+       "ar-EG": "أيوه، التحجيم مش بيستعمل التصنيفات"
       }
      },
      {
@@ -5072,10 +5076,14 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct: the means and SDs were computed with test data, so fit the scaler inside each training fold.",
      "ar-EG": "صح: المتوسطات والانحرافات اتحسبت ببيانات الاختبار، فركّب التحجيم جوّه كل طيّة تدريب."
+    },
+    "explainWrong": {
+     "en": "Not quite: any statistic computed on the test fold leaks; fit preprocessing inside each training fold.",
+     "ar-EG": "مش بالظبط: أي إحصاءة اتحسبت من طيّة الاختبار بتسرّب، ركّب المعالجة جوّه كل طيّة تدريب."
     }
    },
    "speaker": "salma"

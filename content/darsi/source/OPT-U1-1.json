@@ -203,7 +203,7 @@
     "animation": "",
     "on_screen_text": "Model, corner, price",
     "voice": "Narrator",
-    "narration": "Yes: each extra hour adds five to the objective and costs three, a gain of two, while the price stays valid. Remember: optima sit at vertices, every LP has a dual, and shadow prices value constraints."
+    "narration": "Yes: each extra hour improves the objective by five and costs three, a net gain of two, while the price stays valid. Remember: optima sit at vertices, every LP has a dual, and shadow prices value constraints."
    },
    {
     "n": 13,
@@ -253,19 +253,19 @@
     "prompt": "Shadow price 5, extra hour costs 3. Buy it?",
     "options": [
      {
-      "text": "Yes",
-      "correct": true
+      "text": "Shadow prices say nothing about this",
+      "correct": false
      },
      {
       "text": "No",
       "correct": false
      },
      {
-      "text": "Shadow prices say nothing about this",
-      "correct": false
+      "text": "Yes",
+      "correct": true
      }
     ],
-    "feedback_correct": "Correct: it adds 5 and costs 3, while the price stays valid.",
+    "feedback_correct": "Correct: it improves the objective by 5 and costs 3, while the price stays valid.",
     "feedback_wrong": "Not quite: the shadow price is exactly the value of one more unit of that resource.",
     "resume_at": "2:13"
    }

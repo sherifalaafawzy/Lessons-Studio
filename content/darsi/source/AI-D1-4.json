@@ -31,11 +31,11 @@
         "label": "The mix"
       },
       {
-        "at": "1:08",
+        "at": "1:44",
         "label": "Eight notes"
       },
       {
-        "at": "2:00",
+        "at": "2:06",
         "label": "Remember"
       }
     ],
@@ -106,7 +106,7 @@
         "animation": "",
         "on_screen_text": "The most common follower",
         "voice": "Narrator",
-        "narration": "The melody lab always picks the most common follower. A pitch it never saw follow another cannot appear.",
+        "narration": "The Eight notes lab always picks the most common follower. A pitch it never saw follow another cannot appear.",
         "icons": [
           "data",
           "warning"
@@ -146,7 +146,7 @@
         "animation": "",
         "on_screen_text": "A weighted sum",
         "voice": "Narrator",
-        "narration": "A weighted sum of the other vectors. The scores become weights, and the weights do the mixing.",
+        "narration": "A weighted sum of the vectors it can see, its own included. The scores become weights, and the weights do the mixing.",
         "icons": [
           "check",
           "layers"
@@ -161,7 +161,7 @@
         "animation": "",
         "on_screen_text": "Eight notes",
         "voice": "Narrator",
-        "narration": "In the app, open the eight-note lab. Read the tune, then the four notes it writes next, and name one pitch it cannot invent.",
+        "narration": "In the app, open the Eight notes lab. Read the tune, then the four notes it writes next, and name one pitch it cannot invent.",
         "icons": [
           "data",
           "eye",
@@ -214,20 +214,20 @@
         "prompt": "Attention builds a new vector by doing what?",
         "options": [
           {
-            "text": "A weighted sum of the other vectors",
+            "text": "Keeping only the most recent vector",
+            "correct": false
+          },
+          {
+            "text": "Adding the vectors with equal weights",
+            "correct": false
+          },
+          {
+            "text": "Taking a weighted sum of the vectors it can see, itself included",
             "correct": true
-          },
-          {
-            "text": "Copying only the first symbol",
-            "correct": false
-          },
-          {
-            "text": "Forgetting every weight",
-            "correct": false
           }
         ],
-        "feedback_correct": "Correct: the scores become weights, and the new vector is their mix.",
-        "feedback_wrong": "Not quite: attention builds a weighted sum of the other vectors.",
+        "feedback_correct": "Correct: the scores become weights that add to one, and the new vector mixes every vector it can see, its own included.",
+        "feedback_wrong": "Not quite: attention takes a weighted sum of every vector it can see, its own included, not only the latest and not all equally.",
         "resume_at": "1:32"
       },
       {
@@ -237,12 +237,12 @@
         "prompt": "Did those eight notes compose a piece of music?",
         "options": [
           {
-            "text": "No, they continued a count",
-            "correct": true
-          },
-          {
             "text": "Yes, they were trained for years",
             "correct": false
+          },
+          {
+            "text": "No, they continued a count",
+            "correct": true
           },
           {
             "text": "They copied a recording",

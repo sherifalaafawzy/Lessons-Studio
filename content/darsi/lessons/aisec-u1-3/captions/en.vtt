@@ -117,173 +117,177 @@ factor set by epsilon.
 For a count, one person changes it by one.
 
 30
-00:01:16.010 --> 00:01:17.770
+00:01:16.010 --> 00:01:17.910
 The Laplace noise scale is
 
 31
-00:01:17.770 --> 00:01:20.630
+00:01:17.910 --> 00:01:20.850
 sensitivity over epsilon, so
 
 32
-00:01:20.630 --> 00:01:23.370
-epsilon one half gives scale two.
+00:01:20.850 --> 00:01:23.510
+epsilon one quarter gives scale four.
 
 33
-00:01:24.510 --> 00:01:26.530
+00:01:24.750 --> 00:01:26.770
 To train with differential privacy,
 
 34
-00:01:27.130 --> 00:01:29.890
+00:01:27.370 --> 00:01:30.130
 clip each example's gradient and add
 
 35
-00:01:29.890 --> 00:01:32.890
+00:01:30.130 --> 00:01:33.130
 noise before every update, then track
 
 36
-00:01:32.890 --> 00:01:34.330
+00:01:33.130 --> 00:01:34.570
 the total privacy budget.
 
 37
-00:01:34.980 --> 00:01:37.280
+00:01:35.220 --> 00:01:37.520
 This bounds membership leakage for
 
 38
-00:01:37.280 --> 00:01:40.000
+00:01:37.520 --> 00:01:40.240
 everyone, at some cost in accuracy.
 
 39
-00:01:41.420 --> 00:01:43.000
+00:01:41.660 --> 00:01:43.240
 Students think privacy
 
 40
-00:01:43.000 --> 00:01:44.980
+00:01:43.240 --> 00:01:45.220
 means deleting names.
 
 41
-00:01:45.800 --> 00:01:48.480
+00:01:46.040 --> 00:01:48.720
 Have them attack a model they trained,
 
 42
-00:01:49.080 --> 00:01:52.420
+00:01:49.320 --> 00:01:52.660
 measure their success, then retrain
 
 43
-00:01:52.420 --> 00:01:56.280
+00:01:52.660 --> 00:01:56.520
 with noise at several epsilons and plot
 
 44
-00:01:56.280 --> 00:01:58.640
+00:01:56.520 --> 00:01:58.880
 privacy against accuracy.
 
 45
-00:02:00.070 --> 00:02:00.550
+00:02:00.310 --> 00:02:00.790
 Quick check!
 
 46
-00:02:01.160 --> 00:02:04.600
+00:02:01.400 --> 00:02:04.840
 A counting query has sensitivity one.
 
 47
-00:02:05.280 --> 00:02:07.980
+00:02:05.520 --> 00:02:08.220
 With epsilon one half, what is
 
 48
-00:02:07.980 --> 00:02:09.720
+00:02:08.220 --> 00:02:09.960
 the Laplace noise scale?
 
 49
-00:02:10.960 --> 00:02:11.160
+00:02:11.200 --> 00:02:11.400
 Two.
 
 50
-00:02:11.850 --> 00:02:14.870
+00:02:12.090 --> 00:02:15.110
 Sensitivity over epsilon: one
 
 51
-00:02:14.870 --> 00:02:16.410
+00:02:15.110 --> 00:02:16.650
 divided by one half.
 
 52
-00:02:17.740 --> 00:02:19.780
+00:02:17.980 --> 00:02:20.020
 In the app, open the leak lab.
 
 53
-00:02:20.420 --> 00:02:22.820
-Guess which records were in training from
+00:02:20.660 --> 00:02:23.140
+Read the attacker's guess of whether a
 
 54
-00:02:22.820 --> 00:02:25.520
-the model's confidence, then add noise
+00:02:23.140 --> 00:02:25.800
+line was in training, then add privacy
 
 55
-00:02:25.520 --> 00:02:27.860
-and see your guesses get worse.
+00:02:25.800 --> 00:02:28.460
+noise and watch it fall towards fifty
 
 56
-00:02:29.250 --> 00:02:29.990
-Your turn.
+00:02:28.460 --> 00:02:28.900
+percent.
 
 57
-00:02:30.630 --> 00:02:33.110
-Which step gives a provable
+00:02:30.170 --> 00:02:30.910
+Your turn.
 
 58
-00:02:33.110 --> 00:02:35.450
-limit on membership leakage for
+00:02:31.550 --> 00:02:34.030
+Which step gives a provable
 
 59
-00:02:35.450 --> 00:02:37.590
-every person in the data?
+00:02:34.030 --> 00:02:36.370
+limit on membership leakage for
 
 60
-00:02:38.830 --> 00:02:40.750
-Differentially private training.
+00:02:36.370 --> 00:02:38.510
+every person in the data?
 
 61
-00:02:41.350 --> 00:02:44.150
-Remember: models leak membership through
+00:02:39.750 --> 00:02:41.670
+Differentially private training.
 
 62
-00:02:44.150 --> 00:02:46.870
-confidence, removing names is not
+00:02:42.270 --> 00:02:45.070
+Remember: models leak membership through
 
 63
-00:02:46.870 --> 00:02:49.970
-anonymity, and differential privacy trades
+00:02:45.070 --> 00:02:47.790
+confidence, removing names is not
 
 64
-00:02:49.970 --> 00:02:52.390
-a little accuracy for a calculable
+00:02:47.790 --> 00:02:50.890
+anonymity, and differential privacy trades
 
 65
-00:02:52.390 --> 00:02:52.910
-guarantee.
+00:02:50.890 --> 00:02:53.310
+a little accuracy for a calculable
 
 66
-00:02:54.230 --> 00:02:56.690
-Try it in your next lecture: ask the
+00:02:53.310 --> 00:02:53.830
+guarantee.
 
 67
-00:02:56.690 --> 00:02:59.170
-class a sensitive yes or no question
+00:02:55.150 --> 00:02:57.610
+Try it in your next lecture: ask the
 
 68
-00:02:59.170 --> 00:03:00.650
-by randomised response.
+00:02:57.610 --> 00:03:00.090
+class a sensitive yes or no question
 
 69
-00:03:01.530 --> 00:03:03.570
-Each student flips a coin first.
+00:03:00.090 --> 00:03:01.570
+by randomised response.
 
 70
-00:03:04.350 --> 00:03:06.170
-Then estimate the true rate
+00:03:02.450 --> 00:03:04.490
+Each student flips a coin first.
 
 71
-00:03:06.170 --> 00:03:08.370
-together and discuss why no
+00:03:05.270 --> 00:03:07.090
+Then estimate the true rate
 
 72
-00:03:08.370 --> 00:03:10.450
+00:03:07.090 --> 00:03:09.290
+together and discuss why no
+
+73
+00:03:09.290 --> 00:03:11.370
 single answer reveals anyone.

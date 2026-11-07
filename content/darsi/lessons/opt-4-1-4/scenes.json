@@ -1322,7 +1322,7 @@
       "w": 1074,
       "h": 278,
       "size": 46,
-      "code": "d = new_cost - cost\nif d <= 0 or random() < exp(-d / T):\n    plan = new_plan\nT = T * 0.999",
+      "code": "d = new_cost - cost\nif d <= 0 or random() < exp(-d / T):\n    plan, cost = new_plan, new_cost\nT = T * 0.999",
       "highlight": [
        2
       ],
@@ -1346,7 +1346,7 @@
             "en": "swap",
             "ar-EG": "التبديل"
            },
-           "offset": 2.75
+           "offset": 3.15
           },
           "value": 1,
           "ease": "linear"
@@ -2069,19 +2069,19 @@
      {
       "id": "b",
       "text": {
-       "en": "Not necessarily: it may be stuck in a valley",
-       "ar-EG": "مش شرط: ممكن يكون واقف في وادي"
+       "en": "No: hill climbing is always wrong",
+       "ar-EG": "لأ: تسلّق التل دايمًا غلط"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "No: hill climbing is always wrong",
-       "ar-EG": "لأ: تسلّق التل دايمًا غلط"
+       "en": "Not necessarily: it may be stuck in a valley",
+       "ar-EG": "مش شرط: ممكن يكون واقف في وادي"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct — no single swap helps, so it’s the best nearby. Other starts, or annealing, may find a deeper valley.",
      "ar-EG": "صح — مفيش تبديل واحد بيفيد، يبقى هي الأحسن في اللي حواليها. بدايات تانية، أو التلدين، ممكن يلاقوا وادي أوطى."
@@ -4813,19 +4813,19 @@
      {
       "id": "b",
       "text": {
-       "en": "No: 2% is good enough here; check it with people",
-       "ar-EG": "لأ: اتنين في المية كويسة كفاية هنا، راجعه مع الناس"
+       "en": "Start again from scratch",
+       "ar-EG": "ابدأ من الأول خالص"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Start again from scratch",
-       "ar-EG": "ابدأ من الأول خالص"
+       "en": "No: 2% is good enough here; check it with people",
+       "ar-EG": "لأ: اتنين في المية كويسة كفاية هنا، راجعه مع الناس"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct — 2% from the bound is very close. The time is better spent checking the rota with the people who will use it.",
      "ar-EG": "صح — اتنين في المية من الحد الأدنى قريبة جدًا. والوقت أحسن تصرفه في مراجعة الجدول مع الناس اللي هيستخدموه."

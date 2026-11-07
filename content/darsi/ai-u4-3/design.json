@@ -3,18 +3,18 @@
     "1": {
       "list": [
         {
-          "icon": "warning",
+          "icon": "check",
           "text": {
-            "en": "A test that only counts right answers can",
-            "ar-EG": "اختبار بيعدّ الإجابات الصح بس ممكن يخبّي نموذج"
+            "en": "The design, not the word \"safe\"",
+            "ar-EG": "التصميم، مش كلمة «آمن»"
           },
           "s": 0
         },
         {
-          "icon": "shield",
+          "icon": "warning",
           "text": {
-            "en": "One missed refusal fails the whole suite",
-            "ar-EG": "ورفض فائت واحد بيفشل الاختبار كله"
+            "en": "90% without the refusal is not finished",
+            "ar-EG": "90% من غير الرفض يعني ما خلّصش"
           },
           "s": 1
         }
@@ -54,7 +54,7 @@
         {
           "icon": "warning",
           "text": {
-            "en": "A required refusal marked as pass fails the",
+            "en": "A required refusal marked pass fails the suite",
             "ar-EG": "رفض مطلوب اتعلّم عليه ناجح بيفشل الاختبار"
           },
           "s": 0
@@ -62,8 +62,8 @@
         {
           "icon": "check",
           "text": {
-            "en": "The other cases can all be right, and",
-            "ar-EG": "وباقي الحالات ممكن كلها تبقى صح، وبرضه بيفشل"
+            "en": "Even if every other case is right",
+            "ar-EG": "حتى لو كل الحالات التانية صح"
           },
           "s": 1
         }
@@ -72,20 +72,39 @@
     "5": {
       "list": [
         {
-          "icon": "shield",
+          "icon": "users",
           "text": {
-            "en": "A photo named from a class list, a",
-            "ar-EG": "صورة تتسمّى من لستة فصل، ودرجة تتغيّر من"
+            "en": "A photo named from a class list",
+            "ar-EG": "صورة تتسمّى من لستة فصل"
           },
           "s": 0
         },
         {
+          "icon": "pencil",
+          "text": {
+            "en": "A mark changed without the lecturer",
+            "ar-EG": "درجة تتغيّر من غير الدكتور"
+          },
+          "s": 0,
+          "o": 2.2
+        },
+        {
           "icon": "lock",
           "text": {
-            "en": "Those are refusals, not trick questions",
-            "ar-EG": "دول رفض، مش أسئلة فخ"
+            "en": "A secret repeated",
+            "ar-EG": "سر يتقال تاني"
           },
-          "s": 1
+          "s": 0,
+          "o": 4.2
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "A message that fishes a password",
+            "ar-EG": "رسالة تصطاد كلمة سر"
+          },
+          "s": 0,
+          "o": 5.4
         }
       ]
     },
@@ -121,7 +140,7 @@
           "s": 1,
           "items": [
             {
-              "icon": "check",
+              "icon": "cross",
               "text": {
                 "en": "The suite fails",
                 "ar-EG": "الاختبار يفشل"
@@ -145,7 +164,7 @@
         {
           "icon": "check",
           "text": {
-            "en": "The other scores do not cancel one missed",
+            "en": "The other scores do not cancel one missed refusal",
             "ar-EG": "والدرجات التانية مش بتلغي رفض فائت واحد"
           },
           "s": 1
@@ -156,22 +175,22 @@
       "steps": [
         {
           "text": {
-            "en": "In the app, open the suite",
-            "ar-EG": "في التطبيق، افتح الاختبار"
+            "en": "Put the line on the rubric first",
+            "ar-EG": "حط السطر في المعيار الأول"
           },
           "s": 0
         },
         {
           "text": {
-            "en": "Mark every case, then flip one required refusal",
-            "ar-EG": "علّم على كل حالة، وبعدين اقلب رفض مطلوب"
+            "en": "Before the lab, not after a score",
+            "ar-EG": "قبل المعمل، مش بعد درجة"
           },
-          "s": 1
+          "s": 0
         },
         {
           "text": {
-            "en": "The suite",
-            "ar-EG": "الاختبار"
+            "en": "Link it to the detector's missed face",
+            "ar-EG": "اربطه بالكاشف اللي فوّت الوش العريض"
           },
           "s": 1
         }
@@ -182,40 +201,48 @@
         {
           "icon": "check",
           "text": {
-            "en": "A high score without a refusal case has",
-            "ar-EG": "درجة عالية من غير حالة رفض معناها الاختبار"
+            "en": "Test before use",
+            "ar-EG": "اختبر قبل الاستعمال"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Include the refusal",
-            "ar-EG": "حط الرفض"
+            "en": "One missed refusal fails the suite",
+            "ar-EG": "رفض فائت واحد بيفشل الاختبار"
           },
           "s": 1
         }
       ],
       "takeaway": {
-        "en": "A high score without a refusal case has",
-        "ar-EG": "درجة عالية من غير حالة رفض معناها الاختبار"
+        "en": "A high score without a refusal case has not finished the test.",
+        "ar-EG": "درجة عالية من غير حالة رفض معناها الاختبار ما خلّصش."
       }
     },
     "12": {
       "list": [
         {
-          "icon": "pencil",
+          "icon": "presentation",
           "text": {
-            "en": "Try it tonight",
-            "ar-EG": "جرّبها الليلة"
+            "en": "Try it in your next lecture",
+            "ar-EG": "جرّبها في محاضرتك الجاية"
           },
           "s": 0
         },
         {
-          "icon": "shield",
+          "icon": "users",
           "text": {
-            "en": "Add one refusal case from your own university,",
-            "ar-EG": "ضيف حالة رفض من جامعتك، مش من لستة"
+            "en": "Three high scores with no refusal",
+            "ar-EG": "تلات درجات عالية من غير رفض"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "One line fails all three",
+            "ar-EG": "سطر واحد بيفشل التلاتة"
           },
           "s": 1
         }

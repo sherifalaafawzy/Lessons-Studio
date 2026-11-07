@@ -1429,19 +1429,19 @@
      {
       "id": "b",
       "text": {
-       "en": "Yes: confidence isn't robustness",
-       "ar-EG": "أيوه: الثقة مش متانة"
+       "en": "Only if the picture is blurry",
+       "ar-EG": "بس لو الصورة مش واضحة"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Only if the picture is blurry",
-       "ar-EG": "بس لو الصورة مش واضحة"
+       "en": "Yes: confidence isn't robustness",
+       "ar-EG": "أيوه: الثقة مش متانة"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Right: confidence says how sure it is, not how far the input is from flipping.",
      "ar-EG": "صح: الثقة بتقول هو متأكد قد إيه، مش المدخل بعيد قد إيه عن إنه يتقلب."
@@ -1457,8 +1457,8 @@
    "id": "s07",
    "template": "canvas",
    "narration": {
-    "en": "Yes. Confidence tells you how sure the model is, not how far the input is from flipping. In the lab, six to eight pixels flip a confident answer. Sure isn't safe.",
-    "ar-EG": "أيوه. الثقة بتقولك النموذج متأكد قد إيه، مش المدخل بعيد قد إيه عن إنه يتقلب. في المعمل، ستة لتمانية بكسل بيقلبوا إجابة واثقة. إن النموذج متأكد مش معناه إنه آمن."
+    "en": "Yes. Confidence tells you how sure the model is, not how far the input is from flipping. In the lab, about eight pixels usually flip a confident answer. Sure isn't safe.",
+    "ar-EG": "أيوه. الثقة بتقولك النموذج متأكد قد إيه، مش المدخل بعيد قد إيه عن إنه يتقلب. في المعمل، حوالي تمانية بكسل عادةً بيقلبوا إجابة واثقة. إن النموذج متأكد مش معناه إنه آمن."
    },
    "transition": {
     "type": "fade"
@@ -3721,8 +3721,8 @@
    "id": "s11",
    "template": "canvas",
    "narration": {
-    "en": "In the app, train a small shapes model, then raise the pixels allowed until a drawing flips. Press “Train it tough” and attack again. At ten pixels, attacks that fool it fall from about fourteen of eighteen to about seven.",
-    "ar-EG": "في التطبيق، درّب نموذج أشكال صغير، وبعدين علّي البكسلات المسموحة لحد ما الرسمة تتقلب. دوس «درّبه بقسوة» وهاجم تاني. عند عشرة بكسل، الهجمات اللي بتخدعه بتنزل من حوالي أربعتاشر من تمنتاشر لحوالي سبعة."
+    "en": "In the app, train a small shapes model, set the nudge strength to one, then raise the pixels allowed until a drawing flips. Press “Train it tough” and attack again. At ten pixels, attacks that fool it fall from about eighty-two percent to about forty-one percent.",
+    "ar-EG": "في التطبيق، درّب نموذج أشكال صغير، وخلّي قوة الدفع واحد، وبعدين علّي البكسلات المسموحة لحد ما الرسمة تتقلب. دوس «درّبه بقسوة» وهاجم تاني. عند عشرة بكسل، الهجمات اللي بتخدعه بتنزل من حوالي اتنين وتمانين في المية لحوالي واحد وأربعين في المية."
    },
    "transition": {
     "type": "fade"
@@ -3805,8 +3805,8 @@
       "type": "table",
       "cols": [
        {
-        "en": "At 10 pixels",
-        "ar-EG": "عند 10 بكسل"
+        "en": "10 pixels, strength 1",
+        "ar-EG": "10 بكسل، قوة 1"
        },
        {
         "en": "Attacks that fool it",
@@ -3819,20 +3819,14 @@
          "en": "Before",
          "ar-EG": "قبل"
         },
-        {
-         "en": "14 of 18",
-         "ar-EG": "14 من 18"
-        }
+        "82%"
        ],
        [
         {
          "en": "Trained tough",
          "ar-EG": "بعد التدريب على أمثلة صعبة"
         },
-        {
-         "en": "7 of 18",
-         "ar-EG": "7 من 18"
-        }
+        "41%"
        ]
       ],
       "anim": [

@@ -190,9 +190,10 @@
     },
     "7": {
       "who": null,
+      "headline": null,
       "codediff": {
-        "before": "def agent(history):\n    while True:\n        out = model(history)\n        history += [out, tool(out)]",
-        "after": "def agent(history):\n    for step in range(4):\n        out = model(history)\n        history += [out, tool(out)]\n    return \"Stopped\"",
+        "before": "def agent(history):\n    while True:\n        out = model(history)\n        if \"{\" not in out:\n            return out\n        history += [out, tool(out)]",
+        "after": "def agent(history):\n    for step in range(4):\n        out = model(history)\n        if \"{\" not in out:\n            return out\n        history += [out, tool(out)]\n    return \"Stopped\"",
         "output": {
           "before": "call, call, call…",
           "after": "Stopped"
@@ -203,7 +204,17 @@
             "s": 0,
             "line": 2
           }
-        ]
+        ],
+        "labels": {
+          "before": {
+            "en": "No limit: it may never stop",
+            "ar-EG": "من غير حد: ممكن متقفش"
+          },
+          "after": {
+            "en": "A step limit: it always stops",
+            "ar-EG": "بحد للخطوات: دايمًا بتقف"
+          }
+        }
       }
     },
     "9": {

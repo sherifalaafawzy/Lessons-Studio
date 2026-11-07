@@ -36,7 +36,20 @@
     },
     "4": {
       "who": null,
-      "topology": { "preset": "sensor-mesh", "play": [1] }
+      "topology": {
+        "layout": "mesh",
+        "devices": [
+          { "id": "gw", "kind": "gateway", "label": { "en": "Gateway", "ar-EG": "البوابة" }, "x": 110, "y": 178, "tone": "accent" },
+          { "id": "s1", "kind": "sensor", "label": { "en": "Class 1", "ar-EG": "فصل 1" }, "x": 374, "y": 79 },
+          { "id": "s2", "kind": "sensor", "label": { "en": "Class 2", "ar-EG": "فصل 2" }, "x": 374, "y": 293 },
+          { "id": "s3", "kind": "sensor", "label": { "en": "Library", "ar-EG": "المكتبة" }, "x": 682, "y": 79 },
+          { "id": "s4", "kind": "sensor", "label": { "en": "Lab", "ar-EG": "المعمل" }, "x": 682, "y": 293 },
+          { "id": "s5", "kind": "sensor", "label": { "en": "Garden", "ar-EG": "الجنينة" }, "x": 990, "y": 178 }
+        ],
+        "links": [["gw", "s1", "wireless"], ["gw", "s2", "wireless"], ["s1", "s2", "wireless"], ["s1", "s3", "wireless"], ["s2", "s4", "wireless"], ["s3", "s4", "wireless"], ["s3", "s5", "wireless"], ["s4", "s5", "wireless"]],
+        "routes": [{ "path": ["s5", "s3", "s1", "gw"], "label": "24 °C" }],
+        "play": [1]
+      }
     },
     "5": {
       "cards": [
@@ -52,7 +65,7 @@
           "icon": "arrow",
           "text": {
             "en": "Passes = hops",
-            "ar-EG": "الباصات = النطّات"
+            "ar-EG": "الباصات = القفزات"
           },
           "s": 2
         },
@@ -76,7 +89,21 @@
     },
     "7": {
       "who": null,
-      "topology": { "preset": "sensor-mesh", "play": [0, 1] }
+      "topology": {
+        "layout": "mesh",
+        "devices": [
+          { "id": "gw", "kind": "gateway", "label": { "en": "Gateway", "ar-EG": "البوابة" }, "x": 110, "y": 178, "tone": "accent" },
+          { "id": "s1", "kind": "sensor", "label": { "en": "Class 1", "ar-EG": "فصل 1" }, "x": 374, "y": 79 },
+          { "id": "s2", "kind": "sensor", "label": { "en": "Class 2", "ar-EG": "فصل 2" }, "x": 374, "y": 293 },
+          { "id": "s3", "kind": "sensor", "label": { "en": "Library", "ar-EG": "المكتبة" }, "x": 682, "y": 79 },
+          { "id": "s4", "kind": "sensor", "label": { "en": "Lab", "ar-EG": "المعمل" }, "x": 682, "y": 293 },
+          { "id": "s5", "kind": "sensor", "label": { "en": "Garden", "ar-EG": "الجنينة" }, "x": 990, "y": 178 }
+        ],
+        "links": [["gw", "s1", "wireless"], ["gw", "s2", "wireless"], ["s1", "s2", "wireless"], ["s1", "s3", "wireless"], ["s2", "s4", "wireless"], ["s3", "s4", "wireless"], ["s3", "s5", "wireless"], ["s4", "s5", "wireless"]],
+        "down": [{ "link": ["s1", "s3"], "after": 1 }],
+        "routes": [{ "path": ["s5", "s3", "s1", "gw"], "label": "24 °C" }, { "path": ["s5", "s4", "s2", "gw"], "label": "25 °C", "tone": "ok" }],
+        "play": [0, 1]
+      }
     },
     "8": {
       "list": [
@@ -141,7 +168,7 @@
           "icon": "battery",
           "text": {
             "en": "Each hop costs battery",
-            "ar-EG": "كل نطّة بتصرف بطارية"
+            "ar-EG": "كل قفزة بتصرف بطارية"
           },
           "s": 0
         },
@@ -149,7 +176,7 @@
           "icon": "clock",
           "text": {
             "en": "Each hop adds delay",
-            "ar-EG": "كل نطّة بتأخّر شوية"
+            "ar-EG": "كل قفزة بتأخّر شوية"
           },
           "s": 0
         },

@@ -1782,7 +1782,7 @@
    "template": "canvas",
    "narration": {
     "en": "On fifty tasks, a sixty percent success rate has a standard error of about seven points. So ninety and sixty may partly be noise and partly overfitting. Report the mean over several runs with an interval.",
-    "ar-EG": "على خمسين مهمة، معدل نجاح ستين في المية ليه خطأ معياري حوالي سبع نقط. يعني التسعين والستين ممكن يبقى جزء منهم ضوضاء وجزء فرط تعلّم. اعرض المتوسط على كذا تشغيلة مع فترة ثقة."
+    "ar-EG": "على خمسين مهمة، معدل نجاح ستين في المية ليه خطأ معياري حوالي سبع نقط. يعني التسعين والستين ممكن يبقى جزء منهم ضوضاء وجزء إفراط في التوفيق. اعرض المتوسط على كذا تشغيلة مع فترة ثقة."
    },
    "transition": {
     "type": "fade"
@@ -3494,6 +3494,10 @@
     "explain": {
      "en": "Correct: 1 − 0.8² = 0.36.",
      "ar-EG": "صح: 1 − 0.8² = 0.36."
+    },
+    "explainWrong": {
+     "en": "Not quite: pass@k = 1 − (1 − p)ᵏ, so 1 − 0.64 = 0.36.",
+     "ar-EG": "مش بالظبط: pass@k = 1 − (1 − p)ᵏ، يعني 1 − 0.64 = 0.36."
     }
    },
    "speaker": "salma"
@@ -3503,7 +3507,7 @@
    "template": "canvas",
    "narration": {
     "en": "Zero point three six: one minus zero point eight squared. Two tries nearly double the headline number, which is why pass at one matters.",
-    "ar-EG": "صفر فاصل تلاتة وستين: واحد ناقص صفر فاصل تمانية تربيع. ومحاولتين تقريبًا بيضاعفوا الرقم المعلن، وده السبب إن pass@1 مهمة."
+    "ar-EG": "صفر فاصل ستة وتلاتين: واحد ناقص صفر فاصل تمانية تربيع. ومحاولتين تقريبًا بيضاعفوا الرقم المعلن، وده السبب إن pass@1 مهمة."
    },
    "transition": {
     "type": "fade"
@@ -3527,7 +3531,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0
           },
@@ -3537,7 +3541,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0.45
           },
@@ -3553,7 +3557,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0
           },
@@ -3563,7 +3567,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0.15
           },
@@ -3584,7 +3588,7 @@
       "weight": 800,
       "text": {
        "en": "Zero point three six",
-       "ar-EG": "صفر فاصل تلاتة وستين"
+       "ar-EG": "صفر فاصل ستة وتلاتين"
       },
       "anim": [
        {
@@ -3594,7 +3598,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0
           },
@@ -3604,7 +3608,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0.5
           },
@@ -3620,7 +3624,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0
           },
@@ -3630,7 +3634,7 @@
           "at": {
            "word": {
             "en": "three",
-            "ar-EG": "تلاتة"
+            "ar-EG": "ستة"
            },
            "offset": 0.3
           },
@@ -3910,8 +3914,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the evals lab. Run an agent several times on the same tasks, watch the score move, and compare pass at one with pass at k.",
-    "ar-EG": "في التطبيق، افتح معمل التقييمات. شغّل الوكيل كذا مرة على نفس المهام، وشوف الدرجة بتتحرك، وقارن pass@1 بـ pass@k."
+    "en": "In the app, open the Test an agent lab. Run Darsi Tiny on its thirty-two test requests and read every failure. Run it again: the score stays the same, because it always picks the likeliest token.",
+    "ar-EG": "في التطبيق، افتح معمل اختبر الوكيل. شغّل «درسي الصغير» على اتنين وتلاتين طلب اختبار، واقرا كل غلطة. شغّله تاني: الدرجة مش هتتغيّر، عشان هو دايمًا بيختار التوكن الأرجح."
    },
    "transition": {
     "type": "fade"
@@ -3927,8 +3931,8 @@
       "size": 48,
       "weight": 800,
       "text": {
-       "en": "App lab: evals",
-       "ar-EG": "معمل التطبيق: التقييمات"
+       "en": "App lab: Test an agent",
+       "ar-EG": "معمل التطبيق: اختبر الوكيل"
       },
       "anim": [
        {
@@ -4004,8 +4008,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4014,8 +4018,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.4
           },
@@ -4030,8 +4034,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4040,8 +4044,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.15
           },
@@ -4068,8 +4072,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4078,8 +4082,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.45
           },
@@ -4094,8 +4098,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4104,8 +4108,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.15
           },
@@ -4125,8 +4129,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Run several times",
-       "ar-EG": "شغّل كذا مرة"
+       "en": "Run 32 test requests",
+       "ar-EG": "شغّل 32 طلب اختبار"
       },
       "anim": [
        {
@@ -4135,8 +4139,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4145,8 +4149,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.45
           },
@@ -4161,8 +4165,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0
           },
@@ -4171,8 +4175,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 0.3
           },
@@ -4202,8 +4206,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4212,8 +4216,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.9
           },
@@ -4228,8 +4232,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4238,8 +4242,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.65
           },
@@ -4253,7 +4257,7 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "gauge",
+      "icon": "search",
       "x": 104,
       "y": 328,
       "w": 43,
@@ -4266,8 +4270,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4276,8 +4280,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.95
           },
@@ -4292,8 +4296,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4302,8 +4306,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.65
           },
@@ -4323,8 +4327,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Watch the score move",
-       "ar-EG": "شوف الدرجة بتتحرك"
+       "en": "Read every failure",
+       "ar-EG": "اقرا كل غلطة"
       },
       "anim": [
        {
@@ -4333,8 +4337,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4343,8 +4347,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.95
           },
@@ -4359,8 +4363,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.5
           },
@@ -4369,8 +4373,8 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "Darsi",
+            "ar-EG": "درسي"
            },
            "offset": 1.8
           },
@@ -4400,20 +4404,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.4
+           "offset": 0.4
           },
           "value": 1,
           "ease": "back"
@@ -4426,20 +4430,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.15
+           "offset": 0.15
           },
           "value": 1,
           "ease": "out"
@@ -4451,7 +4455,7 @@
      {
       "id": "icon3",
       "type": "icon",
-      "icon": "target",
+      "icon": "gauge",
       "x": 104,
       "y": 432,
       "w": 43,
@@ -4464,20 +4468,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.45
+           "offset": 0.45
           },
           "value": 1,
           "ease": "back"
@@ -4490,20 +4494,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.15
+           "offset": 0.15
           },
           "value": 1,
           "ease": "out"
@@ -4521,8 +4525,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Compare pass@1 and pass@k",
-       "ar-EG": "قارن pass@1 وpass@k"
+       "en": "Run again: the same score",
+       "ar-EG": "شغّله تاني: نفس الدرجة"
       },
       "anim": [
        {
@@ -4531,20 +4535,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 469
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.45
+           "offset": 0.45
           },
           "value": 429,
           "ease": "out"
@@ -4557,20 +4561,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
-            "ar-EG": "شغّل"
+            "en": "again",
+            "ar-EG": "شغّله"
            },
-           "offset": 1.3
+           "offset": 0.3
           },
           "value": 1,
           "ease": "out"
@@ -4762,6 +4766,10 @@
     "explain": {
      "en": "Correct: held-out, repeated and honest.",
      "ar-EG": "صح: منفصلة ومتكررة وأمينة."
+    },
+    "explainWrong": {
+     "en": "Not quite: development tasks and best-of runs inflate the score.",
+     "ar-EG": "مش بالظبط: مهام التطوير وأحسن تشغيلة بينفخوا الدرجة."
     }
    },
    "speaker": "farah"

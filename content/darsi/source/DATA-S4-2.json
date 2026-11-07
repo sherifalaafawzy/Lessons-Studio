@@ -66,7 +66,7 @@
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "",
     "voice": "Dr Farah",
-    "narration": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
+    "narration": "The district dashboard counted a hundred and fifty-two pupils at our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
     "icons": [
      "presentation",
      "school",
@@ -237,16 +237,16 @@
     "prompt": "A load appends rows, fails halfway, and is run again. What happens?",
     "options": [
      {
-      "text": "The rows loaded before the failure are counted twice",
-      "correct": true
+      "text": "The second run fails too",
+      "correct": false
      },
      {
       "text": "Nothing: databases ignore copies",
       "correct": false
      },
      {
-      "text": "The second run fails too",
-      "correct": false
+      "text": "The rows loaded before the failure are counted twice",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct — appending again writes the first rows a second time, unless the load is idempotent.",
@@ -260,16 +260,16 @@
     "prompt": "Which load is idempotent?",
     "options": [
      {
-      "text": "Delete the day's rows, then insert them",
-      "correct": true
+      "text": "Insert, then remove duplicates by hand next week",
+      "correct": false
      },
      {
       "text": "Insert the day's rows on every run",
       "correct": false
      },
      {
-      "text": "Insert, then remove duplicates by hand next week",
-      "correct": false
+      "text": "Delete the day's rows, then insert them",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct — clearing the day first means one run or five give the same table.",

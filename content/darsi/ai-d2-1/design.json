@@ -1,24 +1,54 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "data",
-          "text": {
-            "en": "A grey picture is not a thing with",
-            "ar-EG": "الصورة الرمادية مش حاجة ليها اسم"
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Row",
+            "ar-EG": "صف"
           },
-          "s": 0
-        },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "On the computer it is a grid of",
-            "ar-EG": "على الكمبيوتر هي شبكة أرقام، سطوع واحد في"
+          {
+            "en": "Left",
+            "ar-EG": "شمال"
           },
-          "s": 1
-        }
-      ]
+          {
+            "en": "Middle",
+            "ar-EG": "نص"
+          },
+          {
+            "en": "Right",
+            "ar-EG": "يمين"
+          }
+        ],
+        "rows": [
+          [
+            "1",
+            20,
+            180,
+            20
+          ],
+          [
+            "2",
+            20,
+            180,
+            20
+          ],
+          [
+            "3",
+            20,
+            180,
+            20
+          ]
+        ],
+        "ltr": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "s": 0
+      }
     },
     "3": {
       "cards": [
@@ -50,57 +80,13 @@
       "arrows": true
     },
     "4": {
-      "list": [
-        {
-          "icon": "calculator",
-          "text": {
-            "en": "A three by three filter lays on the",
-            "ar-EG": "مرشّح تلاتة في تلاتة بيتحط على الصورة وبيضرب"
-          },
-          "s": 0
-        },
-        {
-          "icon": "arrow",
-          "text": {
-            "en": "It writes that sum as the new pixel",
-            "ar-EG": "وبيكتب المجموع ده بكسل جديد"
-          },
-          "s": 1
-        }
-      ]
-    },
-    "5": {
-      "list": [
-        {
-          "icon": "eye",
-          "text": {
-            "en": "An upright-edge filter lights walls",
-            "ar-EG": "مرشّح الحواف القائمة بينوّر الحيطان"
-          },
-          "s": 0
-        },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "A blur averages neighbours, and neither knows it",
-            "ar-EG": "والطمس بياخد متوسط الجيران، والاتنين مش عارفين إنهم"
-          },
-          "s": 1
-        }
-      ]
-    },
-    "6": {
       "who": null,
-      "chart": {
-        "kind": "bar",
-        "data": [
-          20,
-          80,
-          40
-        ],
-        "max": 100,
-        "s": 0,
-        "labels": [
+      "table": {
+        "cols": [
+          {
+            "en": "Cell",
+            "ar-EG": "خانة"
+          },
           {
             "en": "Left",
             "ar-EG": "شمال"
@@ -114,52 +100,241 @@
             "ar-EG": "يمين"
           }
         ],
-        "unit": {
-          "en": "Brightness",
-          "ar-EG": "السطوع"
-        }
+        "rows": [
+          [
+            {
+              "en": "Top",
+              "ar-EG": "فوق"
+            },
+            1,
+            0,
+            2
+          ],
+          [
+            {
+              "en": "Middle",
+              "ar-EG": "نص"
+            },
+            0,
+            1,
+            0
+          ],
+          [
+            {
+              "en": "Low",
+              "ar-EG": "تحت"
+            },
+            3,
+            0,
+            1
+          ]
+        ],
+        "ltr": [
+          1,
+          2,
+          3
+        ],
+        "size": 32,
+        "s": 0
+      },
+      "equation": {
+        "tex": "1+0+2+0+1+0+3+0+1=8",
+        "size": 44,
+        "s": 1
       }
     },
-    "8": {
+    "5": {
       "list": [
         {
-          "icon": "check",
+          "icon": "eye",
           "text": {
-            "en": "A grid of numbers",
-            "ar-EG": "شبكة أرقام"
+            "en": "Upright edges: the sides of walls and doors",
+            "ar-EG": "الحواف القائمة: جوانب الحيطان والأبواب"
           },
           "s": 0
         },
         {
-          "icon": "layers",
+          "icon": "warning",
           "text": {
-            "en": "Names, if they appear, come from many layers,",
-            "ar-EG": "الأسماء، لو ظهرت، بتيجي من طبقات كتير، مش"
+            "en": "A blur averages; neither one sees a face",
+            "ar-EG": "والطمس بياخد المتوسط، ومحدش فيهم شايف وش"
           },
           "s": 1
         }
       ]
+    },
+    "6": {
+      "who": null,
+      "table": {
+        "cols": [
+          {
+            "en": "Cell",
+            "ar-EG": "خانة"
+          },
+          {
+            "en": "Left",
+            "ar-EG": "شمال"
+          },
+          {
+            "en": "Middle",
+            "ar-EG": "نص"
+          },
+          {
+            "en": "Right",
+            "ar-EG": "يمين"
+          }
+        ],
+        "rows": [
+          [
+            {
+              "en": "Top",
+              "ar-EG": "فوق"
+            },
+            1,
+            0,
+            2
+          ],
+          [
+            {
+              "en": "Middle",
+              "ar-EG": "نص"
+            },
+            0,
+            1,
+            0
+          ],
+          [
+            {
+              "en": "Low",
+              "ar-EG": "تحت"
+            },
+            3,
+            0,
+            1
+          ]
+        ],
+        "ltr": [
+          1,
+          2,
+          3
+        ],
+        "size": 32,
+        "s": 0
+      },
+      "equation": {
+        "tex": "1+0+2+0+1+0+3+0+1=8",
+        "size": 44,
+        "s": 1
+      }
+    },
+    "8": {
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "img",
+            "kind": "input",
+            "label": {
+              "en": "Image",
+              "ar-EG": "الصورة"
+            },
+            "note": "28×28"
+          },
+          {
+            "id": "conv",
+            "kind": "conv",
+            "label": {
+              "en": "Convolution",
+              "ar-EG": "الالتفاف"
+            },
+            "note": "8 × 3×3"
+          },
+          {
+            "id": "pool",
+            "kind": "pool",
+            "label": {
+              "en": "Pooling",
+              "ar-EG": "التجميع"
+            },
+            "note": "2×2"
+          },
+          {
+            "id": "fc",
+            "kind": "dense",
+            "label": {
+              "en": "Dense",
+              "ar-EG": "طبقة كاملة"
+            },
+            "note": "64"
+          },
+          {
+            "id": "out",
+            "kind": "softmax",
+            "label": {
+              "en": "Name",
+              "ar-EG": "الاسم"
+            },
+            "note": {
+              "en": "1 of 10",
+              "ar-EG": "1 من 10"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "img",
+            "to": "conv"
+          },
+          {
+            "from": "conv",
+            "to": "pool"
+          },
+          {
+            "from": "pool",
+            "to": "fc"
+          },
+          {
+            "from": "fc",
+            "to": "out"
+          }
+        ],
+        "groups": [
+          {
+            "id": "layers",
+            "label": {
+              "en": "Layers",
+              "ar-EG": "طبقات"
+            },
+            "repeat": 2,
+            "blocks": [
+              "conv",
+              "pool"
+            ]
+          }
+        ],
+        "pass": 1
+      }
     },
     "9": {
       "steps": [
         {
           "text": {
             "en": "In the app, open the convolution lab",
-            "ar-EG": "في التطبيق، افتح معمل الطي"
+            "ar-EG": "في التطبيق، افتح معمل المرشّحات"
           },
           "s": 0
         },
         {
           "text": {
-            "en": "Slide an edge filter and a blur, and",
-            "ar-EG": "حرّك مرشّح حواف وطمس، وقول كل صورة جديدة"
+            "en": "Slide an edge filter, then a blur",
+            "ar-EG": "حرّك مرشّح حواف، وبعدين طمس"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The convolution lab",
-            "ar-EG": "معمل الطي"
+            "en": "Say what each new picture shows",
+            "ar-EG": "قول كل صورة جديدة بتبيّن إيه"
           },
           "s": 1
         }
@@ -170,44 +345,32 @@
         {
           "icon": "check",
           "text": {
-            "en": "A filter mixes neighbours It does not name",
-            "ar-EG": "المرشّح بيخلط الجيران ومش بيسمّي اللي شايفه"
+            "en": "A filter mixes neighbours",
+            "ar-EG": "المرشّح بيخلط الجيران"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Mix, do not name",
-            "ar-EG": "اخلط، ومتسمّيش"
+            "en": "It does not name anything",
+            "ar-EG": "ومش بيسمّي أي حاجة"
           },
-          "s": 1
+          "s": 2
         }
       ],
       "takeaway": {
-        "en": "A filter mixes neighbours It does not name",
-        "ar-EG": "المرشّح بيخلط الجيران ومش بيسمّي اللي شايفه"
+        "en": "A picture is numbers; names come from many layers.",
+        "ar-EG": "الصورة أرقام، والأسماء بتيجي من طبقات كتير."
       }
     },
     "12": {
-      "list": [
-        {
-          "icon": "pencil",
-          "text": {
-            "en": "Try it on paper tonight",
-            "ar-EG": "جرّبها على الورق الليلة"
-          },
-          "s": 0
-        },
-        {
-          "icon": "calculator",
-          "text": {
-            "en": "Sketch a three by three edge filter and",
-            "ar-EG": "ارسم مرشّح حواف تلاتة في تلاتة واحسب بكسل"
-          },
-          "s": 1
-        }
-      ]
+      "who": null,
+      "equation": {
+        "tex": "1+0+2+0+1+0+3+0+1=8",
+        "size": 52,
+        "s": 1
+      }
     }
   }
 }

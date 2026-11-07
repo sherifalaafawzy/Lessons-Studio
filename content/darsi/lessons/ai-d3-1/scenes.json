@@ -14,84 +14,57 @@
    "content": {
     "elements": [
      {
-      "id": "bubble",
-      "type": "shape",
-      "shape": "rect",
+      "id": "arch",
       "x": 90,
-      "y": 70,
-      "w": 710,
-      "h": 200,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 28,
-      "anim": [
+      "y": 60,
+      "w": 1100,
+      "h": 570,
+      "type": "arch",
+      "blocks": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "id": "agent",
+        "kind": "model",
+        "label": {
+         "en": "Agent",
+         "ar-EG": "الوكيل"
+        }
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "id": "world",
+        "kind": "box",
+        "label": {
+         "en": "World",
+         "ar-EG": "الدنيا"
+        }
+       },
+       {
+        "id": "reward",
+        "kind": "output",
+        "label": {
+         "en": "Later reward",
+         "ar-EG": "مكافأة متأخرة"
+        }
        }
-      ]
-     },
-     {
-      "id": "quote",
-      "type": "text",
-      "x": 124,
-      "y": 100,
-      "w": 642,
-      "size": 34,
-      "weight": 700,
-      "text": {
-       "en": "The charger is at the end of the path.",
-       "ar-EG": "الشاحن في آخر المسار."
-      },
+      ],
+      "edges": [
+       {
+        "from": "agent",
+        "to": "world"
+       },
+       {
+        "from": "world",
+        "to": "reward"
+       },
+       {
+        "from": "reward",
+        "to": "agent",
+        "skip": true,
+        "label": {
+         "en": "credit",
+         "ar-EG": "الفضل"
+        }
+       }
+      ],
       "anim": [
        {
         "prop": "reveal",
@@ -102,7 +75,7 @@
             "en": "charger",
             "ar-EG": "الشاحن"
            },
-           "offset": 0.2
+           "offset": 0.3
           },
           "value": 0
          },
@@ -112,238 +85,35 @@
             "en": "charger",
             "ar-EG": "الشاحن"
            },
-           "offset": 1.6
+           "offset": 2.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "pass",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "early",
+            "ar-EG": "الخطوات"
+           }
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "early",
+            "ar-EG": "الخطوات"
+           },
+           "offset": 2
           },
           "value": 1,
           "ease": "linear"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 300,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "target",
-      "x": 104,
-      "y": 314,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 311,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "The charger is at the end of the",
-       "ar-EG": "الشاحن في آخر المسار"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 351
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.45
-          },
-          "value": 311,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 404,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 0
          },
          {
           "at": {
@@ -351,231 +121,10 @@
             "en": "early",
             "ar-EG": "الخطوات"
            },
-           "offset": 0.4
+           "offset": 2.05
           },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "arrow",
-      "x": 104,
-      "y": 418,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 415,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "The early steps get no reward, and they",
-       "ar-EG": "الخطوات الأولى مش بتاخد مكافأة، وبرضه لازم تتعلّم"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 455
-         },
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0.45
-          },
-          "value": 415,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "early",
-            "ar-EG": "الخطوات"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "who",
-      "type": "image",
-      "src": "@lib/v1/cast/joseph_talking.svg",
-      "x": 840,
-      "y": 290,
-      "w": 400,
-      "h": 410,
-      "fit": "contain",
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 330
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.6
-          },
-          "value": 290,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "charger",
-            "ar-EG": "الشاحن"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
+          "value": -1,
+          "ease": "step"
          }
         ]
        }
@@ -733,20 +282,60 @@
       ]
      },
      {
-      "id": "card1",
-      "type": "shape",
-      "shape": "rect",
-      "x": 201,
-      "y": 249,
-      "w": 250,
-      "h": 270,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 24,
+      "id": "arch",
+      "x": 90,
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "arch",
+      "blocks": [
+       {
+        "id": "agent",
+        "kind": "model",
+        "label": {
+         "en": "Agent",
+         "ar-EG": "الوكيل"
+        }
+       },
+       {
+        "id": "world",
+        "kind": "box",
+        "label": {
+         "en": "World",
+         "ar-EG": "الدنيا"
+        }
+       },
+       {
+        "id": "reward",
+        "kind": "output",
+        "label": {
+         "en": "Later reward",
+         "ar-EG": "مكافأة متأخرة"
+        }
+       }
+      ],
+      "edges": [
+       {
+        "from": "agent",
+        "to": "world"
+       },
+       {
+        "from": "world",
+        "to": "reward"
+       },
+       {
+        "from": "reward",
+        "to": "agent",
+        "skip": true,
+        "label": {
+         "en": "credit",
+         "ar-EG": "الفضل"
+        }
+       }
+      ],
       "anim": [
        {
-        "prop": "scale",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
@@ -754,7 +343,7 @@
             "en": "action",
             "ar-EG": "الفعل"
            },
-           "offset": 0
+           "offset": 0.3
           },
           "value": 0
          },
@@ -764,170 +353,22 @@
             "en": "action",
             "ar-EG": "الفعل"
            },
-           "offset": 0.45
+           "offset": 2.3
           },
           "value": 1,
-          "ease": "back"
+          "ease": "out"
          }
         ]
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "arrow",
-      "x": 276,
-      "y": 281,
-      "w": 100,
-      "h": 100,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0.5
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "label1",
-      "type": "text",
-      "x": 213,
-      "y": 406,
-      "w": 226,
-      "size": 27,
-      "weight": 700,
-      "align": "center",
-      "text": {
-       "en": "An action",
-       "ar-EG": "فعل"
-      },
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0.15
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "action",
-            "ar-EG": "الفعل"
-           },
-           "offset": 0.55
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "card2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 515,
-      "y": 249,
-      "w": 250,
-      "h": 270,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 24,
-      "anim": [
-       {
-        "prop": "scale",
+        "prop": "pass",
         "keys": [
          {
           "at": {
            "word": {
             "en": "reward",
             "ar-EG": "والمكافأة"
-           },
-           "offset": 0
+           }
           },
           "value": 0
          },
@@ -937,25 +378,10 @@
             "en": "reward",
             "ar-EG": "والمكافأة"
            },
-           "offset": 0.45
+           "offset": 2
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0
-          },
-          "value": 0
+          "ease": "linear"
          },
          {
           "at": {
@@ -963,367 +389,10 @@
             "en": "reward",
             "ar-EG": "والمكافأة"
            },
-           "offset": 0.15
+           "offset": 2.05
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "gauge",
-      "x": 590,
-      "y": 281,
-      "w": 100,
-      "h": 100,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "arrow1",
-      "type": "line",
-      "x": 461,
-      "y": 384,
-      "x2": 505,
-      "y2": 384,
-      "arrow": "end",
-      "strokeWidth": 4,
-      "tone": "muted",
-      "anim": [
-       {
-        "prop": "draw",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": -0.3
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "label2",
-      "type": "text",
-      "x": 527,
-      "y": 406,
-      "w": 226,
-      "size": 27,
-      "weight": 700,
-      "align": "center",
-      "text": {
-       "en": "A late reward",
-       "ar-EG": "مكافأة متأخرة"
-      },
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.15
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.55
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "card3",
-      "type": "shape",
-      "shape": "rect",
-      "x": 829,
-      "y": 249,
-      "w": 250,
-      "h": 270,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 24,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.95
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon3",
-      "type": "icon",
-      "icon": "map",
-      "x": 904,
-      "y": 281,
-      "w": 100,
-      "h": 100,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 1
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.65
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "arrow2",
-      "type": "line",
-      "x": 775,
-      "y": 384,
-      "x2": 819,
-      "y2": 384,
-      "arrow": "end",
-      "strokeWidth": 4,
-      "tone": "muted",
-      "anim": [
-       {
-        "prop": "draw",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.2
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.5
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "label3",
-      "type": "text",
-      "x": 841,
-      "y": 406,
-      "w": 226,
-      "size": 27,
-      "weight": 700,
-      "align": "center",
-      "text": {
-       "en": "Credit travels",
-       "ar-EG": "الفضل يرجع"
-      },
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 0.65
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "reward",
-            "ar-EG": "والمكافأة"
-           },
-           "offset": 1.05
-          },
-          "value": 1,
-          "ease": "out"
+          "value": -1,
+          "ease": "step"
          }
         ]
        }
@@ -1551,8 +620,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Value is how good it is to stand",
-       "ar-EG": "القيمة هي قد إيه الوقوف على المربع كويس"
+       "en": "Value: how good a square is",
+       "ar-EG": "القيمة: المربع ده كويس قد إيه"
       },
       "anim": [
        {
@@ -1749,8 +818,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Policy is what to do there, and they",
-       "ar-EG": "والسياسة هي تعمل إيه هناك، وهما صورتين مختلفين"
+       "en": "Policy: what to do there",
+       "ar-EG": "السياسة: تعمل إيه هناك"
       },
       "anim": [
        {
@@ -2029,8 +1098,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Score spinning highly and a robot will spin",
-       "ar-EG": "ادي الدوران درجة عالية والروبوت هيلف في البركة"
+       "en": "Score spinning, and the robot spins in the puddle",
+       "ar-EG": "ادي الدوران درجة، والروبوت هيلف في البركة"
       },
       "anim": [
        {
@@ -2437,7 +1506,7 @@
      {
       "id": "licon",
       "type": "icon",
-      "icon": "target",
+      "icon": "map",
       "x": 118,
       "y": 236,
       "w": 56,
@@ -2680,7 +1749,7 @@
       "w": 530,
       "h": 400,
       "fill": "surface",
-      "stroke": "danger",
+      "stroke": "accent",
       "strokeWidth": 4,
       "radius": 26,
       "anim": [
@@ -2741,12 +1810,12 @@
      {
       "id": "ricon",
       "type": "icon",
-      "icon": "warning",
+      "icon": "arrow",
       "x": 688,
       "y": 236,
       "w": 56,
       "h": 56,
-      "tone": "danger",
+      "tone": "accent",
       "anim": [
        {
         "prop": "scale",
@@ -2810,7 +1879,7 @@
       "w": 402,
       "size": 34,
       "weight": 800,
-      "tone": "danger",
+      "tone": "accent",
       "text": {
        "en": "Policy",
        "ar-EG": "السياسة"
@@ -2852,7 +1921,7 @@
       "y": 324,
       "w": 38,
       "h": 38,
-      "tone": "danger",
+      "tone": "accent",
       "anim": [
        {
         "prop": "scale",
@@ -3005,26 +2074,26 @@
      {
       "id": "a",
       "text": {
-       "en": "Sending the credit back along the path",
-       "ar-EG": "رجوع الفضل على طول المسار"
+       "en": "Making the reward at the charger bigger",
+       "ar-EG": "تكبير المكافأة عند الشاحن"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "Storing the reward as a password",
-       "ar-EG": "تخزين المكافأة كلمة سر"
+       "en": "Sending the credit back along the path",
+       "ar-EG": "رجوع الفضل على طول المسار"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Ignoring the world",
-       "ar-EG": "تجاهل الدنيا"
+       "en": "Picking a random move on every square",
+       "ar-EG": "اختيار حركة عشوائية في كل مربع"
       }
      }
     ],
-    "answer": "a",
+    "answer": "b",
     "explain": {
      "en": "Correct: the earlier steps have to learn that they helped.",
      "ar-EG": "صح: الخطوات الأولى لازم تتعلّم إنها ساعدت."
@@ -3517,7 +2586,7 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "The earlier steps have to learn that they",
+       "en": "The earlier steps have to learn that they helped",
        "ar-EG": "الخطوات الأولى لازم تتعلّم إنها ساعدت"
       },
       "anim": [
@@ -3596,12 +2665,12 @@
       "ar-EG": "في التطبيق، افتح معمل المكافأة"
      },
      {
-      "en": "Watch the values spread, and point at one",
-      "ar-EG": "شوف القيم وهي بتنتشر، وشاور على قيمة مربع"
+      "en": "Watch the values spread",
+      "ar-EG": "شوف القيم وهي بتنتشر"
      },
      {
-      "en": "The reward lab",
-      "ar-EG": "معمل المكافأة"
+      "en": "Point at one square's value and action",
+      "ar-EG": "شاور على قيمة مربع والفعل بتاعه"
      }
     ]
    },
@@ -3667,15 +2736,15 @@
      {
       "id": "b",
       "text": {
-       "en": "Yes, they are synonyms",
-       "ar-EG": "أيوه، هما مرادف"
+       "en": "Policy is only the reward",
+       "ar-EG": "السياسة هي المكافأة بس"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Policy is only the reward",
-       "ar-EG": "السياسة هي المكافأة بس"
+       "en": "Yes, they are synonyms",
+       "ar-EG": "أيوه، هما مرادف"
       }
      }
     ],
@@ -3705,32 +2774,32 @@
     },
     "points": [
      {
-      "en": "A reward that looks right can train a",
-      "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة خلّي"
+      "en": "Value: how good a place is",
+      "ar-EG": "القيمة: المكان كويس قد إيه"
      },
      {
-      "en": "Keep them apart",
-      "ar-EG": "خليهم منفصلين"
+      "en": "Policy: what to do there",
+      "ar-EG": "السياسة: تعمل إيه هناك"
      }
     ],
     "takeaway": {
-     "en": "A reward that looks right can train a",
-     "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة خلّي"
+     "en": "A reward that looks right can train a bad policy.",
+     "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة."
     }
    },
    "cues": [
     {
      "word": {
-      "en": "reward",
-      "ar-EG": "مكافأة"
+      "en": "Keep",
+      "ar-EG": "خلّي"
      },
      "action": "reveal",
      "target": "1"
     },
     {
      "word": {
-      "en": "reward",
-      "ar-EG": "مكافأة"
+      "en": "Keep",
+      "ar-EG": "خلّي"
      },
      "offset": 0.5,
      "action": "reveal",
@@ -4163,8 +3232,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Write a one-line reward that would teach the",
-       "ar-EG": "اكتب مكافأة من سطر تعلّم السلوك الغلط"
+       "en": "Write a reward that teaches the wrong behaviour",
+       "ar-EG": "اكتب مكافأة تعلّم السلوك الغلط"
       },
       "anim": [
        {

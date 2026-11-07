@@ -21,9 +21,7 @@
       "h": 440,
       "type": "table",
       "ltr": [
-       1,
-       2,
-       3
+       0
       ],
       "cols": [
        {
@@ -31,45 +29,45 @@
         "ar-EG": "من"
        },
        {
-        "en": "C",
-        "ar-EG": "دو"
+        "en": "then C",
+        "ar-EG": "بعدها C"
        },
        {
-        "en": "E",
-        "ar-EG": "مي"
+        "en": "then E",
+        "ar-EG": "بعدها E"
        },
        {
-        "en": "G",
-        "ar-EG": "صول"
+        "en": "then A",
+        "ar-EG": "بعدها A"
        }
       ],
       "rows": [
        [
         {
          "en": "C",
-         "ar-EG": "دو"
+         "ar-EG": "C"
         },
-        "0.7",
-        "0.2",
-        "0.1"
+        0,
+        2,
+        0
        ],
        [
         {
          "en": "E",
-         "ar-EG": "مي"
+         "ar-EG": "E"
         },
-        "0.2",
-        "0.6",
-        "0.2"
+        1,
+        0,
+        2
        ],
        [
         {
-         "en": "G",
-         "ar-EG": "صول"
+         "en": "A",
+         "ar-EG": "A"
         },
-        "0.1",
-        "0.3",
-        "0.6"
+        0,
+        2,
+        0
        ]
       ],
       "anim": [
@@ -79,8 +77,8 @@
          {
           "at": {
            "word": {
-            "en": "Eight",
-            "ar-EG": "تمان"
+            "en": "only",
+            "ar-EG": "بيعدّ"
            },
            "offset": 0
           },
@@ -89,8 +87,8 @@
          {
           "at": {
            "word": {
-            "en": "Eight",
-            "ar-EG": "تمان"
+            "en": "only",
+            "ar-EG": "بيعدّ"
            },
            "offset": 1.5
           },
@@ -260,55 +258,59 @@
       "h": 256,
       "type": "table",
       "ltr": [
+       0,
        1,
        2,
-       3
+       3,
+       4,
+       5,
+       6,
+       7
       ],
       "cols": [
        {
-        "en": "From",
-        "ar-EG": "من"
-       },
-       {
         "en": "C",
-        "ar-EG": "دو"
+        "ar-EG": "C"
        },
        {
         "en": "E",
-        "ar-EG": "مي"
+        "ar-EG": "E"
        },
        {
-        "en": "G",
-        "ar-EG": "صول"
+        "en": "A",
+        "ar-EG": "A"
+       },
+       {
+        "en": "E",
+        "ar-EG": "E"
+       },
+       {
+        "en": "C",
+        "ar-EG": "C"
+       },
+       {
+        "en": "E",
+        "ar-EG": "E"
+       },
+       {
+        "en": "A",
+        "ar-EG": "A"
+       },
+       {
+        "en": "E",
+        "ar-EG": "E"
        }
       ],
       "rows": [
        [
-        {
-         "en": "C",
-         "ar-EG": "دو"
-        },
-        "0.7",
-        "0.2",
-        "0.1"
-       ],
-       [
-        {
-         "en": "E",
-         "ar-EG": "مي"
-        },
-        "0.2",
-        "0.6",
-        "0.2"
-       ],
-       [
-        {
-         "en": "G",
-         "ar-EG": "صول"
-        },
-        "0.1",
-        "0.3",
-        "0.6"
+        "0.05",
+        "0.20",
+        "0.10",
+        "0.20",
+        "0.05",
+        "0.20",
+        "0.05",
+        "0.15"
        ]
       ],
       "anim": [
@@ -347,8 +349,8 @@
       "w": 1100,
       "h": 120,
       "type": "math",
-      "size": 42,
-      "tex": "\\mathrm{mix}=\\mathrm{scores}\\times\\mathrm{notes}",
+      "size": 48,
+      "tex": "y=\\sum_i w_i\\,v_i\\qquad\\sum_i w_i=1",
       "anim": [
        {
         "prop": "reveal",
@@ -472,24 +474,16 @@
         "id": "tok",
         "kind": "input",
         "label": {
-         "en": "Tokens",
-         "ar-EG": "الرموز"
-        }
-       },
-       {
-        "id": "emb",
-        "kind": "embed",
-        "label": {
-         "en": "Embedding + position",
-         "ar-EG": "التضمين والموضع"
+         "en": "Notes so far",
+         "ar-EG": "النغمات السابقة"
         }
        },
        {
         "id": "att",
         "kind": "attn",
         "label": {
-         "en": "Multi-head attention",
-         "ar-EG": "الانتباه متعدد الرؤوس"
+         "en": "Attention",
+         "ar-EG": "الانتباه"
         }
        },
        {
@@ -498,6 +492,10 @@
         "label": {
          "en": "Add & norm",
          "ar-EG": "الجمع والتطبيع"
+        },
+        "note": {
+         "en": "+ residual",
+         "ar-EG": "+ الوصلة المتبقية"
         }
        },
        {
@@ -509,21 +507,17 @@
         }
        },
        {
-        "id": "n2",
-        "kind": "norm",
+        "id": "out",
+        "kind": "softmax",
         "label": {
-         "en": "Add & norm",
-         "ar-EG": "الجمع والتطبيع"
+         "en": "Next note",
+         "ar-EG": "النغمة الجاية"
         }
        }
       ],
       "edges": [
        {
         "from": "tok",
-        "to": "emb"
-       },
-       {
-        "from": "emb",
         "to": "att"
        },
        {
@@ -536,33 +530,12 @@
        },
        {
         "from": "ff",
-        "to": "n2"
+        "to": "out"
        },
        {
-        "from": "emb",
+        "from": "tok",
         "to": "n1",
         "skip": true
-       },
-       {
-        "from": "n1",
-        "to": "n2",
-        "skip": true
-       }
-      ],
-      "groups": [
-       {
-        "id": "enc",
-        "label": {
-         "en": "Encoder block",
-         "ar-EG": "كتلة المُرمِّز"
-        },
-        "repeat": 6,
-        "blocks": [
-         "att",
-         "n1",
-         "ff",
-         "n2"
-        ]
        }
       ],
       "anim": [
@@ -591,6 +564,21 @@
           "ease": "out"
          }
         ]
+       },
+       {
+        "prop": "focus",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "transformer",
+            "ar-EG": "كتلة"
+           }
+          },
+          "value": 3,
+          "ease": "step"
+         }
+        ]
        }
       ]
      }
@@ -601,8 +589,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "The melody lab always picks the most common follower. A pitch it never saw follow another cannot appear.",
-    "ar-EG": "معمل اللحن دايمًا بيختار التابع الأكثر تكرارًا. والدرجة اللي عمرها ما شافها جاية بعد درجة تانية مش ممكن تظهر."
+    "en": "The Eight notes lab always picks the most common follower. A pitch it never saw follow another cannot appear.",
+    "ar-EG": "معمل التمان نغمات دايمًا بيختار التابع الأكتر تكرارًا. والدرجة اللي عمرها ما شافها جاية بعد درجة تانية مش ممكن تظهر."
    },
    "transition": {
     "type": "fade"
@@ -619,7 +607,7 @@
       "weight": 800,
       "text": {
        "en": "The most common follower",
-       "ar-EG": "التابع الأكثر"
+       "ar-EG": "التابع الأكتر تكرارًا"
       },
       "anim": [
        {
@@ -628,7 +616,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -638,7 +626,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.5
@@ -654,7 +642,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -664,7 +652,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.3
@@ -695,7 +683,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -705,7 +693,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.4
@@ -721,7 +709,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -731,7 +719,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.15
@@ -759,7 +747,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -769,7 +757,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.45
@@ -785,7 +773,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -795,7 +783,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.15
@@ -816,8 +804,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "The melody lab always picks the most common",
-       "ar-EG": "معمل اللحن دايمًا بيختار التابع الأكثر تكرارًا"
+       "en": "It always picks the most common follower",
+       "ar-EG": "دايمًا بيختار التابع الأكتر تكرارًا"
       },
       "anim": [
        {
@@ -826,7 +814,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -836,7 +824,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.45
@@ -852,7 +840,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0
@@ -862,7 +850,7 @@
          {
           "at": {
            "word": {
-            "en": "melody",
+            "en": "Eight",
             "ar-EG": "معمل"
            },
            "offset": 0.3
@@ -1014,8 +1002,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "A pitch it never saw follow another cannot",
-       "ar-EG": "والدرجة اللي عمرها ما شافها جاية بعد درجة"
+       "en": "A pair it never counted cannot appear",
+       "ar-EG": "الزوج اللي ما اتعدّش مش ممكن يظهر"
       },
       "anim": [
        {
@@ -1080,7 +1068,7 @@
    "template": "canvas",
    "narration": {
     "en": "Here is one transformer block. Attention mixes, and the residual adds the original back.",
-    "ar-EG": "دي كتلة محوّل واحدة. الانتباه بيخلط، والباقي بيرجّع الأصل."
+    "ar-EG": "دي كتلة محوّل واحدة. الانتباه بيخلط، والوصلة المتبقية بترجّع الأصل."
    },
    "transition": {
     "type": "fade"
@@ -1166,24 +1154,16 @@
         "id": "tok",
         "kind": "input",
         "label": {
-         "en": "Tokens",
-         "ar-EG": "الرموز"
-        }
-       },
-       {
-        "id": "emb",
-        "kind": "embed",
-        "label": {
-         "en": "Embedding + position",
-         "ar-EG": "التضمين والموضع"
+         "en": "Notes so far",
+         "ar-EG": "النغمات السابقة"
         }
        },
        {
         "id": "att",
         "kind": "attn",
         "label": {
-         "en": "Multi-head attention",
-         "ar-EG": "الانتباه متعدد الرؤوس"
+         "en": "Attention",
+         "ar-EG": "الانتباه"
         }
        },
        {
@@ -1192,6 +1172,10 @@
         "label": {
          "en": "Add & norm",
          "ar-EG": "الجمع والتطبيع"
+        },
+        "note": {
+         "en": "+ residual",
+         "ar-EG": "+ الوصلة المتبقية"
         }
        },
        {
@@ -1203,21 +1187,17 @@
         }
        },
        {
-        "id": "n2",
-        "kind": "norm",
+        "id": "out",
+        "kind": "softmax",
         "label": {
-         "en": "Add & norm",
-         "ar-EG": "الجمع والتطبيع"
+         "en": "Next note",
+         "ar-EG": "النغمة الجاية"
         }
        }
       ],
       "edges": [
        {
         "from": "tok",
-        "to": "emb"
-       },
-       {
-        "from": "emb",
         "to": "att"
        },
        {
@@ -1230,33 +1210,12 @@
        },
        {
         "from": "ff",
-        "to": "n2"
+        "to": "out"
        },
        {
-        "from": "emb",
+        "from": "tok",
         "to": "n1",
         "skip": true
-       },
-       {
-        "from": "n1",
-        "to": "n2",
-        "skip": true
-       }
-      ],
-      "groups": [
-       {
-        "id": "enc",
-        "label": {
-         "en": "Encoder block",
-         "ar-EG": "كتلة المُرمِّز"
-        },
-        "repeat": 6,
-        "blocks": [
-         "att",
-         "n1",
-         "ff",
-         "n2"
-        ]
        }
       ],
       "anim": [
@@ -1354,33 +1313,33 @@
      {
       "id": "a",
       "text": {
-       "en": "A weighted sum of the other vectors",
-       "ar-EG": "مجموع موزون للمتجهات التانية"
+       "en": "Keeping only the most recent vector",
+       "ar-EG": "بيحتفظ بأحدث متجه بس"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "Copying only the first symbol",
-       "ar-EG": "نسخ الرمز الأول بس"
+       "en": "Adding the vectors with equal weights",
+       "ar-EG": "بيجمع المتجهات بأوزان متساوية"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Forgetting every weight",
-       "ar-EG": "نسيان كل وزن"
+       "en": "Taking a weighted sum of the vectors it can see, itself included",
+       "ar-EG": "بياخد مجموع موزون للمتجهات اللي شايفها، ومعاهم متجهه هو"
       }
      }
     ],
-    "answer": "a",
+    "answer": "c",
     "explain": {
-     "en": "Correct: the scores become weights, and the new vector is their mix.",
-     "ar-EG": "صح: الدرجات بتبقى أوزان، والمتجه الجديد خليطهم."
+     "en": "Correct: the scores become weights that add to one, and the new vector mixes every vector it can see, its own included.",
+     "ar-EG": "صح: الدرجات بتبقى أوزان مجموعها واحد، والمتجه الجديد بيخلط كل المتجهات اللي شايفها، ومعاهم متجهه هو."
     },
     "explainWrong": {
-     "en": "Not quite: attention builds a weighted sum of the other vectors.",
-     "ar-EG": "لأ: الانتباه يبني مجموع موزون للمتجهات التانية."
+     "en": "Not quite: attention takes a weighted sum of every vector it can see, its own included, not only the latest and not all equally.",
+     "ar-EG": "لأ: الانتباه بياخد مجموع موزون لكل المتجهات اللي شايفها، ومعاهم متجهه هو، مش الأحدث بس، ومش كلهم بالتساوي."
     }
    },
    "speaker": "joseph"
@@ -1389,8 +1348,8 @@
    "id": "s08",
    "template": "canvas",
    "narration": {
-    "en": "A weighted sum of the other vectors. The scores become weights, and the weights do the mixing.",
-    "ar-EG": "مجموع موزون للمتجهات التانية. الدرجات بتبقى أوزان، والأوزان هي اللي بتخلط."
+    "en": "A weighted sum of the vectors it can see, its own included. The scores become weights, and the weights do the mixing.",
+    "ar-EG": "مجموع موزون للمتجهات اللي شايفها، ومعاهم متجهه هو. الدرجات بتبقى أوزان، والأوزان هي اللي بتخلط."
    },
    "transition": {
     "type": "fade"
@@ -1668,8 +1627,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "A weighted sum of the other vectors",
-       "ar-EG": "مجموع موزون للمتجهات التانية"
+       "en": "A weighted sum of every vector it can see",
+       "ar-EG": "مجموع موزون لكل المتجهات اللي شايفها"
       },
       "anim": [
        {
@@ -1866,8 +1825,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "The scores become weights, and the weights do",
-       "ar-EG": "الدرجات بتبقى أوزان، والأوزان هي اللي بتخلط"
+       "en": "Scores become weights; the weights mix",
+       "ar-EG": "الدرجات بتبقى أوزان، والأوزان بتخلط"
       },
       "anim": [
        {
@@ -1931,26 +1890,26 @@
    "id": "s09",
    "template": "steps",
    "narration": {
-    "en": "In the app, open the eight-note lab. Read the tune, then the four notes it writes next, and name one pitch it cannot invent.",
+    "en": "In the app, open the Eight notes lab. Read the tune, then the four notes it writes next, and name one pitch it cannot invent.",
     "ar-EG": "في التطبيق، افتح معمل التمان نغمات. اقرأ اللحن، وبعدين الأربع نغمات اللي بيكتبها بعده، وسمّي درجة مش قادر يخترعها."
    },
    "content": {
     "title": {
      "en": "Eight notes",
-     "ar-EG": "تمان نغمات"
+     "ar-EG": "ثماني نغمات"
     },
     "steps": [
      {
-      "en": "In the app, open the eight-note lab",
-      "ar-EG": "في التطبيق، افتح معمل التمان نغمات"
+      "en": "In the app, open Eight notes",
+      "ar-EG": "في التطبيق، افتح «ثماني نغمات»"
      },
      {
-      "en": "Read the tune, then the four notes it",
-      "ar-EG": "اقرأ اللحن، وبعدين الأربع نغمات اللي بيكتبها بعده،"
+      "en": "Read the tune and the next four notes",
+      "ar-EG": "اقرأ اللحن والأربع نغمات اللي بعده"
      },
      {
-      "en": "Eight notes",
-      "ar-EG": "تمان نغمات"
+      "en": "Name a pitch it cannot invent",
+      "ar-EG": "سمّي درجة مش قادر يخترعها"
      }
     ]
    },
@@ -2009,15 +1968,15 @@
      {
       "id": "a",
       "text": {
-       "en": "No, they continued a count",
-       "ar-EG": "لأ، كمّلت عدّ"
+       "en": "Yes, they were trained for years",
+       "ar-EG": "أيوه، اتدرّبت سنين"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "Yes, they were trained for years",
-       "ar-EG": "أيوه، اتدرّبت سنين"
+       "en": "No, they continued a count",
+       "ar-EG": "لأ، كمّلت عدّ"
       }
      },
      {
@@ -2028,7 +1987,7 @@
       }
      }
     ],
-    "answer": "a",
+    "answer": "b",
     "explain": {
      "en": "Correct: they continued the counts from one short tune. They did not hear music.",
      "ar-EG": "صح: كمّلت أعداد لحن قصير واحد. وما سمعتش موسيقى."
@@ -2045,7 +2004,7 @@
    "template": "summary",
    "narration": {
     "en": "Remember this. Attention mixes, the residual keeps the original, and the eight notes only counted.",
-    "ar-EG": "افتكر كده. الانتباه بيخلط، والباقي بيحتفظ بالأصل، والتمان نغمات عدّوا بس."
+    "ar-EG": "افتكر كده. الانتباه بيخلط، والوصلة المتبقية بتحتفظ بالأصل، والتمان نغمات عدّوا بس."
    },
    "content": {
     "title": {
@@ -2054,17 +2013,17 @@
     },
     "points": [
      {
-      "en": "Attention mixes, the residual keeps the original, and",
-      "ar-EG": "الانتباه بيخلط، والباقي بيحتفظ بالأصل، والتمان نغمات عدّوا"
+      "en": "Attention mixes",
+      "ar-EG": "الانتباه بيخلط"
      },
      {
-      "en": "Mix, then count",
-      "ar-EG": "خلط، وبعدين عدّ"
+      "en": "The residual keeps the original",
+      "ar-EG": "الوصلة المتبقية بتحتفظ بالأصل"
      }
     ],
     "takeaway": {
-     "en": "Attention mixes, the residual keeps the original, and",
-     "ar-EG": "الانتباه بيخلط، والباقي بيحتفظ بالأصل، والتمان نغمات عدّوا"
+     "en": "The eight notes only counted.",
+     "ar-EG": "والتمان نغمات عدّوا بس."
     }
    },
    "cues": [
@@ -2512,8 +2471,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Write one sentence on what was counted, and",
-       "ar-EG": "اكتب جملة عن اللي اتعدّ، واللي ما اتعدّش"
+       "en": "Write what was counted, and what was not",
+       "ar-EG": "اكتب اللي اتعدّ، واللي ما اتعدّش"
       },
       "anim": [
        {

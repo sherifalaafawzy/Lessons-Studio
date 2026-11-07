@@ -6,7 +6,7 @@
    "template": "canvas",
    "narration": {
     "en": "Our best team topped the course leaderboard by a wide margin. Then we noticed they had tuned forty models on the test set. Their final score measured their persistence, not their model.",
-    "ar-EG": "أحسن فريق عندنا كان الأول في لوحة ترتيب المقرر بفرق كبير. وبعدين لاحظنا إنهم ظبطوا أربعين موديل على مجموعة الاختبار. درجتهم النهائية كانت بتقيس إصرارهم، مش الموديل بتاعهم."
+    "ar-EG": "أحسن فريق عندنا كان الأول في لوحة ترتيب المقرر بفرق كبير. وبعدين لاحظنا إنهم ظبطوا أربعين موديل على بيانات الاختبار. درجتهم النهائية كانت بتقيس إصرارهم، مش الموديل بتاعهم."
    },
    "transition": {
     "type": "cut"
@@ -856,7 +856,7 @@
    "template": "canvas",
    "narration": {
     "en": "Honest evaluation uses three splits. Train fits the weights, validation chooses the model and settings, and test is opened once, at the end. Every peek at test makes its score more optimistic.",
-    "ar-EG": "التقييم الأمين بيستعمل تلات تقسيمات. التدريب بيركّب الأوزان، والتحقق بيختار الموديل والإعدادات، والاختبار بيتفتح مرة واحدة، في الآخر. كل بصّة على الاختبار بتخلّي درجته متفائلة أكتر."
+    "ar-EG": "التقييم الأمين بيستعمل تلات تقسيمات. التدريب بيتعلّم الأوزان، والتحقق بيختار الموديل والإعدادات، والاختبار بيتفتح مرة واحدة، في الآخر. كل بصّة على الاختبار بتخلّي درجته متفائلة أكتر."
    },
    "transition": {
     "type": "fade"
@@ -1071,7 +1071,7 @@
       "weight": 700,
       "text": {
        "en": "Train: fit weights",
-       "ar-EG": "التدريب: ركّب الأوزان"
+       "ar-EG": "التدريب: بيتعلّم الأوزان"
       },
       "anim": [
        {
@@ -1674,7 +1674,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 1100,
+      "w": 770,
       "size": 48,
       "weight": 800,
       "text": {
@@ -1737,17 +1737,218 @@
       ]
      },
      {
-      "id": "code",
-      "type": "code",
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
       "x": 90,
       "y": 210,
-      "w": 1100,
-      "h": 206,
-      "size": 42,
-      "code": "1% positives → “always no” = 99% accuracy\nprecision = TP / (TP + FP)\nrecall    = TP / (TP + FN)",
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "danger",
+      "strokeWidth": 3,
+      "radius": 18,
       "anim": [
        {
-        "prop": "reveal",
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "warning",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "danger",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "“Always no” = 99% accuracy",
+       "ar-EG": "«لأ» على طول = دقة 99%"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 314,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
         "keys": [
          {
           "at": {
@@ -1765,10 +1966,495 @@
             "en": "Report",
             "ar-EG": "اذكر"
            },
-           "offset": 2.88
+           "offset": 0.4
           },
           "value": 1,
-          "ease": "linear"
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "target",
+      "x": 104,
+      "y": 328,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 325,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Precision = TP / (TP + FP)",
+       "ar-EG": "الدقة الإيجابية = TP / (TP + FP)"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0
+          },
+          "value": 365
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0.45
+          },
+          "value": 325,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 418,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.9
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "search",
+      "x": 104,
+      "y": 432,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.95
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.65
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 429,
+      "w": 672,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Recall = TP / (TP + FN)",
+       "ar-EG": "الاستدعاء = TP / (TP + FN)"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 469
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.95
+          },
+          "value": 429,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.5
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Report",
+            "ar-EG": "اذكر"
+           },
+           "offset": 1.8
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "aside",
+      "type": "shape",
+      "shape": "ellipse",
+      "x": 900,
+      "y": 220,
+      "w": 300,
+      "h": 300,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.5
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "asideicon",
+      "type": "icon",
+      "icon": "scale",
+      "x": 975,
+      "y": 295,
+      "w": 150,
+      "h": 150,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.6
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.1
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "With",
+            "ar-EG": "الحالات"
+           },
+           "offset": 0.25
+          },
+          "value": 1,
+          "ease": "out"
          }
         ]
        }
@@ -3630,8 +4316,8 @@
    "id": "s08",
    "template": "quiz",
    "narration": {
-    "en": "Quick check! A team chose its best model by test score, out of forty. Is that test score an honest estimate of performance on new data?",
-    "ar-EG": "سؤال سريع! فريق اختار أحسن موديل بدرجة الاختبار، من أربعين. درجة الاختبار دي تقدير أمين للأداء على بيانات جديدة؟"
+    "en": "Quick check! A team picked the best of forty models by validation score and reported that same score. Is it an honest estimate of performance on new data?",
+    "ar-EG": "سؤال سريع! فريق اختار أحسن موديل من أربعين بدرجة التحقق، وذكر الدرجة نفسها. هي تقدير أمين للأداء على بيانات جديدة؟"
    },
    "transition": {
     "type": "slide"
@@ -3646,36 +4332,40 @@
     "type": "single-choice",
     "id": "s08-check",
     "prompt": {
-     "en": "A team chose its best model of 40 by test score. Is that score honest?",
-     "ar-EG": "فريق اختار أحسن موديل من 40 بدرجة الاختبار. الدرجة دي أمينة؟"
+     "en": "A team picked the best of 40 models by validation score and reported that score. Is it honest?",
+     "ar-EG": "فريق اختار أحسن موديل من 40 بدرجة التحقق، وذكر الدرجة نفسها. الدرجة دي أمينة؟"
     },
     "options": [
      {
       "id": "a",
       "text": {
-       "en": "Yes, the test set was never trained on",
-       "ar-EG": "أيوه، ماتدرّبوش على الاختبار"
+       "en": "Yes, the model never trained on the validation set",
+       "ar-EG": "أيوه، الموديل ماتدرّبش على بيانات التحقق"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "No, choosing on test makes it optimistic",
-       "ar-EG": "لأ، الاختيار على الاختبار بيخلّيها متفائلة"
+       "en": "No, choosing on it makes it optimistic; report a fresh test score",
+       "ar-EG": "لأ، الاختيار عليها بيخلّيها متفائلة، فاذكر درجة اختبار جديدة"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Yes, if the test set is large",
-       "ar-EG": "أيوه، لو الاختبار كبير"
+       "en": "Yes, if the validation set is large",
+       "ar-EG": "أيوه، لو بيانات التحقق كبيرة"
       }
      }
     ],
     "answer": "b",
     "explain": {
-     "en": "Correct: selecting the best of many noisy scores rewards luck; they need a fresh test set.",
-     "ar-EG": "صح: اختيار الأحسن من درجات كتير فيها ضوضاء بيكافئ الحظ، ومحتاجين اختبار جديد."
+     "en": "Correct: any score used to choose among many models is biased upwards; only data the choice never touched gives an honest estimate.",
+     "ar-EG": "صح: أي درجة بتستعملها للاختيار بين موديلات كتير بتنحاز لفوق، ومفيش تقدير أمين غير من بيانات الاختيار ما لمسهاش."
+    },
+    "explainWrong": {
+     "en": "Not quite: choosing on the validation score makes it optimistic, so report a score on a fresh test set.",
+     "ar-EG": "مش بالظبط: الاختيار على درجة التحقق بيخلّيها متفائلة، فاذكر درجة على بيانات اختبار جديدة."
     }
    },
    "speaker": "farah"
@@ -3684,8 +4374,8 @@
    "id": "s09",
    "template": "canvas",
    "narration": {
-    "en": "No. Picking the maximum of forty noisy scores selects luck as well as skill. The test set has become a validation set, and they need a fresh one.",
-    "ar-EG": "لأ. لما تختار أعلى درجة من أربعين درجة فيها ضوضاء، بتختار حظ مع المهارة. مجموعة الاختبار بقت مجموعة تحقق، ومحتاجين واحدة جديدة."
+    "en": "No. Picking the maximum of forty noisy scores selects luck as well as skill. Any score used to choose is optimistic, so report a fresh test score.",
+    "ar-EG": "لأ. لما تختار أعلى درجة من أربعين درجة فيها ضوضاء، بتختار حظ مع المهارة. وأي درجة بتستعملها للاختيار بتبقى متفائلة، فاذكر درجة على بيانات اختبار جديدة."
    },
    "transition": {
     "type": "fade"
@@ -3925,8 +4615,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0
           },
@@ -3935,8 +4625,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0.45
           },
@@ -3951,8 +4641,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0
           },
@@ -3961,8 +4651,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0.15
           },
@@ -3989,8 +4679,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0
           },
@@ -3999,8 +4689,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0.5
           },
@@ -4015,8 +4705,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0
           },
@@ -4025,8 +4715,8 @@
          {
           "at": {
            "word": {
-            "en": "test",
-            "ar-EG": "الاختبار"
+            "en": "Any",
+            "ar-EG": "وأي"
            },
            "offset": 0.15
           },
@@ -4044,8 +4734,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the overfitting lab. Watch validation error as complexity rises, then ask students where they would stop, and why the test set must stay closed.",
-    "ar-EG": "في التطبيق، افتح معمل الإفراط في التوافق. راقب خطأ التحقق والتعقيد بيزيد، وبعدين اسأل الطلاب هيقفوا فين، وليه مجموعة الاختبار لازم تفضل مقفولة."
+    "en": "In the app, open the overfitting lab. Raise Freedom step by step and watch the error on new examples, which plays the validation set. Then ask students where they would stop, and why the test set must stay closed.",
+    "ar-EG": "في التطبيق، افتح معمل الإفراط في التوفيق. زوّد «الحرية» خطوة خطوة، وراقب «الخطأ في الأمثلة الجديدة»، اللي بيلعب هنا دور بيانات التحقق. وبعدين اسأل الطلاب هيقفوا فين، وليه بيانات الاختبار لازم تفضل مقفولة."
    },
    "transition": {
     "type": "fade"
@@ -4062,7 +4752,7 @@
       "weight": 800,
       "text": {
        "en": "App lab: overfitting",
-       "ar-EG": "معمل التطبيق: الإفراط في التوافق"
+       "ar-EG": "معمل التطبيق: الإفراط في التوفيق"
       },
       "anim": [
        {
@@ -4138,8 +4828,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4148,8 +4838,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.4
           },
@@ -4164,8 +4854,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4174,8 +4864,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.15
           },
@@ -4202,8 +4892,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4212,8 +4902,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.45
           },
@@ -4228,8 +4918,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4238,8 +4928,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.15
           },
@@ -4259,8 +4949,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Raise complexity",
-       "ar-EG": "زوّد التعقيد"
+       "en": "Raise Freedom",
+       "ar-EG": "زوّد «الحرية»"
       },
       "anim": [
        {
@@ -4269,8 +4959,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4279,8 +4969,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.45
           },
@@ -4295,8 +4985,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0
           },
@@ -4305,8 +4995,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 0.3
           },
@@ -4336,8 +5026,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4346,8 +5036,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.9
           },
@@ -4362,8 +5052,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4372,8 +5062,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.65
           },
@@ -4400,8 +5090,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4410,8 +5100,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.95
           },
@@ -4426,8 +5116,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4436,8 +5126,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.65
           },
@@ -4457,8 +5147,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Watch validation error",
-       "ar-EG": "راقب خطأ التحقق"
+       "en": "Watch the error on new examples",
+       "ar-EG": "راقب الخطأ في الأمثلة الجديدة"
       },
       "anim": [
        {
@@ -4467,8 +5157,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4477,8 +5167,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.95
           },
@@ -4493,8 +5183,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.5
           },
@@ -4503,8 +5193,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Raise",
+            "ar-EG": "زوّد"
            },
            "offset": 1.8
           },
@@ -4534,8 +5224,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4544,8 +5234,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.4
           },
@@ -4560,8 +5250,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4570,8 +5260,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.15
           },
@@ -4598,8 +5288,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4608,8 +5298,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.45
           },
@@ -4624,8 +5314,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4634,8 +5324,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.15
           },
@@ -4665,8 +5355,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4675,8 +5365,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.45
           },
@@ -4691,8 +5381,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0
           },
@@ -4701,8 +5391,8 @@
          {
           "at": {
            "word": {
-            "en": "Watch",
-            "ar-EG": "راقب"
+            "en": "Then",
+            "ar-EG": "وبعدين"
            },
            "offset": 0.3
           },
@@ -4880,22 +5570,26 @@
      {
       "id": "b",
       "text": {
-       "en": "Recall",
-       "ar-EG": "الاستدعاء"
+       "en": "Training loss",
+       "ar-EG": "خسارة التدريب"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Training loss",
-       "ar-EG": "خسارة التدريب"
+       "en": "Recall",
+       "ar-EG": "الاستدعاء"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: recall is 0, because it catches none of the fraud.",
      "ar-EG": "صح: الاستدعاء صفر، لأنه مامسكش أي احتيال."
+    },
+    "explainWrong": {
+     "en": "Not quite: recall, TP / (TP + FN), is 0 here, which accuracy hides.",
+     "ar-EG": "مش بالظبط: الاستدعاء، TP / (TP + FN)، صفر هنا، والدقة بتخبّيه."
     }
    },
    "speaker": "joseph"

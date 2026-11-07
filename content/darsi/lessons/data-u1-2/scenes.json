@@ -3494,6 +3494,10 @@
     "explain": {
      "en": "Correct: 200³ = 8,000,000.",
      "ar-EG": "صح: 200³ = 8,000,000."
+    },
+    "explainWrong": {
+     "en": "Not quite: wide nodes keep the tree shallow; 200³ is eight million, so three levels.",
+     "ar-EG": "مش بالظبط: العُقد العريضة بتخلّي الشجرة قليلة العمق، و200³ تمانية مليون، يعني تلات مستويات."
     }
    },
    "speaker": "okafor"
@@ -4746,22 +4750,26 @@
      {
       "id": "b",
       "text": {
-       "en": "Usually not",
-       "ar-EG": "غالبًا لأ"
+       "en": "Only for writes",
+       "ar-EG": "للكتابة بس"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Only for writes",
-       "ar-EG": "للكتابة بس"
+       "en": "Usually not",
+       "ar-EG": "غالبًا لأ"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: half the rows match, so a scan is cheaper.",
      "ar-EG": "صح: نص الصفوف بتطابق، فالمسح أرخص."
+    },
+    "explainWrong": {
+     "en": "Not quite: low selectivity means the planner scans anyway.",
+     "ar-EG": "مش بالظبط: الانتقائية القليلة معناها إن المخطِّط هيمسح برضه."
     }
    },
    "speaker": "salma"

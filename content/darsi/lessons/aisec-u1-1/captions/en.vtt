@@ -97,201 +97,205 @@ high-dimensional models are so easy to
 push.
 
 25
-00:01:01.490 --> 00:01:04.470
-Take weights two, minus one and
+00:01:01.490 --> 00:01:04.350
+Take weights three, minus two and
 
 26
-00:01:04.470 --> 00:01:07.030
-three, and epsilon one tenth.
+00:01:04.350 --> 00:01:07.010
+two, and epsilon one tenth.
 
 27
-00:01:07.680 --> 00:01:10.180
+00:01:07.630 --> 00:01:10.130
 Each feature moves by one tenth
 
 28
-00:01:10.180 --> 00:01:11.780
+00:01:10.130 --> 00:01:11.730
 against its weight's sign.
 
 29
-00:01:12.480 --> 00:01:15.080
+00:01:12.430 --> 00:01:14.770
 The score drops by one tenth times
 
 30
-00:01:15.080 --> 00:01:18.180
-six, which is six tenths, enough to
+00:01:14.770 --> 00:01:17.410
+seven, which is seven tenths, enough
 
 31
-00:01:18.180 --> 00:01:19.680
-flip a borderline prediction.
+00:01:17.410 --> 00:01:19.290
+to flip a borderline prediction.
 
 32
-00:01:21.020 --> 00:01:22.820
+00:01:20.630 --> 00:01:22.430
 The strongest common defence
 
 33
-00:01:22.820 --> 00:01:24.680
+00:01:22.430 --> 00:01:24.290
 is adversarial training.
 
 34
-00:01:25.280 --> 00:01:27.400
+00:01:24.890 --> 00:01:27.010
 During training the model sees
 
 35
-00:01:27.400 --> 00:01:29.940
+00:01:27.010 --> 00:01:29.550
 attacked versions of each example and
 
 36
-00:01:29.940 --> 00:01:31.380
+00:01:29.550 --> 00:01:30.990
 learns to classify them correctly.
 
 37
-00:01:32.230 --> 00:01:34.870
+00:01:31.840 --> 00:01:34.480
 It costs extra computation and
 
 38
-00:01:34.870 --> 00:01:36.650
+00:01:34.480 --> 00:01:36.260
 usually some clean accuracy.
 
 39
-00:01:38.120 --> 00:01:41.000
+00:01:37.730 --> 00:01:40.610
 Students often claim a defence works
 
 40
-00:01:41.000 --> 00:01:43.320
+00:01:40.610 --> 00:01:42.930
 because their own attack failed.
 
 41
-00:01:44.060 --> 00:01:46.920
+00:01:43.670 --> 00:01:46.530
 Many published defences were later
 
 42
-00:01:46.920 --> 00:01:50.200
+00:01:46.530 --> 00:01:49.810
 broken by attacks designed for them.
 
 43
-00:01:50.840 --> 00:01:54.160
+00:01:50.450 --> 00:01:53.770
 Teach them to test every defence with an
 
 44
-00:01:54.160 --> 00:01:57.140
+00:01:53.770 --> 00:01:56.750
 adaptive attack that knows how it works.
 
 45
-00:01:58.500 --> 00:01:58.980
+00:01:58.110 --> 00:01:58.590
 Quick check!
 
 46
-00:01:59.620 --> 00:02:01.160
+00:01:59.230 --> 00:02:00.770
 A linear model has weights
 
 47
-00:02:01.160 --> 00:02:03.360
+00:02:00.770 --> 00:02:02.970
 two, minus one and three.
 
 48
-00:02:03.900 --> 00:02:05.720
+00:02:03.510 --> 00:02:05.330
 With the fast gradient sign
 
 49
-00:02:05.720 --> 00:02:09.260
+00:02:05.330 --> 00:02:08.870
 method and epsilon one tenth, how
 
 50
-00:02:09.260 --> 00:02:10.280
+00:02:08.870 --> 00:02:09.890
 much can the score change?
 
 51
-00:02:11.580 --> 00:02:12.820
+00:02:11.190 --> 00:02:12.430
 Six tenths.
 
 52
-00:02:13.300 --> 00:02:16.160
+00:02:12.910 --> 00:02:15.770
 Epsilon times the sum of the absolute
 
 53
-00:02:16.160 --> 00:02:18.880
+00:02:15.770 --> 00:02:18.490
 weights: one tenth times six.
 
 54
-00:02:20.170 --> 00:02:22.770
+00:02:19.780 --> 00:02:22.380
 In the app, open the adversarial lab.
 
 55
-00:02:23.390 --> 00:02:26.470
-Raise epsilon step by step, watch the
+00:02:23.000 --> 00:02:25.200
+Raise the nudge strength and the
 
 56
-00:02:26.470 --> 00:02:29.030
-prediction flip, and notice how small
+00:02:25.200 --> 00:02:27.880
+pixels allowed step by step, watch
 
 57
-00:02:29.030 --> 00:02:29.990
-the change looks to you.
+00:02:27.880 --> 00:02:30.380
+the prediction flip, and notice how
 
 58
-00:02:31.120 --> 00:02:31.860
-Your turn.
+00:02:30.380 --> 00:02:31.980
+small the change looks to you.
 
 59
-00:02:32.500 --> 00:02:35.540
-A student's defence stops the
+00:02:33.110 --> 00:02:33.850
+Your turn.
 
 60
-00:02:35.540 --> 00:02:37.640
-fast gradient sign method.
+00:02:34.490 --> 00:02:37.530
+A student's defence stops the
 
 61
-00:02:38.430 --> 00:02:40.470
-Which test should come next
+00:02:37.530 --> 00:02:39.630
+fast gradient sign method.
 
 62
-00:02:40.470 --> 00:02:42.390
-before claiming it is robust?
+00:02:40.420 --> 00:02:42.460
+Which test should come next
 
 63
-00:02:43.940 --> 00:02:46.720
-An adaptive attack built for that defence.
+00:02:42.460 --> 00:02:44.380
+before claiming it is robust?
 
 64
-00:02:47.510 --> 00:02:50.710
-Remember: adversarial examples follow the
+00:02:45.930 --> 00:02:48.710
+An adaptive attack built for that defence.
 
 65
-00:02:50.710 --> 00:02:53.930
-gradient, small changes add up over many
+00:02:49.500 --> 00:02:52.700
+Remember: adversarial examples follow the
 
 66
-00:02:53.930 --> 00:02:57.510
-features, and a defence is only as good as
+00:02:52.700 --> 00:02:55.920
+gradient, small changes add up over many
 
 67
-00:02:57.510 --> 00:02:59.150
-the strongest attack it survives.
+00:02:55.920 --> 00:02:59.500
+features, and a defence is only as good as
 
 68
-00:03:00.570 --> 00:03:03.570
-Try it in your next lecture: give pairs a
+00:02:59.500 --> 00:03:01.140
+the strongest attack it survives.
 
 69
-00:03:03.570 --> 00:03:05.950
-tiny linear classifier on paper.
+00:03:02.560 --> 00:03:05.560
+Try it in your next lecture: give pairs a
 
 70
-00:03:06.670 --> 00:03:08.910
-One student attacks it with a fixed
+00:03:05.560 --> 00:03:07.940
+tiny linear classifier on paper.
 
 71
-00:03:08.910 --> 00:03:11.750
-epsilon, the other proposes a defence.
+00:03:08.660 --> 00:03:10.900
+One student attacks it with a fixed
 
 72
-00:03:12.530 --> 00:03:14.910
-Then they swap and attack the defence.
+00:03:10.900 --> 00:03:13.740
+epsilon, the other proposes a defence.
 
 73
-00:03:15.740 --> 00:03:17.600
-Finish by comparing which
+00:03:14.520 --> 00:03:16.900
+Then they swap and attack the defence.
 
 74
-00:03:17.600 --> 00:03:18.720
+00:03:17.730 --> 00:03:19.590
+Finish by comparing which
+
+75
+00:03:19.590 --> 00:03:20.710
 defences survived.

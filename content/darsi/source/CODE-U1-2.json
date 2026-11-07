@@ -252,20 +252,20 @@
     "prompt": "In the inductive step, what do you assume?",
     "options": [
      {
+      "text": "The function is correct for every n",
+      "correct": false
+     },
+     {
+      "text": "The current call is correct",
+      "correct": false
+     },
+     {
       "text": "The smaller call is correct",
       "correct": true
-     },
-     {
-      "text": "The base case is wrong",
-      "correct": false
-     },
-     {
-      "text": "The function never returns",
-      "correct": false
      }
     ],
     "feedback_correct": "Correct: assume the smaller call, prove the current one.",
-    "feedback_wrong": "Not quite: the hypothesis is that the smaller instance already works.",
+    "feedback_wrong": "Not quite: assume only the smaller call; assuming the current call, or every n, assumes what you are proving.",
     "resume_at": "2:03"
    }
   ]

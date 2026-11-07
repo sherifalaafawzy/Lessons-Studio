@@ -1744,7 +1744,7 @@
       "w": 798,
       "h": 336,
       "size": 46,
-      "code": "x' = x + ε × sign(∇x loss)\nlinear score wᵀx:\n  change = ε × Σ|wᵢ|\nw = (2, −1, 3), ε = 0.1\n  change = 0.1 × 6 = 0.6",
+      "code": "x' = x + ε × sign(∇x loss)\nlinear score wᵀx:\n  change = ε × Σ|wᵢ|\nw = (3, −2, 2), ε = 0.1\n  change = 0.1 × 7 = 0.7",
       "anim": [
        {
         "prop": "reveal",
@@ -1781,8 +1781,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "Take weights two, minus one and three, and epsilon one tenth. Each feature moves by one tenth against its weight's sign. The score drops by one tenth times six, which is six tenths, enough to flip a borderline prediction.",
-    "ar-EG": "خد الأوزان اتنين وسالب واحد وتلاتة، وإبسلون عُشر. كل خاصية بتتحرك عُشر عكس إشارة وزنها. فالدرجة بتقل عُشر في ستة، يعني ستة من عشرة، وده كفاية يقلب توقع على الحدود."
+    "en": "Take weights three, minus two and two, and epsilon one tenth. Each feature moves by one tenth against its weight's sign. The score drops by one tenth times seven, which is seven tenths, enough to flip a borderline prediction.",
+    "ar-EG": "خد الأوزان تلاتة وسالب اتنين واتنين، وإبسلون عُشر. كل خاصية بتتحرك عُشر عكس إشارة وزنها. فالدرجة بتقل عُشر في سبعة، يعني سبعة من عشرة، وده كفاية يقلب توقع على الحدود."
    },
    "transition": {
     "type": "fade"
@@ -1996,8 +1996,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Sum of |w| is 6",
-       "ar-EG": "مجموع |w| ستة"
+       "en": "Sum of |w| is 7",
+       "ar-EG": "مجموع القيم المطلقة للأوزان سبعة"
       },
       "anim": [
        {
@@ -2392,8 +2392,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Score moves 0.6",
-       "ar-EG": "الدرجة تتحرك 0.6"
+       "en": "Score moves 0.7",
+       "ar-EG": "الدرجة تتحرك 0.7"
       },
       "anim": [
        {
@@ -4151,7 +4151,7 @@
     "id": "s08-check",
     "prompt": {
      "en": "Weights 2, −1, 3 and ε = 0.1. How much can the score change?",
-     "ar-EG": "الأوزان 2 و−1 و3 وε = 0.1. الدرجة ممكن تتغير قد إيه؟"
+     "ar-EG": "الأوزان 2 وسالب 1 و3، وε = 0.1. الدرجة ممكن تتغير قد إيه؟"
     },
     "options": [
      {
@@ -4600,8 +4600,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the adversarial lab. Raise epsilon step by step, watch the prediction flip, and notice how small the change looks to you.",
-    "ar-EG": "في التطبيق، افتح المعمل العدائي. زوّد إبسلون خطوة خطوة، وشوف التوقع بيتقلب، ولاحظ التغيير شكله صغير قد إيه بالنسبة لك."
+    "en": "In the app, open the adversarial lab. Raise the nudge strength and the pixels allowed step by step, watch the prediction flip, and notice how small the change looks to you.",
+    "ar-EG": "في التطبيق، افتح المعمل العدائي. زوّد قوة الدفع والبكسلات المسموحة خطوة خطوة، وشوف التوقع بيتقلب، ولاحظ التغيير شكله صغير قد إيه بالنسبة لك."
    },
    "transition": {
     "type": "fade"
@@ -4815,8 +4815,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Raise epsilon",
-       "ar-EG": "زوّد إبسلون"
+       "en": "Raise the attack budget",
+       "ar-EG": "زوّد ميزانية الهجوم"
       },
       "anim": [
        {

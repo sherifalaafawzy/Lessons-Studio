@@ -124,6 +124,6 @@ describe("optimization bodies", () => {
     for (const i of [2, 3, 4, 5, 6]) expect(types(i)).not.toContain("image");
     const g = out.scenes.scenes[2]!.content as { elements: Element[] };
     const graph = g.elements.find((e) => e.type === "graph") as Extract<Element, { type: "graph" }>;
-    expect((graph.frames![2]!.note as Record<string, string>)[AR]).toContain("ونشوف طرقها");
+    expect((graph.frames![2]!.note as Record<string, string>)[AR]).toMatch(/^نثبّت (\S+): .*، ونشوف طرق \1$/);
   });
 });

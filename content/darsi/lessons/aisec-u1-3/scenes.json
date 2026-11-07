@@ -1679,7 +1679,7 @@
       "weight": 800,
       "text": {
        "en": "Overfitting leaks",
-       "ar-EG": "الإفراط في التعلّم بيسرّب"
+       "ar-EG": "الإفراط في التوفيق بيسرّب"
       },
       "anim": [
        {
@@ -1918,8 +1918,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "Differential privacy adds calibrated noise so that any one person changes the output distribution by at most a factor set by epsilon. For a count, one person changes it by one. The Laplace noise scale is sensitivity over epsilon, so epsilon one half gives scale two.",
-    "ar-EG": "الخصوصية التفاضلية بتضيف ضوضاء محسوبة علشان أي شخص واحد مايغيّرش توزيع المخرج أكتر من معامل بيحدده إبسلون. وفي العدّ، الشخص الواحد بيغيّره بواحد. ومقياس ضوضاء لابلاس هو الحساسية على إبسلون، فإبسلون نص بيدّي مقياس اتنين."
+    "en": "Differential privacy adds calibrated noise so that any one person changes the output distribution by at most a factor set by epsilon. For a count, one person changes it by one. The Laplace noise scale is sensitivity over epsilon, so epsilon one quarter gives scale four.",
+    "ar-EG": "الخصوصية التفاضلية بتضيف ضوضاء محسوبة علشان أي شخص واحد مايغيّرش توزيع المخرج أكتر من معامل بيحدده إبسلون. وفي العدّ، الشخص الواحد بيغيّره بواحد. ومقياس ضوضاء لابلاس هو الحساسية على إبسلون، فإبسلون ربع بيدّي مقياس أربعة."
    },
    "transition": {
     "type": "fade"
@@ -2001,7 +2001,7 @@
       "w": 908,
       "h": 336,
       "size": 46,
-      "code": "count query: sensitivity Δ = 1\nnoise ~ Laplace(Δ / ε)\nε = 0.5 → scale 2\nε = 2   → scale 0.5\nsmaller ε: more privacy",
+      "code": "count query: sensitivity Δ = 1\nnoise ~ Laplace(Δ / ε)\nε = 0.25 → scale 4\nε = 2    → scale 0.5\nsmaller ε: more privacy",
       "anim": [
        {
         "prop": "reveal",
@@ -2022,7 +2022,7 @@
             "en": "For",
             "ar-EG": "وفي"
            },
-           "offset": 3.38
+           "offset": 3.43
           },
           "value": 1,
           "ease": "linear"
@@ -2862,7 +2862,7 @@
       "weight": 800,
       "text": {
        "en": "Teach the trade-off",
-       "ar-EG": "درّس المقايضة"
+       "ar-EG": "درّس الموازنة"
       },
       "anim": [
        {
@@ -3456,7 +3456,7 @@
       "weight": 700,
       "text": {
        "en": "Plot the trade-off",
-       "ar-EG": "ارسم المقايضة"
+       "ar-EG": "ارسم الموازنة"
       },
       "anim": [
        {
@@ -3608,15 +3608,15 @@
      {
       "id": "a",
       "text": {
-       "en": "0.5",
-       "ar-EG": "0.5"
+       "en": "2",
+       "ar-EG": "2"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "2",
-       "ar-EG": "2"
+       "en": "0.5",
+       "ar-EG": "0.5"
       }
      },
      {
@@ -3627,7 +3627,7 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct: Δ/ε = 1/0.5 = 2.",
      "ar-EG": "صح: Δ/ε = 1/0.5 = 2."
@@ -4051,8 +4051,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the leak lab. Guess which records were in training from the model's confidence, then add noise and see your guesses get worse.",
-    "ar-EG": "في التطبيق، افتح معمل التسريب. خمّن أنهي سجلات كانت في التدريب من ثقة النموذج، وبعدين ضيف ضوضاء وشوف تخميناتك بتبوظ."
+    "en": "In the app, open the leak lab. Read the attacker's guess of whether a line was in training, then add privacy noise and watch it fall towards fifty percent.",
+    "ar-EG": "في التطبيق، افتح معمل التسريب. اقرا تخمين المهاجم: السطر كان في التدريب ولا لأ، وبعدين زوّد ضوضاء الخصوصية وشوف التخمين بينزل ناحية خمسين في المية."
    },
    "transition": {
     "type": "fade"
@@ -4145,8 +4145,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4155,8 +4155,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.4
           },
@@ -4171,8 +4171,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4181,8 +4181,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.15
           },
@@ -4209,8 +4209,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4219,8 +4219,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.45
           },
@@ -4235,8 +4235,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4245,8 +4245,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.15
           },
@@ -4266,8 +4266,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Read confidence",
-       "ar-EG": "اقرا الثقة"
+       "en": "Read the attacker's guess",
+       "ar-EG": "اقرا تخمين المهاجم"
       },
       "anim": [
        {
@@ -4276,8 +4276,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4286,8 +4286,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.45
           },
@@ -4302,8 +4302,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0
           },
@@ -4312,8 +4312,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 0.3
           },
@@ -4343,8 +4343,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4353,8 +4353,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.9
           },
@@ -4369,8 +4369,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4379,8 +4379,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.65
           },
@@ -4394,7 +4394,7 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "help",
+      "icon": "lock",
       "x": 104,
       "y": 328,
       "w": 43,
@@ -4407,8 +4407,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4417,8 +4417,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.95
           },
@@ -4433,8 +4433,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4443,8 +4443,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.65
           },
@@ -4464,8 +4464,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Guess members",
-       "ar-EG": "خمّن الأعضاء"
+       "en": "Add privacy noise",
+       "ar-EG": "زوّد ضوضاء الخصوصية"
       },
       "anim": [
        {
@@ -4474,8 +4474,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4484,8 +4484,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.95
           },
@@ -4500,8 +4500,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.5
           },
@@ -4510,8 +4510,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.8
           },
@@ -4541,8 +4541,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4551,8 +4551,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.4
           },
@@ -4567,8 +4567,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4577,8 +4577,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.15
           },
@@ -4592,7 +4592,7 @@
      {
       "id": "icon3",
       "type": "icon",
-      "icon": "lock",
+      "icon": "target",
       "x": 104,
       "y": 432,
       "w": 43,
@@ -4605,8 +4605,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4615,8 +4615,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.45
           },
@@ -4631,8 +4631,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4641,8 +4641,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.15
           },
@@ -4662,8 +4662,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Add noise",
-       "ar-EG": "ضيف ضوضاء"
+       "en": "Watch it fall towards 50%",
+       "ar-EG": "شوفه بينزل ناحية 50%"
       },
       "anim": [
        {
@@ -4672,8 +4672,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4682,8 +4682,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.45
           },
@@ -4698,8 +4698,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1
           },
@@ -4708,8 +4708,8 @@
          {
           "at": {
            "word": {
-            "en": "which",
-            "ar-EG": "خمّن"
+            "en": "Read",
+            "ar-EG": "اقرا"
            },
            "offset": 1.3
           },

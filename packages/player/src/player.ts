@@ -5,7 +5,7 @@ import type { ElementBox } from "./canvas.ts";
 import { AudioClock, SilentClock, pickAudio, type Clock } from "./clock.ts";
 import { h, rich, Writer } from "./dom.ts";
 import { icon, loadLibraryIcons } from "./icons.ts";
-import { aiParts, labelsFor, type Labels } from "./labels.ts";
+import { aiParts, labelsFor, withoutVerdict, type Labels } from "./labels.ts";
 import { STAGE, autoOrient, type Orient } from "./layout.ts";
 import { ensureTiming, resolvePath } from "./load.ts";
 import { clamp01, cueState, ease, fix } from "./motion.ts";
@@ -114,6 +114,22 @@ function clock(t: number): string {
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
 
+/** A count in the lesson language's own digits (Egyptian Arabic: ١ من ٢). A tag Intl doesn't know gives plain digits. */
+function numeralIn(lang: string, n: number): string {
+  try { return new Intl.NumberFormat(lang).format(n); } catch { return String(n); }
+}
+
+/** The clock in the lesson language's own digits, for screen readers ("0:06", «٠:٠٦»). */
+function clockIn(lang: string, t: number): string {
+  const s = Math.max(0, Math.floor(t));
+  try {
+    const two = new Intl.NumberFormat(lang, { minimumIntegerDigits: 2, useGrouping: false });
+    return `${new Intl.NumberFormat(lang, { useGrouping: false }).format(Math.floor(s / 60))}:${two.format(s % 60)}`;
+  } catch {
+    return clock(t);
+  }
+}
+
 /** Puts a player for `pkg` into `host` (inside a shadow root, so the page's CSS can't reach it). */
 export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOptions = {}): Player {
   const m = pkg.manifest;
@@ -163,6 +179,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   let ended = false;
   /** The learner asked to play and hasn't paused since: what to do if the narration fails. */
   let wantPlay = false;
+  /** The second the progress line's spoken value was last written for (it changes once a second, not every frame). */
+  let posSec = -1;
   /** The renderers of the packs the lesson uses, merged, once loaded. */
   let kit: Kit | undefined;
 
@@ -221,24 +239,40 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     return m.languages.find((l) => l.code === lang)!;
   }
 
+  /** The narration file to try once if the one playing fails: the AAC file after the Opus one. */
+  let spare: string | undefined;
+
+  function audioClock(src: string): Clock {
+    const c: Clock = new AudioClock(resolvePath(pkg, src), () => finish(), () => noAudio(c));
+    return c;
+  }
+
   function makeClock(): Clock {
     const tr = track();
     const src = pickAudio(tr.audio, tr.audioFallback);
-    const c: Clock = src ? new AudioClock(resolvePath(pkg, src), () => finish(), () => noAudio(c)) : new SilentClock(o.now);
+    spare = src && src === tr.audio && tr.audioFallback && tr.audioFallback !== src ? tr.audioFallback : undefined;
+    const c = src ? audioClock(src) : new SilentClock(o.now);
     c.setRate(rate);
     c.setVolume(muted ? 0 : volume);
     return c;
   }
 
-  /** Audio-first, not audio-only: when the narration fails, carry on from the same moment with captions and no sound. */
+  /**
+   * Audio-first, not audio-only: when the narration fails, carry on from the same moment with the AAC file if the Opus
+   * one wouldn't play, and when that fails too (offline, missing), with captions and no sound.
+   */
   function noAudio(failed: Clock): void {
     if (clk !== failed) return;
     const t = failed.time();
     failed.destroy();
-    clk = new SilentClock(o.now);
+    const next = spare;
+    spare = undefined;
+    clk = next ? audioClock(next) : new SilentClock(o.now);
     clk.setRate(rate);
-    clk.seek(t);
-    emit({ type: "no-audio" });
+    clk.setVolume(muted ? 0 : volume);
+    // Seeking an <audio> starts loading it, so not at the very start.
+    if (t > 0) clk.seek(t);
+    if (!next) emit({ type: "no-audio" });
     if (wantPlay) void play();
     else syncButtons();
   }
@@ -264,6 +298,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     nextBtn.setAttribute("aria-label", labels.nextScene);
     nextBtn.title = labels.nextScene;
     seekEl.setAttribute("aria-label", labels.seek);
+    posSec = -1;
     for (const [b, l] of [[chapBtn, labels.chapters], [setBtn, labels.settings], [ccBtn, labels.captions], [fsBtn, labels.fullscreen]] as const) {
       b.setAttribute("aria-label", l);
       b.title = l;
@@ -375,6 +410,12 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     wr.style(dot, "left", `${fix(p * 100, 2)}%`);
     seekEl.value = String(Math.round(t * 10) / 10);
     timeEl.textContent = `${clock(t)} / ${clock(timing.duration)}`;
+    // A screen reader says "0:06 of 3:42" («٠:٠٦ من ٣:٤٢»), not the slider's raw seconds.
+    const sec = Math.max(0, Math.floor(t));
+    if (sec !== posSec) {
+      posSec = sec;
+      seekEl.setAttribute("aria-valuetext", labels.position.replace("{t}", clockIn(lang, t)).replace("{d}", clockIn(lang, timing.duration)));
+    }
     const last = sceneAt(t) >= timing.scenes.length - 1;
     if (nextBtn.disabled !== last) nextBtn.disabled = last;
   }
@@ -450,10 +491,13 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     wrap.style.setProperty("--ls-ar", fix(W / H, 4));
     // The controls sit on the picture (every tier but Text, which has no picture) and fade while it plays.
     // Narrow and compact only tighten the row; the progress line is always its own strip along the bottom.
+    // Tiny (a portrait video on a phone, about 256 px) drops the next-scene and volume buttons, which the chapters
+    // and the phone's own keys cover, so the row fits; if it still can't, it wraps instead of overlapping.
     const w = isFull() ? wrap.clientWidth : host.clientWidth;
     wrap.classList.toggle("ls-float", tier !== "text");
     wrap.classList.toggle("ls-compact", w < 720);
     wrap.classList.toggle("ls-narrow", w < 480);
+    wrap.classList.toggle("ls-tiny", w < 320);
   }
 
   /* ---------- playback ---------- */
@@ -566,7 +610,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     again.addEventListener("click", () => void play());
     const asked = scenes.filter((x) => x.check).length;
     const right = [...results.values()].filter(Boolean).length;
-    const score = results.size ? h("p", { className: "ls-score" }, labels.score.replace("{n}", String(right)).replace("{m}", String(asked))) : null;
+    const score = results.size ? h("p", { className: "ls-score" }, labels.score.replace("{n}", numeralIn(lang, right)).replace("{m}", numeralIn(lang, asked))) : null;
     endBox.replaceChildren(h("div", { className: "ls-card" }, h("h3", null, labels.done), score, again));
     if (o.remember) writeJson(`ls-pos:${m.id}`, { t: 0 });
     endBox.hidden = false;
@@ -611,7 +655,8 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
         fb.textContent = correct ? labels.correct : labels.wrong;
         fb.className = `ls-fb ${correct ? "is-right" : "is-wrong"}`;
         const why = correct ? check.explain : (check.explainWrong ?? check.explain);
-        explain.replaceChildren(...(why ? rich(t(why), rtl) : []));
+        // The verdict line above says it already: the explanation keeps only the reason.
+        explain.replaceChildren(...(why ? rich(withoutVerdict(t(why)), rtl) : []));
         explain.hidden = !why;
         go.disabled = false;
         go.focus();
@@ -638,8 +683,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       ),
     );
     checkBox.hidden = false;
-    opts[0]?.focus();
+    // The layout first (a small player swaps the picture for the card), so the focus scrolls to where the card ends up.
     syncButtons();
+    opts[0]?.focus();
   }
 
   function closeCheck(): void {
@@ -653,7 +699,13 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   const onKey = (e: KeyboardEvent): void => {
     const tag = (e.target as HTMLElement | null)?.tagName;
     if (e.ctrlKey || e.metaKey || e.altKey) return;
-    if (e.key === "Escape" && !menu.hidden) { closeMenu(); return; }
+    // An open menu: Escape closes it and goes back to its button, Tab closes it and moves on, the arrows move inside it.
+    if (!menu.hidden) {
+      if (e.key === "Escape") { e.preventDefault(); closeMenu(true); return; }
+      // Tab goes back to the menu's button first, so the browser moves on from there (not from the menu above the bar).
+      if (e.key === "Tab") { closeMenu(true); return; }
+      if (menu.contains(e.target as Node) && menuKey(e)) { e.preventDefault(); return; }
+    }
     if (e.key === "Escape" && wrap.classList.contains("ls-full")) { setPageFull(false); return; }
     // The volume slider keeps its own arrow keys. Every other shortcut, including on the progress line, is ours.
     if (tag === "INPUT" && e.target === volEl) return;
@@ -728,8 +780,17 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   function nativeFullOk(): boolean {
     return !iosHost() && document.fullscreenEnabled === true && typeof wrap.requestFullscreen === "function";
   }
+  /**
+   * The browser's own full screen is showing the player. The player lives in a shadow root, so document.fullscreenElement
+   * is the host there, never the player itself (the old test against the player set page mode on top of real full screen).
+   */
+  function nativeFull(): boolean {
+    if (typeof document === "undefined") return false;
+    const own = (root as ShadowRoot & { fullscreenElement?: Element | null }).fullscreenElement;
+    return own !== undefined ? own === wrap : document.fullscreenElement === host;
+  }
   function isFull(): boolean {
-    return (typeof document !== "undefined" && document.fullscreenElement === wrap) || wrap.classList.contains("ls-full");
+    return nativeFull() || wrap.classList.contains("ls-full");
   }
   // Pseudo-fullscreen (iPhone): cover the viewport ourselves and stop the page scrolling under it.
   let pageLocked = false;
@@ -806,7 +867,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
       return;
     }
     void pending.then(() => {
-      if (document.fullscreenElement === wrap) {
+      if (nativeFull()) {
         lockOrient(true);
         watchViewport(true);
       } else setPageFull(true);
@@ -826,7 +887,7 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   let refitTimer = 0;
   const refit = (): void => { if (!gone) { fit(); still(clk.time()); } };
   const onFull = (): void => {
-    if (document.fullscreenElement !== wrap) {
+    if (!nativeFull()) {
       lockOrient(false);
       if (!wrap.classList.contains("ls-full")) {
         watchViewport(false);
@@ -906,11 +967,35 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
   }
 
   /* ---------- menus: chapters, settings ---------- */
-  function closeMenu(): void {
+  /** Closes the open menu; `restore` (Escape, or an item chosen from the keyboard) puts the focus back on its button. */
+  function closeMenu(restore = false): void {
+    const opener = menu.dataset.kind === "chapters" ? chapBtn : setBtn;
     menu.hidden = true;
     chapBtn.setAttribute("aria-expanded", "false");
     setBtn.setAttribute("aria-expanded", "false");
+    if (restore) opener.focus();
     wake();
+  }
+  const menuItems = (): HTMLElement[] => [...menu.querySelectorAll<HTMLElement>(".ls-mi")];
+  /** The item in focus is the menu's one tab stop (roving tabindex); the arrow keys move it. */
+  function focusItem(el: HTMLElement | undefined): void {
+    if (!el) return;
+    for (const b of menuItems()) b.tabIndex = b === el ? 0 : -1;
+    el.focus();
+  }
+  /** Arrow keys (left and right follow the reading direction), Home and End inside an open menu. True when handled. */
+  function menuKey(e: KeyboardEvent): boolean {
+    const items = menuItems();
+    if (!items.length) return false;
+    const rtl = track().dir === "rtl";
+    const at = items.indexOf(e.target as HTMLElement);
+    const step = e.key === "ArrowDown" || e.key === (rtl ? "ArrowLeft" : "ArrowRight") ? 1
+      : e.key === "ArrowUp" || e.key === (rtl ? "ArrowRight" : "ArrowLeft") ? -1 : 0;
+    if (step) focusItem(items[((at < 0 ? (step > 0 ? -1 : 0) : at) + step + items.length) % items.length]);
+    else if (e.key === "Home") focusItem(items[0]);
+    else if (e.key === "End") focusItem(items[items.length - 1]);
+    else return false;
+    return true;
   }
   async function setLang(next: Lang): Promise<void> {
     if (next === lang || !m.languages.some((l) => l.code === next)) return;
@@ -938,7 +1023,9 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     const item = (label: string, on: boolean, act: () => void, extra?: string): HTMLElement => {
       const b = h("button", { className: on ? "ls-mi is-on" : "ls-mi", type: "button", role: "menuitemradio", "aria-checked": String(on) },
         h("span", null, label), extra ? h("span", { className: "ls-mt", dir: "ltr" }, extra) : null);
-      b.addEventListener("click", () => { act(); closeMenu(); });
+      // A click from Enter or Space has no detail: the keyboard user goes back to the menu's button. A tap doesn't, so
+      // the controls can still fade.
+      b.addEventListener("click", (e) => { act(); closeMenu(e.detail === 0); });
       return b;
     };
     const head = (x: string) => h("p", { className: "ls-mh" }, x);
@@ -957,9 +1044,10 @@ export function createPlayer(host: HTMLElement, pkg: LessonPackage, o: PlayerOpt
     }
     chapBtn.setAttribute("aria-expanded", String(kind === "chapters"));
     setBtn.setAttribute("aria-expanded", String(kind === "settings"));
+    menu.setAttribute("aria-label", kind === "chapters" ? labels.chapters : labels.settings);
     menu.hidden = false;
     wake();
-    (menu.querySelector<HTMLElement>(".is-on") ?? menu.querySelector<HTMLElement>("button"))?.focus();
+    focusItem(menu.querySelector<HTMLElement>(".is-on") ?? menuItems()[0]);
   }
 
   playBtn.addEventListener("click", toggle);

@@ -122,8 +122,8 @@
             "fn": "x*x",
             "tone": "danger",
             "label": {
-              "en": "O(n^2)",
-              "ar-EG": "O(n^2)"
+              "en": "O(n²)",
+              "ar-EG": "O(n²)"
             }
           }
         ]
@@ -196,7 +196,17 @@
       "codediff": {
         "before": "def dup(a):\n    for i in range(len(a)):\n        for j in range(i):\n            if a[i] == a[j]:\n                return True\n    return False",
         "after": "def dup(a):\n    seen = set()\n    for x in a:\n        if x in seen:\n            return True\n        seen.add(x)\n    return False",
-        "fix": 1
+        "fix": 1,
+        "labels": {
+          "before": {
+            "en": "Slow: every pair",
+            "ar-EG": "بطيء: كل اتنين"
+          },
+          "after": {
+            "en": "Fast: one pass with a set",
+            "ar-EG": "سريع: لفّة واحدة بمجموعة"
+          }
+        }
       }
     },
     "10": {
@@ -242,39 +252,30 @@
     "11": {
       "list": [
         {
-          "icon": "list",
+          "icon": "users",
           "text": {
-            "en": "Pick a job",
-            "ar-EG": "اختار مهمة"
+            "en": "Grow the class to 1,000",
+            "ar-EG": "كبّر الفصل لألف تلميذ"
           },
           "s": 1
         },
         {
-          "icon": "users",
+          "icon": "list",
           "text": {
-            "en": "Grow the class",
-            "ar-EG": "كبّر الفصل"
+            "en": "All four jobs",
+            "ar-EG": "المهام الأربع"
           },
           "s": 1,
           "o": 3
         },
         {
-          "icon": "gauge",
-          "text": {
-            "en": "Watch the steps",
-            "ar-EG": "اتفرّج على الخطوات"
-          },
-          "s": 2
-        },
-        {
           "icon": "clock",
           "tone": "ok",
           "text": {
-            "en": "Try a million",
-            "ar-EG": "جرّب مليون"
+            "en": "Read the million row",
+            "ar-EG": "اقرا صف المليون"
           },
-          "s": 2,
-          "o": 3
+          "s": 2
         }
       ],
       "aside": "gauge"

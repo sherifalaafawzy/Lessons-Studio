@@ -1834,8 +1834,8 @@
    "id": "s06",
    "template": "quiz",
    "narration": {
-    "en": "Quick check! Someone secretly changes a student’s mark in the school’s records. Which goal did they break?",
-    "ar-EG": "سؤال سريع! حد غيّر درجة طالب في سجلات المدرسة من غير ما حد يعرف. كسر أنهي هدف؟"
+    "en": "Quick check! Someone secretly changes a student’s mark in the university’s records. Which goal did they break?",
+    "ar-EG": "سؤال سريع! حد غيّر درجة طالب في سجلات الجامعة من غير ما حد يعرف. كسر أنهي هدف؟"
    },
    "transition": {
     "type": "slide"
@@ -1850,8 +1850,8 @@
     "type": "single-choice",
     "id": "s06-check",
     "prompt": {
-     "en": "Someone secretly changes a student’s mark in the school’s records. Which security goal did they break?",
-     "ar-EG": "حد غيّر درجة طالب في سجلات المدرسة في السر. كسر أنهي هدف من أهداف الأمن؟"
+     "en": "Someone secretly changes a student’s mark in the university’s records. Which security goal did they break?",
+     "ar-EG": "حد غيّر درجة طالب في سجلات الجامعة في السر. كسر أنهي هدف من أهداف الأمن؟"
     },
     "options": [
      {
@@ -2578,8 +2578,8 @@
    "id": "s09",
    "template": "canvas",
    "narration": {
-    "en": "On a network, the layers look like this. A firewall decides which traffic may pass in and out. The school office network is kept apart from students’ Wi-Fi. Updates close known holes. And spare routes and backups keep things running when something fails.",
-    "ar-EG": "على الشبكة، الطبقات شكلها كده. جدار الحماية بيقرّر أنهي بيانات تعدّي جوه وبره. شبكة مكتب المدرسة بتتفصل عن الواي فاي بتاع الطلبة. التحديثات بتقفل الثغرات المعروفة. والطرق الاحتياطية والنسخ الاحتياطي بيخلّوا الدنيا شغّالة لما حاجة تقع."
+    "en": "On a network, the layers look like this. A firewall decides which traffic may pass in and out. The university’s records network is kept apart from students’ Wi-Fi. Updates close known holes. And spare routes and backups keep things running when something fails.",
+    "ar-EG": "على الشبكة، الطبقات شكلها كده. جدار الحماية بيقرّر أنهي بيانات تعدّي جوه وبره. شبكة سجلات الجامعة بتتفصل عن الواي فاي بتاع الطلبة. التحديثات بتقفل الثغرات المعروفة. والطرق الاحتياطية والنسخ الاحتياطي بيخلّوا الدنيا شغّالة لما حاجة تقع."
    },
    "transition": {
     "type": "fade"
@@ -2654,110 +2654,424 @@
       ]
      },
      {
-      "id": "stack",
+      "id": "tile1",
+      "type": "shape",
+      "shape": "rect",
       "x": 90,
-      "y": 200,
-      "w": 1100,
-      "h": 430,
-      "type": "layers",
-      "layers": [
-       {
-        "name": {
-         "en": "Application",
-         "ar-EG": "التطبيقات"
-        },
-        "header": "HTTP",
-        "note": {
-         "en": "the message",
-         "ar-EG": "الرسالة"
-        }
-       },
-       {
-        "name": {
-         "en": "Transport",
-         "ar-EG": "النقل"
-        },
-        "header": "TCP",
-        "note": {
-         "en": "ports",
-         "ar-EG": "المنافذ"
-        }
-       },
-       {
-        "name": {
-         "en": "Internet",
-         "ar-EG": "الإنترنت"
-        },
-        "header": "IP",
-        "note": {
-         "en": "addresses",
-         "ar-EG": "العناوين"
-        }
-       },
-       {
-        "name": {
-         "en": "Link",
-         "ar-EG": "الربط"
-        },
-        "header": "Wi-Fi",
-        "note": {
-         "en": "the next hop",
-         "ar-EG": "القفزة التالية"
-        }
-       }
-      ],
-      "payload": {
-       "en": "Hello!",
-       "ar-EG": "مرحبًا!"
-      },
-      "sender": {
-       "en": "Your phone",
-       "ar-EG": "هاتفك"
-      },
-      "receiver": {
-       "en": "The server",
-       "ar-EG": "الخادم"
-      },
-      "link": {
-       "en": "Wi-Fi and cables",
-       "ar-EG": "الواي فاي والكابلات"
-      },
+      "y": 210,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
       "anim": [
        {
-        "prop": "reveal",
+        "prop": "scale",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "layers",
-            "ar-EG": "على"
+            "en": "firewall",
+            "ar-EG": "جدار"
            },
-           "offset": 0.1
+           "offset": 0
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "layers",
-            "ar-EG": "على"
+            "en": "firewall",
+            "ar-EG": "جدار"
            },
-           "offset": 1.4
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0.15
           },
           "value": 1,
           "ease": "out"
          }
         ]
-       },
+       }
+      ]
+     },
+     {
+      "id": "icon1",
+      "type": "icon",
+      "icon": "shield",
+      "x": 104,
+      "y": 224,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
        {
-        "prop": "frame",
+        "prop": "scale",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "layers",
-            "ar-EG": "على"
-           }
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text1",
+      "type": "text",
+      "x": 188,
+      "y": 221,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "A firewall decides what passes",
+       "ar-EG": "جدار الحماية يقرّر مين يعدّي"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0
+          },
+          "value": 261
+         },
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0.45
+          },
+          "value": 221,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "firewall",
+            "ar-EG": "جدار"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile2",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 310,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon2",
+      "type": "icon",
+      "icon": "wifi",
+      "x": 104,
+      "y": 324,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text2",
+      "type": "text",
+      "x": 188,
+      "y": 321,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Records network apart from students’ Wi-Fi",
+       "ar-EG": "شبكة السجلات منفصلة عن واي فاي الطلبة"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 361
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.45
+          },
+          "value": 321,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "university’s",
+            "ar-EG": "سجلات"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile3",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 410,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
           },
           "value": 0
          },
@@ -2766,10 +3080,366 @@
            "word": {
             "en": "Updates",
             "ar-EG": "التحديثات"
-           }
+           },
+           "offset": 0.4
           },
-          "value": 7,
-          "ease": "linear"
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon3",
+      "type": "icon",
+      "icon": "download",
+      "x": 104,
+      "y": 424,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text3",
+      "type": "text",
+      "x": 188,
+      "y": 421,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Updates close known holes",
+       "ar-EG": "التحديثات تقفل الثغرات"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
+          },
+          "value": 461
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0.45
+          },
+          "value": 421,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Updates",
+            "ar-EG": "التحديثات"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "tile4",
+      "type": "shape",
+      "shape": "rect",
+      "x": 90,
+      "y": 510,
+      "w": 72,
+      "h": 72,
+      "fill": "surface",
+      "stroke": "line",
+      "strokeWidth": 3,
+      "radius": 18,
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.4
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "icon4",
+      "type": "icon",
+      "icon": "repeat",
+      "x": 104,
+      "y": 524,
+      "w": 43,
+      "h": 43,
+      "tone": "accent",
+      "anim": [
+       {
+        "prop": "scale",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.45
+          },
+          "value": 1,
+          "ease": "back"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.15
+          },
+          "value": 1,
+          "ease": "out"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "text4",
+      "type": "text",
+      "x": 188,
+      "y": 521,
+      "w": 1002,
+      "size": 38,
+      "weight": 700,
+      "text": {
+       "en": "Spare routes and backups",
+       "ar-EG": "طرق ونسخ احتياطية"
+      },
+      "anim": [
+       {
+        "prop": "y",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 561
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.45
+          },
+          "value": 521,
+          "ease": "out"
+         }
+        ]
+       },
+       {
+        "prop": "opacity",
+        "keys": [
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0
+          },
+          "value": 0
+         },
+         {
+          "at": {
+           "word": {
+            "en": "spare",
+            "ar-EG": "والطرق"
+           },
+           "offset": 0.3
+          },
+          "value": 1,
+          "ease": "out"
          }
         ]
        }
@@ -3522,8 +4192,8 @@
    "id": "s13",
    "template": "canvas",
    "narration": {
-    "en": "Try it tomorrow: in the lab, break a few sensors and add relays until every message gets through. Then draw your school’s network on paper, and mark where each layer of defence would go.",
-    "ar-EG": "جرّبها بكرة: في المعمل، عطّل كام حساس وضيف مكرّرات لحد ما كل رسالة توصل. وبعدين ارسم شبكة مدرستك على ورقة، وحدّد مكان كل طبقة دفاع."
+    "en": "Try it tomorrow: in the lab, break a few sensors and add relays until every message gets through. Then draw your campus’s or your home’s network on paper, and mark where each layer of defence would go.",
+    "ar-EG": "جرّبها بكرة: في المعمل، عطّل كام حساس وضيف مكرّرات لحد ما كل رسالة توصل. وبعدين ارسم شبكة جامعتك أو بيتك على ورقة، وحدّد مكان كل طبقة دفاع."
    },
    "transition": {
     "type": "fade"
@@ -4133,8 +4803,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Draw your school’s network",
-       "ar-EG": "ارسم شبكة مدرستك"
+       "en": "Draw a campus or home network",
+       "ar-EG": "ارسم شبكة جامعتك أو بيتك"
       },
       "anim": [
        {

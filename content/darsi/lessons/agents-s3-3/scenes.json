@@ -2364,89 +2364,22 @@
    "content": {
     "elements": [
      {
-      "id": "headline",
-      "type": "text",
-      "x": 90,
-      "y": 66,
-      "w": 1100,
-      "size": 48,
-      "weight": 800,
-      "text": {
-       "en": "Why a step limit?",
-       "ar-EG": "ليه حد للخطوات؟"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Why",
-            "ar-EG": "ليه"
-           },
-           "offset": 0
-          },
-          "value": 106
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Why",
-            "ar-EG": "ليه"
-           },
-           "offset": 0.5
-          },
-          "value": 66,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Why",
-            "ar-EG": "ليه"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Why",
-            "ar-EG": "ليه"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
       "id": "diff",
       "x": 90,
-      "y": 200,
+      "y": 60,
       "w": 1100,
-      "h": 420,
+      "h": 560,
       "type": "codediff",
-      "before": "def agent(history):\n    while True:\n        out = model(history)\n        history += [out, tool(out)]",
-      "after": "def agent(history):\n    for step in range(4):\n        out = model(history)\n        history += [out, tool(out)]\n    return \"Stopped\"",
+      "before": "def agent(history):\n    while True:\n        out = model(history)\n        if \"{\" not in out:\n            return out\n        history += [out, tool(out)]",
+      "after": "def agent(history):\n    for step in range(4):\n        out = model(history)\n        if \"{\" not in out:\n            return out\n        history += [out, tool(out)]\n    return \"Stopped\"",
       "labels": {
        "before": {
-        "en": "The bug",
-        "ar-EG": "الخطأ"
+        "en": "No limit: it may never stop",
+        "ar-EG": "من غير حد: ممكن متقفش"
        },
        "after": {
-        "en": "The fix",
-        "ar-EG": "الإصلاح"
+        "en": "A step limit: it always stops",
+        "ar-EG": "بحد للخطوات: دايمًا بتقف"
        }
       },
       "output": {
@@ -5035,19 +4968,19 @@
      {
       "id": "b",
       "text": {
-       "en": "That your loop works for the outputs you tested",
-       "ar-EG": "إن الحلقة شغّالة مع المخرجات اللي جرّبتها"
+       "en": "That every tool gives the right result",
+       "ar-EG": "إن كل أداة بتدي نتيجة صح"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "That every tool gives the right result",
-       "ar-EG": "إن كل أداة بتدي نتيجة صح"
+       "en": "That your loop works for the outputs you tested",
+       "ar-EG": "إن الحلقة شغّالة مع المخرجات اللي جرّبتها"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct — a script tests your code. A real model writes new things, wrong calls and stuck loops included, so your code must handle those too.",
      "ar-EG": "صح — السكريبت بيختبر الكود بتاعك. النموذج الحقيقي بيكتب حاجات جديدة، منها استدعاءات غلط وحلقات بتعلق، فالكود لازم يتعامل معاها."

@@ -117,11 +117,13 @@ export class AudioClock implements Clock {
   }
 }
 
-/** Opus when the browser plays it, else the fallback file. */
+/**
+ * Opus when the browser plays it, else the fallback file (AAC). The Opus files are Ogg, so only Ogg counts: Safari
+ * before 18.4 plays Opus in WebM but not in Ogg, and asking about WebM there gave it a file it can't play.
+ */
 export function pickAudio(audio: string | undefined, fallback: string | undefined): string | undefined {
   if (!audio) return fallback;
   if (!fallback || typeof Audio === "undefined") return audio;
-  const a = new Audio();
-  const opus = a.canPlayType('audio/ogg; codecs="opus"') || a.canPlayType('audio/webm; codecs="opus"');
+  const opus = new Audio().canPlayType('audio/ogg; codecs="opus"') !== "";
   return opus ? audio : fallback;
 }

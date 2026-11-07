@@ -94,7 +94,7 @@
         "beat": "Examples",
         "visual": "A small network training on a ring: the boundary wraps, and the loss falls.",
         "animation": "Training plays across the two sentences.",
-        "on_screen_text": "A ring a line misses",
+        "on_screen_text": "A ring no line separates",
         "voice": "Narrator",
         "narration": "Here is a ring. A line misses it, and a small network with a hidden layer learns a boundary around it.",
         "icons": ["target"]
@@ -176,8 +176,8 @@
         "type": "choice",
         "prompt": "A single neuron draws which boundary?",
         "options": [
-          { "text": "One straight cut", "correct": true },
           { "text": "Any closed curve", "correct": false },
+          { "text": "One straight cut", "correct": true },
           { "text": "Two cuts at once", "correct": false }
         ],
         "feedback_correct": "Correct: one neuron is a weighted sum and an activation, and it cuts the plane once.",
@@ -191,8 +191,8 @@
         "prompt": "Without an activation, a stack of layers becomes…",
         "options": [
           { "text": "One straight cut", "correct": true },
-          { "text": "A ring", "correct": false },
-          { "text": "Two separate networks", "correct": false }
+          { "text": "Two separate networks", "correct": false },
+          { "text": "A ring", "correct": false }
         ],
         "feedback_correct": "Correct: without an activation, stacked linear layers collapse into one cut.",
         "feedback_wrong": "Not quite: without the bend, the stack is still one straight cut.",

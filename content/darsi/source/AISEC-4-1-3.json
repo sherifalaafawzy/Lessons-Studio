@@ -267,20 +267,20 @@
     "prompt": "The timetable agent only needs to read the timetable, but it was given email too. What should the policy say?",
     "options": [
      {
-      "text": "Keep email: it might be useful one day",
-      "correct": false
-     },
-     {
       "text": "Each agent gets only the tools its job needs",
       "correct": true
      },
      {
-      "text": "Agents may use any tool, if they are polite",
+      "text": "Keep email: it might be useful one day",
+      "correct": false
+     },
+     {
+      "text": "Keep email, but log every message it sends",
       "correct": false
      }
     ],
     "feedback_correct": "Yes: least privilege. Take email away and the agent can't be tricked into sending.",
-    "feedback_wrong": "Not quite: every extra tool is something an attack could use. Give only what the job needs.",
+    "feedback_wrong": "Not quite: every extra tool is something an attack could use, and a log only shows the harm afterwards. Give only what the job needs.",
     "resume_at": "2:58"
    }
   ]

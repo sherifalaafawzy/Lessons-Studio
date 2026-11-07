@@ -1662,7 +1662,7 @@
    "template": "canvas",
    "narration": {
     "en": "Give students visible tests for fast feedback. Keep hidden tests for edge cases such as empty input, duplicates and very large values. Code that hard-codes the visible answers then fails.",
-    "ar-EG": "ادّي الطلاب اختبارات ظاهرة علشان رد فعل سريع. وخلّي اختبارات مخفية للحالات الطرفية زي المدخل الفاضي والمكرّر والقيم الكبيرة جدًا. وساعتها الكود اللي حافظ إجابات الاختبارات الظاهرة بيقع."
+    "ar-EG": "ادّي الطلاب اختبارات ظاهرة علشان يعرفوا نتيجتهم بسرعة. وخلّي اختبارات مخفية للحالات الحدّية زي المدخل الفاضي والمكرّر والقيم الكبيرة جدًا. وساعتها الكود اللي حافظ إجابات الاختبارات الظاهرة بيقع."
    },
    "transition": {
     "type": "fade"
@@ -1741,10 +1741,10 @@
       "type": "code",
       "x": 90,
       "y": 210,
-      "w": 1018,
+      "w": 936,
       "h": 393,
       "size": 46,
-      "code": "# visible\nassert median([3, 1, 2]) == 2\n# hidden\nassert median([1, 2, 3, 4]) == 2.5\nwith pytest.raises(ValueError):\n    median([])",
+      "code": "# visible\nassert median([3, 1, 2]) == 2\n# hidden\nassert median([2, 2, 9]) == 2\nwith pytest.raises(ValueError):\n    median([])",
       "anim": [
        {
         "prop": "reveal",
@@ -1765,7 +1765,7 @@
             "en": "Keep",
             "ar-EG": "وخلّي"
            },
-           "offset": 3.75
+           "offset": 3.63
           },
           "value": 1,
           "ease": "linear"
@@ -1781,8 +1781,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "This median passes the visible test but fails on even lengths. It always picks the middle element. A hidden test finds it, and the feedback message should name the case without giving the fix.",
-    "ar-EG": "الوسيط ده بينجح في الاختبار الظاهر بس بيقع في الأطوال الزوجية. هو دايمًا بيختار العنصر اللي في النص. والاختبار المخفي بيلاقيه، ورسالة الرد لازم تسمّي الحالة من غير ما تدّي التصليح."
+    "en": "This median passes the visible test. It always picks the middle element. A hidden test finds it, and the feedback message should name the case without giving the fix.",
+    "ar-EG": "الوسيط ده بينجح في الاختبار الظاهر. هو دايمًا بيختار العنصر اللي في النص. والاختبار المخفي بيلاقيه، ورسالة التغذية الراجعة لازم تسمّي الحالة من غير ما تدّي التصليح."
    },
    "transition": {
     "type": "fade"
@@ -1861,10 +1861,10 @@
       "type": "code",
       "x": 90,
       "y": 210,
-      "w": 1074,
-      "h": 336,
+      "w": 770,
+      "h": 221,
       "size": 46,
-      "code": "def median(xs):\n    s = sorted(xs)\n    return s[len(s) // 2]  # even n?\n\n# hint: try an even-length list",
+      "code": "def median(xs):\n    s = sorted(xs)\n    return s[len(s) // 2]",
       "anim": [
        {
         "prop": "reveal",
@@ -1885,7 +1885,7 @@
             "en": "always",
             "ar-EG": "دايمًا"
            },
-           "offset": 3.1
+           "offset": 2
           },
           "value": 1,
           "ease": "linear"
@@ -3478,22 +3478,26 @@
      {
       "id": "b",
       "text": {
-       "en": "An even-length list",
-       "ar-EG": "قايمة طولها زوجي"
+       "en": "A sorted list",
+       "ar-EG": "قايمة مترتبة"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "A sorted list",
-       "ar-EG": "قايمة مترتبة"
+       "en": "An even-length list",
+       "ar-EG": "قايمة طولها زوجي"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: [1, 2, 3, 4] should give 2.5, not 3.",
      "ar-EG": "صح: [1, 2, 3, 4] لازم تدّي 2.5 مش 3."
+    },
+    "explainWrong": {
+     "en": "Not quite: odd and sorted lists work; even lengths need the average of two middles.",
+     "ar-EG": "مش بالظبط: القوايم الفردية والمترتبة شغالة، والزوجية محتاجة متوسط العنصرين اللي في النص."
     }
    },
    "speaker": "farah"
@@ -3910,8 +3914,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the bugs lab. Find the failing case in each short program and write the hint you would give a student.",
-    "ar-EG": "في التطبيق، افتح معمل الأخطاء. لاقي الحالة اللي بتقع في كل برنامج قصير واكتب التلميح اللي هتدّيه للطالب."
+    "en": "In the app, open the bugs lab. Run each of the six programs, fix it, and write the one-line hint you would give a student, without the fix.",
+    "ar-EG": "في التطبيق، افتح معمل الأخطاء. شغّل كل برنامج من الستة، وصلّحه، واكتب التلميح اللي من سطر واحد اللي هتدّيه للطالب، من غير التصليح."
    },
    "transition": {
     "type": "fade"
@@ -4004,8 +4008,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4014,8 +4018,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.4
           },
@@ -4030,8 +4034,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4040,8 +4044,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.15
           },
@@ -4068,8 +4072,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4078,8 +4082,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.45
           },
@@ -4094,8 +4098,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4104,8 +4108,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.15
           },
@@ -4125,8 +4129,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Find the failing case",
-       "ar-EG": "لاقي الحالة اللي بتقع"
+       "en": "Run and fix each program",
+       "ar-EG": "شغّل وصلّح كل برنامج"
       },
       "anim": [
        {
@@ -4135,8 +4139,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4145,8 +4149,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.45
           },
@@ -4161,8 +4165,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0
           },
@@ -4171,8 +4175,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 0.3
           },
@@ -4202,8 +4206,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4212,8 +4216,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.9
           },
@@ -4228,8 +4232,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4238,8 +4242,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.65
           },
@@ -4266,8 +4270,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4276,8 +4280,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.95
           },
@@ -4292,8 +4296,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4302,8 +4306,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.65
           },
@@ -4323,8 +4327,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Write the hint",
-       "ar-EG": "اكتب التلميح"
+       "en": "Write a one-line hint",
+       "ar-EG": "اكتب تلميح من سطر واحد"
       },
       "anim": [
        {
@@ -4333,8 +4337,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4343,8 +4347,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.95
           },
@@ -4359,8 +4363,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.5
           },
@@ -4369,8 +4373,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.8
           },
@@ -4400,8 +4404,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4410,8 +4414,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.4
           },
@@ -4426,8 +4430,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4436,8 +4440,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.15
           },
@@ -4464,8 +4468,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4474,8 +4478,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.45
           },
@@ -4490,8 +4494,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4500,8 +4504,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.15
           },
@@ -4531,8 +4535,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4541,8 +4545,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.45
           },
@@ -4557,8 +4561,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1
           },
@@ -4567,8 +4571,8 @@
          {
           "at": {
            "word": {
-            "en": "Find",
-            "ar-EG": "لاقي"
+            "en": "Run",
+            "ar-EG": "شغّل"
            },
            "offset": 1.3
           },
@@ -4762,6 +4766,10 @@
     "explain": {
      "en": "Correct: live modification shows understanding directly.",
      "ar-EG": "صح: التعديل قدّامك بيبيّن الفهم مباشرةً."
+    },
+    "explainWrong": {
+     "en": "Not quite: detectors are unreliable and tests only check output.",
+     "ar-EG": "مش بالظبط: أدوات الكشف مش موثوقة، والاختبارات بتفحص الناتج بس."
     }
    },
    "speaker": "joseph"
@@ -4771,7 +4779,7 @@
    "template": "summary",
    "narration": {
     "en": "Asking them to modify it live and explain the change. Remember: hidden tests catch shortcuts, feedback names the case, and understanding needs more than a passing score.",
-    "ar-EG": "إنك تطلب منهم يعدّلوه قدّامك ويشرحوا التعديل. افتكر: الاختبارات المخفية بتمسك الطرق المختصرة، والرد بيسمّي الحالة، والفهم محتاج أكتر من درجة نجاح."
+    "ar-EG": "إنك تطلب منهم يعدّلوه قدّامك ويشرحوا التعديل. افتكر: الاختبارات المخفية بتمسك الطرق المختصرة، والتغذية الراجعة بتسمّي الحالة، والفهم محتاج أكتر من درجة نجاح."
    },
    "content": {
     "title": {
@@ -4781,7 +4789,7 @@
     "points": [
      {
       "en": "Hidden edge cases",
-      "ar-EG": "حالات طرفية مخفية"
+      "ar-EG": "حالات حدّية مخفية"
      },
      {
       "en": "Hints, not fixes",

@@ -49,133 +49,137 @@ It is useful where it was tested,
 and it is not the measurement.
 
 13
-00:00:31.600 --> 00:00:33.540
+00:00:31.600 --> 00:00:33.600
 One training step stores the
 
 14
-00:00:33.540 --> 00:00:35.440
-weights and the activations.
+00:00:33.600 --> 00:00:35.660
+weights, their gradients, the
 
 15
-00:00:36.140 --> 00:00:38.120
-Activations grow with the
+00:00:35.660 --> 00:00:38.240
+optimiser's state and the activations.
 
 16
-00:00:38.120 --> 00:00:39.680
-batch and with the width.
+00:00:38.910 --> 00:00:40.890
+Activations grow with the
 
 17
-00:00:40.960 --> 00:00:42.800
-Data parallel copies the whole
+00:00:40.890 --> 00:00:42.450
+batch and with the width.
 
 18
-00:00:42.800 --> 00:00:44.480
-model and splits the examples.
+00:00:43.730 --> 00:00:45.570
+Data parallel copies the whole
 
 19
-00:00:45.300 --> 00:00:47.280
-Model parallel splits the layer
+00:00:45.570 --> 00:00:47.250
+model and splits the examples.
 
 20
-00:00:47.280 --> 00:00:49.000
-when that copy does not fit.
+00:00:48.070 --> 00:00:50.050
+Model parallel splits the layer
 
 21
-00:00:50.260 --> 00:00:52.380
-On a wide layer, splitting the
+00:00:50.050 --> 00:00:51.770
+when that copy does not fit.
 
 22
-00:00:52.380 --> 00:00:53.680
-examples does not fit.
+00:00:53.030 --> 00:00:55.150
+On a wide layer, splitting the
 
 23
-00:00:54.360 --> 00:00:55.760
-Splitting the layer does.
+00:00:55.150 --> 00:00:56.450
+examples does not fit.
 
 24
-00:00:57.130 --> 00:00:57.610
-Quick check!
+00:00:57.130 --> 00:00:58.530
+Splitting the layer does.
 
 25
-00:00:58.250 --> 00:01:00.930
-A layer does not fit on one
+00:00:59.900 --> 00:01:00.380
+Quick check!
 
 26
-00:01:00.930 --> 00:01:02.790
-machine because it is wide.
+00:01:01.020 --> 00:01:03.700
+A layer does not fit on one
 
 27
-00:01:03.430 --> 00:01:04.190
-What do you do?
+00:01:03.700 --> 00:01:05.560
+machine because it is wide.
 
 28
-00:01:05.400 --> 00:01:06.200
-Split the layer.
+00:01:06.200 --> 00:01:06.960
+What do you do?
 
 29
-00:01:06.820 --> 00:01:08.520
-Splitting the examples still
+00:01:08.170 --> 00:01:08.970
+Split the layer.
 
 30
-00:01:08.520 --> 00:01:09.940
-copies the whole layer.
+00:01:09.590 --> 00:01:11.290
+Splitting the examples still
 
 31
-00:01:11.220 --> 00:01:12.660
-The board has the formula
+00:01:11.290 --> 00:01:12.710
+copies the whole layer.
 
 32
-00:01:12.660 --> 00:01:14.200
-before the lab opens.
+00:01:13.990 --> 00:01:15.430
+The board has the formula
 
 33
-00:01:14.960 --> 00:01:18.080
-A forecast is not a measurement, and
+00:01:15.430 --> 00:01:16.970
+before the lab opens.
 
 34
-00:01:18.080 --> 00:01:20.040
-that caution gets one sentence.
+00:01:17.730 --> 00:01:20.850
+A forecast is not a measurement, and
 
 35
-00:01:21.480 --> 00:01:22.240
-Your turn.
+00:01:20.850 --> 00:01:22.810
+that caution gets one sentence.
 
 36
-00:01:22.860 --> 00:01:25.020
-Is a fast stand-in for a lab
+00:01:24.250 --> 00:01:25.010
+Your turn.
 
 37
-00:01:25.020 --> 00:01:26.700
-measurement the experiment itself?
+00:01:25.630 --> 00:01:27.790
+Is a fast stand-in for a lab
 
 38
-00:01:27.940 --> 00:01:28.760
-Remember this.
+00:01:27.790 --> 00:01:29.470
+measurement the experiment itself?
 
 39
-00:01:29.380 --> 00:01:31.300
-Measure the memory before you
+00:01:30.710 --> 00:01:31.530
+Remember this.
 
 40
-00:01:31.300 --> 00:01:32.460
-name a bigger machine.
+00:01:32.150 --> 00:01:34.070
+Measure the memory before you
 
 41
-00:01:33.170 --> 00:01:35.490
-A phone is one machine, so
+00:01:34.070 --> 00:01:35.230
+name a bigger machine.
 
 42
-00:01:35.490 --> 00:01:37.070
-this lab is a diagram.
+00:01:35.940 --> 00:01:38.260
+A phone is one machine, so
 
 43
-00:01:38.400 --> 00:01:39.720
-Try it in your next lecture.
+00:01:38.260 --> 00:01:39.840
+this lab is a diagram.
 
 44
-00:01:40.400 --> 00:01:42.980
-The first five minutes end on the memory
+00:01:41.170 --> 00:01:42.490
+Try it in your next lecture.
 
 45
-00:01:42.980 --> 00:01:45.620
+00:01:43.170 --> 00:01:45.750
+The first five minutes end on the memory
+
+46
+00:01:45.750 --> 00:01:48.390
 arithmetic, before any product is named.

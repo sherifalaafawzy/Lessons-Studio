@@ -2137,7 +2137,7 @@
    "template": "canvas",
    "narration": {
     "en": "But every extra item doubles the work. Thirty items: over a billion loads. Sixty items: more than a billion billion. Brute force is sure, but it doesn’t scale.",
-    "ar-EG": "بس كل حاجة زيادة بتضاعف الشغل. تلاتين حاجة: أكتر من مليار حمولة. ستين حاجة: أكتر من مليار مليار. التجريب الكامل مضمون، بس مبيكبرش."
+    "ar-EG": "بس كل حاجة زيادة بتضاعف الشغل. تلاتين حاجة: أكتر من مليار حمولة. ستين حاجة: أكتر من مليار مليار. التجريب الكامل مضمون، بس مينفعش مع المسائل الكبيرة."
    },
    "transition": {
     "type": "fade"
@@ -2946,7 +2946,7 @@
       "weight": 700,
       "text": {
        "en": "Sure, but doesn’t scale",
-       "ar-EG": "مضمون، بس مبيكبرش"
+       "ar-EG": "مضمون، بس مش للمسائل الكبيرة"
       },
       "anim": [
        {
@@ -3299,15 +3299,15 @@
      {
       "id": "a",
       "text": {
-       "en": "Greedy: it takes the best value first",
-       "ar-EG": "الطريقة الجشعة: بتاخد الأحسن قيمة الأول"
+       "en": "Brute force: it checked every load",
+       "ar-EG": "التجريب الكامل: راجع كل حمولة"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "Brute force: it checked every load",
-       "ar-EG": "التجريب الكامل: راجع كل حمولة"
+       "en": "Greedy: it takes the best value first",
+       "ar-EG": "الطريقة الجشعة: بتاخد الأحسن قيمة الأول"
       }
      },
      {
@@ -3318,7 +3318,7 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct — brute force compared all 64 loads, so 65 is the best. Greedy only looked at value per kilo.",
      "ar-EG": "صح — التجريب الكامل قارن الأربعة وستين حمولة كلهم، يبقى 65 هي الأحسن. والطريقة الجشعة بصّت على القيمة لكل كيلو بس."
@@ -3472,7 +3472,6 @@
       "w": 1100,
       "h": 430,
       "type": "knapsack",
-      "show": "table",
       "items": [
        {
         "label": {
@@ -3485,7 +3484,7 @@
        {
         "label": {
          "en": "Desks",
-         "ar-EG": "مقاعد"
+         "ar-EG": "تختات"
         },
         "w": 500,
         "v": 33
@@ -3501,7 +3500,7 @@
        {
         "label": {
          "en": "Water filter",
-         "ar-EG": "فلتر ماء"
+         "ar-EG": "فلتر مية"
         },
         "w": 300,
         "v": 15
@@ -3509,7 +3508,7 @@
        {
         "label": {
          "en": "Footballs",
-         "ar-EG": "كرات قدم"
+         "ar-EG": "كور"
         },
         "w": 200,
         "v": 8
@@ -3524,6 +3523,15 @@
        }
       ],
       "cap": 1000,
+      "unit": {
+       "en": "kg",
+       "ar-EG": "كيلو"
+      },
+      "vunit": {
+       "en": "points",
+       "ar-EG": "نقطة"
+      },
+      "show": "table",
       "step": 100,
       "table": [
        [
@@ -3618,14 +3626,6 @@
         65
        ]
       ],
-      "unit": {
-       "en": "kg",
-       "ar-EG": "كيلو"
-      },
-      "vunit": {
-       "en": "points",
-       "ar-EG": "نقطة"
-      },
       "frames": [
        {
         "fill": 11,
@@ -3638,42 +3638,42 @@
         "fill": 22,
         "note": {
          "en": "Solar panels: take it or leave it, the bigger wins",
-         "ar-EG": "ألواح شمسية: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "ألواح شمسية: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
         "fill": 33,
         "note": {
          "en": "Desks: take it or leave it, the bigger wins",
-         "ar-EG": "مقاعد: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "تختات: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
         "fill": 44,
         "note": {
          "en": "Books: take it or leave it, the bigger wins",
-         "ar-EG": "كتب: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "كتب: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
         "fill": 55,
         "note": {
          "en": "Water filter: take it or leave it, the bigger wins",
-         "ar-EG": "فلتر ماء: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "فلتر مية: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
         "fill": 66,
         "note": {
          "en": "Footballs: take it or leave it, the bigger wins",
-         "ar-EG": "كرات قدم: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "كور: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
         "fill": 77,
         "note": {
          "en": "Chalk, paper: take it or leave it, the bigger wins",
-         "ar-EG": "طباشير وورق: نأخذها أو نتركها، والأكبر يفوز"
+         "ar-EG": "طباشير وورق: ناخد ولا نسيب، والأكبر يكسب"
         }
        },
        {
@@ -3710,7 +3710,7 @@
         ],
         "note": {
          "en": "Best: Desks and Books, 65 points",
-         "ar-EG": "الأفضل: مقاعد وكتب، 65 نقطة"
+         "ar-EG": "الأفضل: تختات وكتب، 65 نقطة"
         }
        }
       ],

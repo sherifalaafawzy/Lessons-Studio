@@ -2557,15 +2557,15 @@
      {
       "id": "a",
       "text": {
-       "en": "Five ordinary marks",
-       "ar-EG": "خمس درجات عادية"
+       "en": "A list of only negative numbers",
+       "ar-EG": "ليست كلها أرقام سالبة"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "A list of only negative numbers",
-       "ar-EG": "ليست كلها أرقام سالبة"
+       "en": "Five ordinary marks",
+       "ar-EG": "خمس درجات عادية"
       }
      },
      {
@@ -2576,10 +2576,10 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct — edge cases like all-negative values break code that ordinary data never tests.",
-     "ar-EG": "صح — الحالات الطرفية زي القيم السالبة كلها بتكسر كود البيانات العادية عمرها ما بتختبره."
+     "ar-EG": "صح — الحالات الحدّية زي القيم السالبة كلها بتكسر كود البيانات العادية عمرها ما بتختبره."
     },
     "explainWrong": {
      "en": "Not quite — ordinary data passes even buggy code. Test the edges: here, a list of only negatives.",
@@ -2593,7 +2593,7 @@
    "template": "canvas",
    "narration": {
     "en": "The list of only negative numbers: an edge case. Five ordinary marks would pass even the buggy version. Write the tests that try to break your code, not the ones that flatter it.",
-    "ar-EG": "الليست اللي كلها أرقام سالبة: حالة طرفية. خمس درجات عادية كانوا هيعدّوا حتى النسخة اللي فيها الخطأ. اكتب الاختبارات اللي بتحاول تكسر كودك، مش اللي بتجامله."
+    "ar-EG": "الليست اللي كلها أرقام سالبة: حالة حدّية. خمس درجات عادية كانوا هيعدّوا حتى النسخة اللي فيها الخطأ. اكتب الاختبارات اللي بتحاول تكسر كودك، مش اللي بتجامله."
    },
    "transition": {
     "type": "fade"
@@ -2674,7 +2674,7 @@
       "weight": 800,
       "text": {
        "en": "The edge case",
-       "ar-EG": "الحالة الطرفية"
+       "ar-EG": "الحالة الحدّية"
       },
       "anim": [
        {
@@ -5272,8 +5272,8 @@
    "id": "s11",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open Guess the number. Find a hidden number from one to a thousand by halving, and count your guesses. Then test the edges: can halving find one, and a thousand?",
-    "ar-EG": "في التطبيق، افتح «خمّن الرقم». دوّر على رقم مستخبّي من واحد لألف بالتنصيف، وعدّ تخميناتك. وبعدين اختبر الأطراف: التنصيف يقدر يلاقي الواحد، والألف؟"
+    "en": "In the app, open Guess the number. Find a hidden number from one to a thousand by halving, and count your guesses. When the range shrinks to a single number, lo equals hi: that last place is the edge case to test.",
+    "ar-EG": "في التطبيق، افتح «خمّن الرقم». دوّر على رقم مستخبّي من واحد لألف بالتنصيف، وعدّ تخميناتك. ولما المدى يصغر لرقم واحد، lo بيساوي hi: وآخر مكان ده هو الحالة الحدّية اللي لازم تختبرها."
    },
    "transition": {
     "type": "fade"
@@ -5366,7 +5366,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5376,7 +5376,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.4
@@ -5392,7 +5392,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5402,7 +5402,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.15
@@ -5430,7 +5430,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5440,7 +5440,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.45
@@ -5456,7 +5456,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5466,7 +5466,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.15
@@ -5497,7 +5497,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5507,7 +5507,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.45
@@ -5523,7 +5523,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0
@@ -5533,7 +5533,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 0.3
@@ -5564,7 +5564,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5574,7 +5574,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.4
@@ -5590,7 +5590,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5600,7 +5600,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.15
@@ -5628,7 +5628,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5638,7 +5638,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.45
@@ -5654,7 +5654,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5664,7 +5664,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.15
@@ -5695,7 +5695,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5705,7 +5705,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.45
@@ -5721,7 +5721,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3
@@ -5731,7 +5731,7 @@
          {
           "at": {
            "word": {
-            "en": "hidden",
+            "en": "Find",
             "ar-EG": "دوّر"
            },
            "offset": 3.3
@@ -5762,8 +5762,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5772,8 +5772,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.4
           },
@@ -5788,8 +5788,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5798,8 +5798,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.15
           },
@@ -5826,8 +5826,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5836,8 +5836,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.45
           },
@@ -5852,8 +5852,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5862,8 +5862,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.15
           },
@@ -5883,8 +5883,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Test 1 and 1,000",
-       "ar-EG": "اختبر 1 و1000"
+       "en": "lo = hi: the last place",
+       "ar-EG": "⁦lo = hi⁩: آخر مكان"
       },
       "anim": [
        {
@@ -5893,8 +5893,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5903,8 +5903,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.45
           },
@@ -5919,8 +5919,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0
           },
@@ -5929,8 +5929,8 @@
          {
           "at": {
            "word": {
-            "en": "Then",
-            "ar-EG": "وبعدين"
+            "en": "When",
+            "ar-EG": "ولما"
            },
            "offset": 0.3
           },

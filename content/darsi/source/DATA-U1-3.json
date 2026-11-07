@@ -150,7 +150,7 @@
     "animation": "",
     "on_screen_text": "Which property?",
     "voice": "Dr Joseph",
-    "narration": "Quick check! The double booking happened because concurrent transactions saw each other's half-finished work. Which ACID property failed?"
+    "narration": "Quick check! The double booking happened because both transactions read the same seat count before either wrote. Which ACID property failed?"
    },
    {
     "n": 9,
@@ -176,7 +176,7 @@
     "animation": "",
     "on_screen_text": "App lab: pipeline",
     "voice": "Narrator",
-    "narration": "In the app, open the pipeline lab. Interleave two transactions step by step and see which orders produce a wrong result.",
+    "narration": "In the app, open the pipeline lab. Make the load fail halfway and retry: rows written twice show why a load must be one atomic transaction, or safe to repeat.",
     "icons": [
      "repeat",
      "lock"
@@ -226,7 +226,7 @@
     "at": "1:31",
     "after_scene": 8,
     "type": "choice",
-    "prompt": "Concurrent transactions saw each other's half-done work. Which ACID property failed?",
+    "prompt": "Both transactions read one seat left, then both wrote. Which ACID property failed?",
     "options": [
      {
       "text": "Atomicity",
@@ -256,12 +256,12 @@
       "correct": false
      },
      {
-      "text": "Availability",
-      "correct": true
-     },
-     {
       "text": "Durability",
       "correct": false
+     },
+     {
+      "text": "Availability",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct: it refuses some requests until the partition heals.",

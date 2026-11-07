@@ -107,7 +107,7 @@
     "animation": "",
     "on_screen_text": "The Laplace mechanism",
     "voice": "Narrator",
-    "narration": "Differential privacy adds calibrated noise so that any one person changes the output distribution by at most a factor set by epsilon. For a count, one person changes it by one. The Laplace noise scale is sensitivity over epsilon, so epsilon one half gives scale two.",
+    "narration": "Differential privacy adds calibrated noise so that any one person changes the output distribution by at most a factor set by epsilon. For a count, one person changes it by one. The Laplace noise scale is sensitivity over epsilon, so epsilon one quarter gives scale four.",
     "icons": [
      "calculator",
      "shield"
@@ -178,7 +178,7 @@
     "animation": "",
     "on_screen_text": "App lab: leak",
     "voice": "Narrator",
-    "narration": "In the app, open the leak lab. Guess which records were in training from the model's confidence, then add noise and see your guesses get worse.",
+    "narration": "In the app, open the leak lab. Read the attacker's guess of whether a line was in training, then add privacy noise and watch it fall towards fifty percent.",
     "icons": [
      "eye",
      "lock"
@@ -231,12 +231,12 @@
     "prompt": "Sensitivity 1 and ε = 0.5. What is the Laplace scale?",
     "options": [
      {
-      "text": "0.5",
-      "correct": false
-     },
-     {
       "text": "2",
       "correct": true
+     },
+     {
+      "text": "0.5",
+      "correct": false
      },
      {
       "text": "1",

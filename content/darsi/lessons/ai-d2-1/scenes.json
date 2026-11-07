@@ -14,84 +14,56 @@
    "content": {
     "elements": [
      {
-      "id": "bubble",
-      "type": "shape",
-      "shape": "rect",
+      "id": "table",
       "x": 90,
       "y": 70,
-      "w": 710,
-      "h": 200,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 28,
-      "anim": [
+      "w": 1100,
+      "h": 440,
+      "type": "table",
+      "ltr": [
+       0,
+       1,
+       2,
+       3
+      ],
+      "cols": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "en": "Row",
+        "ar-EG": "صف"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "en": "Left",
+        "ar-EG": "شمال"
+       },
+       {
+        "en": "Middle",
+        "ar-EG": "نص"
+       },
+       {
+        "en": "Right",
+        "ar-EG": "يمين"
        }
-      ]
-     },
-     {
-      "id": "quote",
-      "type": "text",
-      "x": 124,
-      "y": 100,
-      "w": 642,
-      "size": 34,
-      "weight": 700,
-      "text": {
-       "en": "A grey picture is not a thing with a name.",
-       "ar-EG": "الصورة الرمادية مش حاجة ليها اسم."
-      },
+      ],
+      "rows": [
+       [
+        "1",
+        20,
+        180,
+        20
+       ],
+       [
+        "2",
+        20,
+        180,
+        20
+       ],
+       [
+        "3",
+        20,
+        180,
+        20
+       ]
+      ],
       "anim": [
        {
         "prop": "reveal",
@@ -102,7 +74,7 @@
             "en": "grey",
             "ar-EG": "الصورة"
            },
-           "offset": 0.2
+           "offset": 0
           },
           "value": 0
          },
@@ -112,470 +84,10 @@
             "en": "grey",
             "ar-EG": "الصورة"
            },
-           "offset": 1.6
+           "offset": 1.5
           },
           "value": 1,
           "ease": "linear"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 300,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "data",
-      "x": 104,
-      "y": 314,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 311,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "A grey picture is not a thing with",
-       "ar-EG": "الصورة الرمادية مش حاجة ليها اسم"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 351
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.45
-          },
-          "value": 311,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 404,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "warning",
-      "x": 104,
-      "y": 418,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 415,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "On the computer it is a grid of",
-       "ar-EG": "على الكمبيوتر هي شبكة أرقام، سطوع واحد في"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 455
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.45
-          },
-          "value": 415,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "the",
-            "ar-EG": "على"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "who",
-      "type": "image",
-      "src": "@lib/v1/cast/joseph_talking.svg",
-      "x": 840,
-      "y": 290,
-      "w": 400,
-      "h": 410,
-      "fit": "contain",
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 330
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.6
-          },
-          "value": 290,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grey",
-            "ar-EG": "الصورة"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
          }
         ]
        }
@@ -1336,7 +848,7 @@
    "id": "s04",
    "template": "canvas",
    "narration": {
-    "en": "A three by three filter lays on the picture and multiplies nine cells. It writes that sum as the new pixel.",
+    "en": "A three by three filter lies on the picture and multiplies nine cells. It writes that sum as the new pixel.",
     "ar-EG": "مرشّح تلاتة في تلاتة بيتحط على الصورة وبيضرب تسع خانات. وبيكتب المجموع ده بكسل جديد."
    },
    "transition": {
@@ -1412,46 +924,68 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "table",
       "x": 90,
       "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "w": 1100,
+      "h": 256,
+      "type": "table",
+      "size": 32,
+      "ltr": [
+       1,
+       2,
+       3
+      ],
+      "cols": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "en": "Cell",
+        "ar-EG": "خانة"
        },
        {
-        "prop": "opacity",
+        "en": "Left",
+        "ar-EG": "شمال"
+       },
+       {
+        "en": "Middle",
+        "ar-EG": "نص"
+       },
+       {
+        "en": "Right",
+        "ar-EG": "يمين"
+       }
+      ],
+      "rows": [
+       [
+        {
+         "en": "Top",
+         "ar-EG": "فوق"
+        },
+        1,
+        0,
+        2
+       ],
+       [
+        {
+         "en": "Middle",
+         "ar-EG": "نص"
+        },
+        0,
+        1,
+        0
+       ],
+       [
+        {
+         "en": "Low",
+         "ar-EG": "تحت"
+        },
+        3,
+        0,
+        1
+       ]
+      ],
+      "anim": [
+       {
+        "prop": "reveal",
         "keys": [
          {
           "at": {
@@ -1469,161 +1003,27 @@
             "en": "filter",
             "ar-EG": "مرشّح"
            },
-           "offset": 0.15
+           "offset": 1.5
           },
           "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }
       ]
      },
      {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "calculator",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "A three by three filter lays on the",
-       "ar-EG": "مرشّح تلاتة في تلاتة بيتحط على الصورة وبيضرب"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "filter",
-            "ar-EG": "مرشّح"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
+      "id": "eq",
       "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
+      "y": 490,
+      "w": 1100,
+      "h": 120,
+      "type": "math",
+      "size": 44,
+      "tex": "1+0+2+0+1+0+3+0+1=8",
       "anim": [
        {
-        "prop": "scale",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
@@ -1641,167 +1041,10 @@
             "en": "writes",
             "ar-EG": "وبيكتب"
            },
-           "offset": 0.4
+           "offset": 1.2
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "arrow",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "It writes that sum as the new pixel",
-       "ar-EG": "وبيكتب المجموع ده بكسل جديد"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "writes",
-            "ar-EG": "وبيكتب"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }
@@ -1814,8 +1057,8 @@
    "id": "s05",
    "template": "canvas",
    "narration": {
-    "en": "An upright-edge filter lights walls. A blur averages neighbours, and neither knows it is looking at a face.",
-    "ar-EG": "مرشّح الحواف القائمة بينوّر الحيطان. والطمس بياخد متوسط الجيران، والاتنين مش عارفين إنهم بيبصوا على وش."
+    "en": "An upright-edge filter lights the sides of walls and doors. A blur averages neighbours, and neither knows it is looking at a face.",
+    "ar-EG": "مرشّح الحواف القائمة بينوّر جوانب الحيطان والأبواب. والطمس بياخد متوسط الجيران، والاتنين مش عارفين إنهم بيبصوا على وش."
    },
    "transition": {
     "type": "fade"
@@ -2029,8 +1272,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "An upright-edge filter lights walls",
-       "ar-EG": "مرشّح الحواف القائمة بينوّر الحيطان"
+       "en": "Upright edges: the sides of walls and doors",
+       "ar-EG": "الحواف القائمة: جوانب الحيطان والأبواب"
       },
       "anim": [
        {
@@ -2227,8 +1470,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "A blur averages neighbours, and neither knows it",
-       "ar-EG": "والطمس بياخد متوسط الجيران، والاتنين مش عارفين إنهم"
+       "en": "A blur averages; neither one sees a face",
+       "ar-EG": "والطمس بياخد المتوسط، ومحدش فيهم شايف وش"
       },
       "anim": [
        {
@@ -2368,20 +1611,23 @@
       ]
      },
      {
-      "id": "chart",
-      "type": "chart",
-      "kind": "bar",
-      "x": 190,
-      "y": 250,
-      "w": 900,
-      "h": 340,
-      "data": [
-       20,
-       80,
-       40
+      "id": "table",
+      "x": 90,
+      "y": 210,
+      "w": 1100,
+      "h": 256,
+      "type": "table",
+      "size": 32,
+      "ltr": [
+       1,
+       2,
+       3
       ],
-      "max": 100,
-      "labels": [
+      "cols": [
+       {
+        "en": "Cell",
+        "ar-EG": "خانة"
+       },
        {
         "en": "Left",
         "ar-EG": "شمال"
@@ -2395,7 +1641,35 @@
         "ar-EG": "يمين"
        }
       ],
-      "tone": "accent",
+      "rows": [
+       [
+        {
+         "en": "Top",
+         "ar-EG": "فوق"
+        },
+        1,
+        0,
+        2
+       ],
+       [
+        {
+         "en": "Middle",
+         "ar-EG": "نص"
+        },
+        0,
+        1,
+        0
+       ],
+       [
+        {
+         "en": "Low",
+         "ar-EG": "تحت"
+        },
+        3,
+        0,
+        1
+       ]
+      ],
       "anim": [
        {
         "prop": "reveal",
@@ -2426,147 +1700,23 @@
       ]
      },
      {
-      "id": "val1",
-      "type": "text",
-      "x": 190,
-      "y": 446,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "20",
+      "id": "eq",
+      "x": 90,
+      "y": 490,
+      "w": 1100,
+      "h": 120,
+      "type": "math",
+      "size": 44,
+      "tex": "1+0+2+0+1+0+3+0+1=8",
       "anim": [
        {
-        "prop": "opacity",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
            "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 0.68
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 0.98
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "val2",
-      "type": "text",
-      "x": 490,
-      "y": 270,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "80",
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 1.09
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 1.39
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "val3",
-      "type": "text",
-      "x": 790,
-      "y": 387,
-      "w": 300,
-      "size": 26,
-      "weight": 700,
-      "align": "center",
-      "fixed": true,
-      "text": "40",
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 1.5
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
-           },
-           "offset": 1.8
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "unit",
-      "type": "text",
-      "x": 190,
-      "y": 210,
-      "w": 900,
-      "size": 24,
-      "weight": 600,
-      "tone": "muted",
-      "text": {
-       "en": "Brightness",
-       "ar-EG": "السطوع"
-      },
-      "anim": [
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
+            "en": "Nine",
+            "ar-EG": "تسع"
            },
            "offset": 0
           },
@@ -2575,13 +1725,13 @@
          {
           "at": {
            "word": {
-            "en": "Here",
-            "ar-EG": "موضع"
+            "en": "Nine",
+            "ar-EG": "تسع"
            },
-           "offset": 0.4
+           "offset": 1.2
           },
           "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }
@@ -2631,8 +1781,8 @@
      {
       "id": "c",
       "text": {
-       "en": "One bit for the whole photo",
-       "ar-EG": "بت واحد للصورة كلها"
+       "en": "One brightness value for the whole photo",
+       "ar-EG": "قيمة سطوع واحدة للصورة كلها"
       }
      }
     ],
@@ -2792,188 +1942,98 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "arch",
       "x": 90,
-      "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
+      "y": 200,
+      "w": 1100,
+      "h": 430,
+      "type": "arch",
+      "blocks": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "id": "img",
+        "kind": "input",
+        "label": {
+         "en": "Image",
+         "ar-EG": "الصورة"
+        },
+        "note": "28×28"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "id": "conv",
+        "kind": "conv",
+        "label": {
+         "en": "Convolution",
+         "ar-EG": "الالتفاف"
+        },
+        "note": "8 × 3×3"
+       },
+       {
+        "id": "pool",
+        "kind": "pool",
+        "label": {
+         "en": "Pooling",
+         "ar-EG": "التجميع"
+        },
+        "note": "2×2"
+       },
+       {
+        "id": "fc",
+        "kind": "dense",
+        "label": {
+         "en": "Dense",
+         "ar-EG": "طبقة كاملة"
+        },
+        "note": "64"
+       },
+       {
+        "id": "out",
+        "kind": "softmax",
+        "label": {
+         "en": "Name",
+         "ar-EG": "الاسم"
+        },
+        "note": {
+         "en": "1 of 10",
+         "ar-EG": "1 من 10"
+        }
        }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "check",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
+      ],
+      "edges": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
+        "from": "img",
+        "to": "conv"
        },
        {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
+        "from": "conv",
+        "to": "pool"
+       },
+       {
+        "from": "pool",
+        "to": "fc"
+       },
+       {
+        "from": "fc",
+        "to": "out"
        }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "A grid of numbers",
-       "ar-EG": "شبكة أرقام"
-      },
+      ],
+      "groups": [
+       {
+        "id": "layers",
+        "blocks": [
+         "conv",
+         "pool"
+        ],
+        "repeat": 2,
+        "label": {
+         "en": "Layers",
+         "ar-EG": "طبقات"
+        }
+       }
+      ],
       "anim": [
        {
-        "prop": "y",
+        "prop": "reveal",
         "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "grid",
-            "ar-EG": "شبكة"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
          {
           "at": {
            "word": {
@@ -2982,193 +2042,30 @@
            },
            "offset": 0.3
           },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0
-          },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
+            "en": "grid",
+            "ar-EG": "شبكة"
            },
-           "offset": 0.4
+           "offset": 2.3
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "layers",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 1002,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Names, if they appear, come from many layers,",
-       "ar-EG": "الأسماء، لو ظهرت، بتيجي من طبقات كتير، مش"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Names",
-            "ar-EG": "الأسماء"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
           "ease": "out"
          }
         ]
        },
        {
-        "prop": "opacity",
+        "prop": "pass",
         "keys": [
          {
           "at": {
            "word": {
             "en": "Names",
             "ar-EG": "الأسماء"
-           },
-           "offset": 0
+           }
           },
           "value": 0
          },
@@ -3178,10 +2075,21 @@
             "en": "Names",
             "ar-EG": "الأسماء"
            },
-           "offset": 0.3
+           "offset": 2
           },
           "value": 1,
-          "ease": "out"
+          "ease": "linear"
+         },
+         {
+          "at": {
+           "word": {
+            "en": "Names",
+            "ar-EG": "الأسماء"
+           },
+           "offset": 2.05
+          },
+          "value": -1,
+          "ease": "step"
          }
         ]
        }
@@ -3195,25 +2103,25 @@
    "template": "steps",
    "narration": {
     "en": "In the app, open the convolution lab. Slide an edge filter and a blur, and say what each new picture shows.",
-    "ar-EG": "في التطبيق، افتح معمل الطي. حرّك مرشّح حواف وطمس، وقول كل صورة جديدة بتبيّن إيه."
+    "ar-EG": "في التطبيق، افتح معمل المرشّحات. حرّك مرشّح حواف وطمس، وقول كل صورة جديدة بتبيّن إيه."
    },
    "content": {
     "title": {
      "en": "The convolution lab",
-     "ar-EG": "معمل الطي"
+     "ar-EG": "معمل المرشّحات"
     },
     "steps": [
      {
       "en": "In the app, open the convolution lab",
-      "ar-EG": "في التطبيق، افتح معمل الطي"
+      "ar-EG": "في التطبيق، افتح معمل المرشّحات"
      },
      {
-      "en": "Slide an edge filter and a blur, and",
-      "ar-EG": "حرّك مرشّح حواف وطمس، وقول كل صورة جديدة"
+      "en": "Slide an edge filter, then a blur",
+      "ar-EG": "حرّك مرشّح حواف، وبعدين طمس"
      },
      {
-      "en": "The convolution lab",
-      "ar-EG": "معمل الطي"
+      "en": "Say what each new picture shows",
+      "ar-EG": "قول كل صورة جديدة بتبيّن إيه"
      }
     ]
    },
@@ -3272,26 +2180,26 @@
      {
       "id": "a",
       "text": {
-       "en": "No, it only mixes neighbours",
-       "ar-EG": "لأ، بيخلط الجيران بس"
-      }
-     },
-     {
-      "id": "b",
-      "text": {
        "en": "Yes, that is its job",
        "ar-EG": "أيوه، ده شغله"
       }
      },
      {
-      "id": "c",
+      "id": "b",
       "text": {
        "en": "Only if the picture is a photo",
        "ar-EG": "بس لو الصورة فوتوغرافية"
       }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "No, it only mixes neighbours",
+       "ar-EG": "لأ، بيخلط الجيران بس"
+      }
      }
     ],
-    "answer": "a",
+    "answer": "c",
     "explain": {
      "en": "Correct: it multiplies nine cells. It does not know a name.",
      "ar-EG": "صح: بيضرب تسع خانات. ومش عارف اسم."
@@ -3317,17 +2225,17 @@
     },
     "points": [
      {
-      "en": "A filter mixes neighbours It does not name",
-      "ar-EG": "المرشّح بيخلط الجيران ومش بيسمّي اللي شايفه"
+      "en": "A filter mixes neighbours",
+      "ar-EG": "المرشّح بيخلط الجيران"
      },
      {
-      "en": "Mix, do not name",
-      "ar-EG": "اخلط، ومتسمّيش"
+      "en": "It does not name anything",
+      "ar-EG": "ومش بيسمّي أي حاجة"
      }
     ],
     "takeaway": {
-     "en": "A filter mixes neighbours It does not name",
-     "ar-EG": "المرشّح بيخلط الجيران ومش بيسمّي اللي شايفه"
+     "en": "A picture is numbers; names come from many layers.",
+     "ar-EG": "الصورة أرقام، والأسماء بتيجي من طبقات كتير."
     }
    },
    "cues": [
@@ -3341,10 +2249,9 @@
     },
     {
      "word": {
-      "en": "filter",
-      "ar-EG": "المرشّح"
+      "en": "does",
+      "ar-EG": "ومش"
      },
-     "offset": 0.5,
      "action": "reveal",
      "target": "2"
     },
@@ -3375,7 +2282,7 @@
       "type": "text",
       "x": 90,
       "y": 66,
-      "w": 710,
+      "w": 1100,
       "size": 48,
       "weight": 800,
       "text": {
@@ -3438,218 +2345,17 @@
       ]
      },
      {
-      "id": "tile1",
-      "type": "shape",
-      "shape": "rect",
+      "id": "eq",
       "x": 90,
       "y": 210,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
+      "w": 1100,
+      "h": 220,
+      "type": "math",
+      "size": 52,
+      "tex": "1+0+2+0+1+0+3+0+1=8",
       "anim": [
        {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.4
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon1",
-      "type": "icon",
-      "icon": "pencil",
-      "x": 104,
-      "y": 224,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text1",
-      "type": "text",
-      "x": 188,
-      "y": 221,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Try it on paper tonight",
-       "ar-EG": "جرّبها على الورق الليلة"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 261
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.45
-          },
-          "value": 221,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "tile2",
-      "type": "shape",
-      "shape": "rect",
-      "x": 90,
-      "y": 314,
-      "w": 72,
-      "h": 72,
-      "fill": "surface",
-      "stroke": "line",
-      "strokeWidth": 3,
-      "radius": 18,
-      "anim": [
-       {
-        "prop": "scale",
+        "prop": "reveal",
         "keys": [
          {
           "at": {
@@ -3667,231 +2373,10 @@
             "en": "Sketch",
             "ar-EG": "ارسم"
            },
-           "offset": 0.4
+           "offset": 1.2
           },
           "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "icon2",
-      "type": "icon",
-      "icon": "calculator",
-      "x": 104,
-      "y": 328,
-      "w": 43,
-      "h": 43,
-      "tone": "accent",
-      "anim": [
-       {
-        "prop": "scale",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0.45
-          },
-          "value": 1,
-          "ease": "back"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0.15
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "text2",
-      "type": "text",
-      "x": 188,
-      "y": 325,
-      "w": 612,
-      "size": 38,
-      "weight": 700,
-      "text": {
-       "en": "Sketch a three by three edge filter and",
-       "ar-EG": "ارسم مرشّح حواف تلاتة في تلاتة واحسب بكسل"
-      },
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0
-          },
-          "value": 365
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0.45
-          },
-          "value": 325,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Sketch",
-            "ar-EG": "ارسم"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
-         }
-        ]
-       }
-      ]
-     },
-     {
-      "id": "who",
-      "type": "image",
-      "src": "@lib/v1/cast/joseph_happy.svg",
-      "x": 840,
-      "y": 290,
-      "w": 400,
-      "h": 410,
-      "fit": "contain",
-      "anim": [
-       {
-        "prop": "y",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 330
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.6
-          },
-          "value": 290,
-          "ease": "out"
-         }
-        ]
-       },
-       {
-        "prop": "opacity",
-        "keys": [
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0
-          },
-          "value": 0
-         },
-         {
-          "at": {
-           "word": {
-            "en": "Try",
-            "ar-EG": "جرّبها"
-           },
-           "offset": 0.3
-          },
-          "value": 1,
-          "ease": "out"
+          "ease": "linear"
          }
         ]
        }

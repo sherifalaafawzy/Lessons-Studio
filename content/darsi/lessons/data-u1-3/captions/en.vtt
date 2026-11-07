@@ -169,113 +169,113 @@ should argue it from real cases.
 Quick check!
 
 43
-00:01:52.160 --> 00:01:54.320
+00:01:52.160 --> 00:01:54.200
 The double booking happened because
 
 44
-00:01:54.320 --> 00:01:56.660
-concurrent transactions saw each
+00:01:54.200 --> 00:01:56.920
+both transactions read the same seat
 
 45
-00:01:56.660 --> 00:01:58.180
-other's half-finished work.
+00:01:56.920 --> 00:01:58.600
+count before either wrote.
 
 46
-00:01:58.780 --> 00:02:00.640
+00:01:59.270 --> 00:02:01.130
 Which ACID property failed?
 
 47
-00:02:01.910 --> 00:02:02.630
+00:02:02.400 --> 00:02:03.120
 Isolation.
 
 48
-00:02:03.270 --> 00:02:05.210
+00:02:03.760 --> 00:02:05.700
 Each transaction was atomic
 
 49
-00:02:05.210 --> 00:02:06.750
+00:02:05.700 --> 00:02:07.240
 and durable on its own.
 
 50
-00:02:07.350 --> 00:02:10.110
+00:02:07.840 --> 00:02:10.600
 The problem was how they interleaved.
 
 51
-00:02:11.290 --> 00:02:13.710
+00:02:11.780 --> 00:02:14.200
 In the app, open the pipeline lab.
 
 52
-00:02:14.340 --> 00:02:16.720
-Interleave two transactions step
+00:02:14.830 --> 00:02:18.810
+Make the load fail halfway and retry: rows
 
 53
-00:02:16.720 --> 00:02:18.700
-by step and see which orders
+00:02:18.810 --> 00:02:21.890
+written twice show why a load must be one
 
 54
-00:02:18.700 --> 00:02:20.180
-produce a wrong result.
+00:02:21.890 --> 00:02:25.310
+atomic transaction, or safe to repeat.
 
 55
-00:02:21.450 --> 00:02:21.950
+00:02:26.570 --> 00:02:27.070
 Your turn.
 
 56
-00:02:22.560 --> 00:02:25.100
+00:02:27.680 --> 00:02:30.220
 During a network partition, a bank's
 
 57
-00:02:25.100 --> 00:02:27.100
+00:02:30.220 --> 00:02:32.220
 ledger must never show two different
 
 58
-00:02:27.100 --> 00:02:27.520
+00:02:32.220 --> 00:02:32.640
 balances.
 
 59
-00:02:28.250 --> 00:02:29.350
+00:02:33.370 --> 00:02:34.470
 What must it give up?
 
 60
-00:02:30.540 --> 00:02:33.080
+00:02:35.660 --> 00:02:38.200
 Availability: some requests are
 
 61
-00:02:33.080 --> 00:02:35.200
+00:02:38.200 --> 00:02:40.320
 refused until the partition heals.
 
 62
-00:02:35.990 --> 00:02:38.750
+00:02:41.110 --> 00:02:43.870
 Remember: transactions are units of work,
 
 63
-00:02:39.310 --> 00:02:41.890
+00:02:44.430 --> 00:02:47.010
 isolation levels trade anomalies for
 
 64
-00:02:41.890 --> 00:02:44.890
+00:02:47.010 --> 00:02:50.010
 speed, and partitions force a choice.
 
 65
-00:02:46.170 --> 00:02:48.250
+00:02:51.290 --> 00:02:53.370
 Try it in your next lecture: give
 
 66
-00:02:48.250 --> 00:02:50.350
+00:02:53.370 --> 00:02:55.470
 two volunteers cards with the
 
 67
-00:02:50.350 --> 00:02:51.930
+00:02:55.470 --> 00:02:57.050
 steps of two transactions.
 
 68
-00:02:52.600 --> 00:02:54.660
+00:02:57.720 --> 00:02:59.780
 The class calls out an interleaving
 
 69
-00:02:54.660 --> 00:02:56.640
+00:02:59.780 --> 00:03:01.760
 and records the final seat count.
 
 70
-00:02:57.270 --> 00:02:59.550
+00:03:02.390 --> 00:03:04.670
 Then add a lock and try again.

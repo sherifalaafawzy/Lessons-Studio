@@ -160,7 +160,7 @@
     "6": {
       "who": null,
       "code": {
-        "text": "d = new_cost - cost\nif d <= 0 or random() < exp(-d / T):\n    plan = new_plan\nT = T * 0.999",
+        "text": "d = new_cost - cost\nif d <= 0 or random() < exp(-d / T):\n    plan, cost = new_plan, new_cost\nT = T * 0.999",
         "highlight": [
           2
         ],

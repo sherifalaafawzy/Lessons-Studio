@@ -93,8 +93,11 @@
     "5": {
       "who": null,
       "code": {
-        "text": "min Σ cost × buses[r,t]\ns.t. capacity ≥ demand[r,t]\n     buses[r,t] ≥ 1  if demand[r,t] > 0\n     buses[r,t] integer",
-        "s": 1
+        "text": "min Σ cost × buses[r,t]\ns.t. Σ_t cap × buses[r,t] ≥ Σ_t demand[r,t]\n     buses[r,t] ≥ 1  if demand[r,t] > 0\n     buses[r,t] integer",
+        "s": 1,
+        "highlight": [
+          3
+        ]
       }
     },
     "6": {
@@ -161,16 +164,16 @@
         {
           "icon": "file",
           "text": {
-            "en": "Read the brief",
-            "ar-EG": "اقرا الوصف"
+            "en": "Run the truck-load model",
+            "ar-EG": "شغّل نموذج حمولة الشاحنة"
           },
           "s": 1
         },
         {
           "icon": "pencil",
           "text": {
-            "en": "Formulate",
-            "ar-EG": "صيغ"
+            "en": "Add the missing rule",
+            "ar-EG": "ضيف القاعدة الناقصة"
           },
           "s": 1,
           "o": 1.5
@@ -178,8 +181,8 @@
         {
           "icon": "checksquare",
           "text": {
-            "en": "Check against the brief",
-            "ar-EG": "راجع قصاد الوصف"
+            "en": "Check the new load",
+            "ar-EG": "راجع الحمولة الجديدة"
           },
           "s": 1,
           "tone": "accent"

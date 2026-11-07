@@ -16,10 +16,12 @@ export const CSS = `
   -webkit-tap-highlight-color:transparent;line-height:1.35}
 .ls-brand-studio-dark{--ls-bg:#0b1020;--ls-surface:#121a2e;--ls-card:#18223b;--ls-fg:#eef2fb;--ls-muted:#a3aecb;
   --ls-line:#3a4a75;--ls-accent:#56c8ff;--ls-on-accent:#04121c;--ls-hi-fg:#56c8ff;--ls-accent2:#ffd166;--ls-danger:#ff6b81;--ls-ok:#4fe0a6;
-  --ls-shadow:0 6px 0 #050812;--ls-radius:18px;--ls-cap-bg:rgba(5,8,18,.86);--ls-cap-fg:#fff;--ls-cap-now:#ffd166;--ls-cap-later:rgba(255,255,255,.6)}
+  --ls-shadow:0 6px 0 #050812;--ls-radius:18px;--ls-cap-bg:rgba(5,8,18,.86);--ls-cap-fg:#fff;--ls-cap-now:#ffd166;--ls-cap-later:rgba(255,255,255,.6);
+  --ls-ring-in:#050812;--ls-ring-out:#ffd166}
 .ls-brand-darsi-light{--ls-bg:#f4f1ea;--ls-surface:#fffdf8;--ls-card:#fff;--ls-fg:#1e1a33;--ls-muted:#5a5570;
   --ls-line:#1e1a33;--ls-accent:#ff6a2b;--ls-on-accent:#1e1a33;--ls-hi-fg:#a8340a;--ls-accent2:#ffc53d;--ls-danger:#c62f4f;--ls-ok:#0b7a5c;
-  --ls-shadow:0 5px 0 #1e1a33;--ls-radius:16px;--ls-cap-bg:rgba(30,26,51,.92);--ls-cap-fg:#fff;--ls-cap-now:#ffc53d;--ls-cap-later:rgba(255,255,255,.64)}
+  --ls-shadow:0 5px 0 #1e1a33;--ls-radius:16px;--ls-cap-bg:rgba(30,26,51,.92);--ls-cap-fg:#fff;--ls-cap-now:#ffc53d;--ls-cap-later:rgba(255,255,255,.64);
+  --ls-ring-in:#ffc53d;--ls-ring-out:#1e1a33}
 @media (prefers-contrast:more){.ls-player{--ls-muted:var(--ls-fg)}.ls-node,.ls-step,.ls-phone{border-width:4px!important}}
 
 .ls-main{position:relative}
@@ -146,11 +148,18 @@ export const CSS = `
   font:inherit;font-weight:700;display:inline-grid;place-items:center;cursor:pointer}
 .ls-btn:hover,.ls-btn[aria-pressed=true]{background:var(--ls-card)}
 .ls-btn:disabled{opacity:.38;cursor:default}
-.ls-btn:focus-visible,.ls-opt:focus-visible,.ls-sent:focus-visible,.ls-bigplay:focus-visible,.ls-volr:focus-visible,.ls-mi:focus-visible{
-  outline:3px solid var(--ls-accent2);outline-offset:2px}
+/* The focus ring has two tones, a dark ring around a yellow band, so it shows on the light stage, the orange play
+   button, the dark bar over the picture and the black of full screen alike (a yellow ring alone was 1.4:1 on the stage).
+   Forced colours keep the outline and drop the band. Elements with a box-shadow of their own keep it beside the band. */
+.ls-btn:focus-visible,.ls-opt:focus-visible,.ls-sent:focus-visible,.ls-bigplay:focus-visible,.ls-volr:focus-visible,.ls-mi:focus-visible,
+.ls-go:focus-visible,.ls-track.is-key{outline:3px solid var(--ls-ring-out,#1e1a33);outline-offset:2px;box-shadow:0 0 0 5px var(--ls-ring-in,#ffc53d)}
+.ls-bigplay:focus-visible{box-shadow:0 0 0 5px var(--ls-ring-in,#ffc53d),var(--ls-shadow)}
+.ls-mi.is-on:focus-visible{box-shadow:inset 0 0 0 2px var(--ls-accent),0 0 0 5px var(--ls-ring-in,#ffc53d)}
+.ls-opt.is-right:focus-visible{box-shadow:inset 0 0 0 2px var(--ls-ok),0 0 0 5px var(--ls-ring-in,#ffc53d)}
+.ls-opt.is-wrong:focus-visible{box-shadow:inset 0 0 0 2px var(--ls-danger),0 0 0 5px var(--ls-ring-in,#ffc53d)}
 .ls-time{flex:none;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;color:var(--ls-muted);padding:0 6px;white-space:nowrap}
 .ls-track{position:relative;height:20px;display:flex;align-items:center;cursor:pointer;touch-action:none}
-.ls-track.is-key{outline:3px solid var(--ls-accent2);outline-offset:2px;border-radius:4px}
+.ls-track.is-key{border-radius:4px}
 .ls-rail{position:relative;width:100%;height:4px;border-radius:2px;background:var(--ls-line);transform-origin:50% 50%;overflow:hidden}
 .ls-track:hover .ls-rail,.ls-track.is-key .ls-rail,.ls-scrub .ls-rail{transform:scaleY(2)}
 .ls-played,.ls-buf{position:absolute;left:0;top:0;bottom:0;width:100%;transform:scaleX(0);transform-origin:0 50%}
@@ -233,7 +242,8 @@ export const CSS = `
 .ls-float .ls-btn:hover{background:rgba(255,255,255,.16)}
 .ls-float .ls-btn[aria-pressed=true]{background:transparent}
 .ls-float .ls-cc[aria-pressed=false]{opacity:.55}
-.ls-float .ls-ai{position:absolute;top:8px;inset-inline-end:8px;z-index:3;color:#eee;border-color:rgba(255,255,255,.45);background:rgba(0,0,0,.45)}
+/* The AI badge on the picture: dark enough under its 12 px text to read on the lightest stage (8:1; it was 3.2:1). */
+.ls-float .ls-ai{position:absolute;top:8px;inset-inline-end:8px;z-index:3;color:#eee;border-color:rgba(255,255,255,.45);background:rgba(0,0,0,.72)}
 .ls-player:not(.ls-float) .ls-ai{align-self:flex-end;margin:0 8px 6px}
 .ls-float.ls-idle .ls-row,.ls-float.ls-idle .ls-bar::before,.ls-float.ls-idle .ls-ai{opacity:0}
 .ls-float.ls-idle .ls-row,.ls-float.ls-idle .ls-track{pointer-events:none}
@@ -247,11 +257,18 @@ export const CSS = `
 .ls-narrow .ls-time{font-size:12px;padding:0 3px}
 .ls-narrow .ls-cluster{gap:0}
 .ls-narrow .ls-row{gap:2px;padding-left:2px;padding-right:2px}
+/* A portrait video on a phone (about 256 px): no next-scene or volume button, and a row that wraps rather than overlaps. */
+.ls-tiny .ls-next,.ls-tiny .ls-volbox{display:none}
+.ls-tiny .ls-row{flex-wrap:wrap;row-gap:0}
+.ls-tiny .ls-cluster{min-width:auto}
+.ls-tiny .ls-cluster:last-child{margin-inline-start:auto}
 @media (pointer:coarse){.ls-track{height:28px}.ls-btn,.ls-narrow .ls-btn{height:44px}}
 .ls-player:fullscreen{background:#000;display:flex;flex-direction:column;justify-content:center;height:100%;height:100dvh}
 .ls-player:fullscreen .ls-main,.ls-full .ls-main{width:min(100%,calc(100vh * var(--ls-ar,1.78)));width:min(100%,calc(100dvh * var(--ls-ar,1.78)));margin:0 auto}
 .ls-asking:not(.ls-full):not(:fullscreen) .ls-check,.ls-asking:not(.ls-full):not(:fullscreen) .ls-end{position:relative;background:var(--ls-surface);padding:12px 8px}
-.ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-bar,.ls-asking:not(.ls-full):not(:fullscreen).ls-narrow .ls-viewport{display:none}
+/* While asking, a player in a page column (compact: under 720 px) swaps the picture for the card, as phones always did:
+   the paused picture repeated the question with options that did nothing, and pushed the card under the page's bar. */
+.ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-bar,.ls-asking:not(.ls-full):not(:fullscreen).ls-compact .ls-viewport{display:none}
 /* iPhone has no Fullscreen API for a div: cover the visual viewport, including the notch and home bar. */
 .ls-full{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;z-index:2147483000;box-sizing:border-box;background:#000;
   display:flex;flex-direction:column;justify-content:center;overflow:hidden;overscroll-behavior:none;

@@ -1,60 +1,205 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "bot",
-          "text": {
-            "en": "A language model guesses the next token from",
-            "ar-EG": "النموذج اللغوي بيخمّن الرمز الجاي من الأنماط"
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "tok",
+            "kind": "input",
+            "label": {
+              "en": "Tokens so far",
+              "ar-EG": "التوكنز السابقة"
+            }
           },
-          "s": 0
-        },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "It does not look facts up, unless a",
-            "ar-EG": "ومش بيدوّر على حقائق، إلا لو أداة لوحدها"
+          {
+            "id": "emb",
+            "kind": "embed",
+            "label": {
+              "en": "Embedding",
+              "ar-EG": "التضمين"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
           },
-          "s": 1
-        }
-      ]
+          {
+            "id": "low",
+            "kind": "model",
+            "label": {
+              "en": "Block",
+              "ar-EG": "كتلة"
+            }
+          },
+          {
+            "id": "top",
+            "kind": "model",
+            "label": {
+              "en": "Top block",
+              "ar-EG": "الكتلة اللي فوق"
+            },
+            "note": {
+              "en": "learns",
+              "ar-EG": "بتتعلّم"
+            }
+          },
+          {
+            "id": "out",
+            "kind": "softmax",
+            "label": {
+              "en": "Next token",
+              "ar-EG": "التوكن الجاي"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "tok",
+            "to": "emb"
+          },
+          {
+            "from": "emb",
+            "to": "low"
+          },
+          {
+            "from": "low",
+            "to": "top"
+          },
+          {
+            "from": "top",
+            "to": "out"
+          }
+        ],
+        "groups": [
+          {
+            "id": "frozen",
+            "label": {
+              "en": "Frozen",
+              "ar-EG": "مجمّدة"
+            },
+            "repeat": 5,
+            "blocks": [
+              "low"
+            ]
+          }
+        ],
+        "focus": [
+          {
+            "block": "out",
+            "s": 0
+          }
+        ],
+        "pass": 0
+      }
     },
     "3": {
-      "cards": [
-        {
-          "icon": "layers",
-          "text": {
-            "en": "Last layer",
-            "ar-EG": "الطبقة الأخيرة"
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "tok",
+            "kind": "input",
+            "label": {
+              "en": "Tokens so far",
+              "ar-EG": "التوكنز السابقة"
+            }
           },
-          "s": 0
-        },
-        {
-          "icon": "lock",
-          "text": {
-            "en": "The rest frozen",
-            "ar-EG": "الباقي مجمّد"
+          {
+            "id": "emb",
+            "kind": "embed",
+            "label": {
+              "en": "Embedding",
+              "ar-EG": "التضمين"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
           },
-          "s": 1
-        },
-        {
-          "icon": "check",
-          "text": {
-            "en": "A few examples",
-            "ar-EG": "أمثلة قليلة"
+          {
+            "id": "low",
+            "kind": "model",
+            "label": {
+              "en": "Block",
+              "ar-EG": "كتلة"
+            }
           },
-          "s": 1
-        }
-      ],
-      "arrows": true
+          {
+            "id": "top",
+            "kind": "model",
+            "label": {
+              "en": "Top block",
+              "ar-EG": "الكتلة اللي فوق"
+            },
+            "note": {
+              "en": "learns",
+              "ar-EG": "بتتعلّم"
+            }
+          },
+          {
+            "id": "out",
+            "kind": "softmax",
+            "label": {
+              "en": "Next token",
+              "ar-EG": "التوكن الجاي"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "tok",
+            "to": "emb"
+          },
+          {
+            "from": "emb",
+            "to": "low"
+          },
+          {
+            "from": "low",
+            "to": "top"
+          },
+          {
+            "from": "top",
+            "to": "out"
+          }
+        ],
+        "groups": [
+          {
+            "id": "frozen",
+            "label": {
+              "en": "Frozen",
+              "ar-EG": "مجمّدة"
+            },
+            "repeat": 5,
+            "blocks": [
+              "low"
+            ]
+          }
+        ],
+        "focus": [
+          {
+            "block": "top",
+            "s": 0
+          }
+        ],
+        "pass": 1
+      }
     },
     "4": {
       "list": [
         {
           "icon": "phone",
           "text": {
-            "en": "That is the honest version a phone can",
+            "en": "That is the honest version a phone can run",
             "ar-EG": "دي النسخة الصادقة اللي الموبايل يقدر يشغّلها"
           },
           "s": 0
@@ -82,8 +227,8 @@
         {
           "icon": "eye",
           "text": {
-            "en": "Say which part moved before you say the",
-            "ar-EG": "قول أي جزء اتحرّك قبل ما تقول النموذج"
+            "en": "Name what moved before saying it learned",
+            "ar-EG": "قول إيه اللي اتحرّك قبل ما تقول اتعلّم"
           },
           "s": 1
         }
@@ -92,7 +237,101 @@
     "6": {
       "who": null,
       "arch": {
-        "preset": "gpt",
+        "blocks": [
+          {
+            "id": "tok",
+            "kind": "input",
+            "label": {
+              "en": "Tokens so far",
+              "ar-EG": "التوكنز السابقة"
+            }
+          },
+          {
+            "id": "emb",
+            "kind": "embed",
+            "label": {
+              "en": "Embedding",
+              "ar-EG": "التضمين"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
+          },
+          {
+            "id": "low",
+            "kind": "model",
+            "label": {
+              "en": "Block",
+              "ar-EG": "كتلة"
+            }
+          },
+          {
+            "id": "top",
+            "kind": "model",
+            "label": {
+              "en": "Top block",
+              "ar-EG": "الكتلة اللي فوق"
+            },
+            "note": {
+              "en": "learns",
+              "ar-EG": "بتتعلّم"
+            }
+          },
+          {
+            "id": "out",
+            "kind": "softmax",
+            "label": {
+              "en": "Next token",
+              "ar-EG": "التوكن الجاي"
+            },
+            "note": {
+              "en": "frozen",
+              "ar-EG": "مجمّد"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "tok",
+            "to": "emb"
+          },
+          {
+            "from": "emb",
+            "to": "low"
+          },
+          {
+            "from": "low",
+            "to": "top"
+          },
+          {
+            "from": "top",
+            "to": "out"
+          }
+        ],
+        "groups": [
+          {
+            "id": "frozen",
+            "label": {
+              "en": "Frozen",
+              "ar-EG": "مجمّدة"
+            },
+            "repeat": 5,
+            "blocks": [
+              "low"
+            ]
+          }
+        ],
+        "focus": [
+          {
+            "block": "low",
+            "s": 0
+          },
+          {
+            "block": "top",
+            "s": 1
+          }
+        ],
         "pass": 1
       }
     },
@@ -101,8 +340,8 @@
         {
           "icon": "check",
           "text": {
-            "en": "The last layer, on a few examples",
-            "ar-EG": "الطبقة الأخيرة، على أمثلة قليلة"
+            "en": "The top block, on a few examples",
+            "ar-EG": "الكتلة اللي فوق، على أمثلة قليلة"
           },
           "s": 0
         },
@@ -127,15 +366,15 @@
         },
         {
           "text": {
-            "en": "Teach the top layer a new job, and",
-            "ar-EG": "علّم الطبقة اللي فوق مهمة جديدة، وسمّي إجابة"
+            "en": "Teach the top block a new job",
+            "ar-EG": "علّم الكتلة اللي فوق مهمة جديدة"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The teach lab",
-            "ar-EG": "معمل التعليم"
+            "en": "Name one old answer to check",
+            "ar-EG": "سمّي إجابة قديمة هتراجعها"
           },
           "s": 1
         }
@@ -146,23 +385,23 @@
         {
           "icon": "check",
           "text": {
-            "en": "Name the layer that moved An old skill",
-            "ar-EG": "سمّي الطبقة اللي اتحركت ومهارة قديمة ممكن تتزحلق"
+            "en": "Name the layer that moved",
+            "ar-EG": "سمّي الطبقة اللي اتحركت"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Name the layer",
-            "ar-EG": "سمّي الطبقة"
+            "en": "An old skill can slip",
+            "ar-EG": "مهارة قديمة ممكن تتزحلق"
           },
-          "s": 1
+          "s": 2
         }
       ],
       "takeaway": {
-        "en": "Name the layer that moved An old skill",
-        "ar-EG": "سمّي الطبقة اللي اتحركت ومهارة قديمة ممكن تتزحلق"
+        "en": "Only the top block learned; the rest stayed frozen.",
+        "ar-EG": "الكتلة اللي فوق بس اتعلّمت، والباقي فضل مجمّد."
       }
     },
     "12": {
@@ -178,8 +417,16 @@
         {
           "icon": "lock",
           "text": {
-            "en": "Write what the update was allowed to change,",
-            "ar-EG": "اكتب إيه اللي التحديث كان مسموح يغيّره، وإيه"
+            "en": "Write what the update could change",
+            "ar-EG": "اكتب التحديث كان مسموح يغيّر إيه"
+          },
+          "s": 1
+        },
+        {
+          "icon": "warning",
+          "text": {
+            "en": "And what it was too small to change",
+            "ar-EG": "وإيه اللي معندوش حجم يغيّره"
           },
           "s": 1
         }

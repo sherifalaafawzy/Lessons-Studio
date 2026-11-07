@@ -237,16 +237,16 @@
     "prompt": "COUNT(*) says 12, but COUNT(mark) says 11. Why?",
     "options": [
      {
-      "text": "One mark is NULL",
-      "correct": true
+      "text": "COUNT is broken",
+      "correct": false
      },
      {
       "text": "One pupil is counted twice",
       "correct": false
      },
      {
-      "text": "COUNT is broken",
-      "correct": false
+      "text": "One mark is NULL",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct — COUNT(*) counts every row; COUNT(mark) skips the NULL.",
@@ -260,16 +260,16 @@
     "prompt": "Which line keeps only the rows for class 5B?",
     "options": [
      {
-      "text": "WHERE class = '5B'",
-      "correct": true
+      "text": "ORDER BY class",
+      "correct": false
      },
      {
       "text": "GROUP BY class",
       "correct": false
      },
      {
-      "text": "ORDER BY class",
-      "correct": false
+      "text": "WHERE class = '5B'",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct — WHERE keeps only the rows that match; the text goes in single quotes.",

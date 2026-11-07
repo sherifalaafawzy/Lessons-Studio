@@ -58,9 +58,9 @@
     {
       "prompt": "⁦COUNT(*)⁩ بتقول 12، بس ⁦COUNT(mark)⁩ بتقول 11. ليه؟",
       "options": [
-        "فيه درجة ⁦NULL⁩",
+        "⁦COUNT⁩ بايظة",
         "تلميذ اتعدّ مرتين",
-        "⁦COUNT⁩ بايظة"
+        "فيه درجة ⁦NULL⁩"
       ],
       "feedback_correct": "صح — ⁦COUNT(*)⁩ بتعدّ كل صف، و⁦COUNT(mark)⁩ بتتجاهل الـ⁦NULL⁩.",
       "feedback_wrong": "مش بالظبط — ⁦COUNT(mark)⁩ بتتجاهل القيم الفاضية. ودرجة ⁦NULL⁩ واحدة بتخلّيها أقل بواحد من ⁦COUNT(*)⁩."
@@ -68,9 +68,9 @@
     {
       "prompt": "أنهي سطر بيسيب صفوف فصل 5B بس؟",
       "options": [
-        "⁦WHERE class = '5B'⁩",
+        "⁦ORDER BY class⁩",
         "⁦GROUP BY class⁩",
-        "⁦ORDER BY class⁩"
+        "⁦WHERE class = '5B'⁩"
       ],
       "feedback_correct": "صح — ⁦WHERE⁩ بتسيب الصفوف المطابقة بس، والكلام بين علامتين مفردتين.",
       "feedback_wrong": "مش بالظبط — ⁦GROUP BY⁩ بتعمل صف لكل فصل، و⁦ORDER BY⁩ بترتّب. ⁦WHERE⁩ بس هي اللي بتشيل صفوف."

@@ -180,7 +180,7 @@
     "animation": "Each item arrives as it is said.",
     "on_screen_text": "App lab: rules around the model",
     "voice": "Narrator",
-    "narration": "In the app, pick the scam with plain words and filter the outgoing message: it's caught. Switch to the reworded scam: it slips past. Then say the agent was tricked and turn on the check in code: stopped, every time.",
+    "narration": "In the app, pick the scam with plain words and keep “Filter the outgoing message” on: it's caught. Switch to the reworded scam: it slips past. Then say the agent was tricked and turn on the check in code: stopped, every time.",
     "icons": [
      "filter",
      "warning",
@@ -232,7 +232,7 @@
     "at": "1:16",
     "after_scene": 6,
     "type": "choice",
-    "prompt": "A filter blocks any message with the word “PIN”. Which message gets past it?",
+    "prompt": "A filter blocks any message with the word “PIN”, in capitals or small letters. Which message gets past it?",
     "options": [
      {
       "text": "“What is your PIN?”",
@@ -258,12 +258,12 @@
     "prompt": "The bot wants to send a message nobody asked for. It contains no banned words. What should the check in code do?",
     "options": [
      {
-      "text": "Send it: no banned words",
-      "correct": false
-     },
-     {
       "text": "Block it: nobody asked or said yes",
       "correct": true
+     },
+     {
+      "text": "Send it: no banned words",
+      "correct": false
      },
      {
       "text": "Ask the model whether it's safe",

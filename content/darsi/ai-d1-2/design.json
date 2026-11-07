@@ -1,155 +1,290 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "gauge",
-          "text": {
-            "en": "A ball sits high on a valley",
-            "ar-EG": "كرة واقفة فوق في وادي"
-          },
-          "s": 0
-        },
-        {
-          "icon": "warning",
-          "text": {
-            "en": "One step can walk it down, or throw",
-            "ar-EG": "خطوة واحدة ممكن تنزّلها، أو ترميها بره الناحية"
-          },
-          "s": 1
-        }
-      ]
-    },
-    "3": {
-      "cards": [
-        {
-          "icon": "calculator",
-          "text": {
-            "en": "The loss",
-            "ar-EG": "الخسارة"
-          },
-          "s": 0
-        },
-        {
-          "icon": "target",
-          "text": {
-            "en": "The weights",
-            "ar-EG": "الأوزان"
-          },
-          "s": 1
-        },
-        {
-          "icon": "arrow",
-          "text": {
-            "en": "Make it small",
-            "ar-EG": "صغّرها"
-          },
-          "s": 1
-        }
-      ],
-      "arrows": true
-    },
-    "4": {
-      "list": [
-        {
-          "icon": "arrow",
-          "text": {
-            "en": "The gradient points uphill, locally",
-            "ar-EG": "التدرّج بيشاور لفوق، محليًا"
-          },
-          "s": 0
-        },
-        {
-          "icon": "gauge",
-          "text": {
-            "en": "Descent steps the other way, against it",
-            "ar-EG": "والنزول يخطو في الاتجاه التاني، عكسه"
-          },
-          "s": 1
-        }
-      ]
-    },
-    "5": {
-      "list": [
-        {
-          "icon": "calculator",
-          "text": {
-            "en": "For the loss theta squared, the slope is",
-            "ar-EG": "للخسارة ثيتا تربيع، الميل اتنين في ثيتا"
-          },
-          "s": 0
-        },
-        {
-          "icon": "check",
-          "text": {
-            "en": "At three, with a rate of a tenth,",
-            "ar-EG": "عند تلاتة، وبمعدّل واحد من عشرة، القيمة الجاية"
-          },
-          "s": 1
-        }
-      ]
-    },
-    "6": {
       "who": null,
-      "descent": {
-        "fn": "x^2",
-        "x0": 3,
-        "lr": 0.1,
-        "steps": 5,
+      "plot": {
         "xr": [
-          -1,
-          4
+          -4.4,
+          4.4
         ],
         "yr": [
           0,
-          12
+          20
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "weight",
+          "ar-EG": "الوزن"
+        },
+        "yLabel": {
+          "en": "loss",
+          "ar-EG": "الخسارة"
+        },
+        "series": [
+          {
+            "kind": "fn",
+            "fn": "x^2",
+            "tone": "fg"
+          },
+          {
+            "kind": "marker",
+            "tone": "ok",
+            "trail": true,
+            "label": {
+              "en": "Small step",
+              "ar-EG": "خطوة صغيرة"
+            },
+            "pts": [
+              [
+                3,
+                9
+              ],
+              [
+                2.4,
+                5.76
+              ],
+              [
+                1.92,
+                3.69
+              ],
+              [
+                1.54,
+                2.36
+              ],
+              [
+                1.23,
+                1.51
+              ],
+              [
+                0.98,
+                0.97
+              ]
+            ]
+          },
+          {
+            "kind": "marker",
+            "tone": "danger",
+            "trail": false,
+            "label": {
+              "en": "Too big",
+              "ar-EG": "كبيرة زيادة"
+            },
+            "pts": [
+              [
+                3,
+                9
+              ],
+              [
+                3,
+                9
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ]
+            ]
+          }
         ],
         "frames": [
+          0,
+          1
+        ],
+        "s": 0
+      }
+    },
+    "3": {
+      "who": null,
+      "equation": {
+        "tex": "L=(\\hat{y}-y)^2",
+        "size": 64,
+        "s": 0
+      }
+    },
+    "4": {
+      "who": null,
+      "network": {
+        "layers": [
+          1,
+          2,
+          1
+        ],
+        "names": [
+          {
+            "en": "Input",
+            "ar-EG": "المدخل"
+          },
+          {
+            "en": "Hidden",
+            "ar-EG": "مخفية"
+          },
+          {
+            "en": "Loss",
+            "ar-EG": "الخسارة"
+          }
+        ],
+        "s": 0,
+        "forward": 0,
+        "backward": 1
+      }
+    },
+    "5": {
+      "who": null,
+      "equation": {
+        "tex": "\\g{1}{\\theta=3-0.1\\times 6}\\g{2}{=2.4}",
+        "size": 56,
+        "parts": [
           0,
           1
         ]
       }
     },
-    "8": {
-      "list": [
-        {
-          "icon": "check",
-          "text": {
-            "en": "At two point four",
-            "ar-EG": "عند اتنين علامة أربعة"
-          },
-          "s": 0
+    "6": {
+      "who": null,
+      "plot": {
+        "xr": [
+          -4.4,
+          4.4
+        ],
+        "yr": [
+          0,
+          20
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "weight",
+          "ar-EG": "الوزن"
         },
-        {
-          "icon": "gauge",
-          "text": {
-            "en": "The slope is six, and a tenth of",
-            "ar-EG": "الميل ستة، وعُشر الستة بيفضل جوه الوادي"
+        "yLabel": {
+          "en": "loss",
+          "ar-EG": "الخسارة"
+        },
+        "series": [
+          {
+            "kind": "fn",
+            "fn": "x^2",
+            "tone": "fg"
           },
-          "s": 1
-        }
-      ]
+          {
+            "kind": "marker",
+            "tone": "ok",
+            "trail": true,
+            "label": {
+              "en": "Small step",
+              "ar-EG": "خطوة صغيرة"
+            },
+            "pts": [
+              [
+                3,
+                9
+              ],
+              [
+                2.4,
+                5.76
+              ],
+              [
+                1.92,
+                3.69
+              ],
+              [
+                1.54,
+                2.36
+              ],
+              [
+                1.23,
+                1.51
+              ],
+              [
+                0.98,
+                0.97
+              ]
+            ]
+          },
+          {
+            "kind": "marker",
+            "tone": "danger",
+            "trail": false,
+            "label": {
+              "en": "Too big",
+              "ar-EG": "كبيرة زيادة"
+            },
+            "pts": [
+              [
+                3,
+                9
+              ],
+              [
+                3,
+                9
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ],
+              [
+                -4,
+                16
+              ]
+            ]
+          }
+        ],
+        "frames": [
+          0,
+          1
+        ],
+        "s": 0
+      }
+    },
+    "8": {
+      "who": null,
+      "equation": {
+        "tex": "\\g{1}{\\theta=2-\\frac{1}{4}\\times 4}\\g{2}{=1}",
+        "size": 56,
+        "parts": [
+          0,
+          1
+        ]
+      }
     },
     "9": {
       "steps": [
         {
           "text": {
-            "en": "In the app, open the gradient lab",
-            "ar-EG": "في التطبيق، افتح معمل التدرّج"
+            "en": "In the app, open Gradient descent",
+            "ar-EG": "في التطبيق، افتح «الانحدار التدريجي»"
           },
           "s": 0
         },
         {
           "text": {
-            "en": "Run a good step, then a step that",
-            "ar-EG": "شغّل خطوة كويسة، وبعدين خطوة كبيرة زيادة، وشوف"
+            "en": "Run Good, then Too big",
+            "ar-EG": "شغّل «مناسبة»، وبعدين «كبيرة جدًا»"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The gradient lab",
-            "ar-EG": "معمل التدرّج"
+            "en": "Watch where the ball goes",
+            "ar-EG": "شوف الكرة بتروح فين"
           },
           "s": 1
         }
@@ -160,44 +295,35 @@
         {
           "icon": "check",
           "text": {
-            "en": "The gradient points uphill, and the size of",
-            "ar-EG": "التدرّج بيشاور لفوق، وحجم الخطوة هو اللي يقرر"
+            "en": "The gradient points uphill",
+            "ar-EG": "التدرّج بيشاور لفوق"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Slope and step",
-            "ar-EG": "الميل والخطوة"
+            "en": "Step size decides if you stay",
+            "ar-EG": "حجم الخطوة بيقرر هتفضل ولا لأ"
           },
           "s": 1
         }
       ],
       "takeaway": {
-        "en": "The gradient points uphill, and the size of",
-        "ar-EG": "التدرّج بيشاور لفوق، وحجم الخطوة هو اللي يقرر"
+        "en": "Too big a step climbs out of the valley.",
+        "ar-EG": "الخطوة الكبيرة زيادة بتطلع بره الوادي."
       }
     },
     "12": {
-      "list": [
-        {
-          "icon": "pencil",
-          "text": {
-            "en": "Try it on paper tonight",
-            "ar-EG": "جرّبها على الورق الليلة"
-          },
-          "s": 0
-        },
-        {
-          "icon": "calculator",
-          "text": {
-            "en": "Take the step from three, at a rate",
-            "ar-EG": "خد الخطوة من تلاتة، بمعدّل واحد من عشرة،"
-          },
-          "s": 1
-        }
-      ]
+      "who": null,
+      "equation": {
+        "tex": "\\g{1}{\\theta=3-0.1\\times 6}\\g{2}{=2.4}",
+        "size": 56,
+        "parts": [
+          0,
+          1
+        ]
+      }
     }
   }
 }

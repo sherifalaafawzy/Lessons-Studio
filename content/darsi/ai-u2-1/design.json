@@ -3,71 +3,262 @@
     "1": {
       "mood": "curious",
       "list": [
-        { "icon": "target", "text": { "en": "A ring of points", "ar-EG": "حلقة من النقط" }, "s": 0 },
-        { "icon": "warning", "text": { "en": "A line misses it", "ar-EG": "خط بيخطئها" }, "s": 1, "tone": "accent" }
+        {
+          "icon": "warning",
+          "text": {
+            "en": "Deeper is not simply smarter",
+            "ar-EG": "الأعمق مش بالضرورة أذكى"
+          },
+          "s": 0
+        },
+        {
+          "icon": "target",
+          "text": {
+            "en": "A ring no straight line separates",
+            "ar-EG": "حلقة مفيش خط مستقيم يفصلها"
+          },
+          "s": 1
+        },
+        {
+          "icon": "help",
+          "text": {
+            "en": "Which part bends the line?",
+            "ar-EG": "أنهي جزء بيحني الخط؟"
+          },
+          "s": 1,
+          "tone": "accent"
+        }
       ]
     },
     "3": {
-      "cards": [
-        { "icon": "calculator", "text": { "en": "Weights", "ar-EG": "الأوزان" }, "s": 0 },
-        { "icon": "arrow", "text": { "en": "A bias", "ar-EG": "انحياز" }, "s": 1 },
-        { "icon": "spark", "text": { "en": "Activation", "ar-EG": "التنشيط" }, "s": 1 }
-      ],
-      "arrows": true
+      "who": null,
+      "network": {
+        "layers": [
+          2,
+          1
+        ],
+        "in": [
+          {
+            "en": "x₁",
+            "ar-EG": "س١"
+          },
+          {
+            "en": "x₂",
+            "ar-EG": "س٢"
+          }
+        ],
+        "out": [
+          {
+            "en": "output",
+            "ar-EG": "المخرج"
+          }
+        ],
+        "names": [
+          {
+            "en": "Inputs",
+            "ar-EG": "المدخلات"
+          },
+          {
+            "en": "The bend",
+            "ar-EG": "الانحناء"
+          }
+        ],
+        "s": 0,
+        "forward": 1
+      },
+      "equation": {
+        "tex": "\\hat{y}=g(w_1 x_1+w_2 x_2+b)",
+        "size": 48,
+        "s": 0
+      }
     },
     "4": {
       "who": null,
-      "compare": {
-        "left": {
-          "title": { "en": "One neuron", "ar-EG": "خلية واحدة" },
-          "icon": "cpu",
-          "tone": "accent",
-          "s": 0,
-          "items": [{ "icon": "arrow", "text": { "en": "One straight cut", "ar-EG": "قطع مستقيم واحد" }, "s": 0 }]
-        },
-        "right": {
-          "title": { "en": "No activation", "ar-EG": "من غير تنشيط" },
-          "icon": "layers",
-          "tone": "danger",
-          "s": 1,
-          "items": [{ "icon": "arrow", "text": { "en": "Still one cut", "ar-EG": "لسه قطع واحد" }, "s": 1 }]
-        }
+      "network": {
+        "layers": [
+          2,
+          3,
+          1
+        ],
+        "names": [
+          {
+            "en": "Inputs",
+            "ar-EG": "المدخلات"
+          },
+          {
+            "en": "No bend",
+            "ar-EG": "من غير انحناء"
+          },
+          {
+            "en": "One cut",
+            "ar-EG": "قطع واحد"
+          }
+        ],
+        "s": 0
+      },
+      "equation": {
+        "tex": "\\hat{y}=Wx+b",
+        "size": 52,
+        "s": 1
       }
     },
     "5": {
-      "list": [
-        { "icon": "spark", "text": { "en": "The activation", "ar-EG": "التنشيط" }, "s": 0 },
-        { "icon": "arrow", "text": { "en": "A bend, not a line", "ar-EG": "انحناء، مش خط" }, "s": 1, "tone": "ok" }
-      ]
+      "who": null,
+      "plot": {
+        "xr": [
+          -2,
+          2
+        ],
+        "yr": [
+          -0.5,
+          2
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "sum",
+          "ar-EG": "المجموع"
+        },
+        "yLabel": {
+          "en": "output",
+          "ar-EG": "المخرج"
+        },
+        "series": [
+          {
+            "kind": "fn",
+            "fn": "x",
+            "tone": "muted",
+            "dash": true,
+            "label": {
+              "en": "No bend",
+              "ar-EG": "من غير انحناء"
+            }
+          },
+          {
+            "kind": "fn",
+            "fn": "max(0, x)",
+            "tone": "accent",
+            "label": {
+              "en": "The bend",
+              "ar-EG": "الانحناء"
+            }
+          }
+        ],
+        "s": 0
+      }
     },
     "6": {
       "who": null,
-      "training": { "data": "circle", "show": "both", "frames": [0, 1] }
+      "training": {
+        "data": "circle",
+        "layers": [
+          2,
+          4,
+          4,
+          1
+        ],
+        "show": "both",
+        "frames": [
+          0,
+          1
+        ]
+      }
     },
     "8": {
       "list": [
-        { "icon": "check", "text": { "en": "One straight cut", "ar-EG": "قطع مستقيم واحد" }, "s": 0, "tone": "ok" },
-        { "icon": "layers", "text": { "en": "A curve needs a bend", "ar-EG": "المنحنى محتاج انحناء" }, "s": 1 }
+        {
+          "icon": "check",
+          "text": {
+            "en": "One straight cut",
+            "ar-EG": "قطع مستقيم واحد"
+          },
+          "s": 0,
+          "tone": "ok"
+        },
+        {
+          "icon": "layers",
+          "text": {
+            "en": "A curve needs a bend",
+            "ar-EG": "المنحنى محتاج انحناء"
+          },
+          "s": 1
+        }
       ]
     },
     "9": {
       "steps": [
-        { "text": { "en": "Open the playground", "ar-EG": "افتح الملعب" }, "s": 0 },
-        { "text": { "en": "Train on a ring", "ar-EG": "درّب على حلقة" }, "s": 1 },
-        { "text": { "en": "Watch the boundary bend", "ar-EG": "شوف الحد بينحني" }, "s": 1 }
+        {
+          "text": {
+            "en": "Pairs name a shape no line separates",
+            "ar-EG": "كل اتنين يسمّوا شكل مفيش خط يفصله"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Then open the playground",
+            "ar-EG": "وبعدين افتحوا الملعب"
+          },
+          "s": 0
+        },
+        {
+          "text": {
+            "en": "Say what the hidden layer added",
+            "ar-EG": "قولوا الطبقة المخفية ضافت إيه"
+          },
+          "s": 1
+        }
       ]
     },
     "11": {
       "points": [
-        { "icon": "cpu", "text": { "en": "One neuron, one cut", "ar-EG": "خلية واحدة، قطع واحد" }, "s": 1 },
-        { "icon": "spark", "text": { "en": "The bend is the activation", "ar-EG": "الانحناء هو التنشيط" }, "s": 1 }
+        {
+          "icon": "cpu",
+          "text": {
+            "en": "One neuron, one cut",
+            "ar-EG": "خلية واحدة، قطع واحد"
+          },
+          "s": 1
+        },
+        {
+          "icon": "spark",
+          "text": {
+            "en": "The bend is the activation",
+            "ar-EG": "الانحناء هو التنشيط"
+          },
+          "s": 1
+        }
       ],
-      "takeaway": { "en": "Depth bends only with an activation.", "ar-EG": "العمق بيحني بس مع تنشيط." }
+      "takeaway": {
+        "en": "Depth bends only with an activation.",
+        "ar-EG": "العمق بيحني بس مع تنشيط."
+      }
     },
     "12": {
       "list": [
-        { "icon": "pencil", "text": { "en": "Two inputs, two weights", "ar-EG": "مدخلين ووزنين" }, "s": 1 },
-        { "icon": "calculator", "text": { "en": "A bias, then a ReLU", "ar-EG": "انحياز، وبعدين ريلو" }, "s": 1 }
+        {
+          "icon": "presentation",
+          "text": {
+            "en": "Try it in your next lecture",
+            "ar-EG": "جرّبها في محاضرتك الجاية"
+          },
+          "s": 0
+        },
+        {
+          "icon": "phone",
+          "text": {
+            "en": "One phone between two",
+            "ar-EG": "موبايل واحد بين اتنين"
+          },
+          "s": 1
+        },
+        {
+          "icon": "pencil",
+          "text": {
+            "en": "Mark: what does the activation do?",
+            "ar-EG": "صحّح: التنشيط بيعمل إيه؟"
+          },
+          "s": 1
+        }
       ]
     }
   }

@@ -1,69 +1,122 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "target",
-          "text": {
-            "en": "The charger is at the end of the",
-            "ar-EG": "الشاحن في آخر المسار"
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "agent",
+            "kind": "model",
+            "label": {
+              "en": "Agent",
+              "ar-EG": "الوكيل"
+            }
           },
-          "s": 0
-        },
-        {
-          "icon": "arrow",
-          "text": {
-            "en": "The early steps get no reward, and they",
-            "ar-EG": "الخطوات الأولى مش بتاخد مكافأة، وبرضه لازم تتعلّم"
+          {
+            "id": "world",
+            "kind": "box",
+            "label": {
+              "en": "World",
+              "ar-EG": "الدنيا"
+            }
           },
-          "s": 1
-        }
-      ]
+          {
+            "id": "reward",
+            "kind": "output",
+            "label": {
+              "en": "Later reward",
+              "ar-EG": "مكافأة متأخرة"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "agent",
+            "to": "world"
+          },
+          {
+            "from": "world",
+            "to": "reward"
+          },
+          {
+            "from": "reward",
+            "to": "agent",
+            "skip": true,
+            "label": {
+              "en": "credit",
+              "ar-EG": "الفضل"
+            }
+          }
+        ],
+        "pass": 1
+      }
     },
     "3": {
-      "cards": [
-        {
-          "icon": "arrow",
-          "text": {
-            "en": "An action",
-            "ar-EG": "فعل"
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "agent",
+            "kind": "model",
+            "label": {
+              "en": "Agent",
+              "ar-EG": "الوكيل"
+            }
           },
-          "s": 0
-        },
-        {
-          "icon": "gauge",
-          "text": {
-            "en": "A late reward",
-            "ar-EG": "مكافأة متأخرة"
+          {
+            "id": "world",
+            "kind": "box",
+            "label": {
+              "en": "World",
+              "ar-EG": "الدنيا"
+            }
           },
-          "s": 1
-        },
-        {
-          "icon": "map",
-          "text": {
-            "en": "Credit travels",
-            "ar-EG": "الفضل يرجع"
+          {
+            "id": "reward",
+            "kind": "output",
+            "label": {
+              "en": "Later reward",
+              "ar-EG": "مكافأة متأخرة"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "agent",
+            "to": "world"
           },
-          "s": 1
-        }
-      ],
-      "arrows": true
+          {
+            "from": "world",
+            "to": "reward"
+          },
+          {
+            "from": "reward",
+            "to": "agent",
+            "skip": true,
+            "label": {
+              "en": "credit",
+              "ar-EG": "الفضل"
+            }
+          }
+        ],
+        "pass": 1
+      }
     },
     "4": {
       "list": [
         {
           "icon": "map",
           "text": {
-            "en": "Value is how good it is to stand",
-            "ar-EG": "القيمة هي قد إيه الوقوف على المربع كويس"
+            "en": "Value: how good a square is",
+            "ar-EG": "القيمة: المربع ده كويس قد إيه"
           },
           "s": 0
         },
         {
           "icon": "arrow",
           "text": {
-            "en": "Policy is what to do there, and they",
-            "ar-EG": "والسياسة هي تعمل إيه هناك، وهما صورتين مختلفين"
+            "en": "Policy: what to do there",
+            "ar-EG": "السياسة: تعمل إيه هناك"
           },
           "s": 1
         }
@@ -74,8 +127,8 @@
         {
           "icon": "warning",
           "text": {
-            "en": "Score spinning highly and a robot will spin",
-            "ar-EG": "ادي الدوران درجة عالية والروبوت هيلف في البركة"
+            "en": "Score spinning, and the robot spins in the puddle",
+            "ar-EG": "ادي الدوران درجة، والروبوت هيلف في البركة"
           },
           "s": 0
         },
@@ -97,7 +150,7 @@
             "en": "Value",
             "ar-EG": "القيمة"
           },
-          "icon": "target",
+          "icon": "map",
           "tone": "accent",
           "s": 0,
           "items": [
@@ -116,8 +169,8 @@
             "en": "Policy",
             "ar-EG": "السياسة"
           },
-          "icon": "warning",
-          "tone": "danger",
+          "icon": "arrow",
+          "tone": "accent",
           "s": 1,
           "items": [
             {
@@ -145,7 +198,7 @@
         {
           "icon": "arrow",
           "text": {
-            "en": "The earlier steps have to learn that they",
+            "en": "The earlier steps have to learn that they helped",
             "ar-EG": "الخطوات الأولى لازم تتعلّم إنها ساعدت"
           },
           "s": 1
@@ -163,15 +216,15 @@
         },
         {
           "text": {
-            "en": "Watch the values spread, and point at one",
-            "ar-EG": "شوف القيم وهي بتنتشر، وشاور على قيمة مربع"
+            "en": "Watch the values spread",
+            "ar-EG": "شوف القيم وهي بتنتشر"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The reward lab",
-            "ar-EG": "معمل المكافأة"
+            "en": "Point at one square's value and action",
+            "ar-EG": "شاور على قيمة مربع والفعل بتاعه"
           },
           "s": 1
         }
@@ -182,23 +235,23 @@
         {
           "icon": "check",
           "text": {
-            "en": "A reward that looks right can train a",
-            "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة خلّي"
+            "en": "Value: how good a place is",
+            "ar-EG": "القيمة: المكان كويس قد إيه"
           },
-          "s": 1
+          "s": 2
         },
         {
           "icon": "spark",
           "text": {
-            "en": "Keep them apart",
-            "ar-EG": "خليهم منفصلين"
+            "en": "Policy: what to do there",
+            "ar-EG": "السياسة: تعمل إيه هناك"
           },
-          "s": 1
+          "s": 2
         }
       ],
       "takeaway": {
-        "en": "A reward that looks right can train a",
-        "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة خلّي"
+        "en": "A reward that looks right can train a bad policy.",
+        "ar-EG": "مكافأة شكلها صح ممكن تدرّب سياسة وحشة."
       }
     },
     "12": {
@@ -214,8 +267,8 @@
         {
           "icon": "warning",
           "text": {
-            "en": "Write a one-line reward that would teach the",
-            "ar-EG": "اكتب مكافأة من سطر تعلّم السلوك الغلط"
+            "en": "Write a reward that teaches the wrong behaviour",
+            "ar-EG": "اكتب مكافأة تعلّم السلوك الغلط"
           },
           "s": 1
         }

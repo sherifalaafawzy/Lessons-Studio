@@ -3448,8 +3448,8 @@
    "id": "s08",
    "template": "quiz",
    "narration": {
-    "en": "Quick check! The double booking happened because concurrent transactions saw each other's half-finished work. Which ACID property failed?",
-    "ar-EG": "سؤال سريع! الحجز المزدوج حصل لأن المعاملات المتزامنة شافت شغل بعض اللي لسه ماخلصش. أنهي خاصية في ACID فشلت؟"
+    "en": "Quick check! The double booking happened because both transactions read the same seat count before either wrote. Which ACID property failed?",
+    "ar-EG": "سؤال سريع! الحجز المزدوج حصل عشان المعاملتين قروا نفس عدد الكراسي قبل ما أي واحدة فيهم تكتب. أنهي خاصية في ACID فشلت؟"
    },
    "transition": {
     "type": "slide"
@@ -3464,8 +3464,8 @@
     "type": "single-choice",
     "id": "s08-check",
     "prompt": {
-     "en": "Concurrent transactions saw each other's half-done work. Which ACID property failed?",
-     "ar-EG": "معاملات متزامنة شافت شغل بعض اللي ماخلصش. أنهي خاصية فشلت؟"
+     "en": "Both transactions read one seat left, then both wrote. Which ACID property failed?",
+     "ar-EG": "المعاملتين قروا إن فاضل كرسي واحد، وبعدين الاتنين كتبوا. أنهي خاصية في ACID فشلت؟"
     },
     "options": [
      {
@@ -3494,6 +3494,10 @@
     "explain": {
      "en": "Correct: the interleaving was the problem.",
      "ar-EG": "صح: المشكلة كانت في التداخل."
+    },
+    "explainWrong": {
+     "en": "Not quite: each transaction completed fully; they just weren't isolated from each other.",
+     "ar-EG": "مش بالظبط: كل معاملة خلصت كاملة، بس ماكانوش معزولين عن بعض."
     }
    },
    "speaker": "joseph"
@@ -3910,8 +3914,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the pipeline lab. Interleave two transactions step by step and see which orders produce a wrong result.",
-    "ar-EG": "في التطبيق، افتح معمل خط البيانات. داخل معاملتين خطوة خطوة وشوف أنهي ترتيب بيطلّع نتيجة غلط."
+    "en": "In the app, open the pipeline lab. Make the load fail halfway and retry: rows written twice show why a load must be one atomic transaction, or safe to repeat.",
+    "ar-EG": "في التطبيق، افتح معمل خط البيانات. خلّي التحميل يفشل في النص ودوس «أعد المحاولة»: الصفوف اللي اتكتبت مرتين بتوضّح ليه التحميل لازم يبقى معاملة ذرّية واحدة، أو يبقى آمن لو اتكرر."
    },
    "transition": {
     "type": "fade"
@@ -4004,8 +4008,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4014,8 +4018,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.4
           },
@@ -4030,8 +4034,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4040,8 +4044,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.15
           },
@@ -4055,7 +4059,7 @@
      {
       "id": "icon1",
       "type": "icon",
-      "icon": "repeat",
+      "icon": "warning",
       "x": 104,
       "y": 224,
       "w": 43,
@@ -4068,8 +4072,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4078,8 +4082,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.45
           },
@@ -4094,8 +4098,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4104,8 +4108,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.15
           },
@@ -4125,8 +4129,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Interleave two transactions",
-       "ar-EG": "داخل معاملتين"
+       "en": "Fail the load halfway",
+       "ar-EG": "خلّي التحميل يفشل"
       },
       "anim": [
        {
@@ -4135,8 +4139,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4145,8 +4149,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.45
           },
@@ -4161,8 +4165,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0
           },
@@ -4171,8 +4175,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 0.3
           },
@@ -4202,8 +4206,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4212,8 +4216,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.9
           },
@@ -4228,8 +4232,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4238,8 +4242,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.65
           },
@@ -4253,7 +4257,7 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "warning",
+      "icon": "repeat",
       "x": 104,
       "y": 328,
       "w": 43,
@@ -4266,8 +4270,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4276,8 +4280,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.95
           },
@@ -4292,8 +4296,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4302,8 +4306,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.65
           },
@@ -4323,8 +4327,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Find the bad orders",
-       "ar-EG": "لاقي الترتيب الغلط"
+       "en": "Retry: rows twice",
+       "ar-EG": "أعد المحاولة: صفوف مرتين"
       },
       "anim": [
        {
@@ -4333,8 +4337,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4343,8 +4347,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.95
           },
@@ -4359,8 +4363,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.5
           },
@@ -4369,8 +4373,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.8
           },
@@ -4400,8 +4404,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4410,8 +4414,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.4
           },
@@ -4426,8 +4430,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4436,8 +4440,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.15
           },
@@ -4451,7 +4455,7 @@
      {
       "id": "icon3",
       "type": "icon",
-      "icon": "lock",
+      "icon": "circlecheck",
       "x": 104,
       "y": 432,
       "w": 43,
@@ -4464,8 +4468,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4474,8 +4478,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.45
           },
@@ -4490,8 +4494,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4500,8 +4504,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.15
           },
@@ -4521,8 +4525,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Add isolation",
-       "ar-EG": "ضيف العزل"
+       "en": "Replace the day's rows",
+       "ar-EG": "استبدل صفوف اليوم"
       },
       "anim": [
        {
@@ -4531,8 +4535,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4541,8 +4545,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.45
           },
@@ -4557,8 +4561,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1
           },
@@ -4567,8 +4571,8 @@
          {
           "at": {
            "word": {
-            "en": "Interleave",
-            "ar-EG": "داخل"
+            "en": "Make",
+            "ar-EG": "خلّي"
            },
            "offset": 1.3
           },
@@ -4746,22 +4750,26 @@
      {
       "id": "b",
       "text": {
-       "en": "Availability",
-       "ar-EG": "الإتاحة"
+       "en": "Durability",
+       "ar-EG": "الديمومة"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Durability",
-       "ar-EG": "الديمومة"
+       "en": "Availability",
+       "ar-EG": "الإتاحة"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: it refuses some requests until the partition heals.",
      "ar-EG": "صح: بيرفض طلبات لحد ما الانقسام يتصلّح."
+    },
+    "explainWrong": {
+     "en": "Not quite: keeping consistency during a partition means refusing some requests.",
+     "ar-EG": "مش بالظبط: الحفاظ على الاتساق وقت الانقسام معناه رفض بعض الطلبات."
     }
    },
    "speaker": "okafor"
@@ -4794,7 +4802,7 @@
     ],
     "takeaway": {
      "en": "Interleave by hand first.",
-     "ar-EG": "داخل باليد الأول."
+     "ar-EG": "جرّب التداخل باليد الأول."
     }
    },
    "cues": [

@@ -992,7 +992,7 @@
    "template": "canvas",
    "narration": {
     "en": "In a mesh network, devices pass messages for each other. A sensor sends its reading to a neighbour in range, who passes it on. Each step is called a hop. Hop by hop, the message reaches the gateway.",
-    "ar-EG": "في الشبكة المتشابكة، الأجهزة بتوصّل الرسايل لبعض. الحساس بيبعت قراءته لجار في مداه، والجار بيعدّيها للي بعده. كل خطوة اسمها نطّة. ونطّة ورا نطّة، الرسالة بتوصل للبوابة."
+    "ar-EG": "في الشبكة المتشابكة، الأجهزة بتوصّل الرسايل لبعض. الحساس بيبعت قراءته لجار في مداه، والجار بيعدّيها للي بعده. كل خطوة اسمها قفزة. وقفزة ورا قفزة، الرسالة بتوصل للبوابة."
    },
    "transition": {
     "type": "fade"
@@ -1009,7 +1009,7 @@
       "weight": 800,
       "text": {
        "en": "A mesh: hop by hop",
-       "ar-EG": "الشبكة المتشابكة: نطّة نطّة"
+       "ar-EG": "الشبكة المتشابكة: قفزة قفزة"
       },
       "anim": [
        {
@@ -1091,7 +1091,7 @@
         "kind": "sensor",
         "label": {
          "en": "Class 1",
-         "ar-EG": "الصف 1"
+         "ar-EG": "فصل 1"
         },
         "x": 374,
         "y": 79
@@ -1101,7 +1101,7 @@
         "kind": "sensor",
         "label": {
          "en": "Class 2",
-         "ar-EG": "الصف 2"
+         "ar-EG": "فصل 2"
         },
         "x": 374,
         "y": 293
@@ -1121,7 +1121,7 @@
         "kind": "sensor",
         "label": {
          "en": "Lab",
-         "ar-EG": "المختبر"
+         "ar-EG": "المعمل"
         },
         "x": 682,
         "y": 293
@@ -1131,7 +1131,7 @@
         "kind": "sensor",
         "label": {
          "en": "Garden",
-         "ar-EG": "الحديقة"
+         "ar-EG": "الجنينة"
         },
         "x": 990,
         "y": 178
@@ -1156,8 +1156,7 @@
        {
         "from": "s1",
         "to": "s3",
-        "kind": "wireless",
-        "downAt": 1
+        "kind": "wireless"
        },
        {
         "from": "s2",
@@ -1188,23 +1187,7 @@
          "s1",
          "gw"
         ],
-        "label": {
-         "en": "24 °C",
-         "ar-EG": "24 °C"
-        }
-       },
-       {
-        "path": [
-         "s5",
-         "s4",
-         "s2",
-         "gw"
-        ],
-        "label": {
-         "en": "25 °C",
-         "ar-EG": "25 °C"
-        },
-        "tone": "ok"
+        "label": "24 °C"
        }
       ],
       "anim": [
@@ -1659,7 +1642,7 @@
       "align": "center",
       "text": {
        "en": "Passes = hops",
-       "ar-EG": "الباصات = النطّات"
+       "ar-EG": "الباصات = القفزات"
       },
       "anim": [
        {
@@ -2081,7 +2064,7 @@
     "answer": "a",
     "explain": {
      "en": "Correct — their neighbours pass them along another route to the gateway, maybe with an extra hop.",
-     "ar-EG": "صح — جيرانهم بيوصّلوها من طريق تاني للبوابة، يمكن بنطّة زيادة."
+     "ar-EG": "صح — جيرانهم بيوصّلوها من طريق تاني للبوابة، يمكن بقفزة زيادة."
     },
     "explainWrong": {
      "en": "Not quite — most sensors in a mesh hear more than one neighbour, so messages go round the broken one.",
@@ -2095,7 +2078,7 @@
    "template": "canvas",
    "narration": {
     "en": "They take another route, through neighbours that still work. It may cost an extra hop, but they get through. That's why a mesh keeps working when one device fails.",
-    "ar-EG": "بتاخد طريق تاني، من جيران لسه شغالين. يمكن تاخد نطّة زيادة، بس بتوصل. وعلشان كده الشبكة المتشابكة بتفضل شغالة لو جهاز واحد وقع."
+    "ar-EG": "بتاخد طريق تاني، من جيران لسه شغالين. يمكن تاخد قفزة زيادة، بس بتوصل. وعلشان كده الشبكة المتشابكة بتفضل شغالة لو جهاز واحد وقع."
    },
    "transition": {
     "type": "fade"
@@ -2258,7 +2241,7 @@
         "kind": "sensor",
         "label": {
          "en": "Class 1",
-         "ar-EG": "الصف 1"
+         "ar-EG": "فصل 1"
         },
         "x": 374,
         "y": 79
@@ -2268,7 +2251,7 @@
         "kind": "sensor",
         "label": {
          "en": "Class 2",
-         "ar-EG": "الصف 2"
+         "ar-EG": "فصل 2"
         },
         "x": 374,
         "y": 293
@@ -2288,7 +2271,7 @@
         "kind": "sensor",
         "label": {
          "en": "Lab",
-         "ar-EG": "المختبر"
+         "ar-EG": "المعمل"
         },
         "x": 682,
         "y": 293
@@ -2298,7 +2281,7 @@
         "kind": "sensor",
         "label": {
          "en": "Garden",
-         "ar-EG": "الحديقة"
+         "ar-EG": "الجنينة"
         },
         "x": 990,
         "y": 178
@@ -2355,10 +2338,7 @@
          "s1",
          "gw"
         ],
-        "label": {
-         "en": "24 °C",
-         "ar-EG": "24 °C"
-        }
+        "label": "24 °C"
        },
        {
         "path": [
@@ -2367,10 +2347,7 @@
          "s2",
          "gw"
         ],
-        "label": {
-         "en": "25 °C",
-         "ar-EG": "25 °C"
-        },
+        "label": "25 °C",
         "tone": "ok"
        }
       ],
@@ -3318,7 +3295,7 @@
    "template": "canvas",
    "narration": {
     "en": "But every hop costs battery on the sensor that relays it, and adds a little delay. So sensors next to the gateway work hardest: they carry everyone's messages.",
-    "ar-EG": "بس كل نطّة بتصرف من بطارية الحساس اللي بيعدّيها، وبتأخّر الرسالة شوية. علشان كده الحساسات اللي جنب البوابة هي اللي بتتعب أكتر: بتشيل رسايل الكل."
+    "ar-EG": "بس كل قفزة بتصرف من بطارية الحساس اللي بيعدّيها، وبتأخّر الرسالة شوية. علشان كده الحساسات اللي جنب البوابة هي اللي بتتعب أكتر: بتشيل رسايل الكل."
    },
    "transition": {
     "type": "fade"
@@ -3335,7 +3312,7 @@
       "weight": 800,
       "text": {
        "en": "Every hop has a cost",
-       "ar-EG": "كل نطّة ليها تمن"
+       "ar-EG": "كل قفزة ليها تمن"
       },
       "anim": [
        {
@@ -3345,7 +3322,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3355,7 +3332,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3371,7 +3348,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3381,7 +3358,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.3
           },
@@ -3412,7 +3389,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3422,7 +3399,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.45
           },
@@ -3438,7 +3415,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3448,7 +3425,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.15
           },
@@ -3476,7 +3453,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3486,7 +3463,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3502,7 +3479,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0
           },
@@ -3512,7 +3489,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.15
           },
@@ -3534,7 +3511,7 @@
       "align": "center",
       "text": {
        "en": "Each hop costs battery",
-       "ar-EG": "كل نطّة بتصرف بطارية"
+       "ar-EG": "كل قفزة بتصرف بطارية"
       },
       "anim": [
        {
@@ -3544,7 +3521,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.15
           },
@@ -3554,7 +3531,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.55
           },
@@ -3585,7 +3562,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3595,7 +3572,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.95
           },
@@ -3611,7 +3588,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3621,7 +3598,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.65
           },
@@ -3649,7 +3626,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3659,7 +3636,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 1
           },
@@ -3675,7 +3652,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.5
           },
@@ -3685,7 +3662,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.65
           },
@@ -3707,7 +3684,7 @@
       "align": "center",
       "text": {
        "en": "Each hop adds delay",
-       "ar-EG": "كل نطّة بتأخّر شوية"
+       "ar-EG": "كل قفزة بتأخّر شوية"
       },
       "anim": [
        {
@@ -3717,7 +3694,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 0.65
           },
@@ -3727,7 +3704,7 @@
           "at": {
            "word": {
             "en": "But",
-            "ar-EG": "نطّة"
+            "ar-EG": "قفزة"
            },
            "offset": 1.05
           },
@@ -3934,8 +3911,8 @@
     "type": "single-choice",
     "id": "s11-check",
     "prompt": {
-     "en": "Zainab's river sensor has only one neighbour, and floods keep knocking it over. What's the best fix?",
-     "ar-EG": "حساس زينب جنب النهر ليه جار واحد بس، والفيضان بيوقّعه كل شوية. إيه أحسن حل؟"
+     "en": "Zainab's river sensor has only one neighbour, and floods keep knocking that neighbour over. What's the best fix?",
+     "ar-EG": "حساس زينب جنب النهر ليه جار واحد بس، والفيضان كل شوية بيوقّع الجار ده. إيه أحسن حل؟"
     },
     "options": [
      {

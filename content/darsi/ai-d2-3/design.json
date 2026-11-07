@@ -1,69 +1,153 @@
 {
   "scenes": {
     "1": {
-      "list": [
-        {
-          "icon": "target",
-          "text": {
-            "en": "The blob's code is two numbers: where its",
-            "ar-EG": "رمز البقعة رقمين: السطوع قاعد فين"
-          },
-          "s": 0
+      "who": null,
+      "plot": {
+        "xr": [
+          0,
+          1
+        ],
+        "yr": [
+          0,
+          1
+        ],
+        "grid": true,
+        "xLabel": {
+          "en": "across",
+          "ar-EG": "أفقي"
         },
-        {
-          "icon": "data",
-          "text": {
-            "en": "Decoding paints a blob there, and it does",
-            "ar-EG": "وفك الترميز بيرسم بقعة هناك، ومش بيحتفظ بكل"
-          },
-          "s": 1
-        }
-      ]
+        "yLabel": {
+          "en": "down",
+          "ar-EG": "لتحت"
+        },
+        "series": [
+          {
+            "kind": "dots",
+            "pts": [
+              [
+                0.32,
+                0.46
+              ]
+            ],
+            "cls": [
+              0
+            ],
+            "label": {
+              "en": "The code",
+              "ar-EG": "الرمز"
+            }
+          }
+        ],
+        "s": 0
+      }
     },
     "3": {
-      "cards": [
-        {
-          "icon": "target",
-          "text": {
-            "en": "The centre",
-            "ar-EG": "المركز"
+      "who": null,
+      "arch": {
+        "blocks": [
+          {
+            "id": "in",
+            "kind": "input",
+            "label": {
+              "en": "Image",
+              "ar-EG": "الصورة"
+            }
           },
-          "s": 0
-        },
-        {
-          "icon": "spark",
-          "text": {
-            "en": "A new blob",
-            "ar-EG": "بقعة جديدة"
+          {
+            "id": "enc",
+            "kind": "dense",
+            "label": {
+              "en": "Encoder",
+              "ar-EG": "المُرمِّز"
+            },
+            "note": {
+              "en": "finds the centre",
+              "ar-EG": "بيلاقي المركز"
+            }
           },
-          "s": 1
-        },
-        {
-          "icon": "eye",
-          "text": {
-            "en": "Not the pixels",
-            "ar-EG": "مش البكسلات"
+          {
+            "id": "code",
+            "kind": "embed",
+            "label": {
+              "en": "Code",
+              "ar-EG": "الرمز"
+            },
+            "note": {
+              "en": "2 numbers",
+              "ar-EG": "رقمين"
+            }
           },
-          "s": 1
-        }
-      ],
-      "arrows": true
+          {
+            "id": "dec",
+            "kind": "dense",
+            "label": {
+              "en": "Decoder",
+              "ar-EG": "فكّ الترميز"
+            },
+            "note": {
+              "en": "paints a blob",
+              "ar-EG": "بيرسم بقعة"
+            }
+          },
+          {
+            "id": "out",
+            "kind": "output",
+            "label": {
+              "en": "New blob",
+              "ar-EG": "بقعة جديدة"
+            },
+            "note": {
+              "en": "summary",
+              "ar-EG": "ملخّص"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "from": "in",
+            "to": "enc"
+          },
+          {
+            "from": "enc",
+            "to": "code"
+          },
+          {
+            "from": "code",
+            "to": "dec"
+          },
+          {
+            "from": "dec",
+            "to": "out"
+          }
+        ],
+        "focus": [
+          {
+            "block": "enc",
+            "s": 0
+          },
+          {
+            "block": "dec",
+            "s": 1
+          }
+        ],
+        "pass": 1
+      }
     },
     "4": {
       "list": [
         {
           "icon": "check",
           "text": {
-            "en": "Leave the code and the decode is close",
-            "ar-EG": "سيب الرمز وفك الترميز بيبقى قريب"
+            "en": "Leave the code: the decode is close",
+            "ar-EG": "سيب الرمز: الفك بيبقى قريب"
           },
           "s": 0
         },
         {
           "icon": "warning",
           "text": {
-            "en": "Move it and you invent a new blob,",
-            "ar-EG": "حرّكه وهتخترع بقعة جديدة، مش تصليح للبكسلات القديمة"
+            "en": "Move it and you invent a new blob",
+            "ar-EG": "حرّكه وهتخترع بقعة جديدة"
           },
           "s": 1
         }
@@ -74,7 +158,7 @@
         {
           "icon": "file",
           "text": {
-            "en": "Two numbers are a summary of this brightness",
+            "en": "Two numbers summarise this brightness",
             "ar-EG": "الرقمين ملخّص للسطوع ده"
           },
           "s": 0
@@ -82,8 +166,8 @@
         {
           "icon": "shield",
           "text": {
-            "en": "They are not a map of meaning, and",
-            "ar-EG": "ومش خريطة معنى، ومش صورة فوتوغرافية"
+            "en": "Not a map of meaning, not a photo",
+            "ar-EG": "مش خريطة معنى، ومش صورة فوتوغرافية"
           },
           "s": 1
         }
@@ -91,28 +175,94 @@
     },
     "6": {
       "who": null,
-      "chart": {
-        "kind": "bar",
-        "data": [
-          30,
-          45
-        ],
-        "max": 100,
-        "s": 0,
-        "labels": [
+      "arch": {
+        "blocks": [
           {
-            "en": "Across",
-            "ar-EG": "أفقي"
+            "id": "in",
+            "kind": "input",
+            "label": {
+              "en": "Image",
+              "ar-EG": "الصورة"
+            }
           },
           {
-            "en": "Down",
-            "ar-EG": "لتحت"
+            "id": "enc",
+            "kind": "dense",
+            "label": {
+              "en": "Encoder",
+              "ar-EG": "المُرمِّز"
+            },
+            "note": {
+              "en": "finds the centre",
+              "ar-EG": "بيلاقي المركز"
+            }
+          },
+          {
+            "id": "code",
+            "kind": "embed",
+            "label": {
+              "en": "Code",
+              "ar-EG": "الرمز"
+            },
+            "note": {
+              "en": "2 numbers",
+              "ar-EG": "رقمين"
+            }
+          },
+          {
+            "id": "dec",
+            "kind": "dense",
+            "label": {
+              "en": "Decoder",
+              "ar-EG": "فكّ الترميز"
+            },
+            "note": {
+              "en": "paints a blob",
+              "ar-EG": "بيرسم بقعة"
+            }
+          },
+          {
+            "id": "out",
+            "kind": "output",
+            "label": {
+              "en": "New blob",
+              "ar-EG": "بقعة جديدة"
+            },
+            "note": {
+              "en": "summary",
+              "ar-EG": "ملخّص"
+            }
           }
         ],
-        "unit": {
-          "en": "The two-number code",
-          "ar-EG": "الرمز من رقمين"
-        }
+        "edges": [
+          {
+            "from": "in",
+            "to": "enc"
+          },
+          {
+            "from": "enc",
+            "to": "code"
+          },
+          {
+            "from": "code",
+            "to": "dec"
+          },
+          {
+            "from": "dec",
+            "to": "out"
+          }
+        ],
+        "focus": [
+          {
+            "block": "code",
+            "s": 0
+          },
+          {
+            "block": "out",
+            "s": 1
+          }
+        ],
+        "pass": 1
       }
     },
     "8": {
@@ -146,15 +296,15 @@
         },
         {
           "text": {
-            "en": "Leave the sliders, then move one, and say",
-            "ar-EG": "سيب المؤشرات، وبعدين حرّك واحد، وقول امتى الفك"
+            "en": "Leave the sliders, then move one",
+            "ar-EG": "سيب المؤشرات، وبعدين حرّك واحد"
           },
           "s": 1
         },
         {
           "text": {
-            "en": "The code lab",
-            "ar-EG": "معمل الرمز"
+            "en": "Say when the decode stopped being a rebuild",
+            "ar-EG": "قول امتى الفك بطّل يبقى إعادة بناء"
           },
           "s": 1
         }
@@ -165,23 +315,23 @@
         {
           "icon": "check",
           "text": {
-            "en": "A short code rebuilds a summary A moved",
-            "ar-EG": "الرمز القصير بيعيد بناء ملخّص والرمز اللي اتحرّك"
+            "en": "A short code rebuilds a summary",
+            "ar-EG": "الرمز القصير بيعيد بناء ملخّص"
           },
           "s": 1
         },
         {
           "icon": "spark",
           "text": {
-            "en": "New, not repaired",
-            "ar-EG": "جديد، مش متصلّح"
+            "en": "A moved code: a new picture",
+            "ar-EG": "الرمز المتحرّك: صورة جديدة"
           },
-          "s": 1
+          "s": 2
         }
       ],
       "takeaway": {
-        "en": "A short code rebuilds a summary A moved",
-        "ar-EG": "الرمز القصير بيعيد بناء ملخّص والرمز اللي اتحرّك"
+        "en": "The original pixels never come back.",
+        "ar-EG": "وبكسلات الأصل عمرها ما بترجع."
       }
     },
     "12": {
@@ -197,8 +347,8 @@
         {
           "icon": "calculator",
           "text": {
-            "en": "Write the two numbers of the original blob,",
-            "ar-EG": "اكتب رقمي البقعة الأصلية، وبعدين الفرق بعد تحريكة"
+            "en": "Write both codes and the difference",
+            "ar-EG": "اكتب الرمزين والفرق بينهم"
           },
           "s": 1
         }

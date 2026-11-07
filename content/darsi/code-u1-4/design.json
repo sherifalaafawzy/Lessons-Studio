@@ -63,14 +63,14 @@
     "4": {
       "who": null,
       "code": {
-        "text": "# visible\nassert median([3, 1, 2]) == 2\n# hidden\nassert median([1, 2, 3, 4]) == 2.5\nwith pytest.raises(ValueError):\n    median([])",
+        "text": "# visible\nassert median([3, 1, 2]) == 2\n# hidden\nassert median([2, 2, 9]) == 2\nwith pytest.raises(ValueError):\n    median([])",
         "s": 1
       }
     },
     "5": {
       "who": null,
       "code": {
-        "text": "def median(xs):\n    s = sorted(xs)\n    return s[len(s) // 2]  # even n?\n\n# hint: try an even-length list",
+        "text": "def median(xs):\n    s = sorted(xs)\n    return s[len(s) // 2]",
         "s": 1
       }
     },
@@ -138,16 +138,16 @@
         {
           "icon": "search",
           "text": {
-            "en": "Find the failing case",
-            "ar-EG": "لاقي الحالة اللي بتقع"
+            "en": "Run and fix each program",
+            "ar-EG": "شغّل وصلّح كل برنامج"
           },
           "s": 1
         },
         {
           "icon": "pencil",
           "text": {
-            "en": "Write the hint",
-            "ar-EG": "اكتب التلميح"
+            "en": "Write a one-line hint",
+            "ar-EG": "اكتب تلميح من سطر واحد"
           },
           "s": 1,
           "o": 1.5
@@ -169,7 +169,7 @@
         {
           "text": {
             "en": "Hidden edge cases",
-            "ar-EG": "حالات طرفية مخفية"
+            "ar-EG": "حالات حدّية مخفية"
           },
           "s": 1
         },

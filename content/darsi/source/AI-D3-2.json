@@ -9,12 +9,12 @@
   "lesson": {
     "number": 2,
     "title": "A language model, and changing one",
-    "subtitle": "Only the last layer",
+    "subtitle": "Only the top block",
     "minutes": 18,
     "format": "Video + lab + practice"
   },
   "video": {
-    "title": "A language model, and changing one: Only the last layer",
+    "title": "A language model, and changing one: Only the top block",
     "length": "2:30",
     "format_note": "Animated explainer, 16:9, flat Darsi colours. Narration in the lesson language. Captions are separate files.",
     "cast": [
@@ -31,11 +31,11 @@
         "label": "Frozen"
       },
       {
-        "at": "1:08",
+        "at": "0:56",
         "label": "An old skill"
       },
       {
-        "at": "2:00",
+        "at": "2:06",
         "label": "Remember"
       }
     ],
@@ -73,9 +73,9 @@
         "beat": "Definition",
         "visual": "",
         "animation": "",
-        "on_screen_text": "Last layer only",
+        "on_screen_text": "Top block only",
         "voice": "Narrator",
-        "narration": "The small fine-tune teaches only the last layer, on a few examples. The rest of the weights do not move.",
+        "narration": "The small fine-tune teaches only the top block, on a few examples. The rest of the weights do not move.",
         "icons": [
           "layers",
           "lock",
@@ -121,7 +121,7 @@
         "animation": "",
         "on_screen_text": "Frozen, then the top",
         "voice": "Narrator",
-        "narration": "Here the lower blocks stay still. Only the last block is allowed to change.",
+        "narration": "Here the lower blocks stay still. Only the top block is allowed to change.",
         "icons": [
           "layers"
         ]
@@ -144,9 +144,9 @@
         "beat": "Reveal",
         "visual": "",
         "animation": "",
-        "on_screen_text": "The last layer",
+        "on_screen_text": "The top block",
         "voice": "Narrator",
-        "narration": "The last layer, on a few examples. The rest stays frozen.",
+        "narration": "The top block, on a few examples. The rest stays frozen.",
         "icons": [
           "check",
           "lock"
@@ -161,7 +161,7 @@
         "animation": "",
         "on_screen_text": "The teach lab",
         "voice": "Narrator",
-        "narration": "In the app, open the teach lab. Teach the top layer a new job, and name one old answer you would now check.",
+        "narration": "In the app, open the teach lab. Teach the top block a new job, and name one old answer you would now check.",
         "icons": [
           "bot",
           "eye",
@@ -214,20 +214,20 @@
         "prompt": "Fine-tuning, in the small lab, changes which of these?",
         "options": [
           {
-            "text": "The last layer, on a few examples",
+            "text": "Every weight in the model, on the same few examples",
+            "correct": false
+          },
+          {
+            "text": "The embedding of each token",
+            "correct": false
+          },
+          {
+            "text": "The top block, on a few examples",
             "correct": true
-          },
-          {
-            "text": "Every weight in a huge model",
-            "correct": false
-          },
-          {
-            "text": "The spelling of the training text",
-            "correct": false
           }
         ],
         "feedback_correct": "Correct: the rest stays frozen. That is the honest small version.",
-        "feedback_wrong": "Not quite: the small lab changes the last layer, on a few examples.",
+        "feedback_wrong": "Not quite: the small lab changes the top block, on a few examples.",
         "resume_at": "1:32"
       },
       {
@@ -237,15 +237,15 @@
         "prompt": "Does a language model look facts up as it writes?",
         "options": [
           {
-            "text": "No, it guesses the next token",
-            "correct": true
-          },
-          {
             "text": "Yes, it searches a library",
             "correct": false
           },
           {
-            "text": "Only in one language",
+            "text": "No, it guesses the next token",
+            "correct": true
+          },
+          {
+            "text": "Yes, it rereads its training data",
             "correct": false
           }
         ],

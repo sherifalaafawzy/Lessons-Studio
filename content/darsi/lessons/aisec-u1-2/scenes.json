@@ -3394,7 +3394,7 @@
    "template": "canvas",
    "narration": {
     "en": "Students treat datasets as fixed and trustworthy. Ask them to draw the full data supply chain of a model, from collection to labelling to download, and mark where an attacker could insert examples.",
-    "ar-EG": "الطلاب بيتعاملوا مع مجموعات البيانات على إنها ثابتة وموثوقة. اطلب منهم يرسموا سلسلة إمداد البيانات كاملة لنموذج، من الجمع للتصنيف للتحميل، ويعلّموا فين المهاجم يقدر يدخّل أمثلة."
+    "ar-EG": "الطلاب بيتعاملوا مع مجموعات البيانات على إنها ثابتة وموثوقة. اطلب منهم يرسموا سلسلة توريد البيانات كاملة لنموذج، من الجمع للتسمية للتحميل، ويعلّموا فين المهاجم يقدر يدخّل أمثلة."
    },
    "transition": {
     "type": "fade"
@@ -3411,7 +3411,7 @@
       "weight": 800,
       "text": {
        "en": "Teach the supply chain",
-       "ar-EG": "درّس سلسلة الإمداد"
+       "ar-EG": "درّس سلسلة التوريد"
       },
       "anim": [
        {
@@ -3807,7 +3807,7 @@
       "weight": 700,
       "text": {
        "en": "Label",
-       "ar-EG": "صنّف"
+       "ar-EG": "سمّي"
       },
       "anim": [
        {
@@ -4142,30 +4142,30 @@
    },
    "content": {
     "title": {
-     "en": "Which attack?",
-     "ar-EG": "أنهي هجوم؟"
+     "en": "Which poisoning?",
+     "ar-EG": "أنهي تسميم؟"
     }
    },
    "check": {
     "type": "single-choice",
     "id": "s08-check",
     "prompt": {
-     "en": "Accurate on clean tests, wrong whenever a yellow square appears. Which attack?",
-     "ar-EG": "دقيق في الاختبارات النضيفة، وغلط كل ما يظهر مربع أصفر. أنهي هجوم؟"
+     "en": "Accurate on clean tests, but wrong whenever a yellow square appears. Which kind of poisoning?",
+     "ar-EG": "دقيق في الاختبارات النضيفة، بس بيغلط كل ما يظهر مربع أصفر. أنهي نوع تسميم؟"
     },
     "options": [
      {
       "id": "a",
       "text": {
-       "en": "Availability poisoning",
-       "ar-EG": "تسميم الإتاحة"
+       "en": "A backdoor",
+       "ar-EG": "باب خلفي"
       }
      },
      {
       "id": "b",
       "text": {
-       "en": "A backdoor",
-       "ar-EG": "باب خلفي"
+       "en": "Availability poisoning",
+       "ar-EG": "تسميم الإتاحة"
       }
      },
      {
@@ -4176,7 +4176,7 @@
       }
      }
     ],
-    "answer": "b",
+    "answer": "a",
     "explain": {
      "en": "Correct: a hidden trigger planted through training data.",
      "ar-EG": "صح: محفّز مستخبي اتزرع عن طريق بيانات التدريب."
@@ -5444,7 +5444,7 @@
       "id": "c",
       "text": {
        "en": "Provenance tracking, filtering and a trusted test set",
-       "ar-EG": "تتبّع المصدر والفلترة ومجموعة اختبار موثوقة"
+       "ar-EG": "تتبّع المصدر والفلترة وبيانات اختبار موثوقة"
       }
      }
     ],
@@ -5465,7 +5465,7 @@
    "template": "summary",
    "narration": {
     "en": "Provenance tracking with filtering and a trusted test set. Remember: poisoning attacks the data, backdoors hide behind clean accuracy, and defence starts in the data supply chain.",
-    "ar-EG": "تتبّع مصدر البيانات مع الفلترة ومجموعة اختبار موثوقة. افتكر: التسميم بيهاجم البيانات، والأبواب الخلفية بتستخبى ورا الدقة النضيفة، والدفاع بيبدأ من سلسلة إمداد البيانات."
+    "ar-EG": "تتبّع مصدر البيانات مع الفلترة وبيانات اختبار موثوقة. افتكر: التسميم بيهاجم البيانات، والأبواب الخلفية بتستخبى ورا الدقة النضيفة، والدفاع بيبدأ من سلسلة توريد البيانات."
    },
    "content": {
     "title": {
@@ -5483,12 +5483,12 @@
      },
      {
       "en": "Guard the supply chain",
-      "ar-EG": "احمي سلسلة الإمداد"
+      "ar-EG": "احمي سلسلة التوريد"
      }
     ],
     "takeaway": {
      "en": "Map the data supply chain first.",
-     "ar-EG": "ارسم سلسلة إمداد البيانات الأول."
+     "ar-EG": "ارسم سلسلة توريد البيانات الأول."
     }
    },
    "cues": [

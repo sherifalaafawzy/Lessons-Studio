@@ -151,7 +151,7 @@
     "animation": "",
     "on_screen_text": "Which score is honest?",
     "voice": "Prof Farah",
-    "narration": "Quick check! A team chose its best model by test score, out of forty. Is that test score an honest estimate of performance on new data?"
+    "narration": "Quick check! A team picked the best of forty models by validation score and reported that same score. Is it an honest estimate of performance on new data?"
    },
    {
     "n": 9,
@@ -162,7 +162,7 @@
     "animation": "",
     "on_screen_text": "It's optimistic",
     "voice": "Narrator",
-    "narration": "No. Picking the maximum of forty noisy scores selects luck as well as skill. The test set has become a validation set, and they need a fresh one.",
+    "narration": "No. Picking the maximum of forty noisy scores selects luck as well as skill. Any score used to choose is optimistic, so report a fresh test score.",
     "icons": [
      "warning",
      "check"
@@ -177,7 +177,7 @@
     "animation": "",
     "on_screen_text": "App lab: overfitting",
     "voice": "Narrator",
-    "narration": "In the app, open the overfitting lab. Watch validation error as complexity rises, then ask students where they would stop, and why the test set must stay closed.",
+    "narration": "In the app, open the overfitting lab. Raise Freedom step by step and watch the error on new examples, which plays the validation set. Then ask students where they would stop, and why the test set must stay closed.",
     "icons": [
      "gauge",
      "eye"
@@ -227,23 +227,23 @@
     "at": "1:35",
     "after_scene": 8,
     "type": "choice",
-    "prompt": "A team chose its best model of 40 by test score. Is that score honest?",
+    "prompt": "A team picked the best of 40 models by validation score and reported that score. Is it honest?",
     "options": [
      {
-      "text": "Yes, the test set was never trained on",
+      "text": "Yes, the model never trained on the validation set",
       "correct": false
      },
      {
-      "text": "No, choosing on test makes it optimistic",
+      "text": "No, choosing on it makes it optimistic; report a fresh test score",
       "correct": true
      },
      {
-      "text": "Yes, if the test set is large",
+      "text": "Yes, if the validation set is large",
       "correct": false
      }
     ],
-    "feedback_correct": "Correct: selecting the best of many noisy scores rewards luck; they need a fresh test set.",
-    "feedback_wrong": "Not quite: using the test set to choose turns it into a validation set, so its score is biased upwards.",
+    "feedback_correct": "Correct: any score used to choose among many models is biased upwards; only data the choice never touched gives an honest estimate.",
+    "feedback_wrong": "Not quite: choosing on the validation score makes it optimistic, so report a score on a fresh test set.",
     "resume_at": "1:37"
    },
    {
@@ -257,12 +257,12 @@
       "correct": false
      },
      {
-      "text": "Recall",
-      "correct": true
-     },
-     {
       "text": "Training loss",
       "correct": false
+     },
+     {
+      "text": "Recall",
+      "correct": true
      }
     ],
     "feedback_correct": "Correct: recall is 0, because it catches none of the fraud.",

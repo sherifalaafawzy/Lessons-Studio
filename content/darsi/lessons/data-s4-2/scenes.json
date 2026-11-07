@@ -5,8 +5,8 @@
    "id": "s01",
    "template": "canvas",
    "narration": {
-    "en": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
-    "ar-EG": "لوحة الإدارة قالت إن مية واتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين. والمدرسة فيها تسعين. خط البيانات كان فشل، وأعاد المحاولة، وحمّل فصلين مرتين."
+    "en": "The district dashboard counted a hundred and fifty-two pupils at our partner school on Monday. The school has ninety. The pipeline had failed, retried, and loaded two classes twice.",
+    "ar-EG": "لوحة الإدارة عدّت مية واتنين وخمسين تلميذ في المدرسة الشريكة لينا يوم الاتنين. والمدرسة فيها تسعين. خط البيانات كان فشل، وأعاد المحاولة، وحمّل فصلين مرتين."
    },
    "transition": {
     "type": "cut"
@@ -89,8 +89,8 @@
       "size": 34,
       "weight": 700,
       "text": {
-       "en": "The district dashboard said a hundred and fifty-two pupils came to our partner school on Monday.",
-       "ar-EG": "لوحة الإدارة قالت إن مية واتنين وخمسين تلميذ حضروا في المدرسة الشريكة لينا يوم الاتنين."
+       "en": "The district dashboard counted a hundred and fifty-two pupils at our partner school on Monday.",
+       "ar-EG": "لوحة الإدارة عدّت مية واتنين وخمسين تلميذ في المدرسة الشريكة لينا يوم الاتنين."
       },
       "anim": [
        {
@@ -1545,8 +1545,8 @@
      {
       "id": "a",
       "text": {
-       "en": "The rows loaded before the failure are counted twice",
-       "ar-EG": "الصفوف اللي اتحمّلت قبل الفشل بتتعدّ مرتين"
+       "en": "The second run fails too",
+       "ar-EG": "التشغيل التاني بيفشل كمان"
       }
      },
      {
@@ -1559,12 +1559,12 @@
      {
       "id": "c",
       "text": {
-       "en": "The second run fails too",
-       "ar-EG": "التشغيل التاني بيفشل كمان"
+       "en": "The rows loaded before the failure are counted twice",
+       "ar-EG": "الصفوف اللي اتحمّلت قبل الفشل بتتعدّ مرتين"
       }
      }
     ],
-    "answer": "a",
+    "answer": "c",
     "explain": {
      "en": "Correct — appending again writes the first rows a second time, unless the load is idempotent.",
      "ar-EG": "صح — الإضافة تاني بتكتب أول صفوف مرة تانية، إلا لو التحميل متساوي الأثر."
@@ -3976,8 +3976,8 @@
      {
       "id": "a",
       "text": {
-       "en": "Delete the day's rows, then insert them",
-       "ar-EG": "امسح صفوف اليوم، وبعدين ضيفها"
+       "en": "Insert, then remove duplicates by hand next week",
+       "ar-EG": "ضيف، وامسح المكرر بإيدك الأسبوع الجاي"
       }
      },
      {
@@ -3990,12 +3990,12 @@
      {
       "id": "c",
       "text": {
-       "en": "Insert, then remove duplicates by hand next week",
-       "ar-EG": "ضيف، وامسح المكرر بإيدك الأسبوع الجاي"
+       "en": "Delete the day's rows, then insert them",
+       "ar-EG": "امسح صفوف اليوم، وبعدين ضيفها"
       }
      }
     ],
-    "answer": "a",
+    "answer": "c",
     "explain": {
      "en": "Correct — clearing the day first means one run or five give the same table.",
      "ar-EG": "صح — مسح اليوم الأول معناه إن تشغيل واحد أو خمسة بيدّوا نفس الجدول."

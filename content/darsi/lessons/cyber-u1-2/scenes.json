@@ -2792,22 +2792,26 @@
      {
       "id": "b",
       "text": {
-       "en": "Only Alice",
-       "ar-EG": "أليس بس"
+       "en": "Bob and Alice",
+       "ar-EG": "بوب وأليس"
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Bob and Alice",
-       "ar-EG": "بوب وأليس"
+       "en": "Only Alice",
+       "ar-EG": "أليس بس"
       }
      }
     ],
-    "answer": "b",
+    "answer": "c",
     "explain": {
      "en": "Correct: only Alice's private key decrypts it.",
      "ar-EG": "صح: المفتاح الخاص بتاع أليس بس اللي بيفكّه."
+    },
+    "explainWrong": {
+     "en": "Not quite: the public key only encrypts; decryption needs Alice's private key.",
+     "ar-EG": "مش بالظبط: المفتاح العام بيشفّر بس، والفك محتاج المفتاح الخاص بتاع أليس."
     }
    },
    "speaker": "joseph"
@@ -3224,8 +3228,8 @@
    "id": "s10",
    "template": "canvas",
    "narration": {
-    "en": "In the app, open the public-key lab. Run a key exchange with small numbers, then try to recover the secret as an eavesdropper and see how the work grows with the prime.",
-    "ar-EG": "في التطبيق، افتح معمل المفاتيح العامة. اعمل تبادل مفاتيح بأرقام صغيرة، وبعدين حاول ترجّع السر كمتصنّت وشوف الشغل بيكبر إزاي مع العدد الأولي."
+    "en": "In the app, open the public-key lab. Make a small RSA key pair, sign a message, change one letter and watch the check fail, then pick bigger primes and see the work of splitting n grow.",
+    "ar-EG": "في التطبيق، افتح معمل المفاتيح العامة. اعمل زوج مفاتيح RSA صغير، ووقّع رسالة، وغيّر حرف واحد وشوف التحقق بيفشل، وبعدين اختار أعداد أولية أكبر وشوف شغل تفكيك n بيكبر إزاي."
    },
    "transition": {
     "type": "fade"
@@ -3318,7 +3322,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3328,7 +3332,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.4
@@ -3344,7 +3348,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3354,7 +3358,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.15
@@ -3382,7 +3386,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3392,7 +3396,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.45
@@ -3408,7 +3412,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3418,7 +3422,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.15
@@ -3439,8 +3443,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Exchange keys",
-       "ar-EG": "تبادل المفاتيح"
+       "en": "Make an RSA key pair",
+       "ar-EG": "اعمل زوج مفاتيح RSA"
       },
       "anim": [
        {
@@ -3449,7 +3453,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3459,7 +3463,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.45
@@ -3475,7 +3479,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0
@@ -3485,7 +3489,7 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
            "offset": 0.3
@@ -3516,20 +3520,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.9
+           "offset": 3.4
           },
           "value": 1,
           "ease": "back"
@@ -3542,20 +3546,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.65
+           "offset": 3.15
           },
           "value": 1,
           "ease": "out"
@@ -3567,7 +3571,7 @@
      {
       "id": "icon2",
       "type": "icon",
-      "icon": "eye",
+      "icon": "circlex",
       "x": 104,
       "y": 328,
       "w": 43,
@@ -3580,20 +3584,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.95
+           "offset": 3.45
           },
           "value": 1,
           "ease": "back"
@@ -3606,20 +3610,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.65
+           "offset": 3.15
           },
           "value": 1,
           "ease": "out"
@@ -3637,8 +3641,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Play the eavesdropper",
-       "ar-EG": "العب دور المتصنّت"
+       "en": "Change a letter: the check fails",
+       "ar-EG": "غيّر حرف: التحقق بيفشل"
       },
       "anim": [
        {
@@ -3647,20 +3651,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 365
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.95
+           "offset": 3.45
           },
           "value": 325,
           "ease": "out"
@@ -3673,20 +3677,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.5
+           "offset": 3
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 1.8
+           "offset": 3.3
           },
           "value": 1,
           "ease": "out"
@@ -3714,20 +3718,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.4
+           "offset": 5.9
           },
           "value": 1,
           "ease": "back"
@@ -3740,20 +3744,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.15
+           "offset": 5.65
           },
           "value": 1,
           "ease": "out"
@@ -3778,20 +3782,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.45
+           "offset": 5.95
           },
           "value": 1,
           "ease": "back"
@@ -3804,20 +3808,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.15
+           "offset": 5.65
           },
           "value": 1,
           "ease": "out"
@@ -3835,8 +3839,8 @@
       "size": 38,
       "weight": 700,
       "text": {
-       "en": "Watch the work grow",
-       "ar-EG": "شوف الشغل بيكبر"
+       "en": "Bigger primes, more work",
+       "ar-EG": "أعداد أكبر، شغل أكتر"
       },
       "anim": [
        {
@@ -3845,20 +3849,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 469
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.45
+           "offset": 5.95
           },
           "value": 429,
           "ease": "out"
@@ -3871,20 +3875,20 @@
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0
+           "offset": 5.5
           },
           "value": 0
          },
          {
           "at": {
            "word": {
-            "en": "Run",
+            "en": "Make",
             "ar-EG": "اعمل"
            },
-           "offset": 0.3
+           "offset": 5.8
           },
           "value": 1,
           "ease": "out"
@@ -4039,7 +4043,7 @@
    "content": {
     "title": {
      "en": "Man in the middle",
-     "ar-EG": "الراجل اللي في النص"
+     "ar-EG": "هجوم الوسيط"
     }
    },
    "check": {
@@ -4053,8 +4057,8 @@
      {
       "id": "a",
       "text": {
-       "en": "Nothing, the key stays secret",
-       "ar-EG": "ولا حاجة، المفتاح بيفضل سري"
+       "en": "Nothing: the shared key never crosses the network",
+       "ar-EG": "ولا حاجة: المفتاح المشترك عمره ما بيعدّي على الشبكة"
       }
      },
      {
@@ -4067,8 +4071,8 @@
      {
       "id": "c",
       "text": {
-       "en": "Factor p",
-       "ar-EG": "يحلّل p"
+       "en": "Compute the key from A and B, which travel in the clear",
+       "ar-EG": "يحسب المفتاح من A وB، لأنهم بيتبعتوا من غير تشفير"
       }
      }
     ],
@@ -4076,6 +4080,10 @@
     "explain": {
      "en": "Correct: a man-in-the-middle attack; signatures or certificates prevent it.",
      "ar-EG": "صح: هجوم الوسيط، والتوقيعات أو الشهادات بتمنعه."
+    },
+    "explainWrong": {
+     "en": "Not quite: without authentication the attacker can sit in the middle with two separate keys.",
+     "ar-EG": "مش بالظبط: من غير تحقق المهاجم يقدر يقعد في النص بمفتاحين منفصلين."
     }
    },
    "speaker": "salma"

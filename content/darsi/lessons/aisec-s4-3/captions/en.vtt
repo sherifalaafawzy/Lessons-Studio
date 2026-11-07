@@ -145,197 +145,197 @@ is, not how far the input is from
 flipping.
 
 37
-00:01:36.590 --> 00:01:38.630
-In the lab, six to eight pixels
+00:01:36.590 --> 00:01:38.450
+In the lab, about eight pixels
 
 38
-00:01:38.630 --> 00:01:40.290
-flip a confident answer.
+00:01:38.450 --> 00:01:40.210
+usually flip a confident answer.
 
 39
-00:01:40.960 --> 00:01:41.860
+00:01:40.870 --> 00:01:41.770
 Sure isn't safe.
 
 40
-00:01:43.190 --> 00:01:46.370
+00:01:43.100 --> 00:01:46.280
 The second attack is extraction: thousands
 
 41
-00:01:46.370 --> 00:01:48.930
+00:01:46.280 --> 00:01:48.840
 of queries, and a copy trained on the
 
 42
-00:01:48.930 --> 00:01:51.270
+00:01:48.840 --> 00:01:51.180
 answers, taking what cost you months.
 
 43
-00:01:52.060 --> 00:01:54.460
+00:01:51.970 --> 00:01:54.370
 The third is membership inference:
 
 44
-00:01:55.100 --> 00:01:57.160
+00:01:55.010 --> 00:01:57.070
 guessing whether a person's data was
 
 45
-00:01:57.160 --> 00:01:59.560
+00:01:57.070 --> 00:01:59.470
 in the training set, from how sure
 
 46
-00:01:59.560 --> 00:02:00.780
+00:01:59.470 --> 00:02:00.690
 the model is about them.
 
 47
-00:02:01.950 --> 00:02:03.670
+00:02:01.860 --> 00:02:03.580
 Every defence has a cost.
 
 48
-00:02:04.430 --> 00:02:06.950
+00:02:04.340 --> 00:02:06.860
 Adversarial training makes attacks harder,
 
 49
-00:02:07.370 --> 00:02:09.750
+00:02:07.280 --> 00:02:09.660
 but can lower accuracy on normal inputs.
 
 50
-00:02:10.490 --> 00:02:13.090
+00:02:10.400 --> 00:02:13.000
 Privacy noise blocks membership guesses,
 
 51
-00:02:13.410 --> 00:02:15.290
+00:02:13.320 --> 00:02:15.200
 but makes the model less useful.
 
 52
-00:02:15.980 --> 00:02:18.280
+00:02:15.890 --> 00:02:18.190
 Rate limits, and returning labels
 
 53
-00:02:18.280 --> 00:02:20.700
+00:02:18.190 --> 00:02:20.610
 instead of exact scores, slow
 
 54
-00:02:20.700 --> 00:02:23.680
+00:02:20.610 --> 00:02:23.590
 extraction but annoy honest users.
 
 55
-00:02:25.110 --> 00:02:27.590
+00:02:25.020 --> 00:02:27.500
 So match each defence to its
 
 56
-00:02:27.590 --> 00:02:29.670
+00:02:27.500 --> 00:02:29.580
 threat, and measure both sides.
 
 57
-00:02:30.390 --> 00:02:33.770
+00:02:30.300 --> 00:02:33.680
 Test accuracy on clean inputs and on
 
 58
-00:02:33.770 --> 00:02:35.710
+00:02:33.680 --> 00:02:35.620
 nudged ones, with the same budget.
 
 59
-00:02:36.380 --> 00:02:38.800
+00:02:36.290 --> 00:02:38.710
 And where it matters, never let one
 
 60
-00:02:38.800 --> 00:02:41.300
+00:02:38.710 --> 00:02:41.210
 model's confident answer decide alone.
 
 61
-00:02:42.620 --> 00:02:44.700
-In the app, train a small shapes
+00:02:42.530 --> 00:02:45.170
+In the app, train a small shapes model,
 
 62
-00:02:44.700 --> 00:02:46.740
-model, then raise the pixels
+00:02:45.710 --> 00:02:48.910
+set the nudge strength to one, then raise
 
 63
-00:02:46.740 --> 00:02:48.520
-allowed until a drawing flips.
+00:02:48.910 --> 00:02:51.390
+the pixels allowed until a drawing flips.
 
 64
-00:02:49.300 --> 00:02:51.900
+00:02:52.190 --> 00:02:54.790
 Press “Train it tough” and attack again.
 
 65
-00:02:52.510 --> 00:02:54.930
-At ten pixels, attacks that fool
+00:02:55.400 --> 00:02:58.120
+At ten pixels, attacks that fool it
 
 66
-00:02:54.930 --> 00:02:57.110
-it fall from about fourteen of
+00:02:58.120 --> 00:03:00.120
+fall from about eighty-two percent
 
 67
-00:02:57.110 --> 00:02:58.710
-eighteen to about seven.
+00:03:00.120 --> 00:03:02.040
+to about forty-one percent.
 
 68
-00:02:59.970 --> 00:03:00.490
+00:03:03.250 --> 00:03:03.770
 Your turn.
 
 69
-00:03:01.120 --> 00:03:04.560
+00:03:04.400 --> 00:03:07.840
 Your model's API returns exact confidence
 
 70
-00:03:04.560 --> 00:03:07.220
+00:03:07.840 --> 00:03:10.500
 scores to anyone, with no limits.
 
 71
-00:03:07.980 --> 00:03:10.400
+00:03:11.260 --> 00:03:13.680
 Which attacks does that make easiest?
 
 72
-00:03:11.830 --> 00:03:14.310
+00:03:15.110 --> 00:03:17.590
 Extraction and membership inference both
 
 73
-00:03:14.310 --> 00:03:17.070
+00:03:17.590 --> 00:03:20.350
 feed on exact scores and unlimited
 
 74
-00:03:17.070 --> 00:03:17.530
+00:03:20.350 --> 00:03:20.810
 queries.
 
 75
-00:03:18.320 --> 00:03:21.280
+00:03:21.600 --> 00:03:24.560
 Remember: confidence isn't robustness,
 
 76
-00:03:21.420 --> 00:03:23.420
+00:03:24.700 --> 00:03:26.700
 test with the nudge against the weights,
 
 77
-00:03:23.880 --> 00:03:26.920
+00:03:27.160 --> 00:03:30.200
 scores feed privacy attacks, and measure
 
 78
-00:03:26.920 --> 00:03:28.420
+00:03:30.200 --> 00:03:31.700
 what every defence costs.
 
 79
-00:03:29.800 --> 00:03:32.540
+00:03:33.080 --> 00:03:35.820
 Try it tomorrow: take a simple model
 
 80
-00:03:32.540 --> 00:03:34.500
+00:03:35.820 --> 00:03:37.780
 you've built, or the lab's.
 
 81
-00:03:35.040 --> 00:03:38.460
+00:03:38.320 --> 00:03:41.740
 Test it on clean inputs and on slightly
 
 82
-00:03:38.460 --> 00:03:40.900
+00:03:41.740 --> 00:03:44.180
 nudged ones, and write down both
 
 83
-00:03:40.900 --> 00:03:41.640
+00:03:44.180 --> 00:03:44.920
 accuracies.
 
 84
-00:03:42.320 --> 00:03:44.480
+00:03:45.600 --> 00:03:47.760
 Then add one defence, and
 
 85
-00:03:44.480 --> 00:03:45.220
+00:03:47.760 --> 00:03:48.500
 measure its cost.
